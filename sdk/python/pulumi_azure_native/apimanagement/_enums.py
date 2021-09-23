@@ -26,6 +26,7 @@ __all__ = [
     'LoggerType',
     'OperationNameFormat',
     'PolicyContentFormat',
+    'PrivateEndpointServiceConnectionStatus',
     'ProductState',
     'Protocol',
     'ProvisioningState',
@@ -269,6 +270,15 @@ class PolicyContentFormat(str, Enum):
     """The contents are inline and Content type is a non XML encoded policy document."""
     RAWXML_LINK = "rawxml-link"
     """The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service."""
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProductState(str, Enum):

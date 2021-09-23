@@ -121,6 +121,12 @@ func NewApiOperation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiOperation"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiOperation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiOperation

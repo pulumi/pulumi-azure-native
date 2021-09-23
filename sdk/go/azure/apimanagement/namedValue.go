@@ -80,6 +80,12 @@ func NewNamedValue(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:NamedValue"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210401preview:NamedValue"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:NamedValue"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NamedValue

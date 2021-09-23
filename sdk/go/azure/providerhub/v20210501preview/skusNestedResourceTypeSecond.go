@@ -38,9 +38,6 @@ func NewSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:SkusNestedResourceTypeSecond"),
@@ -97,24 +94,22 @@ func (SkusNestedResourceTypeSecondState) ElementType() reflect.Type {
 }
 
 type skusNestedResourceTypeSecondArgs struct {
-	NestedResourceTypeFirst  string       `pulumi:"nestedResourceTypeFirst"`
-	NestedResourceTypeSecond string       `pulumi:"nestedResourceTypeSecond"`
-	ProviderNamespace        string       `pulumi:"providerNamespace"`
-	ProvisioningState        *string      `pulumi:"provisioningState"`
-	ResourceType             string       `pulumi:"resourceType"`
-	Sku                      *string      `pulumi:"sku"`
-	SkuSettings              []SkuSetting `pulumi:"skuSettings"`
+	NestedResourceTypeFirst  string                 `pulumi:"nestedResourceTypeFirst"`
+	NestedResourceTypeSecond string                 `pulumi:"nestedResourceTypeSecond"`
+	Properties               *SkuResourceProperties `pulumi:"properties"`
+	ProviderNamespace        string                 `pulumi:"providerNamespace"`
+	ResourceType             string                 `pulumi:"resourceType"`
+	Sku                      *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeSecond resource.
 type SkusNestedResourceTypeSecondArgs struct {
 	NestedResourceTypeFirst  pulumi.StringInput
 	NestedResourceTypeSecond pulumi.StringInput
+	Properties               SkuResourcePropertiesPtrInput
 	ProviderNamespace        pulumi.StringInput
-	ProvisioningState        pulumi.StringPtrInput
 	ResourceType             pulumi.StringInput
 	Sku                      pulumi.StringPtrInput
-	SkuSettings              SkuSettingArrayInput
 }
 
 func (SkusNestedResourceTypeSecondArgs) ElementType() reflect.Type {

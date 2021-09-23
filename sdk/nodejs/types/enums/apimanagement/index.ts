@@ -13,6 +13,7 @@ import * as v20191201preview from "./v20191201preview";
 import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
 import * as v20210101preview from "./v20210101preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20160707,
@@ -26,6 +27,7 @@ export {
     v20200601preview,
     v20201201,
     v20210101preview,
+    v20210401preview,
 };
 
 export const AlwaysLog = {
@@ -389,6 +391,17 @@ export const PolicyContentFormat = {
  * Format of the policyContent.
  */
 export type PolicyContentFormat = (typeof PolicyContentFormat)[keyof typeof PolicyContentFormat];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ProductState = {
     NotPublished: "notPublished",

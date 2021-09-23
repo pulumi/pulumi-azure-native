@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

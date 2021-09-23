@@ -35,9 +35,6 @@ func NewSkusNestedResourceTypeFirst(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:SkusNestedResourceTypeFirst"),
@@ -94,22 +91,20 @@ func (SkusNestedResourceTypeFirstState) ElementType() reflect.Type {
 }
 
 type skusNestedResourceTypeFirstArgs struct {
-	NestedResourceTypeFirst string       `pulumi:"nestedResourceTypeFirst"`
-	ProviderNamespace       string       `pulumi:"providerNamespace"`
-	ProvisioningState       *string      `pulumi:"provisioningState"`
-	ResourceType            string       `pulumi:"resourceType"`
-	Sku                     *string      `pulumi:"sku"`
-	SkuSettings             []SkuSetting `pulumi:"skuSettings"`
+	NestedResourceTypeFirst string                 `pulumi:"nestedResourceTypeFirst"`
+	Properties              *SkuResourceProperties `pulumi:"properties"`
+	ProviderNamespace       string                 `pulumi:"providerNamespace"`
+	ResourceType            string                 `pulumi:"resourceType"`
+	Sku                     *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeFirst resource.
 type SkusNestedResourceTypeFirstArgs struct {
 	NestedResourceTypeFirst pulumi.StringInput
+	Properties              SkuResourcePropertiesPtrInput
 	ProviderNamespace       pulumi.StringInput
-	ProvisioningState       pulumi.StringPtrInput
 	ResourceType            pulumi.StringInput
 	Sku                     pulumi.StringPtrInput
-	SkuSettings             SkuSettingArrayInput
 }
 
 func (SkusNestedResourceTypeFirstArgs) ElementType() reflect.Type {

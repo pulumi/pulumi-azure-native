@@ -36,7 +36,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.providerhub.v20210601preview.SkuResourceResponseProperties>;
+    public readonly properties!: pulumi.Output<outputs.providerhub.v20210601preview.SkuResourceResponseProperties>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -69,18 +69,13 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.skuSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'skuSettings'");
-            }
             inputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
             inputs["nestedResourceTypeSecond"] = args ? args.nestedResourceTypeSecond : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["skuSettings"] = args ? args.skuSettings : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -110,14 +105,11 @@ export interface SkusNestedResourceTypeSecondArgs {
      * The second child resource type.
      */
     nestedResourceTypeSecond: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.providerhub.v20210601preview.SkuResourcePropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
     providerNamespace: pulumi.Input<string>;
-    /**
-     * The provisioned state of the resource.
-     */
-    provisioningState?: pulumi.Input<string | enums.providerhub.v20210601preview.ProvisioningState>;
     /**
      * The resource type.
      */
@@ -126,5 +118,4 @@ export interface SkusNestedResourceTypeSecondArgs {
      * The SKU.
      */
     sku?: pulumi.Input<string>;
-    skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.v20210601preview.SkuSettingArgs>[]>;
 }

@@ -109,6 +109,12 @@ func NewApiIssueComment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiIssueComment"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiIssueComment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiIssueComment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiIssueComment

@@ -100,6 +100,12 @@ func NewProductPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ProductPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ProductPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProductPolicy

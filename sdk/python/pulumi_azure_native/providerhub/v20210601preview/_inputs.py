@@ -65,6 +65,7 @@ __all__ = [
     'SkuCapabilityArgs',
     'SkuCostArgs',
     'SkuLocationInfoArgs',
+    'SkuResourcePropertiesArgs',
     'SkuSettingCapacityArgs',
     'SkuSettingArgs',
     'SkuZoneDetailArgs',
@@ -2638,6 +2639,40 @@ class SkuLocationInfoArgs:
     @zones.setter
     def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
+
+
+@pulumi.input_type
+class SkuResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]],
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
+        """
+        pulumi.set(__self__, "sku_settings", sku_settings)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="skuSettings")
+    def sku_settings(self) -> pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]]:
+        return pulumi.get(self, "sku_settings")
+
+    @sku_settings.setter
+    def sku_settings(self, value: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]]):
+        pulumi.set(self, "sku_settings", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type

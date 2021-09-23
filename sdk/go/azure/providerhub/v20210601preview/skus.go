@@ -33,9 +33,6 @@ func NewSkus(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20210601preview:Skus"),
@@ -92,20 +89,18 @@ func (SkusState) ElementType() reflect.Type {
 }
 
 type skusArgs struct {
-	ProviderNamespace string       `pulumi:"providerNamespace"`
-	ProvisioningState *string      `pulumi:"provisioningState"`
-	ResourceType      string       `pulumi:"resourceType"`
-	Sku               *string      `pulumi:"sku"`
-	SkuSettings       []SkuSetting `pulumi:"skuSettings"`
+	Properties        *SkuResourceProperties `pulumi:"properties"`
+	ProviderNamespace string                 `pulumi:"providerNamespace"`
+	ResourceType      string                 `pulumi:"resourceType"`
+	Sku               *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Skus resource.
 type SkusArgs struct {
+	Properties        SkuResourcePropertiesPtrInput
 	ProviderNamespace pulumi.StringInput
-	ProvisioningState pulumi.StringPtrInput
 	ResourceType      pulumi.StringInput
 	Sku               pulumi.StringPtrInput
-	SkuSettings       SkuSettingArrayInput
 }
 
 func (SkusArgs) ElementType() reflect.Type {

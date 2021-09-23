@@ -41,9 +41,6 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:SkusNestedResourceTypeThird"),
@@ -100,14 +97,13 @@ func (SkusNestedResourceTypeThirdState) ElementType() reflect.Type {
 }
 
 type skusNestedResourceTypeThirdArgs struct {
-	NestedResourceTypeFirst  string       `pulumi:"nestedResourceTypeFirst"`
-	NestedResourceTypeSecond string       `pulumi:"nestedResourceTypeSecond"`
-	NestedResourceTypeThird  string       `pulumi:"nestedResourceTypeThird"`
-	ProviderNamespace        string       `pulumi:"providerNamespace"`
-	ProvisioningState        *string      `pulumi:"provisioningState"`
-	ResourceType             string       `pulumi:"resourceType"`
-	Sku                      *string      `pulumi:"sku"`
-	SkuSettings              []SkuSetting `pulumi:"skuSettings"`
+	NestedResourceTypeFirst  string                 `pulumi:"nestedResourceTypeFirst"`
+	NestedResourceTypeSecond string                 `pulumi:"nestedResourceTypeSecond"`
+	NestedResourceTypeThird  string                 `pulumi:"nestedResourceTypeThird"`
+	Properties               *SkuResourceProperties `pulumi:"properties"`
+	ProviderNamespace        string                 `pulumi:"providerNamespace"`
+	ResourceType             string                 `pulumi:"resourceType"`
+	Sku                      *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeThird resource.
@@ -115,11 +111,10 @@ type SkusNestedResourceTypeThirdArgs struct {
 	NestedResourceTypeFirst  pulumi.StringInput
 	NestedResourceTypeSecond pulumi.StringInput
 	NestedResourceTypeThird  pulumi.StringInput
+	Properties               SkuResourcePropertiesPtrInput
 	ProviderNamespace        pulumi.StringInput
-	ProvisioningState        pulumi.StringPtrInput
 	ResourceType             pulumi.StringInput
 	Sku                      pulumi.StringPtrInput
-	SkuSettings              SkuSettingArrayInput
 }
 
 func (SkusNestedResourceTypeThirdArgs) ElementType() reflect.Type {

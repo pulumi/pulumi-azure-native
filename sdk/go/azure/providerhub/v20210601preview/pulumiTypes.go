@@ -17080,6 +17080,154 @@ func (o SkuLocationInfoResponseArrayOutput) Index(i pulumi.IntInput) SkuLocation
 	}).(SkuLocationInfoResponseOutput)
 }
 
+type SkuResourceProperties struct {
+	ProvisioningState *string      `pulumi:"provisioningState"`
+	SkuSettings       []SkuSetting `pulumi:"skuSettings"`
+}
+
+// SkuResourcePropertiesInput is an input type that accepts SkuResourcePropertiesArgs and SkuResourcePropertiesOutput values.
+// You can construct a concrete instance of `SkuResourcePropertiesInput` via:
+//
+//          SkuResourcePropertiesArgs{...}
+type SkuResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToSkuResourcePropertiesOutput() SkuResourcePropertiesOutput
+	ToSkuResourcePropertiesOutputWithContext(context.Context) SkuResourcePropertiesOutput
+}
+
+type SkuResourcePropertiesArgs struct {
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	SkuSettings       SkuSettingArrayInput  `pulumi:"skuSettings"`
+}
+
+func (SkuResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResourceProperties)(nil)).Elem()
+}
+
+func (i SkuResourcePropertiesArgs) ToSkuResourcePropertiesOutput() SkuResourcePropertiesOutput {
+	return i.ToSkuResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i SkuResourcePropertiesArgs) ToSkuResourcePropertiesOutputWithContext(ctx context.Context) SkuResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResourcePropertiesOutput)
+}
+
+func (i SkuResourcePropertiesArgs) ToSkuResourcePropertiesPtrOutput() SkuResourcePropertiesPtrOutput {
+	return i.ToSkuResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SkuResourcePropertiesArgs) ToSkuResourcePropertiesPtrOutputWithContext(ctx context.Context) SkuResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResourcePropertiesOutput).ToSkuResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// SkuResourcePropertiesPtrInput is an input type that accepts SkuResourcePropertiesArgs, SkuResourcePropertiesPtr and SkuResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `SkuResourcePropertiesPtrInput` via:
+//
+//          SkuResourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSkuResourcePropertiesPtrOutput() SkuResourcePropertiesPtrOutput
+	ToSkuResourcePropertiesPtrOutputWithContext(context.Context) SkuResourcePropertiesPtrOutput
+}
+
+type skuResourcePropertiesPtrType SkuResourcePropertiesArgs
+
+func SkuResourcePropertiesPtr(v *SkuResourcePropertiesArgs) SkuResourcePropertiesPtrInput {
+	return (*skuResourcePropertiesPtrType)(v)
+}
+
+func (*skuResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResourceProperties)(nil)).Elem()
+}
+
+func (i *skuResourcePropertiesPtrType) ToSkuResourcePropertiesPtrOutput() SkuResourcePropertiesPtrOutput {
+	return i.ToSkuResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *skuResourcePropertiesPtrType) ToSkuResourcePropertiesPtrOutputWithContext(ctx context.Context) SkuResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResourcePropertiesPtrOutput)
+}
+
+type SkuResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SkuResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResourceProperties)(nil)).Elem()
+}
+
+func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesOutput() SkuResourcePropertiesOutput {
+	return o
+}
+
+func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesOutputWithContext(ctx context.Context) SkuResourcePropertiesOutput {
+	return o
+}
+
+func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesPtrOutput() SkuResourcePropertiesPtrOutput {
+	return o.ToSkuResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesPtrOutputWithContext(ctx context.Context) SkuResourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResourceProperties) *SkuResourceProperties {
+		return &v
+	}).(SkuResourcePropertiesPtrOutput)
+}
+
+func (o SkuResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+func (o SkuResourcePropertiesOutput) SkuSettings() SkuSettingArrayOutput {
+	return o.ApplyT(func(v SkuResourceProperties) []SkuSetting { return v.SkuSettings }).(SkuSettingArrayOutput)
+}
+
+type SkuResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResourceProperties)(nil)).Elem()
+}
+
+func (o SkuResourcePropertiesPtrOutput) ToSkuResourcePropertiesPtrOutput() SkuResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o SkuResourcePropertiesPtrOutput) ToSkuResourcePropertiesPtrOutputWithContext(ctx context.Context) SkuResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o SkuResourcePropertiesPtrOutput) Elem() SkuResourcePropertiesOutput {
+	return o.ApplyT(func(v *SkuResourceProperties) SkuResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResourceProperties
+		return ret
+	}).(SkuResourcePropertiesOutput)
+}
+
+func (o SkuResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkuResourcePropertiesPtrOutput) SkuSettings() SkuSettingArrayOutput {
+	return o.ApplyT(func(v *SkuResourceProperties) []SkuSetting {
+		if v == nil {
+			return nil
+		}
+		return v.SkuSettings
+	}).(SkuSettingArrayOutput)
+}
+
 type SkuResourceResponseProperties struct {
 	ProvisioningState *string              `pulumi:"provisioningState"`
 	SkuSettings       []SkuSettingResponse `pulumi:"skuSettings"`
@@ -19753,6 +19901,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuLocationInfoArrayOutput{})
 	pulumi.RegisterOutputType(SkuLocationInfoResponseOutput{})
 	pulumi.RegisterOutputType(SkuLocationInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(SkuResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(SkuResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SkuResourceResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SkuResourceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SkuSettingOutput{})
