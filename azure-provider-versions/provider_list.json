@@ -88382,9 +88382,7 @@
         "locationMappings": null,
         "locations": [
           "West US",
-          "East US",
-          "East US 2",
-          "South Central US"
+          "East US"
         ],
         "properties": null,
         "resourceType": "azureTrafficCollectors"
@@ -88403,29 +88401,17 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-09-01-preview"
+          "2021-09-01-preview",
+          "2019-06-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "osNamespaces"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-09-02-preview"
-        ],
-        "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
           "global"
         ],
         "properties": null,
-        "resourceType": "Locations"
+        "resourceType": "osNamespaces"
       }
     ]
   },
