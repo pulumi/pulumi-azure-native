@@ -57165,6 +57165,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -57254,6 +57255,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -57301,6 +57303,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -57374,6 +57377,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -57421,6 +57425,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -57468,6 +57473,7 @@
           "Brazil South",
           "Canada Central",
           "Canada East",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -76284,6 +76290,32 @@
         "locations": [],
         "properties": null,
         "resourceType": "billingAccounts/appliedReservationOrders"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-11-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "promotionalCredits"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-11-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "billingAccounts/promotionalCredits"
       }
     ]
   },
@@ -85305,6 +85337,51 @@
   {
     "authorizations": [
       {
+        "applicationId": "5bd9995f-b6f8-4c7a-a024-e8c5eab9c85d",
+        "roleDefinitionId": "887616a9-6f25-4f66-86cd-5ce3577555c6"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HpcWorkbench",
+    "namespace": "Microsoft.HpcWorkbench",
+    "providerAuthorizationConsentState": null,
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "global"
+        ],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses"
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
         "applicationId": "8c420feb-03df-47cc-8a05-55df0cf3064b",
         "roleDefinitionId": "83eeb1c6-47f8-4da2-bbc3-42a7ac767360"
       },
@@ -88382,9 +88459,7 @@
         "locationMappings": null,
         "locations": [
           "West US",
-          "East US",
-          "East US 2",
-          "South Central US"
+          "East US"
         ],
         "properties": null,
         "resourceType": "azureTrafficCollectors"
@@ -88403,29 +88478,17 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-09-01-preview"
+          "2021-09-01-preview",
+          "2019-06-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "osNamespaces"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-09-02-preview"
-        ],
-        "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
           "global"
         ],
         "properties": null,
-        "resourceType": "Locations"
+        "resourceType": "osNamespaces"
       }
     ]
   },
@@ -95233,6 +95296,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2020-12-16-preview"
         ],
         "capabilities": "None",
@@ -95246,6 +95310,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2020-12-16-preview"
         ],
         "capabilities": "None",
@@ -95262,6 +95327,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2020-12-16-preview"
         ],
         "capabilities": "None",
@@ -95277,6 +95343,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2020-12-16-preview"
         ],
         "capabilities": "None",
