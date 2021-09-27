@@ -7,10 +7,12 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./databaseAdvisor";
 export * from "./databaseBlobAuditingPolicy";
+export * from "./encryptionProtector";
 export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseBlobAuditingPolicy";
+export * from "./getEncryptionProtector";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
 export * from "./getManagedInstance";
@@ -36,6 +38,7 @@ export * from "../../types/enums/sql/v20150501preview";
 // Import resources to register:
 import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
+import { EncryptionProtector } from "./encryptionProtector";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { ManagedInstance } from "./managedInstance";
@@ -55,6 +58,8 @@ const _module = {
                 return new DatabaseAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql/v20150501preview:EncryptionProtector":
+                return new EncryptionProtector(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:FirewallRule":
