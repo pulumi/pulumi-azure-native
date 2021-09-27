@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.32.0 (2021-09-27)
+
 #### New resources:
 
 - `timeseriesinsights.PrivateEndpointConnection`
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `timeseriesinsights.getPrivateEndpointConnection`
 - `webpubsub.getWebPubSubHub`
-
----
 
 ## 1.31.0 (2021-09-23)
 
