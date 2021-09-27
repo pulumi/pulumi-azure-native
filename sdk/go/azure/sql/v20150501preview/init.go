@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabaseAdvisor{}
 	case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
 		r = &DatabaseBlobAuditingPolicy{}
+	case "azure-native:sql/v20150501preview:EncryptionProtector":
+		r = &EncryptionProtector{}
 	case "azure-native:sql/v20150501preview:FailoverGroup":
 		r = &FailoverGroup{}
 	case "azure-native:sql/v20150501preview:FirewallRule":

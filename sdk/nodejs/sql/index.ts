@@ -15,6 +15,7 @@ export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./disasterRecoveryConfiguration";
 export * from "./elasticPool";
+export * from "./encryptionProtector";
 export * from "./extendedDatabaseBlobAuditingPolicy";
 export * from "./extendedServerBlobAuditingPolicy";
 export * from "./failoverGroup";
@@ -30,6 +31,7 @@ export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getDisasterRecoveryConfiguration";
 export * from "./getElasticPool";
+export * from "./getEncryptionProtector";
 export * from "./getExtendedDatabaseBlobAuditingPolicy";
 export * from "./getExtendedServerBlobAuditingPolicy";
 export * from "./getFailoverGroup";
@@ -153,6 +155,7 @@ import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessme
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
 import { ElasticPool } from "./elasticPool";
+import { EncryptionProtector } from "./encryptionProtector";
 import { ExtendedDatabaseBlobAuditingPolicy } from "./extendedDatabaseBlobAuditingPolicy";
 import { ExtendedServerBlobAuditingPolicy } from "./extendedServerBlobAuditingPolicy";
 import { FailoverGroup } from "./failoverGroup";
@@ -222,6 +225,8 @@ const _module = {
                 return new DisasterRecoveryConfiguration(name, <any>undefined, { urn })
             case "azure-native:sql:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
+            case "azure-native:sql:EncryptionProtector":
+                return new EncryptionProtector(name, <any>undefined, { urn })
             case "azure-native:sql:ExtendedDatabaseBlobAuditingPolicy":
                 return new ExtendedDatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:ExtendedServerBlobAuditingPolicy":

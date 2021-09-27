@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabaseVulnerabilityAssessmentRuleBaseline{}
 	case "azure-native:sql/v20210201preview:ElasticPool":
 		r = &ElasticPool{}
+	case "azure-native:sql/v20210201preview:EncryptionProtector":
+		r = &EncryptionProtector{}
 	case "azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy":
 		r = &ExtendedDatabaseBlobAuditingPolicy{}
 	case "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy":

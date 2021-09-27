@@ -8,10 +8,12 @@ import typing
 from ._enums import *
 from .database_advisor import *
 from .database_blob_auditing_policy import *
+from .encryption_protector import *
 from .failover_group import *
 from .firewall_rule import *
 from .get_database_advisor import *
 from .get_database_blob_auditing_policy import *
+from .get_encryption_protector import *
 from .get_failover_group import *
 from .get_firewall_rule import *
 from .get_managed_instance import *

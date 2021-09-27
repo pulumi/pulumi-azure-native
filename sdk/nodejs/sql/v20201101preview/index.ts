@@ -13,6 +13,7 @@ export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
+export * from "./encryptionProtector";
 export * from "./extendedDatabaseBlobAuditingPolicy";
 export * from "./extendedServerBlobAuditingPolicy";
 export * from "./failoverGroup";
@@ -25,6 +26,7 @@ export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getElasticPool";
+export * from "./getEncryptionProtector";
 export * from "./getExtendedDatabaseBlobAuditingPolicy";
 export * from "./getExtendedServerBlobAuditingPolicy";
 export * from "./getFailoverGroup";
@@ -116,6 +118,7 @@ import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
+import { EncryptionProtector } from "./encryptionProtector";
 import { ExtendedDatabaseBlobAuditingPolicy } from "./extendedDatabaseBlobAuditingPolicy";
 import { ExtendedServerBlobAuditingPolicy } from "./extendedServerBlobAuditingPolicy";
 import { FailoverGroup } from "./failoverGroup";
@@ -178,6 +181,8 @@ const _module = {
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
+            case "azure-native:sql/v20201101preview:EncryptionProtector":
+                return new EncryptionProtector(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:ExtendedDatabaseBlobAuditingPolicy":
                 return new ExtendedDatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy":
