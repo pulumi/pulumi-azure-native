@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getPrivateEndpointConnection";
+export * from "./getProtectedItem";
+export * from "./getProtectionContainer";
+export * from "./getProtectionIntent";
+export * from "./getProtectionPolicy";
 export * from "./getReplicationFabric";
 export * from "./getReplicationMigrationItem";
 export * from "./getReplicationNetworkMapping";
@@ -15,6 +20,13 @@ export * from "./getReplicationRecoveryPlan";
 export * from "./getReplicationRecoveryServicesProvider";
 export * from "./getReplicationStorageClassificationMapping";
 export * from "./getReplicationvCenter";
+export * from "./getResourceGuardProxy";
+export * from "./getVault";
+export * from "./privateEndpointConnection";
+export * from "./protectedItem";
+export * from "./protectionContainer";
+export * from "./protectionIntent";
+export * from "./protectionPolicy";
 export * from "./replicationFabric";
 export * from "./replicationMigrationItem";
 export * from "./replicationNetworkMapping";
@@ -25,11 +37,18 @@ export * from "./replicationRecoveryPlan";
 export * from "./replicationRecoveryServicesProvider";
 export * from "./replicationStorageClassificationMapping";
 export * from "./replicationvCenter";
+export * from "./resourceGuardProxy";
+export * from "./vault";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20210801";
 
 // Import resources to register:
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { ProtectedItem } from "./protectedItem";
+import { ProtectionContainer } from "./protectionContainer";
+import { ProtectionIntent } from "./protectionIntent";
+import { ProtectionPolicy } from "./protectionPolicy";
 import { ReplicationFabric } from "./replicationFabric";
 import { ReplicationMigrationItem } from "./replicationMigrationItem";
 import { ReplicationNetworkMapping } from "./replicationNetworkMapping";
@@ -40,11 +59,23 @@ import { ReplicationRecoveryPlan } from "./replicationRecoveryPlan";
 import { ReplicationRecoveryServicesProvider } from "./replicationRecoveryServicesProvider";
 import { ReplicationStorageClassificationMapping } from "./replicationStorageClassificationMapping";
 import { ReplicationvCenter } from "./replicationvCenter";
+import { ResourceGuardProxy } from "./resourceGuardProxy";
+import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:recoveryservices/v20210801:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:ProtectedItem":
+                return new ProtectedItem(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:ProtectionContainer":
+                return new ProtectionContainer(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:ProtectionIntent":
+                return new ProtectionIntent(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:ProtectionPolicy":
+                return new ProtectionPolicy(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210801:ReplicationFabric":
                 return new ReplicationFabric(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210801:ReplicationMigrationItem":
@@ -65,6 +96,10 @@ const _module = {
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210801:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:ResourceGuardProxy":
+                return new ResourceGuardProxy(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210801:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

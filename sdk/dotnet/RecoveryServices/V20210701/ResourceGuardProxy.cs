@@ -78,6 +78,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ResourceGuardProxy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201preview:ResourceGuardProxy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ResourceGuardProxy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210801:ResourceGuardProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

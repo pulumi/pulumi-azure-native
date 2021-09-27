@@ -3047,6 +3047,8 @@ class DataImportDetailsResponse(dict):
         suggest = None
         if key == "accountDetails":
             suggest = "account_details"
+        elif key == "logCollectionLevel":
+            suggest = "log_collection_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataImportDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3060,12 +3062,18 @@ class DataImportDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_details: Any):
+                 account_details: Any,
+                 log_collection_level: Optional[str] = None):
         """
         Details of the data to be used for importing data to azure.
         :param Union['ManagedDiskDetailsResponse', 'StorageAccountDetailsResponse'] account_details: Account details of the data to be transferred
+        :param str log_collection_level: Level of the logs to be collected.
         """
         pulumi.set(__self__, "account_details", account_details)
+        if log_collection_level is None:
+            log_collection_level = 'Error'
+        if log_collection_level is not None:
+            pulumi.set(__self__, "log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -3074,6 +3082,14 @@ class DataImportDetailsResponse(dict):
         Account details of the data to be transferred
         """
         return pulumi.get(self, "account_details")
+
+    @property
+    @pulumi.getter(name="logCollectionLevel")
+    def log_collection_level(self) -> Optional[str]:
+        """
+        Level of the logs to be collected.
+        """
+        return pulumi.get(self, "log_collection_level")
 
 
 @pulumi.output_type

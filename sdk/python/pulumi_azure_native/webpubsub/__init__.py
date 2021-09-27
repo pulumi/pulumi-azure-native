@@ -7,10 +7,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_web_pub_sub import *
+from .get_web_pub_sub_hub import *
 from .get_web_pub_sub_private_endpoint_connection import *
 from .get_web_pub_sub_shared_private_link_resource import *
 from .list_web_pub_sub_keys import *
 from .web_pub_sub import *
+from .web_pub_sub_hub import *
 from .web_pub_sub_private_endpoint_connection import *
 from .web_pub_sub_shared_private_link_resource import *
 from ._inputs import *
@@ -24,8 +26,11 @@ if typing.TYPE_CHECKING:
     v20210601preview = __v20210601preview
     import pulumi_azure_native.webpubsub.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
+    import pulumi_azure_native.webpubsub.v20211001 as __v20211001
+    v20211001 = __v20211001
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210401preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210601preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210901preview')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20211001')
 

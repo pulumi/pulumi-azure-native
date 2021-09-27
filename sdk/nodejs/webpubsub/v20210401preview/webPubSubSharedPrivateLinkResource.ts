@@ -115,7 +115,7 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource" }, { type: "azure-nextgen:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubSharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }

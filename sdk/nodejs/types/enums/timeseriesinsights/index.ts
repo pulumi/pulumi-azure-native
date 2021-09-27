@@ -6,6 +6,7 @@ import * as v20170228preview from "./v20170228preview";
 import * as v20171115 from "./v20171115";
 import * as v20180815preview from "./v20180815preview";
 import * as v20200515 from "./v20200515";
+import * as v20210331preview from "./v20210331preview";
 import * as v20210630preview from "./v20210630preview";
 
 export {
@@ -13,6 +14,7 @@ export {
     v20171115,
     v20180815preview,
     v20200515,
+    v20210331preview,
     v20210630preview,
 };
 
@@ -75,6 +77,17 @@ export const LocalTimestampFormat = {
  * An enum that represents the format of the local timestamp property that needs to be set.
  */
 export type LocalTimestampFormat = (typeof LocalTimestampFormat)[keyof typeof LocalTimestampFormat];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PropertyType = {
     String: "String",

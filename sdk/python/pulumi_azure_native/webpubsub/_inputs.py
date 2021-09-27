@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'EventHandlerSettingsArgs',
     'EventHandlerTemplateArgs',
+    'EventHandlerArgs',
     'ManagedIdentitySettingsArgs',
     'ManagedIdentityArgs',
     'NetworkACLArgs',
@@ -21,6 +22,7 @@ __all__ = [
     'ResourceSkuArgs',
     'UpstreamAuthSettingsArgs',
     'WebPubSubFeatureArgs',
+    'WebPubSubHubPropertiesArgs',
     'WebPubSubNetworkACLsArgs',
     'WebPubSubTlsSettingsArgs',
 ]
@@ -118,6 +120,87 @@ class EventHandlerTemplateArgs:
     @system_event_pattern.setter
     def system_event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "system_event_pattern", value)
+
+    @property
+    @pulumi.getter(name="userEventPattern")
+    def user_event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the matching pattern for event names.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any event name
+            2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+            3. The single event name, for example, "event1", it matches "event1"
+        """
+        return pulumi.get(self, "user_event_pattern")
+
+    @user_event_pattern.setter
+    def user_event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_event_pattern", value)
+
+
+@pulumi.input_type
+class EventHandlerArgs:
+    def __init__(__self__, *,
+                 url_template: pulumi.Input[str],
+                 auth: Optional[pulumi.Input['UpstreamAuthSettingsArgs']] = None,
+                 system_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_event_pattern: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of event handler.
+        :param pulumi.Input[str] url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
+               For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
+        :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_events: Gets ot sets the list of system events.
+        :param pulumi.Input[str] user_event_pattern: Gets or sets the matching pattern for event names.
+               There are 3 kind of patterns supported:
+                   1. "*", it to matches any event name
+                   2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+                   3. The single event name, for example, "event1", it matches "event1"
+        """
+        pulumi.set(__self__, "url_template", url_template)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if system_events is not None:
+            pulumi.set(__self__, "system_events", system_events)
+        if user_event_pattern is not None:
+            pulumi.set(__self__, "user_event_pattern", user_event_pattern)
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
+        For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
+        """
+        return pulumi.get(self, "url_template")
+
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input['UpstreamAuthSettingsArgs']]:
+        """
+        Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input['UpstreamAuthSettingsArgs']]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter(name="systemEvents")
+    def system_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets ot sets the list of system events.
+        """
+        return pulumi.get(self, "system_events")
+
+    @system_events.setter
+    def system_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "system_events", value)
 
     @property
     @pulumi.getter(name="userEventPattern")
@@ -548,6 +631,48 @@ class WebPubSubFeatureArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class WebPubSubHubPropertiesArgs:
+    def __init__(__self__, *,
+                 anonymous_connect_policy: Optional[pulumi.Input[str]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]]] = None):
+        """
+        Properties of a hub.
+        :param pulumi.Input[str] anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
+        :param pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]] event_handlers: Event handler of a hub.
+        """
+        if anonymous_connect_policy is None:
+            anonymous_connect_policy = 'deny'
+        if anonymous_connect_policy is not None:
+            pulumi.set(__self__, "anonymous_connect_policy", anonymous_connect_policy)
+        if event_handlers is not None:
+            pulumi.set(__self__, "event_handlers", event_handlers)
+
+    @property
+    @pulumi.getter(name="anonymousConnectPolicy")
+    def anonymous_connect_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
+        """
+        return pulumi.get(self, "anonymous_connect_policy")
+
+    @anonymous_connect_policy.setter
+    def anonymous_connect_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "anonymous_connect_policy", value)
+
+    @property
+    @pulumi.getter(name="eventHandlers")
+    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]]]:
+        """
+        Event handler of a hub.
+        """
+        return pulumi.get(self, "event_handlers")
+
+    @event_handlers.setter
+    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]]]):
+        pulumi.set(self, "event_handlers", value)
 
 
 @pulumi.input_type

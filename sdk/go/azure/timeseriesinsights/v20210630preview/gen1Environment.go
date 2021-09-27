@@ -85,6 +85,12 @@ func NewGen1Environment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:Gen1Environment"),
 		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:Gen1Environment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:Gen1Environment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Gen1Environment

@@ -82,6 +82,12 @@ func NewLongTermEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:LongTermEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:LongTermEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment"),
 		},
 		{

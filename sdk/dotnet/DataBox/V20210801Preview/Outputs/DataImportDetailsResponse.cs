@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.DataBox.V20210801Preview.Outputs
         /// Account details of the data to be transferred
         /// </summary>
         public readonly Union<Outputs.ManagedDiskDetailsResponse, Outputs.StorageAccountDetailsResponse> AccountDetails;
+        /// <summary>
+        /// Level of the logs to be collected.
+        /// </summary>
+        public readonly string? LogCollectionLevel;
 
         [OutputConstructor]
-        private DataImportDetailsResponse(Union<Outputs.ManagedDiskDetailsResponse, Outputs.StorageAccountDetailsResponse> accountDetails)
+        private DataImportDetailsResponse(
+            Union<Outputs.ManagedDiskDetailsResponse, Outputs.StorageAccountDetailsResponse> accountDetails,
+
+            string? logCollectionLevel)
         {
             AccountDetails = accountDetails;
+            LogCollectionLevel = logCollectionLevel;
         }
     }
 }

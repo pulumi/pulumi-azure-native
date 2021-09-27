@@ -971,12 +971,18 @@ class DataExportDetailsArgs:
 @pulumi.input_type
 class DataImportDetailsArgs:
     def __init__(__self__, *,
-                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
+                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
+                 log_collection_level: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for importing data to azure.
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
+        :param pulumi.Input[Union[str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
         pulumi.set(__self__, "account_details", account_details)
+        if log_collection_level is None:
+            log_collection_level = 'Error'
+        if log_collection_level is not None:
+            pulumi.set(__self__, "log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -989,6 +995,18 @@ class DataImportDetailsArgs:
     @account_details.setter
     def account_details(self, value: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
         pulumi.set(self, "account_details", value)
+
+    @property
+    @pulumi.getter(name="logCollectionLevel")
+    def log_collection_level(self) -> Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]:
+        """
+        Level of the logs to be collected.
+        """
+        return pulumi.get(self, "log_collection_level")
+
+    @log_collection_level.setter
+    def log_collection_level(self, value: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]):
+        pulumi.set(self, "log_collection_level", value)
 
 
 @pulumi.input_type

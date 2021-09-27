@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -3906,7 +3906,8 @@ func (o DataExportDetailsResponseArrayOutput) Index(i pulumi.IntInput) DataExpor
 }
 
 type DataImportDetails struct {
-	AccountDetails interface{} `pulumi:"accountDetails"`
+	AccountDetails     interface{} `pulumi:"accountDetails"`
+	LogCollectionLevel *string     `pulumi:"logCollectionLevel"`
 }
 
 // DataImportDetailsInput is an input type that accepts DataImportDetailsArgs and DataImportDetailsOutput values.
@@ -3921,7 +3922,8 @@ type DataImportDetailsInput interface {
 }
 
 type DataImportDetailsArgs struct {
-	AccountDetails pulumi.Input `pulumi:"accountDetails"`
+	AccountDetails     pulumi.Input          `pulumi:"accountDetails"`
+	LogCollectionLevel pulumi.StringPtrInput `pulumi:"logCollectionLevel"`
 }
 
 func (DataImportDetailsArgs) ElementType() reflect.Type {
@@ -3979,6 +3981,10 @@ func (o DataImportDetailsOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataImportDetails) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
 }
 
+func (o DataImportDetailsOutput) LogCollectionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataImportDetails) *string { return v.LogCollectionLevel }).(pulumi.StringPtrOutput)
+}
+
 type DataImportDetailsArrayOutput struct{ *pulumi.OutputState }
 
 func (DataImportDetailsArrayOutput) ElementType() reflect.Type {
@@ -4000,7 +4006,8 @@ func (o DataImportDetailsArrayOutput) Index(i pulumi.IntInput) DataImportDetails
 }
 
 type DataImportDetailsResponse struct {
-	AccountDetails interface{} `pulumi:"accountDetails"`
+	AccountDetails     interface{} `pulumi:"accountDetails"`
+	LogCollectionLevel *string     `pulumi:"logCollectionLevel"`
 }
 
 // DataImportDetailsResponseInput is an input type that accepts DataImportDetailsResponseArgs and DataImportDetailsResponseOutput values.
@@ -4015,7 +4022,8 @@ type DataImportDetailsResponseInput interface {
 }
 
 type DataImportDetailsResponseArgs struct {
-	AccountDetails pulumi.Input `pulumi:"accountDetails"`
+	AccountDetails     pulumi.Input          `pulumi:"accountDetails"`
+	LogCollectionLevel pulumi.StringPtrInput `pulumi:"logCollectionLevel"`
 }
 
 func (DataImportDetailsResponseArgs) ElementType() reflect.Type {
@@ -4071,6 +4079,10 @@ func (o DataImportDetailsResponseOutput) ToDataImportDetailsResponseOutputWithCo
 
 func (o DataImportDetailsResponseOutput) AccountDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataImportDetailsResponse) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
+}
+
+func (o DataImportDetailsResponseOutput) LogCollectionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataImportDetailsResponse) *string { return v.LogCollectionLevel }).(pulumi.StringPtrOutput)
 }
 
 type DataImportDetailsResponseArrayOutput struct{ *pulumi.OutputState }

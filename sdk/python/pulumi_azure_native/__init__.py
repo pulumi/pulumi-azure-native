@@ -13120,6 +13120,11 @@ _utilities.register(
   "mod": "recoveryservices/v20210801",
   "fqn": "pulumi_azure_native.recoveryservices.v20210801",
   "classes": {
+   "azure-native:recoveryservices/v20210801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20210801:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20210801:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20210801:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20210801:ProtectionPolicy": "ProtectionPolicy",
    "azure-native:recoveryservices/v20210801:ReplicationFabric": "ReplicationFabric",
    "azure-native:recoveryservices/v20210801:ReplicationMigrationItem": "ReplicationMigrationItem",
    "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping": "ReplicationNetworkMapping",
@@ -13129,7 +13134,9 @@ _utilities.register(
    "azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
    "azure-native:recoveryservices/v20210801:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20210801:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
-   "azure-native:recoveryservices/v20210801:ReplicationvCenter": "ReplicationvCenter"
+   "azure-native:recoveryservices/v20210801:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20210801:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20210801:Vault": "Vault"
   }
  },
  {
@@ -15810,6 +15817,7 @@ _utilities.register(
    "azure-native:timeseriesinsights:Gen1Environment": "Gen1Environment",
    "azure-native:timeseriesinsights:Gen2Environment": "Gen2Environment",
    "azure-native:timeseriesinsights:IoTHubEventSource": "IoTHubEventSource",
+   "azure-native:timeseriesinsights:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:timeseriesinsights:ReferenceDataSet": "ReferenceDataSet"
   }
  },
@@ -15867,6 +15875,22 @@ _utilities.register(
    "azure-native:timeseriesinsights/v20200515:Gen2Environment": "Gen2Environment",
    "azure-native:timeseriesinsights/v20200515:IoTHubEventSource": "IoTHubEventSource",
    "azure-native:timeseriesinsights/v20200515:ReferenceDataSet": "ReferenceDataSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "timeseriesinsights/v20210331preview",
+  "fqn": "pulumi_azure_native.timeseriesinsights.v20210331preview",
+  "classes": {
+   "azure-native:timeseriesinsights/v20210331preview:AccessPolicy": "AccessPolicy",
+   "azure-native:timeseriesinsights/v20210331preview:Environment": "Environment",
+   "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource": "EventHubEventSource",
+   "azure-native:timeseriesinsights/v20210331preview:EventSource": "EventSource",
+   "azure-native:timeseriesinsights/v20210331preview:Gen1Environment": "Gen1Environment",
+   "azure-native:timeseriesinsights/v20210331preview:Gen2Environment": "Gen2Environment",
+   "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource": "IoTHubEventSource",
+   "azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet": "ReferenceDataSet"
   }
  },
  {
@@ -16768,6 +16792,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.webpubsub",
   "classes": {
    "azure-native:webpubsub:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub:WebPubSubHub": "WebPubSubHub",
    "azure-native:webpubsub:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
@@ -16800,6 +16825,17 @@ _utilities.register(
    "azure-native:webpubsub/v20210901preview:WebPubSub": "WebPubSub",
    "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20211001",
+  "fqn": "pulumi_azure_native.webpubsub.v20211001",
+  "classes": {
+   "azure-native:webpubsub/v20211001:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20211001:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

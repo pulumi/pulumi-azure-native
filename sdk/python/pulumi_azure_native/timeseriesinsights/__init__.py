@@ -19,8 +19,10 @@ from .get_event_source import *
 from .get_gen1_environment import *
 from .get_gen2_environment import *
 from .get_io_t_hub_event_source import *
+from .get_private_endpoint_connection import *
 from .get_reference_data_set import *
 from .io_t_hub_event_source import *
+from .private_endpoint_connection import *
 from .reference_data_set import *
 from ._inputs import *
 from . import outputs
@@ -35,6 +37,8 @@ if typing.TYPE_CHECKING:
     v20180815preview = __v20180815preview
     import pulumi_azure_native.timeseriesinsights.v20200515 as __v20200515
     v20200515 = __v20200515
+    import pulumi_azure_native.timeseriesinsights.v20210331preview as __v20210331preview
+    v20210331preview = __v20210331preview
     import pulumi_azure_native.timeseriesinsights.v20210630preview as __v20210630preview
     v20210630preview = __v20210630preview
 else:
@@ -42,5 +46,6 @@ else:
     v20171115 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20171115')
     v20180815preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20180815preview')
     v20200515 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20200515')
+    v20210331preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20210331preview')
     v20210630preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20210630preview')
 

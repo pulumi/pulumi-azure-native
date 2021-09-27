@@ -21,6 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:recoveryservices/v20210801:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
+	case "azure-native:recoveryservices/v20210801:ProtectedItem":
+		r = &ProtectedItem{}
+	case "azure-native:recoveryservices/v20210801:ProtectionContainer":
+		r = &ProtectionContainer{}
+	case "azure-native:recoveryservices/v20210801:ProtectionIntent":
+		r = &ProtectionIntent{}
+	case "azure-native:recoveryservices/v20210801:ProtectionPolicy":
+		r = &ProtectionPolicy{}
 	case "azure-native:recoveryservices/v20210801:ReplicationFabric":
 		r = &ReplicationFabric{}
 	case "azure-native:recoveryservices/v20210801:ReplicationMigrationItem":
@@ -41,6 +51,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationStorageClassificationMapping{}
 	case "azure-native:recoveryservices/v20210801:ReplicationvCenter":
 		r = &ReplicationvCenter{}
+	case "azure-native:recoveryservices/v20210801:ResourceGuardProxy":
+		r = &ResourceGuardProxy{}
+	case "azure-native:recoveryservices/v20210801:Vault":
+		r = &Vault{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

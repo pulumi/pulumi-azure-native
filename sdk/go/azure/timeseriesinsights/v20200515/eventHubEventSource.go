@@ -95,6 +95,12 @@ func NewEventHubEventSource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:EventHubEventSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:EventHubEventSource"),
+		},
+		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"),
 		},
 		{

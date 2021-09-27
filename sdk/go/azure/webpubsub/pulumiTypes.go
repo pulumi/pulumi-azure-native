@@ -10,6 +10,230 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EventHandler struct {
+	Auth             *UpstreamAuthSettings `pulumi:"auth"`
+	SystemEvents     []string              `pulumi:"systemEvents"`
+	UrlTemplate      string                `pulumi:"urlTemplate"`
+	UserEventPattern *string               `pulumi:"userEventPattern"`
+}
+
+// EventHandlerInput is an input type that accepts EventHandlerArgs and EventHandlerOutput values.
+// You can construct a concrete instance of `EventHandlerInput` via:
+//
+//          EventHandlerArgs{...}
+type EventHandlerInput interface {
+	pulumi.Input
+
+	ToEventHandlerOutput() EventHandlerOutput
+	ToEventHandlerOutputWithContext(context.Context) EventHandlerOutput
+}
+
+type EventHandlerArgs struct {
+	Auth             UpstreamAuthSettingsPtrInput `pulumi:"auth"`
+	SystemEvents     pulumi.StringArrayInput      `pulumi:"systemEvents"`
+	UrlTemplate      pulumi.StringInput           `pulumi:"urlTemplate"`
+	UserEventPattern pulumi.StringPtrInput        `pulumi:"userEventPattern"`
+}
+
+func (EventHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHandler)(nil)).Elem()
+}
+
+func (i EventHandlerArgs) ToEventHandlerOutput() EventHandlerOutput {
+	return i.ToEventHandlerOutputWithContext(context.Background())
+}
+
+func (i EventHandlerArgs) ToEventHandlerOutputWithContext(ctx context.Context) EventHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerOutput)
+}
+
+// EventHandlerArrayInput is an input type that accepts EventHandlerArray and EventHandlerArrayOutput values.
+// You can construct a concrete instance of `EventHandlerArrayInput` via:
+//
+//          EventHandlerArray{ EventHandlerArgs{...} }
+type EventHandlerArrayInput interface {
+	pulumi.Input
+
+	ToEventHandlerArrayOutput() EventHandlerArrayOutput
+	ToEventHandlerArrayOutputWithContext(context.Context) EventHandlerArrayOutput
+}
+
+type EventHandlerArray []EventHandlerInput
+
+func (EventHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHandler)(nil)).Elem()
+}
+
+func (i EventHandlerArray) ToEventHandlerArrayOutput() EventHandlerArrayOutput {
+	return i.ToEventHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i EventHandlerArray) ToEventHandlerArrayOutputWithContext(ctx context.Context) EventHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerArrayOutput)
+}
+
+type EventHandlerOutput struct{ *pulumi.OutputState }
+
+func (EventHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHandler)(nil)).Elem()
+}
+
+func (o EventHandlerOutput) ToEventHandlerOutput() EventHandlerOutput {
+	return o
+}
+
+func (o EventHandlerOutput) ToEventHandlerOutputWithContext(ctx context.Context) EventHandlerOutput {
+	return o
+}
+
+func (o EventHandlerOutput) Auth() UpstreamAuthSettingsPtrOutput {
+	return o.ApplyT(func(v EventHandler) *UpstreamAuthSettings { return v.Auth }).(UpstreamAuthSettingsPtrOutput)
+}
+
+func (o EventHandlerOutput) SystemEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHandler) []string { return v.SystemEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o EventHandlerOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHandler) string { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
+func (o EventHandlerOutput) UserEventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHandler) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
+}
+
+type EventHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (EventHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHandler)(nil)).Elem()
+}
+
+func (o EventHandlerArrayOutput) ToEventHandlerArrayOutput() EventHandlerArrayOutput {
+	return o
+}
+
+func (o EventHandlerArrayOutput) ToEventHandlerArrayOutputWithContext(ctx context.Context) EventHandlerArrayOutput {
+	return o
+}
+
+func (o EventHandlerArrayOutput) Index(i pulumi.IntInput) EventHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHandler {
+		return vs[0].([]EventHandler)[vs[1].(int)]
+	}).(EventHandlerOutput)
+}
+
+type EventHandlerResponse struct {
+	Auth             *UpstreamAuthSettingsResponse `pulumi:"auth"`
+	SystemEvents     []string                      `pulumi:"systemEvents"`
+	UrlTemplate      string                        `pulumi:"urlTemplate"`
+	UserEventPattern *string                       `pulumi:"userEventPattern"`
+}
+
+// EventHandlerResponseInput is an input type that accepts EventHandlerResponseArgs and EventHandlerResponseOutput values.
+// You can construct a concrete instance of `EventHandlerResponseInput` via:
+//
+//          EventHandlerResponseArgs{...}
+type EventHandlerResponseInput interface {
+	pulumi.Input
+
+	ToEventHandlerResponseOutput() EventHandlerResponseOutput
+	ToEventHandlerResponseOutputWithContext(context.Context) EventHandlerResponseOutput
+}
+
+type EventHandlerResponseArgs struct {
+	Auth             UpstreamAuthSettingsResponsePtrInput `pulumi:"auth"`
+	SystemEvents     pulumi.StringArrayInput              `pulumi:"systemEvents"`
+	UrlTemplate      pulumi.StringInput                   `pulumi:"urlTemplate"`
+	UserEventPattern pulumi.StringPtrInput                `pulumi:"userEventPattern"`
+}
+
+func (EventHandlerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHandlerResponse)(nil)).Elem()
+}
+
+func (i EventHandlerResponseArgs) ToEventHandlerResponseOutput() EventHandlerResponseOutput {
+	return i.ToEventHandlerResponseOutputWithContext(context.Background())
+}
+
+func (i EventHandlerResponseArgs) ToEventHandlerResponseOutputWithContext(ctx context.Context) EventHandlerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerResponseOutput)
+}
+
+// EventHandlerResponseArrayInput is an input type that accepts EventHandlerResponseArray and EventHandlerResponseArrayOutput values.
+// You can construct a concrete instance of `EventHandlerResponseArrayInput` via:
+//
+//          EventHandlerResponseArray{ EventHandlerResponseArgs{...} }
+type EventHandlerResponseArrayInput interface {
+	pulumi.Input
+
+	ToEventHandlerResponseArrayOutput() EventHandlerResponseArrayOutput
+	ToEventHandlerResponseArrayOutputWithContext(context.Context) EventHandlerResponseArrayOutput
+}
+
+type EventHandlerResponseArray []EventHandlerResponseInput
+
+func (EventHandlerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHandlerResponse)(nil)).Elem()
+}
+
+func (i EventHandlerResponseArray) ToEventHandlerResponseArrayOutput() EventHandlerResponseArrayOutput {
+	return i.ToEventHandlerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EventHandlerResponseArray) ToEventHandlerResponseArrayOutputWithContext(ctx context.Context) EventHandlerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHandlerResponseArrayOutput)
+}
+
+type EventHandlerResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHandlerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHandlerResponse)(nil)).Elem()
+}
+
+func (o EventHandlerResponseOutput) ToEventHandlerResponseOutput() EventHandlerResponseOutput {
+	return o
+}
+
+func (o EventHandlerResponseOutput) ToEventHandlerResponseOutputWithContext(ctx context.Context) EventHandlerResponseOutput {
+	return o
+}
+
+func (o EventHandlerResponseOutput) Auth() UpstreamAuthSettingsResponsePtrOutput {
+	return o.ApplyT(func(v EventHandlerResponse) *UpstreamAuthSettingsResponse { return v.Auth }).(UpstreamAuthSettingsResponsePtrOutput)
+}
+
+func (o EventHandlerResponseOutput) SystemEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHandlerResponse) []string { return v.SystemEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o EventHandlerResponseOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHandlerResponse) string { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
+func (o EventHandlerResponseOutput) UserEventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHandlerResponse) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
+}
+
+type EventHandlerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EventHandlerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHandlerResponse)(nil)).Elem()
+}
+
+func (o EventHandlerResponseArrayOutput) ToEventHandlerResponseArrayOutput() EventHandlerResponseArrayOutput {
+	return o
+}
+
+func (o EventHandlerResponseArrayOutput) ToEventHandlerResponseArrayOutputWithContext(ctx context.Context) EventHandlerResponseArrayOutput {
+	return o
+}
+
+func (o EventHandlerResponseArrayOutput) Index(i pulumi.IntInput) EventHandlerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHandlerResponse {
+		return vs[0].([]EventHandlerResponse)[vs[1].(int)]
+	}).(EventHandlerResponseOutput)
+}
+
 type EventHandlerSettings struct {
 	Items map[string][]EventHandlerTemplate `pulumi:"items"`
 }
@@ -3640,6 +3864,302 @@ func (o WebPubSubFeatureResponseArrayOutput) Index(i pulumi.IntInput) WebPubSubF
 	}).(WebPubSubFeatureResponseOutput)
 }
 
+type WebPubSubHubProperties struct {
+	AnonymousConnectPolicy *string        `pulumi:"anonymousConnectPolicy"`
+	EventHandlers          []EventHandler `pulumi:"eventHandlers"`
+}
+
+// WebPubSubHubPropertiesInput is an input type that accepts WebPubSubHubPropertiesArgs and WebPubSubHubPropertiesOutput values.
+// You can construct a concrete instance of `WebPubSubHubPropertiesInput` via:
+//
+//          WebPubSubHubPropertiesArgs{...}
+type WebPubSubHubPropertiesInput interface {
+	pulumi.Input
+
+	ToWebPubSubHubPropertiesOutput() WebPubSubHubPropertiesOutput
+	ToWebPubSubHubPropertiesOutputWithContext(context.Context) WebPubSubHubPropertiesOutput
+}
+
+type WebPubSubHubPropertiesArgs struct {
+	AnonymousConnectPolicy pulumi.StringPtrInput  `pulumi:"anonymousConnectPolicy"`
+	EventHandlers          EventHandlerArrayInput `pulumi:"eventHandlers"`
+}
+
+func (WebPubSubHubPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubHubProperties)(nil)).Elem()
+}
+
+func (i WebPubSubHubPropertiesArgs) ToWebPubSubHubPropertiesOutput() WebPubSubHubPropertiesOutput {
+	return i.ToWebPubSubHubPropertiesOutputWithContext(context.Background())
+}
+
+func (i WebPubSubHubPropertiesArgs) ToWebPubSubHubPropertiesOutputWithContext(ctx context.Context) WebPubSubHubPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesOutput)
+}
+
+func (i WebPubSubHubPropertiesArgs) ToWebPubSubHubPropertiesPtrOutput() WebPubSubHubPropertiesPtrOutput {
+	return i.ToWebPubSubHubPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebPubSubHubPropertiesArgs) ToWebPubSubHubPropertiesPtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesOutput).ToWebPubSubHubPropertiesPtrOutputWithContext(ctx)
+}
+
+// WebPubSubHubPropertiesPtrInput is an input type that accepts WebPubSubHubPropertiesArgs, WebPubSubHubPropertiesPtr and WebPubSubHubPropertiesPtrOutput values.
+// You can construct a concrete instance of `WebPubSubHubPropertiesPtrInput` via:
+//
+//          WebPubSubHubPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebPubSubHubPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebPubSubHubPropertiesPtrOutput() WebPubSubHubPropertiesPtrOutput
+	ToWebPubSubHubPropertiesPtrOutputWithContext(context.Context) WebPubSubHubPropertiesPtrOutput
+}
+
+type webPubSubHubPropertiesPtrType WebPubSubHubPropertiesArgs
+
+func WebPubSubHubPropertiesPtr(v *WebPubSubHubPropertiesArgs) WebPubSubHubPropertiesPtrInput {
+	return (*webPubSubHubPropertiesPtrType)(v)
+}
+
+func (*webPubSubHubPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebPubSubHubProperties)(nil)).Elem()
+}
+
+func (i *webPubSubHubPropertiesPtrType) ToWebPubSubHubPropertiesPtrOutput() WebPubSubHubPropertiesPtrOutput {
+	return i.ToWebPubSubHubPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webPubSubHubPropertiesPtrType) ToWebPubSubHubPropertiesPtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesPtrOutput)
+}
+
+type WebPubSubHubPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubHubPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubHubProperties)(nil)).Elem()
+}
+
+func (o WebPubSubHubPropertiesOutput) ToWebPubSubHubPropertiesOutput() WebPubSubHubPropertiesOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesOutput) ToWebPubSubHubPropertiesOutputWithContext(ctx context.Context) WebPubSubHubPropertiesOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesOutput) ToWebPubSubHubPropertiesPtrOutput() WebPubSubHubPropertiesPtrOutput {
+	return o.ToWebPubSubHubPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebPubSubHubPropertiesOutput) ToWebPubSubHubPropertiesPtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubHubProperties) *WebPubSubHubProperties {
+		return &v
+	}).(WebPubSubHubPropertiesPtrOutput)
+}
+
+func (o WebPubSubHubPropertiesOutput) AnonymousConnectPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebPubSubHubProperties) *string { return v.AnonymousConnectPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o WebPubSubHubPropertiesOutput) EventHandlers() EventHandlerArrayOutput {
+	return o.ApplyT(func(v WebPubSubHubProperties) []EventHandler { return v.EventHandlers }).(EventHandlerArrayOutput)
+}
+
+type WebPubSubHubPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubHubPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebPubSubHubProperties)(nil)).Elem()
+}
+
+func (o WebPubSubHubPropertiesPtrOutput) ToWebPubSubHubPropertiesPtrOutput() WebPubSubHubPropertiesPtrOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesPtrOutput) ToWebPubSubHubPropertiesPtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesPtrOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesPtrOutput) Elem() WebPubSubHubPropertiesOutput {
+	return o.ApplyT(func(v *WebPubSubHubProperties) WebPubSubHubProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubHubProperties
+		return ret
+	}).(WebPubSubHubPropertiesOutput)
+}
+
+func (o WebPubSubHubPropertiesPtrOutput) AnonymousConnectPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebPubSubHubProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousConnectPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebPubSubHubPropertiesPtrOutput) EventHandlers() EventHandlerArrayOutput {
+	return o.ApplyT(func(v *WebPubSubHubProperties) []EventHandler {
+		if v == nil {
+			return nil
+		}
+		return v.EventHandlers
+	}).(EventHandlerArrayOutput)
+}
+
+type WebPubSubHubPropertiesResponse struct {
+	AnonymousConnectPolicy *string                `pulumi:"anonymousConnectPolicy"`
+	EventHandlers          []EventHandlerResponse `pulumi:"eventHandlers"`
+}
+
+// WebPubSubHubPropertiesResponseInput is an input type that accepts WebPubSubHubPropertiesResponseArgs and WebPubSubHubPropertiesResponseOutput values.
+// You can construct a concrete instance of `WebPubSubHubPropertiesResponseInput` via:
+//
+//          WebPubSubHubPropertiesResponseArgs{...}
+type WebPubSubHubPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToWebPubSubHubPropertiesResponseOutput() WebPubSubHubPropertiesResponseOutput
+	ToWebPubSubHubPropertiesResponseOutputWithContext(context.Context) WebPubSubHubPropertiesResponseOutput
+}
+
+type WebPubSubHubPropertiesResponseArgs struct {
+	AnonymousConnectPolicy pulumi.StringPtrInput          `pulumi:"anonymousConnectPolicy"`
+	EventHandlers          EventHandlerResponseArrayInput `pulumi:"eventHandlers"`
+}
+
+func (WebPubSubHubPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubHubPropertiesResponse)(nil)).Elem()
+}
+
+func (i WebPubSubHubPropertiesResponseArgs) ToWebPubSubHubPropertiesResponseOutput() WebPubSubHubPropertiesResponseOutput {
+	return i.ToWebPubSubHubPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i WebPubSubHubPropertiesResponseArgs) ToWebPubSubHubPropertiesResponseOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesResponseOutput)
+}
+
+func (i WebPubSubHubPropertiesResponseArgs) ToWebPubSubHubPropertiesResponsePtrOutput() WebPubSubHubPropertiesResponsePtrOutput {
+	return i.ToWebPubSubHubPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WebPubSubHubPropertiesResponseArgs) ToWebPubSubHubPropertiesResponsePtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesResponseOutput).ToWebPubSubHubPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// WebPubSubHubPropertiesResponsePtrInput is an input type that accepts WebPubSubHubPropertiesResponseArgs, WebPubSubHubPropertiesResponsePtr and WebPubSubHubPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `WebPubSubHubPropertiesResponsePtrInput` via:
+//
+//          WebPubSubHubPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WebPubSubHubPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWebPubSubHubPropertiesResponsePtrOutput() WebPubSubHubPropertiesResponsePtrOutput
+	ToWebPubSubHubPropertiesResponsePtrOutputWithContext(context.Context) WebPubSubHubPropertiesResponsePtrOutput
+}
+
+type webPubSubHubPropertiesResponsePtrType WebPubSubHubPropertiesResponseArgs
+
+func WebPubSubHubPropertiesResponsePtr(v *WebPubSubHubPropertiesResponseArgs) WebPubSubHubPropertiesResponsePtrInput {
+	return (*webPubSubHubPropertiesResponsePtrType)(v)
+}
+
+func (*webPubSubHubPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebPubSubHubPropertiesResponse)(nil)).Elem()
+}
+
+func (i *webPubSubHubPropertiesResponsePtrType) ToWebPubSubHubPropertiesResponsePtrOutput() WebPubSubHubPropertiesResponsePtrOutput {
+	return i.ToWebPubSubHubPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *webPubSubHubPropertiesResponsePtrType) ToWebPubSubHubPropertiesResponsePtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubHubPropertiesResponsePtrOutput)
+}
+
+type WebPubSubHubPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubHubPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubHubPropertiesResponse)(nil)).Elem()
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) ToWebPubSubHubPropertiesResponseOutput() WebPubSubHubPropertiesResponseOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) ToWebPubSubHubPropertiesResponseOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponseOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) ToWebPubSubHubPropertiesResponsePtrOutput() WebPubSubHubPropertiesResponsePtrOutput {
+	return o.ToWebPubSubHubPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) ToWebPubSubHubPropertiesResponsePtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubHubPropertiesResponse) *WebPubSubHubPropertiesResponse {
+		return &v
+	}).(WebPubSubHubPropertiesResponsePtrOutput)
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) AnonymousConnectPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebPubSubHubPropertiesResponse) *string { return v.AnonymousConnectPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o WebPubSubHubPropertiesResponseOutput) EventHandlers() EventHandlerResponseArrayOutput {
+	return o.ApplyT(func(v WebPubSubHubPropertiesResponse) []EventHandlerResponse { return v.EventHandlers }).(EventHandlerResponseArrayOutput)
+}
+
+type WebPubSubHubPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubHubPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebPubSubHubPropertiesResponse)(nil)).Elem()
+}
+
+func (o WebPubSubHubPropertiesResponsePtrOutput) ToWebPubSubHubPropertiesResponsePtrOutput() WebPubSubHubPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesResponsePtrOutput) ToWebPubSubHubPropertiesResponsePtrOutputWithContext(ctx context.Context) WebPubSubHubPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WebPubSubHubPropertiesResponsePtrOutput) Elem() WebPubSubHubPropertiesResponseOutput {
+	return o.ApplyT(func(v *WebPubSubHubPropertiesResponse) WebPubSubHubPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubHubPropertiesResponse
+		return ret
+	}).(WebPubSubHubPropertiesResponseOutput)
+}
+
+func (o WebPubSubHubPropertiesResponsePtrOutput) AnonymousConnectPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebPubSubHubPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousConnectPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebPubSubHubPropertiesResponsePtrOutput) EventHandlers() EventHandlerResponseArrayOutput {
+	return o.ApplyT(func(v *WebPubSubHubPropertiesResponse) []EventHandlerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EventHandlers
+	}).(EventHandlerResponseArrayOutput)
+}
+
 type WebPubSubNetworkACLs struct {
 	DefaultAction    *string              `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACL `pulumi:"privateEndpoints"`
@@ -4323,6 +4843,10 @@ type EventHandlerTemplateResponseArrayMapInput interface {
 }
 
 func init() {
+	pulumi.RegisterOutputType(EventHandlerOutput{})
+	pulumi.RegisterOutputType(EventHandlerArrayOutput{})
+	pulumi.RegisterOutputType(EventHandlerResponseOutput{})
+	pulumi.RegisterOutputType(EventHandlerResponseArrayOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsResponseOutput{})
@@ -4375,6 +4899,10 @@ func init() {
 	pulumi.RegisterOutputType(WebPubSubFeatureArrayOutput{})
 	pulumi.RegisterOutputType(WebPubSubFeatureResponseOutput{})
 	pulumi.RegisterOutputType(WebPubSubFeatureResponseArrayOutput{})
+	pulumi.RegisterOutputType(WebPubSubHubPropertiesOutput{})
+	pulumi.RegisterOutputType(WebPubSubHubPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebPubSubHubPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(WebPubSubHubPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsPtrOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsResponseOutput{})

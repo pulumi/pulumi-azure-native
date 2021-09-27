@@ -82,6 +82,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:EventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

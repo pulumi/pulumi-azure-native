@@ -63,6 +63,12 @@ func NewAccessPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:AccessPolicy"),
 		},
 		{
