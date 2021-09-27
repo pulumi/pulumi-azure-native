@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `timeseriesinsights.PrivateEndpointConnection`
+- `webpubsub.WebPubSubHub`
+
+#### New functions:
+
+- `timeseriesinsights.getPrivateEndpointConnection`
+- `webpubsub.getWebPubSubHub`
 
 ---
 
