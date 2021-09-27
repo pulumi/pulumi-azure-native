@@ -16,6 +16,7 @@ from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .disaster_recovery_configuration import *
 from .elastic_pool import *
+from .encryption_protector import *
 from .extended_database_blob_auditing_policy import *
 from .extended_server_blob_auditing_policy import *
 from .failover_group import *
@@ -31,6 +32,7 @@ from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
 from .get_disaster_recovery_configuration import *
 from .get_elastic_pool import *
+from .get_encryption_protector import *
 from .get_extended_database_blob_auditing_policy import *
 from .get_extended_server_blob_auditing_policy import *
 from .get_failover_group import *
