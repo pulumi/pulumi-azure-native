@@ -100,7 +100,13 @@ new sql.ServerAdvisor("ForceLastGoodPlan", {
     resourceGroupName: resourceGroup.name,
     serverName: sqlServer.name,
     autoExecuteStatus: sql.AutoExecuteStatus.Enabled,
-})
+});
+
+new sql.EncryptionProtector("current", {
+    resourceGroupName: resourceGroup.name,
+    serverName: sqlServer.name,
+    serverKeyType: "ServiceManaged",
+});
 
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
