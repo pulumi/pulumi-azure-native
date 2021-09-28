@@ -1257,7 +1257,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param 'PowerStateResponse' power_state: Describes whether the Agent Pool is Running or Stopped
         :param str provisioning_state: The current deployment or provisioning state.
         :param Sequence[str] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
-        :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param int count: Desired Number of agents (VMs) specified to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param 'CreationDataResponse' creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
         :param bool enable_encryption_at_host: This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
@@ -1414,7 +1414,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        Desired Number of agents (VMs) specified to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 

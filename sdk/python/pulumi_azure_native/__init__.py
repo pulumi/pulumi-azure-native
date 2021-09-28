@@ -301,6 +301,8 @@ if typing.TYPE_CHECKING:
     servicefabric = __servicefabric
     import pulumi_azure_native.servicefabricmesh as __servicefabricmesh
     servicefabricmesh = __servicefabricmesh
+    import pulumi_azure_native.servicelinker as __servicelinker
+    servicelinker = __servicelinker
     import pulumi_azure_native.signalrservice as __signalrservice
     signalrservice = __signalrservice
     import pulumi_azure_native.softwareplan as __softwareplan
@@ -494,6 +496,7 @@ else:
     servicebus = _utilities.lazy_import('pulumi_azure_native.servicebus')
     servicefabric = _utilities.lazy_import('pulumi_azure_native.servicefabric')
     servicefabricmesh = _utilities.lazy_import('pulumi_azure_native.servicefabricmesh')
+    servicelinker = _utilities.lazy_import('pulumi_azure_native.servicelinker')
     signalrservice = _utilities.lazy_import('pulumi_azure_native.signalrservice')
     softwareplan = _utilities.lazy_import('pulumi_azure_native.softwareplan')
     solutions = _utilities.lazy_import('pulumi_azure_native.solutions')
@@ -14347,6 +14350,22 @@ _utilities.register(
    "azure-native:servicefabricmesh/v20180901preview:Secret": "Secret",
    "azure-native:servicefabricmesh/v20180901preview:SecretValue": "SecretValue",
    "azure-native:servicefabricmesh/v20180901preview:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicelinker",
+  "fqn": "pulumi_azure_native.servicelinker",
+  "classes": {
+   "azure-native:servicelinker:Linker": "Linker"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicelinker/v20211101preview",
+  "fqn": "pulumi_azure_native.servicelinker.v20211101preview",
+  "classes": {
+   "azure-native:servicelinker/v20211101preview:Linker": "Linker"
   }
  },
  {

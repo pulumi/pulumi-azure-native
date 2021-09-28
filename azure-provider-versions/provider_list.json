@@ -40360,6 +40360,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40418,6 +40419,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40476,6 +40478,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40501,6 +40504,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40559,6 +40563,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40617,6 +40622,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40675,6 +40681,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40733,6 +40740,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40758,6 +40766,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -40816,6 +40825,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01",
           "2021-07-01",
           "2021-03-01",
           "2020-11-01",
@@ -57520,6 +57530,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57528,7 +57540,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -57554,6 +57566,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57562,7 +57576,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -57588,6 +57602,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57596,7 +57612,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -57622,6 +57638,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57630,7 +57648,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -57656,6 +57674,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57664,7 +57684,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [],
         "properties": null,
@@ -57674,6 +57694,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01",
           "2021-05-01",
           "2021-03-01",
           "2020-10-01",
@@ -57682,7 +57704,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-05-01",
+        "defaultApiVersion": "2021-09-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -67507,6 +67529,191 @@
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses"
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
+        "applicationId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0"
+      },
+      {
+        "applicationId": "91ff567f-bb4f-4719-91d7-d983057bc0d6",
+        "roleDefinitionId": "fa0ab6ed-58e5-4f2f-81af-0b9ffc364bdc"
+      },
+      {
+        "applicationId": "c115998b-3d59-49b4-b55b-042a9ba1dbfe",
+        "roleDefinitionId": "07af60d1-cd6d-4ad4-9b56-ece6c78a3fe1"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DigitalTwins",
+    "namespace": "Microsoft.DigitalTwins",
+    "providerAuthorizationConsentState": null,
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "Registered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-30-preview",
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US 2",
+          "North Europe",
+          "Australia East",
+          "West Europe",
+          "East US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/checkNameAvailability"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US 2",
+          "North Europe",
+          "Australia East",
+          "West Europe",
+          "East US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "digitalTwinsInstances"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US 2",
+          "North Europe",
+          "Australia East",
+          "West Europe",
+          "East US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "digitalTwinsInstances/operationResults"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US 2",
+          "North Europe",
+          "Australia East",
+          "West Europe",
+          "East US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/operationResults"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US 2",
+          "North Europe",
+          "Australia East",
+          "West Europe",
+          "East US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "digitalTwinsInstances/endpoints"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01",
+          "2020-10-31",
+          "2020-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US"
+        ],
+        "properties": null,
+        "resourceType": "operations"
       }
     ]
   },
@@ -83913,191 +84120,6 @@
         ],
         "properties": null,
         "resourceType": "pipelines"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0"
-      },
-      {
-        "applicationId": "91ff567f-bb4f-4719-91d7-d983057bc0d6",
-        "roleDefinitionId": "fa0ab6ed-58e5-4f2f-81af-0b9ffc364bdc"
-      },
-      {
-        "applicationId": "c115998b-3d59-49b4-b55b-042a9ba1dbfe",
-        "roleDefinitionId": "07af60d1-cd6d-4ad4-9b56-ece6c78a3fe1"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DigitalTwins",
-    "namespace": "Microsoft.DigitalTwins",
-    "providerAuthorizationConsentState": null,
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-30-preview",
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": "2020-12-01",
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West Central US",
-          "West US 2",
-          "North Europe",
-          "Australia East",
-          "West Europe",
-          "East US",
-          "South Central US",
-          "Southeast Asia",
-          "UK South",
-          "East US 2"
-        ],
-        "properties": null,
-        "resourceType": "locations/checkNameAvailability"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-12-01",
-        "locationMappings": null,
-        "locations": [
-          "West Central US",
-          "West US 2",
-          "North Europe",
-          "Australia East",
-          "West Europe",
-          "East US",
-          "South Central US",
-          "Southeast Asia",
-          "UK South",
-          "East US 2"
-        ],
-        "properties": null,
-        "resourceType": "digitalTwinsInstances"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": "2020-12-01",
-        "locationMappings": null,
-        "locations": [
-          "West Central US",
-          "West US 2",
-          "North Europe",
-          "Australia East",
-          "West Europe",
-          "East US",
-          "South Central US",
-          "Southeast Asia",
-          "UK South",
-          "East US 2"
-        ],
-        "properties": null,
-        "resourceType": "digitalTwinsInstances/operationResults"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": "2020-12-01",
-        "locationMappings": null,
-        "locations": [
-          "West Central US",
-          "West US 2",
-          "North Europe",
-          "Australia East",
-          "West Europe",
-          "East US",
-          "South Central US",
-          "Southeast Asia",
-          "UK South",
-          "East US 2"
-        ],
-        "properties": null,
-        "resourceType": "locations/operationResults"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": "2020-12-01",
-        "locationMappings": null,
-        "locations": [
-          "West Central US",
-          "West US 2",
-          "North Europe",
-          "Australia East",
-          "West Europe",
-          "East US",
-          "South Central US",
-          "Southeast Asia",
-          "UK South",
-          "East US 2"
-        ],
-        "properties": null,
-        "resourceType": "digitalTwinsInstances/endpoints"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-01",
-          "2020-10-31",
-          "2020-03-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West Central US"
-        ],
-        "properties": null,
-        "resourceType": "operations"
       }
     ]
   },
