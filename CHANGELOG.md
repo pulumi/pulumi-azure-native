@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.33.0 (2021-09-28)
+
 #### New resources:
 
 - `servicelinker.Linker`
@@ -13,8 +19,6 @@ CHANGELOG
 - `servicelinker.getLinker`
 - `servicelinker.listLinkerConfigurations`
 - `sql.getEncryptionProtector`
-
----
 
 ## 1.32.0 (2021-09-27)
 
