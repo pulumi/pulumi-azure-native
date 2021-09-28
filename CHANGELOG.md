@@ -5,7 +5,14 @@ CHANGELOG
 
 #### New resources:
 
+- `servicelinker.Linker`
 - `sql.EncryptionProtector`
+
+#### New functions:
+
+- `servicelinker.getLinker`
+- `servicelinker.listLinkerConfigurations`
+- `sql.getEncryptionProtector`
 
 ---
 
