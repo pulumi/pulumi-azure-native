@@ -14,18 +14,12 @@ import (
 type GeoBackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Backup policy location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of the geo backup policy.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The storage type of the geo backup policy.
+	Kind        pulumi.StringOutput `pulumi:"kind"`
+	Location    pulumi.StringOutput `pulumi:"location"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	State       pulumi.StringOutput `pulumi:"state"`
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type        pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewGeoBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -91,30 +85,20 @@ func (GeoBackupPolicyState) ElementType() reflect.Type {
 }
 
 type geoBackupPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the geo backup policy.
-	GeoBackupPolicyName *string `pulumi:"geoBackupPolicyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnum `pulumi:"state"`
+	DatabaseName        string                   `pulumi:"databaseName"`
+	GeoBackupPolicyName *string                  `pulumi:"geoBackupPolicyName"`
+	ResourceGroupName   string                   `pulumi:"resourceGroupName"`
+	ServerName          string                   `pulumi:"serverName"`
+	State               GeoBackupPolicyStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a GeoBackupPolicy resource.
 type GeoBackupPolicyArgs struct {
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The name of the geo backup policy.
+	DatabaseName        pulumi.StringInput
 	GeoBackupPolicyName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnumInput
+	ResourceGroupName   pulumi.StringInput
+	ServerName          pulumi.StringInput
+	State               GeoBackupPolicyStateEnumInput
 }
 
 func (GeoBackupPolicyArgs) ElementType() reflect.Type {

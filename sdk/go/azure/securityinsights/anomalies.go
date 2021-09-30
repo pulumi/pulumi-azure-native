@@ -14,19 +14,12 @@ import (
 type Anomalies struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'Anomalies'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       pulumi.StringPtrOutput   `pulumi:"etag"`
+	IsEnabled  pulumi.BoolOutput        `pulumi:"isEnabled"`
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAnomalies registers a new resource with the given unique name, arguments, and options.
@@ -99,36 +92,22 @@ func (AnomaliesState) ElementType() reflect.Type {
 }
 
 type anomaliesArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the setting
-	// Expected value is 'Anomalies'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName *string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                                *string `pulumi:"etag"`
+	Kind                                string  `pulumi:"kind"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	SettingsName                        *string `pulumi:"settingsName"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Anomalies resource.
 type AnomaliesArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the setting
-	// Expected value is 'Anomalies'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	SettingsName                        pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (AnomaliesArgs) ElementType() reflect.Type {

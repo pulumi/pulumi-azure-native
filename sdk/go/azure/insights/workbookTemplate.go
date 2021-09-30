@@ -14,24 +14,15 @@ import (
 type WorkbookTemplate struct {
 	pulumi.CustomResourceState
 
-	// Information about the author of the workbook template.
-	Author pulumi.StringPtrOutput `pulumi:"author"`
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryResponseArrayOutput `pulumi:"galleries"`
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized WorkbookTemplateLocalizedGalleryResponseArrayMapOutput `pulumi:"localized"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.AnyOutput `pulumi:"templateData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Author       pulumi.StringPtrOutput                                 `pulumi:"author"`
+	Galleries    WorkbookTemplateGalleryResponseArrayOutput             `pulumi:"galleries"`
+	Localized    WorkbookTemplateLocalizedGalleryResponseArrayMapOutput `pulumi:"localized"`
+	Location     pulumi.StringOutput                                    `pulumi:"location"`
+	Name         pulumi.StringOutput                                    `pulumi:"name"`
+	Priority     pulumi.IntPtrOutput                                    `pulumi:"priority"`
+	Tags         pulumi.StringMapOutput                                 `pulumi:"tags"`
+	TemplateData pulumi.AnyOutput                                       `pulumi:"templateData"`
+	Type         pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewWorkbookTemplate registers a new resource with the given unique name, arguments, and options.
@@ -100,46 +91,28 @@ func (WorkbookTemplateState) ElementType() reflect.Type {
 }
 
 type workbookTemplateArgs struct {
-	// Information about the author of the workbook template.
-	Author *string `pulumi:"author"`
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGallery `pulumi:"galleries"`
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized map[string][]WorkbookTemplateLocalizedGallery `pulumi:"localized"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority *int `pulumi:"priority"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
+	Author            *string                                       `pulumi:"author"`
+	Galleries         []WorkbookTemplateGallery                     `pulumi:"galleries"`
+	Localized         map[string][]WorkbookTemplateLocalizedGallery `pulumi:"localized"`
+	Location          *string                                       `pulumi:"location"`
+	Priority          *int                                          `pulumi:"priority"`
+	ResourceGroupName string                                        `pulumi:"resourceGroupName"`
+	ResourceName      *string                                       `pulumi:"resourceName"`
+	Tags              map[string]string                             `pulumi:"tags"`
+	TemplateData      interface{}                                   `pulumi:"templateData"`
 }
 
 // The set of arguments for constructing a WorkbookTemplate resource.
 type WorkbookTemplateArgs struct {
-	// Information about the author of the workbook template.
-	Author pulumi.StringPtrInput
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryArrayInput
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized WorkbookTemplateLocalizedGalleryArrayMapInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority pulumi.IntPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Author            pulumi.StringPtrInput
+	Galleries         WorkbookTemplateGalleryArrayInput
+	Localized         WorkbookTemplateLocalizedGalleryArrayMapInput
+	Location          pulumi.StringPtrInput
+	Priority          pulumi.IntPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TemplateData      pulumi.Input
 }
 
 func (WorkbookTemplateArgs) ElementType() reflect.Type {

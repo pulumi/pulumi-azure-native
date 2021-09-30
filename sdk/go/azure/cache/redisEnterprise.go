@@ -14,30 +14,18 @@ import (
 type RedisEnterprise struct {
 	pulumi.CustomResourceState
 
-	// DNS name of the cluster endpoint
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum TLS version for the cluster to support, e.g. '1.2'
-	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections associated with the specified RedisEnterprise cluster
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	MinimumTlsVersion          pulumi.StringPtrOutput                       `pulumi:"minimumTlsVersion"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Current provisioning status of the cluster
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Version of redis the cluster supports, e.g. '6'
-	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
-	// Current resource status of the cluster
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The SKU to create, which affects price, performance, and features.
-	Sku EnterpriseSkuResponseOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Availability Zones where this cluster will be deployed.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	RedisVersion               pulumi.StringOutput                          `pulumi:"redisVersion"`
+	ResourceState              pulumi.StringOutput                          `pulumi:"resourceState"`
+	Sku                        EnterpriseSkuResponseOutput                  `pulumi:"sku"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Zones                      pulumi.StringArrayOutput                     `pulumi:"zones"`
 }
 
 // NewRedisEnterprise registers a new resource with the given unique name, arguments, and options.
@@ -115,38 +103,24 @@ func (RedisEnterpriseState) ElementType() reflect.Type {
 }
 
 type redisEnterpriseArgs struct {
-	// The name of the RedisEnterprise cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The minimum TLS version for the cluster to support, e.g. '1.2'
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU to create, which affects price, performance, and features.
-	Sku EnterpriseSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Availability Zones where this cluster will be deployed.
-	Zones []string `pulumi:"zones"`
+	ClusterName       *string           `pulumi:"clusterName"`
+	Location          *string           `pulumi:"location"`
+	MinimumTlsVersion *string           `pulumi:"minimumTlsVersion"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               EnterpriseSku     `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	Zones             []string          `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a RedisEnterprise resource.
 type RedisEnterpriseArgs struct {
-	// The name of the RedisEnterprise cluster.
-	ClusterName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The minimum TLS version for the cluster to support, e.g. '1.2'
+	ClusterName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The SKU to create, which affects price, performance, and features.
-	Sku EnterpriseSkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Availability Zones where this cluster will be deployed.
-	Zones pulumi.StringArrayInput
+	Sku               EnterpriseSkuInput
+	Tags              pulumi.StringMapInput
+	Zones             pulumi.StringArrayInput
 }
 
 func (RedisEnterpriseArgs) ElementType() reflect.Type {

@@ -14,24 +14,15 @@ import (
 type AutoScaleVCore struct {
 	pulumi.CustomResourceState
 
-	// The maximum capacity of an auto scale v-core resource.
-	CapacityLimit pulumi.IntPtrOutput `pulumi:"capacityLimit"`
-	// The object ID of the capacity resource associated with the auto scale v-core resource.
-	CapacityObjectId pulumi.StringPtrOutput `pulumi:"capacityObjectId"`
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the PowerBI Dedicated resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the auto scale v-core resource.
-	Sku AutoScaleVCoreSkuResponseOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CapacityLimit     pulumi.IntPtrOutput             `pulumi:"capacityLimit"`
+	CapacityObjectId  pulumi.StringPtrOutput          `pulumi:"capacityObjectId"`
+	Location          pulumi.StringOutput             `pulumi:"location"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput             `pulumi:"provisioningState"`
+	Sku               AutoScaleVCoreSkuResponseOutput `pulumi:"sku"`
+	SystemData        SystemDataResponsePtrOutput     `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput          `pulumi:"tags"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewAutoScaleVCore registers a new resource with the given unique name, arguments, and options.
@@ -91,42 +82,26 @@ func (AutoScaleVCoreState) ElementType() reflect.Type {
 }
 
 type autoScaleVCoreArgs struct {
-	// The maximum capacity of an auto scale v-core resource.
-	CapacityLimit *int `pulumi:"capacityLimit"`
-	// The object ID of the capacity resource associated with the auto scale v-core resource.
-	CapacityObjectId *string `pulumi:"capacityObjectId"`
-	// Location of the PowerBI Dedicated resource.
-	Location *string `pulumi:"location"`
-	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the auto scale v-core resource.
-	Sku AutoScaleVCoreSku `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemData `pulumi:"systemData"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
-	VcoreName *string `pulumi:"vcoreName"`
+	CapacityLimit     *int              `pulumi:"capacityLimit"`
+	CapacityObjectId  *string           `pulumi:"capacityObjectId"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               AutoScaleVCoreSku `pulumi:"sku"`
+	SystemData        *SystemData       `pulumi:"systemData"`
+	Tags              map[string]string `pulumi:"tags"`
+	VcoreName         *string           `pulumi:"vcoreName"`
 }
 
 // The set of arguments for constructing a AutoScaleVCore resource.
 type AutoScaleVCoreArgs struct {
-	// The maximum capacity of an auto scale v-core resource.
-	CapacityLimit pulumi.IntPtrInput
-	// The object ID of the capacity resource associated with the auto scale v-core resource.
-	CapacityObjectId pulumi.StringPtrInput
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+	CapacityLimit     pulumi.IntPtrInput
+	CapacityObjectId  pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the auto scale v-core resource.
-	Sku AutoScaleVCoreSkuInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataPtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
-	VcoreName pulumi.StringPtrInput
+	Sku               AutoScaleVCoreSkuInput
+	SystemData        SystemDataPtrInput
+	Tags              pulumi.StringMapInput
+	VcoreName         pulumi.StringPtrInput
 }
 
 func (AutoScaleVCoreArgs) ElementType() reflect.Type {

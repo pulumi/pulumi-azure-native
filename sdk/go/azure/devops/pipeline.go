@@ -14,22 +14,14 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationResponseOutput `pulumi:"bootstrapConfiguration"`
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique identifier of the Pipeline
-	PipelineId pulumi.IntOutput `pulumi:"pipelineId"`
-	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-	PipelineType pulumi.StringOutput `pulumi:"pipelineType"`
-	// The system metadata pertaining to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource Tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location               pulumi.StringPtrOutput               `pulumi:"location"`
+	Name                   pulumi.StringOutput                  `pulumi:"name"`
+	PipelineId             pulumi.IntOutput                     `pulumi:"pipelineId"`
+	PipelineType           pulumi.StringOutput                  `pulumi:"pipelineType"`
+	SystemData             SystemDataResponseOutput             `pulumi:"systemData"`
+	Tags                   pulumi.StringMapOutput               `pulumi:"tags"`
+	Type                   pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -98,34 +90,22 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfiguration `pulumi:"bootstrapConfiguration"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// The name of the Pipeline resource in ARM.
-	PipelineName *string `pulumi:"pipelineName"`
-	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-	PipelineType string `pulumi:"pipelineType"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource Tags
-	Tags map[string]string `pulumi:"tags"`
+	Location               *string                `pulumi:"location"`
+	PipelineName           *string                `pulumi:"pipelineName"`
+	PipelineType           string                 `pulumi:"pipelineType"`
+	ResourceGroupName      string                 `pulumi:"resourceGroupName"`
+	Tags                   map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// The name of the Pipeline resource in ARM.
-	PipelineName pulumi.StringPtrInput
-	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-	PipelineType pulumi.StringInput
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Resource Tags
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	PipelineName           pulumi.StringPtrInput
+	PipelineType           pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

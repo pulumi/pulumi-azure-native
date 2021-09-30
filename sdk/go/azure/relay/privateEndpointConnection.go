@@ -14,20 +14,13 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Location                          pulumi.StringOutput                                `pulumi:"location"`
+	Name                              pulumi.StringOutput                                `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Tags                              pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -87,38 +80,24 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Approval state of the private link connection.
+	Location                          *string                            `pulumi:"location"`
+	NamespaceName                     string                             `pulumi:"namespaceName"`
+	PrivateEndpoint                   *PrivateEndpoint                   `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName     *string                            `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
+	Tags                              map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointPtrInput
-	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Approval state of the private link connection.
+	Location                          pulumi.StringPtrInput
+	NamespaceName                     pulumi.StringInput
+	PrivateEndpoint                   PrivateEndpointPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName                 pulumi.StringInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

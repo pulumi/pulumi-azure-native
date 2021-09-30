@@ -13,26 +13,16 @@ import (
 type Partner struct {
 	pulumi.CustomResourceState
 
-	// This is the DateTime when the partner was created.
 	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
-	// Type of the partner
-	Etag pulumi.IntPtrOutput `pulumi:"etag"`
-	// Name of the partner
-	Name pulumi.StringOutput `pulumi:"name"`
-	// This is the object id.
-	ObjectId pulumi.StringPtrOutput `pulumi:"objectId"`
-	// This is the partner id
-	PartnerId pulumi.StringPtrOutput `pulumi:"partnerId"`
-	// This is the partner name
+	Etag        pulumi.IntPtrOutput    `pulumi:"etag"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	ObjectId    pulumi.StringPtrOutput `pulumi:"objectId"`
+	PartnerId   pulumi.StringPtrOutput `pulumi:"partnerId"`
 	PartnerName pulumi.StringPtrOutput `pulumi:"partnerName"`
-	// This is the tenant id.
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Type of resource. "Microsoft.ManagementPartner/partners"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// This is the DateTime when the partner was updated.
+	TenantId    pulumi.StringPtrOutput `pulumi:"tenantId"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 	UpdatedTime pulumi.StringPtrOutput `pulumi:"updatedTime"`
-	// This is the version.
-	Version pulumi.IntPtrOutput `pulumi:"version"`
+	Version     pulumi.IntPtrOutput    `pulumi:"version"`
 }
 
 // NewPartner registers a new resource with the given unique name, arguments, and options.
@@ -86,13 +76,11 @@ func (PartnerState) ElementType() reflect.Type {
 }
 
 type partnerArgs struct {
-	// Id of the Partner
 	PartnerId *string `pulumi:"partnerId"`
 }
 
 // The set of arguments for constructing a Partner resource.
 type PartnerArgs struct {
-	// Id of the Partner
 	PartnerId pulumi.StringPtrInput
 }
 

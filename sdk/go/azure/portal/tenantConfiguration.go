@@ -13,12 +13,9 @@ import (
 type TenantConfiguration struct {
 	pulumi.CustomResourceState
 
-	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
 	EnforcePrivateMarkdownStorage pulumi.BoolPtrOutput `pulumi:"enforcePrivateMarkdownStorage"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                          pulumi.StringOutput  `pulumi:"name"`
+	Type                          pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewTenantConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -78,17 +75,13 @@ func (TenantConfigurationState) ElementType() reflect.Type {
 }
 
 type tenantConfigurationArgs struct {
-	// The configuration name. Value must be 'default'
-	ConfigurationName *string `pulumi:"configurationName"`
-	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
+	ConfigurationName             *string `pulumi:"configurationName"`
+	EnforcePrivateMarkdownStorage *bool   `pulumi:"enforcePrivateMarkdownStorage"`
 }
 
 // The set of arguments for constructing a TenantConfiguration resource.
 type TenantConfigurationArgs struct {
-	// The configuration name. Value must be 'default'
-	ConfigurationName pulumi.StringPtrInput
-	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+	ConfigurationName             pulumi.StringPtrInput
 	EnforcePrivateMarkdownStorage pulumi.BoolPtrInput
 }
 

@@ -14,22 +14,14 @@ import (
 type SqlManagedInstance struct {
 	pulumi.CustomResourceState
 
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// null
-	Properties SqlManagedInstancePropertiesResponseOutput `pulumi:"properties"`
-	// Resource sku.
-	Sku SqlManagedInstanceSkuResponsePtrOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ExtendedLocation ExtendedLocationResponsePtrOutput          `pulumi:"extendedLocation"`
+	Location         pulumi.StringOutput                        `pulumi:"location"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	Properties       SqlManagedInstancePropertiesResponseOutput `pulumi:"properties"`
+	Sku              SqlManagedInstanceSkuResponsePtrOutput     `pulumi:"sku"`
+	SystemData       SystemDataResponseOutput                   `pulumi:"systemData"`
+	Tags             pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type             pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewSqlManagedInstance registers a new resource with the given unique name, arguments, and options.
@@ -101,38 +93,24 @@ func (SqlManagedInstanceState) ElementType() reflect.Type {
 }
 
 type sqlManagedInstanceArgs struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// null
-	Properties SqlManagedInstanceProperties `pulumi:"properties"`
-	// The name of the Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource sku.
-	Sku *SqlManagedInstanceSku `pulumi:"sku"`
-	// The name of SQL Managed Instances
-	SqlManagedInstanceName *string `pulumi:"sqlManagedInstanceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ExtendedLocation       *ExtendedLocation            `pulumi:"extendedLocation"`
+	Location               *string                      `pulumi:"location"`
+	Properties             SqlManagedInstanceProperties `pulumi:"properties"`
+	ResourceGroupName      string                       `pulumi:"resourceGroupName"`
+	Sku                    *SqlManagedInstanceSku       `pulumi:"sku"`
+	SqlManagedInstanceName *string                      `pulumi:"sqlManagedInstanceName"`
+	Tags                   map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlManagedInstance resource.
 type SqlManagedInstanceArgs struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// null
-	Properties SqlManagedInstancePropertiesInput
-	// The name of the Azure resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource sku.
-	Sku SqlManagedInstanceSkuPtrInput
-	// The name of SQL Managed Instances
+	ExtendedLocation       ExtendedLocationPtrInput
+	Location               pulumi.StringPtrInput
+	Properties             SqlManagedInstancePropertiesInput
+	ResourceGroupName      pulumi.StringInput
+	Sku                    SqlManagedInstanceSkuPtrInput
 	SqlManagedInstanceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (SqlManagedInstanceArgs) ElementType() reflect.Type {

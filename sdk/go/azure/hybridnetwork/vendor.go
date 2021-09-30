@@ -13,14 +13,10 @@ import (
 type Vendor struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the vendor resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// A list of IDs of the vendor skus offered by the vendor.
-	Skus SubResourceResponseArrayOutput `pulumi:"skus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Skus              SubResourceResponseArrayOutput `pulumi:"skus"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewVendor registers a new resource with the given unique name, arguments, and options.
@@ -80,13 +76,11 @@ func (VendorState) ElementType() reflect.Type {
 }
 
 type vendorArgs struct {
-	// The name of the vendor.
 	VendorName *string `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a Vendor resource.
 type VendorArgs struct {
-	// The name of the vendor.
 	VendorName pulumi.StringPtrInput
 }
 

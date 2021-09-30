@@ -14,14 +14,10 @@ import (
 type EnvironmentContainer struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties EnvironmentContainerResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput           `pulumi:"systemData"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewEnvironmentContainer registers a new resource with the given unique name, arguments, and options.
@@ -84,26 +80,18 @@ func (EnvironmentContainerState) ElementType() reflect.Type {
 }
 
 type environmentContainerArgs struct {
-	// Container name.
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties EnvironmentContainerType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Name              *string                  `pulumi:"name"`
+	Properties        EnvironmentContainerType `pulumi:"properties"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	WorkspaceName     string                   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a EnvironmentContainer resource.
 type EnvironmentContainerArgs struct {
-	// Container name.
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties EnvironmentContainerTypeInput
-	// The name of the resource group. The name is case insensitive.
+	Name              pulumi.StringPtrInput
+	Properties        EnvironmentContainerTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (EnvironmentContainerArgs) ElementType() reflect.Type {

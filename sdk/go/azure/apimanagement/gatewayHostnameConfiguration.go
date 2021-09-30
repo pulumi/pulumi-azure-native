@@ -14,22 +14,14 @@ import (
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId pulumi.StringPtrOutput `pulumi:"certificateId"`
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
-	// Specifies if HTTP/2.0 is supported
-	Http2Enabled pulumi.BoolPtrOutput `pulumi:"http2Enabled"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines whether gateway requests client certificate
-	NegotiateClientCertificate pulumi.BoolPtrOutput `pulumi:"negotiateClientCertificate"`
-	// Specifies if TLS 1.0 is supported
-	Tls10Enabled pulumi.BoolPtrOutput `pulumi:"tls10Enabled"`
-	// Specifies if TLS 1.1 is supported
-	Tls11Enabled pulumi.BoolPtrOutput `pulumi:"tls11Enabled"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CertificateId              pulumi.StringPtrOutput `pulumi:"certificateId"`
+	Hostname                   pulumi.StringPtrOutput `pulumi:"hostname"`
+	Http2Enabled               pulumi.BoolPtrOutput   `pulumi:"http2Enabled"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	NegotiateClientCertificate pulumi.BoolPtrOutput   `pulumi:"negotiateClientCertificate"`
+	Tls10Enabled               pulumi.BoolPtrOutput   `pulumi:"tls10Enabled"`
+	Tls11Enabled               pulumi.BoolPtrOutput   `pulumi:"tls11Enabled"`
+	Type                       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGatewayHostnameConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -122,50 +114,30 @@ func (GatewayHostnameConfigurationState) ElementType() reflect.Type {
 }
 
 type gatewayHostnameConfigurationArgs struct {
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId *string `pulumi:"certificateId"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId *string `pulumi:"hcId"`
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname *string `pulumi:"hostname"`
-	// Specifies if HTTP/2.0 is supported
-	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// Determines whether gateway requests client certificate
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Specifies if TLS 1.0 is supported
-	Tls10Enabled *bool `pulumi:"tls10Enabled"`
-	// Specifies if TLS 1.1 is supported
-	Tls11Enabled *bool `pulumi:"tls11Enabled"`
+	CertificateId              *string `pulumi:"certificateId"`
+	GatewayId                  string  `pulumi:"gatewayId"`
+	HcId                       *string `pulumi:"hcId"`
+	Hostname                   *string `pulumi:"hostname"`
+	Http2Enabled               *bool   `pulumi:"http2Enabled"`
+	NegotiateClientCertificate *bool   `pulumi:"negotiateClientCertificate"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
+	ServiceName                string  `pulumi:"serviceName"`
+	Tls10Enabled               *bool   `pulumi:"tls10Enabled"`
+	Tls11Enabled               *bool   `pulumi:"tls11Enabled"`
 }
 
 // The set of arguments for constructing a GatewayHostnameConfiguration resource.
 type GatewayHostnameConfigurationArgs struct {
-	// Identifier of Certificate entity that will be used for TLS connection establishment
-	CertificateId pulumi.StringPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringInput
-	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId pulumi.StringPtrInput
-	// Hostname value. Supports valid domain name, partial or full wildcard
-	Hostname pulumi.StringPtrInput
-	// Specifies if HTTP/2.0 is supported
-	Http2Enabled pulumi.BoolPtrInput
-	// Determines whether gateway requests client certificate
+	CertificateId              pulumi.StringPtrInput
+	GatewayId                  pulumi.StringInput
+	HcId                       pulumi.StringPtrInput
+	Hostname                   pulumi.StringPtrInput
+	Http2Enabled               pulumi.BoolPtrInput
 	NegotiateClientCertificate pulumi.BoolPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Specifies if TLS 1.0 is supported
-	Tls10Enabled pulumi.BoolPtrInput
-	// Specifies if TLS 1.1 is supported
-	Tls11Enabled pulumi.BoolPtrInput
+	ResourceGroupName          pulumi.StringInput
+	ServiceName                pulumi.StringInput
+	Tls10Enabled               pulumi.BoolPtrInput
+	Tls11Enabled               pulumi.BoolPtrInput
 }
 
 func (GatewayHostnameConfigurationArgs) ElementType() reflect.Type {

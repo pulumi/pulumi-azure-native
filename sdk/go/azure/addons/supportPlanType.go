@@ -14,12 +14,9 @@ import (
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 
-	// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
+	Name              pulumi.StringOutput    `pulumi:"name"`
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Microsoft.Addons/supportProvider
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSupportPlanType registers a new resource with the given unique name, arguments, and options.
@@ -82,17 +79,13 @@ func (SupportPlanTypeState) ElementType() reflect.Type {
 }
 
 type supportPlanTypeArgs struct {
-	// The Canonical support plan type.
 	PlanTypeName *string `pulumi:"planTypeName"`
-	// The support plan type. For now the only valid type is "canonical".
-	ProviderName string `pulumi:"providerName"`
+	ProviderName string  `pulumi:"providerName"`
 }
 
 // The set of arguments for constructing a SupportPlanType resource.
 type SupportPlanTypeArgs struct {
-	// The Canonical support plan type.
 	PlanTypeName pulumi.StringPtrInput
-	// The support plan type. For now the only valid type is "canonical".
 	ProviderName pulumi.StringInput
 }
 

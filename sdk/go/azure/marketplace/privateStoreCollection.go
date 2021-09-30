@@ -14,26 +14,16 @@ import (
 type PrivateStoreCollection struct {
 	pulumi.CustomResourceState
 
-	// Indicating whether all subscriptions are selected (=true) or not (=false).
-	AllSubscriptions pulumi.BoolPtrOutput `pulumi:"allSubscriptions"`
-	// Gets or sets the association with Commercial's Billing Account.
-	Claim pulumi.StringPtrOutput `pulumi:"claim"`
-	// Gets collection Id.
-	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
-	// Gets or sets collection name.
-	CollectionName pulumi.StringPtrOutput `pulumi:"collectionName"`
-	// Indicating whether the collection is enabled or disabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the number of offers associated with the collection.
-	NumberOfOffers pulumi.Float64Output `pulumi:"numberOfOffers"`
-	// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+	AllSubscriptions  pulumi.BoolPtrOutput     `pulumi:"allSubscriptions"`
+	Claim             pulumi.StringPtrOutput   `pulumi:"claim"`
+	CollectionId      pulumi.StringOutput      `pulumi:"collectionId"`
+	CollectionName    pulumi.StringPtrOutput   `pulumi:"collectionName"`
+	Enabled           pulumi.BoolPtrOutput     `pulumi:"enabled"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	NumberOfOffers    pulumi.Float64Output     `pulumi:"numberOfOffers"`
 	SubscriptionsList pulumi.StringArrayOutput `pulumi:"subscriptionsList"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewPrivateStoreCollection registers a new resource with the given unique name, arguments, and options.
@@ -90,37 +80,23 @@ func (PrivateStoreCollectionState) ElementType() reflect.Type {
 }
 
 type privateStoreCollectionArgs struct {
-	// Indicating whether all subscriptions are selected (=true) or not (=false).
-	AllSubscriptions *bool `pulumi:"allSubscriptions"`
-	// Gets or sets the association with Commercial's Billing Account.
-	Claim *string `pulumi:"claim"`
-	// The collection ID
-	CollectionId *string `pulumi:"collectionId"`
-	// Gets or sets collection name.
-	CollectionName *string `pulumi:"collectionName"`
-	// Indicating whether the collection is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The store ID - must use the tenant ID
-	PrivateStoreId string `pulumi:"privateStoreId"`
-	// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+	AllSubscriptions  *bool    `pulumi:"allSubscriptions"`
+	Claim             *string  `pulumi:"claim"`
+	CollectionId      *string  `pulumi:"collectionId"`
+	CollectionName    *string  `pulumi:"collectionName"`
+	Enabled           *bool    `pulumi:"enabled"`
+	PrivateStoreId    string   `pulumi:"privateStoreId"`
 	SubscriptionsList []string `pulumi:"subscriptionsList"`
 }
 
 // The set of arguments for constructing a PrivateStoreCollection resource.
 type PrivateStoreCollectionArgs struct {
-	// Indicating whether all subscriptions are selected (=true) or not (=false).
-	AllSubscriptions pulumi.BoolPtrInput
-	// Gets or sets the association with Commercial's Billing Account.
-	Claim pulumi.StringPtrInput
-	// The collection ID
-	CollectionId pulumi.StringPtrInput
-	// Gets or sets collection name.
-	CollectionName pulumi.StringPtrInput
-	// Indicating whether the collection is enabled or disabled.
-	Enabled pulumi.BoolPtrInput
-	// The store ID - must use the tenant ID
-	PrivateStoreId pulumi.StringInput
-	// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+	AllSubscriptions  pulumi.BoolPtrInput
+	Claim             pulumi.StringPtrInput
+	CollectionId      pulumi.StringPtrInput
+	CollectionName    pulumi.StringPtrInput
+	Enabled           pulumi.BoolPtrInput
+	PrivateStoreId    pulumi.StringInput
 	SubscriptionsList pulumi.StringArrayInput
 }
 

@@ -14,30 +14,18 @@ import (
 type WebAppDeployment struct {
 	pulumi.CustomResourceState
 
-	// True if deployment is currently active, false if completed and null if not started.
-	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// Who authored the deployment.
-	Author pulumi.StringPtrOutput `pulumi:"author"`
-	// Author email.
+	Active      pulumi.BoolPtrOutput   `pulumi:"active"`
+	Author      pulumi.StringPtrOutput `pulumi:"author"`
 	AuthorEmail pulumi.StringPtrOutput `pulumi:"authorEmail"`
-	// Who performed the deployment.
-	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
-	// Details on deployment.
-	Details pulumi.StringPtrOutput `pulumi:"details"`
-	// End time.
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Details about deployment status.
-	Message pulumi.StringPtrOutput `pulumi:"message"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Start time.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Deployment status.
-	Status pulumi.IntPtrOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Deployer    pulumi.StringPtrOutput `pulumi:"deployer"`
+	Details     pulumi.StringPtrOutput `pulumi:"details"`
+	EndTime     pulumi.StringPtrOutput `pulumi:"endTime"`
+	Kind        pulumi.StringPtrOutput `pulumi:"kind"`
+	Message     pulumi.StringPtrOutput `pulumi:"message"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	StartTime   pulumi.StringPtrOutput `pulumi:"startTime"`
+	Status      pulumi.IntPtrOutput    `pulumi:"status"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppDeployment registers a new resource with the given unique name, arguments, and options.
@@ -163,62 +151,36 @@ func (WebAppDeploymentState) ElementType() reflect.Type {
 }
 
 type webAppDeploymentArgs struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active *bool `pulumi:"active"`
-	// Who authored the deployment.
-	Author *string `pulumi:"author"`
-	// Author email.
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Who performed the deployment.
-	Deployer *string `pulumi:"deployer"`
-	// Details on deployment.
-	Details *string `pulumi:"details"`
-	// End time.
-	EndTime *string `pulumi:"endTime"`
-	// ID of an existing deployment.
-	Id *string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Details about deployment status.
-	Message *string `pulumi:"message"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Start time.
-	StartTime *string `pulumi:"startTime"`
-	// Deployment status.
-	Status *int `pulumi:"status"`
+	Active            *bool   `pulumi:"active"`
+	Author            *string `pulumi:"author"`
+	AuthorEmail       *string `pulumi:"authorEmail"`
+	Deployer          *string `pulumi:"deployer"`
+	Details           *string `pulumi:"details"`
+	EndTime           *string `pulumi:"endTime"`
+	Id                *string `pulumi:"id"`
+	Kind              *string `pulumi:"kind"`
+	Message           *string `pulumi:"message"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	StartTime         *string `pulumi:"startTime"`
+	Status            *int    `pulumi:"status"`
 }
 
 // The set of arguments for constructing a WebAppDeployment resource.
 type WebAppDeploymentArgs struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active pulumi.BoolPtrInput
-	// Who authored the deployment.
-	Author pulumi.StringPtrInput
-	// Author email.
-	AuthorEmail pulumi.StringPtrInput
-	// Who performed the deployment.
-	Deployer pulumi.StringPtrInput
-	// Details on deployment.
-	Details pulumi.StringPtrInput
-	// End time.
-	EndTime pulumi.StringPtrInput
-	// ID of an existing deployment.
-	Id pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Details about deployment status.
-	Message pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	Active            pulumi.BoolPtrInput
+	Author            pulumi.StringPtrInput
+	AuthorEmail       pulumi.StringPtrInput
+	Deployer          pulumi.StringPtrInput
+	Details           pulumi.StringPtrInput
+	EndTime           pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Message           pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Start time.
-	StartTime pulumi.StringPtrInput
-	// Deployment status.
-	Status pulumi.IntPtrInput
+	StartTime         pulumi.StringPtrInput
+	Status            pulumi.IntPtrInput
 }
 
 func (WebAppDeploymentArgs) ElementType() reflect.Type {

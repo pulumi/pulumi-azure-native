@@ -14,12 +14,9 @@ import (
 type DeviceGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDeviceGroup registers a new resource with the given unique name, arguments, and options.
@@ -76,17 +73,13 @@ func (DeviceGroupState) ElementType() reflect.Type {
 }
 
 type deviceGroupArgs struct {
-	// Device group name
-	DeviceGroupName *string `pulumi:"deviceGroupName"`
-	// Defender for IoT location
-	IotDefenderLocation string `pulumi:"iotDefenderLocation"`
+	DeviceGroupName     *string `pulumi:"deviceGroupName"`
+	IotDefenderLocation string  `pulumi:"iotDefenderLocation"`
 }
 
 // The set of arguments for constructing a DeviceGroup resource.
 type DeviceGroupArgs struct {
-	// Device group name
-	DeviceGroupName pulumi.StringPtrInput
-	// Defender for IoT location
+	DeviceGroupName     pulumi.StringPtrInput
 	IotDefenderLocation pulumi.StringInput
 }
 

@@ -14,19 +14,12 @@ import (
 type DiagnosticLogger struct {
 	pulumi.CustomResourceState
 
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
 	Credentials pulumi.StringMapOutput `pulumi:"credentials"`
-	// Logger description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrOutput `pulumi:"isBuffered"`
-	// Logger type.
-	LoggerType pulumi.StringOutput `pulumi:"loggerType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	IsBuffered  pulumi.BoolPtrOutput   `pulumi:"isBuffered"`
+	LoggerType  pulumi.StringOutput    `pulumi:"loggerType"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDiagnosticLogger registers a new resource with the given unique name, arguments, and options.
@@ -95,26 +88,18 @@ func (DiagnosticLoggerState) ElementType() reflect.Type {
 }
 
 type diagnosticLoggerArgs struct {
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
-	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid *string `pulumi:"loggerid"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	DiagnosticId      string  `pulumi:"diagnosticId"`
+	Loggerid          *string `pulumi:"loggerid"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a DiagnosticLogger resource.
 type DiagnosticLoggerArgs struct {
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringInput
-	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid pulumi.StringPtrInput
-	// The name of the resource group.
+	DiagnosticId      pulumi.StringInput
+	Loggerid          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (DiagnosticLoggerArgs) ElementType() reflect.Type {

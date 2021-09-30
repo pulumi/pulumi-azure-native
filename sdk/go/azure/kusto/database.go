@@ -15,14 +15,10 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
-	// Kind of the database
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
+	Kind     pulumi.StringOutput    `pulumi:"kind"`
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -145,29 +141,19 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Kind of the database
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName       string  `pulumi:"clusterName"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	Kind              string  `pulumi:"kind"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringPtrInput
-	// Kind of the database
-	Kind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

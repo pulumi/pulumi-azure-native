@@ -14,34 +14,20 @@ import (
 type Relationship struct {
 	pulumi.CustomResourceState
 
-	// The Relationship Cardinality.
-	Cardinality pulumi.StringPtrOutput `pulumi:"cardinality"`
-	// Localized descriptions for the Relationship.
-	Description pulumi.StringMapOutput `pulumi:"description"`
-	// Localized display name for the Relationship.
-	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc pulumi.StringPtrOutput `pulumi:"expiryDateTimeUtc"`
-	// The properties of the Relationship.
-	Fields PropertyDefinitionResponseArrayOutput `pulumi:"fields"`
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings RelationshipTypeMappingResponseArrayOutput `pulumi:"lookupMappings"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Profile type.
-	ProfileType pulumi.StringOutput `pulumi:"profileType"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Related profile being referenced.
-	RelatedProfileType pulumi.StringOutput `pulumi:"relatedProfileType"`
-	// The relationship guid id.
-	RelationshipGuidId pulumi.StringOutput `pulumi:"relationshipGuidId"`
-	// The Relationship name.
-	RelationshipName pulumi.StringOutput `pulumi:"relationshipName"`
-	// The hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Cardinality        pulumi.StringPtrOutput                     `pulumi:"cardinality"`
+	Description        pulumi.StringMapOutput                     `pulumi:"description"`
+	DisplayName        pulumi.StringMapOutput                     `pulumi:"displayName"`
+	ExpiryDateTimeUtc  pulumi.StringPtrOutput                     `pulumi:"expiryDateTimeUtc"`
+	Fields             PropertyDefinitionResponseArrayOutput      `pulumi:"fields"`
+	LookupMappings     RelationshipTypeMappingResponseArrayOutput `pulumi:"lookupMappings"`
+	Name               pulumi.StringOutput                        `pulumi:"name"`
+	ProfileType        pulumi.StringOutput                        `pulumi:"profileType"`
+	ProvisioningState  pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RelatedProfileType pulumi.StringOutput                        `pulumi:"relatedProfileType"`
+	RelationshipGuidId pulumi.StringOutput                        `pulumi:"relationshipGuidId"`
+	RelationshipName   pulumi.StringOutput                        `pulumi:"relationshipName"`
+	TenantId           pulumi.StringOutput                        `pulumi:"tenantId"`
+	Type               pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewRelationship registers a new resource with the given unique name, arguments, and options.
@@ -113,54 +99,32 @@ func (RelationshipState) ElementType() reflect.Type {
 }
 
 type relationshipArgs struct {
-	// The Relationship Cardinality.
-	Cardinality *CardinalityTypes `pulumi:"cardinality"`
-	// Localized descriptions for the Relationship.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Relationship.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc *string `pulumi:"expiryDateTimeUtc"`
-	// The properties of the Relationship.
-	Fields []PropertyDefinition `pulumi:"fields"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings []RelationshipTypeMapping `pulumi:"lookupMappings"`
-	// Profile type.
-	ProfileType string `pulumi:"profileType"`
-	// Related profile being referenced.
-	RelatedProfileType string `pulumi:"relatedProfileType"`
-	// The name of the Relationship.
-	RelationshipName *string `pulumi:"relationshipName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Cardinality        *CardinalityTypes         `pulumi:"cardinality"`
+	Description        map[string]string         `pulumi:"description"`
+	DisplayName        map[string]string         `pulumi:"displayName"`
+	ExpiryDateTimeUtc  *string                   `pulumi:"expiryDateTimeUtc"`
+	Fields             []PropertyDefinition      `pulumi:"fields"`
+	HubName            string                    `pulumi:"hubName"`
+	LookupMappings     []RelationshipTypeMapping `pulumi:"lookupMappings"`
+	ProfileType        string                    `pulumi:"profileType"`
+	RelatedProfileType string                    `pulumi:"relatedProfileType"`
+	RelationshipName   *string                   `pulumi:"relationshipName"`
+	ResourceGroupName  string                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Relationship resource.
 type RelationshipArgs struct {
-	// The Relationship Cardinality.
-	Cardinality CardinalityTypesPtrInput
-	// Localized descriptions for the Relationship.
-	Description pulumi.StringMapInput
-	// Localized display name for the Relationship.
-	DisplayName pulumi.StringMapInput
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc pulumi.StringPtrInput
-	// The properties of the Relationship.
-	Fields PropertyDefinitionArrayInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings RelationshipTypeMappingArrayInput
-	// Profile type.
-	ProfileType pulumi.StringInput
-	// Related profile being referenced.
+	Cardinality        CardinalityTypesPtrInput
+	Description        pulumi.StringMapInput
+	DisplayName        pulumi.StringMapInput
+	ExpiryDateTimeUtc  pulumi.StringPtrInput
+	Fields             PropertyDefinitionArrayInput
+	HubName            pulumi.StringInput
+	LookupMappings     RelationshipTypeMappingArrayInput
+	ProfileType        pulumi.StringInput
 	RelatedProfileType pulumi.StringInput
-	// The name of the Relationship.
-	RelationshipName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	RelationshipName   pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
 }
 
 func (RelationshipArgs) ElementType() reflect.Type {

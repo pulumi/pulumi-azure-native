@@ -14,22 +14,14 @@ import (
 type WebAppAuthSettingsV2Slot struct {
 	pulumi.CustomResourceState
 
-	// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-	GlobalValidation GlobalValidationResponsePtrOutput `pulumi:"globalValidation"`
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-	HttpSettings HttpSettingsResponsePtrOutput `pulumi:"httpSettings"`
-	// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+	GlobalValidation  GlobalValidationResponsePtrOutput  `pulumi:"globalValidation"`
+	HttpSettings      HttpSettingsResponsePtrOutput      `pulumi:"httpSettings"`
 	IdentityProviders IdentityProvidersResponsePtrOutput `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The configuration settings of the login flow of users using App Service Authentication/Authorization.
-	Login LoginResponsePtrOutput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration settings of the platform of App Service Authentication/Authorization.
-	Platform AuthPlatformResponsePtrOutput `pulumi:"platform"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind              pulumi.StringPtrOutput             `pulumi:"kind"`
+	Login             LoginResponsePtrOutput             `pulumi:"login"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	Platform          AuthPlatformResponsePtrOutput      `pulumi:"platform"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewWebAppAuthSettingsV2Slot registers a new resource with the given unique name, arguments, and options.
@@ -128,46 +120,28 @@ func (WebAppAuthSettingsV2SlotState) ElementType() reflect.Type {
 }
 
 type webAppAuthSettingsV2SlotArgs struct {
-	// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-	GlobalValidation *GlobalValidation `pulumi:"globalValidation"`
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-	HttpSettings *HttpSettings `pulumi:"httpSettings"`
-	// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+	GlobalValidation  *GlobalValidation  `pulumi:"globalValidation"`
+	HttpSettings      *HttpSettings      `pulumi:"httpSettings"`
 	IdentityProviders *IdentityProviders `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// The configuration settings of the login flow of users using App Service Authentication/Authorization.
-	Login *Login `pulumi:"login"`
-	// Name of web app.
-	Name string `pulumi:"name"`
-	// The configuration settings of the platform of App Service Authentication/Authorization.
-	Platform *AuthPlatform `pulumi:"platform"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
+	Kind              *string            `pulumi:"kind"`
+	Login             *Login             `pulumi:"login"`
+	Name              string             `pulumi:"name"`
+	Platform          *AuthPlatform      `pulumi:"platform"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Slot              string             `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppAuthSettingsV2Slot resource.
 type WebAppAuthSettingsV2SlotArgs struct {
-	// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-	GlobalValidation GlobalValidationPtrInput
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-	HttpSettings HttpSettingsPtrInput
-	// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+	GlobalValidation  GlobalValidationPtrInput
+	HttpSettings      HttpSettingsPtrInput
 	IdentityProviders IdentityProvidersPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// The configuration settings of the login flow of users using App Service Authentication/Authorization.
-	Login LoginPtrInput
-	// Name of web app.
-	Name pulumi.StringInput
-	// The configuration settings of the platform of App Service Authentication/Authorization.
-	Platform AuthPlatformPtrInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Login             LoginPtrInput
+	Name              pulumi.StringInput
+	Platform          AuthPlatformPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot pulumi.StringInput
+	Slot              pulumi.StringInput
 }
 
 func (WebAppAuthSettingsV2SlotArgs) ElementType() reflect.Type {

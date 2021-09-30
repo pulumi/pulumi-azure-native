@@ -14,20 +14,13 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with a Stream Analytics cluster.
+	Etag       pulumi.StringOutput             `pulumi:"etag"`
+	Location   pulumi.StringPtrOutput          `pulumi:"location"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties ClusterPropertiesResponseOutput `pulumi:"properties"`
-	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-	Sku ClusterSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        ClusterSkuResponsePtrOutput     `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
+	Type       pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -84,30 +77,20 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-	Sku *ClusterSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterName       *string           `pulumi:"clusterName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *ClusterSku       `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the cluster.
-	ClusterName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-	Sku ClusterSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               ClusterSkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

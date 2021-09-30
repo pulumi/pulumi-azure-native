@@ -14,38 +14,22 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	// Collection of backend address pools used by a load balancer.
-	BackendAddressPools BackendAddressPoolResponseArrayOutput `pulumi:"backendAddressPools"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The extended location of the load balancer.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// Object representing the frontend IPs to be used for the load balancer.
+	BackendAddressPools      BackendAddressPoolResponseArrayOutput      `pulumi:"backendAddressPools"`
+	Etag                     pulumi.StringOutput                        `pulumi:"etag"`
+	ExtendedLocation         ExtendedLocationResponsePtrOutput          `pulumi:"extendedLocation"`
 	FrontendIPConfigurations FrontendIPConfigurationResponseArrayOutput `pulumi:"frontendIPConfigurations"`
-	// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatPools InboundNatPoolResponseArrayOutput `pulumi:"inboundNatPools"`
-	// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatRules InboundNatRuleResponseArrayOutput `pulumi:"inboundNatRules"`
-	// Object collection representing the load balancing rules Gets the provisioning.
-	LoadBalancingRules LoadBalancingRuleResponseArrayOutput `pulumi:"loadBalancingRules"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The outbound rules.
-	OutboundRules OutboundRuleResponseArrayOutput `pulumi:"outboundRules"`
-	// Collection of probe objects used in the load balancer.
-	Probes ProbeResponseArrayOutput `pulumi:"probes"`
-	// The provisioning state of the load balancer resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the load balancer resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// The load balancer SKU.
-	Sku LoadBalancerSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	InboundNatPools          InboundNatPoolResponseArrayOutput          `pulumi:"inboundNatPools"`
+	InboundNatRules          InboundNatRuleResponseArrayOutput          `pulumi:"inboundNatRules"`
+	LoadBalancingRules       LoadBalancingRuleResponseArrayOutput       `pulumi:"loadBalancingRules"`
+	Location                 pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name                     pulumi.StringOutput                        `pulumi:"name"`
+	OutboundRules            OutboundRuleResponseArrayOutput            `pulumi:"outboundRules"`
+	Probes                   ProbeResponseArrayOutput                   `pulumi:"probes"`
+	ProvisioningState        pulumi.StringOutput                        `pulumi:"provisioningState"`
+	ResourceGuid             pulumi.StringOutput                        `pulumi:"resourceGuid"`
+	Sku                      LoadBalancerSkuResponsePtrOutput           `pulumi:"sku"`
+	Tags                     pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                     pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -324,66 +308,38 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	// Collection of backend address pools used by a load balancer.
-	BackendAddressPools []BackendAddressPool `pulumi:"backendAddressPools"`
-	// The extended location of the load balancer.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Object representing the frontend IPs to be used for the load balancer.
+	BackendAddressPools      []BackendAddressPool      `pulumi:"backendAddressPools"`
+	ExtendedLocation         *ExtendedLocation         `pulumi:"extendedLocation"`
 	FrontendIPConfigurations []FrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
-	// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatRules []InboundNatRuleType `pulumi:"inboundNatRules"`
-	// The name of the load balancer.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// Object collection representing the load balancing rules Gets the provisioning.
-	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The outbound rules.
-	OutboundRules []OutboundRule `pulumi:"outboundRules"`
-	// Collection of probe objects used in the load balancer.
-	Probes []Probe `pulumi:"probes"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The load balancer SKU.
-	Sku *LoadBalancerSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id                       *string                   `pulumi:"id"`
+	InboundNatPools          []InboundNatPool          `pulumi:"inboundNatPools"`
+	InboundNatRules          []InboundNatRuleType      `pulumi:"inboundNatRules"`
+	LoadBalancerName         *string                   `pulumi:"loadBalancerName"`
+	LoadBalancingRules       []LoadBalancingRule       `pulumi:"loadBalancingRules"`
+	Location                 *string                   `pulumi:"location"`
+	OutboundRules            []OutboundRule            `pulumi:"outboundRules"`
+	Probes                   []Probe                   `pulumi:"probes"`
+	ResourceGroupName        string                    `pulumi:"resourceGroupName"`
+	Sku                      *LoadBalancerSku          `pulumi:"sku"`
+	Tags                     map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// Collection of backend address pools used by a load balancer.
-	BackendAddressPools BackendAddressPoolArrayInput
-	// The extended location of the load balancer.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Object representing the frontend IPs to be used for the load balancer.
+	BackendAddressPools      BackendAddressPoolArrayInput
+	ExtendedLocation         ExtendedLocationPtrInput
 	FrontendIPConfigurations FrontendIPConfigurationArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatPools InboundNatPoolArrayInput
-	// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
-	InboundNatRules InboundNatRuleTypeArrayInput
-	// The name of the load balancer.
-	LoadBalancerName pulumi.StringPtrInput
-	// Object collection representing the load balancing rules Gets the provisioning.
-	LoadBalancingRules LoadBalancingRuleArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The outbound rules.
-	OutboundRules OutboundRuleArrayInput
-	// Collection of probe objects used in the load balancer.
-	Probes ProbeArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The load balancer SKU.
-	Sku LoadBalancerSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Id                       pulumi.StringPtrInput
+	InboundNatPools          InboundNatPoolArrayInput
+	InboundNatRules          InboundNatRuleTypeArrayInput
+	LoadBalancerName         pulumi.StringPtrInput
+	LoadBalancingRules       LoadBalancingRuleArrayInput
+	Location                 pulumi.StringPtrInput
+	OutboundRules            OutboundRuleArrayInput
+	Probes                   ProbeArrayInput
+	ResourceGroupName        pulumi.StringInput
+	Sku                      LoadBalancerSkuPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

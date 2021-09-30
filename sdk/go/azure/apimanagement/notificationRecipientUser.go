@@ -14,11 +14,8 @@ import (
 type NotificationRecipientUser struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// API Management UserId subscribed to notification.
+	Name   pulumi.StringOutput    `pulumi:"name"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
 	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
@@ -136,26 +133,18 @@ func (NotificationRecipientUserState) ElementType() reflect.Type {
 }
 
 type notificationRecipientUserArgs struct {
-	// Notification Name Identifier.
-	NotificationName string `pulumi:"notificationName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId *string `pulumi:"userId"`
+	NotificationName  string  `pulumi:"notificationName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	UserId            *string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a NotificationRecipientUser resource.
 type NotificationRecipientUserArgs struct {
-	// Notification Name Identifier.
-	NotificationName pulumi.StringInput
-	// The name of the resource group.
+	NotificationName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	UserId            pulumi.StringPtrInput
 }
 
 func (NotificationRecipientUserArgs) ElementType() reflect.Type {

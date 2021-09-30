@@ -14,20 +14,13 @@ import (
 type AvailabilityGroupListener struct {
 	pulumi.CustomResourceState
 
-	// Name of the availability group.
-	AvailabilityGroupName pulumi.StringPtrOutput `pulumi:"availabilityGroupName"`
-	// Create a default availability group if it does not exist.
-	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrOutput `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
-	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayOutput `pulumi:"loadBalancerConfigurations"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Listener port.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AvailabilityGroupName                    pulumi.StringPtrOutput                       `pulumi:"availabilityGroupName"`
+	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrOutput                         `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
+	LoadBalancerConfigurations               LoadBalancerConfigurationResponseArrayOutput `pulumi:"loadBalancerConfigurations"`
+	Name                                     pulumi.StringOutput                          `pulumi:"name"`
+	Port                                     pulumi.IntPtrOutput                          `pulumi:"port"`
+	ProvisioningState                        pulumi.StringOutput                          `pulumi:"provisioningState"`
+	Type                                     pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAvailabilityGroupListener registers a new resource with the given unique name, arguments, and options.
@@ -87,38 +80,24 @@ func (AvailabilityGroupListenerState) ElementType() reflect.Type {
 }
 
 type availabilityGroupListenerArgs struct {
-	// Name of the availability group listener.
-	AvailabilityGroupListenerName *string `pulumi:"availabilityGroupListenerName"`
-	// Name of the availability group.
-	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
-	// Create a default availability group if it does not exist.
-	CreateDefaultAvailabilityGroupIfNotExist *bool `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
-	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
-	// Listener port.
-	Port *int `pulumi:"port"`
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL virtual machine group.
-	SqlVirtualMachineGroupName string `pulumi:"sqlVirtualMachineGroupName"`
+	AvailabilityGroupListenerName            *string                     `pulumi:"availabilityGroupListenerName"`
+	AvailabilityGroupName                    *string                     `pulumi:"availabilityGroupName"`
+	CreateDefaultAvailabilityGroupIfNotExist *bool                       `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
+	LoadBalancerConfigurations               []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
+	Port                                     *int                        `pulumi:"port"`
+	ResourceGroupName                        string                      `pulumi:"resourceGroupName"`
+	SqlVirtualMachineGroupName               string                      `pulumi:"sqlVirtualMachineGroupName"`
 }
 
 // The set of arguments for constructing a AvailabilityGroupListener resource.
 type AvailabilityGroupListenerArgs struct {
-	// Name of the availability group listener.
-	AvailabilityGroupListenerName pulumi.StringPtrInput
-	// Name of the availability group.
-	AvailabilityGroupName pulumi.StringPtrInput
-	// Create a default availability group if it does not exist.
+	AvailabilityGroupListenerName            pulumi.StringPtrInput
+	AvailabilityGroupName                    pulumi.StringPtrInput
 	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrInput
-	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations LoadBalancerConfigurationArrayInput
-	// Listener port.
-	Port pulumi.IntPtrInput
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Name of the SQL virtual machine group.
-	SqlVirtualMachineGroupName pulumi.StringInput
+	LoadBalancerConfigurations               LoadBalancerConfigurationArrayInput
+	Port                                     pulumi.IntPtrInput
+	ResourceGroupName                        pulumi.StringInput
+	SqlVirtualMachineGroupName               pulumi.StringInput
 }
 
 func (AvailabilityGroupListenerArgs) ElementType() reflect.Type {

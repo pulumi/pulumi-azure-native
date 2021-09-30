@@ -14,32 +14,19 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// ID of the connector.
-	ConnectorId pulumi.IntOutput `pulumi:"connectorId"`
-	// Name of the connector.
-	ConnectorName pulumi.StringPtrOutput `pulumi:"connectorName"`
-	// The connector properties.
-	ConnectorProperties pulumi.MapOutput `pulumi:"connectorProperties"`
-	// Type of connector.
-	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
-	// The created time.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Description of the connector.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Display name of the connector.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// If this is an internal connector.
-	IsInternal pulumi.BoolPtrOutput `pulumi:"isInternal"`
-	// The last modified time.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of connector.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConnectorId         pulumi.IntOutput       `pulumi:"connectorId"`
+	ConnectorName       pulumi.StringPtrOutput `pulumi:"connectorName"`
+	ConnectorProperties pulumi.MapOutput       `pulumi:"connectorProperties"`
+	ConnectorType       pulumi.StringOutput    `pulumi:"connectorType"`
+	Created             pulumi.StringOutput    `pulumi:"created"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	DisplayName         pulumi.StringPtrOutput `pulumi:"displayName"`
+	IsInternal          pulumi.BoolPtrOutput   `pulumi:"isInternal"`
+	LastModified        pulumi.StringOutput    `pulumi:"lastModified"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	State               pulumi.StringOutput    `pulumi:"state"`
+	TenantId            pulumi.StringOutput    `pulumi:"tenantId"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -111,42 +98,26 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// Name of the connector.
-	ConnectorName *string `pulumi:"connectorName"`
-	// The connector properties.
+	ConnectorName       *string                `pulumi:"connectorName"`
 	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
-	// Type of connector.
-	ConnectorType string `pulumi:"connectorType"`
-	// Description of the connector.
-	Description *string `pulumi:"description"`
-	// Display name of the connector.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// If this is an internal connector.
-	IsInternal *bool `pulumi:"isInternal"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ConnectorType       string                 `pulumi:"connectorType"`
+	Description         *string                `pulumi:"description"`
+	DisplayName         *string                `pulumi:"displayName"`
+	HubName             string                 `pulumi:"hubName"`
+	IsInternal          *bool                  `pulumi:"isInternal"`
+	ResourceGroupName   string                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// Name of the connector.
-	ConnectorName pulumi.StringPtrInput
-	// The connector properties.
+	ConnectorName       pulumi.StringPtrInput
 	ConnectorProperties pulumi.MapInput
-	// Type of connector.
-	ConnectorType pulumi.StringInput
-	// Description of the connector.
-	Description pulumi.StringPtrInput
-	// Display name of the connector.
-	DisplayName pulumi.StringPtrInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// If this is an internal connector.
-	IsInternal pulumi.BoolPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ConnectorType       pulumi.StringInput
+	Description         pulumi.StringPtrInput
+	DisplayName         pulumi.StringPtrInput
+	HubName             pulumi.StringInput
+	IsInternal          pulumi.BoolPtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {

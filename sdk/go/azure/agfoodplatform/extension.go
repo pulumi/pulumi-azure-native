@@ -14,24 +14,15 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	// The ETag value to implement optimistic concurrency.
-	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// Extension api docs link.
-	ExtensionApiDocsLink pulumi.StringOutput `pulumi:"extensionApiDocsLink"`
-	// Extension auth link.
-	ExtensionAuthLink pulumi.StringOutput `pulumi:"extensionAuthLink"`
-	// Extension category. e.g. weather/sensor/satellite.
-	ExtensionCategory pulumi.StringOutput `pulumi:"extensionCategory"`
-	// Extension Id.
-	ExtensionId pulumi.StringOutput `pulumi:"extensionId"`
-	// Installed extension version.
-	InstalledExtensionVersion pulumi.StringOutput `pulumi:"installedExtensionVersion"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ETag                      pulumi.StringOutput      `pulumi:"eTag"`
+	ExtensionApiDocsLink      pulumi.StringOutput      `pulumi:"extensionApiDocsLink"`
+	ExtensionAuthLink         pulumi.StringOutput      `pulumi:"extensionAuthLink"`
+	ExtensionCategory         pulumi.StringOutput      `pulumi:"extensionCategory"`
+	ExtensionId               pulumi.StringOutput      `pulumi:"extensionId"`
+	InstalledExtensionVersion pulumi.StringOutput      `pulumi:"installedExtensionVersion"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
+	SystemData                SystemDataResponseOutput `pulumi:"systemData"`
+	Type                      pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -91,22 +82,16 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	// Id of extension resource.
-	ExtensionId *string `pulumi:"extensionId"`
-	// FarmBeats resource name.
-	FarmBeatsResourceName string `pulumi:"farmBeatsResourceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ExtensionId           *string `pulumi:"extensionId"`
+	FarmBeatsResourceName string  `pulumi:"farmBeatsResourceName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	// Id of extension resource.
-	ExtensionId pulumi.StringPtrInput
-	// FarmBeats resource name.
+	ExtensionId           pulumi.StringPtrInput
 	FarmBeatsResourceName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {

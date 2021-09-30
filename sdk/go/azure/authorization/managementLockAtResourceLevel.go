@@ -14,16 +14,11 @@ import (
 type ManagementLockAtResourceLevel struct {
 	pulumi.CustomResourceState
 
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level pulumi.StringOutput `pulumi:"level"`
-	// The name of the lock.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The owners of the lock.
+	Level  pulumi.StringOutput                    `pulumi:"level"`
+	Name   pulumi.StringOutput                    `pulumi:"name"`
+	Notes  pulumi.StringPtrOutput                 `pulumi:"notes"`
 	Owners ManagementLockOwnerResponseArrayOutput `pulumi:"owners"`
-	// The resource type of the lock - Microsoft.Authorization/locks.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewManagementLockAtResourceLevel registers a new resource with the given unique name, arguments, and options.
@@ -107,46 +102,28 @@ func (ManagementLockAtResourceLevelState) ElementType() reflect.Type {
 }
 
 type managementLockAtResourceLevelArgs struct {
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level string `pulumi:"level"`
-	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
-	LockName *string `pulumi:"lockName"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes *string `pulumi:"notes"`
-	// The owners of the lock.
-	Owners []ManagementLockOwner `pulumi:"owners"`
-	// The parent resource identity.
-	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The name of the resource group containing the resource to lock.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource to lock.
-	ResourceName string `pulumi:"resourceName"`
-	// The resource provider namespace of the resource to lock.
-	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// The resource type of the resource to lock.
-	ResourceType string `pulumi:"resourceType"`
+	Level                     string                `pulumi:"level"`
+	LockName                  *string               `pulumi:"lockName"`
+	Notes                     *string               `pulumi:"notes"`
+	Owners                    []ManagementLockOwner `pulumi:"owners"`
+	ParentResourcePath        string                `pulumi:"parentResourcePath"`
+	ResourceGroupName         string                `pulumi:"resourceGroupName"`
+	ResourceName              string                `pulumi:"resourceName"`
+	ResourceProviderNamespace string                `pulumi:"resourceProviderNamespace"`
+	ResourceType              string                `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ManagementLockAtResourceLevel resource.
 type ManagementLockAtResourceLevelArgs struct {
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level pulumi.StringInput
-	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
-	LockName pulumi.StringPtrInput
-	// Notes about the lock. Maximum of 512 characters.
-	Notes pulumi.StringPtrInput
-	// The owners of the lock.
-	Owners ManagementLockOwnerArrayInput
-	// The parent resource identity.
-	ParentResourcePath pulumi.StringInput
-	// The name of the resource group containing the resource to lock.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource to lock.
-	ResourceName pulumi.StringInput
-	// The resource provider namespace of the resource to lock.
+	Level                     pulumi.StringInput
+	LockName                  pulumi.StringPtrInput
+	Notes                     pulumi.StringPtrInput
+	Owners                    ManagementLockOwnerArrayInput
+	ParentResourcePath        pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	ResourceName              pulumi.StringInput
 	ResourceProviderNamespace pulumi.StringInput
-	// The resource type of the resource to lock.
-	ResourceType pulumi.StringInput
+	ResourceType              pulumi.StringInput
 }
 
 func (ManagementLockAtResourceLevelArgs) ElementType() reflect.Type {

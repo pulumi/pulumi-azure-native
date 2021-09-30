@@ -14,24 +14,15 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// API host name.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The type of identity used for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Whether or not public network access is allowed for the container registry.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	HostName            pulumi.StringOutput       `pulumi:"hostName"`
+	Identity            IdentityResponsePtrOutput `pulumi:"identity"`
+	Location            pulumi.StringOutput       `pulumi:"location"`
+	Name                pulumi.StringOutput       `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput       `pulumi:"provisioningState"`
+	PublicNetworkAccess pulumi.StringPtrOutput    `pulumi:"publicNetworkAccess"`
+	SystemData          SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput    `pulumi:"tags"`
+	Type                pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -91,34 +82,22 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Account name.
-	AccountName *string `pulumi:"accountName"`
-	// The type of identity used for the resource.
-	Identity *Identity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Whether or not public network access is allowed for the container registry.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName         *string           `pulumi:"accountName"`
+	Identity            *Identity         `pulumi:"identity"`
+	Location            *string           `pulumi:"location"`
+	PublicNetworkAccess *string           `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Account name.
-	AccountName pulumi.StringPtrInput
-	// The type of identity used for the resource.
-	Identity IdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Whether or not public network access is allowed for the container registry.
+	AccountName         pulumi.StringPtrInput
+	Identity            IdentityPtrInput
+	Location            pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

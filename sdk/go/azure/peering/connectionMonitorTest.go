@@ -14,24 +14,15 @@ import (
 type ConnectionMonitorTest struct {
 	pulumi.CustomResourceState
 
-	// The Connection Monitor test destination
-	Destination pulumi.StringPtrOutput `pulumi:"destination"`
-	// The Connection Monitor test destination port
-	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
-	// The flag that indicates if the Connection Monitor test is successful or not.
-	IsTestSuccessful pulumi.BoolOutput `pulumi:"isTestSuccessful"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The path representing the Connection Monitor test.
-	Path pulumi.StringArrayOutput `pulumi:"path"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The Connection Monitor test source agent
-	SourceAgent pulumi.StringPtrOutput `pulumi:"sourceAgent"`
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec pulumi.IntPtrOutput `pulumi:"testFrequencyInSec"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Destination        pulumi.StringPtrOutput   `pulumi:"destination"`
+	DestinationPort    pulumi.IntPtrOutput      `pulumi:"destinationPort"`
+	IsTestSuccessful   pulumi.BoolOutput        `pulumi:"isTestSuccessful"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	Path               pulumi.StringArrayOutput `pulumi:"path"`
+	ProvisioningState  pulumi.StringOutput      `pulumi:"provisioningState"`
+	SourceAgent        pulumi.StringPtrOutput   `pulumi:"sourceAgent"`
+	TestFrequencyInSec pulumi.IntPtrOutput      `pulumi:"testFrequencyInSec"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewConnectionMonitorTest registers a new resource with the given unique name, arguments, and options.
@@ -91,38 +82,24 @@ func (ConnectionMonitorTestState) ElementType() reflect.Type {
 }
 
 type connectionMonitorTestArgs struct {
-	// The name of the connection monitor test
 	ConnectionMonitorTestName *string `pulumi:"connectionMonitorTestName"`
-	// The Connection Monitor test destination
-	Destination *string `pulumi:"destination"`
-	// The Connection Monitor test destination port
-	DestinationPort *int `pulumi:"destinationPort"`
-	// The name of the peering service.
-	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Connection Monitor test source agent
-	SourceAgent *string `pulumi:"sourceAgent"`
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec *int `pulumi:"testFrequencyInSec"`
+	Destination               *string `pulumi:"destination"`
+	DestinationPort           *int    `pulumi:"destinationPort"`
+	PeeringServiceName        string  `pulumi:"peeringServiceName"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
+	SourceAgent               *string `pulumi:"sourceAgent"`
+	TestFrequencyInSec        *int    `pulumi:"testFrequencyInSec"`
 }
 
 // The set of arguments for constructing a ConnectionMonitorTest resource.
 type ConnectionMonitorTestArgs struct {
-	// The name of the connection monitor test
 	ConnectionMonitorTestName pulumi.StringPtrInput
-	// The Connection Monitor test destination
-	Destination pulumi.StringPtrInput
-	// The Connection Monitor test destination port
-	DestinationPort pulumi.IntPtrInput
-	// The name of the peering service.
-	PeeringServiceName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The Connection Monitor test source agent
-	SourceAgent pulumi.StringPtrInput
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec pulumi.IntPtrInput
+	Destination               pulumi.StringPtrInput
+	DestinationPort           pulumi.IntPtrInput
+	PeeringServiceName        pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	SourceAgent               pulumi.StringPtrInput
+	TestFrequencyInSec        pulumi.IntPtrInput
 }
 
 func (ConnectionMonitorTestArgs) ElementType() reflect.Type {

@@ -14,12 +14,9 @@ import (
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource identifier for the subnet.
+	Name     pulumi.StringOutput `pulumi:"name"`
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type     pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
@@ -82,25 +79,17 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 }
 
 type virtualNetworkRuleArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource identifier for the subnet.
-	SubnetId string `pulumi:"subnetId"`
-	// The name of the virtual network rule to create or update.
+	AccountName            string  `pulumi:"accountName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	SubnetId               string  `pulumi:"subnetId"`
 	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName pulumi.StringInput
-	// The name of the Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// The resource identifier for the subnet.
-	SubnetId pulumi.StringInput
-	// The name of the virtual network rule to create or update.
+	AccountName            pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	SubnetId               pulumi.StringInput
 	VirtualNetworkRuleName pulumi.StringPtrInput
 }
 

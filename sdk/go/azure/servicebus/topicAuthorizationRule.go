@@ -14,12 +14,9 @@ import (
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewTopicAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -115,30 +112,20 @@ func (TopicAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type topicAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
-	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	AuthorizationRuleName *string        `pulumi:"authorizationRuleName"`
+	NamespaceName         string         `pulumi:"namespaceName"`
+	ResourceGroupName     string         `pulumi:"resourceGroupName"`
+	Rights                []AccessRights `pulumi:"rights"`
+	TopicName             string         `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a TopicAuthorizationRule resource.
 type TopicAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights AccessRightsArrayInput
-	// The topic name.
-	TopicName pulumi.StringInput
+	NamespaceName         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                AccessRightsArrayInput
+	TopicName             pulumi.StringInput
 }
 
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {

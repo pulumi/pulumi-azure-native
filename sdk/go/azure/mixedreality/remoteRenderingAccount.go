@@ -14,30 +14,18 @@ import (
 type RemoteRenderingAccount struct {
 	pulumi.CustomResourceState
 
-	// Correspond domain name of certain Spatial Anchors Account
-	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
-	// unique id of certain account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The identity associated with this account
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of account, if supported
-	Kind SkuResponsePtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The plan associated with this account
-	Plan IdentityResponsePtrOutput `pulumi:"plan"`
-	// The sku associated with this account
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The name of the storage account associated with this accountId
-	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
-	// System metadata for this account
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountDomain      pulumi.StringOutput       `pulumi:"accountDomain"`
+	AccountId          pulumi.StringOutput       `pulumi:"accountId"`
+	Identity           IdentityResponsePtrOutput `pulumi:"identity"`
+	Kind               SkuResponsePtrOutput      `pulumi:"kind"`
+	Location           pulumi.StringOutput       `pulumi:"location"`
+	Name               pulumi.StringOutput       `pulumi:"name"`
+	Plan               IdentityResponsePtrOutput `pulumi:"plan"`
+	Sku                SkuResponsePtrOutput      `pulumi:"sku"`
+	StorageAccountName pulumi.StringPtrOutput    `pulumi:"storageAccountName"`
+	SystemData         SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags               pulumi.StringMapOutput    `pulumi:"tags"`
+	Type               pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewRemoteRenderingAccount registers a new resource with the given unique name, arguments, and options.
@@ -112,46 +100,28 @@ func (RemoteRenderingAccountState) ElementType() reflect.Type {
 }
 
 type remoteRenderingAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName *string `pulumi:"accountName"`
-	// The identity associated with this account
-	Identity *Identity `pulumi:"identity"`
-	// The kind of account, if supported
-	Kind *Sku `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The plan associated with this account
-	Plan *Identity `pulumi:"plan"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku associated with this account
-	Sku *Sku `pulumi:"sku"`
-	// The name of the storage account associated with this accountId
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName        *string           `pulumi:"accountName"`
+	Identity           *Identity         `pulumi:"identity"`
+	Kind               *Sku              `pulumi:"kind"`
+	Location           *string           `pulumi:"location"`
+	Plan               *Identity         `pulumi:"plan"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Sku                *Sku              `pulumi:"sku"`
+	StorageAccountName *string           `pulumi:"storageAccountName"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RemoteRenderingAccount resource.
 type RemoteRenderingAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName pulumi.StringPtrInput
-	// The identity associated with this account
-	Identity IdentityPtrInput
-	// The kind of account, if supported
-	Kind SkuPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The plan associated with this account
-	Plan IdentityPtrInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku associated with this account
-	Sku SkuPtrInput
-	// The name of the storage account associated with this accountId
+	AccountName        pulumi.StringPtrInput
+	Identity           IdentityPtrInput
+	Kind               SkuPtrInput
+	Location           pulumi.StringPtrInput
+	Plan               IdentityPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                SkuPtrInput
 	StorageAccountName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (RemoteRenderingAccountArgs) ElementType() reflect.Type {

@@ -14,14 +14,10 @@ import (
 type ThreatIntelligenceIndicator struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the entity.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind pulumi.StringOutput    `pulumi:"kind"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Type pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewThreatIntelligenceIndicator registers a new resource with the given unique name, arguments, and options.
@@ -93,146 +89,78 @@ func (ThreatIntelligenceIndicatorState) ElementType() reflect.Type {
 }
 
 type threatIntelligenceIndicatorArgs struct {
-	// Confidence of threat intelligence entity
-	Confidence *int `pulumi:"confidence"`
-	// Created by
-	Created *string `pulumi:"created"`
-	// Created by reference of threat intelligence entity
-	CreatedByRef *string `pulumi:"createdByRef"`
-	// Is threat intelligence entity defanged
-	Defanged *bool `pulumi:"defanged"`
-	// Description of a threat intelligence entity
-	Description *string `pulumi:"description"`
-	// Display name of a threat intelligence entity
-	DisplayName *string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Extensions map
-	Extensions interface{} `pulumi:"extensions"`
-	// External ID of threat intelligence entity
-	ExternalId *string `pulumi:"externalId"`
-	// External last updated time in UTC
-	ExternalLastUpdatedTimeUtc *string `pulumi:"externalLastUpdatedTimeUtc"`
-	// External References
-	ExternalReferences []ThreatIntelligenceExternalReference `pulumi:"externalReferences"`
-	// Granular Markings
-	GranularMarkings []ThreatIntelligenceGranularMarkingModel `pulumi:"granularMarkings"`
-	// Indicator types of threat intelligence entities
-	IndicatorTypes []string `pulumi:"indicatorTypes"`
-	// Kill chain phases
-	KillChainPhases []ThreatIntelligenceKillChainPhase `pulumi:"killChainPhases"`
-	// The kind of the entity.
-	Kind string `pulumi:"kind"`
-	// Labels  of threat intelligence entity
-	Labels []string `pulumi:"labels"`
-	// Language of threat intelligence entity
-	Language *string `pulumi:"language"`
-	// Last updated time in UTC
-	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
-	// Modified by
-	Modified *string `pulumi:"modified"`
-	// Threat intelligence indicator name field.
-	Name *string `pulumi:"name"`
-	// Threat intelligence entity object marking references
-	ObjectMarkingRefs []string `pulumi:"objectMarkingRefs"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// Parsed patterns
-	ParsedPattern []ThreatIntelligenceParsedPattern `pulumi:"parsedPattern"`
-	// Pattern of a threat intelligence entity
-	Pattern *string `pulumi:"pattern"`
-	// Pattern type of a threat intelligence entity
-	PatternType *string `pulumi:"patternType"`
-	// Pattern version of a threat intelligence entity
-	PatternVersion *string `pulumi:"patternVersion"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Is threat intelligence entity revoked
-	Revoked *bool `pulumi:"revoked"`
-	// Source of a threat intelligence entity
-	Source *string `pulumi:"source"`
-	// List of tags
-	ThreatIntelligenceTags []string `pulumi:"threatIntelligenceTags"`
-	// Threat types
-	ThreatTypes []string `pulumi:"threatTypes"`
-	// Valid from
-	ValidFrom *string `pulumi:"validFrom"`
-	// Valid until
-	ValidUntil *string `pulumi:"validUntil"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Confidence                          *int                                     `pulumi:"confidence"`
+	Created                             *string                                  `pulumi:"created"`
+	CreatedByRef                        *string                                  `pulumi:"createdByRef"`
+	Defanged                            *bool                                    `pulumi:"defanged"`
+	Description                         *string                                  `pulumi:"description"`
+	DisplayName                         *string                                  `pulumi:"displayName"`
+	Etag                                *string                                  `pulumi:"etag"`
+	Extensions                          interface{}                              `pulumi:"extensions"`
+	ExternalId                          *string                                  `pulumi:"externalId"`
+	ExternalLastUpdatedTimeUtc          *string                                  `pulumi:"externalLastUpdatedTimeUtc"`
+	ExternalReferences                  []ThreatIntelligenceExternalReference    `pulumi:"externalReferences"`
+	GranularMarkings                    []ThreatIntelligenceGranularMarkingModel `pulumi:"granularMarkings"`
+	IndicatorTypes                      []string                                 `pulumi:"indicatorTypes"`
+	KillChainPhases                     []ThreatIntelligenceKillChainPhase       `pulumi:"killChainPhases"`
+	Kind                                string                                   `pulumi:"kind"`
+	Labels                              []string                                 `pulumi:"labels"`
+	Language                            *string                                  `pulumi:"language"`
+	LastUpdatedTimeUtc                  *string                                  `pulumi:"lastUpdatedTimeUtc"`
+	Modified                            *string                                  `pulumi:"modified"`
+	Name                                *string                                  `pulumi:"name"`
+	ObjectMarkingRefs                   []string                                 `pulumi:"objectMarkingRefs"`
+	OperationalInsightsResourceProvider string                                   `pulumi:"operationalInsightsResourceProvider"`
+	ParsedPattern                       []ThreatIntelligenceParsedPattern        `pulumi:"parsedPattern"`
+	Pattern                             *string                                  `pulumi:"pattern"`
+	PatternType                         *string                                  `pulumi:"patternType"`
+	PatternVersion                      *string                                  `pulumi:"patternVersion"`
+	ResourceGroupName                   string                                   `pulumi:"resourceGroupName"`
+	Revoked                             *bool                                    `pulumi:"revoked"`
+	Source                              *string                                  `pulumi:"source"`
+	ThreatIntelligenceTags              []string                                 `pulumi:"threatIntelligenceTags"`
+	ThreatTypes                         []string                                 `pulumi:"threatTypes"`
+	ValidFrom                           *string                                  `pulumi:"validFrom"`
+	ValidUntil                          *string                                  `pulumi:"validUntil"`
+	WorkspaceName                       string                                   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a ThreatIntelligenceIndicator resource.
 type ThreatIntelligenceIndicatorArgs struct {
-	// Confidence of threat intelligence entity
-	Confidence pulumi.IntPtrInput
-	// Created by
-	Created pulumi.StringPtrInput
-	// Created by reference of threat intelligence entity
-	CreatedByRef pulumi.StringPtrInput
-	// Is threat intelligence entity defanged
-	Defanged pulumi.BoolPtrInput
-	// Description of a threat intelligence entity
-	Description pulumi.StringPtrInput
-	// Display name of a threat intelligence entity
-	DisplayName pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Extensions map
-	Extensions pulumi.Input
-	// External ID of threat intelligence entity
-	ExternalId pulumi.StringPtrInput
-	// External last updated time in UTC
-	ExternalLastUpdatedTimeUtc pulumi.StringPtrInput
-	// External References
-	ExternalReferences ThreatIntelligenceExternalReferenceArrayInput
-	// Granular Markings
-	GranularMarkings ThreatIntelligenceGranularMarkingModelArrayInput
-	// Indicator types of threat intelligence entities
-	IndicatorTypes pulumi.StringArrayInput
-	// Kill chain phases
-	KillChainPhases ThreatIntelligenceKillChainPhaseArrayInput
-	// The kind of the entity.
-	Kind pulumi.StringInput
-	// Labels  of threat intelligence entity
-	Labels pulumi.StringArrayInput
-	// Language of threat intelligence entity
-	Language pulumi.StringPtrInput
-	// Last updated time in UTC
-	LastUpdatedTimeUtc pulumi.StringPtrInput
-	// Modified by
-	Modified pulumi.StringPtrInput
-	// Threat intelligence indicator name field.
-	Name pulumi.StringPtrInput
-	// Threat intelligence entity object marking references
-	ObjectMarkingRefs pulumi.StringArrayInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Confidence                          pulumi.IntPtrInput
+	Created                             pulumi.StringPtrInput
+	CreatedByRef                        pulumi.StringPtrInput
+	Defanged                            pulumi.BoolPtrInput
+	Description                         pulumi.StringPtrInput
+	DisplayName                         pulumi.StringPtrInput
+	Etag                                pulumi.StringPtrInput
+	Extensions                          pulumi.Input
+	ExternalId                          pulumi.StringPtrInput
+	ExternalLastUpdatedTimeUtc          pulumi.StringPtrInput
+	ExternalReferences                  ThreatIntelligenceExternalReferenceArrayInput
+	GranularMarkings                    ThreatIntelligenceGranularMarkingModelArrayInput
+	IndicatorTypes                      pulumi.StringArrayInput
+	KillChainPhases                     ThreatIntelligenceKillChainPhaseArrayInput
+	Kind                                pulumi.StringInput
+	Labels                              pulumi.StringArrayInput
+	Language                            pulumi.StringPtrInput
+	LastUpdatedTimeUtc                  pulumi.StringPtrInput
+	Modified                            pulumi.StringPtrInput
+	Name                                pulumi.StringPtrInput
+	ObjectMarkingRefs                   pulumi.StringArrayInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// Parsed patterns
-	ParsedPattern ThreatIntelligenceParsedPatternArrayInput
-	// Pattern of a threat intelligence entity
-	Pattern pulumi.StringPtrInput
-	// Pattern type of a threat intelligence entity
-	PatternType pulumi.StringPtrInput
-	// Pattern version of a threat intelligence entity
-	PatternVersion pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Is threat intelligence entity revoked
-	Revoked pulumi.BoolPtrInput
-	// Source of a threat intelligence entity
-	Source pulumi.StringPtrInput
-	// List of tags
-	ThreatIntelligenceTags pulumi.StringArrayInput
-	// Threat types
-	ThreatTypes pulumi.StringArrayInput
-	// Valid from
-	ValidFrom pulumi.StringPtrInput
-	// Valid until
-	ValidUntil pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ParsedPattern                       ThreatIntelligenceParsedPatternArrayInput
+	Pattern                             pulumi.StringPtrInput
+	PatternType                         pulumi.StringPtrInput
+	PatternVersion                      pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Revoked                             pulumi.BoolPtrInput
+	Source                              pulumi.StringPtrInput
+	ThreatIntelligenceTags              pulumi.StringArrayInput
+	ThreatTypes                         pulumi.StringArrayInput
+	ValidFrom                           pulumi.StringPtrInput
+	ValidUntil                          pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (ThreatIntelligenceIndicatorArgs) ElementType() reflect.Type {

@@ -14,16 +14,11 @@ import (
 type Step struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties that define the step.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewStep registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +84,20 @@ func (StepState) ElementType() reflect.Type {
 }
 
 type stepArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The properties that define the step.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the deployment step.
-	StepName *string `pulumi:"stepName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	StepName          *string           `pulumi:"stepName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Step resource.
 type StepArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The properties that define the step.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The name of the deployment step.
-	StepName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	StepName          pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (StepArgs) ElementType() reflect.Type {

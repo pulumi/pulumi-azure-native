@@ -14,43 +14,24 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Cloud connectors.
-	// External cloud identifier used as part of scanning configuration.
-	CloudConnectors CloudConnectorsResponsePtrOutput `pulumi:"cloudConnectors"`
-	// Gets the time at which the entity was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Gets the creator of the entity.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Gets the creators of the entity's object id.
-	CreatedByObjectId pulumi.StringOutput `pulumi:"createdByObjectId"`
-	// The URIs that are the public endpoints of the account.
-	Endpoints AccountPropertiesResponseEndpointsOutput `pulumi:"endpoints"`
-	// Gets or sets the friendly name.
-	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
-	// Identity Info on the tracked resource
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Gets or sets the location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets the managed resource group name
-	ManagedResourceGroupName pulumi.StringPtrOutput `pulumi:"managedResourceGroupName"`
-	// Gets the resource identifiers of the managed resources.
-	ManagedResources AccountPropertiesResponseManagedResourcesOutput `pulumi:"managedResources"`
-	// Gets or sets the name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the private endpoint connections information.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Gets or sets the state of the provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Gets or sets the public network access.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// Gets or sets the Sku.
-	Sku AccountResponseSkuOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData AccountPropertiesResponseSystemDataOutput `pulumi:"systemData"`
-	// Tags on the azure resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets or sets the type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CloudConnectors            CloudConnectorsResponsePtrOutput                `pulumi:"cloudConnectors"`
+	CreatedAt                  pulumi.StringOutput                             `pulumi:"createdAt"`
+	CreatedBy                  pulumi.StringOutput                             `pulumi:"createdBy"`
+	CreatedByObjectId          pulumi.StringOutput                             `pulumi:"createdByObjectId"`
+	Endpoints                  AccountPropertiesResponseEndpointsOutput        `pulumi:"endpoints"`
+	FriendlyName               pulumi.StringOutput                             `pulumi:"friendlyName"`
+	Identity                   IdentityResponsePtrOutput                       `pulumi:"identity"`
+	Location                   pulumi.StringPtrOutput                          `pulumi:"location"`
+	ManagedResourceGroupName   pulumi.StringPtrOutput                          `pulumi:"managedResourceGroupName"`
+	ManagedResources           AccountPropertiesResponseManagedResourcesOutput `pulumi:"managedResources"`
+	Name                       pulumi.StringOutput                             `pulumi:"name"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput    `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringOutput                             `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                          `pulumi:"publicNetworkAccess"`
+	Sku                        AccountResponseSkuOutput                        `pulumi:"sku"`
+	SystemData                 AccountPropertiesResponseSystemDataOutput       `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type                       pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -116,38 +97,24 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the account.
-	AccountName *string `pulumi:"accountName"`
-	// Identity Info on the tracked resource
-	Identity *Identity `pulumi:"identity"`
-	// Gets or sets the location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the managed resource group name
-	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Gets or sets the public network access.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags on the azure resource.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName              *string           `pulumi:"accountName"`
+	Identity                 *Identity         `pulumi:"identity"`
+	Location                 *string           `pulumi:"location"`
+	ManagedResourceGroupName *string           `pulumi:"managedResourceGroupName"`
+	PublicNetworkAccess      *string           `pulumi:"publicNetworkAccess"`
+	ResourceGroupName        string            `pulumi:"resourceGroupName"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the account.
-	AccountName pulumi.StringPtrInput
-	// Identity Info on the tracked resource
-	Identity IdentityPtrInput
-	// Gets or sets the location.
-	Location pulumi.StringPtrInput
-	// Gets or sets the managed resource group name
+	AccountName              pulumi.StringPtrInput
+	Identity                 IdentityPtrInput
+	Location                 pulumi.StringPtrInput
 	ManagedResourceGroupName pulumi.StringPtrInput
-	// Gets or sets the public network access.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Tags on the azure resource.
-	Tags pulumi.StringMapInput
+	PublicNetworkAccess      pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

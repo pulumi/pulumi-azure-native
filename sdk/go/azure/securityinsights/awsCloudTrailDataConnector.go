@@ -14,19 +14,12 @@ import (
 type AwsCloudTrailDataConnector struct {
 	pulumi.CustomResourceState
 
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn pulumi.StringPtrOutput `pulumi:"awsRoleArn"`
-	// The available data types for the connector.
-	DataTypes AwsCloudTrailDataConnectorDataTypesResponsePtrOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AwsRoleArn pulumi.StringPtrOutput                               `pulumi:"awsRoleArn"`
+	DataTypes  AwsCloudTrailDataConnectorDataTypesResponsePtrOutput `pulumi:"dataTypes"`
+	Etag       pulumi.StringPtrOutput                               `pulumi:"etag"`
+	Kind       pulumi.StringOutput                                  `pulumi:"kind"`
+	Name       pulumi.StringOutput                                  `pulumi:"name"`
+	Type       pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewAwsCloudTrailDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -102,40 +95,24 @@ func (AwsCloudTrailDataConnectorState) ElementType() reflect.Type {
 }
 
 type awsCloudTrailDataConnectorArgs struct {
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn *string `pulumi:"awsRoleArn"`
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for the connector.
-	DataTypes *AwsCloudTrailDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AwsRoleArn        *string                              `pulumi:"awsRoleArn"`
+	DataConnectorId   *string                              `pulumi:"dataConnectorId"`
+	DataTypes         *AwsCloudTrailDataConnectorDataTypes `pulumi:"dataTypes"`
+	Etag              *string                              `pulumi:"etag"`
+	Kind              string                               `pulumi:"kind"`
+	ResourceGroupName string                               `pulumi:"resourceGroupName"`
+	WorkspaceName     string                               `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a AwsCloudTrailDataConnector resource.
 type AwsCloudTrailDataConnectorArgs struct {
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn pulumi.StringPtrInput
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes AwsCloudTrailDataConnectorDataTypesPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AwsRoleArn        pulumi.StringPtrInput
+	DataConnectorId   pulumi.StringPtrInput
+	DataTypes         AwsCloudTrailDataConnectorDataTypesPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (AwsCloudTrailDataConnectorArgs) ElementType() reflect.Type {

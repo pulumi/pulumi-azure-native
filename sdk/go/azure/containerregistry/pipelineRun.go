@@ -14,20 +14,13 @@ import (
 type PipelineRun struct {
 	pulumi.CustomResourceState
 
-	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of a pipeline run.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The request parameters for a pipeline run.
-	Request PipelineRunRequestResponsePtrOutput `pulumi:"request"`
-	// The response of a pipeline run.
-	Response PipelineRunResponseResponseOutput `pulumi:"response"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ForceUpdateTag    pulumi.StringPtrOutput              `pulumi:"forceUpdateTag"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Request           PipelineRunRequestResponsePtrOutput `pulumi:"request"`
+	Response          PipelineRunResponseResponseOutput   `pulumi:"response"`
+	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewPipelineRun registers a new resource with the given unique name, arguments, and options.
@@ -99,29 +92,19 @@ func (PipelineRunState) ElementType() reflect.Type {
 }
 
 type pipelineRunArgs struct {
-	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the pipeline run.
-	PipelineRunName *string `pulumi:"pipelineRunName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The request parameters for a pipeline run.
-	Request *PipelineRunRequest `pulumi:"request"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ForceUpdateTag    *string             `pulumi:"forceUpdateTag"`
+	PipelineRunName   *string             `pulumi:"pipelineRunName"`
+	RegistryName      string              `pulumi:"registryName"`
+	Request           *PipelineRunRequest `pulumi:"request"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PipelineRun resource.
 type PipelineRunArgs struct {
-	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The name of the pipeline run.
-	PipelineRunName pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The request parameters for a pipeline run.
-	Request PipelineRunRequestPtrInput
-	// The name of the resource group to which the container registry belongs.
+	ForceUpdateTag    pulumi.StringPtrInput
+	PipelineRunName   pulumi.StringPtrInput
+	RegistryName      pulumi.StringInput
+	Request           PipelineRunRequestPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

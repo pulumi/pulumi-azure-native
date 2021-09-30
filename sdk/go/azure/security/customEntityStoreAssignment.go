@@ -14,14 +14,10 @@ import (
 type CustomEntityStoreAssignment struct {
 	pulumi.CustomResourceState
 
-	// The link to entity store database.
 	EntityStoreDatabaseLink pulumi.StringPtrOutput `pulumi:"entityStoreDatabaseLink"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
-	Principal pulumi.StringPtrOutput `pulumi:"principal"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                    pulumi.StringOutput    `pulumi:"name"`
+	Principal               pulumi.StringPtrOutput `pulumi:"principal"`
+	Type                    pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCustomEntityStoreAssignment registers a new resource with the given unique name, arguments, and options.
@@ -78,22 +74,16 @@ func (CustomEntityStoreAssignmentState) ElementType() reflect.Type {
 }
 
 type customEntityStoreAssignmentArgs struct {
-	// Name of the custom entity store assignment. Generated name is GUID.
 	CustomEntityStoreAssignmentName *string `pulumi:"customEntityStoreAssignmentName"`
-	// The principal assigned with entity store. If not provided, will use caller principal. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
-	Principal *string `pulumi:"principal"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Principal                       *string `pulumi:"principal"`
+	ResourceGroupName               string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CustomEntityStoreAssignment resource.
 type CustomEntityStoreAssignmentArgs struct {
-	// Name of the custom entity store assignment. Generated name is GUID.
 	CustomEntityStoreAssignmentName pulumi.StringPtrInput
-	// The principal assigned with entity store. If not provided, will use caller principal. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
-	Principal pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Principal                       pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
 }
 
 func (CustomEntityStoreAssignmentArgs) ElementType() reflect.Type {

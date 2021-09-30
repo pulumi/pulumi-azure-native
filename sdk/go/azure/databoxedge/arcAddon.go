@@ -14,31 +14,18 @@ import (
 type ArcAddon struct {
 	pulumi.CustomResourceState
 
-	// Host OS supported by the Arc addon.
-	HostPlatform pulumi.StringOutput `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType pulumi.StringOutput `pulumi:"hostPlatformType"`
-	// Addon type.
-	// Expected value is 'ArcForKubernetes'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Addon Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Arc resource group name
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Arc resource location
-	ResourceLocation pulumi.StringOutput `pulumi:"resourceLocation"`
-	// Arc resource Name
-	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
-	// Arc resource subscription Id
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// Addon type
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Arc resource version
-	Version pulumi.StringOutput `pulumi:"version"`
+	HostPlatform      pulumi.StringOutput      `pulumi:"hostPlatform"`
+	HostPlatformType  pulumi.StringOutput      `pulumi:"hostPlatformType"`
+	Kind              pulumi.StringOutput      `pulumi:"kind"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	ResourceGroupName pulumi.StringOutput      `pulumi:"resourceGroupName"`
+	ResourceLocation  pulumi.StringOutput      `pulumi:"resourceLocation"`
+	ResourceName      pulumi.StringOutput      `pulumi:"resourceName"`
+	SubscriptionId    pulumi.StringOutput      `pulumi:"subscriptionId"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
+	Version           pulumi.StringOutput      `pulumi:"version"`
 }
 
 // NewArcAddon registers a new resource with the given unique name, arguments, and options.
@@ -138,44 +125,26 @@ func (ArcAddonState) ElementType() reflect.Type {
 }
 
 type arcAddonArgs struct {
-	// The addon name.
-	AddonName *string `pulumi:"addonName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Addon type.
-	// Expected value is 'ArcForKubernetes'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Arc resource location
-	ResourceLocation string `pulumi:"resourceLocation"`
-	// Arc resource Name
-	ResourceName string `pulumi:"resourceName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
-	// Arc resource subscription Id
-	SubscriptionId string `pulumi:"subscriptionId"`
+	AddonName         *string `pulumi:"addonName"`
+	DeviceName        string  `pulumi:"deviceName"`
+	Kind              string  `pulumi:"kind"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceLocation  string  `pulumi:"resourceLocation"`
+	ResourceName      string  `pulumi:"resourceName"`
+	RoleName          string  `pulumi:"roleName"`
+	SubscriptionId    string  `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a ArcAddon resource.
 type ArcAddonArgs struct {
-	// The addon name.
-	AddonName pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Addon type.
-	// Expected value is 'ArcForKubernetes'.
-	Kind pulumi.StringInput
-	// The resource group name.
+	AddonName         pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Arc resource location
-	ResourceLocation pulumi.StringInput
-	// Arc resource Name
-	ResourceName pulumi.StringInput
-	// The role name.
-	RoleName pulumi.StringInput
-	// Arc resource subscription Id
-	SubscriptionId pulumi.StringInput
+	ResourceLocation  pulumi.StringInput
+	ResourceName      pulumi.StringInput
+	RoleName          pulumi.StringInput
+	SubscriptionId    pulumi.StringInput
 }
 
 func (ArcAddonArgs) ElementType() reflect.Type {

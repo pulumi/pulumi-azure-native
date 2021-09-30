@@ -14,24 +14,15 @@ import (
 type VideoAnalyzer struct {
 	pulumi.CustomResourceState
 
-	// The account encryption properties.
-	Encryption AccountEncryptionResponseOutput `pulumi:"encryption"`
-	// The list of endpoints associated with this resource.
-	Endpoints EndpointResponseArrayOutput `pulumi:"endpoints"`
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity VideoAnalyzerIdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage accounts for this resource.
-	StorageAccounts StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
-	// The system data of the Video Analyzer account.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Encryption      AccountEncryptionResponseOutput        `pulumi:"encryption"`
+	Endpoints       EndpointResponseArrayOutput            `pulumi:"endpoints"`
+	Identity        VideoAnalyzerIdentityResponsePtrOutput `pulumi:"identity"`
+	Location        pulumi.StringOutput                    `pulumi:"location"`
+	Name            pulumi.StringOutput                    `pulumi:"name"`
+	StorageAccounts StorageAccountResponseArrayOutput      `pulumi:"storageAccounts"`
+	SystemData      SystemDataResponseOutput               `pulumi:"systemData"`
+	Tags            pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type            pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewVideoAnalyzer registers a new resource with the given unique name, arguments, and options.
@@ -94,38 +85,24 @@ func (VideoAnalyzerState) ElementType() reflect.Type {
 }
 
 type videoAnalyzerArgs struct {
-	// The Video Analyzer account name.
-	AccountName *string `pulumi:"accountName"`
-	// The account encryption properties.
-	Encryption AccountEncryption `pulumi:"encryption"`
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity *VideoAnalyzerIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage accounts for this resource.
-	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string                `pulumi:"accountName"`
+	Encryption        AccountEncryption      `pulumi:"encryption"`
+	Identity          *VideoAnalyzerIdentity `pulumi:"identity"`
+	Location          *string                `pulumi:"location"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	StorageAccounts   []StorageAccount       `pulumi:"storageAccounts"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VideoAnalyzer resource.
 type VideoAnalyzerArgs struct {
-	// The Video Analyzer account name.
-	AccountName pulumi.StringPtrInput
-	// The account encryption properties.
-	Encryption AccountEncryptionInput
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity VideoAnalyzerIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringPtrInput
+	Encryption        AccountEncryptionInput
+	Identity          VideoAnalyzerIdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The storage accounts for this resource.
-	StorageAccounts StorageAccountArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	StorageAccounts   StorageAccountArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (VideoAnalyzerArgs) ElementType() reflect.Type {

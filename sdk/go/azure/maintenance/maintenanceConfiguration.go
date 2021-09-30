@@ -14,20 +14,13 @@ import (
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
 	ExtensionProperties pulumi.StringMapOutput `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-	MaintenanceScope pulumi.StringPtrOutput `pulumi:"maintenanceScope"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location            pulumi.StringPtrOutput `pulumi:"location"`
+	MaintenanceScope    pulumi.StringPtrOutput `pulumi:"maintenanceScope"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Namespace           pulumi.StringPtrOutput `pulumi:"namespace"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewMaintenanceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -114,38 +107,24 @@ func (MaintenanceConfigurationState) ElementType() reflect.Type {
 }
 
 type maintenanceConfigurationArgs struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
 	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-	Namespace *string `pulumi:"namespace"`
-	// Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource Identifier
-	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
+	Location            *string           `pulumi:"location"`
+	MaintenanceScope    *string           `pulumi:"maintenanceScope"`
+	Namespace           *string           `pulumi:"namespace"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	ResourceName        *string           `pulumi:"resourceName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceConfiguration resource.
 type MaintenanceConfigurationArgs struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
 	ExtensionProperties pulumi.StringMapInput
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput
-	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-	MaintenanceScope pulumi.StringPtrInput
-	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-	Namespace pulumi.StringPtrInput
-	// Resource Group Name
-	ResourceGroupName pulumi.StringInput
-	// Resource Identifier
-	ResourceName pulumi.StringPtrInput
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput
+	Location            pulumi.StringPtrInput
+	MaintenanceScope    pulumi.StringPtrInput
+	Namespace           pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ResourceName        pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (MaintenanceConfigurationArgs) ElementType() reflect.Type {

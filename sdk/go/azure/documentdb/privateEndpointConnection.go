@@ -14,18 +14,12 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Group id of the private endpoint.
-	GroupId pulumi.StringPtrOutput `pulumi:"groupId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	GroupId                           pulumi.StringPtrOutput                                     `pulumi:"groupId"`
+	Name                              pulumi.StringOutput                                        `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringPtrOutput                                     `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                                        `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -133,38 +127,24 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Group id of the private endpoint.
-	GroupId *string `pulumi:"groupId"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
-	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Connection State of the Private Endpoint Connection.
+	AccountName                       string                                     `pulumi:"accountName"`
+	GroupId                           *string                                    `pulumi:"groupId"`
+	PrivateEndpoint                   *PrivateEndpointProperty                   `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName     *string                                    `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ProvisioningState                 *string                                    `pulumi:"provisioningState"`
+	ResourceGroupName                 string                                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Group id of the private endpoint.
-	GroupId pulumi.StringPtrInput
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyPtrInput
-	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection State of the Private Endpoint Connection.
+	AccountName                       pulumi.StringInput
+	GroupId                           pulumi.StringPtrInput
+	PrivateEndpoint                   PrivateEndpointPropertyPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput
-	// Provisioning state of the private endpoint.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ProvisioningState                 pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

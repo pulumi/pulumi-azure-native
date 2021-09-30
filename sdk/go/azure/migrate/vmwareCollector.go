@@ -77,25 +77,19 @@ func (VMwareCollectorState) ElementType() reflect.Type {
 }
 
 type vmwareCollectorArgs struct {
-	ETag *string `pulumi:"eTag"`
-	// Name of the Azure Migrate project.
-	ProjectName string               `pulumi:"projectName"`
-	Properties  *CollectorProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique name of a VMware collector within a project.
-	VmWareCollectorName *string `pulumi:"vmWareCollectorName"`
+	ETag                *string              `pulumi:"eTag"`
+	ProjectName         string               `pulumi:"projectName"`
+	Properties          *CollectorProperties `pulumi:"properties"`
+	ResourceGroupName   string               `pulumi:"resourceGroupName"`
+	VmWareCollectorName *string              `pulumi:"vmWareCollectorName"`
 }
 
 // The set of arguments for constructing a VMwareCollector resource.
 type VMwareCollectorArgs struct {
-	ETag pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	Properties  CollectorPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Unique name of a VMware collector within a project.
+	ETag                pulumi.StringPtrInput
+	ProjectName         pulumi.StringInput
+	Properties          CollectorPropertiesPtrInput
+	ResourceGroupName   pulumi.StringInput
 	VmWareCollectorName pulumi.StringPtrInput
 }
 

@@ -14,26 +14,16 @@ import (
 type KustoPoolAttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The list of databases from the clusterResourceId which are currently attached to the kusto pool.
-	AttachedDatabaseNames pulumi.StringArrayOutput `pulumi:"attachedDatabaseNames"`
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The default principals modification kind
-	DefaultPrincipalsModificationKind pulumi.StringOutput `pulumi:"defaultPrincipalsModificationKind"`
-	// The resource id of the kusto pool where the databases you would like to attach reside.
-	KustoPoolResourceId pulumi.StringOutput `pulumi:"kustoPoolResourceId"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Table level sharing specifications
-	TableLevelSharingProperties TableLevelSharingPropertiesResponsePtrOutput `pulumi:"tableLevelSharingProperties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AttachedDatabaseNames             pulumi.StringArrayOutput                     `pulumi:"attachedDatabaseNames"`
+	DatabaseName                      pulumi.StringOutput                          `pulumi:"databaseName"`
+	DefaultPrincipalsModificationKind pulumi.StringOutput                          `pulumi:"defaultPrincipalsModificationKind"`
+	KustoPoolResourceId               pulumi.StringOutput                          `pulumi:"kustoPoolResourceId"`
+	Location                          pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                              pulumi.StringOutput                          `pulumi:"name"`
+	ProvisioningState                 pulumi.StringOutput                          `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponseOutput                     `pulumi:"systemData"`
+	TableLevelSharingProperties       TableLevelSharingPropertiesResponsePtrOutput `pulumi:"tableLevelSharingProperties"`
+	Type                              pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewKustoPoolAttachedDatabaseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -105,46 +95,28 @@ func (KustoPoolAttachedDatabaseConfigurationState) ElementType() reflect.Type {
 }
 
 type kustoPoolAttachedDatabaseConfigurationArgs struct {
-	// The name of the attached database configuration.
-	AttachedDatabaseConfigurationName *string `pulumi:"attachedDatabaseConfigurationName"`
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName string `pulumi:"databaseName"`
-	// The default principals modification kind
-	DefaultPrincipalsModificationKind string `pulumi:"defaultPrincipalsModificationKind"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The resource id of the kusto pool where the databases you would like to attach reside.
-	KustoPoolResourceId string `pulumi:"kustoPoolResourceId"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Table level sharing specifications
-	TableLevelSharingProperties *TableLevelSharingProperties `pulumi:"tableLevelSharingProperties"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	AttachedDatabaseConfigurationName *string                      `pulumi:"attachedDatabaseConfigurationName"`
+	DatabaseName                      string                       `pulumi:"databaseName"`
+	DefaultPrincipalsModificationKind string                       `pulumi:"defaultPrincipalsModificationKind"`
+	KustoPoolName                     string                       `pulumi:"kustoPoolName"`
+	KustoPoolResourceId               string                       `pulumi:"kustoPoolResourceId"`
+	Location                          *string                      `pulumi:"location"`
+	ResourceGroupName                 string                       `pulumi:"resourceGroupName"`
+	TableLevelSharingProperties       *TableLevelSharingProperties `pulumi:"tableLevelSharingProperties"`
+	WorkspaceName                     string                       `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a KustoPoolAttachedDatabaseConfiguration resource.
 type KustoPoolAttachedDatabaseConfigurationArgs struct {
-	// The name of the attached database configuration.
 	AttachedDatabaseConfigurationName pulumi.StringPtrInput
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName pulumi.StringInput
-	// The default principals modification kind
+	DatabaseName                      pulumi.StringInput
 	DefaultPrincipalsModificationKind pulumi.StringInput
-	// The name of the Kusto pool.
-	KustoPoolName pulumi.StringInput
-	// The resource id of the kusto pool where the databases you would like to attach reside.
-	KustoPoolResourceId pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Table level sharing specifications
-	TableLevelSharingProperties TableLevelSharingPropertiesPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	KustoPoolName                     pulumi.StringInput
+	KustoPoolResourceId               pulumi.StringInput
+	Location                          pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
+	TableLevelSharingProperties       TableLevelSharingPropertiesPtrInput
+	WorkspaceName                     pulumi.StringInput
 }
 
 func (KustoPoolAttachedDatabaseConfigurationArgs) ElementType() reflect.Type {

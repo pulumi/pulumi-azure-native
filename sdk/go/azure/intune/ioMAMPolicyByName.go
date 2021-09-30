@@ -28,20 +28,16 @@ type IoMAMPolicyByName struct {
 	FriendlyName                pulumi.StringOutput    `pulumi:"friendlyName"`
 	GroupStatus                 pulumi.StringOutput    `pulumi:"groupStatus"`
 	LastModifiedTime            pulumi.StringOutput    `pulumi:"lastModifiedTime"`
-	// Resource Location
-	Location       pulumi.StringPtrOutput `pulumi:"location"`
-	ManagedBrowser pulumi.StringPtrOutput `pulumi:"managedBrowser"`
-	// Resource name
-	Name               pulumi.StringOutput    `pulumi:"name"`
-	NumOfApps          pulumi.IntOutput       `pulumi:"numOfApps"`
-	OfflineWipeTimeout pulumi.StringPtrOutput `pulumi:"offlineWipeTimeout"`
-	Pin                pulumi.StringPtrOutput `pulumi:"pin"`
-	PinNumRetry        pulumi.IntPtrOutput    `pulumi:"pinNumRetry"`
-	// Resource Tags
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TouchId pulumi.StringPtrOutput `pulumi:"touchId"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                    pulumi.StringPtrOutput `pulumi:"location"`
+	ManagedBrowser              pulumi.StringPtrOutput `pulumi:"managedBrowser"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
+	NumOfApps                   pulumi.IntOutput       `pulumi:"numOfApps"`
+	OfflineWipeTimeout          pulumi.StringPtrOutput `pulumi:"offlineWipeTimeout"`
+	Pin                         pulumi.StringPtrOutput `pulumi:"pin"`
+	PinNumRetry                 pulumi.IntPtrOutput    `pulumi:"pinNumRetry"`
+	Tags                        pulumi.StringMapOutput `pulumi:"tags"`
+	TouchId                     pulumi.StringPtrOutput `pulumi:"touchId"`
+	Type                        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIoMAMPolicyByName registers a new resource with the given unique name, arguments, and options.
@@ -140,31 +136,27 @@ func (IoMAMPolicyByNameState) ElementType() reflect.Type {
 }
 
 type ioMAMPolicyByNameArgs struct {
-	AccessRecheckOfflineTimeout *string `pulumi:"accessRecheckOfflineTimeout"`
-	AccessRecheckOnlineTimeout  *string `pulumi:"accessRecheckOnlineTimeout"`
-	AppSharingFromLevel         *string `pulumi:"appSharingFromLevel"`
-	AppSharingToLevel           *string `pulumi:"appSharingToLevel"`
-	Authentication              *string `pulumi:"authentication"`
-	ClipboardSharingLevel       *string `pulumi:"clipboardSharingLevel"`
-	DataBackup                  *string `pulumi:"dataBackup"`
-	Description                 *string `pulumi:"description"`
-	DeviceCompliance            *string `pulumi:"deviceCompliance"`
-	FileEncryptionLevel         *string `pulumi:"fileEncryptionLevel"`
-	FileSharingSaveAs           *string `pulumi:"fileSharingSaveAs"`
-	FriendlyName                string  `pulumi:"friendlyName"`
-	// Location hostName for the tenant
-	HostName string `pulumi:"hostName"`
-	// Resource Location
-	Location           *string `pulumi:"location"`
-	ManagedBrowser     *string `pulumi:"managedBrowser"`
-	OfflineWipeTimeout *string `pulumi:"offlineWipeTimeout"`
-	Pin                *string `pulumi:"pin"`
-	PinNumRetry        *int    `pulumi:"pinNumRetry"`
-	// Unique name for the policy
-	PolicyName *string `pulumi:"policyName"`
-	// Resource Tags
-	Tags    map[string]string `pulumi:"tags"`
-	TouchId *string           `pulumi:"touchId"`
+	AccessRecheckOfflineTimeout *string           `pulumi:"accessRecheckOfflineTimeout"`
+	AccessRecheckOnlineTimeout  *string           `pulumi:"accessRecheckOnlineTimeout"`
+	AppSharingFromLevel         *string           `pulumi:"appSharingFromLevel"`
+	AppSharingToLevel           *string           `pulumi:"appSharingToLevel"`
+	Authentication              *string           `pulumi:"authentication"`
+	ClipboardSharingLevel       *string           `pulumi:"clipboardSharingLevel"`
+	DataBackup                  *string           `pulumi:"dataBackup"`
+	Description                 *string           `pulumi:"description"`
+	DeviceCompliance            *string           `pulumi:"deviceCompliance"`
+	FileEncryptionLevel         *string           `pulumi:"fileEncryptionLevel"`
+	FileSharingSaveAs           *string           `pulumi:"fileSharingSaveAs"`
+	FriendlyName                string            `pulumi:"friendlyName"`
+	HostName                    string            `pulumi:"hostName"`
+	Location                    *string           `pulumi:"location"`
+	ManagedBrowser              *string           `pulumi:"managedBrowser"`
+	OfflineWipeTimeout          *string           `pulumi:"offlineWipeTimeout"`
+	Pin                         *string           `pulumi:"pin"`
+	PinNumRetry                 *int              `pulumi:"pinNumRetry"`
+	PolicyName                  *string           `pulumi:"policyName"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TouchId                     *string           `pulumi:"touchId"`
 }
 
 // The set of arguments for constructing a IoMAMPolicyByName resource.
@@ -181,19 +173,15 @@ type IoMAMPolicyByNameArgs struct {
 	FileEncryptionLevel         pulumi.StringPtrInput
 	FileSharingSaveAs           pulumi.StringPtrInput
 	FriendlyName                pulumi.StringInput
-	// Location hostName for the tenant
-	HostName pulumi.StringInput
-	// Resource Location
-	Location           pulumi.StringPtrInput
-	ManagedBrowser     pulumi.StringPtrInput
-	OfflineWipeTimeout pulumi.StringPtrInput
-	Pin                pulumi.StringPtrInput
-	PinNumRetry        pulumi.IntPtrInput
-	// Unique name for the policy
-	PolicyName pulumi.StringPtrInput
-	// Resource Tags
-	Tags    pulumi.StringMapInput
-	TouchId pulumi.StringPtrInput
+	HostName                    pulumi.StringInput
+	Location                    pulumi.StringPtrInput
+	ManagedBrowser              pulumi.StringPtrInput
+	OfflineWipeTimeout          pulumi.StringPtrInput
+	Pin                         pulumi.StringPtrInput
+	PinNumRetry                 pulumi.IntPtrInput
+	PolicyName                  pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TouchId                     pulumi.StringPtrInput
 }
 
 func (IoMAMPolicyByNameArgs) ElementType() reflect.Type {

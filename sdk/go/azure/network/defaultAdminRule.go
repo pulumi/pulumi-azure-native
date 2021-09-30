@@ -14,41 +14,23 @@ import (
 type DefaultAdminRule struct {
 	pulumi.CustomResourceState
 
-	// Indicates the access allowed for this particular rule
-	Access pulumi.StringOutput `pulumi:"access"`
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayOutput `pulumi:"destinationPortRanges"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations AddressPrefixItemResponseArrayOutput `pulumi:"destinations"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringOutput `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Default rule flag.
-	Flag pulumi.StringPtrOutput `pulumi:"flag"`
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayOutput `pulumi:"sourcePortRanges"`
-	// The CIDR or source IP ranges.
-	Sources AddressPrefixItemResponseArrayOutput `pulumi:"sources"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Access                pulumi.StringOutput                  `pulumi:"access"`
+	Description           pulumi.StringOutput                  `pulumi:"description"`
+	DestinationPortRanges pulumi.StringArrayOutput             `pulumi:"destinationPortRanges"`
+	Destinations          AddressPrefixItemResponseArrayOutput `pulumi:"destinations"`
+	Direction             pulumi.StringOutput                  `pulumi:"direction"`
+	DisplayName           pulumi.StringOutput                  `pulumi:"displayName"`
+	Etag                  pulumi.StringOutput                  `pulumi:"etag"`
+	Flag                  pulumi.StringPtrOutput               `pulumi:"flag"`
+	Kind                  pulumi.StringOutput                  `pulumi:"kind"`
+	Name                  pulumi.StringOutput                  `pulumi:"name"`
+	Priority              pulumi.IntOutput                     `pulumi:"priority"`
+	Protocol              pulumi.StringOutput                  `pulumi:"protocol"`
+	ProvisioningState     pulumi.StringOutput                  `pulumi:"provisioningState"`
+	SourcePortRanges      pulumi.StringArrayOutput             `pulumi:"sourcePortRanges"`
+	Sources               AddressPrefixItemResponseArrayOutput `pulumi:"sources"`
+	SystemData            SystemDataResponseOutput             `pulumi:"systemData"`
+	Type                  pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewDefaultAdminRule registers a new resource with the given unique name, arguments, and options.
@@ -118,40 +100,24 @@ func (DefaultAdminRuleState) ElementType() reflect.Type {
 }
 
 type defaultAdminRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// Default rule flag.
-	Flag *string `pulumi:"flag"`
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind string `pulumi:"kind"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
-	RuleCollectionName string `pulumi:"ruleCollectionName"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
+	ConfigurationName  string  `pulumi:"configurationName"`
+	Flag               *string `pulumi:"flag"`
+	Kind               string  `pulumi:"kind"`
+	NetworkManagerName string  `pulumi:"networkManagerName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	RuleCollectionName string  `pulumi:"ruleCollectionName"`
+	RuleName           *string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a DefaultAdminRule resource.
 type DefaultAdminRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName pulumi.StringInput
-	// Default rule flag.
-	Flag pulumi.StringPtrInput
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind pulumi.StringInput
-	// The name of the network manager.
+	ConfigurationName  pulumi.StringInput
+	Flag               pulumi.StringPtrInput
+	Kind               pulumi.StringInput
 	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  pulumi.StringInput
 	RuleCollectionName pulumi.StringInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
+	RuleName           pulumi.StringPtrInput
 }
 
 func (DefaultAdminRuleArgs) ElementType() reflect.Type {

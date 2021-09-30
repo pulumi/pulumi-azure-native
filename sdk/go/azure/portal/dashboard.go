@@ -14,18 +14,12 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// The dashboard lenses.
-	Lenses DashboardLensResponseArrayOutput `pulumi:"lenses"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The dashboard metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Lenses   DashboardLensResponseArrayOutput `pulumi:"lenses"`
+	Location pulumi.StringOutput              `pulumi:"location"`
+	Metadata pulumi.MapOutput                 `pulumi:"metadata"`
+	Name     pulumi.StringOutput              `pulumi:"name"`
+	Tags     pulumi.StringMapOutput           `pulumi:"tags"`
+	Type     pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -100,34 +94,22 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// The name of the dashboard.
-	DashboardName *string `pulumi:"dashboardName"`
-	// The dashboard lenses.
-	Lenses []DashboardLens `pulumi:"lenses"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The dashboard metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DashboardName     *string                `pulumi:"dashboardName"`
+	Lenses            []DashboardLens        `pulumi:"lenses"`
+	Location          *string                `pulumi:"location"`
+	Metadata          map[string]interface{} `pulumi:"metadata"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// The name of the dashboard.
-	DashboardName pulumi.StringPtrInput
-	// The dashboard lenses.
-	Lenses DashboardLensArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The dashboard metadata.
-	Metadata pulumi.MapInput
-	// The name of the resource group.
+	DashboardName     pulumi.StringPtrInput
+	Lenses            DashboardLensArrayInput
+	Location          pulumi.StringPtrInput
+	Metadata          pulumi.MapInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {

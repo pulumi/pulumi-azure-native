@@ -14,12 +14,9 @@ import (
 type ServerAzureADOnlyAuthentication struct {
 	pulumi.CustomResourceState
 
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolOutput `pulumi:"azureADOnlyAuthentication"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AzureADOnlyAuthentication pulumi.BoolOutput   `pulumi:"azureADOnlyAuthentication"`
+	Name                      pulumi.StringOutput `pulumi:"name"`
+	Type                      pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerAzureADOnlyAuthentication registers a new resource with the given unique name, arguments, and options.
@@ -100,26 +97,18 @@ func (ServerAzureADOnlyAuthenticationState) ElementType() reflect.Type {
 }
 
 type serverAzureADOnlyAuthenticationArgs struct {
-	// The name of server azure active directory only authentication.
-	AuthenticationName *string `pulumi:"authenticationName"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	AuthenticationName        *string `pulumi:"authenticationName"`
+	AzureADOnlyAuthentication bool    `pulumi:"azureADOnlyAuthentication"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
+	ServerName                string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a ServerAzureADOnlyAuthentication resource.
 type ServerAzureADOnlyAuthenticationArgs struct {
-	// The name of server azure active directory only authentication.
-	AuthenticationName pulumi.StringPtrInput
-	// Azure Active Directory only Authentication enabled.
+	AuthenticationName        pulumi.StringPtrInput
 	AzureADOnlyAuthentication pulumi.BoolInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	ServerName                pulumi.StringInput
 }
 
 func (ServerAzureADOnlyAuthenticationArgs) ElementType() reflect.Type {

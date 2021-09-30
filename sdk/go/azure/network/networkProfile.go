@@ -14,24 +14,15 @@ import (
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
-	// List of chid container network interface configurations.
 	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationResponseArrayOutput `pulumi:"containerNetworkInterfaceConfigurations"`
-	// List of child container network interfaces.
-	ContainerNetworkInterfaces ContainerNetworkInterfaceResponseArrayOutput `pulumi:"containerNetworkInterfaces"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the network profile resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the network profile resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContainerNetworkInterfaces              ContainerNetworkInterfaceResponseArrayOutput              `pulumi:"containerNetworkInterfaces"`
+	Etag                                    pulumi.StringOutput                                       `pulumi:"etag"`
+	Location                                pulumi.StringPtrOutput                                    `pulumi:"location"`
+	Name                                    pulumi.StringOutput                                       `pulumi:"name"`
+	ProvisioningState                       pulumi.StringOutput                                       `pulumi:"provisioningState"`
+	ResourceGuid                            pulumi.StringOutput                                       `pulumi:"resourceGuid"`
+	Tags                                    pulumi.StringMapOutput                                    `pulumi:"tags"`
+	Type                                    pulumi.StringOutput                                       `pulumi:"type"`
 }
 
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
@@ -208,34 +199,22 @@ func (NetworkProfileState) ElementType() reflect.Type {
 }
 
 type networkProfileArgs struct {
-	// List of chid container network interface configurations.
 	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfiguration `pulumi:"containerNetworkInterfaceConfigurations"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the network profile.
-	NetworkProfileName *string `pulumi:"networkProfileName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id                                      *string                                  `pulumi:"id"`
+	Location                                *string                                  `pulumi:"location"`
+	NetworkProfileName                      *string                                  `pulumi:"networkProfileName"`
+	ResourceGroupName                       string                                   `pulumi:"resourceGroupName"`
+	Tags                                    map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkProfile resource.
 type NetworkProfileArgs struct {
-	// List of chid container network interface configurations.
 	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the network profile.
-	NetworkProfileName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Id                                      pulumi.StringPtrInput
+	Location                                pulumi.StringPtrInput
+	NetworkProfileName                      pulumi.StringPtrInput
+	ResourceGroupName                       pulumi.StringInput
+	Tags                                    pulumi.StringMapInput
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {

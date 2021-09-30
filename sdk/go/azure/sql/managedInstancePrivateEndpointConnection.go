@@ -14,16 +14,11 @@ import (
 type ManagedInstancePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint ManagedInstancePrivateEndpointPropertyResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	Name                              pulumi.StringOutput                                                       `pulumi:"name"`
+	PrivateEndpoint                   ManagedInstancePrivateEndpointPropertyResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                                       `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                                                       `pulumi:"type"`
 }
 
 // NewManagedInstancePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -101,28 +96,20 @@ func (ManagedInstancePrivateEndpointConnectionState) ElementType() reflect.Type 
 }
 
 type managedInstancePrivateEndpointConnectionArgs struct {
-	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint               *ManagedInstancePrivateEndpointProperty `pulumi:"privateEndpoint"`
-	PrivateEndpointConnectionName *string                                 `pulumi:"privateEndpointConnectionName"`
-	// Connection State of the Private Endpoint Connection.
+	ManagedInstanceName               string                                                    `pulumi:"managedInstanceName"`
+	PrivateEndpoint                   *ManagedInstancePrivateEndpointProperty                   `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName     *string                                                   `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                                                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagedInstancePrivateEndpointConnection resource.
 type ManagedInstancePrivateEndpointConnectionArgs struct {
-	// The name of the managed instance.
-	ManagedInstanceName pulumi.StringInput
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint               ManagedInstancePrivateEndpointPropertyPtrInput
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection State of the Private Endpoint Connection.
+	ManagedInstanceName               pulumi.StringInput
+	PrivateEndpoint                   ManagedInstancePrivateEndpointPropertyPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (ManagedInstancePrivateEndpointConnectionArgs) ElementType() reflect.Type {

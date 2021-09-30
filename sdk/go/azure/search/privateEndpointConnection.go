@@ -14,12 +14,9 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -103,26 +100,18 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	SearchServiceName string `pulumi:"searchServiceName"`
+	PrivateEndpointConnectionName *string                              `pulumi:"privateEndpointConnectionName"`
+	Properties                    *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	ResourceGroupName             string                               `pulumi:"resourceGroupName"`
+	SearchServiceName             string                               `pulumi:"searchServiceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	SearchServiceName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionPropertiesPtrInput
+	ResourceGroupName             pulumi.StringInput
+	SearchServiceName             pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

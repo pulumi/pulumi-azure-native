@@ -14,30 +14,18 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The immutable id of the team account which contains this project.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The creation date of the project in ISO8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The description of this project.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The friendly name for this project.
-	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
-	// The reference to git repo for this project.
-	Gitrepo pulumi.StringPtrOutput `pulumi:"gitrepo"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The immutable id of this project.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The immutable id of the workspace which contains this project.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	AccountId         pulumi.StringOutput    `pulumi:"accountId"`
+	CreationDate      pulumi.StringOutput    `pulumi:"creationDate"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	FriendlyName      pulumi.StringOutput    `pulumi:"friendlyName"`
+	Gitrepo           pulumi.StringPtrOutput `pulumi:"gitrepo"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProjectId         pulumi.StringOutput    `pulumi:"projectId"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	WorkspaceId       pulumi.StringOutput    `pulumi:"workspaceId"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -103,46 +91,28 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// The name of the machine learning team account.
-	AccountName string `pulumi:"accountName"`
-	// The description of this project.
-	Description *string `pulumi:"description"`
-	// The friendly name for this project.
-	FriendlyName string `pulumi:"friendlyName"`
-	// The reference to git repo for this project.
-	Gitrepo *string `pulumi:"gitrepo"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the machine learning project under a team account workspace.
-	ProjectName *string `pulumi:"projectName"`
-	// The name of the resource group to which the machine learning team account belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the machine learning team account workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AccountName       string            `pulumi:"accountName"`
+	Description       *string           `pulumi:"description"`
+	FriendlyName      string            `pulumi:"friendlyName"`
+	Gitrepo           *string           `pulumi:"gitrepo"`
+	Location          *string           `pulumi:"location"`
+	ProjectName       *string           `pulumi:"projectName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// The name of the machine learning team account.
-	AccountName pulumi.StringInput
-	// The description of this project.
-	Description pulumi.StringPtrInput
-	// The friendly name for this project.
-	FriendlyName pulumi.StringInput
-	// The reference to git repo for this project.
-	Gitrepo pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the machine learning project under a team account workspace.
-	ProjectName pulumi.StringPtrInput
-	// The name of the resource group to which the machine learning team account belongs.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	FriendlyName      pulumi.StringInput
+	Gitrepo           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ProjectName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The name of the machine learning team account workspace.
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

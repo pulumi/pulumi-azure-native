@@ -14,21 +14,13 @@ import (
 type PeriodicTimerEventTrigger struct {
 	pulumi.CustomResourceState
 
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag pulumi.StringPtrOutput `pulumi:"customContextTag"`
-	// Trigger Kind.
-	// Expected value is 'PeriodicTimerEvent'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role Sink information.
-	SinkInfo RoleSinkInfoResponseOutput `pulumi:"sinkInfo"`
-	// Periodic timer details.
-	SourceInfo PeriodicTimerSourceInfoResponseOutput `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CustomContextTag pulumi.StringPtrOutput                `pulumi:"customContextTag"`
+	Kind             pulumi.StringOutput                   `pulumi:"kind"`
+	Name             pulumi.StringOutput                   `pulumi:"name"`
+	SinkInfo         RoleSinkInfoResponseOutput            `pulumi:"sinkInfo"`
+	SourceInfo       PeriodicTimerSourceInfoResponseOutput `pulumi:"sourceInfo"`
+	SystemData       SystemDataResponseOutput              `pulumi:"systemData"`
+	Type             pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewPeriodicTimerEventTrigger registers a new resource with the given unique name, arguments, and options.
@@ -146,40 +138,24 @@ func (PeriodicTimerEventTriggerState) ElementType() reflect.Type {
 }
 
 type periodicTimerEventTriggerArgs struct {
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag *string `pulumi:"customContextTag"`
-	// Creates or updates a trigger
-	DeviceName string `pulumi:"deviceName"`
-	// Trigger Kind.
-	// Expected value is 'PeriodicTimerEvent'.
-	Kind string `pulumi:"kind"`
-	// The trigger name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role Sink information.
-	SinkInfo RoleSinkInfo `pulumi:"sinkInfo"`
-	// Periodic timer details.
-	SourceInfo PeriodicTimerSourceInfo `pulumi:"sourceInfo"`
+	CustomContextTag  *string                 `pulumi:"customContextTag"`
+	DeviceName        string                  `pulumi:"deviceName"`
+	Kind              string                  `pulumi:"kind"`
+	Name              *string                 `pulumi:"name"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	SinkInfo          RoleSinkInfo            `pulumi:"sinkInfo"`
+	SourceInfo        PeriodicTimerSourceInfo `pulumi:"sourceInfo"`
 }
 
 // The set of arguments for constructing a PeriodicTimerEventTrigger resource.
 type PeriodicTimerEventTriggerArgs struct {
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag pulumi.StringPtrInput
-	// Creates or updates a trigger
-	DeviceName pulumi.StringInput
-	// Trigger Kind.
-	// Expected value is 'PeriodicTimerEvent'.
-	Kind pulumi.StringInput
-	// The trigger name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	CustomContextTag  pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Role Sink information.
-	SinkInfo RoleSinkInfoInput
-	// Periodic timer details.
-	SourceInfo PeriodicTimerSourceInfoInput
+	SinkInfo          RoleSinkInfoInput
+	SourceInfo        PeriodicTimerSourceInfoInput
 }
 
 func (PeriodicTimerEventTriggerArgs) ElementType() reflect.Type {

@@ -14,16 +14,11 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Name                              pulumi.StringOutput                                `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -83,34 +78,22 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the private link policy in Azure AD.
-	PolicyName string `pulumi:"policyName"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Updated tag information to set into the PrivateLinkConnection instance.
-	PrivateLinkConnectionTags *TagsResource `pulumi:"privateLinkConnectionTags"`
-	// Approval state of the private link connection.
+	PolicyName                        string                             `pulumi:"policyName"`
+	PrivateEndpoint                   *PrivateEndpoint                   `pulumi:"privateEndpoint"`
+	PrivateEndpointConnectionName     *string                            `pulumi:"privateEndpointConnectionName"`
+	PrivateLinkConnectionTags         *TagsResource                      `pulumi:"privateLinkConnectionTags"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the private link policy in Azure AD.
-	PolicyName pulumi.StringInput
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointPtrInput
-	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Updated tag information to set into the PrivateLinkConnection instance.
-	PrivateLinkConnectionTags TagsResourcePtrInput
-	// Approval state of the private link connection.
+	PolicyName                        pulumi.StringInput
+	PrivateEndpoint                   PrivateEndpointPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
+	PrivateLinkConnectionTags         TagsResourcePtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

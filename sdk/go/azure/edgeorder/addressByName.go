@@ -14,20 +14,13 @@ import (
 type AddressByName struct {
 	pulumi.CustomResourceState
 
-	// Contact details for the address
-	ContactDetails ContactDetailsResponseOutput `pulumi:"contactDetails"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Shipping details for the address
+	ContactDetails  ContactDetailsResponseOutput     `pulumi:"contactDetails"`
+	Location        pulumi.StringOutput              `pulumi:"location"`
+	Name            pulumi.StringOutput              `pulumi:"name"`
 	ShippingAddress ShippingAddressResponsePtrOutput `pulumi:"shippingAddress"`
-	// Represents resource creation and update time
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData      SystemDataResponseOutput         `pulumi:"systemData"`
+	Tags            pulumi.StringMapOutput           `pulumi:"tags"`
+	Type            pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewAddressByName registers a new resource with the given unique name, arguments, and options.
@@ -87,34 +80,22 @@ func (AddressByNameState) ElementType() reflect.Type {
 }
 
 type addressByNameArgs struct {
-	// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	AddressName *string `pulumi:"addressName"`
-	// Contact details for the address
-	ContactDetails ContactDetails `pulumi:"contactDetails"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Shipping details for the address
-	ShippingAddress *ShippingAddress `pulumi:"shippingAddress"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AddressName       *string           `pulumi:"addressName"`
+	ContactDetails    ContactDetails    `pulumi:"contactDetails"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ShippingAddress   *ShippingAddress  `pulumi:"shippingAddress"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AddressByName resource.
 type AddressByNameArgs struct {
-	// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	AddressName pulumi.StringPtrInput
-	// Contact details for the address
-	ContactDetails ContactDetailsInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AddressName       pulumi.StringPtrInput
+	ContactDetails    ContactDetailsInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Shipping details for the address
-	ShippingAddress ShippingAddressPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ShippingAddress   ShippingAddressPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AddressByNameArgs) ElementType() reflect.Type {

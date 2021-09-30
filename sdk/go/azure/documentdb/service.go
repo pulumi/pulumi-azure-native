@@ -14,12 +14,9 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Services response resource.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -85,34 +82,22 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Instance count for the service.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Instance type for the service.
-	InstanceSize *string `pulumi:"instanceSize"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cosmos DB service name.
-	ServiceName *string `pulumi:"serviceName"`
-	// ServiceType for the service.
-	ServiceType *string `pulumi:"serviceType"`
+	AccountName       string  `pulumi:"accountName"`
+	InstanceCount     *int    `pulumi:"instanceCount"`
+	InstanceSize      *string `pulumi:"instanceSize"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       *string `pulumi:"serviceName"`
+	ServiceType       *string `pulumi:"serviceType"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Instance count for the service.
-	InstanceCount pulumi.IntPtrInput
-	// Instance type for the service.
-	InstanceSize pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	InstanceCount     pulumi.IntPtrInput
+	InstanceSize      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Cosmos DB service name.
-	ServiceName pulumi.StringPtrInput
-	// ServiceType for the service.
-	ServiceType pulumi.StringPtrInput
+	ServiceName       pulumi.StringPtrInput
+	ServiceType       pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

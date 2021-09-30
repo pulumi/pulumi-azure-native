@@ -14,27 +14,16 @@ import (
 type ADLSGen1FileDataSet struct {
 	pulumi.CustomResourceState
 
-	// The ADLS account name.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// The file name in the ADLS account.
-	FileName pulumi.StringOutput `pulumi:"fileName"`
-	// The folder path within the ADLS account.
-	FolderPath pulumi.StringOutput `pulumi:"folderPath"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen1File'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource group of ADLS account.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Subscription id of ADLS account.
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountName    pulumi.StringOutput      `pulumi:"accountName"`
+	DataSetId      pulumi.StringOutput      `pulumi:"dataSetId"`
+	FileName       pulumi.StringOutput      `pulumi:"fileName"`
+	FolderPath     pulumi.StringOutput      `pulumi:"folderPath"`
+	Kind           pulumi.StringOutput      `pulumi:"kind"`
+	Name           pulumi.StringOutput      `pulumi:"name"`
+	ResourceGroup  pulumi.StringOutput      `pulumi:"resourceGroup"`
+	SubscriptionId pulumi.StringOutput      `pulumi:"subscriptionId"`
+	SystemData     SystemDataResponseOutput `pulumi:"systemData"`
+	Type           pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewADLSGen1FileDataSet registers a new resource with the given unique name, arguments, and options.
@@ -137,48 +126,28 @@ func (ADLSGen1FileDataSetState) ElementType() reflect.Type {
 }
 
 type adlsgen1FileDataSetArgs struct {
-	// The ADLS account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// The file name in the ADLS account.
-	FileName string `pulumi:"fileName"`
-	// The folder path within the ADLS account.
-	FolderPath string `pulumi:"folderPath"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen1File'.
-	Kind string `pulumi:"kind"`
-	// Resource group of ADLS account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Subscription id of ADLS account.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	AccountName       string  `pulumi:"accountName"`
+	DataSetName       *string `pulumi:"dataSetName"`
+	FileName          string  `pulumi:"fileName"`
+	FolderPath        string  `pulumi:"folderPath"`
+	Kind              string  `pulumi:"kind"`
+	ResourceGroup     string  `pulumi:"resourceGroup"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ShareName         string  `pulumi:"shareName"`
+	SubscriptionId    string  `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a ADLSGen1FileDataSet resource.
 type ADLSGen1FileDataSetArgs struct {
-	// The ADLS account name.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// The file name in the ADLS account.
-	FileName pulumi.StringInput
-	// The folder path within the ADLS account.
-	FolderPath pulumi.StringInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen1File'.
-	Kind pulumi.StringInput
-	// Resource group of ADLS account.
-	ResourceGroup pulumi.StringInput
-	// The resource group name.
+	AccountName       pulumi.StringInput
+	DataSetName       pulumi.StringPtrInput
+	FileName          pulumi.StringInput
+	FolderPath        pulumi.StringInput
+	Kind              pulumi.StringInput
+	ResourceGroup     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Subscription id of ADLS account.
-	SubscriptionId pulumi.StringInput
+	ShareName         pulumi.StringInput
+	SubscriptionId    pulumi.StringInput
 }
 
 func (ADLSGen1FileDataSetArgs) ElementType() reflect.Type {

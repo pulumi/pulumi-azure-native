@@ -14,24 +14,15 @@ import (
 type Device struct {
 	pulumi.CustomResourceState
 
-	// The reference to the Azure stack edge device.
-	AzureStackEdge SubResourceResponsePtrOutput `pulumi:"azureStackEdge"`
-	// The type of the device.
-	DeviceType pulumi.StringOutput `pulumi:"deviceType"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of network functions deployed on the device.
-	NetworkFunctions SubResourceResponseArrayOutput `pulumi:"networkFunctions"`
-	// The provisioning state of the device resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The current device status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AzureStackEdge    SubResourceResponsePtrOutput   `pulumi:"azureStackEdge"`
+	DeviceType        pulumi.StringOutput            `pulumi:"deviceType"`
+	Location          pulumi.StringOutput            `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	NetworkFunctions  SubResourceResponseArrayOutput `pulumi:"networkFunctions"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Status            pulumi.StringOutput            `pulumi:"status"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
@@ -97,34 +88,22 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The reference to the Azure stack edge device.
-	AzureStackEdge *SubResource `pulumi:"azureStackEdge"`
-	// Resource name for the device resource.
-	DeviceName *string `pulumi:"deviceName"`
-	// The type of the device.
-	DeviceType string `pulumi:"deviceType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AzureStackEdge    *SubResource      `pulumi:"azureStackEdge"`
+	DeviceName        *string           `pulumi:"deviceName"`
+	DeviceType        string            `pulumi:"deviceType"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The reference to the Azure stack edge device.
-	AzureStackEdge SubResourcePtrInput
-	// Resource name for the device resource.
-	DeviceName pulumi.StringPtrInput
-	// The type of the device.
-	DeviceType pulumi.StringInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AzureStackEdge    SubResourcePtrInput
+	DeviceName        pulumi.StringPtrInput
+	DeviceType        pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {

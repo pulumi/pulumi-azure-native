@@ -14,17 +14,11 @@ import (
 type LinkedService struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the linked service.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState     pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ResourceId            pulumi.StringPtrOutput `pulumi:"resourceId"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 	WriteAccessResourceId pulumi.StringPtrOutput `pulumi:"writeAccessResourceId"`
 }
 
@@ -103,37 +97,23 @@ func (LinkedServiceState) ElementType() reflect.Type {
 }
 
 type linkedServiceArgs struct {
-	// Name of the linkedServices resource
-	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// The provisioning state of the linked service.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
+	LinkedServiceName     *string           `pulumi:"linkedServiceName"`
+	ProvisioningState     *string           `pulumi:"provisioningState"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	ResourceId            *string           `pulumi:"resourceId"`
+	Tags                  map[string]string `pulumi:"tags"`
+	WorkspaceName         string            `pulumi:"workspaceName"`
+	WriteAccessResourceId *string           `pulumi:"writeAccessResourceId"`
 }
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// Name of the linkedServices resource
-	LinkedServiceName pulumi.StringPtrInput
-	// The provisioning state of the linked service.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	LinkedServiceName     pulumi.StringPtrInput
+	ProvisioningState     pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	ResourceId            pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	WorkspaceName         pulumi.StringInput
 	WriteAccessResourceId pulumi.StringPtrInput
 }
 

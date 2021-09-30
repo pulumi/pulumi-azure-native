@@ -14,16 +14,11 @@ import (
 type GuestDiagnosticsSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// The guest diagnostic settings name.
-	GuestDiagnosticSettingsName pulumi.StringOutput `pulumi:"guestDiagnosticSettingsName"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	GuestDiagnosticSettingsName pulumi.StringOutput    `pulumi:"guestDiagnosticSettingsName"`
+	Location                    pulumi.StringOutput    `pulumi:"location"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
+	Tags                        pulumi.StringMapOutput `pulumi:"tags"`
+	Type                        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGuestDiagnosticsSettingsAssociation registers a new resource with the given unique name, arguments, and options.
@@ -83,30 +78,20 @@ func (GuestDiagnosticsSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type guestDiagnosticsSettingsAssociationArgs struct {
-	// The name of the diagnostic settings association.
-	AssociationName *string `pulumi:"associationName"`
-	// The guest diagnostic settings name.
-	GuestDiagnosticSettingsName string `pulumi:"guestDiagnosticSettingsName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The fully qualified ID of the resource, including the resource name and resource type.
-	ResourceUri string `pulumi:"resourceUri"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AssociationName             *string           `pulumi:"associationName"`
+	GuestDiagnosticSettingsName string            `pulumi:"guestDiagnosticSettingsName"`
+	Location                    *string           `pulumi:"location"`
+	ResourceUri                 string            `pulumi:"resourceUri"`
+	Tags                        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GuestDiagnosticsSettingsAssociation resource.
 type GuestDiagnosticsSettingsAssociationArgs struct {
-	// The name of the diagnostic settings association.
-	AssociationName pulumi.StringPtrInput
-	// The guest diagnostic settings name.
+	AssociationName             pulumi.StringPtrInput
 	GuestDiagnosticSettingsName pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The fully qualified ID of the resource, including the resource name and resource type.
-	ResourceUri pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Location                    pulumi.StringPtrInput
+	ResourceUri                 pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (GuestDiagnosticsSettingsAssociationArgs) ElementType() reflect.Type {

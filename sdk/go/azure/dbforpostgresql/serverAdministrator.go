@@ -14,18 +14,12 @@ import (
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 
-	// The type of administrator.
 	AdministratorType pulumi.StringOutput `pulumi:"administratorType"`
-	// The server administrator login account name.
-	Login pulumi.StringOutput `pulumi:"login"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The server administrator Sid (Secure ID).
-	Sid pulumi.StringOutput `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Login             pulumi.StringOutput `pulumi:"login"`
+	Name              pulumi.StringOutput `pulumi:"name"`
+	Sid               pulumi.StringOutput `pulumi:"sid"`
+	TenantId          pulumi.StringOutput `pulumi:"tenantId"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerAdministrator registers a new resource with the given unique name, arguments, and options.
@@ -103,34 +97,22 @@ func (ServerAdministratorState) ElementType() reflect.Type {
 }
 
 type serverAdministratorArgs struct {
-	// The type of administrator.
 	AdministratorType string `pulumi:"administratorType"`
-	// The server administrator login account name.
-	Login string `pulumi:"login"`
-	// The name of the resource group. The name is case insensitive.
+	Login             string `pulumi:"login"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The server administrator Sid (Secure ID).
-	Sid string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId string `pulumi:"tenantId"`
+	ServerName        string `pulumi:"serverName"`
+	Sid               string `pulumi:"sid"`
+	TenantId          string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ServerAdministrator resource.
 type ServerAdministratorArgs struct {
-	// The type of administrator.
 	AdministratorType pulumi.StringInput
-	// The server administrator login account name.
-	Login pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	Login             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The server administrator Sid (Secure ID).
-	Sid pulumi.StringInput
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringInput
+	ServerName        pulumi.StringInput
+	Sid               pulumi.StringInput
+	TenantId          pulumi.StringInput
 }
 
 func (ServerAdministratorArgs) ElementType() reflect.Type {

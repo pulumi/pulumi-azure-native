@@ -14,12 +14,9 @@ import (
 type Input struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewInput registers a new resource with the given unique name, arguments, and options.
@@ -91,29 +88,19 @@ func (InputState) ElementType() reflect.Type {
 }
 
 type inputArgs struct {
-	// The name of the input.
-	InputName *string `pulumi:"inputName"`
-	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	InputName         *string     `pulumi:"inputName"`
+	JobName           string      `pulumi:"jobName"`
+	Name              *string     `pulumi:"name"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
-	// The name of the input.
-	InputName pulumi.StringPtrInput
-	// The name of the streaming job.
-	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties pulumi.Input
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	InputName         pulumi.StringPtrInput
+	JobName           pulumi.StringInput
+	Name              pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 

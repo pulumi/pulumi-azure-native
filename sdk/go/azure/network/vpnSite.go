@@ -14,36 +14,21 @@ import (
 type VpnSite struct {
 	pulumi.CustomResourceState
 
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties BgpSettingsResponsePtrOutput `pulumi:"bgpProperties"`
-	// The device properties.
-	DeviceProperties DevicePropertiesResponsePtrOutput `pulumi:"deviceProperties"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The ip-address for the vpn-site.
-	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// IsSecuritySite flag.
-	IsSecuritySite pulumi.BoolPtrOutput `pulumi:"isSecuritySite"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Office365 Policy.
-	O365Policy O365PolicyPropertiesResponsePtrOutput `pulumi:"o365Policy"`
-	// The provisioning state of the VPN site resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey pulumi.StringPtrOutput `pulumi:"siteKey"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The VirtualWAN to which the vpnSite belongs.
-	VirtualWan SubResourceResponsePtrOutput `pulumi:"virtualWan"`
-	// List of all vpn site links.
-	VpnSiteLinks VpnSiteLinkResponseArrayOutput `pulumi:"vpnSiteLinks"`
+	AddressSpace      AddressSpaceResponsePtrOutput         `pulumi:"addressSpace"`
+	BgpProperties     BgpSettingsResponsePtrOutput          `pulumi:"bgpProperties"`
+	DeviceProperties  DevicePropertiesResponsePtrOutput     `pulumi:"deviceProperties"`
+	Etag              pulumi.StringOutput                   `pulumi:"etag"`
+	IpAddress         pulumi.StringPtrOutput                `pulumi:"ipAddress"`
+	IsSecuritySite    pulumi.BoolPtrOutput                  `pulumi:"isSecuritySite"`
+	Location          pulumi.StringOutput                   `pulumi:"location"`
+	Name              pulumi.StringOutput                   `pulumi:"name"`
+	O365Policy        O365PolicyPropertiesResponsePtrOutput `pulumi:"o365Policy"`
+	ProvisioningState pulumi.StringOutput                   `pulumi:"provisioningState"`
+	SiteKey           pulumi.StringPtrOutput                `pulumi:"siteKey"`
+	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
+	Type              pulumi.StringOutput                   `pulumi:"type"`
+	VirtualWan        SubResourceResponsePtrOutput          `pulumi:"virtualWan"`
+	VpnSiteLinks      VpnSiteLinkResponseArrayOutput        `pulumi:"vpnSiteLinks"`
 }
 
 // NewVpnSite registers a new resource with the given unique name, arguments, and options.
@@ -238,66 +223,38 @@ func (VpnSiteState) ElementType() reflect.Type {
 }
 
 type vpnSiteArgs struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace *AddressSpace `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties *BgpSettings `pulumi:"bgpProperties"`
-	// The device properties.
-	DeviceProperties *DeviceProperties `pulumi:"deviceProperties"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The ip-address for the vpn-site.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IsSecuritySite flag.
-	IsSecuritySite *bool `pulumi:"isSecuritySite"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Office365 Policy.
-	O365Policy *O365PolicyProperties `pulumi:"o365Policy"`
-	// The resource group name of the VpnSite.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey *string `pulumi:"siteKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The VirtualWAN to which the vpnSite belongs.
-	VirtualWan *SubResource `pulumi:"virtualWan"`
-	// List of all vpn site links.
-	VpnSiteLinks []VpnSiteLink `pulumi:"vpnSiteLinks"`
-	// The name of the VpnSite being created or updated.
-	VpnSiteName *string `pulumi:"vpnSiteName"`
+	AddressSpace      *AddressSpace         `pulumi:"addressSpace"`
+	BgpProperties     *BgpSettings          `pulumi:"bgpProperties"`
+	DeviceProperties  *DeviceProperties     `pulumi:"deviceProperties"`
+	Id                *string               `pulumi:"id"`
+	IpAddress         *string               `pulumi:"ipAddress"`
+	IsSecuritySite    *bool                 `pulumi:"isSecuritySite"`
+	Location          *string               `pulumi:"location"`
+	O365Policy        *O365PolicyProperties `pulumi:"o365Policy"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	SiteKey           *string               `pulumi:"siteKey"`
+	Tags              map[string]string     `pulumi:"tags"`
+	VirtualWan        *SubResource          `pulumi:"virtualWan"`
+	VpnSiteLinks      []VpnSiteLink         `pulumi:"vpnSiteLinks"`
+	VpnSiteName       *string               `pulumi:"vpnSiteName"`
 }
 
 // The set of arguments for constructing a VpnSite resource.
 type VpnSiteArgs struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace AddressSpacePtrInput
-	// The set of bgp properties.
-	BgpProperties BgpSettingsPtrInput
-	// The device properties.
-	DeviceProperties DevicePropertiesPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The ip-address for the vpn-site.
-	IpAddress pulumi.StringPtrInput
-	// IsSecuritySite flag.
-	IsSecuritySite pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Office365 Policy.
-	O365Policy O365PolicyPropertiesPtrInput
-	// The resource group name of the VpnSite.
+	AddressSpace      AddressSpacePtrInput
+	BgpProperties     BgpSettingsPtrInput
+	DeviceProperties  DevicePropertiesPtrInput
+	Id                pulumi.StringPtrInput
+	IpAddress         pulumi.StringPtrInput
+	IsSecuritySite    pulumi.BoolPtrInput
+	Location          pulumi.StringPtrInput
+	O365Policy        O365PolicyPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The key for vpn-site that can be used for connections.
-	SiteKey pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The VirtualWAN to which the vpnSite belongs.
-	VirtualWan SubResourcePtrInput
-	// List of all vpn site links.
-	VpnSiteLinks VpnSiteLinkArrayInput
-	// The name of the VpnSite being created or updated.
-	VpnSiteName pulumi.StringPtrInput
+	SiteKey           pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VirtualWan        SubResourcePtrInput
+	VpnSiteLinks      VpnSiteLinkArrayInput
+	VpnSiteName       pulumi.StringPtrInput
 }
 
 func (VpnSiteArgs) ElementType() reflect.Type {

@@ -14,32 +14,20 @@ import (
 type AssessmentMetadataInSubscription struct {
 	pulumi.CustomResourceState
 
-	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-	AssessmentType pulumi.StringOutput      `pulumi:"assessmentType"`
-	Categories     pulumi.StringArrayOutput `pulumi:"categories"`
-	// Human readable description of the assessment
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// User friendly display name of the assessment
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The implementation effort required to remediate this assessment
-	ImplementationEffort pulumi.StringPtrOutput `pulumi:"implementationEffort"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the partner that created the assessment
-	PartnerData SecurityAssessmentMetadataPartnerDataResponsePtrOutput `pulumi:"partnerData"`
-	// Azure resource ID of the policy definition that turns this assessment calculation on
-	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
-	// True if this assessment is in preview release status
-	Preview pulumi.BoolPtrOutput `pulumi:"preview"`
-	// Human readable description of what you should do to mitigate this security issue
-	RemediationDescription pulumi.StringPtrOutput `pulumi:"remediationDescription"`
-	// The severity level of the assessment
-	Severity pulumi.StringOutput      `pulumi:"severity"`
-	Threats  pulumi.StringArrayOutput `pulumi:"threats"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The user impact of the assessment
-	UserImpact pulumi.StringPtrOutput `pulumi:"userImpact"`
+	AssessmentType         pulumi.StringOutput                                    `pulumi:"assessmentType"`
+	Categories             pulumi.StringArrayOutput                               `pulumi:"categories"`
+	Description            pulumi.StringPtrOutput                                 `pulumi:"description"`
+	DisplayName            pulumi.StringOutput                                    `pulumi:"displayName"`
+	ImplementationEffort   pulumi.StringPtrOutput                                 `pulumi:"implementationEffort"`
+	Name                   pulumi.StringOutput                                    `pulumi:"name"`
+	PartnerData            SecurityAssessmentMetadataPartnerDataResponsePtrOutput `pulumi:"partnerData"`
+	PolicyDefinitionId     pulumi.StringOutput                                    `pulumi:"policyDefinitionId"`
+	Preview                pulumi.BoolPtrOutput                                   `pulumi:"preview"`
+	RemediationDescription pulumi.StringPtrOutput                                 `pulumi:"remediationDescription"`
+	Severity               pulumi.StringOutput                                    `pulumi:"severity"`
+	Threats                pulumi.StringArrayOutput                               `pulumi:"threats"`
+	Type                   pulumi.StringOutput                                    `pulumi:"type"`
+	UserImpact             pulumi.StringPtrOutput                                 `pulumi:"userImpact"`
 }
 
 // NewAssessmentMetadataInSubscription registers a new resource with the given unique name, arguments, and options.
@@ -114,54 +102,34 @@ func (AssessmentMetadataInSubscriptionState) ElementType() reflect.Type {
 }
 
 type assessmentMetadataInSubscriptionArgs struct {
-	// The Assessment Key - Unique key for the assessment type
-	AssessmentMetadataName *string `pulumi:"assessmentMetadataName"`
-	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-	AssessmentType string   `pulumi:"assessmentType"`
-	Categories     []string `pulumi:"categories"`
-	// Human readable description of the assessment
-	Description *string `pulumi:"description"`
-	// User friendly display name of the assessment
-	DisplayName string `pulumi:"displayName"`
-	// The implementation effort required to remediate this assessment
-	ImplementationEffort *string `pulumi:"implementationEffort"`
-	// Describes the partner that created the assessment
-	PartnerData *SecurityAssessmentMetadataPartnerData `pulumi:"partnerData"`
-	// True if this assessment is in preview release status
-	Preview *bool `pulumi:"preview"`
-	// Human readable description of what you should do to mitigate this security issue
-	RemediationDescription *string `pulumi:"remediationDescription"`
-	// The severity level of the assessment
-	Severity string   `pulumi:"severity"`
-	Threats  []string `pulumi:"threats"`
-	// The user impact of the assessment
-	UserImpact *string `pulumi:"userImpact"`
+	AssessmentMetadataName *string                                `pulumi:"assessmentMetadataName"`
+	AssessmentType         string                                 `pulumi:"assessmentType"`
+	Categories             []string                               `pulumi:"categories"`
+	Description            *string                                `pulumi:"description"`
+	DisplayName            string                                 `pulumi:"displayName"`
+	ImplementationEffort   *string                                `pulumi:"implementationEffort"`
+	PartnerData            *SecurityAssessmentMetadataPartnerData `pulumi:"partnerData"`
+	Preview                *bool                                  `pulumi:"preview"`
+	RemediationDescription *string                                `pulumi:"remediationDescription"`
+	Severity               string                                 `pulumi:"severity"`
+	Threats                []string                               `pulumi:"threats"`
+	UserImpact             *string                                `pulumi:"userImpact"`
 }
 
 // The set of arguments for constructing a AssessmentMetadataInSubscription resource.
 type AssessmentMetadataInSubscriptionArgs struct {
-	// The Assessment Key - Unique key for the assessment type
 	AssessmentMetadataName pulumi.StringPtrInput
-	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-	AssessmentType pulumi.StringInput
-	Categories     pulumi.StringArrayInput
-	// Human readable description of the assessment
-	Description pulumi.StringPtrInput
-	// User friendly display name of the assessment
-	DisplayName pulumi.StringInput
-	// The implementation effort required to remediate this assessment
-	ImplementationEffort pulumi.StringPtrInput
-	// Describes the partner that created the assessment
-	PartnerData SecurityAssessmentMetadataPartnerDataPtrInput
-	// True if this assessment is in preview release status
-	Preview pulumi.BoolPtrInput
-	// Human readable description of what you should do to mitigate this security issue
+	AssessmentType         pulumi.StringInput
+	Categories             pulumi.StringArrayInput
+	Description            pulumi.StringPtrInput
+	DisplayName            pulumi.StringInput
+	ImplementationEffort   pulumi.StringPtrInput
+	PartnerData            SecurityAssessmentMetadataPartnerDataPtrInput
+	Preview                pulumi.BoolPtrInput
 	RemediationDescription pulumi.StringPtrInput
-	// The severity level of the assessment
-	Severity pulumi.StringInput
-	Threats  pulumi.StringArrayInput
-	// The user impact of the assessment
-	UserImpact pulumi.StringPtrInput
+	Severity               pulumi.StringInput
+	Threats                pulumi.StringArrayInput
+	UserImpact             pulumi.StringPtrInput
 }
 
 func (AssessmentMetadataInSubscriptionArgs) ElementType() reflect.Type {

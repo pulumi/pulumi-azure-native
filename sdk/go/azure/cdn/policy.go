@@ -14,33 +14,20 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Describes custom rules inside the policy.
-	CustomRules CustomRuleListResponsePtrOutput `pulumi:"customRules"`
-	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-	EndpointLinks CdnEndpointResponseArrayOutput `pulumi:"endpointLinks"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules ManagedRuleSetListResponsePtrOutput `pulumi:"managedRules"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Describes rate limit rules inside the policy.
-	RateLimitRules RateLimitRuleListResponsePtrOutput `pulumi:"rateLimitRules"`
-	ResourceState  pulumi.StringOutput                `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CustomRules       CustomRuleListResponsePtrOutput     `pulumi:"customRules"`
+	EndpointLinks     CdnEndpointResponseArrayOutput      `pulumi:"endpointLinks"`
+	Etag              pulumi.StringPtrOutput              `pulumi:"etag"`
+	Location          pulumi.StringOutput                 `pulumi:"location"`
+	ManagedRules      ManagedRuleSetListResponsePtrOutput `pulumi:"managedRules"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	PolicySettings    PolicySettingsResponsePtrOutput     `pulumi:"policySettings"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	RateLimitRules    RateLimitRuleListResponsePtrOutput  `pulumi:"rateLimitRules"`
+	ResourceState     pulumi.StringOutput                 `pulumi:"resourceState"`
+	Sku               SkuResponseOutput                   `pulumi:"sku"`
+	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -124,50 +111,30 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Describes custom rules inside the policy.
-	CustomRules *CustomRuleList `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
-	// The name of the CdnWebApplicationFirewallPolicy.
-	PolicyName *string `pulumi:"policyName"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettings `pulumi:"policySettings"`
-	// Describes rate limit rules inside the policy.
-	RateLimitRules *RateLimitRuleList `pulumi:"rateLimitRules"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CustomRules       *CustomRuleList     `pulumi:"customRules"`
+	Etag              *string             `pulumi:"etag"`
+	Location          *string             `pulumi:"location"`
+	ManagedRules      *ManagedRuleSetList `pulumi:"managedRules"`
+	PolicyName        *string             `pulumi:"policyName"`
+	PolicySettings    *PolicySettings     `pulumi:"policySettings"`
+	RateLimitRules    *RateLimitRuleList  `pulumi:"rateLimitRules"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Sku               Sku                 `pulumi:"sku"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Describes custom rules inside the policy.
-	CustomRules CustomRuleListPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Describes managed rules inside the policy.
-	ManagedRules ManagedRuleSetListPtrInput
-	// The name of the CdnWebApplicationFirewallPolicy.
-	PolicyName pulumi.StringPtrInput
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsPtrInput
-	// Describes rate limit rules inside the policy.
-	RateLimitRules RateLimitRuleListPtrInput
-	// Name of the Resource group within the Azure subscription.
+	CustomRules       CustomRuleListPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ManagedRules      ManagedRuleSetListPtrInput
+	PolicyName        pulumi.StringPtrInput
+	PolicySettings    PolicySettingsPtrInput
+	RateLimitRules    RateLimitRuleListPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

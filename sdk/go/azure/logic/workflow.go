@@ -14,40 +14,23 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// The access control configuration.
-	AccessControl FlowAccessControlConfigurationResponsePtrOutput `pulumi:"accessControl"`
-	// Gets the access endpoint.
-	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The definition.
-	Definition pulumi.AnyOutput `pulumi:"definition"`
-	// The endpoints configuration.
-	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrOutput `pulumi:"endpointsConfiguration"`
-	// The integration account.
-	IntegrationAccount ResourceReferenceResponsePtrOutput `pulumi:"integrationAccount"`
-	// The integration service environment.
-	IntegrationServiceEnvironment ResourceReferenceResponsePtrOutput `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters.
-	Parameters WorkflowParameterResponseMapOutput `pulumi:"parameters"`
-	// Gets the provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The state.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets the version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	AccessControl                 FlowAccessControlConfigurationResponsePtrOutput `pulumi:"accessControl"`
+	AccessEndpoint                pulumi.StringOutput                             `pulumi:"accessEndpoint"`
+	ChangedTime                   pulumi.StringOutput                             `pulumi:"changedTime"`
+	CreatedTime                   pulumi.StringOutput                             `pulumi:"createdTime"`
+	Definition                    pulumi.AnyOutput                                `pulumi:"definition"`
+	EndpointsConfiguration        FlowEndpointsConfigurationResponsePtrOutput     `pulumi:"endpointsConfiguration"`
+	IntegrationAccount            ResourceReferenceResponsePtrOutput              `pulumi:"integrationAccount"`
+	IntegrationServiceEnvironment ResourceReferenceResponsePtrOutput              `pulumi:"integrationServiceEnvironment"`
+	Location                      pulumi.StringPtrOutput                          `pulumi:"location"`
+	Name                          pulumi.StringOutput                             `pulumi:"name"`
+	Parameters                    WorkflowParameterResponseMapOutput              `pulumi:"parameters"`
+	ProvisioningState             pulumi.StringOutput                             `pulumi:"provisioningState"`
+	Sku                           SkuResponseOutput                               `pulumi:"sku"`
+	State                         pulumi.StringPtrOutput                          `pulumi:"state"`
+	Tags                          pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type                          pulumi.StringOutput                             `pulumi:"type"`
+	Version                       pulumi.StringOutput                             `pulumi:"version"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -122,54 +105,32 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// The access control configuration.
-	AccessControl *FlowAccessControlConfiguration `pulumi:"accessControl"`
-	// The definition.
-	Definition interface{} `pulumi:"definition"`
-	// The endpoints configuration.
-	EndpointsConfiguration *FlowEndpointsConfiguration `pulumi:"endpointsConfiguration"`
-	// The integration account.
-	IntegrationAccount *ResourceReference `pulumi:"integrationAccount"`
-	// The integration service environment.
-	IntegrationServiceEnvironment *ResourceReference `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The parameters.
-	Parameters map[string]WorkflowParameter `pulumi:"parameters"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The state.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The workflow name.
-	WorkflowName *string `pulumi:"workflowName"`
+	AccessControl                 *FlowAccessControlConfiguration `pulumi:"accessControl"`
+	Definition                    interface{}                     `pulumi:"definition"`
+	EndpointsConfiguration        *FlowEndpointsConfiguration     `pulumi:"endpointsConfiguration"`
+	IntegrationAccount            *ResourceReference              `pulumi:"integrationAccount"`
+	IntegrationServiceEnvironment *ResourceReference              `pulumi:"integrationServiceEnvironment"`
+	Location                      *string                         `pulumi:"location"`
+	Parameters                    map[string]WorkflowParameter    `pulumi:"parameters"`
+	ResourceGroupName             string                          `pulumi:"resourceGroupName"`
+	State                         *string                         `pulumi:"state"`
+	Tags                          map[string]string               `pulumi:"tags"`
+	WorkflowName                  *string                         `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// The access control configuration.
-	AccessControl FlowAccessControlConfigurationPtrInput
-	// The definition.
-	Definition pulumi.Input
-	// The endpoints configuration.
-	EndpointsConfiguration FlowEndpointsConfigurationPtrInput
-	// The integration account.
-	IntegrationAccount ResourceReferencePtrInput
-	// The integration service environment.
+	AccessControl                 FlowAccessControlConfigurationPtrInput
+	Definition                    pulumi.Input
+	EndpointsConfiguration        FlowEndpointsConfigurationPtrInput
+	IntegrationAccount            ResourceReferencePtrInput
 	IntegrationServiceEnvironment ResourceReferencePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The parameters.
-	Parameters WorkflowParameterMapInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The state.
-	State pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The workflow name.
-	WorkflowName pulumi.StringPtrInput
+	Location                      pulumi.StringPtrInput
+	Parameters                    WorkflowParameterMapInput
+	ResourceGroupName             pulumi.StringInput
+	State                         pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	WorkflowName                  pulumi.StringPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

@@ -14,22 +14,14 @@ import (
 type Bot struct {
 	pulumi.CustomResourceState
 
-	// Entity Tag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to bot resource
+	Etag       pulumi.StringPtrOutput      `pulumi:"etag"`
+	Kind       pulumi.StringPtrOutput      `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput      `pulumi:"location"`
+	Name       pulumi.StringOutput         `pulumi:"name"`
 	Properties BotPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput        `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput      `pulumi:"tags"`
+	Type       pulumi.StringOutput         `pulumi:"type"`
 }
 
 // NewBot registers a new resource with the given unique name, arguments, and options.
@@ -110,42 +102,26 @@ func (BotState) ElementType() reflect.Type {
 }
 
 type botArgs struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// The set of properties specific to bot resource
-	Properties *BotProperties `pulumi:"properties"`
-	// The name of the Bot resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Bot resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets the SKU of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string           `pulumi:"etag"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Properties        *BotProperties    `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bot resource.
 type BotArgs struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// The set of properties specific to bot resource
-	Properties BotPropertiesPtrInput
-	// The name of the Bot resource group in the user subscription.
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        BotPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Bot resource.
-	ResourceName pulumi.StringPtrInput
-	// Gets or sets the SKU of the resource.
-	Sku SkuPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BotArgs) ElementType() reflect.Type {

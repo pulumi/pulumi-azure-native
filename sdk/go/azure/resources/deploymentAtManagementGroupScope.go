@@ -14,16 +14,11 @@ import (
 type DeploymentAtManagementGroupScope struct {
 	pulumi.CustomResourceState
 
-	// the location of the deployment.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeploymentAtManagementGroupScope registers a new resource with the given unique name, arguments, and options.
@@ -137,30 +132,20 @@ func (DeploymentAtManagementGroupScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtManagementGroupScopeArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// The management group ID.
-	GroupId string `pulumi:"groupId"`
-	// The location to store the deployment data.
-	Location *string `pulumi:"location"`
-	// The deployment properties.
-	Properties DeploymentProperties `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentName *string              `pulumi:"deploymentName"`
+	GroupId        string               `pulumi:"groupId"`
+	Location       *string              `pulumi:"location"`
+	Properties     DeploymentProperties `pulumi:"properties"`
+	Tags           map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentAtManagementGroupScope resource.
 type DeploymentAtManagementGroupScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName pulumi.StringPtrInput
-	// The management group ID.
-	GroupId pulumi.StringInput
-	// The location to store the deployment data.
-	Location pulumi.StringPtrInput
-	// The deployment properties.
-	Properties DeploymentPropertiesInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
+	GroupId        pulumi.StringInput
+	Location       pulumi.StringPtrInput
+	Properties     DeploymentPropertiesInput
+	Tags           pulumi.StringMapInput
 }
 
 func (DeploymentAtManagementGroupScopeArgs) ElementType() reflect.Type {

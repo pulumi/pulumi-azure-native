@@ -14,40 +14,23 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	// Flag to note if this instance participates in auto upgrade of minor version, or not.
-	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
-	// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
-	ConfigurationProtectedSettings pulumi.StringMapOutput `pulumi:"configurationProtectedSettings"`
-	// Configuration settings, as name-value pairs for configuring this instance of the extension.
-	ConfigurationSettings pulumi.StringMapOutput `pulumi:"configurationSettings"`
-	// DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Error information from the Agent - e.g. errors during installation.
-	ErrorInfo ErrorDefinitionResponseOutput `pulumi:"errorInfo"`
-	// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-	ExtensionType pulumi.StringPtrOutput `pulumi:"extensionType"`
-	// The identity of the configuration.
-	Identity ConfigurationIdentityResponsePtrOutput `pulumi:"identity"`
-	// Status of installation of this instance of the extension.
-	InstallState pulumi.StringOutput `pulumi:"installState"`
-	// DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// DateLiteral (per ISO8601) noting the time of last status from the agent.
-	LastStatusTime pulumi.StringOutput `pulumi:"lastStatusTime"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
-	ReleaseTrain pulumi.StringPtrOutput `pulumi:"releaseTrain"`
-	// Scope at which the extension instance is installed.
-	Scope ScopeResponsePtrOutput `pulumi:"scope"`
-	// Status from this instance of the extension.
-	Statuses ExtensionStatusResponseArrayOutput `pulumi:"statuses"`
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	AutoUpgradeMinorVersion        pulumi.BoolPtrOutput                   `pulumi:"autoUpgradeMinorVersion"`
+	ConfigurationProtectedSettings pulumi.StringMapOutput                 `pulumi:"configurationProtectedSettings"`
+	ConfigurationSettings          pulumi.StringMapOutput                 `pulumi:"configurationSettings"`
+	CreationTime                   pulumi.StringOutput                    `pulumi:"creationTime"`
+	ErrorInfo                      ErrorDefinitionResponseOutput          `pulumi:"errorInfo"`
+	ExtensionType                  pulumi.StringPtrOutput                 `pulumi:"extensionType"`
+	Identity                       ConfigurationIdentityResponsePtrOutput `pulumi:"identity"`
+	InstallState                   pulumi.StringOutput                    `pulumi:"installState"`
+	LastModifiedTime               pulumi.StringOutput                    `pulumi:"lastModifiedTime"`
+	LastStatusTime                 pulumi.StringOutput                    `pulumi:"lastStatusTime"`
+	Name                           pulumi.StringOutput                    `pulumi:"name"`
+	ReleaseTrain                   pulumi.StringPtrOutput                 `pulumi:"releaseTrain"`
+	Scope                          ScopeResponsePtrOutput                 `pulumi:"scope"`
+	Statuses                       ExtensionStatusResponseArrayOutput     `pulumi:"statuses"`
+	SystemData                     SystemDataResponsePtrOutput            `pulumi:"systemData"`
+	Type                           pulumi.StringOutput                    `pulumi:"type"`
+	Version                        pulumi.StringPtrOutput                 `pulumi:"version"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -125,66 +108,38 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	// Flag to note if this instance participates in auto upgrade of minor version, or not.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// The name of the kubernetes cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-	ClusterResourceName string `pulumi:"clusterResourceName"`
-	// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
-	ClusterRp string `pulumi:"clusterRp"`
-	// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
-	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
-	// Configuration settings, as name-value pairs for configuring this instance of the extension.
-	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
-	// Name of an instance of the Extension.
-	ExtensionInstanceName *string `pulumi:"extensionInstanceName"`
-	// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-	ExtensionType *string `pulumi:"extensionType"`
-	// The identity of the configuration.
-	Identity *ConfigurationIdentity `pulumi:"identity"`
-	// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
-	ReleaseTrain *string `pulumi:"releaseTrain"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Scope at which the extension instance is installed.
-	Scope *Scope `pulumi:"scope"`
-	// Status from this instance of the extension.
-	Statuses []ExtensionStatus `pulumi:"statuses"`
-	// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
-	Version *string `pulumi:"version"`
+	AutoUpgradeMinorVersion        *bool                  `pulumi:"autoUpgradeMinorVersion"`
+	ClusterName                    string                 `pulumi:"clusterName"`
+	ClusterResourceName            string                 `pulumi:"clusterResourceName"`
+	ClusterRp                      string                 `pulumi:"clusterRp"`
+	ConfigurationProtectedSettings map[string]string      `pulumi:"configurationProtectedSettings"`
+	ConfigurationSettings          map[string]string      `pulumi:"configurationSettings"`
+	ExtensionInstanceName          *string                `pulumi:"extensionInstanceName"`
+	ExtensionType                  *string                `pulumi:"extensionType"`
+	Identity                       *ConfigurationIdentity `pulumi:"identity"`
+	ReleaseTrain                   *string                `pulumi:"releaseTrain"`
+	ResourceGroupName              string                 `pulumi:"resourceGroupName"`
+	Scope                          *Scope                 `pulumi:"scope"`
+	Statuses                       []ExtensionStatus      `pulumi:"statuses"`
+	Version                        *string                `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	// Flag to note if this instance participates in auto upgrade of minor version, or not.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// The name of the kubernetes cluster.
-	ClusterName pulumi.StringInput
-	// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-	ClusterResourceName pulumi.StringInput
-	// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
-	ClusterRp pulumi.StringInput
-	// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+	AutoUpgradeMinorVersion        pulumi.BoolPtrInput
+	ClusterName                    pulumi.StringInput
+	ClusterResourceName            pulumi.StringInput
+	ClusterRp                      pulumi.StringInput
 	ConfigurationProtectedSettings pulumi.StringMapInput
-	// Configuration settings, as name-value pairs for configuring this instance of the extension.
-	ConfigurationSettings pulumi.StringMapInput
-	// Name of an instance of the Extension.
-	ExtensionInstanceName pulumi.StringPtrInput
-	// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-	ExtensionType pulumi.StringPtrInput
-	// The identity of the configuration.
-	Identity ConfigurationIdentityPtrInput
-	// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
-	ReleaseTrain pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Scope at which the extension instance is installed.
-	Scope ScopePtrInput
-	// Status from this instance of the extension.
-	Statuses ExtensionStatusArrayInput
-	// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
-	Version pulumi.StringPtrInput
+	ConfigurationSettings          pulumi.StringMapInput
+	ExtensionInstanceName          pulumi.StringPtrInput
+	ExtensionType                  pulumi.StringPtrInput
+	Identity                       ConfigurationIdentityPtrInput
+	ReleaseTrain                   pulumi.StringPtrInput
+	ResourceGroupName              pulumi.StringInput
+	Scope                          ScopePtrInput
+	Statuses                       ExtensionStatusArrayInput
+	Version                        pulumi.StringPtrInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {

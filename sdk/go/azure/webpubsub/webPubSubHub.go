@@ -14,14 +14,10 @@ import (
 type WebPubSubHub struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the hub setting.
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties WebPubSubHubPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput             `pulumi:"systemData"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewWebPubSubHub registers a new resource with the given unique name, arguments, and options.
@@ -84,26 +80,18 @@ func (WebPubSubHubState) ElementType() reflect.Type {
 }
 
 type webPubSubHubArgs struct {
-	// The hub name.
-	HubName *string `pulumi:"hubName"`
-	// Properties of the hub setting.
-	Properties WebPubSubHubProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	HubName           *string                `pulumi:"hubName"`
+	Properties        WebPubSubHubProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	ResourceName      string                 `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a WebPubSubHub resource.
 type WebPubSubHubArgs struct {
-	// The hub name.
-	HubName pulumi.StringPtrInput
-	// Properties of the hub setting.
-	Properties WebPubSubHubPropertiesInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	HubName           pulumi.StringPtrInput
+	Properties        WebPubSubHubPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (WebPubSubHubArgs) ElementType() reflect.Type {

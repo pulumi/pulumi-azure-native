@@ -14,34 +14,19 @@ import (
 type Gen2Environment struct {
 	pulumi.CustomResourceState
 
-	// The time the resource was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn pulumi.StringOutput `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId pulumi.StringOutput `pulumi:"dataAccessId"`
-	// The kind of the environment.
-	// Expected value is 'Gen2'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponseOutput `pulumi:"status"`
-	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-	StorageConfiguration Gen2StorageConfigurationOutputResponseOutput `pulumi:"storageConfiguration"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The list of event properties which will be used to define the environment's time series id.
-	TimeSeriesIdProperties TimeSeriesIdPropertyResponseArrayOutput `pulumi:"timeSeriesIdProperties"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+	CreationTime           pulumi.StringOutput                               `pulumi:"creationTime"`
+	DataAccessFqdn         pulumi.StringOutput                               `pulumi:"dataAccessFqdn"`
+	DataAccessId           pulumi.StringOutput                               `pulumi:"dataAccessId"`
+	Kind                   pulumi.StringOutput                               `pulumi:"kind"`
+	Location               pulumi.StringOutput                               `pulumi:"location"`
+	Name                   pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput                               `pulumi:"provisioningState"`
+	Sku                    SkuResponseOutput                                 `pulumi:"sku"`
+	Status                 EnvironmentStatusResponseOutput                   `pulumi:"status"`
+	StorageConfiguration   Gen2StorageConfigurationOutputResponseOutput      `pulumi:"storageConfiguration"`
+	Tags                   pulumi.StringMapOutput                            `pulumi:"tags"`
+	TimeSeriesIdProperties TimeSeriesIdPropertyResponseArrayOutput           `pulumi:"timeSeriesIdProperties"`
+	Type                   pulumi.StringOutput                               `pulumi:"type"`
 	WarmStoreConfiguration WarmStoreConfigurationPropertiesResponsePtrOutput `pulumi:"warmStoreConfiguration"`
 }
 
@@ -142,47 +127,27 @@ func (Gen2EnvironmentState) ElementType() reflect.Type {
 }
 
 type gen2EnvironmentArgs struct {
-	// Name of the environment
-	EnvironmentName *string `pulumi:"environmentName"`
-	// The kind of the environment.
-	// Expected value is 'Gen2'.
-	Kind string `pulumi:"kind"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku Sku `pulumi:"sku"`
-	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-	StorageConfiguration Gen2StorageConfigurationInput `pulumi:"storageConfiguration"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The list of event properties which will be used to define the environment's time series id.
-	TimeSeriesIdProperties []TimeSeriesIdProperty `pulumi:"timeSeriesIdProperties"`
-	// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+	EnvironmentName        *string                           `pulumi:"environmentName"`
+	Kind                   string                            `pulumi:"kind"`
+	Location               *string                           `pulumi:"location"`
+	ResourceGroupName      string                            `pulumi:"resourceGroupName"`
+	Sku                    Sku                               `pulumi:"sku"`
+	StorageConfiguration   Gen2StorageConfigurationInput     `pulumi:"storageConfiguration"`
+	Tags                   map[string]string                 `pulumi:"tags"`
+	TimeSeriesIdProperties []TimeSeriesIdProperty            `pulumi:"timeSeriesIdProperties"`
 	WarmStoreConfiguration *WarmStoreConfigurationProperties `pulumi:"warmStoreConfiguration"`
 }
 
 // The set of arguments for constructing a Gen2Environment resource.
 type Gen2EnvironmentArgs struct {
-	// Name of the environment
-	EnvironmentName pulumi.StringPtrInput
-	// The kind of the environment.
-	// Expected value is 'Gen2'.
-	Kind pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuInput
-	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
-	StorageConfiguration Gen2StorageConfigurationInputInput
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
-	// The list of event properties which will be used to define the environment's time series id.
+	EnvironmentName        pulumi.StringPtrInput
+	Kind                   pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Sku                    SkuInput
+	StorageConfiguration   Gen2StorageConfigurationInputInput
+	Tags                   pulumi.StringMapInput
 	TimeSeriesIdProperties TimeSeriesIdPropertyArrayInput
-	// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
 	WarmStoreConfiguration WarmStoreConfigurationPropertiesPtrInput
 }
 

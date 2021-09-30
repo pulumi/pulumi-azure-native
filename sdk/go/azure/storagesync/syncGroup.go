@@ -14,14 +14,10 @@ import (
 type SyncGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sync group status
+	Name            pulumi.StringOutput `pulumi:"name"`
 	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unique Id
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	Type            pulumi.StringOutput `pulumi:"type"`
+	UniqueId        pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
@@ -135,22 +131,16 @@ func (SyncGroupState) ElementType() reflect.Type {
 }
 
 type syncGroupArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName *string `pulumi:"syncGroupName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	StorageSyncServiceName string  `pulumi:"storageSyncServiceName"`
+	SyncGroupName          *string `pulumi:"syncGroupName"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
 type SyncGroupArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Storage Sync Service resource.
+	ResourceGroupName      pulumi.StringInput
 	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringPtrInput
+	SyncGroupName          pulumi.StringPtrInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {

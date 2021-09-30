@@ -14,12 +14,9 @@ import (
 type AdvancedThreatProtection struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether Advanced Threat Protection is enabled.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name      pulumi.StringOutput  `pulumi:"name"`
+	Type      pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewAdvancedThreatProtection registers a new resource with the given unique name, arguments, and options.
@@ -82,21 +79,15 @@ func (AdvancedThreatProtectionState) ElementType() reflect.Type {
 }
 
 type advancedThreatProtectionArgs struct {
-	// Indicates whether Advanced Threat Protection is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The identifier of the resource.
-	ResourceId string `pulumi:"resourceId"`
-	// Advanced Threat Protection setting name.
+	IsEnabled   *bool   `pulumi:"isEnabled"`
+	ResourceId  string  `pulumi:"resourceId"`
 	SettingName *string `pulumi:"settingName"`
 }
 
 // The set of arguments for constructing a AdvancedThreatProtection resource.
 type AdvancedThreatProtectionArgs struct {
-	// Indicates whether Advanced Threat Protection is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// The identifier of the resource.
-	ResourceId pulumi.StringInput
-	// Advanced Threat Protection setting name.
+	IsEnabled   pulumi.BoolPtrInput
+	ResourceId  pulumi.StringInput
 	SettingName pulumi.StringPtrInput
 }
 

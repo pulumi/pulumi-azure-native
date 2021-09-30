@@ -14,14 +14,10 @@ import (
 type File struct {
 	pulumi.CustomResourceState
 
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Custom file properties
+	Etag       pulumi.StringPtrOutput              `pulumi:"etag"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties ProjectFilePropertiesResponseOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewFile registers a new resource with the given unique name, arguments, and options.
@@ -90,33 +86,21 @@ func (FileState) ElementType() reflect.Type {
 }
 
 type fileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Name of the File
-	FileName *string `pulumi:"fileName"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
-	ProjectName string `pulumi:"projectName"`
-	// Custom file properties
-	Properties *ProjectFileProperties `pulumi:"properties"`
-	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
+	Etag        *string                `pulumi:"etag"`
+	FileName    *string                `pulumi:"fileName"`
+	GroupName   string                 `pulumi:"groupName"`
+	ProjectName string                 `pulumi:"projectName"`
+	Properties  *ProjectFileProperties `pulumi:"properties"`
+	ServiceName string                 `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a File resource.
 type FileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
-	// Name of the File
-	FileName pulumi.StringPtrInput
-	// Name of the resource group
-	GroupName pulumi.StringInput
-	// Name of the project
+	Etag        pulumi.StringPtrInput
+	FileName    pulumi.StringPtrInput
+	GroupName   pulumi.StringInput
 	ProjectName pulumi.StringInput
-	// Custom file properties
-	Properties ProjectFilePropertiesPtrInput
-	// Name of the service
+	Properties  ProjectFilePropertiesPtrInput
 	ServiceName pulumi.StringInput
 }
 

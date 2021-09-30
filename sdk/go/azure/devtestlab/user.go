@@ -14,24 +14,15 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the user profile.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The identity of the user.
-	Identity UserIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The secret store of the user.
-	SecretStore UserSecretStoreResponsePtrOutput `pulumi:"secretStore"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
+	CreatedDate       pulumi.StringOutput              `pulumi:"createdDate"`
+	Identity          UserIdentityResponsePtrOutput    `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput           `pulumi:"location"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput              `pulumi:"provisioningState"`
+	SecretStore       UserSecretStoreResponsePtrOutput `pulumi:"secretStore"`
+	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
+	UniqueIdentifier  pulumi.StringOutput              `pulumi:"uniqueIdentifier"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -97,38 +88,24 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// The identity of the user.
-	Identity *UserIdentity `pulumi:"identity"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the user profile.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The secret store of the user.
-	SecretStore *UserSecretStore `pulumi:"secretStore"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Identity          *UserIdentity     `pulumi:"identity"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SecretStore       *UserSecretStore  `pulumi:"secretStore"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The identity of the user.
-	Identity UserIdentityPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the user profile.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
+	Identity          UserIdentityPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The secret store of the user.
-	SecretStore UserSecretStorePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	SecretStore       UserSecretStorePtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

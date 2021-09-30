@@ -14,22 +14,14 @@ import (
 type CustomResourceProvider struct {
 	pulumi.CustomResourceState
 
-	// A list of actions that the custom resource provider implements.
-	Actions CustomRPActionRouteDefinitionResponseArrayOutput `pulumi:"actions"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource provider.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// A list of resource types that the custom resource provider implements.
-	ResourceTypes CustomRPResourceTypeRouteDefinitionResponseArrayOutput `pulumi:"resourceTypes"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of validations to run on the custom resource provider's requests.
-	Validations CustomRPValidationsResponseArrayOutput `pulumi:"validations"`
+	Actions           CustomRPActionRouteDefinitionResponseArrayOutput       `pulumi:"actions"`
+	Location          pulumi.StringOutput                                    `pulumi:"location"`
+	Name              pulumi.StringOutput                                    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                                    `pulumi:"provisioningState"`
+	ResourceTypes     CustomRPResourceTypeRouteDefinitionResponseArrayOutput `pulumi:"resourceTypes"`
+	Tags              pulumi.StringMapOutput                                 `pulumi:"tags"`
+	Type              pulumi.StringOutput                                    `pulumi:"type"`
+	Validations       CustomRPValidationsResponseArrayOutput                 `pulumi:"validations"`
 }
 
 // NewCustomResourceProvider registers a new resource with the given unique name, arguments, and options.
@@ -86,38 +78,24 @@ func (CustomResourceProviderState) ElementType() reflect.Type {
 }
 
 type customResourceProviderArgs struct {
-	// A list of actions that the custom resource provider implements.
-	Actions []CustomRPActionRouteDefinition `pulumi:"actions"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource provider.
-	ResourceProviderName *string `pulumi:"resourceProviderName"`
-	// A list of resource types that the custom resource provider implements.
-	ResourceTypes []CustomRPResourceTypeRouteDefinition `pulumi:"resourceTypes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// A list of validations to run on the custom resource provider's requests.
-	Validations []CustomRPValidations `pulumi:"validations"`
+	Actions              []CustomRPActionRouteDefinition       `pulumi:"actions"`
+	Location             *string                               `pulumi:"location"`
+	ResourceGroupName    string                                `pulumi:"resourceGroupName"`
+	ResourceProviderName *string                               `pulumi:"resourceProviderName"`
+	ResourceTypes        []CustomRPResourceTypeRouteDefinition `pulumi:"resourceTypes"`
+	Tags                 map[string]string                     `pulumi:"tags"`
+	Validations          []CustomRPValidations                 `pulumi:"validations"`
 }
 
 // The set of arguments for constructing a CustomResourceProvider resource.
 type CustomResourceProviderArgs struct {
-	// A list of actions that the custom resource provider implements.
-	Actions CustomRPActionRouteDefinitionArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource provider.
+	Actions              CustomRPActionRouteDefinitionArrayInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
 	ResourceProviderName pulumi.StringPtrInput
-	// A list of resource types that the custom resource provider implements.
-	ResourceTypes CustomRPResourceTypeRouteDefinitionArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// A list of validations to run on the custom resource provider's requests.
-	Validations CustomRPValidationsArrayInput
+	ResourceTypes        CustomRPResourceTypeRouteDefinitionArrayInput
+	Tags                 pulumi.StringMapInput
+	Validations          CustomRPValidationsArrayInput
 }
 
 func (CustomResourceProviderArgs) ElementType() reflect.Type {

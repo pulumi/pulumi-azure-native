@@ -14,20 +14,13 @@ import (
 type IntegrationAccountSession struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The session content.
-	Content pulumi.AnyOutput `pulumi:"content"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ChangedTime pulumi.StringOutput    `pulumi:"changedTime"`
+	Content     pulumi.AnyOutput       `pulumi:"content"`
+	CreatedTime pulumi.StringOutput    `pulumi:"createdTime"`
+	Location    pulumi.StringPtrOutput `pulumi:"location"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIntegrationAccountSession registers a new resource with the given unique name, arguments, and options.
@@ -99,34 +92,22 @@ func (IntegrationAccountSessionState) ElementType() reflect.Type {
 }
 
 type integrationAccountSessionArgs struct {
-	// The session content.
-	Content interface{} `pulumi:"content"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The integration account session name.
-	SessionName *string `pulumi:"sessionName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Content                interface{}       `pulumi:"content"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	SessionName            *string           `pulumi:"sessionName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountSession resource.
 type IntegrationAccountSessionArgs struct {
-	// The session content.
-	Content pulumi.Input
-	// The integration account name.
+	Content                pulumi.Input
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The integration account session name.
-	SessionName pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SessionName            pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountSessionArgs) ElementType() reflect.Type {

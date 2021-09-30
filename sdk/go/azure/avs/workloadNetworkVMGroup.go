@@ -14,20 +14,13 @@ import (
 type WorkloadNetworkVMGroup struct {
 	pulumi.CustomResourceState
 
-	// Display name of the VM group.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Virtual machine members of this group.
-	Members pulumi.StringArrayOutput `pulumi:"members"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// VM Group status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName       pulumi.StringPtrOutput   `pulumi:"displayName"`
+	Members           pulumi.StringArrayOutput `pulumi:"members"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput  `pulumi:"revision"`
+	Status            pulumi.StringOutput      `pulumi:"status"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWorkloadNetworkVMGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,34 +92,22 @@ func (WorkloadNetworkVMGroupState) ElementType() reflect.Type {
 }
 
 type workloadNetworkVMGroupArgs struct {
-	// Display name of the VM group.
-	DisplayName *string `pulumi:"displayName"`
-	// Virtual machine members of this group.
-	Members []string `pulumi:"members"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX VM Group identifier. Generally the same as the VM Group's display name
-	VmGroupId *string `pulumi:"vmGroupId"`
+	DisplayName       *string  `pulumi:"displayName"`
+	Members           []string `pulumi:"members"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          *float64 `pulumi:"revision"`
+	VmGroupId         *string  `pulumi:"vmGroupId"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkVMGroup resource.
 type WorkloadNetworkVMGroupArgs struct {
-	// Display name of the VM group.
-	DisplayName pulumi.StringPtrInput
-	// Virtual machine members of this group.
-	Members pulumi.StringArrayInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	DisplayName       pulumi.StringPtrInput
+	Members           pulumi.StringArrayInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// NSX VM Group identifier. Generally the same as the VM Group's display name
-	VmGroupId pulumi.StringPtrInput
+	Revision          pulumi.Float64PtrInput
+	VmGroupId         pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkVMGroupArgs) ElementType() reflect.Type {

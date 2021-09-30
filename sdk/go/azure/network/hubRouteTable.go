@@ -14,22 +14,14 @@ import (
 type HubRouteTable struct {
 	pulumi.CustomResourceState
 
-	// List of all connections associated with this route table.
-	AssociatedConnections pulumi.StringArrayOutput `pulumi:"associatedConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of labels associated with this route table.
-	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// List of all connections that advertise to this route table.
-	PropagatingConnections pulumi.StringArrayOutput `pulumi:"propagatingConnections"`
-	// The provisioning state of the RouteTable resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// List of all routes.
-	Routes HubRouteResponseArrayOutput `pulumi:"routes"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AssociatedConnections  pulumi.StringArrayOutput    `pulumi:"associatedConnections"`
+	Etag                   pulumi.StringOutput         `pulumi:"etag"`
+	Labels                 pulumi.StringArrayOutput    `pulumi:"labels"`
+	Name                   pulumi.StringPtrOutput      `pulumi:"name"`
+	PropagatingConnections pulumi.StringArrayOutput    `pulumi:"propagatingConnections"`
+	ProvisioningState      pulumi.StringOutput         `pulumi:"provisioningState"`
+	Routes                 HubRouteResponseArrayOutput `pulumi:"routes"`
+	Type                   pulumi.StringOutput         `pulumi:"type"`
 }
 
 // NewHubRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -131,38 +123,24 @@ func (HubRouteTableState) ElementType() reflect.Type {
 }
 
 type hubRouteTableArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// List of labels associated with this route table.
-	Labels []string `pulumi:"labels"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The resource group name of the VirtualHub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the RouteTable.
-	RouteTableName *string `pulumi:"routeTableName"`
-	// List of all routes.
-	Routes []HubRoute `pulumi:"routes"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	Id                *string    `pulumi:"id"`
+	Labels            []string   `pulumi:"labels"`
+	Name              *string    `pulumi:"name"`
+	ResourceGroupName string     `pulumi:"resourceGroupName"`
+	RouteTableName    *string    `pulumi:"routeTableName"`
+	Routes            []HubRoute `pulumi:"routes"`
+	VirtualHubName    string     `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a HubRouteTable resource.
 type HubRouteTableArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// List of labels associated with this route table.
-	Labels pulumi.StringArrayInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The resource group name of the VirtualHub.
+	Id                pulumi.StringPtrInput
+	Labels            pulumi.StringArrayInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the RouteTable.
-	RouteTableName pulumi.StringPtrInput
-	// List of all routes.
-	Routes HubRouteArrayInput
-	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	RouteTableName    pulumi.StringPtrInput
+	Routes            HubRouteArrayInput
+	VirtualHubName    pulumi.StringInput
 }
 
 func (HubRouteTableArgs) ElementType() reflect.Type {

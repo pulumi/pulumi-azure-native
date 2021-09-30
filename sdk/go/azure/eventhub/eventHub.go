@@ -14,24 +14,15 @@ import (
 type EventHub struct {
 	pulumi.CustomResourceState
 
-	// Properties of capture description
-	CaptureDescription CaptureDescriptionResponsePtrOutput `pulumi:"captureDescription"`
-	// Exact time the Event Hub was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays pulumi.Float64PtrOutput `pulumi:"messageRetentionInDays"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount pulumi.Float64PtrOutput `pulumi:"partitionCount"`
-	// Current number of shards on the Event Hub.
-	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
-	// Enumerates the possible values for the status of the Event Hub.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	CaptureDescription     CaptureDescriptionResponsePtrOutput `pulumi:"captureDescription"`
+	CreatedAt              pulumi.StringOutput                 `pulumi:"createdAt"`
+	MessageRetentionInDays pulumi.Float64PtrOutput             `pulumi:"messageRetentionInDays"`
+	Name                   pulumi.StringOutput                 `pulumi:"name"`
+	PartitionCount         pulumi.Float64PtrOutput             `pulumi:"partitionCount"`
+	PartitionIds           pulumi.StringArrayOutput            `pulumi:"partitionIds"`
+	Status                 pulumi.StringPtrOutput              `pulumi:"status"`
+	Type                   pulumi.StringOutput                 `pulumi:"type"`
+	UpdatedAt              pulumi.StringOutput                 `pulumi:"updatedAt"`
 }
 
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
@@ -121,38 +112,24 @@ func (EventHubState) ElementType() reflect.Type {
 }
 
 type eventHubArgs struct {
-	// Properties of capture description
-	CaptureDescription *CaptureDescription `pulumi:"captureDescription"`
-	// The Event Hub name
-	EventHubName *string `pulumi:"eventHubName"`
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount *float64 `pulumi:"partitionCount"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Enumerates the possible values for the status of the Event Hub.
-	Status *EntityStatus `pulumi:"status"`
+	CaptureDescription     *CaptureDescription `pulumi:"captureDescription"`
+	EventHubName           *string             `pulumi:"eventHubName"`
+	MessageRetentionInDays *float64            `pulumi:"messageRetentionInDays"`
+	NamespaceName          string              `pulumi:"namespaceName"`
+	PartitionCount         *float64            `pulumi:"partitionCount"`
+	ResourceGroupName      string              `pulumi:"resourceGroupName"`
+	Status                 *EntityStatus       `pulumi:"status"`
 }
 
 // The set of arguments for constructing a EventHub resource.
 type EventHubArgs struct {
-	// Properties of capture description
-	CaptureDescription CaptureDescriptionPtrInput
-	// The Event Hub name
-	EventHubName pulumi.StringPtrInput
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+	CaptureDescription     CaptureDescriptionPtrInput
+	EventHubName           pulumi.StringPtrInput
 	MessageRetentionInDays pulumi.Float64PtrInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount pulumi.Float64PtrInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Enumerates the possible values for the status of the Event Hub.
-	Status EntityStatusPtrInput
+	NamespaceName          pulumi.StringInput
+	PartitionCount         pulumi.Float64PtrInput
+	ResourceGroupName      pulumi.StringInput
+	Status                 EntityStatusPtrInput
 }
 
 func (EventHubArgs) ElementType() reflect.Type {

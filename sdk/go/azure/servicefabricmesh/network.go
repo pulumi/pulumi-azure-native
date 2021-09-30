@@ -14,16 +14,11 @@ import (
 type Network struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes properties of a network resource.
+	Location   pulumi.StringOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties NetworkResourcePropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewNetwork registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +84,20 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The identity of the network.
-	NetworkResourceName *string `pulumi:"networkResourceName"`
-	// Describes properties of a network resource.
-	Properties NetworkResourceProperties `pulumi:"properties"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location            *string                   `pulumi:"location"`
+	NetworkResourceName *string                   `pulumi:"networkResourceName"`
+	Properties          NetworkResourceProperties `pulumi:"properties"`
+	ResourceGroupName   string                    `pulumi:"resourceGroupName"`
+	Tags                map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The identity of the network.
+	Location            pulumi.StringPtrInput
 	NetworkResourceName pulumi.StringPtrInput
-	// Describes properties of a network resource.
-	Properties NetworkResourcePropertiesInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Properties          NetworkResourcePropertiesInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (NetworkArgs) ElementType() reflect.Type {

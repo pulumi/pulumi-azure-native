@@ -14,14 +14,10 @@ import (
 type ReplicationNetworkMapping struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Network Mapping Properties.
+	Location   pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties NetworkMappingPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewReplicationNetworkMapping registers a new resource with the given unique name, arguments, and options.
@@ -135,34 +131,22 @@ func (ReplicationNetworkMappingState) ElementType() reflect.Type {
 }
 
 type replicationNetworkMappingArgs struct {
-	// Primary fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Network mapping name.
-	NetworkMappingName *string `pulumi:"networkMappingName"`
-	// Primary network name.
-	NetworkName string `pulumi:"networkName"`
-	// Input properties for creating network mapping.
-	Properties *CreateNetworkMappingInputProperties `pulumi:"properties"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName         string                               `pulumi:"fabricName"`
+	NetworkMappingName *string                              `pulumi:"networkMappingName"`
+	NetworkName        string                               `pulumi:"networkName"`
+	Properties         *CreateNetworkMappingInputProperties `pulumi:"properties"`
+	ResourceGroupName  string                               `pulumi:"resourceGroupName"`
+	ResourceName       string                               `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationNetworkMapping resource.
 type ReplicationNetworkMappingArgs struct {
-	// Primary fabric name.
-	FabricName pulumi.StringInput
-	// Network mapping name.
+	FabricName         pulumi.StringInput
 	NetworkMappingName pulumi.StringPtrInput
-	// Primary network name.
-	NetworkName pulumi.StringInput
-	// Input properties for creating network mapping.
-	Properties CreateNetworkMappingInputPropertiesPtrInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	NetworkName        pulumi.StringInput
+	Properties         CreateNetworkMappingInputPropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	ResourceName       pulumi.StringInput
 }
 
 func (ReplicationNetworkMappingArgs) ElementType() reflect.Type {

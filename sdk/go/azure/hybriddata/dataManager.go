@@ -14,21 +14,12 @@ import (
 type DataManager struct {
 	pulumi.CustomResourceState
 
-	// Etag of the Resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
-	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
-	// region is specified on update the request will succeed.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The sku type.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
-	// (across resource groups).
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag     pulumi.StringPtrOutput `pulumi:"etag"`
+	Location pulumi.StringOutput    `pulumi:"location"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Sku      SkuResponsePtrOutput   `pulumi:"sku"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataManager registers a new resource with the given unique name, arguments, and options.
@@ -91,40 +82,22 @@ func (DataManagerState) ElementType() reflect.Type {
 }
 
 type dataManagerArgs struct {
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName *string `pulumi:"dataManagerName"`
-	// Etag of the Resource.
-	Etag *string `pulumi:"etag"`
-	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
-	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
-	// region is specified on update the request will succeed.
-	Location *string `pulumi:"location"`
-	// The Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku type.
-	Sku *Sku `pulumi:"sku"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
-	// (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
+	DataManagerName   *string           `pulumi:"dataManagerName"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataManager resource.
 type DataManagerArgs struct {
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName pulumi.StringPtrInput
-	// Etag of the Resource.
-	Etag pulumi.StringPtrInput
-	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
-	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
-	// region is specified on update the request will succeed.
-	Location pulumi.StringPtrInput
-	// The Resource Group Name
+	DataManagerName   pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The sku type.
-	Sku SkuPtrInput
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
-	// (across resource groups).
-	Tags pulumi.StringMapInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DataManagerArgs) ElementType() reflect.Type {

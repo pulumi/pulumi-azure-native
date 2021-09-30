@@ -14,18 +14,12 @@ import (
 type ResourceGuardProxy struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ResourceGuardProxyBaseResource properties
+	ETag       pulumi.StringPtrOutput               `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties ResourceGuardProxyBaseResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput               `pulumi:"tags"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewResourceGuardProxy registers a new resource with the given unique name, arguments, and options.
@@ -97,20 +91,16 @@ func (ResourceGuardProxyState) ElementType() reflect.Type {
 }
 
 type resourceGuardProxyArgs struct {
-	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 	ResourceGuardProxyName *string `pulumi:"resourceGuardProxyName"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName              string  `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a ResourceGuardProxy resource.
 type ResourceGuardProxyArgs struct {
-	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName      pulumi.StringInput
 	ResourceGuardProxyName pulumi.StringPtrInput
-	// The name of the recovery services vault.
-	VaultName pulumi.StringInput
+	VaultName              pulumi.StringInput
 }
 
 func (ResourceGuardProxyArgs) ElementType() reflect.Type {

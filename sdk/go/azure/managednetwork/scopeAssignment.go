@@ -14,18 +14,12 @@ import (
 type ScopeAssignment struct {
 	pulumi.CustomResourceState
 
-	// The managed network ID with scope will be assigned to.
 	AssignedManagedNetwork pulumi.StringPtrOutput `pulumi:"assignedManagedNetwork"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                   pulumi.StringOutput    `pulumi:"etag"`
+	Location               pulumi.StringPtrOutput `pulumi:"location"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewScopeAssignment registers a new resource with the given unique name, arguments, and options.
@@ -82,26 +76,18 @@ func (ScopeAssignmentState) ElementType() reflect.Type {
 }
 
 type scopeAssignmentArgs struct {
-	// The managed network ID with scope will be assigned to.
 	AssignedManagedNetwork *string `pulumi:"assignedManagedNetwork"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope string `pulumi:"scope"`
-	// The name of the scope assignment to create.
-	ScopeAssignmentName *string `pulumi:"scopeAssignmentName"`
+	Location               *string `pulumi:"location"`
+	Scope                  string  `pulumi:"scope"`
+	ScopeAssignmentName    *string `pulumi:"scopeAssignmentName"`
 }
 
 // The set of arguments for constructing a ScopeAssignment resource.
 type ScopeAssignmentArgs struct {
-	// The managed network ID with scope will be assigned to.
 	AssignedManagedNetwork pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-	Scope pulumi.StringInput
-	// The name of the scope assignment to create.
-	ScopeAssignmentName pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Scope                  pulumi.StringInput
+	ScopeAssignmentName    pulumi.StringPtrInput
 }
 
 func (ScopeAssignmentArgs) ElementType() reflect.Type {

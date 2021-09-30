@@ -14,30 +14,18 @@ import (
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 
-	// Deprecated in favor of isVersioningEnabled property.
-	AutomaticSnapshotPolicyEnabled pulumi.BoolPtrOutput `pulumi:"automaticSnapshotPolicyEnabled"`
-	// The blob service properties for change feed events.
-	ChangeFeed ChangeFeedResponsePtrOutput `pulumi:"changeFeed"`
-	// The blob service properties for container soft delete.
-	ContainerDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"containerDeleteRetentionPolicy"`
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-	DefaultServiceVersion pulumi.StringPtrOutput `pulumi:"defaultServiceVersion"`
-	// The blob service properties for blob soft delete.
-	DeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"deleteRetentionPolicy"`
-	// Versioning is enabled if set to true.
-	IsVersioningEnabled pulumi.BoolPtrOutput `pulumi:"isVersioningEnabled"`
-	// The blob service property to configure last access time based tracking policy.
-	LastAccessTimeTrackingPolicy LastAccessTimeTrackingPolicyResponsePtrOutput `pulumi:"lastAccessTimeTrackingPolicy"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The blob service properties for blob restore policy.
-	RestorePolicy RestorePolicyPropertiesResponsePtrOutput `pulumi:"restorePolicy"`
-	// Sku name and tier.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AutomaticSnapshotPolicyEnabled pulumi.BoolPtrOutput                          `pulumi:"automaticSnapshotPolicyEnabled"`
+	ChangeFeed                     ChangeFeedResponsePtrOutput                   `pulumi:"changeFeed"`
+	ContainerDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput        `pulumi:"containerDeleteRetentionPolicy"`
+	Cors                           CorsRulesResponsePtrOutput                    `pulumi:"cors"`
+	DefaultServiceVersion          pulumi.StringPtrOutput                        `pulumi:"defaultServiceVersion"`
+	DeleteRetentionPolicy          DeleteRetentionPolicyResponsePtrOutput        `pulumi:"deleteRetentionPolicy"`
+	IsVersioningEnabled            pulumi.BoolPtrOutput                          `pulumi:"isVersioningEnabled"`
+	LastAccessTimeTrackingPolicy   LastAccessTimeTrackingPolicyResponsePtrOutput `pulumi:"lastAccessTimeTrackingPolicy"`
+	Name                           pulumi.StringOutput                           `pulumi:"name"`
+	RestorePolicy                  RestorePolicyPropertiesResponsePtrOutput      `pulumi:"restorePolicy"`
+	Sku                            SkuResponseOutput                             `pulumi:"sku"`
+	Type                           pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewBlobServiceProperties registers a new resource with the given unique name, arguments, and options.
@@ -145,58 +133,34 @@ func (BlobServicePropertiesState) ElementType() reflect.Type {
 }
 
 type blobServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// Deprecated in favor of isVersioningEnabled property.
-	AutomaticSnapshotPolicyEnabled *bool `pulumi:"automaticSnapshotPolicyEnabled"`
-	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName *string `pulumi:"blobServicesName"`
-	// The blob service properties for change feed events.
-	ChangeFeed *ChangeFeed `pulumi:"changeFeed"`
-	// The blob service properties for container soft delete.
-	ContainerDeleteRetentionPolicy *DeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors *CorsRules `pulumi:"cors"`
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
-	// The blob service properties for blob soft delete.
-	DeleteRetentionPolicy *DeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
-	// Versioning is enabled if set to true.
-	IsVersioningEnabled *bool `pulumi:"isVersioningEnabled"`
-	// The blob service property to configure last access time based tracking policy.
-	LastAccessTimeTrackingPolicy *LastAccessTimeTrackingPolicy `pulumi:"lastAccessTimeTrackingPolicy"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The blob service properties for blob restore policy.
-	RestorePolicy *RestorePolicyProperties `pulumi:"restorePolicy"`
+	AccountName                    string                        `pulumi:"accountName"`
+	AutomaticSnapshotPolicyEnabled *bool                         `pulumi:"automaticSnapshotPolicyEnabled"`
+	BlobServicesName               *string                       `pulumi:"blobServicesName"`
+	ChangeFeed                     *ChangeFeed                   `pulumi:"changeFeed"`
+	ContainerDeleteRetentionPolicy *DeleteRetentionPolicy        `pulumi:"containerDeleteRetentionPolicy"`
+	Cors                           *CorsRules                    `pulumi:"cors"`
+	DefaultServiceVersion          *string                       `pulumi:"defaultServiceVersion"`
+	DeleteRetentionPolicy          *DeleteRetentionPolicy        `pulumi:"deleteRetentionPolicy"`
+	IsVersioningEnabled            *bool                         `pulumi:"isVersioningEnabled"`
+	LastAccessTimeTrackingPolicy   *LastAccessTimeTrackingPolicy `pulumi:"lastAccessTimeTrackingPolicy"`
+	ResourceGroupName              string                        `pulumi:"resourceGroupName"`
+	RestorePolicy                  *RestorePolicyProperties      `pulumi:"restorePolicy"`
 }
 
 // The set of arguments for constructing a BlobServiceProperties resource.
 type BlobServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// Deprecated in favor of isVersioningEnabled property.
+	AccountName                    pulumi.StringInput
 	AutomaticSnapshotPolicyEnabled pulumi.BoolPtrInput
-	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName pulumi.StringPtrInput
-	// The blob service properties for change feed events.
-	ChangeFeed ChangeFeedPtrInput
-	// The blob service properties for container soft delete.
+	BlobServicesName               pulumi.StringPtrInput
+	ChangeFeed                     ChangeFeedPtrInput
 	ContainerDeleteRetentionPolicy DeleteRetentionPolicyPtrInput
-	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
-	Cors CorsRulesPtrInput
-	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-	DefaultServiceVersion pulumi.StringPtrInput
-	// The blob service properties for blob soft delete.
-	DeleteRetentionPolicy DeleteRetentionPolicyPtrInput
-	// Versioning is enabled if set to true.
-	IsVersioningEnabled pulumi.BoolPtrInput
-	// The blob service property to configure last access time based tracking policy.
-	LastAccessTimeTrackingPolicy LastAccessTimeTrackingPolicyPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The blob service properties for blob restore policy.
-	RestorePolicy RestorePolicyPropertiesPtrInput
+	Cors                           CorsRulesPtrInput
+	DefaultServiceVersion          pulumi.StringPtrInput
+	DeleteRetentionPolicy          DeleteRetentionPolicyPtrInput
+	IsVersioningEnabled            pulumi.BoolPtrInput
+	LastAccessTimeTrackingPolicy   LastAccessTimeTrackingPolicyPtrInput
+	ResourceGroupName              pulumi.StringInput
+	RestorePolicy                  RestorePolicyPropertiesPtrInput
 }
 
 func (BlobServicePropertiesArgs) ElementType() reflect.Type {

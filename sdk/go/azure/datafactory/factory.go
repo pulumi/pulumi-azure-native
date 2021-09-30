@@ -14,32 +14,19 @@ import (
 type Factory struct {
 	pulumi.CustomResourceState
 
-	// Time the factory was created in ISO8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// Etag identifies change in the resource.
-	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// Properties to enable Customer Managed Key for the factory.
-	Encryption EncryptionConfigurationResponsePtrOutput `pulumi:"encryption"`
-	// List of parameters for factory.
-	GlobalParameters GlobalParameterSpecificationResponseMapOutput `pulumi:"globalParameters"`
-	// Managed service identity of the factory.
-	Identity FactoryIdentityResponsePtrOutput `pulumi:"identity"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Factory provisioning state, example Succeeded.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Whether or not public network access is allowed for the data factory.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// Git repo information of the factory.
-	RepoConfiguration pulumi.AnyOutput `pulumi:"repoConfiguration"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the factory.
-	Version pulumi.StringOutput `pulumi:"version"`
+	CreateTime          pulumi.StringOutput                           `pulumi:"createTime"`
+	ETag                pulumi.StringOutput                           `pulumi:"eTag"`
+	Encryption          EncryptionConfigurationResponsePtrOutput      `pulumi:"encryption"`
+	GlobalParameters    GlobalParameterSpecificationResponseMapOutput `pulumi:"globalParameters"`
+	Identity            FactoryIdentityResponsePtrOutput              `pulumi:"identity"`
+	Location            pulumi.StringPtrOutput                        `pulumi:"location"`
+	Name                pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                           `pulumi:"provisioningState"`
+	PublicNetworkAccess pulumi.StringPtrOutput                        `pulumi:"publicNetworkAccess"`
+	RepoConfiguration   pulumi.AnyOutput                              `pulumi:"repoConfiguration"`
+	Tags                pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type                pulumi.StringOutput                           `pulumi:"type"`
+	Version             pulumi.StringOutput                           `pulumi:"version"`
 }
 
 // NewFactory registers a new resource with the given unique name, arguments, and options.
@@ -102,46 +89,28 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
-	// Properties to enable Customer Managed Key for the factory.
-	Encryption *EncryptionConfiguration `pulumi:"encryption"`
-	// The factory name.
-	FactoryName *string `pulumi:"factoryName"`
-	// List of parameters for factory.
-	GlobalParameters map[string]GlobalParameterSpecification `pulumi:"globalParameters"`
-	// Managed service identity of the factory.
-	Identity *FactoryIdentity `pulumi:"identity"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Whether or not public network access is allowed for the data factory.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Git repo information of the factory.
-	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Encryption          *EncryptionConfiguration                `pulumi:"encryption"`
+	FactoryName         *string                                 `pulumi:"factoryName"`
+	GlobalParameters    map[string]GlobalParameterSpecification `pulumi:"globalParameters"`
+	Identity            *FactoryIdentity                        `pulumi:"identity"`
+	Location            *string                                 `pulumi:"location"`
+	PublicNetworkAccess *string                                 `pulumi:"publicNetworkAccess"`
+	RepoConfiguration   interface{}                             `pulumi:"repoConfiguration"`
+	ResourceGroupName   string                                  `pulumi:"resourceGroupName"`
+	Tags                map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
-	// Properties to enable Customer Managed Key for the factory.
-	Encryption EncryptionConfigurationPtrInput
-	// The factory name.
-	FactoryName pulumi.StringPtrInput
-	// List of parameters for factory.
-	GlobalParameters GlobalParameterSpecificationMapInput
-	// Managed service identity of the factory.
-	Identity FactoryIdentityPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Whether or not public network access is allowed for the data factory.
+	Encryption          EncryptionConfigurationPtrInput
+	FactoryName         pulumi.StringPtrInput
+	GlobalParameters    GlobalParameterSpecificationMapInput
+	Identity            FactoryIdentityPtrInput
+	Location            pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// Git repo information of the factory.
-	RepoConfiguration pulumi.Input
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	RepoConfiguration   pulumi.Input
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (FactoryArgs) ElementType() reflect.Type {

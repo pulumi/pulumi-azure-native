@@ -14,16 +14,11 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The identity of the Automanage account.
 	Identity AccountIdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location pulumi.StringOutput              `pulumi:"location"`
+	Name     pulumi.StringOutput              `pulumi:"name"`
+	Tags     pulumi.StringMapOutput           `pulumi:"tags"`
+	Type     pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -80,30 +75,20 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Name of the Automanage account.
-	AccountName *string `pulumi:"accountName"`
-	// The identity of the Automanage account.
-	Identity *AccountIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Identity          *AccountIdentity  `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Name of the Automanage account.
-	AccountName pulumi.StringPtrInput
-	// The identity of the Automanage account.
-	Identity AccountIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringPtrInput
+	Identity          AccountIdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

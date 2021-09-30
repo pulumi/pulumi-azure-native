@@ -77,26 +77,20 @@ func (ImportCollectorState) ElementType() reflect.Type {
 }
 
 type importCollectorArgs struct {
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a Import collector within a project.
-	ImportCollectorName *string `pulumi:"importCollectorName"`
-	// Name of the Azure Migrate project.
-	ProjectName string                     `pulumi:"projectName"`
-	Properties  *ImportCollectorProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ETag                *string                    `pulumi:"eTag"`
+	ImportCollectorName *string                    `pulumi:"importCollectorName"`
+	ProjectName         string                     `pulumi:"projectName"`
+	Properties          *ImportCollectorProperties `pulumi:"properties"`
+	ResourceGroupName   string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ImportCollector resource.
 type ImportCollectorArgs struct {
-	ETag pulumi.StringPtrInput
-	// Unique name of a Import collector within a project.
+	ETag                pulumi.StringPtrInput
 	ImportCollectorName pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	Properties  ImportCollectorPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
+	ProjectName         pulumi.StringInput
+	Properties          ImportCollectorPropertiesPtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (ImportCollectorArgs) ElementType() reflect.Type {

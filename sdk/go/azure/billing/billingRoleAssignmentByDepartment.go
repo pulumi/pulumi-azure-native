@@ -14,30 +14,18 @@ import (
 type BillingRoleAssignmentByDepartment struct {
 	pulumi.CustomResourceState
 
-	// The principal Id of the user who created the role assignment.
-	CreatedByPrincipalId pulumi.StringOutput `pulumi:"createdByPrincipalId"`
-	// The tenant Id of the user who created the role assignment.
-	CreatedByPrincipalTenantId pulumi.StringOutput `pulumi:"createdByPrincipalTenantId"`
-	// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	CreatedByUserEmailAddress pulumi.StringOutput `pulumi:"createdByUserEmailAddress"`
-	// The date the role assignment was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal id of the user to whom the role was assigned.
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
-	// The principal tenant id of the user to whom the role was assigned.
-	PrincipalTenantId pulumi.StringPtrOutput `pulumi:"principalTenantId"`
-	// The ID of the role definition.
-	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
-	// The scope at which the role was assigned.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserAuthenticationType pulumi.StringPtrOutput `pulumi:"userAuthenticationType"`
-	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserEmailAddress pulumi.StringPtrOutput `pulumi:"userEmailAddress"`
+	CreatedByPrincipalId       pulumi.StringOutput    `pulumi:"createdByPrincipalId"`
+	CreatedByPrincipalTenantId pulumi.StringOutput    `pulumi:"createdByPrincipalTenantId"`
+	CreatedByUserEmailAddress  pulumi.StringOutput    `pulumi:"createdByUserEmailAddress"`
+	CreatedOn                  pulumi.StringOutput    `pulumi:"createdOn"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId                pulumi.StringPtrOutput `pulumi:"principalId"`
+	PrincipalTenantId          pulumi.StringPtrOutput `pulumi:"principalTenantId"`
+	RoleDefinitionId           pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
+	Scope                      pulumi.StringOutput    `pulumi:"scope"`
+	Type                       pulumi.StringOutput    `pulumi:"type"`
+	UserAuthenticationType     pulumi.StringPtrOutput `pulumi:"userAuthenticationType"`
+	UserEmailAddress           pulumi.StringPtrOutput `pulumi:"userEmailAddress"`
 }
 
 // NewBillingRoleAssignmentByDepartment registers a new resource with the given unique name, arguments, and options.
@@ -97,42 +85,26 @@ func (BillingRoleAssignmentByDepartmentState) ElementType() reflect.Type {
 }
 
 type billingRoleAssignmentByDepartmentArgs struct {
-	// The ID that uniquely identifies a billing account.
-	BillingAccountName string `pulumi:"billingAccountName"`
-	// The ID that uniquely identifies a role assignment.
+	BillingAccountName        string  `pulumi:"billingAccountName"`
 	BillingRoleAssignmentName *string `pulumi:"billingRoleAssignmentName"`
-	// The ID that uniquely identifies a department.
-	DepartmentName string `pulumi:"departmentName"`
-	// The principal id of the user to whom the role was assigned.
-	PrincipalId *string `pulumi:"principalId"`
-	// The principal tenant id of the user to whom the role was assigned.
-	PrincipalTenantId *string `pulumi:"principalTenantId"`
-	// The ID of the role definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserAuthenticationType *string `pulumi:"userAuthenticationType"`
-	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserEmailAddress *string `pulumi:"userEmailAddress"`
+	DepartmentName            string  `pulumi:"departmentName"`
+	PrincipalId               *string `pulumi:"principalId"`
+	PrincipalTenantId         *string `pulumi:"principalTenantId"`
+	RoleDefinitionId          *string `pulumi:"roleDefinitionId"`
+	UserAuthenticationType    *string `pulumi:"userAuthenticationType"`
+	UserEmailAddress          *string `pulumi:"userEmailAddress"`
 }
 
 // The set of arguments for constructing a BillingRoleAssignmentByDepartment resource.
 type BillingRoleAssignmentByDepartmentArgs struct {
-	// The ID that uniquely identifies a billing account.
-	BillingAccountName pulumi.StringInput
-	// The ID that uniquely identifies a role assignment.
+	BillingAccountName        pulumi.StringInput
 	BillingRoleAssignmentName pulumi.StringPtrInput
-	// The ID that uniquely identifies a department.
-	DepartmentName pulumi.StringInput
-	// The principal id of the user to whom the role was assigned.
-	PrincipalId pulumi.StringPtrInput
-	// The principal tenant id of the user to whom the role was assigned.
-	PrincipalTenantId pulumi.StringPtrInput
-	// The ID of the role definition.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserAuthenticationType pulumi.StringPtrInput
-	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-	UserEmailAddress pulumi.StringPtrInput
+	DepartmentName            pulumi.StringInput
+	PrincipalId               pulumi.StringPtrInput
+	PrincipalTenantId         pulumi.StringPtrInput
+	RoleDefinitionId          pulumi.StringPtrInput
+	UserAuthenticationType    pulumi.StringPtrInput
+	UserEmailAddress          pulumi.StringPtrInput
 }
 
 func (BillingRoleAssignmentByDepartmentArgs) ElementType() reflect.Type {

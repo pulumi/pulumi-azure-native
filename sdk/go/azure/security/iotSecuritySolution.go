@@ -14,38 +14,22 @@ import (
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 
-	// List of additional workspaces
-	AdditionalWorkspaces AdditionalWorkspacesPropertiesResponseArrayOutput `pulumi:"additionalWorkspaces"`
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources pulumi.StringArrayOutput `pulumi:"autoDiscoveredResources"`
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources pulumi.StringArrayOutput `pulumi:"disabledDataSources"`
-	// Resource display name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// List of additional options for exporting to workspace data.
-	Export pulumi.StringArrayOutput `pulumi:"export"`
-	// IoT Hub resource IDs
-	IotHubs pulumi.StringArrayOutput `pulumi:"iotHubs"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of the configuration status for each recommendation type.
+	AdditionalWorkspaces         AdditionalWorkspacesPropertiesResponseArrayOutput        `pulumi:"additionalWorkspaces"`
+	AutoDiscoveredResources      pulumi.StringArrayOutput                                 `pulumi:"autoDiscoveredResources"`
+	DisabledDataSources          pulumi.StringArrayOutput                                 `pulumi:"disabledDataSources"`
+	DisplayName                  pulumi.StringOutput                                      `pulumi:"displayName"`
+	Export                       pulumi.StringArrayOutput                                 `pulumi:"export"`
+	IotHubs                      pulumi.StringArrayOutput                                 `pulumi:"iotHubs"`
+	Location                     pulumi.StringPtrOutput                                   `pulumi:"location"`
+	Name                         pulumi.StringOutput                                      `pulumi:"name"`
 	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayOutput `pulumi:"recommendationsConfiguration"`
-	// Status of the IoT Security solution.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus pulumi.StringPtrOutput `pulumi:"unmaskedIpLoggingStatus"`
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources UserDefinedResourcesPropertiesResponsePtrOutput `pulumi:"userDefinedResources"`
-	// Workspace resource ID
-	Workspace pulumi.StringPtrOutput `pulumi:"workspace"`
+	Status                       pulumi.StringPtrOutput                                   `pulumi:"status"`
+	SystemData                   SystemDataResponseOutput                                 `pulumi:"systemData"`
+	Tags                         pulumi.StringMapOutput                                   `pulumi:"tags"`
+	Type                         pulumi.StringOutput                                      `pulumi:"type"`
+	UnmaskedIpLoggingStatus      pulumi.StringPtrOutput                                   `pulumi:"unmaskedIpLoggingStatus"`
+	UserDefinedResources         UserDefinedResourcesPropertiesResponsePtrOutput          `pulumi:"userDefinedResources"`
+	Workspace                    pulumi.StringPtrOutput                                   `pulumi:"workspace"`
 }
 
 // NewIotSecuritySolution registers a new resource with the given unique name, arguments, and options.
@@ -120,66 +104,38 @@ func (IotSecuritySolutionState) ElementType() reflect.Type {
 }
 
 type iotSecuritySolutionArgs struct {
-	// List of additional workspaces
-	AdditionalWorkspaces []AdditionalWorkspacesProperties `pulumi:"additionalWorkspaces"`
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources []string `pulumi:"disabledDataSources"`
-	// Resource display name.
-	DisplayName string `pulumi:"displayName"`
-	// List of additional options for exporting to workspace data.
-	Export []string `pulumi:"export"`
-	// IoT Hub resource IDs
-	IotHubs []string `pulumi:"iotHubs"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// List of the configuration status for each recommendation type.
+	AdditionalWorkspaces         []AdditionalWorkspacesProperties        `pulumi:"additionalWorkspaces"`
+	DisabledDataSources          []string                                `pulumi:"disabledDataSources"`
+	DisplayName                  string                                  `pulumi:"displayName"`
+	Export                       []string                                `pulumi:"export"`
+	IotHubs                      []string                                `pulumi:"iotHubs"`
+	Location                     *string                                 `pulumi:"location"`
 	RecommendationsConfiguration []RecommendationConfigurationProperties `pulumi:"recommendationsConfiguration"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT Security solution.
-	SolutionName *string `pulumi:"solutionName"`
-	// Status of the IoT Security solution.
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus *string `pulumi:"unmaskedIpLoggingStatus"`
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesProperties `pulumi:"userDefinedResources"`
-	// Workspace resource ID
-	Workspace *string `pulumi:"workspace"`
+	ResourceGroupName            string                                  `pulumi:"resourceGroupName"`
+	SolutionName                 *string                                 `pulumi:"solutionName"`
+	Status                       *string                                 `pulumi:"status"`
+	Tags                         map[string]string                       `pulumi:"tags"`
+	UnmaskedIpLoggingStatus      *string                                 `pulumi:"unmaskedIpLoggingStatus"`
+	UserDefinedResources         *UserDefinedResourcesProperties         `pulumi:"userDefinedResources"`
+	Workspace                    *string                                 `pulumi:"workspace"`
 }
 
 // The set of arguments for constructing a IotSecuritySolution resource.
 type IotSecuritySolutionArgs struct {
-	// List of additional workspaces
-	AdditionalWorkspaces AdditionalWorkspacesPropertiesArrayInput
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources pulumi.StringArrayInput
-	// Resource display name.
-	DisplayName pulumi.StringInput
-	// List of additional options for exporting to workspace data.
-	Export pulumi.StringArrayInput
-	// IoT Hub resource IDs
-	IotHubs pulumi.StringArrayInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// List of the configuration status for each recommendation type.
+	AdditionalWorkspaces         AdditionalWorkspacesPropertiesArrayInput
+	DisabledDataSources          pulumi.StringArrayInput
+	DisplayName                  pulumi.StringInput
+	Export                       pulumi.StringArrayInput
+	IotHubs                      pulumi.StringArrayInput
+	Location                     pulumi.StringPtrInput
 	RecommendationsConfiguration RecommendationConfigurationPropertiesArrayInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the IoT Security solution.
-	SolutionName pulumi.StringPtrInput
-	// Status of the IoT Security solution.
-	Status pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus pulumi.StringPtrInput
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources UserDefinedResourcesPropertiesPtrInput
-	// Workspace resource ID
-	Workspace pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	SolutionName                 pulumi.StringPtrInput
+	Status                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	UnmaskedIpLoggingStatus      pulumi.StringPtrInput
+	UserDefinedResources         UserDefinedResourcesPropertiesPtrInput
+	Workspace                    pulumi.StringPtrInput
 }
 
 func (IotSecuritySolutionArgs) ElementType() reflect.Type {

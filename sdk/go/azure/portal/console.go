@@ -14,7 +14,6 @@ import (
 type Console struct {
 	pulumi.CustomResourceState
 
-	// Cloud shell console properties.
 	Properties ConsolePropertiesResponseOutput `pulumi:"properties"`
 }
 
@@ -72,18 +71,14 @@ func (ConsoleState) ElementType() reflect.Type {
 }
 
 type consoleArgs struct {
-	// The name of the console
-	ConsoleName *string `pulumi:"consoleName"`
-	// Cloud shell properties for creating a console.
-	Properties ConsoleCreateProperties `pulumi:"properties"`
+	ConsoleName *string                 `pulumi:"consoleName"`
+	Properties  ConsoleCreateProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Console resource.
 type ConsoleArgs struct {
-	// The name of the console
 	ConsoleName pulumi.StringPtrInput
-	// Cloud shell properties for creating a console.
-	Properties ConsoleCreatePropertiesInput
+	Properties  ConsoleCreatePropertiesInput
 }
 
 func (ConsoleArgs) ElementType() reflect.Type {

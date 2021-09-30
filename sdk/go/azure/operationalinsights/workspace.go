@@ -14,40 +14,23 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// Workspace creation date.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId pulumi.StringOutput `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Workspace features.
-	Features WorkspaceFeaturesResponsePtrOutput `pulumi:"features"`
-	// Indicates whether customer managed storage is mandatory for query management.
-	ForceCmkForQuery pulumi.BoolPtrOutput `pulumi:"forceCmkForQuery"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Workspace modification date.
-	ModifiedDate pulumi.StringOutput `pulumi:"modifiedDate"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayOutput `pulumi:"privateLinkScopedResources"`
-	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The network access type for accessing Log Analytics ingestion.
-	PublicNetworkAccessForIngestion pulumi.StringPtrOutput `pulumi:"publicNetworkAccessForIngestion"`
-	// The network access type for accessing Log Analytics query.
-	PublicNetworkAccessForQuery pulumi.StringPtrOutput `pulumi:"publicNetworkAccessForQuery"`
-	// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
-	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku WorkspaceSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The daily volume cap for ingestion.
-	WorkspaceCapping WorkspaceCappingResponsePtrOutput `pulumi:"workspaceCapping"`
+	CreatedDate                     pulumi.StringOutput                          `pulumi:"createdDate"`
+	CustomerId                      pulumi.StringOutput                          `pulumi:"customerId"`
+	ETag                            pulumi.StringPtrOutput                       `pulumi:"eTag"`
+	Features                        WorkspaceFeaturesResponsePtrOutput           `pulumi:"features"`
+	ForceCmkForQuery                pulumi.BoolPtrOutput                         `pulumi:"forceCmkForQuery"`
+	Location                        pulumi.StringOutput                          `pulumi:"location"`
+	ModifiedDate                    pulumi.StringOutput                          `pulumi:"modifiedDate"`
+	Name                            pulumi.StringOutput                          `pulumi:"name"`
+	PrivateLinkScopedResources      PrivateLinkScopedResourceResponseArrayOutput `pulumi:"privateLinkScopedResources"`
+	ProvisioningState               pulumi.StringPtrOutput                       `pulumi:"provisioningState"`
+	PublicNetworkAccessForIngestion pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccessForIngestion"`
+	PublicNetworkAccessForQuery     pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccessForQuery"`
+	RetentionInDays                 pulumi.IntPtrOutput                          `pulumi:"retentionInDays"`
+	Sku                             WorkspaceSkuResponsePtrOutput                `pulumi:"sku"`
+	Tags                            pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                            pulumi.StringOutput                          `pulumi:"type"`
+	WorkspaceCapping                WorkspaceCappingResponsePtrOutput            `pulumi:"workspaceCapping"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -128,62 +111,36 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
-	// Workspace features.
-	Features *WorkspaceFeatures `pulumi:"features"`
-	// Indicates whether customer managed storage is mandatory for query management.
-	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The network access type for accessing Log Analytics ingestion.
-	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
-	// The network access type for accessing Log Analytics query.
-	PublicNetworkAccessForQuery *string `pulumi:"publicNetworkAccessForQuery"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku *WorkspaceSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The daily volume cap for ingestion.
-	WorkspaceCapping *WorkspaceCapping `pulumi:"workspaceCapping"`
-	// The name of the workspace.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	ETag                            *string            `pulumi:"eTag"`
+	Features                        *WorkspaceFeatures `pulumi:"features"`
+	ForceCmkForQuery                *bool              `pulumi:"forceCmkForQuery"`
+	Location                        *string            `pulumi:"location"`
+	ProvisioningState               *string            `pulumi:"provisioningState"`
+	PublicNetworkAccessForIngestion *string            `pulumi:"publicNetworkAccessForIngestion"`
+	PublicNetworkAccessForQuery     *string            `pulumi:"publicNetworkAccessForQuery"`
+	ResourceGroupName               string             `pulumi:"resourceGroupName"`
+	RetentionInDays                 *int               `pulumi:"retentionInDays"`
+	Sku                             *WorkspaceSku      `pulumi:"sku"`
+	Tags                            map[string]string  `pulumi:"tags"`
+	WorkspaceCapping                *WorkspaceCapping  `pulumi:"workspaceCapping"`
+	WorkspaceName                   *string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
-	// Workspace features.
-	Features WorkspaceFeaturesPtrInput
-	// Indicates whether customer managed storage is mandatory for query management.
-	ForceCmkForQuery pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrInput
-	// The network access type for accessing Log Analytics ingestion.
+	ETag                            pulumi.StringPtrInput
+	Features                        WorkspaceFeaturesPtrInput
+	ForceCmkForQuery                pulumi.BoolPtrInput
+	Location                        pulumi.StringPtrInput
+	ProvisioningState               pulumi.StringPtrInput
 	PublicNetworkAccessForIngestion pulumi.StringPtrInput
-	// The network access type for accessing Log Analytics query.
-	PublicNetworkAccessForQuery pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
-	RetentionInDays pulumi.IntPtrInput
-	// The SKU of the workspace.
-	Sku WorkspaceSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The daily volume cap for ingestion.
-	WorkspaceCapping WorkspaceCappingPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringPtrInput
+	PublicNetworkAccessForQuery     pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
+	RetentionInDays                 pulumi.IntPtrInput
+	Sku                             WorkspaceSkuPtrInput
+	Tags                            pulumi.StringMapInput
+	WorkspaceCapping                WorkspaceCappingPtrInput
+	WorkspaceName                   pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

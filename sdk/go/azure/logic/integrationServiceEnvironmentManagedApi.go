@@ -14,16 +14,11 @@ import (
 type IntegrationServiceEnvironmentManagedApi struct {
 	pulumi.CustomResourceState
 
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The api resource properties.
+	Location   pulumi.StringPtrOutput              `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties ApiResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewIntegrationServiceEnvironmentManagedApi registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +78,16 @@ func (IntegrationServiceEnvironmentManagedApiState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentManagedApiArgs struct {
-	// The api name.
-	ApiName *string `pulumi:"apiName"`
-	// The integration service environment name.
-	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
-	// The resource group name.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ApiName                           *string `pulumi:"apiName"`
+	IntegrationServiceEnvironmentName string  `pulumi:"integrationServiceEnvironmentName"`
+	ResourceGroup                     string  `pulumi:"resourceGroup"`
 }
 
 // The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
 type IntegrationServiceEnvironmentManagedApiArgs struct {
-	// The api name.
-	ApiName pulumi.StringPtrInput
-	// The integration service environment name.
+	ApiName                           pulumi.StringPtrInput
 	IntegrationServiceEnvironmentName pulumi.StringInput
-	// The resource group name.
-	ResourceGroup pulumi.StringInput
+	ResourceGroup                     pulumi.StringInput
 }
 
 func (IntegrationServiceEnvironmentManagedApiArgs) ElementType() reflect.Type {

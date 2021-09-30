@@ -14,20 +14,13 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData CreationDataResponsePtrOutput `pulumi:"creationData"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of a snapshot. The default is NodePool.
-	SnapshotType pulumi.StringPtrOutput `pulumi:"snapshotType"`
-	// The system metadata relating to this snapshot.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location     pulumi.StringOutput           `pulumi:"location"`
+	Name         pulumi.StringOutput           `pulumi:"name"`
+	SnapshotType pulumi.StringPtrOutput        `pulumi:"snapshotType"`
+	SystemData   SystemDataResponseOutput      `pulumi:"systemData"`
+	Tags         pulumi.StringMapOutput        `pulumi:"tags"`
+	Type         pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -84,34 +77,22 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
-	CreationData *CreationData `pulumi:"creationData"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the managed cluster resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The type of a snapshot. The default is NodePool.
-	SnapshotType *string `pulumi:"snapshotType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	CreationData      *CreationData     `pulumi:"creationData"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	SnapshotType      *string           `pulumi:"snapshotType"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
-	CreationData CreationDataPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	CreationData      CreationDataPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the managed cluster resource.
-	ResourceName pulumi.StringPtrInput
-	// The type of a snapshot. The default is NodePool.
-	SnapshotType pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	SnapshotType      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {

@@ -14,14 +14,10 @@ import (
 type CloudLink struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the other private cloud participating in the link.
 	LinkedCloud pulumi.StringPtrOutput `pulumi:"linkedCloud"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of the cloud link.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Status      pulumi.StringOutput    `pulumi:"status"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCloudLink registers a new resource with the given unique name, arguments, and options.
@@ -81,25 +77,17 @@ func (CloudLinkState) ElementType() reflect.Type {
 }
 
 type cloudLinkArgs struct {
-	// Name of the cloud link resource
-	CloudLinkName *string `pulumi:"cloudLinkName"`
-	// Identifier of the other private cloud participating in the link.
-	LinkedCloud *string `pulumi:"linkedCloud"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	CloudLinkName     *string `pulumi:"cloudLinkName"`
+	LinkedCloud       *string `pulumi:"linkedCloud"`
+	PrivateCloudName  string  `pulumi:"privateCloudName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CloudLink resource.
 type CloudLinkArgs struct {
-	// Name of the cloud link resource
-	CloudLinkName pulumi.StringPtrInput
-	// Identifier of the other private cloud participating in the link.
-	LinkedCloud pulumi.StringPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	CloudLinkName     pulumi.StringPtrInput
+	LinkedCloud       pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 

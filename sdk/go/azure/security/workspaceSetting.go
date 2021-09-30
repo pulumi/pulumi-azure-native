@@ -14,13 +14,9 @@ import (
 type WorkspaceSetting struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The full Azure ID of the workspace to save the data in
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Scope       pulumi.StringOutput `pulumi:"scope"`
+	Type        pulumi.StringOutput `pulumi:"type"`
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -81,21 +77,15 @@ func (WorkspaceSettingState) ElementType() reflect.Type {
 }
 
 type workspaceSettingArgs struct {
-	// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
-	Scope string `pulumi:"scope"`
-	// The full Azure ID of the workspace to save the data in
-	WorkspaceId string `pulumi:"workspaceId"`
-	// Name of the security setting
+	Scope                string  `pulumi:"scope"`
+	WorkspaceId          string  `pulumi:"workspaceId"`
 	WorkspaceSettingName *string `pulumi:"workspaceSettingName"`
 }
 
 // The set of arguments for constructing a WorkspaceSetting resource.
 type WorkspaceSettingArgs struct {
-	// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
-	Scope pulumi.StringInput
-	// The full Azure ID of the workspace to save the data in
-	WorkspaceId pulumi.StringInput
-	// Name of the security setting
+	Scope                pulumi.StringInput
+	WorkspaceId          pulumi.StringInput
 	WorkspaceSettingName pulumi.StringPtrInput
 }
 

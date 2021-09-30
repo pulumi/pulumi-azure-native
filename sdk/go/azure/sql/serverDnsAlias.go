@@ -14,12 +14,9 @@ import (
 type ServerDnsAlias struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified DNS record for alias
 	AzureDnsRecord pulumi.StringOutput `pulumi:"azureDnsRecord"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name           pulumi.StringOutput `pulumi:"name"`
+	Type           pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerDnsAlias registers a new resource with the given unique name, arguments, and options.
@@ -103,22 +100,16 @@ func (ServerDnsAliasState) ElementType() reflect.Type {
 }
 
 type serverDnsAliasArgs struct {
-	// The name of the server dns alias.
-	DnsAliasName *string `pulumi:"dnsAliasName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server that the alias is pointing to.
-	ServerName string `pulumi:"serverName"`
+	DnsAliasName      *string `pulumi:"dnsAliasName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a ServerDnsAlias resource.
 type ServerDnsAliasArgs struct {
-	// The name of the server dns alias.
-	DnsAliasName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DnsAliasName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server that the alias is pointing to.
-	ServerName pulumi.StringInput
+	ServerName        pulumi.StringInput
 }
 
 func (ServerDnsAliasArgs) ElementType() reflect.Type {

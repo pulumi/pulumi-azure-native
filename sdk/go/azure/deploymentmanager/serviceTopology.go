@@ -14,16 +14,11 @@ import (
 type ServiceTopology struct {
 	pulumi.CustomResourceState
 
-	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
 	ArtifactSourceId pulumi.StringPtrOutput `pulumi:"artifactSourceId"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location         pulumi.StringOutput    `pulumi:"location"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewServiceTopology registers a new resource with the given unique name, arguments, and options.
@@ -86,30 +81,20 @@ func (ServiceTopologyState) ElementType() reflect.Type {
 }
 
 type serviceTopologyArgs struct {
-	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-	ArtifactSourceId *string `pulumi:"artifactSourceId"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service topology .
-	ServiceTopologyName *string `pulumi:"serviceTopologyName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ArtifactSourceId    *string           `pulumi:"artifactSourceId"`
+	Location            *string           `pulumi:"location"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	ServiceTopologyName *string           `pulumi:"serviceTopologyName"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceTopology resource.
 type ServiceTopologyArgs struct {
-	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-	ArtifactSourceId pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the service topology .
+	ArtifactSourceId    pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
 	ServiceTopologyName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
 }
 
 func (ServiceTopologyArgs) ElementType() reflect.Type {

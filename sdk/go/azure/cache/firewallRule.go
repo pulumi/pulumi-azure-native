@@ -14,14 +14,10 @@ import (
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
-	// highest IP address included in the range
-	EndIP pulumi.StringOutput `pulumi:"endIP"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// lowest IP address included in the range
+	EndIP   pulumi.StringOutput `pulumi:"endIP"`
+	Name    pulumi.StringOutput `pulumi:"name"`
 	StartIP pulumi.StringOutput `pulumi:"startIP"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type    pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -123,30 +119,20 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
-	// The name of the Redis cache.
-	CacheName string `pulumi:"cacheName"`
-	// highest IP address included in the range
-	EndIP string `pulumi:"endIP"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the firewall rule.
-	RuleName *string `pulumi:"ruleName"`
-	// lowest IP address included in the range
-	StartIP string `pulumi:"startIP"`
+	CacheName         string  `pulumi:"cacheName"`
+	EndIP             string  `pulumi:"endIP"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RuleName          *string `pulumi:"ruleName"`
+	StartIP           string  `pulumi:"startIP"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
-	// The name of the Redis cache.
-	CacheName pulumi.StringInput
-	// highest IP address included in the range
-	EndIP pulumi.StringInput
-	// The name of the resource group.
+	CacheName         pulumi.StringInput
+	EndIP             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the firewall rule.
-	RuleName pulumi.StringPtrInput
-	// lowest IP address included in the range
-	StartIP pulumi.StringInput
+	RuleName          pulumi.StringPtrInput
+	StartIP           pulumi.StringInput
 }
 
 func (FirewallRuleArgs) ElementType() reflect.Type {

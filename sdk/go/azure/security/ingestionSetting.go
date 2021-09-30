@@ -13,9 +13,7 @@ import (
 type IngestionSetting struct {
 	pulumi.CustomResourceState
 
-	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -70,13 +68,11 @@ func (IngestionSettingState) ElementType() reflect.Type {
 }
 
 type ingestionSettingArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName *string `pulumi:"ingestionSettingName"`
 }
 
 // The set of arguments for constructing a IngestionSetting resource.
 type IngestionSettingArgs struct {
-	// Name of the ingestion setting
 	IngestionSettingName pulumi.StringPtrInput
 }
 

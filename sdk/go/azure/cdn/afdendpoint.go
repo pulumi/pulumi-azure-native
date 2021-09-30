@@ -14,25 +14,16 @@ import (
 type AFDEndpoint struct {
 	pulumi.CustomResourceState
 
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
-	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds pulumi.IntPtrOutput `pulumi:"originResponseTimeoutSeconds"`
-	// Provisioning status
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeploymentStatus             pulumi.StringOutput      `pulumi:"deploymentStatus"`
+	EnabledState                 pulumi.StringPtrOutput   `pulumi:"enabledState"`
+	HostName                     pulumi.StringOutput      `pulumi:"hostName"`
+	Location                     pulumi.StringOutput      `pulumi:"location"`
+	Name                         pulumi.StringOutput      `pulumi:"name"`
+	OriginResponseTimeoutSeconds pulumi.IntPtrOutput      `pulumi:"originResponseTimeoutSeconds"`
+	ProvisioningState            pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData                   SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                         pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAFDEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +83,24 @@ func (AFDEndpointState) ElementType() reflect.Type {
 }
 
 type afdendpointArgs struct {
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName *string `pulumi:"endpointName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	EnabledState                 *string           `pulumi:"enabledState"`
+	EndpointName                 *string           `pulumi:"endpointName"`
+	Location                     *string           `pulumi:"location"`
+	OriginResponseTimeoutSeconds *int              `pulumi:"originResponseTimeoutSeconds"`
+	ProfileName                  string            `pulumi:"profileName"`
+	ResourceGroupName            string            `pulumi:"resourceGroupName"`
+	Tags                         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AFDEndpoint resource.
 type AFDEndpointArgs struct {
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	EnabledState                 pulumi.StringPtrInput
+	EndpointName                 pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
 	OriginResponseTimeoutSeconds pulumi.IntPtrInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ProfileName                  pulumi.StringInput
+	ResourceGroupName            pulumi.StringInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (AFDEndpointArgs) ElementType() reflect.Type {

@@ -14,14 +14,10 @@ import (
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The custom details.
+	Location   pulumi.StringPtrOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties RecoveryPlanPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewReplicationRecoveryPlan registers a new resource with the given unique name, arguments, and options.
@@ -132,26 +128,18 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryPlanArgs struct {
-	// Recovery plan creation properties.
-	Properties CreateRecoveryPlanInputProperties `pulumi:"properties"`
-	// Recovery plan name.
-	RecoveryPlanName *string `pulumi:"recoveryPlanName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	Properties        CreateRecoveryPlanInputProperties `pulumi:"properties"`
+	RecoveryPlanName  *string                           `pulumi:"recoveryPlanName"`
+	ResourceGroupName string                            `pulumi:"resourceGroupName"`
+	ResourceName      string                            `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationRecoveryPlan resource.
 type ReplicationRecoveryPlanArgs struct {
-	// Recovery plan creation properties.
-	Properties CreateRecoveryPlanInputPropertiesInput
-	// Recovery plan name.
-	RecoveryPlanName pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
+	Properties        CreateRecoveryPlanInputPropertiesInput
+	RecoveryPlanName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (ReplicationRecoveryPlanArgs) ElementType() reflect.Type {

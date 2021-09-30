@@ -14,24 +14,15 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	// The extended location of the Image.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine SubResourceResponsePtrOutput `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ExtendedLocation     ExtendedLocationResponsePtrOutput    `pulumi:"extendedLocation"`
+	HyperVGeneration     pulumi.StringPtrOutput               `pulumi:"hyperVGeneration"`
+	Location             pulumi.StringOutput                  `pulumi:"location"`
+	Name                 pulumi.StringOutput                  `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                  `pulumi:"provisioningState"`
+	SourceVirtualMachine SubResourceResponsePtrOutput         `pulumi:"sourceVirtualMachine"`
+	StorageProfile       ImageStorageProfileResponsePtrOutput `pulumi:"storageProfile"`
+	Tags                 pulumi.StringMapOutput               `pulumi:"tags"`
+	Type                 pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -166,42 +157,26 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// The extended location of the Image.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// The name of the image.
-	ImageName *string `pulumi:"imageName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine *SubResource `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *ImageStorageProfile `pulumi:"storageProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ExtendedLocation     *ExtendedLocation    `pulumi:"extendedLocation"`
+	HyperVGeneration     *string              `pulumi:"hyperVGeneration"`
+	ImageName            *string              `pulumi:"imageName"`
+	Location             *string              `pulumi:"location"`
+	ResourceGroupName    string               `pulumi:"resourceGroupName"`
+	SourceVirtualMachine *SubResource         `pulumi:"sourceVirtualMachine"`
+	StorageProfile       *ImageStorageProfile `pulumi:"storageProfile"`
+	Tags                 map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// The extended location of the Image.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-	HyperVGeneration pulumi.StringPtrInput
-	// The name of the image.
-	ImageName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The source virtual machine from which Image is created.
+	ExtendedLocation     ExtendedLocationPtrInput
+	HyperVGeneration     pulumi.StringPtrInput
+	ImageName            pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
 	SourceVirtualMachine SubResourcePtrInput
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfilePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	StorageProfile       ImageStorageProfilePtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {

@@ -14,22 +14,14 @@ import (
 type ExportPipeline struct {
 	pulumi.CustomResourceState
 
-	// The identity of the export pipeline.
-	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	// The location of the export pipeline.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of all options configured for the pipeline.
-	Options pulumi.StringArrayOutput `pulumi:"options"`
-	// The provisioning state of the pipeline at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The target properties of the export pipeline.
-	Target ExportPipelineTargetPropertiesResponseOutput `pulumi:"target"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity          IdentityPropertiesResponsePtrOutput          `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name              pulumi.StringOutput                          `pulumi:"name"`
+	Options           pulumi.StringArrayOutput                     `pulumi:"options"`
+	ProvisioningState pulumi.StringOutput                          `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput                     `pulumi:"systemData"`
+	Target            ExportPipelineTargetPropertiesResponseOutput `pulumi:"target"`
+	Type              pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewExportPipeline registers a new resource with the given unique name, arguments, and options.
@@ -104,38 +96,24 @@ func (ExportPipelineState) ElementType() reflect.Type {
 }
 
 type exportPipelineArgs struct {
-	// The name of the export pipeline.
-	ExportPipelineName *string `pulumi:"exportPipelineName"`
-	// The identity of the export pipeline.
-	Identity *IdentityProperties `pulumi:"identity"`
-	// The location of the export pipeline.
-	Location *string `pulumi:"location"`
-	// The list of all options configured for the pipeline.
-	Options []string `pulumi:"options"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The target properties of the export pipeline.
-	Target ExportPipelineTargetProperties `pulumi:"target"`
+	ExportPipelineName *string                        `pulumi:"exportPipelineName"`
+	Identity           *IdentityProperties            `pulumi:"identity"`
+	Location           *string                        `pulumi:"location"`
+	Options            []string                       `pulumi:"options"`
+	RegistryName       string                         `pulumi:"registryName"`
+	ResourceGroupName  string                         `pulumi:"resourceGroupName"`
+	Target             ExportPipelineTargetProperties `pulumi:"target"`
 }
 
 // The set of arguments for constructing a ExportPipeline resource.
 type ExportPipelineArgs struct {
-	// The name of the export pipeline.
 	ExportPipelineName pulumi.StringPtrInput
-	// The identity of the export pipeline.
-	Identity IdentityPropertiesPtrInput
-	// The location of the export pipeline.
-	Location pulumi.StringPtrInput
-	// The list of all options configured for the pipeline.
-	Options pulumi.StringArrayInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName pulumi.StringInput
-	// The target properties of the export pipeline.
-	Target ExportPipelineTargetPropertiesInput
+	Identity           IdentityPropertiesPtrInput
+	Location           pulumi.StringPtrInput
+	Options            pulumi.StringArrayInput
+	RegistryName       pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
+	Target             ExportPipelineTargetPropertiesInput
 }
 
 func (ExportPipelineArgs) ElementType() reflect.Type {

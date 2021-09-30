@@ -14,44 +14,25 @@ import (
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 
-	// An ExpressRoute Circuit
-	Circuit CircuitResponsePtrOutput `pulumi:"circuit"`
-	// The endpoints
-	Endpoints EndpointsResponseOutput `pulumi:"endpoints"`
-	// vCenter Single Sign On Identity Sources
-	IdentitySources IdentitySourceResponseArrayOutput `pulumi:"identitySources"`
-	// Connectivity to internet is enabled or disabled
-	Internet pulumi.StringPtrOutput `pulumi:"internet"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The default cluster used for management
-	ManagementCluster ManagementClusterResponseOutput `pulumi:"managementCluster"`
-	// Network used to access vCenter Server and NSX-T Manager
-	ManagementNetwork pulumi.StringOutput `pulumi:"managementNetwork"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-	NetworkBlock pulumi.StringOutput `pulumi:"networkBlock"`
-	// Thumbprint of the NSX-T Manager SSL certificate
-	NsxtCertificateThumbprint pulumi.StringOutput `pulumi:"nsxtCertificateThumbprint"`
-	// Optionally, set the NSX-T Manager password when the private cloud is created
-	NsxtPassword pulumi.StringPtrOutput `pulumi:"nsxtPassword"`
-	// Used for virtual machine cold migration, cloning, and snapshot migration
-	ProvisioningNetwork pulumi.StringOutput `pulumi:"provisioningNetwork"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The private cloud SKU
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Thumbprint of the vCenter Server SSL certificate
-	VcenterCertificateThumbprint pulumi.StringOutput `pulumi:"vcenterCertificateThumbprint"`
-	// Optionally, set the vCenter admin password when the private cloud is created
-	VcenterPassword pulumi.StringPtrOutput `pulumi:"vcenterPassword"`
-	// Used for live migration of virtual machines
-	VmotionNetwork pulumi.StringOutput `pulumi:"vmotionNetwork"`
+	Circuit                      CircuitResponsePtrOutput          `pulumi:"circuit"`
+	Endpoints                    EndpointsResponseOutput           `pulumi:"endpoints"`
+	IdentitySources              IdentitySourceResponseArrayOutput `pulumi:"identitySources"`
+	Internet                     pulumi.StringPtrOutput            `pulumi:"internet"`
+	Location                     pulumi.StringOutput               `pulumi:"location"`
+	ManagementCluster            ManagementClusterResponseOutput   `pulumi:"managementCluster"`
+	ManagementNetwork            pulumi.StringOutput               `pulumi:"managementNetwork"`
+	Name                         pulumi.StringOutput               `pulumi:"name"`
+	NetworkBlock                 pulumi.StringOutput               `pulumi:"networkBlock"`
+	NsxtCertificateThumbprint    pulumi.StringOutput               `pulumi:"nsxtCertificateThumbprint"`
+	NsxtPassword                 pulumi.StringPtrOutput            `pulumi:"nsxtPassword"`
+	ProvisioningNetwork          pulumi.StringOutput               `pulumi:"provisioningNetwork"`
+	ProvisioningState            pulumi.StringOutput               `pulumi:"provisioningState"`
+	Sku                          SkuResponseOutput                 `pulumi:"sku"`
+	Tags                         pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                         pulumi.StringOutput               `pulumi:"type"`
+	VcenterCertificateThumbprint pulumi.StringOutput               `pulumi:"vcenterCertificateThumbprint"`
+	VcenterPassword              pulumi.StringPtrOutput            `pulumi:"vcenterPassword"`
+	VmotionNetwork               pulumi.StringOutput               `pulumi:"vmotionNetwork"`
 }
 
 // NewPrivateCloud registers a new resource with the given unique name, arguments, and options.
@@ -138,54 +119,32 @@ func (PrivateCloudState) ElementType() reflect.Type {
 }
 
 type privateCloudArgs struct {
-	// vCenter Single Sign On Identity Sources
-	IdentitySources []IdentitySource `pulumi:"identitySources"`
-	// Connectivity to internet is enabled or disabled
-	Internet *string `pulumi:"internet"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The default cluster used for management
+	IdentitySources   []IdentitySource  `pulumi:"identitySources"`
+	Internet          *string           `pulumi:"internet"`
+	Location          *string           `pulumi:"location"`
 	ManagementCluster ManagementCluster `pulumi:"managementCluster"`
-	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-	NetworkBlock string `pulumi:"networkBlock"`
-	// Optionally, set the NSX-T Manager password when the private cloud is created
-	NsxtPassword *string `pulumi:"nsxtPassword"`
-	// Name of the private cloud
-	PrivateCloudName *string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The private cloud SKU
-	Sku Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Optionally, set the vCenter admin password when the private cloud is created
-	VcenterPassword *string `pulumi:"vcenterPassword"`
+	NetworkBlock      string            `pulumi:"networkBlock"`
+	NsxtPassword      *string           `pulumi:"nsxtPassword"`
+	PrivateCloudName  *string           `pulumi:"privateCloudName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	VcenterPassword   *string           `pulumi:"vcenterPassword"`
 }
 
 // The set of arguments for constructing a PrivateCloud resource.
 type PrivateCloudArgs struct {
-	// vCenter Single Sign On Identity Sources
-	IdentitySources IdentitySourceArrayInput
-	// Connectivity to internet is enabled or disabled
-	Internet pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The default cluster used for management
+	IdentitySources   IdentitySourceArrayInput
+	Internet          pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ManagementCluster ManagementClusterInput
-	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-	NetworkBlock pulumi.StringInput
-	// Optionally, set the NSX-T Manager password when the private cloud is created
-	NsxtPassword pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	NetworkBlock      pulumi.StringInput
+	NsxtPassword      pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The private cloud SKU
-	Sku SkuInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Optionally, set the vCenter admin password when the private cloud is created
-	VcenterPassword pulumi.StringPtrInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
+	VcenterPassword   pulumi.StringPtrInput
 }
 
 func (PrivateCloudArgs) ElementType() reflect.Type {

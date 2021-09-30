@@ -14,12 +14,9 @@ import (
 type BackupShortTermRetentionPolicy struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	Name          pulumi.StringOutput `pulumi:"name"`
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type          pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewBackupShortTermRetentionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -106,30 +103,20 @@ func (BackupShortTermRetentionPolicyState) ElementType() reflect.Type {
 }
 
 type backupShortTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The policy name. Should always be "default".
-	PolicyName *string `pulumi:"policyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	DatabaseName      string  `pulumi:"databaseName"`
+	PolicyName        *string `pulumi:"policyName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RetentionDays     *int    `pulumi:"retentionDays"`
+	ServerName        string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a BackupShortTermRetentionPolicy resource.
 type BackupShortTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The policy name. Should always be "default".
-	PolicyName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      pulumi.StringInput
+	PolicyName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
-	RetentionDays pulumi.IntPtrInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	RetentionDays     pulumi.IntPtrInput
+	ServerName        pulumi.StringInput
 }
 
 func (BackupShortTermRetentionPolicyArgs) ElementType() reflect.Type {

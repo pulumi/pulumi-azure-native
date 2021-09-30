@@ -14,20 +14,13 @@ import (
 type GlobalReachConnection struct {
 	pulumi.CustomResourceState
 
-	// The network used for global reach carved out from the original network block provided for the private cloud
-	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
-	// Authorization key from the peer express route used for the global reach connection
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// The connection status of the global reach connection
-	CircuitConnectionStatus pulumi.StringOutput `pulumi:"circuitConnectionStatus"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+	AddressPrefix           pulumi.StringOutput    `pulumi:"addressPrefix"`
+	AuthorizationKey        pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	CircuitConnectionStatus pulumi.StringOutput    `pulumi:"circuitConnectionStatus"`
+	Name                    pulumi.StringOutput    `pulumi:"name"`
 	PeerExpressRouteCircuit pulumi.StringPtrOutput `pulumi:"peerExpressRouteCircuit"`
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState       pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                    pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGlobalReachConnection registers a new resource with the given unique name, arguments, and options.
@@ -99,30 +92,20 @@ func (GlobalReachConnectionState) ElementType() reflect.Type {
 }
 
 type globalReachConnectionArgs struct {
-	// Authorization key from the peer express route used for the global reach connection
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Name of the global reach connection in the private cloud
+	AuthorizationKey          *string `pulumi:"authorizationKey"`
 	GlobalReachConnectionName *string `pulumi:"globalReachConnectionName"`
-	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
-	PeerExpressRouteCircuit *string `pulumi:"peerExpressRouteCircuit"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PeerExpressRouteCircuit   *string `pulumi:"peerExpressRouteCircuit"`
+	PrivateCloudName          string  `pulumi:"privateCloudName"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a GlobalReachConnection resource.
 type GlobalReachConnectionArgs struct {
-	// Authorization key from the peer express route used for the global reach connection
-	AuthorizationKey pulumi.StringPtrInput
-	// Name of the global reach connection in the private cloud
+	AuthorizationKey          pulumi.StringPtrInput
 	GlobalReachConnectionName pulumi.StringPtrInput
-	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
-	PeerExpressRouteCircuit pulumi.StringPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	PeerExpressRouteCircuit   pulumi.StringPtrInput
+	PrivateCloudName          pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
 }
 
 func (GlobalReachConnectionArgs) ElementType() reflect.Type {

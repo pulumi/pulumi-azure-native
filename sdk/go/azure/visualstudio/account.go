@@ -14,16 +14,11 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
+	Location   pulumi.StringPtrOutput `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -86,38 +81,24 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The account name.
-	AccountName *string `pulumi:"accountName"`
-	// The Azure instance location.
-	Location *string `pulumi:"location"`
-	// The type of the operation.
-	OperationType *string `pulumi:"operationType"`
-	// The custom properties of the resource.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The custom tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Location          *string           `pulumi:"location"`
+	OperationType     *string           `pulumi:"operationType"`
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The account name.
-	AccountName pulumi.StringPtrInput
-	// The Azure instance location.
-	Location pulumi.StringPtrInput
-	// The type of the operation.
-	OperationType pulumi.StringPtrInput
-	// The custom properties of the resource.
-	Properties pulumi.StringMapInput
-	// Name of the resource group within the Azure subscription.
+	AccountName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	OperationType     pulumi.StringPtrInput
+	Properties        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the resource.
-	ResourceName pulumi.StringPtrInput
-	// The custom tags of the resource.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

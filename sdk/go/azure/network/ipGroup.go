@@ -14,24 +14,15 @@ import (
 type IpGroup struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of references to Firewall Policies resources that this IpGroups is associated with.
-	FirewallPolicies SubResourceResponseArrayOutput `pulumi:"firewallPolicies"`
-	// List of references to Firewall resources that this IpGroups is associated with.
-	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
-	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
-	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the IpGroups resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput            `pulumi:"etag"`
+	FirewallPolicies  SubResourceResponseArrayOutput `pulumi:"firewallPolicies"`
+	Firewalls         SubResourceResponseArrayOutput `pulumi:"firewalls"`
+	IpAddresses       pulumi.StringArrayOutput       `pulumi:"ipAddresses"`
+	Location          pulumi.StringPtrOutput         `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
@@ -154,34 +145,22 @@ func (IpGroupState) ElementType() reflect.Type {
 }
 
 type ipGroupArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// The name of the ipGroups.
-	IpGroupsName *string `pulumi:"ipGroupsName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id                *string           `pulumi:"id"`
+	IpAddresses       []string          `pulumi:"ipAddresses"`
+	IpGroupsName      *string           `pulumi:"ipGroupsName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpGroup resource.
 type IpGroupArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
-	IpAddresses pulumi.StringArrayInput
-	// The name of the ipGroups.
-	IpGroupsName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Id                pulumi.StringPtrInput
+	IpAddresses       pulumi.StringArrayInput
+	IpGroupsName      pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (IpGroupArgs) ElementType() reflect.Type {

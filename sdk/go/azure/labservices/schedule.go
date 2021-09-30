@@ -14,24 +14,15 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notes for this schedule.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Current provisioning state of the schedule.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The recurrence pattern of the scheduled actions.
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	Notes             pulumi.StringPtrOutput             `pulumi:"notes"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
 	RecurrencePattern RecurrencePatternResponsePtrOutput `pulumi:"recurrencePattern"`
-	// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StartAt pulumi.StringPtrOutput `pulumi:"startAt"`
-	// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StopAt pulumi.StringOutput `pulumi:"stopAt"`
-	// Metadata pertaining to creation and last modification of the schedule.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The IANA timezone id for the schedule.
-	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	StartAt           pulumi.StringPtrOutput             `pulumi:"startAt"`
+	StopAt            pulumi.StringOutput                `pulumi:"stopAt"`
+	SystemData        SystemDataResponseOutput           `pulumi:"systemData"`
+	TimeZoneId        pulumi.StringOutput                `pulumi:"timeZoneId"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -97,42 +88,26 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
-	LabName string `pulumi:"labName"`
-	// Notes for this schedule.
-	Notes *string `pulumi:"notes"`
-	// The recurrence pattern of the scheduled actions.
+	LabName           string             `pulumi:"labName"`
+	Notes             *string            `pulumi:"notes"`
 	RecurrencePattern *RecurrencePattern `pulumi:"recurrencePattern"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
-	ScheduleName *string `pulumi:"scheduleName"`
-	// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StartAt *string `pulumi:"startAt"`
-	// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StopAt string `pulumi:"stopAt"`
-	// The IANA timezone id for the schedule.
-	TimeZoneId string `pulumi:"timeZoneId"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	ScheduleName      *string            `pulumi:"scheduleName"`
+	StartAt           *string            `pulumi:"startAt"`
+	StopAt            string             `pulumi:"stopAt"`
+	TimeZoneId        string             `pulumi:"timeZoneId"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
-	LabName pulumi.StringInput
-	// Notes for this schedule.
-	Notes pulumi.StringPtrInput
-	// The recurrence pattern of the scheduled actions.
+	LabName           pulumi.StringInput
+	Notes             pulumi.StringPtrInput
 	RecurrencePattern RecurrencePatternPtrInput
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
-	ScheduleName pulumi.StringPtrInput
-	// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StartAt pulumi.StringPtrInput
-	// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
-	StopAt pulumi.StringInput
-	// The IANA timezone id for the schedule.
-	TimeZoneId pulumi.StringInput
+	ScheduleName      pulumi.StringPtrInput
+	StartAt           pulumi.StringPtrInput
+	StopAt            pulumi.StringInput
+	TimeZoneId        pulumi.StringInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {

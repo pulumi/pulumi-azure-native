@@ -14,14 +14,10 @@ import (
 type Dataset struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Dataset properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringOutput `pulumi:"etag"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -90,25 +86,17 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
-	// The dataset name.
-	DatasetName *string `pulumi:"datasetName"`
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// Dataset properties.
-	Properties interface{} `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DatasetName       *string     `pulumi:"datasetName"`
+	FactoryName       string      `pulumi:"factoryName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
-	// The dataset name.
-	DatasetName pulumi.StringPtrInput
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// Dataset properties.
-	Properties pulumi.Input
-	// The resource group name.
+	DatasetName       pulumi.StringPtrInput
+	FactoryName       pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 

@@ -14,18 +14,12 @@ import (
 type WebAppSwiftVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported pulumi.BoolPtrOutput `pulumi:"swiftSupported"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind             pulumi.StringPtrOutput   `pulumi:"kind"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	SubnetResourceId pulumi.StringPtrOutput   `pulumi:"subnetResourceId"`
+	SwiftSupported   pulumi.BoolPtrOutput     `pulumi:"swiftSupported"`
+	SystemData       SystemDataResponseOutput `pulumi:"systemData"`
+	Type             pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWebAppSwiftVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
@@ -139,30 +133,20 @@ func (WebAppSwiftVirtualNetworkConnectionState) ElementType() reflect.Type {
 }
 
 type webAppSwiftVirtualNetworkConnectionArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported *bool `pulumi:"swiftSupported"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubnetResourceId  *string `pulumi:"subnetResourceId"`
+	SwiftSupported    *bool   `pulumi:"swiftSupported"`
 }
 
 // The set of arguments for constructing a WebAppSwiftVirtualNetworkConnection resource.
 type WebAppSwiftVirtualNetworkConnectionArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-	SubnetResourceId pulumi.StringPtrInput
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported pulumi.BoolPtrInput
+	SubnetResourceId  pulumi.StringPtrInput
+	SwiftSupported    pulumi.BoolPtrInput
 }
 
 func (WebAppSwiftVirtualNetworkConnectionArgs) ElementType() reflect.Type {

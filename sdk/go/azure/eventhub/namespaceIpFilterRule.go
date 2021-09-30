@@ -14,16 +14,11 @@ import (
 type NamespaceIpFilterRule struct {
 	pulumi.CustomResourceState
 
-	// The IP Filter Action
-	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// IP Filter name
+	Action     pulumi.StringPtrOutput `pulumi:"action"`
 	FilterName pulumi.StringPtrOutput `pulumi:"filterName"`
-	// IP Mask
-	IpMask pulumi.StringPtrOutput `pulumi:"ipMask"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	IpMask     pulumi.StringPtrOutput `pulumi:"ipMask"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewNamespaceIpFilterRule registers a new resource with the given unique name, arguments, and options.
@@ -83,33 +78,21 @@ func (NamespaceIpFilterRuleState) ElementType() reflect.Type {
 }
 
 type namespaceIpFilterRuleArgs struct {
-	// The IP Filter Action
-	Action *string `pulumi:"action"`
-	// IP Filter name
-	FilterName *string `pulumi:"filterName"`
-	// The IP Filter Rule name.
-	IpFilterRuleName *string `pulumi:"ipFilterRuleName"`
-	// IP Mask
-	IpMask *string `pulumi:"ipMask"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Action            *string `pulumi:"action"`
+	FilterName        *string `pulumi:"filterName"`
+	IpFilterRuleName  *string `pulumi:"ipFilterRuleName"`
+	IpMask            *string `pulumi:"ipMask"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NamespaceIpFilterRule resource.
 type NamespaceIpFilterRuleArgs struct {
-	// The IP Filter Action
-	Action pulumi.StringPtrInput
-	// IP Filter name
-	FilterName pulumi.StringPtrInput
-	// The IP Filter Rule name.
-	IpFilterRuleName pulumi.StringPtrInput
-	// IP Mask
-	IpMask pulumi.StringPtrInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
+	Action            pulumi.StringPtrInput
+	FilterName        pulumi.StringPtrInput
+	IpFilterRuleName  pulumi.StringPtrInput
+	IpMask            pulumi.StringPtrInput
+	NamespaceName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 

@@ -14,22 +14,14 @@ import (
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The groupId in which the managed private endpoint is created.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ARM resource ID of the resource for which the managed private endpoint is created.
-	PrivateLinkResourceId pulumi.StringOutput `pulumi:"privateLinkResourceId"`
-	// The region of the resource to which the managed private endpoint is created.
-	PrivateLinkResourceRegion pulumi.StringPtrOutput `pulumi:"privateLinkResourceRegion"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The user request message.
-	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	GroupId                   pulumi.StringOutput      `pulumi:"groupId"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
+	PrivateLinkResourceId     pulumi.StringOutput      `pulumi:"privateLinkResourceId"`
+	PrivateLinkResourceRegion pulumi.StringPtrOutput   `pulumi:"privateLinkResourceRegion"`
+	ProvisioningState         pulumi.StringOutput      `pulumi:"provisioningState"`
+	RequestMessage            pulumi.StringPtrOutput   `pulumi:"requestMessage"`
+	SystemData                SystemDataResponseOutput `pulumi:"systemData"`
+	Type                      pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewManagedPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -95,38 +87,24 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 }
 
 type managedPrivateEndpointArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The groupId in which the managed private endpoint is created.
-	GroupId string `pulumi:"groupId"`
-	// The name of the managed private endpoint.
+	ClusterName                string  `pulumi:"clusterName"`
+	GroupId                    string  `pulumi:"groupId"`
 	ManagedPrivateEndpointName *string `pulumi:"managedPrivateEndpointName"`
-	// The ARM resource ID of the resource for which the managed private endpoint is created.
-	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
-	// The region of the resource to which the managed private endpoint is created.
-	PrivateLinkResourceRegion *string `pulumi:"privateLinkResourceRegion"`
-	// The user request message.
-	RequestMessage *string `pulumi:"requestMessage"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateLinkResourceId      string  `pulumi:"privateLinkResourceId"`
+	PrivateLinkResourceRegion  *string `pulumi:"privateLinkResourceRegion"`
+	RequestMessage             *string `pulumi:"requestMessage"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagedPrivateEndpoint resource.
 type ManagedPrivateEndpointArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The groupId in which the managed private endpoint is created.
-	GroupId pulumi.StringInput
-	// The name of the managed private endpoint.
+	ClusterName                pulumi.StringInput
+	GroupId                    pulumi.StringInput
 	ManagedPrivateEndpointName pulumi.StringPtrInput
-	// The ARM resource ID of the resource for which the managed private endpoint is created.
-	PrivateLinkResourceId pulumi.StringInput
-	// The region of the resource to which the managed private endpoint is created.
-	PrivateLinkResourceRegion pulumi.StringPtrInput
-	// The user request message.
-	RequestMessage pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
+	PrivateLinkResourceId      pulumi.StringInput
+	PrivateLinkResourceRegion  pulumi.StringPtrInput
+	RequestMessage             pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
 }
 
 func (ManagedPrivateEndpointArgs) ElementType() reflect.Type {

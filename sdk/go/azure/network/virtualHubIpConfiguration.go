@@ -14,22 +14,14 @@ import (
 type VirtualHubIpConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Name of the Ip Configuration.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The private IP address of the IP configuration.
-	PrivateIPAddress pulumi.StringPtrOutput `pulumi:"privateIPAddress"`
-	// The private IP address allocation method.
-	PrivateIPAllocationMethod pulumi.StringPtrOutput `pulumi:"privateIPAllocationMethod"`
-	// The provisioning state of the IP configuration resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The reference to the public IP resource.
-	PublicIPAddress PublicIPAddressResponsePtrOutput `pulumi:"publicIPAddress"`
-	// The reference to the subnet resource.
-	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
-	// Ipconfiguration type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                      pulumi.StringOutput              `pulumi:"etag"`
+	Name                      pulumi.StringPtrOutput           `pulumi:"name"`
+	PrivateIPAddress          pulumi.StringPtrOutput           `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod pulumi.StringPtrOutput           `pulumi:"privateIPAllocationMethod"`
+	ProvisioningState         pulumi.StringOutput              `pulumi:"provisioningState"`
+	PublicIPAddress           PublicIPAddressResponsePtrOutput `pulumi:"publicIPAddress"`
+	Subnet                    SubnetResponsePtrOutput          `pulumi:"subnet"`
+	Type                      pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewVirtualHubIpConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -125,46 +117,28 @@ func (VirtualHubIpConfigurationState) ElementType() reflect.Type {
 }
 
 type virtualHubIpConfigurationArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the ipconfig.
-	IpConfigName *string `pulumi:"ipConfigName"`
-	// Name of the Ip Configuration.
-	Name *string `pulumi:"name"`
-	// The private IP address of the IP configuration.
-	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// The private IP address allocation method.
-	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
-	// The reference to the public IP resource.
-	PublicIPAddress *PublicIPAddressType `pulumi:"publicIPAddress"`
-	// The resource group name of the VirtualHub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The reference to the subnet resource.
-	Subnet *SubnetType `pulumi:"subnet"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	Id                        *string              `pulumi:"id"`
+	IpConfigName              *string              `pulumi:"ipConfigName"`
+	Name                      *string              `pulumi:"name"`
+	PrivateIPAddress          *string              `pulumi:"privateIPAddress"`
+	PrivateIPAllocationMethod *string              `pulumi:"privateIPAllocationMethod"`
+	PublicIPAddress           *PublicIPAddressType `pulumi:"publicIPAddress"`
+	ResourceGroupName         string               `pulumi:"resourceGroupName"`
+	Subnet                    *SubnetType          `pulumi:"subnet"`
+	VirtualHubName            string               `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a VirtualHubIpConfiguration resource.
 type VirtualHubIpConfigurationArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the ipconfig.
-	IpConfigName pulumi.StringPtrInput
-	// Name of the Ip Configuration.
-	Name pulumi.StringPtrInput
-	// The private IP address of the IP configuration.
-	PrivateIPAddress pulumi.StringPtrInput
-	// The private IP address allocation method.
+	Id                        pulumi.StringPtrInput
+	IpConfigName              pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	PrivateIPAddress          pulumi.StringPtrInput
 	PrivateIPAllocationMethod pulumi.StringPtrInput
-	// The reference to the public IP resource.
-	PublicIPAddress PublicIPAddressTypePtrInput
-	// The resource group name of the VirtualHub.
-	ResourceGroupName pulumi.StringInput
-	// The reference to the subnet resource.
-	Subnet SubnetTypePtrInput
-	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	PublicIPAddress           PublicIPAddressTypePtrInput
+	ResourceGroupName         pulumi.StringInput
+	Subnet                    SubnetTypePtrInput
+	VirtualHubName            pulumi.StringInput
 }
 
 func (VirtualHubIpConfigurationArgs) ElementType() reflect.Type {

@@ -14,22 +14,14 @@ import (
 type VirtualNetworkGatewayNatRule struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The private IP address external mapping for NAT.
-	ExternalMappings VpnNatRuleMappingResponseArrayOutput `pulumi:"externalMappings"`
-	// The private IP address internal mapping for NAT.
-	InternalMappings VpnNatRuleMappingResponseArrayOutput `pulumi:"internalMappings"`
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId pulumi.StringPtrOutput `pulumi:"ipConfigurationId"`
-	// The Source NAT direction of a VPN NAT.
-	Mode pulumi.StringPtrOutput `pulumi:"mode"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the NAT Rule resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput                  `pulumi:"etag"`
+	ExternalMappings  VpnNatRuleMappingResponseArrayOutput `pulumi:"externalMappings"`
+	InternalMappings  VpnNatRuleMappingResponseArrayOutput `pulumi:"internalMappings"`
+	IpConfigurationId pulumi.StringPtrOutput               `pulumi:"ipConfigurationId"`
+	Mode              pulumi.StringPtrOutput               `pulumi:"mode"`
+	Name              pulumi.StringPtrOutput               `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                  `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewVirtualNetworkGatewayNatRule registers a new resource with the given unique name, arguments, and options.
@@ -95,49 +87,29 @@ func (VirtualNetworkGatewayNatRuleState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayNatRuleArgs struct {
-	// The private IP address external mapping for NAT.
-	ExternalMappings []VpnNatRuleMapping `pulumi:"externalMappings"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The private IP address internal mapping for NAT.
-	InternalMappings []VpnNatRuleMapping `pulumi:"internalMappings"`
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId *string `pulumi:"ipConfigurationId"`
-	// The Source NAT direction of a VPN NAT.
-	Mode *string `pulumi:"mode"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the nat rule.
-	NatRuleName *string `pulumi:"natRuleName"`
-	// The resource group name of the Virtual Network Gateway.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The type of NAT rule for VPN NAT.
-	Type *string `pulumi:"type"`
-	// The name of the gateway.
-	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
+	ExternalMappings          []VpnNatRuleMapping `pulumi:"externalMappings"`
+	Id                        *string             `pulumi:"id"`
+	InternalMappings          []VpnNatRuleMapping `pulumi:"internalMappings"`
+	IpConfigurationId         *string             `pulumi:"ipConfigurationId"`
+	Mode                      *string             `pulumi:"mode"`
+	Name                      *string             `pulumi:"name"`
+	NatRuleName               *string             `pulumi:"natRuleName"`
+	ResourceGroupName         string              `pulumi:"resourceGroupName"`
+	Type                      *string             `pulumi:"type"`
+	VirtualNetworkGatewayName string              `pulumi:"virtualNetworkGatewayName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
 type VirtualNetworkGatewayNatRuleArgs struct {
-	// The private IP address external mapping for NAT.
-	ExternalMappings VpnNatRuleMappingArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The private IP address internal mapping for NAT.
-	InternalMappings VpnNatRuleMappingArrayInput
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId pulumi.StringPtrInput
-	// The Source NAT direction of a VPN NAT.
-	Mode pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the nat rule.
-	NatRuleName pulumi.StringPtrInput
-	// The resource group name of the Virtual Network Gateway.
-	ResourceGroupName pulumi.StringInput
-	// The type of NAT rule for VPN NAT.
-	Type pulumi.StringPtrInput
-	// The name of the gateway.
+	ExternalMappings          VpnNatRuleMappingArrayInput
+	Id                        pulumi.StringPtrInput
+	InternalMappings          VpnNatRuleMappingArrayInput
+	IpConfigurationId         pulumi.StringPtrInput
+	Mode                      pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	NatRuleName               pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Type                      pulumi.StringPtrInput
 	VirtualNetworkGatewayName pulumi.StringInput
 }
 

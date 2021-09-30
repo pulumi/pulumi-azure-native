@@ -14,10 +14,8 @@ import (
 type ComponentCurrentBillingFeature struct {
 	pulumi.CustomResourceState
 
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
-	CurrentBillingFeatures pulumi.StringArrayOutput `pulumi:"currentBillingFeatures"`
-	// An Application Insights component daily data volume cap
-	DataVolumeCap ApplicationInsightsComponentDataVolumeCapResponsePtrOutput `pulumi:"dataVolumeCap"`
+	CurrentBillingFeatures pulumi.StringArrayOutput                                   `pulumi:"currentBillingFeatures"`
+	DataVolumeCap          ApplicationInsightsComponentDataVolumeCapResponsePtrOutput `pulumi:"dataVolumeCap"`
 }
 
 // NewComponentCurrentBillingFeature registers a new resource with the given unique name, arguments, and options.
@@ -77,26 +75,18 @@ func (ComponentCurrentBillingFeatureState) ElementType() reflect.Type {
 }
 
 type componentCurrentBillingFeatureArgs struct {
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
-	CurrentBillingFeatures []string `pulumi:"currentBillingFeatures"`
-	// An Application Insights component daily data volume cap
-	DataVolumeCap *ApplicationInsightsComponentDataVolumeCap `pulumi:"dataVolumeCap"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	CurrentBillingFeatures []string                                   `pulumi:"currentBillingFeatures"`
+	DataVolumeCap          *ApplicationInsightsComponentDataVolumeCap `pulumi:"dataVolumeCap"`
+	ResourceGroupName      string                                     `pulumi:"resourceGroupName"`
+	ResourceName           string                                     `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ComponentCurrentBillingFeature resource.
 type ComponentCurrentBillingFeatureArgs struct {
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
 	CurrentBillingFeatures pulumi.StringArrayInput
-	// An Application Insights component daily data volume cap
-	DataVolumeCap ApplicationInsightsComponentDataVolumeCapPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
+	DataVolumeCap          ApplicationInsightsComponentDataVolumeCapPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ResourceName           pulumi.StringInput
 }
 
 func (ComponentCurrentBillingFeatureArgs) ElementType() reflect.Type {

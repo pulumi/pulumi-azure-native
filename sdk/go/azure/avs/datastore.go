@@ -14,16 +14,11 @@ import (
 type Datastore struct {
 	pulumi.CustomResourceState
 
-	// An iSCSI volume
-	DiskPoolVolume DiskPoolVolumeResponsePtrOutput `pulumi:"diskPoolVolume"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An Azure NetApp Files volume
-	NetAppVolume NetAppVolumeResponsePtrOutput `pulumi:"netAppVolume"`
-	// The state of the datastore provisioning
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DiskPoolVolume    DiskPoolVolumeResponsePtrOutput `pulumi:"diskPoolVolume"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	NetAppVolume      NetAppVolumeResponsePtrOutput   `pulumi:"netAppVolume"`
+	ProvisioningState pulumi.StringOutput             `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -92,33 +87,21 @@ func (DatastoreState) ElementType() reflect.Type {
 }
 
 type datastoreArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName string `pulumi:"clusterName"`
-	// Name of the datastore in the private cloud cluster
-	DatastoreName *string `pulumi:"datastoreName"`
-	// An iSCSI volume
-	DiskPoolVolume *DiskPoolVolume `pulumi:"diskPoolVolume"`
-	// An Azure NetApp Files volume
-	NetAppVolume *NetAppVolume `pulumi:"netAppVolume"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName       string          `pulumi:"clusterName"`
+	DatastoreName     *string         `pulumi:"datastoreName"`
+	DiskPoolVolume    *DiskPoolVolume `pulumi:"diskPoolVolume"`
+	NetAppVolume      *NetAppVolume   `pulumi:"netAppVolume"`
+	PrivateCloudName  string          `pulumi:"privateCloudName"`
+	ResourceGroupName string          `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName pulumi.StringInput
-	// Name of the datastore in the private cloud cluster
-	DatastoreName pulumi.StringPtrInput
-	// An iSCSI volume
-	DiskPoolVolume DiskPoolVolumePtrInput
-	// An Azure NetApp Files volume
-	NetAppVolume NetAppVolumePtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       pulumi.StringInput
+	DatastoreName     pulumi.StringPtrInput
+	DiskPoolVolume    DiskPoolVolumePtrInput
+	NetAppVolume      NetAppVolumePtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 

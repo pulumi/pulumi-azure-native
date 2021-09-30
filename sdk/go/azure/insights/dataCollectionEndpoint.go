@@ -14,32 +14,19 @@ import (
 type DataCollectionEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The endpoint used by agents to access their configuration.
 	ConfigurationAccess DataCollectionEndpointResponseConfigurationAccessPtrOutput `pulumi:"configurationAccess"`
-	// Description of the data collection endpoint.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
-	ImmutableId pulumi.StringPtrOutput `pulumi:"immutableId"`
-	// The kind of the resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The endpoint used by clients to ingest logs.
-	LogsIngestion DataCollectionEndpointResponseLogsIngestionPtrOutput `pulumi:"logsIngestion"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network access control rules for the endpoints.
-	NetworkAcls DataCollectionEndpointResponseNetworkAclsPtrOutput `pulumi:"networkAcls"`
-	// The resource provisioning state. This property is READ-ONLY.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData DataCollectionEndpointResourceResponseSystemDataOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description         pulumi.StringPtrOutput                                     `pulumi:"description"`
+	Etag                pulumi.StringOutput                                        `pulumi:"etag"`
+	ImmutableId         pulumi.StringPtrOutput                                     `pulumi:"immutableId"`
+	Kind                pulumi.StringPtrOutput                                     `pulumi:"kind"`
+	Location            pulumi.StringOutput                                        `pulumi:"location"`
+	LogsIngestion       DataCollectionEndpointResponseLogsIngestionPtrOutput       `pulumi:"logsIngestion"`
+	Name                pulumi.StringOutput                                        `pulumi:"name"`
+	NetworkAcls         DataCollectionEndpointResponseNetworkAclsPtrOutput         `pulumi:"networkAcls"`
+	ProvisioningState   pulumi.StringOutput                                        `pulumi:"provisioningState"`
+	SystemData          DataCollectionEndpointResourceResponseSystemDataOutput     `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput                                     `pulumi:"tags"`
+	Type                pulumi.StringOutput                                        `pulumi:"type"`
 }
 
 // NewDataCollectionEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -96,42 +83,26 @@ func (DataCollectionEndpointState) ElementType() reflect.Type {
 }
 
 type dataCollectionEndpointArgs struct {
-	// The name of the data collection endpoint. The name is case insensitive.
-	DataCollectionEndpointName *string `pulumi:"dataCollectionEndpointName"`
-	// Description of the data collection endpoint.
-	Description *string `pulumi:"description"`
-	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
-	ImmutableId *string `pulumi:"immutableId"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
-	// Network access control rules for the endpoints.
-	NetworkAcls *DataCollectionEndpointNetworkAcls `pulumi:"networkAcls"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	DataCollectionEndpointName *string                            `pulumi:"dataCollectionEndpointName"`
+	Description                *string                            `pulumi:"description"`
+	ImmutableId                *string                            `pulumi:"immutableId"`
+	Kind                       *string                            `pulumi:"kind"`
+	Location                   *string                            `pulumi:"location"`
+	NetworkAcls                *DataCollectionEndpointNetworkAcls `pulumi:"networkAcls"`
+	ResourceGroupName          string                             `pulumi:"resourceGroupName"`
+	Tags                       map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataCollectionEndpoint resource.
 type DataCollectionEndpointArgs struct {
-	// The name of the data collection endpoint. The name is case insensitive.
 	DataCollectionEndpointName pulumi.StringPtrInput
-	// Description of the data collection endpoint.
-	Description pulumi.StringPtrInput
-	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
-	ImmutableId pulumi.StringPtrInput
-	// The kind of the resource.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
-	// Network access control rules for the endpoints.
-	NetworkAcls DataCollectionEndpointNetworkAclsPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Description                pulumi.StringPtrInput
+	ImmutableId                pulumi.StringPtrInput
+	Kind                       pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	NetworkAcls                DataCollectionEndpointNetworkAclsPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (DataCollectionEndpointArgs) ElementType() reflect.Type {

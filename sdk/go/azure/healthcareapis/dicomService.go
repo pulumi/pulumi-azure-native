@@ -14,24 +14,15 @@ import (
 type DicomService struct {
 	pulumi.CustomResourceState
 
-	// Dicom Service authentication configuration.
 	AuthenticationConfiguration DicomServiceAuthenticationConfigurationResponsePtrOutput `pulumi:"authenticationConfiguration"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The url of the Dicom Services.
-	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                        pulumi.StringPtrOutput                                   `pulumi:"etag"`
+	Location                    pulumi.StringPtrOutput                                   `pulumi:"location"`
+	Name                        pulumi.StringOutput                                      `pulumi:"name"`
+	ProvisioningState           pulumi.StringOutput                                      `pulumi:"provisioningState"`
+	ServiceUrl                  pulumi.StringOutput                                      `pulumi:"serviceUrl"`
+	SystemData                  SystemDataResponseOutput                                 `pulumi:"systemData"`
+	Tags                        pulumi.StringMapOutput                                   `pulumi:"tags"`
+	Type                        pulumi.StringOutput                                      `pulumi:"type"`
 }
 
 // NewDicomService registers a new resource with the given unique name, arguments, and options.
@@ -91,34 +82,22 @@ func (DicomServiceState) ElementType() reflect.Type {
 }
 
 type dicomServiceArgs struct {
-	// The name of DICOM Service resource.
-	DicomServiceName *string `pulumi:"dicomServiceName"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DicomServiceName  *string           `pulumi:"dicomServiceName"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a DicomService resource.
 type DicomServiceArgs struct {
-	// The name of DICOM Service resource.
-	DicomServiceName pulumi.StringPtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the service instance.
+	DicomServiceName  pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of workspace resource.
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DicomServiceArgs) ElementType() reflect.Type {

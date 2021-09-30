@@ -14,25 +14,16 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The time the namespace was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Identifier for Azure Insights metrics.
-	MetricId pulumi.StringOutput `pulumi:"metricId"`
-	// Resource name.
-	Name              pulumi.StringOutput `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// SKU of the namespace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	CreatedAt          pulumi.StringOutput    `pulumi:"createdAt"`
+	Location           pulumi.StringOutput    `pulumi:"location"`
+	MetricId           pulumi.StringOutput    `pulumi:"metricId"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput    `pulumi:"provisioningState"`
+	ServiceBusEndpoint pulumi.StringOutput    `pulumi:"serviceBusEndpoint"`
+	Sku                SkuResponsePtrOutput   `pulumi:"sku"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt          pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -101,30 +92,20 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The namespace name
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU of the namespace.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	NamespaceName     *string           `pulumi:"namespaceName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
+	Location          pulumi.StringPtrInput
+	NamespaceName     pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU of the namespace.
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {

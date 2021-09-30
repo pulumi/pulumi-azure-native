@@ -14,18 +14,12 @@ import (
 type IscsiTarget struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the operation on the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Operational status of the iSCSI target.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringOutput `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs TargetPortalGroupResponseArrayOutput `pulumi:"tpgs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput                  `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                  `pulumi:"provisioningState"`
+	Status            pulumi.StringOutput                  `pulumi:"status"`
+	TargetIqn         pulumi.StringOutput                  `pulumi:"targetIqn"`
+	Tpgs              TargetPortalGroupResponseArrayOutput `pulumi:"tpgs"`
+	Type              pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewIscsiTarget registers a new resource with the given unique name, arguments, and options.
@@ -100,30 +94,20 @@ func (IscsiTargetState) ElementType() reflect.Type {
 }
 
 type iscsiTargetArgs struct {
-	// The name of the Disk pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
-	// The name of the iSCSI target.
-	IscsiTargetName *string `pulumi:"iscsiTargetName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn *string `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs []TargetPortalGroupCreate `pulumi:"tpgs"`
+	DiskPoolName      string                    `pulumi:"diskPoolName"`
+	IscsiTargetName   *string                   `pulumi:"iscsiTargetName"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	TargetIqn         *string                   `pulumi:"targetIqn"`
+	Tpgs              []TargetPortalGroupCreate `pulumi:"tpgs"`
 }
 
 // The set of arguments for constructing a IscsiTarget resource.
 type IscsiTargetArgs struct {
-	// The name of the Disk pool.
-	DiskPoolName pulumi.StringInput
-	// The name of the iSCSI target.
-	IscsiTargetName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	DiskPoolName      pulumi.StringInput
+	IscsiTargetName   pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringPtrInput
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs TargetPortalGroupCreateArrayInput
+	TargetIqn         pulumi.StringPtrInput
+	Tpgs              TargetPortalGroupCreateArrayInput
 }
 
 func (IscsiTargetArgs) ElementType() reflect.Type {

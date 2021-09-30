@@ -15,16 +15,11 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
-	// Kind of the database
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput   `pulumi:"location"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -96,34 +91,22 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Kind of the database
-	Kind string `pulumi:"kind"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	Kind              string  `pulumi:"kind"`
+	KustoPoolName     string  `pulumi:"kustoPoolName"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName pulumi.StringPtrInput
-	// Kind of the database
-	Kind pulumi.StringInput
-	// The name of the Kusto pool.
-	KustoPoolName pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	DatabaseName      pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	KustoPoolName     pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

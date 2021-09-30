@@ -14,26 +14,16 @@ import (
 type ExpressRouteCircuitConnection struct {
 	pulumi.CustomResourceState
 
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringOutput `pulumi:"circuitConnectionStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering SubResourceResponsePtrOutput `pulumi:"expressRouteCircuitPeering"`
-	// IPv6 Address PrefixProperties of the express route circuit connection.
-	Ipv6CircuitConnectionConfig Ipv6CircuitConnectionConfigResponsePtrOutput `pulumi:"ipv6CircuitConnectionConfig"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering SubResourceResponsePtrOutput `pulumi:"peerExpressRouteCircuitPeering"`
-	// The provisioning state of the express route circuit connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AddressPrefix                  pulumi.StringPtrOutput                       `pulumi:"addressPrefix"`
+	AuthorizationKey               pulumi.StringPtrOutput                       `pulumi:"authorizationKey"`
+	CircuitConnectionStatus        pulumi.StringOutput                          `pulumi:"circuitConnectionStatus"`
+	Etag                           pulumi.StringOutput                          `pulumi:"etag"`
+	ExpressRouteCircuitPeering     SubResourceResponsePtrOutput                 `pulumi:"expressRouteCircuitPeering"`
+	Ipv6CircuitConnectionConfig    Ipv6CircuitConnectionConfigResponsePtrOutput `pulumi:"ipv6CircuitConnectionConfig"`
+	Name                           pulumi.StringPtrOutput                       `pulumi:"name"`
+	PeerExpressRouteCircuitPeering SubResourceResponsePtrOutput                 `pulumi:"peerExpressRouteCircuitPeering"`
+	ProvisioningState              pulumi.StringOutput                          `pulumi:"provisioningState"`
+	Type                           pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewExpressRouteCircuitConnection registers a new resource with the given unique name, arguments, and options.
@@ -240,54 +230,32 @@ func (ExpressRouteCircuitConnectionState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitConnectionArgs struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// The authorization key.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The name of the express route circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// The name of the express route circuit connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering *SubResource `pulumi:"expressRouteCircuitPeering"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IPv6 Address PrefixProperties of the express route circuit connection.
-	Ipv6CircuitConnectionConfig *Ipv6CircuitConnectionConfig `pulumi:"ipv6CircuitConnectionConfig"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering *SubResource `pulumi:"peerExpressRouteCircuitPeering"`
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AddressPrefix                  *string                      `pulumi:"addressPrefix"`
+	AuthorizationKey               *string                      `pulumi:"authorizationKey"`
+	CircuitName                    string                       `pulumi:"circuitName"`
+	ConnectionName                 *string                      `pulumi:"connectionName"`
+	ExpressRouteCircuitPeering     *SubResource                 `pulumi:"expressRouteCircuitPeering"`
+	Id                             *string                      `pulumi:"id"`
+	Ipv6CircuitConnectionConfig    *Ipv6CircuitConnectionConfig `pulumi:"ipv6CircuitConnectionConfig"`
+	Name                           *string                      `pulumi:"name"`
+	PeerExpressRouteCircuitPeering *SubResource                 `pulumi:"peerExpressRouteCircuitPeering"`
+	PeeringName                    string                       `pulumi:"peeringName"`
+	ResourceGroupName              string                       `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitConnection resource.
 type ExpressRouteCircuitConnectionArgs struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix pulumi.StringPtrInput
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrInput
-	// The name of the express route circuit.
-	CircuitName pulumi.StringInput
-	// The name of the express route circuit connection.
-	ConnectionName pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering SubResourcePtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// IPv6 Address PrefixProperties of the express route circuit connection.
-	Ipv6CircuitConnectionConfig Ipv6CircuitConnectionConfigPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+	AddressPrefix                  pulumi.StringPtrInput
+	AuthorizationKey               pulumi.StringPtrInput
+	CircuitName                    pulumi.StringInput
+	ConnectionName                 pulumi.StringPtrInput
+	ExpressRouteCircuitPeering     SubResourcePtrInput
+	Id                             pulumi.StringPtrInput
+	Ipv6CircuitConnectionConfig    Ipv6CircuitConnectionConfigPtrInput
+	Name                           pulumi.StringPtrInput
 	PeerExpressRouteCircuitPeering SubResourcePtrInput
-	// The name of the peering.
-	PeeringName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	PeeringName                    pulumi.StringInput
+	ResourceGroupName              pulumi.StringInput
 }
 
 func (ExpressRouteCircuitConnectionArgs) ElementType() reflect.Type {

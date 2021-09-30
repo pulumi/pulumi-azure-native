@@ -14,18 +14,12 @@ import (
 type ConfigurationAssignmentParent struct {
 	pulumi.CustomResourceState
 
-	// Location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique resourceId
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                   pulumi.StringPtrOutput   `pulumi:"location"`
+	MaintenanceConfigurationId pulumi.StringPtrOutput   `pulumi:"maintenanceConfigurationId"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	ResourceId                 pulumi.StringPtrOutput   `pulumi:"resourceId"`
+	SystemData                 SystemDataResponseOutput `pulumi:"systemData"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewConfigurationAssignmentParent registers a new resource with the given unique name, arguments, and options.
@@ -103,50 +97,30 @@ func (ConfigurationAssignmentParentState) ElementType() reflect.Type {
 }
 
 type configurationAssignmentParentArgs struct {
-	// Configuration assignment name
 	ConfigurationAssignmentName *string `pulumi:"configurationAssignmentName"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Resource provider name
-	ProviderName string `pulumi:"providerName"`
-	// Resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The unique resourceId
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource identifier
-	ResourceName string `pulumi:"resourceName"`
-	// Resource parent identifier
-	ResourceParentName string `pulumi:"resourceParentName"`
-	// Resource parent type
-	ResourceParentType string `pulumi:"resourceParentType"`
-	// Resource type
-	ResourceType string `pulumi:"resourceType"`
+	Location                    *string `pulumi:"location"`
+	MaintenanceConfigurationId  *string `pulumi:"maintenanceConfigurationId"`
+	ProviderName                string  `pulumi:"providerName"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	ResourceId                  *string `pulumi:"resourceId"`
+	ResourceName                string  `pulumi:"resourceName"`
+	ResourceParentName          string  `pulumi:"resourceParentName"`
+	ResourceParentType          string  `pulumi:"resourceParentType"`
+	ResourceType                string  `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ConfigurationAssignmentParent resource.
 type ConfigurationAssignmentParentArgs struct {
-	// Configuration assignment name
 	ConfigurationAssignmentName pulumi.StringPtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Resource provider name
-	ProviderName pulumi.StringInput
-	// Resource group name
-	ResourceGroupName pulumi.StringInput
-	// The unique resourceId
-	ResourceId pulumi.StringPtrInput
-	// Resource identifier
-	ResourceName pulumi.StringInput
-	// Resource parent identifier
-	ResourceParentName pulumi.StringInput
-	// Resource parent type
-	ResourceParentType pulumi.StringInput
-	// Resource type
-	ResourceType pulumi.StringInput
+	Location                    pulumi.StringPtrInput
+	MaintenanceConfigurationId  pulumi.StringPtrInput
+	ProviderName                pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	ResourceId                  pulumi.StringPtrInput
+	ResourceName                pulumi.StringInput
+	ResourceParentName          pulumi.StringInput
+	ResourceParentType          pulumi.StringInput
+	ResourceType                pulumi.StringInput
 }
 
 func (ConfigurationAssignmentParentArgs) ElementType() reflect.Type {

@@ -14,30 +14,18 @@ import (
 type Query struct {
 	pulumi.CustomResourceState
 
-	// Object Id of user creating the query.
-	Author pulumi.StringOutput `pulumi:"author"`
-	// Body of the query.
-	Body pulumi.StringOutput `pulumi:"body"`
-	// Description of the query.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Unique display name for your query within the Query Pack.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional properties that can be set for the query.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The related metadata items for the function.
-	Related LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput `pulumi:"related"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags associated with the query.
-	Tags pulumi.StringArrayMapOutput `pulumi:"tags"`
-	// Creation Date for the Log Analytics Query, in ISO 8601 format.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Last modified date of the Log Analytics Query, in ISO 8601 format.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Author       pulumi.StringOutput                                          `pulumi:"author"`
+	Body         pulumi.StringOutput                                          `pulumi:"body"`
+	Description  pulumi.StringPtrOutput                                       `pulumi:"description"`
+	DisplayName  pulumi.StringOutput                                          `pulumi:"displayName"`
+	Name         pulumi.StringOutput                                          `pulumi:"name"`
+	Properties   pulumi.AnyOutput                                             `pulumi:"properties"`
+	Related      LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput `pulumi:"related"`
+	SystemData   SystemDataResponseOutput                                     `pulumi:"systemData"`
+	Tags         pulumi.StringArrayMapOutput                                  `pulumi:"tags"`
+	TimeCreated  pulumi.StringOutput                                          `pulumi:"timeCreated"`
+	TimeModified pulumi.StringOutput                                          `pulumi:"timeModified"`
+	Type         pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewQuery registers a new resource with the given unique name, arguments, and options.
@@ -103,46 +91,28 @@ func (QueryState) ElementType() reflect.Type {
 }
 
 type queryArgs struct {
-	// Body of the query.
-	Body string `pulumi:"body"`
-	// Description of the query.
-	Description *string `pulumi:"description"`
-	// Unique display name for your query within the Query Pack.
-	DisplayName string `pulumi:"displayName"`
-	// The id of a specific query defined in the Log Analytics QueryPack
-	Id *string `pulumi:"id"`
-	// Additional properties that can be set for the query.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the Log Analytics QueryPack resource.
-	QueryPackName string `pulumi:"queryPackName"`
-	// The related metadata items for the function.
-	Related *LogAnalyticsQueryPackQueryPropertiesRelated `pulumi:"related"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags associated with the query.
-	Tags map[string][]string `pulumi:"tags"`
+	Body              string                                       `pulumi:"body"`
+	Description       *string                                      `pulumi:"description"`
+	DisplayName       string                                       `pulumi:"displayName"`
+	Id                *string                                      `pulumi:"id"`
+	Properties        interface{}                                  `pulumi:"properties"`
+	QueryPackName     string                                       `pulumi:"queryPackName"`
+	Related           *LogAnalyticsQueryPackQueryPropertiesRelated `pulumi:"related"`
+	ResourceGroupName string                                       `pulumi:"resourceGroupName"`
+	Tags              map[string][]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Query resource.
 type QueryArgs struct {
-	// Body of the query.
-	Body pulumi.StringInput
-	// Description of the query.
-	Description pulumi.StringPtrInput
-	// Unique display name for your query within the Query Pack.
-	DisplayName pulumi.StringInput
-	// The id of a specific query defined in the Log Analytics QueryPack
-	Id pulumi.StringPtrInput
-	// Additional properties that can be set for the query.
-	Properties pulumi.Input
-	// The name of the Log Analytics QueryPack resource.
-	QueryPackName pulumi.StringInput
-	// The related metadata items for the function.
-	Related LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Body              pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringInput
+	Id                pulumi.StringPtrInput
+	Properties        pulumi.Input
+	QueryPackName     pulumi.StringInput
+	Related           LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tags associated with the query.
-	Tags pulumi.StringArrayMapInput
+	Tags              pulumi.StringArrayMapInput
 }
 
 func (QueryArgs) ElementType() reflect.Type {

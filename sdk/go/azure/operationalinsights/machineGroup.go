@@ -14,23 +14,14 @@ import (
 type MachineGroup struct {
 	pulumi.CustomResourceState
 
-	// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
-	Count pulumi.IntPtrOutput `pulumi:"count"`
-	// User defined name for the group
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource ETAG.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Type of the machine group
-	GroupType pulumi.StringPtrOutput `pulumi:"groupType"`
-	// Additional resource type qualifier.
-	// Expected value is 'machineGroup'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
-	Machines MachineReferenceWithHintsResponseArrayOutput `pulumi:"machines"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Count       pulumi.IntPtrOutput                          `pulumi:"count"`
+	DisplayName pulumi.StringOutput                          `pulumi:"displayName"`
+	Etag        pulumi.StringPtrOutput                       `pulumi:"etag"`
+	GroupType   pulumi.StringPtrOutput                       `pulumi:"groupType"`
+	Kind        pulumi.StringOutput                          `pulumi:"kind"`
+	Machines    MachineReferenceWithHintsResponseArrayOutput `pulumi:"machines"`
+	Name        pulumi.StringOutput                          `pulumi:"name"`
+	Type        pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewMachineGroup registers a new resource with the given unique name, arguments, and options.
@@ -97,48 +88,28 @@ func (MachineGroupState) ElementType() reflect.Type {
 }
 
 type machineGroupArgs struct {
-	// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
-	Count *int `pulumi:"count"`
-	// User defined name for the group
-	DisplayName string `pulumi:"displayName"`
-	// Resource ETAG.
-	Etag *string `pulumi:"etag"`
-	// Type of the machine group
-	GroupType *string `pulumi:"groupType"`
-	// Additional resource type qualifier.
-	// Expected value is 'machineGroup'.
-	Kind string `pulumi:"kind"`
-	// Machine Group resource name.
-	MachineGroupName *string `pulumi:"machineGroupName"`
-	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
-	Machines []MachineReferenceWithHints `pulumi:"machines"`
-	// Resource group name within the specified subscriptionId.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// OMS workspace containing the resources of interest.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Count             *int                        `pulumi:"count"`
+	DisplayName       string                      `pulumi:"displayName"`
+	Etag              *string                     `pulumi:"etag"`
+	GroupType         *string                     `pulumi:"groupType"`
+	Kind              string                      `pulumi:"kind"`
+	MachineGroupName  *string                     `pulumi:"machineGroupName"`
+	Machines          []MachineReferenceWithHints `pulumi:"machines"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	WorkspaceName     string                      `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MachineGroup resource.
 type MachineGroupArgs struct {
-	// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
-	Count pulumi.IntPtrInput
-	// User defined name for the group
-	DisplayName pulumi.StringInput
-	// Resource ETAG.
-	Etag pulumi.StringPtrInput
-	// Type of the machine group
-	GroupType pulumi.StringPtrInput
-	// Additional resource type qualifier.
-	// Expected value is 'machineGroup'.
-	Kind pulumi.StringInput
-	// Machine Group resource name.
-	MachineGroupName pulumi.StringPtrInput
-	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
-	Machines MachineReferenceWithHintsArrayInput
-	// Resource group name within the specified subscriptionId.
+	Count             pulumi.IntPtrInput
+	DisplayName       pulumi.StringInput
+	Etag              pulumi.StringPtrInput
+	GroupType         pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	MachineGroupName  pulumi.StringPtrInput
+	Machines          MachineReferenceWithHintsArrayInput
 	ResourceGroupName pulumi.StringInput
-	// OMS workspace containing the resources of interest.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (MachineGroupArgs) ElementType() reflect.Type {

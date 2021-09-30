@@ -14,28 +14,17 @@ import (
 type VolumeContainer struct {
 	pulumi.CustomResourceState
 
-	// The bandwidth-rate set on the volume container.
-	BandWidthRateInMbps pulumi.IntPtrOutput `pulumi:"bandWidthRateInMbps"`
-	// The ID of the bandwidth setting associated with the volume container.
-	BandwidthSettingId pulumi.StringPtrOutput `pulumi:"bandwidthSettingId"`
-	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptionKey"`
-	// The flag to denote whether encryption is enabled or not.
-	EncryptionStatus pulumi.StringOutput `pulumi:"encryptionStatus"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
-	OwnerShipStatus pulumi.StringOutput `pulumi:"ownerShipStatus"`
-	// The path ID of storage account associated with the volume container.
-	StorageAccountCredentialId pulumi.StringOutput `pulumi:"storageAccountCredentialId"`
-	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes pulumi.Float64Output `pulumi:"totalCloudStorageUsageInBytes"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The number of volumes in the volume Container.
-	VolumeCount pulumi.IntOutput `pulumi:"volumeCount"`
+	BandWidthRateInMbps           pulumi.IntPtrOutput                        `pulumi:"bandWidthRateInMbps"`
+	BandwidthSettingId            pulumi.StringPtrOutput                     `pulumi:"bandwidthSettingId"`
+	EncryptionKey                 AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptionKey"`
+	EncryptionStatus              pulumi.StringOutput                        `pulumi:"encryptionStatus"`
+	Kind                          pulumi.StringPtrOutput                     `pulumi:"kind"`
+	Name                          pulumi.StringOutput                        `pulumi:"name"`
+	OwnerShipStatus               pulumi.StringOutput                        `pulumi:"ownerShipStatus"`
+	StorageAccountCredentialId    pulumi.StringOutput                        `pulumi:"storageAccountCredentialId"`
+	TotalCloudStorageUsageInBytes pulumi.Float64Output                       `pulumi:"totalCloudStorageUsageInBytes"`
+	Type                          pulumi.StringOutput                        `pulumi:"type"`
+	VolumeCount                   pulumi.IntOutput                           `pulumi:"volumeCount"`
 }
 
 // NewVolumeContainer registers a new resource with the given unique name, arguments, and options.
@@ -101,46 +90,28 @@ func (VolumeContainerState) ElementType() reflect.Type {
 }
 
 type volumeContainerArgs struct {
-	// The bandwidth-rate set on the volume container.
-	BandWidthRateInMbps *int `pulumi:"bandWidthRateInMbps"`
-	// The ID of the bandwidth setting associated with the volume container.
-	BandwidthSettingId *string `pulumi:"bandwidthSettingId"`
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The path ID of storage account associated with the volume container.
-	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
-	// The name of the volume container.
-	VolumeContainerName *string `pulumi:"volumeContainerName"`
+	BandWidthRateInMbps        *int                       `pulumi:"bandWidthRateInMbps"`
+	BandwidthSettingId         *string                    `pulumi:"bandwidthSettingId"`
+	DeviceName                 string                     `pulumi:"deviceName"`
+	EncryptionKey              *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
+	Kind                       *Kind                      `pulumi:"kind"`
+	ManagerName                string                     `pulumi:"managerName"`
+	ResourceGroupName          string                     `pulumi:"resourceGroupName"`
+	StorageAccountCredentialId string                     `pulumi:"storageAccountCredentialId"`
+	VolumeContainerName        *string                    `pulumi:"volumeContainerName"`
 }
 
 // The set of arguments for constructing a VolumeContainer resource.
 type VolumeContainerArgs struct {
-	// The bandwidth-rate set on the volume container.
-	BandWidthRateInMbps pulumi.IntPtrInput
-	// The ID of the bandwidth setting associated with the volume container.
-	BandwidthSettingId pulumi.StringPtrInput
-	// The device name
-	DeviceName pulumi.StringInput
-	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey AsymmetricEncryptedSecretPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The path ID of storage account associated with the volume container.
+	BandWidthRateInMbps        pulumi.IntPtrInput
+	BandwidthSettingId         pulumi.StringPtrInput
+	DeviceName                 pulumi.StringInput
+	EncryptionKey              AsymmetricEncryptedSecretPtrInput
+	Kind                       KindPtrInput
+	ManagerName                pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
 	StorageAccountCredentialId pulumi.StringInput
-	// The name of the volume container.
-	VolumeContainerName pulumi.StringPtrInput
+	VolumeContainerName        pulumi.StringPtrInput
 }
 
 func (VolumeContainerArgs) ElementType() reflect.Type {

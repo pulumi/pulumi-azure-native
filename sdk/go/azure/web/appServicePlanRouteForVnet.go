@@ -14,23 +14,12 @@ import (
 type AppServicePlanRouteForVnet struct {
 	pulumi.CustomResourceState
 
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrOutput `pulumi:"endAddress"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType pulumi.StringPtrOutput `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	EndAddress   pulumi.StringPtrOutput `pulumi:"endAddress"`
+	Kind         pulumi.StringPtrOutput `pulumi:"kind"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	RouteType    pulumi.StringPtrOutput `pulumi:"routeType"`
 	StartAddress pulumi.StringPtrOutput `pulumi:"startAddress"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAppServicePlanRouteForVnet registers a new resource with the given unique name, arguments, and options.
@@ -153,52 +142,26 @@ func (AppServicePlanRouteForVnetState) ElementType() reflect.Type {
 }
 
 type appServicePlanRouteForVnetArgs struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress *string `pulumi:"endAddress"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the App Service plan.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Virtual Network route.
-	RouteName *string `pulumi:"routeName"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType *string `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress *string `pulumi:"startAddress"`
-	// Name of the Virtual Network.
-	VnetName string `pulumi:"vnetName"`
+	EndAddress        *string `pulumi:"endAddress"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RouteName         *string `pulumi:"routeName"`
+	RouteType         *string `pulumi:"routeType"`
+	StartAddress      *string `pulumi:"startAddress"`
+	VnetName          string  `pulumi:"vnetName"`
 }
 
 // The set of arguments for constructing a AppServicePlanRouteForVnet resource.
 type AppServicePlanRouteForVnetArgs struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the App Service plan.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	EndAddress        pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the Virtual Network route.
-	RouteName pulumi.StringPtrInput
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType pulumi.StringPtrInput
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress pulumi.StringPtrInput
-	// Name of the Virtual Network.
-	VnetName pulumi.StringInput
+	RouteName         pulumi.StringPtrInput
+	RouteType         pulumi.StringPtrInput
+	StartAddress      pulumi.StringPtrInput
+	VnetName          pulumi.StringInput
 }
 
 func (AppServicePlanRouteForVnetArgs) ElementType() reflect.Type {

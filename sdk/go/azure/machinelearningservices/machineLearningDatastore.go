@@ -14,20 +14,13 @@ import (
 type MachineLearningDatastore struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Datastore properties
-	Properties DatastoreResponseOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties DatastoreResponseOutput   `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewMachineLearningDatastore registers a new resource with the given unique name, arguments, and options.
@@ -102,145 +95,77 @@ func (MachineLearningDatastoreState) ElementType() reflect.Type {
 }
 
 type machineLearningDatastoreArgs struct {
-	// Account Key of storage account.
-	AccountKey *string `pulumi:"accountKey"`
-	// The name of the storage account.
-	AccountName *string `pulumi:"accountName"`
-	// The resource group the ADLS store belongs to. Defaults to selected resource group.
-	AdlsResourceGroup *string `pulumi:"adlsResourceGroup"`
-	// The ID of the subscription the ADLS store belongs to. Defaults to selected subscription.
-	AdlsSubscriptionId *string `pulumi:"adlsSubscriptionId"`
-	// Authority url used to authenticate the user.
-	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// The service principal's client/application ID.
-	ClientId *string `pulumi:"clientId"`
-	// The service principal's secret.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// The name of the azure blob container.
-	ContainerName *string `pulumi:"containerName"`
-	// Specifies datastore type.
-	DataStoreType string `pulumi:"dataStoreType"`
-	// The database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The Datastore name.
-	DatastoreName *string `pulumi:"datastoreName"`
-	// The description of the datastore.
-	Description *string `pulumi:"description"`
-	// The endpoint of the server.
-	Endpoint *string `pulumi:"endpoint"`
-	// This sets the ssl value of the server. Defaults to true if not set.
-	EnforceSSL *bool `pulumi:"enforceSSL"`
-	// The file system name of the ADLS Gen2.
-	FileSystem *string `pulumi:"fileSystem"`
-	// Include datastore secret in response.
-	IncludeSecret *bool `pulumi:"includeSecret"`
-	// The name of the datastore.
-	Name *string `pulumi:"name"`
-	// The password.
-	Password *string `pulumi:"password"`
-	// The port number.
-	Port *string `pulumi:"port"`
-	// The protocol to be used
-	Protocol *string `pulumi:"protocol"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Determines what operations will be performed.
-	ResourceUrl *string `pulumi:"resourceUrl"`
-	// Sas Token of storage account.
-	SasToken *string `pulumi:"sasToken"`
-	// The SQL/MySQL/PostgreSQL server name
-	ServerName *string `pulumi:"serverName"`
-	// The name of the file share.
-	ShareName *string `pulumi:"shareName"`
-	// Skip validation that ensures data can be loaded from the dataset before registration.
-	SkipValidation *bool `pulumi:"skipValidation"`
-	// The resource group of the storage account. Defaults to selected resource group
-	StorageAccountResourceGroup *string `pulumi:"storageAccountResourceGroup"`
-	// The subscription ID of the storage account. Defaults to selected subscription
-	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
-	// The ADLS store name.
-	StoreName *string `pulumi:"storeName"`
-	// The service principal Tenant ID.
-	TenantId *string `pulumi:"tenantId"`
-	// The user ID.
-	UserId *string `pulumi:"userId"`
-	// The username of the database user.
-	UserName *string `pulumi:"userName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
-	// If set to true, datastore support data access authenticated with Workspace MSI.
-	WorkspaceSystemAssignedIdentity *bool `pulumi:"workspaceSystemAssignedIdentity"`
+	AccountKey                      *string `pulumi:"accountKey"`
+	AccountName                     *string `pulumi:"accountName"`
+	AdlsResourceGroup               *string `pulumi:"adlsResourceGroup"`
+	AdlsSubscriptionId              *string `pulumi:"adlsSubscriptionId"`
+	AuthorityUrl                    *string `pulumi:"authorityUrl"`
+	ClientId                        *string `pulumi:"clientId"`
+	ClientSecret                    *string `pulumi:"clientSecret"`
+	ContainerName                   *string `pulumi:"containerName"`
+	DataStoreType                   string  `pulumi:"dataStoreType"`
+	DatabaseName                    *string `pulumi:"databaseName"`
+	DatastoreName                   *string `pulumi:"datastoreName"`
+	Description                     *string `pulumi:"description"`
+	Endpoint                        *string `pulumi:"endpoint"`
+	EnforceSSL                      *bool   `pulumi:"enforceSSL"`
+	FileSystem                      *string `pulumi:"fileSystem"`
+	IncludeSecret                   *bool   `pulumi:"includeSecret"`
+	Name                            *string `pulumi:"name"`
+	Password                        *string `pulumi:"password"`
+	Port                            *string `pulumi:"port"`
+	Protocol                        *string `pulumi:"protocol"`
+	ResourceGroupName               string  `pulumi:"resourceGroupName"`
+	ResourceUrl                     *string `pulumi:"resourceUrl"`
+	SasToken                        *string `pulumi:"sasToken"`
+	ServerName                      *string `pulumi:"serverName"`
+	ShareName                       *string `pulumi:"shareName"`
+	SkipValidation                  *bool   `pulumi:"skipValidation"`
+	StorageAccountResourceGroup     *string `pulumi:"storageAccountResourceGroup"`
+	StorageAccountSubscriptionId    *string `pulumi:"storageAccountSubscriptionId"`
+	StoreName                       *string `pulumi:"storeName"`
+	TenantId                        *string `pulumi:"tenantId"`
+	UserId                          *string `pulumi:"userId"`
+	UserName                        *string `pulumi:"userName"`
+	WorkspaceName                   string  `pulumi:"workspaceName"`
+	WorkspaceSystemAssignedIdentity *bool   `pulumi:"workspaceSystemAssignedIdentity"`
 }
 
 // The set of arguments for constructing a MachineLearningDatastore resource.
 type MachineLearningDatastoreArgs struct {
-	// Account Key of storage account.
-	AccountKey pulumi.StringPtrInput
-	// The name of the storage account.
-	AccountName pulumi.StringPtrInput
-	// The resource group the ADLS store belongs to. Defaults to selected resource group.
-	AdlsResourceGroup pulumi.StringPtrInput
-	// The ID of the subscription the ADLS store belongs to. Defaults to selected subscription.
-	AdlsSubscriptionId pulumi.StringPtrInput
-	// Authority url used to authenticate the user.
-	AuthorityUrl pulumi.StringPtrInput
-	// The service principal's client/application ID.
-	ClientId pulumi.StringPtrInput
-	// The service principal's secret.
-	ClientSecret pulumi.StringPtrInput
-	// The name of the azure blob container.
-	ContainerName pulumi.StringPtrInput
-	// Specifies datastore type.
-	DataStoreType pulumi.StringInput
-	// The database name.
-	DatabaseName pulumi.StringPtrInput
-	// The Datastore name.
-	DatastoreName pulumi.StringPtrInput
-	// The description of the datastore.
-	Description pulumi.StringPtrInput
-	// The endpoint of the server.
-	Endpoint pulumi.StringPtrInput
-	// This sets the ssl value of the server. Defaults to true if not set.
-	EnforceSSL pulumi.BoolPtrInput
-	// The file system name of the ADLS Gen2.
-	FileSystem pulumi.StringPtrInput
-	// Include datastore secret in response.
-	IncludeSecret pulumi.BoolPtrInput
-	// The name of the datastore.
-	Name pulumi.StringPtrInput
-	// The password.
-	Password pulumi.StringPtrInput
-	// The port number.
-	Port pulumi.StringPtrInput
-	// The protocol to be used
-	Protocol pulumi.StringPtrInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// Determines what operations will be performed.
-	ResourceUrl pulumi.StringPtrInput
-	// Sas Token of storage account.
-	SasToken pulumi.StringPtrInput
-	// The SQL/MySQL/PostgreSQL server name
-	ServerName pulumi.StringPtrInput
-	// The name of the file share.
-	ShareName pulumi.StringPtrInput
-	// Skip validation that ensures data can be loaded from the dataset before registration.
-	SkipValidation pulumi.BoolPtrInput
-	// The resource group of the storage account. Defaults to selected resource group
-	StorageAccountResourceGroup pulumi.StringPtrInput
-	// The subscription ID of the storage account. Defaults to selected subscription
-	StorageAccountSubscriptionId pulumi.StringPtrInput
-	// The ADLS store name.
-	StoreName pulumi.StringPtrInput
-	// The service principal Tenant ID.
-	TenantId pulumi.StringPtrInput
-	// The user ID.
-	UserId pulumi.StringPtrInput
-	// The username of the database user.
-	UserName pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
-	// If set to true, datastore support data access authenticated with Workspace MSI.
+	AccountKey                      pulumi.StringPtrInput
+	AccountName                     pulumi.StringPtrInput
+	AdlsResourceGroup               pulumi.StringPtrInput
+	AdlsSubscriptionId              pulumi.StringPtrInput
+	AuthorityUrl                    pulumi.StringPtrInput
+	ClientId                        pulumi.StringPtrInput
+	ClientSecret                    pulumi.StringPtrInput
+	ContainerName                   pulumi.StringPtrInput
+	DataStoreType                   pulumi.StringInput
+	DatabaseName                    pulumi.StringPtrInput
+	DatastoreName                   pulumi.StringPtrInput
+	Description                     pulumi.StringPtrInput
+	Endpoint                        pulumi.StringPtrInput
+	EnforceSSL                      pulumi.BoolPtrInput
+	FileSystem                      pulumi.StringPtrInput
+	IncludeSecret                   pulumi.BoolPtrInput
+	Name                            pulumi.StringPtrInput
+	Password                        pulumi.StringPtrInput
+	Port                            pulumi.StringPtrInput
+	Protocol                        pulumi.StringPtrInput
+	ResourceGroupName               pulumi.StringInput
+	ResourceUrl                     pulumi.StringPtrInput
+	SasToken                        pulumi.StringPtrInput
+	ServerName                      pulumi.StringPtrInput
+	ShareName                       pulumi.StringPtrInput
+	SkipValidation                  pulumi.BoolPtrInput
+	StorageAccountResourceGroup     pulumi.StringPtrInput
+	StorageAccountSubscriptionId    pulumi.StringPtrInput
+	StoreName                       pulumi.StringPtrInput
+	TenantId                        pulumi.StringPtrInput
+	UserId                          pulumi.StringPtrInput
+	UserName                        pulumi.StringPtrInput
+	WorkspaceName                   pulumi.StringInput
 	WorkspaceSystemAssignedIdentity pulumi.BoolPtrInput
 }
 

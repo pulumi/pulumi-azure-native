@@ -14,16 +14,11 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Entity Tag
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The location of the private endpoint connection
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
+	Etag       pulumi.StringOutput                               `pulumi:"etag"`
+	Location   pulumi.StringPtrOutput                            `pulumi:"location"`
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +84,20 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of Cognitive Services account.
-	AccountName string `pulumi:"accountName"`
-	// The location of the private endpoint connection
-	Location *string `pulumi:"location"`
-	// The name of the private endpoint connection associated with the Cognitive Services Account
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName                   string                               `pulumi:"accountName"`
+	Location                      *string                              `pulumi:"location"`
+	PrivateEndpointConnectionName *string                              `pulumi:"privateEndpointConnectionName"`
+	Properties                    *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	ResourceGroupName             string                               `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of Cognitive Services account.
-	AccountName pulumi.StringInput
-	// The location of the private endpoint connection
-	Location pulumi.StringPtrInput
-	// The name of the private endpoint connection associated with the Cognitive Services Account
+	AccountName                   pulumi.StringInput
+	Location                      pulumi.StringPtrInput
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionPropertiesPtrInput
+	ResourceGroupName             pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

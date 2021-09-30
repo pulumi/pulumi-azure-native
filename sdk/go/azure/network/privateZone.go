@@ -14,32 +14,19 @@ import (
 type PrivateZone struct {
 	pulumi.CustomResourceState
 
-	// The ETag of the zone.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Private zone internal Id
-	InternalId pulumi.StringOutput `pulumi:"internalId"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.Float64Output `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks pulumi.Float64Output `pulumi:"maxNumberOfVirtualNetworkLinks"`
-	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.Float64Output `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.Float64Output `pulumi:"numberOfRecordSets"`
-	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks pulumi.Float64Output `pulumi:"numberOfVirtualNetworkLinks"`
-	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration pulumi.Float64Output `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
-	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                                           pulumi.StringPtrOutput `pulumi:"etag"`
+	InternalId                                     pulumi.StringOutput    `pulumi:"internalId"`
+	Location                                       pulumi.StringPtrOutput `pulumi:"location"`
+	MaxNumberOfRecordSets                          pulumi.Float64Output   `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfVirtualNetworkLinks                 pulumi.Float64Output   `pulumi:"maxNumberOfVirtualNetworkLinks"`
+	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.Float64Output   `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
+	Name                                           pulumi.StringOutput    `pulumi:"name"`
+	NumberOfRecordSets                             pulumi.Float64Output   `pulumi:"numberOfRecordSets"`
+	NumberOfVirtualNetworkLinks                    pulumi.Float64Output   `pulumi:"numberOfVirtualNetworkLinks"`
+	NumberOfVirtualNetworkLinksWithRegistration    pulumi.Float64Output   `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
+	ProvisioningState                              pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags                                           pulumi.StringMapOutput `pulumi:"tags"`
+	Type                                           pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPrivateZone registers a new resource with the given unique name, arguments, and options.
@@ -108,30 +95,20 @@ func (PrivateZoneState) ElementType() reflect.Type {
 }
 
 type privateZoneArgs struct {
-	// The ETag of the zone.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Private DNS zone (without a terminating dot).
-	PrivateZoneName *string `pulumi:"privateZoneName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	PrivateZoneName   *string           `pulumi:"privateZoneName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateZone resource.
 type PrivateZoneArgs struct {
-	// The ETag of the zone.
-	Etag pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Private DNS zone (without a terminating dot).
-	PrivateZoneName pulumi.StringPtrInput
-	// The name of the resource group.
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	PrivateZoneName   pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PrivateZoneArgs) ElementType() reflect.Type {

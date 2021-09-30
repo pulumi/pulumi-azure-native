@@ -14,26 +14,16 @@ import (
 type SourceControl struct {
 	pulumi.CustomResourceState
 
-	// Array of source control content types.
-	ContentTypes pulumi.StringArrayOutput `pulumi:"contentTypes"`
-	// A description of the source control
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the source control
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The repository type of the source control
-	RepoType pulumi.StringOutput `pulumi:"repoType"`
-	// Repository metadata.
-	Repository RepositoryResponseOutput `pulumi:"repository"`
-	// The id (a Guid) of the source control
-	SourceControlId pulumi.StringPtrOutput `pulumi:"sourceControlId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContentTypes    pulumi.StringArrayOutput `pulumi:"contentTypes"`
+	Description     pulumi.StringPtrOutput   `pulumi:"description"`
+	DisplayName     pulumi.StringOutput      `pulumi:"displayName"`
+	Etag            pulumi.StringPtrOutput   `pulumi:"etag"`
+	Name            pulumi.StringOutput      `pulumi:"name"`
+	RepoType        pulumi.StringOutput      `pulumi:"repoType"`
+	Repository      RepositoryResponseOutput `pulumi:"repository"`
+	SourceControlId pulumi.StringPtrOutput   `pulumi:"sourceControlId"`
+	SystemData      SystemDataResponseOutput `pulumi:"systemData"`
+	Type            pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSourceControl registers a new resource with the given unique name, arguments, and options.
@@ -108,50 +98,30 @@ func (SourceControlState) ElementType() reflect.Type {
 }
 
 type sourceControlArgs struct {
-	// Array of source control content types.
-	ContentTypes []string `pulumi:"contentTypes"`
-	// A description of the source control
-	Description *string `pulumi:"description"`
-	// The display name of the source control
-	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The repository type of the source control
-	RepoType string `pulumi:"repoType"`
-	// Repository metadata.
-	Repository Repository `pulumi:"repository"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The id (a Guid) of the source control
-	SourceControlId *string `pulumi:"sourceControlId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ContentTypes                        []string   `pulumi:"contentTypes"`
+	Description                         *string    `pulumi:"description"`
+	DisplayName                         string     `pulumi:"displayName"`
+	Etag                                *string    `pulumi:"etag"`
+	OperationalInsightsResourceProvider string     `pulumi:"operationalInsightsResourceProvider"`
+	RepoType                            string     `pulumi:"repoType"`
+	Repository                          Repository `pulumi:"repository"`
+	ResourceGroupName                   string     `pulumi:"resourceGroupName"`
+	SourceControlId                     *string    `pulumi:"sourceControlId"`
+	WorkspaceName                       string     `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SourceControl resource.
 type SourceControlArgs struct {
-	// Array of source control content types.
-	ContentTypes pulumi.StringArrayInput
-	// A description of the source control
-	Description pulumi.StringPtrInput
-	// The display name of the source control
-	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	ContentTypes                        pulumi.StringArrayInput
+	Description                         pulumi.StringPtrInput
+	DisplayName                         pulumi.StringInput
+	Etag                                pulumi.StringPtrInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The repository type of the source control
-	RepoType pulumi.StringInput
-	// Repository metadata.
-	Repository RepositoryInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The id (a Guid) of the source control
-	SourceControlId pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	RepoType                            pulumi.StringInput
+	Repository                          RepositoryInput
+	ResourceGroupName                   pulumi.StringInput
+	SourceControlId                     pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (SourceControlArgs) ElementType() reflect.Type {

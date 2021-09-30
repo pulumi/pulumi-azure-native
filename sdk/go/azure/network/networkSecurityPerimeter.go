@@ -14,22 +14,14 @@ import (
 type NetworkSecurityPerimeter struct {
 	pulumi.CustomResourceState
 
-	// A description of the network security perimeter.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A friendly name for the network security perimeter.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	DisplayName       pulumi.StringPtrOutput `pulumi:"displayName"`
+	Etag              pulumi.StringOutput    `pulumi:"etag"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewNetworkSecurityPerimeter registers a new resource with the given unique name, arguments, and options.
@@ -92,42 +84,26 @@ func (NetworkSecurityPerimeterState) ElementType() reflect.Type {
 }
 
 type networkSecurityPerimeterArgs struct {
-	// A description of the network security perimeter.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network security perimeter.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the network security perimeter.
-	NetworkSecurityPerimeterName *string `pulumi:"networkSecurityPerimeterName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Description                  *string           `pulumi:"description"`
+	DisplayName                  *string           `pulumi:"displayName"`
+	Id                           *string           `pulumi:"id"`
+	Location                     *string           `pulumi:"location"`
+	Name                         *string           `pulumi:"name"`
+	NetworkSecurityPerimeterName *string           `pulumi:"networkSecurityPerimeterName"`
+	ResourceGroupName            string            `pulumi:"resourceGroupName"`
+	Tags                         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkSecurityPerimeter resource.
 type NetworkSecurityPerimeterArgs struct {
-	// A description of the network security perimeter.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network security perimeter.
-	DisplayName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the network security perimeter.
+	Description                  pulumi.StringPtrInput
+	DisplayName                  pulumi.StringPtrInput
+	Id                           pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
 	NetworkSecurityPerimeterName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName            pulumi.StringInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (NetworkSecurityPerimeterArgs) ElementType() reflect.Type {

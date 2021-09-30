@@ -14,20 +14,13 @@ import (
 type FarmBeatsModel struct {
 	pulumi.CustomResourceState
 
-	// Uri of the FarmBeats instance.
-	InstanceUri pulumi.StringOutput `pulumi:"instanceUri"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// FarmBeats instance provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	InstanceUri       pulumi.StringOutput      `pulumi:"instanceUri"`
+	Location          pulumi.StringOutput      `pulumi:"location"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewFarmBeatsModel registers a new resource with the given unique name, arguments, and options.
@@ -84,26 +77,18 @@ func (FarmBeatsModelState) ElementType() reflect.Type {
 }
 
 type farmBeatsModelArgs struct {
-	// FarmBeats resource name.
-	FarmBeatsResourceName *string `pulumi:"farmBeatsResourceName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	FarmBeatsResourceName *string           `pulumi:"farmBeatsResourceName"`
+	Location              *string           `pulumi:"location"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FarmBeatsModel resource.
 type FarmBeatsModelArgs struct {
-	// FarmBeats resource name.
 	FarmBeatsResourceName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (FarmBeatsModelArgs) ElementType() reflect.Type {

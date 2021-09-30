@@ -14,21 +14,13 @@ import (
 type CloudEdgeManagementRole struct {
 	pulumi.CustomResourceState
 
-	// Edge Profile of the resource
-	EdgeProfile EdgeProfileResponseOutput `pulumi:"edgeProfile"`
-	// Role type.
-	// Expected value is 'CloudEdgeManagement'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Local Edge Management Status
-	LocalManagementStatus pulumi.StringOutput `pulumi:"localManagementStatus"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role status.
-	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	EdgeProfile           EdgeProfileResponseOutput `pulumi:"edgeProfile"`
+	Kind                  pulumi.StringOutput       `pulumi:"kind"`
+	LocalManagementStatus pulumi.StringOutput       `pulumi:"localManagementStatus"`
+	Name                  pulumi.StringOutput       `pulumi:"name"`
+	RoleStatus            pulumi.StringOutput       `pulumi:"roleStatus"`
+	SystemData            SystemDataResponseOutput  `pulumi:"systemData"`
+	Type                  pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewCloudEdgeManagementRole registers a new resource with the given unique name, arguments, and options.
@@ -143,32 +135,20 @@ func (CloudEdgeManagementRoleState) ElementType() reflect.Type {
 }
 
 type cloudEdgeManagementRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Role type.
-	// Expected value is 'CloudEdgeManagement'.
-	Kind string `pulumi:"kind"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
+	DeviceName        string  `pulumi:"deviceName"`
+	Kind              string  `pulumi:"kind"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RoleStatus        string  `pulumi:"roleStatus"`
 }
 
 // The set of arguments for constructing a CloudEdgeManagementRole resource.
 type CloudEdgeManagementRoleArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Role type.
-	// Expected value is 'CloudEdgeManagement'.
-	Kind pulumi.StringInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Role status.
-	RoleStatus pulumi.StringInput
+	RoleStatus        pulumi.StringInput
 }
 
 func (CloudEdgeManagementRoleArgs) ElementType() reflect.Type {

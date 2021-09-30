@@ -14,12 +14,9 @@ import (
 type GatewayCertificateAuthority struct {
 	pulumi.CustomResourceState
 
-	// Determines whether certificate authority is trusted.
 	IsTrusted pulumi.BoolPtrOutput `pulumi:"isTrusted"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name      pulumi.StringOutput  `pulumi:"name"`
+	Type      pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewGatewayCertificateAuthority registers a new resource with the given unique name, arguments, and options.
@@ -100,30 +97,20 @@ func (GatewayCertificateAuthorityState) ElementType() reflect.Type {
 }
 
 type gatewayCertificateAuthorityArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId *string `pulumi:"certificateId"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// Determines whether certificate authority is trusted.
-	IsTrusted *bool `pulumi:"isTrusted"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	CertificateId     *string `pulumi:"certificateId"`
+	GatewayId         string  `pulumi:"gatewayId"`
+	IsTrusted         *bool   `pulumi:"isTrusted"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a GatewayCertificateAuthority resource.
 type GatewayCertificateAuthorityArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId pulumi.StringPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringInput
-	// Determines whether certificate authority is trusted.
-	IsTrusted pulumi.BoolPtrInput
-	// The name of the resource group.
+	CertificateId     pulumi.StringPtrInput
+	GatewayId         pulumi.StringInput
+	IsTrusted         pulumi.BoolPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (GatewayCertificateAuthorityArgs) ElementType() reflect.Type {

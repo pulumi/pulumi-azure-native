@@ -14,32 +14,19 @@ import (
 type LabPlan struct {
 	pulumi.CustomResourceState
 
-	// The allowed regions for the lab creator to use when creating labs using this lab plan.
-	AllowedRegions pulumi.StringArrayOutput `pulumi:"allowedRegions"`
-	// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-	DefaultAutoShutdownProfile AutoShutdownProfileResponsePtrOutput `pulumi:"defaultAutoShutdownProfile"`
-	// The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-	DefaultConnectionProfile ConnectionProfileResponsePtrOutput `pulumi:"defaultConnectionProfile"`
-	// The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-	DefaultNetworkProfile LabPlanNetworkProfileResponsePtrOutput `pulumi:"defaultNetworkProfile"`
-	// Base Url of the lms instance this lab plan can link lab rosters against.
-	LinkedLmsInstance pulumi.StringPtrOutput `pulumi:"linkedLmsInstance"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Current provisioning state of the lab plan.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-	SharedGalleryId pulumi.StringPtrOutput `pulumi:"sharedGalleryId"`
-	// Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-	SupportInfo SupportInfoResponsePtrOutput `pulumi:"supportInfo"`
-	// Metadata pertaining to creation and last modification of the lab plan.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllowedRegions             pulumi.StringArrayOutput               `pulumi:"allowedRegions"`
+	DefaultAutoShutdownProfile AutoShutdownProfileResponsePtrOutput   `pulumi:"defaultAutoShutdownProfile"`
+	DefaultConnectionProfile   ConnectionProfileResponsePtrOutput     `pulumi:"defaultConnectionProfile"`
+	DefaultNetworkProfile      LabPlanNetworkProfileResponsePtrOutput `pulumi:"defaultNetworkProfile"`
+	LinkedLmsInstance          pulumi.StringPtrOutput                 `pulumi:"linkedLmsInstance"`
+	Location                   pulumi.StringOutput                    `pulumi:"location"`
+	Name                       pulumi.StringOutput                    `pulumi:"name"`
+	ProvisioningState          pulumi.StringOutput                    `pulumi:"provisioningState"`
+	SharedGalleryId            pulumi.StringPtrOutput                 `pulumi:"sharedGalleryId"`
+	SupportInfo                SupportInfoResponsePtrOutput           `pulumi:"supportInfo"`
+	SystemData                 SystemDataResponseOutput               `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type                       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewLabPlan registers a new resource with the given unique name, arguments, and options.
@@ -96,54 +83,32 @@ func (LabPlanState) ElementType() reflect.Type {
 }
 
 type labPlanArgs struct {
-	// The allowed regions for the lab creator to use when creating labs using this lab plan.
-	AllowedRegions []string `pulumi:"allowedRegions"`
-	// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-	DefaultAutoShutdownProfile *AutoShutdownProfile `pulumi:"defaultAutoShutdownProfile"`
-	// The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-	DefaultConnectionProfile *ConnectionProfile `pulumi:"defaultConnectionProfile"`
-	// The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-	DefaultNetworkProfile *LabPlanNetworkProfile `pulumi:"defaultNetworkProfile"`
-	// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
-	LabPlanName *string `pulumi:"labPlanName"`
-	// Base Url of the lms instance this lab plan can link lab rosters against.
-	LinkedLmsInstance *string `pulumi:"linkedLmsInstance"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-	SharedGalleryId *string `pulumi:"sharedGalleryId"`
-	// Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-	SupportInfo *SupportInfo `pulumi:"supportInfo"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AllowedRegions             []string               `pulumi:"allowedRegions"`
+	DefaultAutoShutdownProfile *AutoShutdownProfile   `pulumi:"defaultAutoShutdownProfile"`
+	DefaultConnectionProfile   *ConnectionProfile     `pulumi:"defaultConnectionProfile"`
+	DefaultNetworkProfile      *LabPlanNetworkProfile `pulumi:"defaultNetworkProfile"`
+	LabPlanName                *string                `pulumi:"labPlanName"`
+	LinkedLmsInstance          *string                `pulumi:"linkedLmsInstance"`
+	Location                   *string                `pulumi:"location"`
+	ResourceGroupName          string                 `pulumi:"resourceGroupName"`
+	SharedGalleryId            *string                `pulumi:"sharedGalleryId"`
+	SupportInfo                *SupportInfo           `pulumi:"supportInfo"`
+	Tags                       map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LabPlan resource.
 type LabPlanArgs struct {
-	// The allowed regions for the lab creator to use when creating labs using this lab plan.
-	AllowedRegions pulumi.StringArrayInput
-	// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+	AllowedRegions             pulumi.StringArrayInput
 	DefaultAutoShutdownProfile AutoShutdownProfilePtrInput
-	// The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-	DefaultConnectionProfile ConnectionProfilePtrInput
-	// The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-	DefaultNetworkProfile LabPlanNetworkProfilePtrInput
-	// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
-	LabPlanName pulumi.StringPtrInput
-	// Base Url of the lms instance this lab plan can link lab rosters against.
-	LinkedLmsInstance pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-	SharedGalleryId pulumi.StringPtrInput
-	// Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
-	SupportInfo SupportInfoPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	DefaultConnectionProfile   ConnectionProfilePtrInput
+	DefaultNetworkProfile      LabPlanNetworkProfilePtrInput
+	LabPlanName                pulumi.StringPtrInput
+	LinkedLmsInstance          pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	SharedGalleryId            pulumi.StringPtrInput
+	SupportInfo                SupportInfoPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (LabPlanArgs) ElementType() reflect.Type {

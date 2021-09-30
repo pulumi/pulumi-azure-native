@@ -14,16 +14,11 @@ import (
 type LinkedService struct {
 	pulumi.CustomResourceState
 
-	// Identity for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// location of the linked service.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Friendly name of the linked service.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// LinkedService specific properties.
+	Identity   IdentityResponsePtrOutput        `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
 	Properties LinkedServicePropsResponseOutput `pulumi:"properties"`
-	// Resource type of linked service.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewLinkedService registers a new resource with the given unique name, arguments, and options.
@@ -83,38 +78,24 @@ func (LinkedServiceState) ElementType() reflect.Type {
 }
 
 type linkedServiceArgs struct {
-	// Identity for the resource.
-	Identity *Identity `pulumi:"identity"`
-	// Friendly name of the linked workspace
-	LinkName *string `pulumi:"linkName"`
-	// location of the linked service.
-	Location *string `pulumi:"location"`
-	// Friendly name of the linked service
-	Name *string `pulumi:"name"`
-	// LinkedService specific properties.
-	Properties *LinkedServiceProps `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Identity          *Identity           `pulumi:"identity"`
+	LinkName          *string             `pulumi:"linkName"`
+	Location          *string             `pulumi:"location"`
+	Name              *string             `pulumi:"name"`
+	Properties        *LinkedServiceProps `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	WorkspaceName     string              `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// Identity for the resource.
-	Identity IdentityPtrInput
-	// Friendly name of the linked workspace
-	LinkName pulumi.StringPtrInput
-	// location of the linked service.
-	Location pulumi.StringPtrInput
-	// Friendly name of the linked service
-	Name pulumi.StringPtrInput
-	// LinkedService specific properties.
-	Properties LinkedServicePropsPtrInput
-	// Name of the resource group in which workspace is located.
+	Identity          IdentityPtrInput
+	LinkName          pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        LinkedServicePropsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LinkedServiceArgs) ElementType() reflect.Type {

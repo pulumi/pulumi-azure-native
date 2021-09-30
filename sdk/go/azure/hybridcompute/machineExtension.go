@@ -14,30 +14,18 @@ import (
 type MachineExtension struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
-	// The machine extension instance view.
-	InstanceView MachineExtensionPropertiesResponseInstanceViewPtrOutput `pulumi:"instanceView"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.AnyOutput `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings pulumi.AnyOutput `pulumi:"settings"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion pulumi.BoolPtrOutput                                    `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag          pulumi.StringPtrOutput                                  `pulumi:"forceUpdateTag"`
+	InstanceView            MachineExtensionPropertiesResponseInstanceViewPtrOutput `pulumi:"instanceView"`
+	Location                pulumi.StringOutput                                     `pulumi:"location"`
+	Name                    pulumi.StringOutput                                     `pulumi:"name"`
+	ProtectedSettings       pulumi.AnyOutput                                        `pulumi:"protectedSettings"`
+	ProvisioningState       pulumi.StringOutput                                     `pulumi:"provisioningState"`
+	Publisher               pulumi.StringPtrOutput                                  `pulumi:"publisher"`
+	Settings                pulumi.AnyOutput                                        `pulumi:"settings"`
+	Tags                    pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type                    pulumi.StringOutput                                     `pulumi:"type"`
+	TypeHandlerVersion      pulumi.StringPtrOutput                                  `pulumi:"typeHandlerVersion"`
 }
 
 // NewMachineExtension registers a new resource with the given unique name, arguments, and options.
@@ -157,58 +145,34 @@ func (MachineExtensionState) ElementType() reflect.Type {
 }
 
 type machineExtensionArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// The name of the machine extension.
-	ExtensionName *string `pulumi:"extensionName"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the machine where the extension should be created or updated.
-	Name string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion *bool             `pulumi:"autoUpgradeMinorVersion"`
+	ExtensionName           *string           `pulumi:"extensionName"`
+	ForceUpdateTag          *string           `pulumi:"forceUpdateTag"`
+	Location                *string           `pulumi:"location"`
+	Name                    string            `pulumi:"name"`
+	ProtectedSettings       interface{}       `pulumi:"protectedSettings"`
+	Publisher               *string           `pulumi:"publisher"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	Settings                interface{}       `pulumi:"settings"`
+	Tags                    map[string]string `pulumi:"tags"`
+	Type                    *string           `pulumi:"type"`
+	TypeHandlerVersion      *string           `pulumi:"typeHandlerVersion"`
 }
 
 // The set of arguments for constructing a MachineExtension resource.
 type MachineExtensionArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// The name of the machine extension.
-	ExtensionName pulumi.StringPtrInput
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the machine where the extension should be created or updated.
-	Name pulumi.StringInput
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.Input
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput
+	ExtensionName           pulumi.StringPtrInput
+	ForceUpdateTag          pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
+	Name                    pulumi.StringInput
+	ProtectedSettings       pulumi.Input
+	Publisher               pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Settings                pulumi.Input
+	Tags                    pulumi.StringMapInput
+	Type                    pulumi.StringPtrInput
+	TypeHandlerVersion      pulumi.StringPtrInput
 }
 
 func (MachineExtensionArgs) ElementType() reflect.Type {

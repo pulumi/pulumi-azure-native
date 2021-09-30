@@ -14,12 +14,9 @@ import (
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Extension resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// DigitalTwinsInstance endpoint resource properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDigitalTwinsEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -94,26 +91,18 @@ func (DigitalTwinsEndpointState) ElementType() reflect.Type {
 }
 
 type digitalTwinsEndpointArgs struct {
-	// Name of Endpoint Resource.
-	EndpointName *string `pulumi:"endpointName"`
-	// DigitalTwinsInstance endpoint resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group that contains the DigitalTwinsInstance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the DigitalTwinsInstance.
-	ResourceName string `pulumi:"resourceName"`
+	EndpointName      *string     `pulumi:"endpointName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	ResourceName      string      `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a DigitalTwinsEndpoint resource.
 type DigitalTwinsEndpointArgs struct {
-	// Name of Endpoint Resource.
-	EndpointName pulumi.StringPtrInput
-	// DigitalTwinsInstance endpoint resource properties.
-	Properties pulumi.Input
-	// The name of the resource group that contains the DigitalTwinsInstance.
+	EndpointName      pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The name of the DigitalTwinsInstance.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (DigitalTwinsEndpointArgs) ElementType() reflect.Type {

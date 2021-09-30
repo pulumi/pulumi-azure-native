@@ -14,24 +14,15 @@ import (
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The list of databases from the clusterResourceId which are currently attached to the cluster.
-	AttachedDatabaseNames pulumi.StringArrayOutput `pulumi:"attachedDatabaseNames"`
-	// The resource id of the cluster where the databases you would like to attach reside.
-	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The default principals modification kind
-	DefaultPrincipalsModificationKind pulumi.StringOutput `pulumi:"defaultPrincipalsModificationKind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Table level sharing specifications
-	TableLevelSharingProperties TableLevelSharingPropertiesResponsePtrOutput `pulumi:"tableLevelSharingProperties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AttachedDatabaseNames             pulumi.StringArrayOutput                     `pulumi:"attachedDatabaseNames"`
+	ClusterResourceId                 pulumi.StringOutput                          `pulumi:"clusterResourceId"`
+	DatabaseName                      pulumi.StringOutput                          `pulumi:"databaseName"`
+	DefaultPrincipalsModificationKind pulumi.StringOutput                          `pulumi:"defaultPrincipalsModificationKind"`
+	Location                          pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                              pulumi.StringOutput                          `pulumi:"name"`
+	ProvisioningState                 pulumi.StringOutput                          `pulumi:"provisioningState"`
+	TableLevelSharingProperties       TableLevelSharingPropertiesResponsePtrOutput `pulumi:"tableLevelSharingProperties"`
+	Type                              pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAttachedDatabaseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -136,42 +127,26 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 }
 
 type attachedDatabaseConfigurationArgs struct {
-	// The name of the attached database configuration.
-	AttachedDatabaseConfigurationName *string `pulumi:"attachedDatabaseConfigurationName"`
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The resource id of the cluster where the databases you would like to attach reside.
-	ClusterResourceId string `pulumi:"clusterResourceId"`
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName string `pulumi:"databaseName"`
-	// The default principals modification kind
-	DefaultPrincipalsModificationKind string `pulumi:"defaultPrincipalsModificationKind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Table level sharing specifications
-	TableLevelSharingProperties *TableLevelSharingProperties `pulumi:"tableLevelSharingProperties"`
+	AttachedDatabaseConfigurationName *string                      `pulumi:"attachedDatabaseConfigurationName"`
+	ClusterName                       string                       `pulumi:"clusterName"`
+	ClusterResourceId                 string                       `pulumi:"clusterResourceId"`
+	DatabaseName                      string                       `pulumi:"databaseName"`
+	DefaultPrincipalsModificationKind string                       `pulumi:"defaultPrincipalsModificationKind"`
+	Location                          *string                      `pulumi:"location"`
+	ResourceGroupName                 string                       `pulumi:"resourceGroupName"`
+	TableLevelSharingProperties       *TableLevelSharingProperties `pulumi:"tableLevelSharingProperties"`
 }
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 type AttachedDatabaseConfigurationArgs struct {
-	// The name of the attached database configuration.
 	AttachedDatabaseConfigurationName pulumi.StringPtrInput
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The resource id of the cluster where the databases you would like to attach reside.
-	ClusterResourceId pulumi.StringInput
-	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-	DatabaseName pulumi.StringInput
-	// The default principals modification kind
+	ClusterName                       pulumi.StringInput
+	ClusterResourceId                 pulumi.StringInput
+	DatabaseName                      pulumi.StringInput
 	DefaultPrincipalsModificationKind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// Table level sharing specifications
-	TableLevelSharingProperties TableLevelSharingPropertiesPtrInput
+	Location                          pulumi.StringPtrInput
+	ResourceGroupName                 pulumi.StringInput
+	TableLevelSharingProperties       TableLevelSharingPropertiesPtrInput
 }
 
 func (AttachedDatabaseConfigurationArgs) ElementType() reflect.Type {

@@ -14,22 +14,14 @@ import (
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the Policy
-	Created pulumi.StringOutput `pulumi:"created"`
-	// A description for the Policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The last modified date of the Policy
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Key Policy options.
-	Options ContentKeyPolicyOptionResponseArrayOutput `pulumi:"options"`
-	// The legacy Policy ID.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Created      pulumi.StringOutput                       `pulumi:"created"`
+	Description  pulumi.StringPtrOutput                    `pulumi:"description"`
+	LastModified pulumi.StringOutput                       `pulumi:"lastModified"`
+	Name         pulumi.StringOutput                       `pulumi:"name"`
+	Options      ContentKeyPolicyOptionResponseArrayOutput `pulumi:"options"`
+	PolicyId     pulumi.StringOutput                       `pulumi:"policyId"`
+	SystemData   SystemDataResponseOutput                  `pulumi:"systemData"`
+	Type         pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewContentKeyPolicy registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +108,20 @@ func (ContentKeyPolicyState) ElementType() reflect.Type {
 }
 
 type contentKeyPolicyArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Content Key Policy name.
-	ContentKeyPolicyName *string `pulumi:"contentKeyPolicyName"`
-	// A description for the Policy.
-	Description *string `pulumi:"description"`
-	// The Key Policy options.
-	Options []ContentKeyPolicyOption `pulumi:"options"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName          string                   `pulumi:"accountName"`
+	ContentKeyPolicyName *string                  `pulumi:"contentKeyPolicyName"`
+	Description          *string                  `pulumi:"description"`
+	Options              []ContentKeyPolicyOption `pulumi:"options"`
+	ResourceGroupName    string                   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ContentKeyPolicy resource.
 type ContentKeyPolicyArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// The Content Key Policy name.
+	AccountName          pulumi.StringInput
 	ContentKeyPolicyName pulumi.StringPtrInput
-	// A description for the Policy.
-	Description pulumi.StringPtrInput
-	// The Key Policy options.
-	Options ContentKeyPolicyOptionArrayInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
+	Description          pulumi.StringPtrInput
+	Options              ContentKeyPolicyOptionArrayInput
+	ResourceGroupName    pulumi.StringInput
 }
 
 func (ContentKeyPolicyArgs) ElementType() reflect.Type {

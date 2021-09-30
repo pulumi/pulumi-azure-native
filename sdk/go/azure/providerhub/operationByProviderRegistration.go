@@ -14,17 +14,13 @@ import (
 type OperationByProviderRegistration struct {
 	pulumi.CustomResourceState
 
-	ActionType pulumi.StringPtrOutput `pulumi:"actionType"`
-	// Display information of the operation.
-	Display OperationsDefinitionResponseDisplayOutput `pulumi:"display"`
-	// Indicates whether the operation applies to data-plane.
-	IsDataAction pulumi.BoolPtrOutput `pulumi:"isDataAction"`
-	// The name of the resource
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	Origin     pulumi.StringPtrOutput `pulumi:"origin"`
-	Properties pulumi.AnyOutput       `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ActionType   pulumi.StringPtrOutput                    `pulumi:"actionType"`
+	Display      OperationsDefinitionResponseDisplayOutput `pulumi:"display"`
+	IsDataAction pulumi.BoolPtrOutput                      `pulumi:"isDataAction"`
+	Name         pulumi.StringOutput                       `pulumi:"name"`
+	Origin       pulumi.StringPtrOutput                    `pulumi:"origin"`
+	Properties   pulumi.AnyOutput                          `pulumi:"properties"`
+	Type         pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewOperationByProviderRegistration registers a new resource with the given unique name, arguments, and options.
@@ -96,15 +92,13 @@ func (OperationByProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type operationByProviderRegistrationArgs struct {
-	Contents []OperationsDefinition `pulumi:"contents"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
+	Contents          []OperationsDefinition `pulumi:"contents"`
+	ProviderNamespace string                 `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a OperationByProviderRegistration resource.
 type OperationByProviderRegistrationArgs struct {
-	Contents OperationsDefinitionArrayInput
-	// The name of the resource provider hosted within ProviderHub.
+	Contents          OperationsDefinitionArrayInput
 	ProviderNamespace pulumi.StringInput
 }
 

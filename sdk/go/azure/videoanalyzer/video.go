@@ -14,22 +14,14 @@ import (
 type Video struct {
 	pulumi.CustomResourceState
 
-	// Optional video description provided by the user. Value can be up to 2048 characters long.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
-	Flags VideoFlagsResponseOutput `pulumi:"flags"`
-	// Contains information about the video and audio content.
-	MediaInfo VideoMediaInfoResponseOutput `pulumi:"mediaInfo"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Video streaming holds information about video streaming URLs.
-	Streaming VideoStreamingResponseOutput `pulumi:"streaming"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Optional video title provided by the user. Value can be up to 256 characters long.
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description pulumi.StringPtrOutput       `pulumi:"description"`
+	Flags       VideoFlagsResponseOutput     `pulumi:"flags"`
+	MediaInfo   VideoMediaInfoResponseOutput `pulumi:"mediaInfo"`
+	Name        pulumi.StringOutput          `pulumi:"name"`
+	Streaming   VideoStreamingResponseOutput `pulumi:"streaming"`
+	SystemData  SystemDataResponseOutput     `pulumi:"systemData"`
+	Title       pulumi.StringPtrOutput       `pulumi:"title"`
+	Type        pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewVideo registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +81,20 @@ func (VideoState) ElementType() reflect.Type {
 }
 
 type videoArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// Optional video description provided by the user. Value can be up to 2048 characters long.
-	Description *string `pulumi:"description"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Optional video title provided by the user. Value can be up to 256 characters long.
-	Title *string `pulumi:"title"`
-	// The name of the video to create or update.
-	VideoName *string `pulumi:"videoName"`
+	AccountName       string  `pulumi:"accountName"`
+	Description       *string `pulumi:"description"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Title             *string `pulumi:"title"`
+	VideoName         *string `pulumi:"videoName"`
 }
 
 // The set of arguments for constructing a Video resource.
 type VideoArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName pulumi.StringInput
-	// Optional video description provided by the user. Value can be up to 2048 characters long.
-	Description pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Optional video title provided by the user. Value can be up to 256 characters long.
-	Title pulumi.StringPtrInput
-	// The name of the video to create or update.
-	VideoName pulumi.StringPtrInput
+	Title             pulumi.StringPtrInput
+	VideoName         pulumi.StringPtrInput
 }
 
 func (VideoArgs) ElementType() reflect.Type {

@@ -14,16 +14,11 @@ import (
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The schedules.
-	Schedules BandwidthScheduleResponseArrayOutput `pulumi:"schedules"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The number of volumes that uses the bandwidth setting.
-	VolumeCount pulumi.IntOutput `pulumi:"volumeCount"`
+	Kind        pulumi.StringPtrOutput               `pulumi:"kind"`
+	Name        pulumi.StringOutput                  `pulumi:"name"`
+	Schedules   BandwidthScheduleResponseArrayOutput `pulumi:"schedules"`
+	Type        pulumi.StringOutput                  `pulumi:"type"`
+	VolumeCount pulumi.IntOutput                     `pulumi:"volumeCount"`
 }
 
 // NewBandwidthSetting registers a new resource with the given unique name, arguments, and options.
@@ -86,30 +81,20 @@ func (BandwidthSettingState) ElementType() reflect.Type {
 }
 
 type bandwidthSettingArgs struct {
-	// The bandwidth setting name.
-	BandwidthSettingName *string `pulumi:"bandwidthSettingName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The schedules.
-	Schedules []BandwidthSchedule `pulumi:"schedules"`
+	BandwidthSettingName *string             `pulumi:"bandwidthSettingName"`
+	Kind                 *Kind               `pulumi:"kind"`
+	ManagerName          string              `pulumi:"managerName"`
+	ResourceGroupName    string              `pulumi:"resourceGroupName"`
+	Schedules            []BandwidthSchedule `pulumi:"schedules"`
 }
 
 // The set of arguments for constructing a BandwidthSetting resource.
 type BandwidthSettingArgs struct {
-	// The bandwidth setting name.
 	BandwidthSettingName pulumi.StringPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The schedules.
-	Schedules BandwidthScheduleArrayInput
+	Kind                 KindPtrInput
+	ManagerName          pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
+	Schedules            BandwidthScheduleArrayInput
 }
 
 func (BandwidthSettingArgs) ElementType() reflect.Type {

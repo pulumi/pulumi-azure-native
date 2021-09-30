@@ -14,20 +14,13 @@ import (
 type ObjectReplicationPolicy struct {
 	pulumi.CustomResourceState
 
-	// Required. Destination account name.
-	DestinationAccount pulumi.StringOutput `pulumi:"destinationAccount"`
-	// Indicates when the policy is enabled on the source account.
-	EnabledTime pulumi.StringOutput `pulumi:"enabledTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A unique id for object replication policy.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// The storage account object replication rules.
-	Rules ObjectReplicationPolicyRuleResponseArrayOutput `pulumi:"rules"`
-	// Required. Source account name.
-	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DestinationAccount pulumi.StringOutput                            `pulumi:"destinationAccount"`
+	EnabledTime        pulumi.StringOutput                            `pulumi:"enabledTime"`
+	Name               pulumi.StringOutput                            `pulumi:"name"`
+	PolicyId           pulumi.StringOutput                            `pulumi:"policyId"`
+	Rules              ObjectReplicationPolicyRuleResponseArrayOutput `pulumi:"rules"`
+	SourceAccount      pulumi.StringOutput                            `pulumi:"sourceAccount"`
+	Type               pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewObjectReplicationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -123,34 +116,22 @@ func (ObjectReplicationPolicyState) ElementType() reflect.Type {
 }
 
 type objectReplicationPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// Required. Destination account name.
-	DestinationAccount string `pulumi:"destinationAccount"`
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
-	ObjectReplicationPolicyId *string `pulumi:"objectReplicationPolicyId"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage account object replication rules.
-	Rules []ObjectReplicationPolicyRule `pulumi:"rules"`
-	// Required. Source account name.
-	SourceAccount string `pulumi:"sourceAccount"`
+	AccountName               string                        `pulumi:"accountName"`
+	DestinationAccount        string                        `pulumi:"destinationAccount"`
+	ObjectReplicationPolicyId *string                       `pulumi:"objectReplicationPolicyId"`
+	ResourceGroupName         string                        `pulumi:"resourceGroupName"`
+	Rules                     []ObjectReplicationPolicyRule `pulumi:"rules"`
+	SourceAccount             string                        `pulumi:"sourceAccount"`
 }
 
 // The set of arguments for constructing a ObjectReplicationPolicy resource.
 type ObjectReplicationPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// Required. Destination account name.
-	DestinationAccount pulumi.StringInput
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	AccountName               pulumi.StringInput
+	DestinationAccount        pulumi.StringInput
 	ObjectReplicationPolicyId pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The storage account object replication rules.
-	Rules ObjectReplicationPolicyRuleArrayInput
-	// Required. Source account name.
-	SourceAccount pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	Rules                     ObjectReplicationPolicyRuleArrayInput
+	SourceAccount             pulumi.StringInput
 }
 
 func (ObjectReplicationPolicyArgs) ElementType() reflect.Type {

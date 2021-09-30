@@ -14,12 +14,9 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The private endpoint connection properties.
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -82,26 +79,18 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The private endpoint connection properties.
-	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	PrivateEndpointConnectionName *string                             `pulumi:"privateEndpointConnectionName"`
+	Properties                    PrivateEndpointConnectionProperties `pulumi:"properties"`
+	ResourceGroupName             string                              `pulumi:"resourceGroupName"`
+	WorkspaceName                 string                              `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The private endpoint connection properties.
-	Properties PrivateEndpointConnectionPropertiesInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionPropertiesInput
+	ResourceGroupName             pulumi.StringInput
+	WorkspaceName                 pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

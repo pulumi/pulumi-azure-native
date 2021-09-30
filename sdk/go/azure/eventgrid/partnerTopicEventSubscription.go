@@ -14,38 +14,20 @@ import (
 type PartnerTopicEventSubscription struct {
 	pulumi.CustomResourceState
 
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput `pulumi:"deadLetterWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity DeliveryWithResourceIdentityResponsePtrOutput `pulumi:"deliveryWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination pulumi.AnyOutput `pulumi:"destination"`
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc pulumi.StringPtrOutput `pulumi:"expirationTimeUtc"`
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
-	// List of user defined labels.
-	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the event subscription.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy RetryPolicyResponsePtrOutput `pulumi:"retryPolicy"`
-	// The system metadata relating to Event Subscription resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Name of the topic of the event subscription.
-	Topic pulumi.StringOutput `pulumi:"topic"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeadLetterDestination          StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityResponsePtrOutput     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    pulumi.AnyOutput                                  `pulumi:"destination"`
+	EventDeliverySchema            pulumi.StringPtrOutput                            `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              pulumi.StringPtrOutput                            `pulumi:"expirationTimeUtc"`
+	Filter                         EventSubscriptionFilterResponsePtrOutput          `pulumi:"filter"`
+	Labels                         pulumi.StringArrayOutput                          `pulumi:"labels"`
+	Name                           pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput                               `pulumi:"provisioningState"`
+	RetryPolicy                    RetryPolicyResponsePtrOutput                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponseOutput                          `pulumi:"systemData"`
+	Topic                          pulumi.StringOutput                               `pulumi:"topic"`
+	Type                           pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPartnerTopicEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -120,66 +102,34 @@ func (PartnerTopicEventSubscriptionState) ElementType() reflect.Type {
 }
 
 type partnerTopicEventSubscriptionArgs struct {
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity `pulumi:"deadLetterWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity *DeliveryWithResourceIdentity `pulumi:"deliveryWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination interface{} `pulumi:"destination"`
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
-	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
-	EventSubscriptionName *string `pulumi:"eventSubscriptionName"`
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilter `pulumi:"filter"`
-	// List of user defined labels.
-	Labels []string `pulumi:"labels"`
-	// Name of the partner topic.
-	PartnerTopicName string `pulumi:"partnerTopicName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy *RetryPolicy `pulumi:"retryPolicy"`
+	DeadLetterDestination          *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentity     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                       `pulumi:"destination"`
+	EventDeliverySchema            *string                           `pulumi:"eventDeliverySchema"`
+	EventSubscriptionName          *string                           `pulumi:"eventSubscriptionName"`
+	ExpirationTimeUtc              *string                           `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilter          `pulumi:"filter"`
+	Labels                         []string                          `pulumi:"labels"`
+	PartnerTopicName               string                            `pulumi:"partnerTopicName"`
+	ResourceGroupName              string                            `pulumi:"resourceGroupName"`
+	RetryPolicy                    *RetryPolicy                      `pulumi:"retryPolicy"`
 }
 
 // The set of arguments for constructing a PartnerTopicEventSubscription resource.
 type PartnerTopicEventSubscriptionArgs struct {
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination          StorageBlobDeadLetterDestinationPtrInput
 	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityPtrInput
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity DeliveryWithResourceIdentityPtrInput
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination pulumi.Input
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema pulumi.StringPtrInput
-	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
-	EventSubscriptionName pulumi.StringPtrInput
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc pulumi.StringPtrInput
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterPtrInput
-	// List of user defined labels.
-	Labels pulumi.StringArrayInput
-	// Name of the partner topic.
-	PartnerTopicName pulumi.StringInput
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName pulumi.StringInput
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy RetryPolicyPtrInput
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityPtrInput
+	Destination                    pulumi.Input
+	EventDeliverySchema            pulumi.StringPtrInput
+	EventSubscriptionName          pulumi.StringPtrInput
+	ExpirationTimeUtc              pulumi.StringPtrInput
+	Filter                         EventSubscriptionFilterPtrInput
+	Labels                         pulumi.StringArrayInput
+	PartnerTopicName               pulumi.StringInput
+	ResourceGroupName              pulumi.StringInput
+	RetryPolicy                    RetryPolicyPtrInput
 }
 
 func (PartnerTopicEventSubscriptionArgs) ElementType() reflect.Type {

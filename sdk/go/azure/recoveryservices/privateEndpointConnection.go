@@ -14,18 +14,12 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// PrivateEndpointConnectionResource properties
+	ETag       pulumi.StringPtrOutput                  `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput                  `pulumi:"location"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties PrivateEndpointConnectionResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -151,38 +145,24 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// PrivateEndpointConnectionResource properties
-	Properties *PrivateEndpointConnectionType `pulumi:"properties"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	ETag                          *string                        `pulumi:"eTag"`
+	Location                      *string                        `pulumi:"location"`
+	PrivateEndpointConnectionName *string                        `pulumi:"privateEndpointConnectionName"`
+	Properties                    *PrivateEndpointConnectionType `pulumi:"properties"`
+	ResourceGroupName             string                         `pulumi:"resourceGroupName"`
+	Tags                          map[string]string              `pulumi:"tags"`
+	VaultName                     string                         `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the private endpoint connection.
+	ETag                          pulumi.StringPtrInput
+	Location                      pulumi.StringPtrInput
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// PrivateEndpointConnectionResource properties
-	Properties PrivateEndpointConnectionTypePtrInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the recovery services vault.
-	VaultName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionTypePtrInput
+	ResourceGroupName             pulumi.StringInput
+	Tags                          pulumi.StringMapInput
+	VaultName                     pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

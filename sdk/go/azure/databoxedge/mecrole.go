@@ -14,19 +14,12 @@ import (
 type MECRole struct {
 	pulumi.CustomResourceState
 
-	// Activation key of the MEC.
 	ConnectionString AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"connectionString"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role status.
-	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind             pulumi.StringOutput                        `pulumi:"kind"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	RoleStatus       pulumi.StringOutput                        `pulumi:"roleStatus"`
+	SystemData       SystemDataResponseOutput                   `pulumi:"systemData"`
+	Type             pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewMECRole registers a new resource with the given unique name, arguments, and options.
@@ -141,36 +134,22 @@ func (MECRoleState) ElementType() reflect.Type {
 }
 
 type mecroleArgs struct {
-	// Activation key of the MEC.
-	ConnectionString *AsymmetricEncryptedSecret `pulumi:"connectionString"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind string `pulumi:"kind"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
+	ConnectionString  *AsymmetricEncryptedSecret `pulumi:"connectionString"`
+	DeviceName        string                     `pulumi:"deviceName"`
+	Kind              string                     `pulumi:"kind"`
+	Name              *string                    `pulumi:"name"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	RoleStatus        string                     `pulumi:"roleStatus"`
 }
 
 // The set of arguments for constructing a MECRole resource.
 type MECRoleArgs struct {
-	// Activation key of the MEC.
-	ConnectionString AsymmetricEncryptedSecretPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind pulumi.StringInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	ConnectionString  AsymmetricEncryptedSecretPtrInput
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Role status.
-	RoleStatus pulumi.StringInput
+	RoleStatus        pulumi.StringInput
 }
 
 func (MECRoleArgs) ElementType() reflect.Type {

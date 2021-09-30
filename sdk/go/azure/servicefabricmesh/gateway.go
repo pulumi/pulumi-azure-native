@@ -14,32 +14,19 @@ import (
 type Gateway struct {
 	pulumi.CustomResourceState
 
-	// User readable description of the gateway.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Network that the Application is using.
-	DestinationNetwork NetworkRefResponseOutput `pulumi:"destinationNetwork"`
-	// Configuration for http connectivity for this gateway.
-	Http HttpConfigResponseArrayOutput `pulumi:"http"`
-	// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Network the gateway should listen on for requests.
-	SourceNetwork NetworkRefResponseOutput `pulumi:"sourceNetwork"`
-	// Status of the resource.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Gives additional information about the current status of the gateway.
-	StatusDetails pulumi.StringOutput `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Configuration for tcp connectivity for this gateway.
-	Tcp TcpConfigResponseArrayOutput `pulumi:"tcp"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description        pulumi.StringPtrOutput        `pulumi:"description"`
+	DestinationNetwork NetworkRefResponseOutput      `pulumi:"destinationNetwork"`
+	Http               HttpConfigResponseArrayOutput `pulumi:"http"`
+	IpAddress          pulumi.StringOutput           `pulumi:"ipAddress"`
+	Location           pulumi.StringOutput           `pulumi:"location"`
+	Name               pulumi.StringOutput           `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput           `pulumi:"provisioningState"`
+	SourceNetwork      NetworkRefResponseOutput      `pulumi:"sourceNetwork"`
+	Status             pulumi.StringOutput           `pulumi:"status"`
+	StatusDetails      pulumi.StringOutput           `pulumi:"statusDetails"`
+	Tags               pulumi.StringMapOutput        `pulumi:"tags"`
+	Tcp                TcpConfigResponseArrayOutput  `pulumi:"tcp"`
+	Type               pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -102,46 +89,28 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
-	// User readable description of the gateway.
-	Description *string `pulumi:"description"`
-	// Network that the Application is using.
-	DestinationNetwork NetworkRef `pulumi:"destinationNetwork"`
-	// The identity of the gateway.
-	GatewayResourceName *string `pulumi:"gatewayResourceName"`
-	// Configuration for http connectivity for this gateway.
-	Http []HttpConfig `pulumi:"http"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Network the gateway should listen on for requests.
-	SourceNetwork NetworkRef `pulumi:"sourceNetwork"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration for tcp connectivity for this gateway.
-	Tcp []TcpConfig `pulumi:"tcp"`
+	Description         *string           `pulumi:"description"`
+	DestinationNetwork  NetworkRef        `pulumi:"destinationNetwork"`
+	GatewayResourceName *string           `pulumi:"gatewayResourceName"`
+	Http                []HttpConfig      `pulumi:"http"`
+	Location            *string           `pulumi:"location"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	SourceNetwork       NetworkRef        `pulumi:"sourceNetwork"`
+	Tags                map[string]string `pulumi:"tags"`
+	Tcp                 []TcpConfig       `pulumi:"tcp"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// User readable description of the gateway.
-	Description pulumi.StringPtrInput
-	// Network that the Application is using.
-	DestinationNetwork NetworkRefInput
-	// The identity of the gateway.
+	Description         pulumi.StringPtrInput
+	DestinationNetwork  NetworkRefInput
 	GatewayResourceName pulumi.StringPtrInput
-	// Configuration for http connectivity for this gateway.
-	Http HttpConfigArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// Network the gateway should listen on for requests.
-	SourceNetwork NetworkRefInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Configuration for tcp connectivity for this gateway.
-	Tcp TcpConfigArrayInput
+	Http                HttpConfigArrayInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	SourceNetwork       NetworkRefInput
+	Tags                pulumi.StringMapInput
+	Tcp                 TcpConfigArrayInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {

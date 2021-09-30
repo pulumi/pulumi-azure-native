@@ -14,14 +14,10 @@ import (
 type DomainTopic struct {
 	pulumi.CustomResourceState
 
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the domain topic.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata relating to Domain Topic resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDomainTopic registers a new resource with the given unique name, arguments, and options.
@@ -117,21 +113,15 @@ func (DomainTopicState) ElementType() reflect.Type {
 }
 
 type domainTopicArgs struct {
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// Name of the domain topic.
-	DomainTopicName *string `pulumi:"domainTopicName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DomainName        string  `pulumi:"domainName"`
+	DomainTopicName   *string `pulumi:"domainTopicName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DomainTopic resource.
 type DomainTopicArgs struct {
-	// Name of the domain.
-	DomainName pulumi.StringInput
-	// Name of the domain topic.
-	DomainTopicName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
+	DomainName        pulumi.StringInput
+	DomainTopicName   pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

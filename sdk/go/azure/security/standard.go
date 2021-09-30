@@ -14,30 +14,18 @@ import (
 type Standard struct {
 	pulumi.CustomResourceState
 
-	// category of the standard provided
-	Category pulumi.StringPtrOutput `pulumi:"category"`
-	// List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
-	Components StandardComponentPropertiesResponseArrayOutput `pulumi:"components"`
-	// description of the standard
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// display name of the standard, equivalent to the standardId
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Kind of the resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Location where the resource is stored
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// standard type (Custom or BuiltIn only currently)
-	StandardType pulumi.StringOutput `pulumi:"standardType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Category     pulumi.StringPtrOutput                         `pulumi:"category"`
+	Components   StandardComponentPropertiesResponseArrayOutput `pulumi:"components"`
+	Description  pulumi.StringPtrOutput                         `pulumi:"description"`
+	DisplayName  pulumi.StringPtrOutput                         `pulumi:"displayName"`
+	Etag         pulumi.StringPtrOutput                         `pulumi:"etag"`
+	Kind         pulumi.StringPtrOutput                         `pulumi:"kind"`
+	Location     pulumi.StringPtrOutput                         `pulumi:"location"`
+	Name         pulumi.StringOutput                            `pulumi:"name"`
+	StandardType pulumi.StringOutput                            `pulumi:"standardType"`
+	SystemData   SystemDataResponseOutput                       `pulumi:"systemData"`
+	Tags         pulumi.StringMapOutput                         `pulumi:"tags"`
+	Type         pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewStandard registers a new resource with the given unique name, arguments, and options.
@@ -94,50 +82,30 @@ func (StandardState) ElementType() reflect.Type {
 }
 
 type standardArgs struct {
-	// category of the standard provided
-	Category *string `pulumi:"category"`
-	// List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
-	Components []StandardComponentProperties `pulumi:"components"`
-	// description of the standard
-	Description *string `pulumi:"description"`
-	// display name of the standard, equivalent to the standardId
-	DisplayName *string `pulumi:"displayName"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Security Standard key - unique key for the standard type
-	StandardId *string `pulumi:"standardId"`
-	// A list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Category          *string                       `pulumi:"category"`
+	Components        []StandardComponentProperties `pulumi:"components"`
+	Description       *string                       `pulumi:"description"`
+	DisplayName       *string                       `pulumi:"displayName"`
+	Etag              *string                       `pulumi:"etag"`
+	Kind              *string                       `pulumi:"kind"`
+	Location          *string                       `pulumi:"location"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	StandardId        *string                       `pulumi:"standardId"`
+	Tags              map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Standard resource.
 type StandardArgs struct {
-	// category of the standard provided
-	Category pulumi.StringPtrInput
-	// List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
-	Components StandardComponentPropertiesArrayInput
-	// description of the standard
-	Description pulumi.StringPtrInput
-	// display name of the standard, equivalent to the standardId
-	DisplayName pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
-	// Kind of the resource
-	Kind pulumi.StringPtrInput
-	// Location where the resource is stored
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	Category          pulumi.StringPtrInput
+	Components        StandardComponentPropertiesArrayInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The Security Standard key - unique key for the standard type
-	StandardId pulumi.StringPtrInput
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
+	StandardId        pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (StandardArgs) ElementType() reflect.Type {

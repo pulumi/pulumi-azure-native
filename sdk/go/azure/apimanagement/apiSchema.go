@@ -14,16 +14,11 @@ import (
 type ApiSchema struct {
 	pulumi.CustomResourceState
 
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.AnyOutput `pulumi:"definitions"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	ContentType pulumi.StringOutput    `pulumi:"contentType"`
+	Definitions pulumi.AnyOutput       `pulumi:"definitions"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	Value       pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewApiSchema registers a new resource with the given unique name, arguments, and options.
@@ -143,38 +138,24 @@ func (ApiSchemaState) ElementType() reflect.Type {
 }
 
 type apiSchemaArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-	ContentType string `pulumi:"contentType"`
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions interface{} `pulumi:"definitions"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId *string `pulumi:"schemaId"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-	Value *string `pulumi:"value"`
+	ApiId             string      `pulumi:"apiId"`
+	ContentType       string      `pulumi:"contentType"`
+	Definitions       interface{} `pulumi:"definitions"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	SchemaId          *string     `pulumi:"schemaId"`
+	ServiceName       string      `pulumi:"serviceName"`
+	Value             *string     `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiSchema resource.
 type ApiSchemaArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-	ContentType pulumi.StringInput
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.Input
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	ContentType       pulumi.StringInput
+	Definitions       pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-	Value pulumi.StringPtrInput
+	SchemaId          pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Value             pulumi.StringPtrInput
 }
 
 func (ApiSchemaArgs) ElementType() reflect.Type {

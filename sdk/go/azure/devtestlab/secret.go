@@ -14,20 +14,13 @@ import (
 type Secret struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
-	// The value of the secret for secret creation.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	UniqueIdentifier  pulumi.StringOutput    `pulumi:"uniqueIdentifier"`
+	Value             pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -96,38 +89,24 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the secret.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the user profile.
-	UserName string `pulumi:"userName"`
-	// The value of the secret for secret creation.
-	Value *string `pulumi:"value"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	UserName          string            `pulumi:"userName"`
+	Value             *string           `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the secret.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The name of the user profile.
-	UserName pulumi.StringInput
-	// The value of the secret for secret creation.
-	Value pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UserName          pulumi.StringInput
+	Value             pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

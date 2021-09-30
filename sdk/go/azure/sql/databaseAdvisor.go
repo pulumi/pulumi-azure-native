@@ -14,26 +14,16 @@ import (
 type DatabaseAdvisor struct {
 	pulumi.CustomResourceState
 
-	// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
-	AdvisorStatus pulumi.StringOutput `pulumi:"advisorStatus"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus pulumi.StringOutput `pulumi:"autoExecuteStatus"`
-	// Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
-	AutoExecuteStatusInheritedFrom pulumi.StringOutput `pulumi:"autoExecuteStatusInheritedFrom"`
-	// Resource kind.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Gets the time when the current resource was analyzed for recommendations by this advisor.
-	LastChecked pulumi.StringOutput `pulumi:"lastChecked"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available),LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
-	RecommendationsStatus pulumi.StringOutput `pulumi:"recommendationsStatus"`
-	// Gets the recommended actions for this advisor.
-	RecommendedActions RecommendedActionResponseArrayOutput `pulumi:"recommendedActions"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdvisorStatus                  pulumi.StringOutput                  `pulumi:"advisorStatus"`
+	AutoExecuteStatus              pulumi.StringOutput                  `pulumi:"autoExecuteStatus"`
+	AutoExecuteStatusInheritedFrom pulumi.StringOutput                  `pulumi:"autoExecuteStatusInheritedFrom"`
+	Kind                           pulumi.StringOutput                  `pulumi:"kind"`
+	LastChecked                    pulumi.StringOutput                  `pulumi:"lastChecked"`
+	Location                       pulumi.StringOutput                  `pulumi:"location"`
+	Name                           pulumi.StringOutput                  `pulumi:"name"`
+	RecommendationsStatus          pulumi.StringOutput                  `pulumi:"recommendationsStatus"`
+	RecommendedActions             RecommendedActionResponseArrayOutput `pulumi:"recommendedActions"`
+	Type                           pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewDatabaseAdvisor registers a new resource with the given unique name, arguments, and options.
@@ -129,30 +119,20 @@ func (DatabaseAdvisorState) ElementType() reflect.Type {
 }
 
 type databaseAdvisorArgs struct {
-	// The name of the Database Advisor.
-	AdvisorName *string `pulumi:"advisorName"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+	AdvisorName       *string           `pulumi:"advisorName"`
 	AutoExecuteStatus AutoExecuteStatus `pulumi:"autoExecuteStatus"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	DatabaseName      string            `pulumi:"databaseName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ServerName        string            `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a DatabaseAdvisor resource.
 type DatabaseAdvisorArgs struct {
-	// The name of the Database Advisor.
-	AdvisorName pulumi.StringPtrInput
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+	AdvisorName       pulumi.StringPtrInput
 	AutoExecuteStatus AutoExecuteStatusInput
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName        pulumi.StringInput
 }
 
 func (DatabaseAdvisorArgs) ElementType() reflect.Type {

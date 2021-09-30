@@ -14,18 +14,12 @@ import (
 type Credential struct {
 	pulumi.CustomResourceState
 
-	// Gets the creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets the last modified time.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets the user name of the credential.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreationTime     pulumi.StringOutput    `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	LastModifiedTime pulumi.StringOutput    `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	UserName         pulumi.StringOutput    `pulumi:"userName"`
 }
 
 // NewCredential registers a new resource with the given unique name, arguments, and options.
@@ -106,38 +100,24 @@ func (CredentialState) ElementType() reflect.Type {
 }
 
 type credentialArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The parameters supplied to the create or update credential operation.
-	CredentialName *string `pulumi:"credentialName"`
-	// Gets or sets the description of the credential.
-	Description *string `pulumi:"description"`
-	// Gets or sets the name of the credential.
-	Name string `pulumi:"name"`
-	// Gets or sets the password of the credential.
-	Password string `pulumi:"password"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the user name of the credential.
-	UserName string `pulumi:"userName"`
+	AutomationAccountName string  `pulumi:"automationAccountName"`
+	CredentialName        *string `pulumi:"credentialName"`
+	Description           *string `pulumi:"description"`
+	Name                  string  `pulumi:"name"`
+	Password              string  `pulumi:"password"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	UserName              string  `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a Credential resource.
 type CredentialArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// The parameters supplied to the create or update credential operation.
-	CredentialName pulumi.StringPtrInput
-	// Gets or sets the description of the credential.
-	Description pulumi.StringPtrInput
-	// Gets or sets the name of the credential.
-	Name pulumi.StringInput
-	// Gets or sets the password of the credential.
-	Password pulumi.StringInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the user name of the credential.
-	UserName pulumi.StringInput
+	CredentialName        pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	Password              pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	UserName              pulumi.StringInput
 }
 
 func (CredentialArgs) ElementType() reflect.Type {

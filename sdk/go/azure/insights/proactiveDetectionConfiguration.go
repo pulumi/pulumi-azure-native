@@ -14,18 +14,12 @@ import (
 type ProactiveDetectionConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Custom email addresses for this rule notifications
-	CustomEmails pulumi.StringArrayOutput `pulumi:"customEmails"`
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The last time this rule was updated
-	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
-	// The rule name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput `pulumi:"ruleDefinitions"`
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners pulumi.BoolPtrOutput `pulumi:"sendEmailsToSubscriptionOwners"`
+	CustomEmails                   pulumi.StringArrayOutput                                                                    `pulumi:"customEmails"`
+	Enabled                        pulumi.BoolPtrOutput                                                                        `pulumi:"enabled"`
+	LastUpdatedTime                pulumi.StringPtrOutput                                                                      `pulumi:"lastUpdatedTime"`
+	Name                           pulumi.StringPtrOutput                                                                      `pulumi:"name"`
+	RuleDefinitions                ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput `pulumi:"ruleDefinitions"`
+	SendEmailsToSubscriptionOwners pulumi.BoolPtrOutput                                                                        `pulumi:"sendEmailsToSubscriptionOwners"`
 }
 
 // NewProactiveDetectionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -91,45 +85,27 @@ func (ProactiveDetectionConfigurationState) ElementType() reflect.Type {
 }
 
 type proactiveDetectionConfigurationArgs struct {
-	// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
-	ConfigurationId *string `pulumi:"configurationId"`
-	// Custom email addresses for this rule notifications
-	CustomEmails []string `pulumi:"customEmails"`
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled *bool `pulumi:"enabled"`
-	// The last time this rule was updated
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions `pulumi:"ruleDefinitions"`
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners *bool `pulumi:"sendEmailsToSubscriptionOwners"`
+	ConfigurationId                *string                                                                     `pulumi:"configurationId"`
+	CustomEmails                   []string                                                                    `pulumi:"customEmails"`
+	Enabled                        *bool                                                                       `pulumi:"enabled"`
+	LastUpdatedTime                *string                                                                     `pulumi:"lastUpdatedTime"`
+	Name                           *string                                                                     `pulumi:"name"`
+	ResourceGroupName              string                                                                      `pulumi:"resourceGroupName"`
+	ResourceName                   string                                                                      `pulumi:"resourceName"`
+	RuleDefinitions                *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions `pulumi:"ruleDefinitions"`
+	SendEmailsToSubscriptionOwners *bool                                                                       `pulumi:"sendEmailsToSubscriptionOwners"`
 }
 
 // The set of arguments for constructing a ProactiveDetectionConfiguration resource.
 type ProactiveDetectionConfigurationArgs struct {
-	// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
-	ConfigurationId pulumi.StringPtrInput
-	// Custom email addresses for this rule notifications
-	CustomEmails pulumi.StringArrayInput
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled pulumi.BoolPtrInput
-	// The last time this rule was updated
-	LastUpdatedTime pulumi.StringPtrInput
-	// The rule name
-	Name pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
+	ConfigurationId                pulumi.StringPtrInput
+	CustomEmails                   pulumi.StringArrayInput
+	Enabled                        pulumi.BoolPtrInput
+	LastUpdatedTime                pulumi.StringPtrInput
+	Name                           pulumi.StringPtrInput
+	ResourceGroupName              pulumi.StringInput
+	ResourceName                   pulumi.StringInput
+	RuleDefinitions                ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput
 	SendEmailsToSubscriptionOwners pulumi.BoolPtrInput
 }
 

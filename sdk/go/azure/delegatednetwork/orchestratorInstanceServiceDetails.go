@@ -14,34 +14,20 @@ import (
 type OrchestratorInstanceServiceDetails struct {
 	pulumi.CustomResourceState
 
-	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-	ApiServerEndpoint pulumi.StringPtrOutput `pulumi:"apiServerEndpoint"`
-	// RootCA certificate of kubernetes cluster base64 encoded
-	ClusterRootCA pulumi.StringPtrOutput `pulumi:"clusterRootCA"`
-	// Properties of the controller.
-	ControllerDetails ControllerDetailsResponseOutput `pulumi:"controllerDetails"`
-	// The identity of the orchestrator
-	Identity OrchestratorIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// AAD ID used with apiserver
-	OrchestratorAppId pulumi.StringPtrOutput `pulumi:"orchestratorAppId"`
-	// TenantID of server App ID
-	OrchestratorTenantId pulumi.StringPtrOutput `pulumi:"orchestratorTenantId"`
-	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-	PrivateLinkResourceId pulumi.StringPtrOutput `pulumi:"privateLinkResourceId"`
-	// The current state of orchestratorInstance resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ApiServerEndpoint     pulumi.StringPtrOutput                `pulumi:"apiServerEndpoint"`
+	ClusterRootCA         pulumi.StringPtrOutput                `pulumi:"clusterRootCA"`
+	ControllerDetails     ControllerDetailsResponseOutput       `pulumi:"controllerDetails"`
+	Identity              OrchestratorIdentityResponsePtrOutput `pulumi:"identity"`
+	Kind                  pulumi.StringOutput                   `pulumi:"kind"`
+	Location              pulumi.StringPtrOutput                `pulumi:"location"`
+	Name                  pulumi.StringOutput                   `pulumi:"name"`
+	OrchestratorAppId     pulumi.StringPtrOutput                `pulumi:"orchestratorAppId"`
+	OrchestratorTenantId  pulumi.StringPtrOutput                `pulumi:"orchestratorTenantId"`
+	PrivateLinkResourceId pulumi.StringPtrOutput                `pulumi:"privateLinkResourceId"`
+	ProvisioningState     pulumi.StringOutput                   `pulumi:"provisioningState"`
+	ResourceGuid          pulumi.StringOutput                   `pulumi:"resourceGuid"`
+	Tags                  pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                  pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewOrchestratorInstanceServiceDetails registers a new resource with the given unique name, arguments, and options.
@@ -110,58 +96,34 @@ func (OrchestratorInstanceServiceDetailsState) ElementType() reflect.Type {
 }
 
 type orchestratorInstanceServiceDetailsArgs struct {
-	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
-	// RootCA certificate of kubernetes cluster base64 encoded
-	ClusterRootCA *string `pulumi:"clusterRootCA"`
-	// Properties of the controller.
-	ControllerDetails ControllerDetailsType `pulumi:"controllerDetails"`
-	// The identity of the orchestrator
-	Identity *OrchestratorIdentity `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
-	Kind string `pulumi:"kind"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// AAD ID used with apiserver
-	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
-	// TenantID of server App ID
-	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
-	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName *string `pulumi:"resourceName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApiServerEndpoint     *string               `pulumi:"apiServerEndpoint"`
+	ClusterRootCA         *string               `pulumi:"clusterRootCA"`
+	ControllerDetails     ControllerDetailsType `pulumi:"controllerDetails"`
+	Identity              *OrchestratorIdentity `pulumi:"identity"`
+	Kind                  string                `pulumi:"kind"`
+	Location              *string               `pulumi:"location"`
+	OrchestratorAppId     *string               `pulumi:"orchestratorAppId"`
+	OrchestratorTenantId  *string               `pulumi:"orchestratorTenantId"`
+	PrivateLinkResourceId *string               `pulumi:"privateLinkResourceId"`
+	ResourceGroupName     string                `pulumi:"resourceGroupName"`
+	ResourceName          *string               `pulumi:"resourceName"`
+	Tags                  map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OrchestratorInstanceServiceDetails resource.
 type OrchestratorInstanceServiceDetailsArgs struct {
-	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-	ApiServerEndpoint pulumi.StringPtrInput
-	// RootCA certificate of kubernetes cluster base64 encoded
-	ClusterRootCA pulumi.StringPtrInput
-	// Properties of the controller.
-	ControllerDetails ControllerDetailsTypeInput
-	// The identity of the orchestrator
-	Identity OrchestratorIdentityPtrInput
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// AAD ID used with apiserver
-	OrchestratorAppId pulumi.StringPtrInput
-	// TenantID of server App ID
-	OrchestratorTenantId pulumi.StringPtrInput
-	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	ApiServerEndpoint     pulumi.StringPtrInput
+	ClusterRootCA         pulumi.StringPtrInput
+	ControllerDetails     ControllerDetailsTypeInput
+	Identity              OrchestratorIdentityPtrInput
+	Kind                  pulumi.StringInput
+	Location              pulumi.StringPtrInput
+	OrchestratorAppId     pulumi.StringPtrInput
+	OrchestratorTenantId  pulumi.StringPtrInput
 	PrivateLinkResourceId pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName     pulumi.StringInput
+	ResourceName          pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (OrchestratorInstanceServiceDetailsArgs) ElementType() reflect.Type {

@@ -14,32 +14,19 @@ import (
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled pulumi.BoolPtrOutput `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The URL that can be used to log into the container registry.
-	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The network rule set for a container registry.
-	NetworkRuleSet NetworkRuleSetResponsePtrOutput `pulumi:"networkRuleSet"`
-	// The policies for a container registry.
-	Policies PoliciesResponsePtrOutput `pulumi:"policies"`
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the container registry.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The status of the container registry at the time the operation was called.
-	Status StatusResponseOutput `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdminUserEnabled  pulumi.BoolPtrOutput                      `pulumi:"adminUserEnabled"`
+	CreationDate      pulumi.StringOutput                       `pulumi:"creationDate"`
+	Location          pulumi.StringOutput                       `pulumi:"location"`
+	LoginServer       pulumi.StringOutput                       `pulumi:"loginServer"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	NetworkRuleSet    NetworkRuleSetResponsePtrOutput           `pulumi:"networkRuleSet"`
+	Policies          PoliciesResponsePtrOutput                 `pulumi:"policies"`
+	ProvisioningState pulumi.StringOutput                       `pulumi:"provisioningState"`
+	Sku               SkuResponseOutput                         `pulumi:"sku"`
+	Status            StatusResponseOutput                      `pulumi:"status"`
+	StorageAccount    StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
+	Tags              pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -144,46 +131,28 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The network rule set for a container registry.
-	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
-	// The policies for a container registry.
-	Policies *Policies `pulumi:"policies"`
-	// The name of the container registry.
-	RegistryName *string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the container registry.
-	Sku Sku `pulumi:"sku"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountProperties `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AdminUserEnabled  *bool                     `pulumi:"adminUserEnabled"`
+	Location          *string                   `pulumi:"location"`
+	NetworkRuleSet    *NetworkRuleSet           `pulumi:"networkRuleSet"`
+	Policies          *Policies                 `pulumi:"policies"`
+	RegistryName      *string                   `pulumi:"registryName"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	Sku               Sku                       `pulumi:"sku"`
+	StorageAccount    *StorageAccountProperties `pulumi:"storageAccount"`
+	Tags              map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled pulumi.BoolPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The network rule set for a container registry.
-	NetworkRuleSet NetworkRuleSetPtrInput
-	// The policies for a container registry.
-	Policies PoliciesPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
+	AdminUserEnabled  pulumi.BoolPtrInput
+	Location          pulumi.StringPtrInput
+	NetworkRuleSet    NetworkRuleSetPtrInput
+	Policies          PoliciesPtrInput
+	RegistryName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the container registry.
-	Sku SkuInput
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	StorageAccount    StorageAccountPropertiesPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
