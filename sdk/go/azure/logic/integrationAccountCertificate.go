@@ -14,24 +14,15 @@ import (
 type IntegrationAccountCertificate struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The key details in the key vault.
-	Key KeyVaultKeyReferenceResponsePtrOutput `pulumi:"key"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The public certificate.
-	PublicCertificate pulumi.StringPtrOutput `pulumi:"publicCertificate"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ChangedTime       pulumi.StringOutput                   `pulumi:"changedTime"`
+	CreatedTime       pulumi.StringOutput                   `pulumi:"createdTime"`
+	Key               KeyVaultKeyReferenceResponsePtrOutput `pulumi:"key"`
+	Location          pulumi.StringPtrOutput                `pulumi:"location"`
+	Metadata          pulumi.AnyOutput                      `pulumi:"metadata"`
+	Name              pulumi.StringOutput                   `pulumi:"name"`
+	PublicCertificate pulumi.StringPtrOutput                `pulumi:"publicCertificate"`
+	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
+	Type              pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewIntegrationAccountCertificate registers a new resource with the given unique name, arguments, and options.
@@ -109,42 +100,26 @@ func (IntegrationAccountCertificateState) ElementType() reflect.Type {
 }
 
 type integrationAccountCertificateArgs struct {
-	// The integration account certificate name.
-	CertificateName *string `pulumi:"certificateName"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The key details in the key vault.
-	Key *KeyVaultKeyReference `pulumi:"key"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The public certificate.
-	PublicCertificate *string `pulumi:"publicCertificate"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CertificateName        *string               `pulumi:"certificateName"`
+	IntegrationAccountName string                `pulumi:"integrationAccountName"`
+	Key                    *KeyVaultKeyReference `pulumi:"key"`
+	Location               *string               `pulumi:"location"`
+	Metadata               interface{}           `pulumi:"metadata"`
+	PublicCertificate      *string               `pulumi:"publicCertificate"`
+	ResourceGroupName      string                `pulumi:"resourceGroupName"`
+	Tags                   map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountCertificate resource.
 type IntegrationAccountCertificateArgs struct {
-	// The integration account certificate name.
-	CertificateName pulumi.StringPtrInput
-	// The integration account name.
+	CertificateName        pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The key details in the key vault.
-	Key KeyVaultKeyReferencePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The public certificate.
-	PublicCertificate pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Key                    KeyVaultKeyReferencePtrInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	PublicCertificate      pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountCertificateArgs) ElementType() reflect.Type {

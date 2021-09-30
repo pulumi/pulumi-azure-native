@@ -14,16 +14,11 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The SKU of the resource
-	Sku SKUResponseOutput `pulumi:"sku"`
-	// The tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The fully qualified type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location pulumi.StringOutput    `pulumi:"location"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Sku      SKUResponseOutput      `pulumi:"sku"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -83,30 +78,20 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Account Name
-	AccountName *string `pulumi:"accountName"`
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the resource
-	Sku SKU `pulumi:"sku"`
-	// The tags of the resource
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               SKU               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Account Name
-	AccountName pulumi.StringPtrInput
-	// The location of the resource
-	Location pulumi.StringPtrInput
-	// Resource Group Name
+	AccountName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the resource
-	Sku SKUInput
-	// The tags of the resource
-	Tags pulumi.StringMapInput
+	Sku               SKUInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

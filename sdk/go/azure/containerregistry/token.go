@@ -14,22 +14,14 @@ import (
 type Token struct {
 	pulumi.CustomResourceState
 
-	// The creation date of scope map.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The credentials that can be used for authenticating the token.
-	Credentials TokenCredentialsPropertiesResponsePtrOutput `pulumi:"credentials"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource ID of the scope map to which the token will be associated with.
-	ScopeMapId pulumi.StringPtrOutput `pulumi:"scopeMapId"`
-	// The status of the token example enabled or disabled.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationDate      pulumi.StringOutput                         `pulumi:"creationDate"`
+	Credentials       TokenCredentialsPropertiesResponsePtrOutput `pulumi:"credentials"`
+	Name              pulumi.StringOutput                         `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                         `pulumi:"provisioningState"`
+	ScopeMapId        pulumi.StringPtrOutput                      `pulumi:"scopeMapId"`
+	Status            pulumi.StringPtrOutput                      `pulumi:"status"`
+	SystemData        SystemDataResponseOutput                    `pulumi:"systemData"`
+	Type              pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewToken registers a new resource with the given unique name, arguments, and options.
@@ -101,34 +93,22 @@ func (TokenState) ElementType() reflect.Type {
 }
 
 type tokenArgs struct {
-	// The credentials that can be used for authenticating the token.
-	Credentials *TokenCredentialsProperties `pulumi:"credentials"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource ID of the scope map to which the token will be associated with.
-	ScopeMapId *string `pulumi:"scopeMapId"`
-	// The status of the token example enabled or disabled.
-	Status *string `pulumi:"status"`
-	// The name of the token.
-	TokenName *string `pulumi:"tokenName"`
+	Credentials       *TokenCredentialsProperties `pulumi:"credentials"`
+	RegistryName      string                      `pulumi:"registryName"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	ScopeMapId        *string                     `pulumi:"scopeMapId"`
+	Status            *string                     `pulumi:"status"`
+	TokenName         *string                     `pulumi:"tokenName"`
 }
 
 // The set of arguments for constructing a Token resource.
 type TokenArgs struct {
-	// The credentials that can be used for authenticating the token.
-	Credentials TokenCredentialsPropertiesPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
+	Credentials       TokenCredentialsPropertiesPtrInput
+	RegistryName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The resource ID of the scope map to which the token will be associated with.
-	ScopeMapId pulumi.StringPtrInput
-	// The status of the token example enabled or disabled.
-	Status pulumi.StringPtrInput
-	// The name of the token.
-	TokenName pulumi.StringPtrInput
+	ScopeMapId        pulumi.StringPtrInput
+	Status            pulumi.StringPtrInput
+	TokenName         pulumi.StringPtrInput
 }
 
 func (TokenArgs) ElementType() reflect.Type {

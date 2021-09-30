@@ -14,25 +14,15 @@ import (
 type SqlDWTableDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// DataWarehouse name of the source data set
-	DataWarehouseName pulumi.StringOutput `pulumi:"dataWarehouseName"`
-	// Kind of data set.
-	// Expected value is 'SqlDWTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringOutput `pulumi:"sqlServerResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// SQL DW table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId           pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataWarehouseName   pulumi.StringOutput      `pulumi:"dataWarehouseName"`
+	Kind                pulumi.StringOutput      `pulumi:"kind"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	SchemaName          pulumi.StringOutput      `pulumi:"schemaName"`
+	SqlServerResourceId pulumi.StringOutput      `pulumi:"sqlServerResourceId"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	TableName           pulumi.StringOutput      `pulumi:"tableName"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlDWTableDataSet registers a new resource with the given unique name, arguments, and options.
@@ -135,48 +125,28 @@ func (SqlDWTableDataSetState) ElementType() reflect.Type {
 }
 
 type sqlDWTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// DataWarehouse name of the source data set
-	DataWarehouseName string `pulumi:"dataWarehouseName"`
-	// Kind of data set.
-	// Expected value is 'SqlDWTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Resource id of SQL server
-	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DW table name.
-	TableName string `pulumi:"tableName"`
+	AccountName         string  `pulumi:"accountName"`
+	DataSetName         *string `pulumi:"dataSetName"`
+	DataWarehouseName   string  `pulumi:"dataWarehouseName"`
+	Kind                string  `pulumi:"kind"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	SchemaName          string  `pulumi:"schemaName"`
+	ShareName           string  `pulumi:"shareName"`
+	SqlServerResourceId string  `pulumi:"sqlServerResourceId"`
+	TableName           string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a SqlDWTableDataSet resource.
 type SqlDWTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// DataWarehouse name of the source data set
-	DataWarehouseName pulumi.StringInput
-	// Kind of data set.
-	// Expected value is 'SqlDWTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Resource id of SQL server
+	AccountName         pulumi.StringInput
+	DataSetName         pulumi.StringPtrInput
+	DataWarehouseName   pulumi.StringInput
+	Kind                pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
+	SchemaName          pulumi.StringInput
+	ShareName           pulumi.StringInput
 	SqlServerResourceId pulumi.StringInput
-	// SQL DW table name.
-	TableName pulumi.StringInput
+	TableName           pulumi.StringInput
 }
 
 func (SqlDWTableDataSetArgs) ElementType() reflect.Type {

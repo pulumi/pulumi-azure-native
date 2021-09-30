@@ -14,20 +14,13 @@ import (
 type ApplicationGatewayPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The consumer link id.
-	LinkIdentifier pulumi.StringOutput `pulumi:"linkIdentifier"`
-	// Name of the private endpoint connection on an application gateway.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Etag                              pulumi.StringOutput                                `pulumi:"etag"`
+	LinkIdentifier                    pulumi.StringOutput                                `pulumi:"linkIdentifier"`
+	Name                              pulumi.StringPtrOutput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponseOutput                      `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the application gateway private endpoint connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewApplicationGatewayPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -123,34 +116,22 @@ func (ApplicationGatewayPrivateEndpointConnectionState) ElementType() reflect.Ty
 }
 
 type applicationGatewayPrivateEndpointConnectionArgs struct {
-	// The name of the application gateway.
-	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
-	// The name of the application gateway private endpoint connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the private endpoint connection on an application gateway.
-	Name *string `pulumi:"name"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	ApplicationGatewayName            string                             `pulumi:"applicationGatewayName"`
+	ConnectionName                    *string                            `pulumi:"connectionName"`
+	Id                                *string                            `pulumi:"id"`
+	Name                              *string                            `pulumi:"name"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ApplicationGatewayPrivateEndpointConnection resource.
 type ApplicationGatewayPrivateEndpointConnectionArgs struct {
-	// The name of the application gateway.
-	ApplicationGatewayName pulumi.StringInput
-	// The name of the application gateway private endpoint connection.
-	ConnectionName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Name of the private endpoint connection on an application gateway.
-	Name pulumi.StringPtrInput
-	// A collection of information about the state of the connection between service consumer and provider.
+	ApplicationGatewayName            pulumi.StringInput
+	ConnectionName                    pulumi.StringPtrInput
+	Id                                pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (ApplicationGatewayPrivateEndpointConnectionArgs) ElementType() reflect.Type {

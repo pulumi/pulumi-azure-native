@@ -14,20 +14,13 @@ import (
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
 
-	// Client ID of developer console which is the client application.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Client Secret of developer console which is the client application.
-	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	// User-friendly description of OpenID Connect Provider.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// User-friendly OpenID Connect Provider name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Metadata endpoint URI.
-	MetadataEndpoint pulumi.StringOutput `pulumi:"metadataEndpoint"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClientId         pulumi.StringOutput    `pulumi:"clientId"`
+	ClientSecret     pulumi.StringPtrOutput `pulumi:"clientSecret"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	DisplayName      pulumi.StringOutput    `pulumi:"displayName"`
+	MetadataEndpoint pulumi.StringOutput    `pulumi:"metadataEndpoint"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewOpenIdConnectProvider registers a new resource with the given unique name, arguments, and options.
@@ -162,42 +155,26 @@ func (OpenIdConnectProviderState) ElementType() reflect.Type {
 }
 
 type openIdConnectProviderArgs struct {
-	// Client ID of developer console which is the client application.
-	ClientId string `pulumi:"clientId"`
-	// Client Secret of developer console which is the client application.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// User-friendly description of OpenID Connect Provider.
-	Description *string `pulumi:"description"`
-	// User-friendly OpenID Connect Provider name.
-	DisplayName string `pulumi:"displayName"`
-	// Metadata endpoint URI.
-	MetadataEndpoint string `pulumi:"metadataEndpoint"`
-	// Identifier of the OpenID Connect Provider.
-	Opid *string `pulumi:"opid"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ClientId          string  `pulumi:"clientId"`
+	ClientSecret      *string `pulumi:"clientSecret"`
+	Description       *string `pulumi:"description"`
+	DisplayName       string  `pulumi:"displayName"`
+	MetadataEndpoint  string  `pulumi:"metadataEndpoint"`
+	Opid              *string `pulumi:"opid"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a OpenIdConnectProvider resource.
 type OpenIdConnectProviderArgs struct {
-	// Client ID of developer console which is the client application.
-	ClientId pulumi.StringInput
-	// Client Secret of developer console which is the client application.
-	ClientSecret pulumi.StringPtrInput
-	// User-friendly description of OpenID Connect Provider.
-	Description pulumi.StringPtrInput
-	// User-friendly OpenID Connect Provider name.
-	DisplayName pulumi.StringInput
-	// Metadata endpoint URI.
-	MetadataEndpoint pulumi.StringInput
-	// Identifier of the OpenID Connect Provider.
-	Opid pulumi.StringPtrInput
-	// The name of the resource group.
+	ClientId          pulumi.StringInput
+	ClientSecret      pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringInput
+	MetadataEndpoint  pulumi.StringInput
+	Opid              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {

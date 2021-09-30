@@ -13,20 +13,13 @@ import (
 type PeerAsn struct {
 	pulumi.CustomResourceState
 
-	// The error message for the validation state
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn pulumi.IntPtrOutput `pulumi:"peerAsn"`
-	// The contact details of the peer.
+	ErrorMessage      pulumi.StringOutput              `pulumi:"errorMessage"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	PeerAsn           pulumi.IntPtrOutput              `pulumi:"peerAsn"`
 	PeerContactDetail ContactDetailResponseArrayOutput `pulumi:"peerContactDetail"`
-	// The name of the peer.
-	PeerName pulumi.StringPtrOutput `pulumi:"peerName"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringPtrOutput `pulumi:"validationState"`
+	PeerName          pulumi.StringPtrOutput           `pulumi:"peerName"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
+	ValidationState   pulumi.StringPtrOutput           `pulumi:"validationState"`
 }
 
 // NewPeerAsn registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +109,20 @@ func (PeerAsnState) ElementType() reflect.Type {
 }
 
 type peerAsnArgs struct {
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn *int `pulumi:"peerAsn"`
-	// The peer ASN name.
-	PeerAsnName *string `pulumi:"peerAsnName"`
-	// The contact details of the peer.
+	PeerAsn           *int            `pulumi:"peerAsn"`
+	PeerAsnName       *string         `pulumi:"peerAsnName"`
 	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
-	// The name of the peer.
-	PeerName *string `pulumi:"peerName"`
-	// The validation state of the ASN associated with the peer.
-	ValidationState *string `pulumi:"validationState"`
+	PeerName          *string         `pulumi:"peerName"`
+	ValidationState   *string         `pulumi:"validationState"`
 }
 
 // The set of arguments for constructing a PeerAsn resource.
 type PeerAsnArgs struct {
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn pulumi.IntPtrInput
-	// The peer ASN name.
-	PeerAsnName pulumi.StringPtrInput
-	// The contact details of the peer.
+	PeerAsn           pulumi.IntPtrInput
+	PeerAsnName       pulumi.StringPtrInput
 	PeerContactDetail ContactDetailArrayInput
-	// The name of the peer.
-	PeerName pulumi.StringPtrInput
-	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringPtrInput
+	PeerName          pulumi.StringPtrInput
+	ValidationState   pulumi.StringPtrInput
 }
 
 func (PeerAsnArgs) ElementType() reflect.Type {

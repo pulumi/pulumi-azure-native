@@ -14,16 +14,11 @@ import (
 type DeploymentAtScope struct {
 	pulumi.CustomResourceState
 
-	// the location of the deployment.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeploymentAtScope registers a new resource with the given unique name, arguments, and options.
@@ -125,30 +120,20 @@ func (DeploymentAtScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtScopeArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// The location to store the deployment data.
-	Location *string `pulumi:"location"`
-	// The deployment properties.
-	Properties DeploymentProperties `pulumi:"properties"`
-	// The resource scope.
-	Scope string `pulumi:"scope"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentName *string              `pulumi:"deploymentName"`
+	Location       *string              `pulumi:"location"`
+	Properties     DeploymentProperties `pulumi:"properties"`
+	Scope          string               `pulumi:"scope"`
+	Tags           map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentAtScope resource.
 type DeploymentAtScopeArgs struct {
-	// The name of the deployment.
 	DeploymentName pulumi.StringPtrInput
-	// The location to store the deployment data.
-	Location pulumi.StringPtrInput
-	// The deployment properties.
-	Properties DeploymentPropertiesInput
-	// The resource scope.
-	Scope pulumi.StringInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
+	Location       pulumi.StringPtrInput
+	Properties     DeploymentPropertiesInput
+	Scope          pulumi.StringInput
+	Tags           pulumi.StringMapInput
 }
 
 func (DeploymentAtScopeArgs) ElementType() reflect.Type {

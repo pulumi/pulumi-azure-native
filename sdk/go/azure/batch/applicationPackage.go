@@ -14,22 +14,14 @@ import (
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The format of the application package, if the package is active.
-	Format pulumi.StringOutput `pulumi:"format"`
-	// The time at which the package was last activated, if the package is active.
+	Etag               pulumi.StringOutput `pulumi:"etag"`
+	Format             pulumi.StringOutput `pulumi:"format"`
 	LastActivationTime pulumi.StringOutput `pulumi:"lastActivationTime"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current state of the application package.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The URL for the application package in Azure Storage.
-	StorageUrl pulumi.StringOutput `pulumi:"storageUrl"`
-	// The UTC time at which the Azure Storage URL will expire.
-	StorageUrlExpiry pulumi.StringOutput `pulumi:"storageUrlExpiry"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name               pulumi.StringOutput `pulumi:"name"`
+	State              pulumi.StringOutput `pulumi:"state"`
+	StorageUrl         pulumi.StringOutput `pulumi:"storageUrl"`
+	StorageUrlExpiry   pulumi.StringOutput `pulumi:"storageUrlExpiry"`
+	Type               pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewApplicationPackage registers a new resource with the given unique name, arguments, and options.
@@ -158,26 +150,18 @@ func (ApplicationPackageState) ElementType() reflect.Type {
 }
 
 type applicationPackageArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the application. This must be unique within the account.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The version of the application.
-	VersionName *string `pulumi:"versionName"`
+	AccountName       string  `pulumi:"accountName"`
+	ApplicationName   string  `pulumi:"applicationName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	VersionName       *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a ApplicationPackage resource.
 type ApplicationPackageArgs struct {
-	// The name of the Batch account.
-	AccountName pulumi.StringInput
-	// The name of the application. This must be unique within the account.
-	ApplicationName pulumi.StringInput
-	// The name of the resource group that contains the Batch account.
+	AccountName       pulumi.StringInput
+	ApplicationName   pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The version of the application.
-	VersionName pulumi.StringPtrInput
+	VersionName       pulumi.StringPtrInput
 }
 
 func (ApplicationPackageArgs) ElementType() reflect.Type {

@@ -14,16 +14,11 @@ import (
 type JobCollection struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the storage account location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets the job collection properties.
+	Location   pulumi.StringPtrOutput                `pulumi:"location"`
+	Name       pulumi.StringPtrOutput                `pulumi:"name"`
 	Properties JobCollectionPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the job collection resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                `pulumi:"tags"`
+	Type       pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewJobCollection registers a new resource with the given unique name, arguments, and options.
@@ -92,34 +87,22 @@ func (JobCollectionState) ElementType() reflect.Type {
 }
 
 type jobCollectionArgs struct {
-	// The job collection name.
-	JobCollectionName *string `pulumi:"jobCollectionName"`
-	// Gets or sets the storage account location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the job collection properties.
-	Properties *JobCollectionProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the tags.
-	Tags map[string]string `pulumi:"tags"`
+	JobCollectionName *string                  `pulumi:"jobCollectionName"`
+	Location          *string                  `pulumi:"location"`
+	Name              *string                  `pulumi:"name"`
+	Properties        *JobCollectionProperties `pulumi:"properties"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobCollection resource.
 type JobCollectionArgs struct {
-	// The job collection name.
 	JobCollectionName pulumi.StringPtrInput
-	// Gets or sets the storage account location.
-	Location pulumi.StringPtrInput
-	// Gets or sets the job collection resource name.
-	Name pulumi.StringPtrInput
-	// Gets or sets the job collection properties.
-	Properties JobCollectionPropertiesPtrInput
-	// The resource group name.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        JobCollectionPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Gets or sets the tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (JobCollectionArgs) ElementType() reflect.Type {

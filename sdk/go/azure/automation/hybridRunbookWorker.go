@@ -14,24 +14,15 @@ import (
 type HybridRunbookWorker struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the assigned machine IP address.
-	Ip pulumi.StringPtrOutput `pulumi:"ip"`
-	// Last Heartbeat from the Worker
-	LastSeenDateTime pulumi.StringPtrOutput `pulumi:"lastSeenDateTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the registration time of the worker machine.
-	RegisteredDateTime pulumi.StringPtrOutput `pulumi:"registeredDateTime"`
-	// Resource system metadata.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Azure Resource Manager Id for a virtual machine.
-	VmResourceId pulumi.StringPtrOutput `pulumi:"vmResourceId"`
-	// Name of the HybridWorker.
-	WorkerName pulumi.StringPtrOutput `pulumi:"workerName"`
-	// Type of the HybridWorker.
-	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
+	Ip                 pulumi.StringPtrOutput   `pulumi:"ip"`
+	LastSeenDateTime   pulumi.StringPtrOutput   `pulumi:"lastSeenDateTime"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	RegisteredDateTime pulumi.StringPtrOutput   `pulumi:"registeredDateTime"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
+	VmResourceId       pulumi.StringPtrOutput   `pulumi:"vmResourceId"`
+	WorkerName         pulumi.StringPtrOutput   `pulumi:"workerName"`
+	WorkerType         pulumi.StringPtrOutput   `pulumi:"workerType"`
 }
 
 // NewHybridRunbookWorker registers a new resource with the given unique name, arguments, and options.
@@ -94,34 +85,22 @@ func (HybridRunbookWorkerState) ElementType() reflect.Type {
 }
 
 type hybridRunbookWorkerArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The hybrid runbook worker group name
-	HybridRunbookWorkerGroupName string `pulumi:"hybridRunbookWorkerGroupName"`
-	// The hybrid runbook worker id
-	HybridRunbookWorkerId *string `pulumi:"hybridRunbookWorkerId"`
-	// Gets or sets the name of the resource.
-	Name *string `pulumi:"name"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure Resource Manager Id for a virtual machine.
-	VmResourceId *string `pulumi:"vmResourceId"`
+	AutomationAccountName        string  `pulumi:"automationAccountName"`
+	HybridRunbookWorkerGroupName string  `pulumi:"hybridRunbookWorkerGroupName"`
+	HybridRunbookWorkerId        *string `pulumi:"hybridRunbookWorkerId"`
+	Name                         *string `pulumi:"name"`
+	ResourceGroupName            string  `pulumi:"resourceGroupName"`
+	VmResourceId                 *string `pulumi:"vmResourceId"`
 }
 
 // The set of arguments for constructing a HybridRunbookWorker resource.
 type HybridRunbookWorkerArgs struct {
-	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
-	// The hybrid runbook worker group name
+	AutomationAccountName        pulumi.StringInput
 	HybridRunbookWorkerGroupName pulumi.StringInput
-	// The hybrid runbook worker id
-	HybridRunbookWorkerId pulumi.StringPtrInput
-	// Gets or sets the name of the resource.
-	Name pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Azure Resource Manager Id for a virtual machine.
-	VmResourceId pulumi.StringPtrInput
+	HybridRunbookWorkerId        pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	VmResourceId                 pulumi.StringPtrInput
 }
 
 func (HybridRunbookWorkerArgs) ElementType() reflect.Type {

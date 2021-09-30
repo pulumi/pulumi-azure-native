@@ -13651,6 +13651,7 @@ _utilities.register(
    "azure-native:security:AlertsSuppressionRule": "AlertsSuppressionRule",
    "azure-native:security:Assessment": "Assessment",
    "azure-native:security:AssessmentMetadataInSubscription": "AssessmentMetadataInSubscription",
+   "azure-native:security:Assignment": "Assignment",
    "azure-native:security:Automation": "Automation",
    "azure-native:security:Connector": "Connector",
    "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
@@ -13662,6 +13663,7 @@ _utilities.register(
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
+   "azure-native:security:Standard": "Standard",
    "azure-native:security:WorkspaceSetting": "WorkspaceSetting"
   }
  },
@@ -13767,6 +13769,15 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20210701preview:CustomAssessmentAutomation": "CustomAssessmentAutomation",
    "azure-native:security/v20210701preview:CustomEntityStoreAssignment": "CustomEntityStoreAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20210801preview",
+  "fqn": "pulumi_azure_native.security.v20210801preview",
+  "classes": {
+   "azure-native:security/v20210801preview:Assignment": "Assignment",
+   "azure-native:security/v20210801preview:Standard": "Standard"
   }
  },
  {

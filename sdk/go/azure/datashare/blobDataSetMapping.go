@@ -14,33 +14,19 @@ import (
 type BlobDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// Container that has the file path.
-	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// File path within the source data set
-	FilePath pulumi.StringOutput `pulumi:"filePath"`
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// File output type
-	OutputType pulumi.StringPtrOutput `pulumi:"outputType"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContainerName        pulumi.StringOutput      `pulumi:"containerName"`
+	DataSetId            pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	FilePath             pulumi.StringOutput      `pulumi:"filePath"`
+	Kind                 pulumi.StringOutput      `pulumi:"kind"`
+	Name                 pulumi.StringOutput      `pulumi:"name"`
+	OutputType           pulumi.StringPtrOutput   `pulumi:"outputType"`
+	ProvisioningState    pulumi.StringOutput      `pulumi:"provisioningState"`
+	ResourceGroup        pulumi.StringOutput      `pulumi:"resourceGroup"`
+	StorageAccountName   pulumi.StringOutput      `pulumi:"storageAccountName"`
+	SubscriptionId       pulumi.StringOutput      `pulumi:"subscriptionId"`
+	SystemData           SystemDataResponseOutput `pulumi:"systemData"`
+	Type                 pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewBlobDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -149,60 +135,34 @@ func (BlobDataSetMappingState) ElementType() reflect.Type {
 }
 
 type blobDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// File path within the source data set
-	FilePath string `pulumi:"filePath"`
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind string `pulumi:"kind"`
-	// File output type
-	OutputType *string `pulumi:"outputType"`
-	// Resource group of storage account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Storage account name of the source data set.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	AccountName           string  `pulumi:"accountName"`
+	ContainerName         string  `pulumi:"containerName"`
+	DataSetId             string  `pulumi:"dataSetId"`
+	DataSetMappingName    *string `pulumi:"dataSetMappingName"`
+	FilePath              string  `pulumi:"filePath"`
+	Kind                  string  `pulumi:"kind"`
+	OutputType            *string `pulumi:"outputType"`
+	ResourceGroup         string  `pulumi:"resourceGroup"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	StorageAccountName    string  `pulumi:"storageAccountName"`
+	SubscriptionId        string  `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a BlobDataSetMapping resource.
 type BlobDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Container that has the file path.
-	ContainerName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// File path within the source data set
-	FilePath pulumi.StringInput
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringInput
-	// File output type
-	OutputType pulumi.StringPtrInput
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	ContainerName         pulumi.StringInput
+	DataSetId             pulumi.StringInput
+	DataSetMappingName    pulumi.StringPtrInput
+	FilePath              pulumi.StringInput
+	Kind                  pulumi.StringInput
+	OutputType            pulumi.StringPtrInput
+	ResourceGroup         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringInput
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringInput
+	StorageAccountName    pulumi.StringInput
+	SubscriptionId        pulumi.StringInput
 }
 
 func (BlobDataSetMappingArgs) ElementType() reflect.Type {

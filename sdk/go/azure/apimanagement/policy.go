@@ -14,14 +14,10 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Format of the policyContent.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Name   pulumi.StringOutput    `pulumi:"name"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
+	Value  pulumi.StringOutput    `pulumi:"value"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -141,30 +137,20 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Format of the policyContent.
-	Format *string `pulumi:"format"`
-	// The identifier of the Policy.
-	PolicyId *string `pulumi:"policyId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Contents of the Policy as defined by the format.
-	Value string `pulumi:"value"`
+	Format            *string `pulumi:"format"`
+	PolicyId          *string `pulumi:"policyId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Value             string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Format of the policyContent.
-	Format pulumi.StringPtrInput
-	// The identifier of the Policy.
-	PolicyId pulumi.StringPtrInput
-	// The name of the resource group.
+	Format            pulumi.StringPtrInput
+	PolicyId          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringInput
+	ServiceName       pulumi.StringInput
+	Value             pulumi.StringInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

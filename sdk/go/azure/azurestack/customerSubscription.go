@@ -14,14 +14,10 @@ import (
 type CustomerSubscription struct {
 	pulumi.CustomResourceState
 
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Tenant Id.
+	Etag     pulumi.StringPtrOutput `pulumi:"etag"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Type of Resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCustomerSubscription registers a new resource with the given unique name, arguments, and options.
@@ -87,30 +83,20 @@ func (CustomerSubscriptionState) ElementType() reflect.Type {
 }
 
 type customerSubscriptionArgs struct {
-	// Name of the product.
 	CustomerSubscriptionName *string `pulumi:"customerSubscriptionName"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// Name of the Azure Stack registration.
-	RegistrationName string `pulumi:"registrationName"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Tenant Id.
-	TenantId *string `pulumi:"tenantId"`
+	Etag                     *string `pulumi:"etag"`
+	RegistrationName         string  `pulumi:"registrationName"`
+	ResourceGroup            string  `pulumi:"resourceGroup"`
+	TenantId                 *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a CustomerSubscription resource.
 type CustomerSubscriptionArgs struct {
-	// Name of the product.
 	CustomerSubscriptionName pulumi.StringPtrInput
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput
-	// Name of the Azure Stack registration.
-	RegistrationName pulumi.StringInput
-	// Name of the resource group.
-	ResourceGroup pulumi.StringInput
-	// Tenant Id.
-	TenantId pulumi.StringPtrInput
+	Etag                     pulumi.StringPtrInput
+	RegistrationName         pulumi.StringInput
+	ResourceGroup            pulumi.StringInput
+	TenantId                 pulumi.StringPtrInput
 }
 
 func (CustomerSubscriptionArgs) ElementType() reflect.Type {

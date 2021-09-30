@@ -14,14 +14,10 @@ import (
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Unique name of an assessment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the assessment.
+	ETag       pulumi.StringPtrOutput             `pulumi:"eTag"`
+	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties AssessmentPropertiesResponseOutput `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -87,33 +83,21 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// Unique name of an assessment within a project.
-	AssessmentName *string `pulumi:"assessmentName"`
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a group within a project.
-	GroupName string `pulumi:"groupName"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Properties of the assessment.
-	Properties AssessmentProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AssessmentName    *string              `pulumi:"assessmentName"`
+	ETag              *string              `pulumi:"eTag"`
+	GroupName         string               `pulumi:"groupName"`
+	ProjectName       string               `pulumi:"projectName"`
+	Properties        AssessmentProperties `pulumi:"properties"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// Unique name of an assessment within a project.
-	AssessmentName pulumi.StringPtrInput
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Unique name of a group within a project.
-	GroupName pulumi.StringInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	// Properties of the assessment.
-	Properties AssessmentPropertiesInput
-	// Name of the Azure Resource Group that project is part of.
+	AssessmentName    pulumi.StringPtrInput
+	ETag              pulumi.StringPtrInput
+	GroupName         pulumi.StringInput
+	ProjectName       pulumi.StringInput
+	Properties        AssessmentPropertiesInput
 	ResourceGroupName pulumi.StringInput
 }
 

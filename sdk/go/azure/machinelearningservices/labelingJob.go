@@ -14,14 +14,10 @@ import (
 type LabelingJob struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource entity.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Definition of a labeling job.
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties LabelingJobPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The resource provider and type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewLabelingJob registers a new resource with the given unique name, arguments, and options.
@@ -87,26 +83,18 @@ func (LabelingJobState) ElementType() reflect.Type {
 }
 
 type labelingJobArgs struct {
-	// Name and identifier for LabelingJob.
-	LabelingJobId *string `pulumi:"labelingJobId"`
-	// Definition of a labeling job.
-	Properties *LabelingJobProperties `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	LabelingJobId     *string                `pulumi:"labelingJobId"`
+	Properties        *LabelingJobProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	WorkspaceName     string                 `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LabelingJob resource.
 type LabelingJobArgs struct {
-	// Name and identifier for LabelingJob.
-	LabelingJobId pulumi.StringPtrInput
-	// Definition of a labeling job.
-	Properties LabelingJobPropertiesPtrInput
-	// Name of the resource group in which workspace is located.
+	LabelingJobId     pulumi.StringPtrInput
+	Properties        LabelingJobPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LabelingJobArgs) ElementType() reflect.Type {

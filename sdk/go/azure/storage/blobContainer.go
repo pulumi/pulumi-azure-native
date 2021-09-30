@@ -14,44 +14,25 @@ import (
 type BlobContainer struct {
 	pulumi.CustomResourceState
 
-	// Default the container to use specified encryption scope for all writes.
-	DefaultEncryptionScope pulumi.StringPtrOutput `pulumi:"defaultEncryptionScope"`
-	// Indicates whether the blob container was deleted.
-	Deleted pulumi.BoolOutput `pulumi:"deleted"`
-	// Blob container deletion time.
-	DeletedTime pulumi.StringOutput `pulumi:"deletedTime"`
-	// Block override of encryption scope from the container default.
-	DenyEncryptionScopeOverride pulumi.BoolPtrOutput `pulumi:"denyEncryptionScopeOverride"`
-	// Resource Etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
-	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponseOutput `pulumi:"immutabilityPolicy"`
-	// Returns the date and time the container was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-	LeaseDuration pulumi.StringOutput `pulumi:"leaseDuration"`
-	// Lease state of the container.
-	LeaseState pulumi.StringOutput `pulumi:"leaseState"`
-	// The lease status of the container.
-	LeaseStatus pulumi.StringOutput `pulumi:"leaseStatus"`
-	// The LegalHold property of the container.
-	LegalHold LegalHoldPropertiesResponseOutput `pulumi:"legalHold"`
-	// A name-value pair to associate with the container as metadata.
-	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess pulumi.StringPtrOutput `pulumi:"publicAccess"`
-	// Remaining retention days for soft deleted blob container.
-	RemainingRetentionDays pulumi.IntOutput `pulumi:"remainingRetentionDays"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version of the deleted blob container.
-	Version pulumi.StringOutput `pulumi:"version"`
+	DefaultEncryptionScope      pulumi.StringPtrOutput                     `pulumi:"defaultEncryptionScope"`
+	Deleted                     pulumi.BoolOutput                          `pulumi:"deleted"`
+	DeletedTime                 pulumi.StringOutput                        `pulumi:"deletedTime"`
+	DenyEncryptionScopeOverride pulumi.BoolPtrOutput                       `pulumi:"denyEncryptionScopeOverride"`
+	Etag                        pulumi.StringOutput                        `pulumi:"etag"`
+	HasImmutabilityPolicy       pulumi.BoolOutput                          `pulumi:"hasImmutabilityPolicy"`
+	HasLegalHold                pulumi.BoolOutput                          `pulumi:"hasLegalHold"`
+	ImmutabilityPolicy          ImmutabilityPolicyPropertiesResponseOutput `pulumi:"immutabilityPolicy"`
+	LastModifiedTime            pulumi.StringOutput                        `pulumi:"lastModifiedTime"`
+	LeaseDuration               pulumi.StringOutput                        `pulumi:"leaseDuration"`
+	LeaseState                  pulumi.StringOutput                        `pulumi:"leaseState"`
+	LeaseStatus                 pulumi.StringOutput                        `pulumi:"leaseStatus"`
+	LegalHold                   LegalHoldPropertiesResponseOutput          `pulumi:"legalHold"`
+	Metadata                    pulumi.StringMapOutput                     `pulumi:"metadata"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	PublicAccess                pulumi.StringPtrOutput                     `pulumi:"publicAccess"`
+	RemainingRetentionDays      pulumi.IntOutput                           `pulumi:"remainingRetentionDays"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
+	Version                     pulumi.StringOutput                        `pulumi:"version"`
 }
 
 // NewBlobContainer registers a new resource with the given unique name, arguments, and options.
@@ -171,38 +152,24 @@ func (BlobContainerState) ElementType() reflect.Type {
 }
 
 type blobContainerArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName *string `pulumi:"containerName"`
-	// Default the container to use specified encryption scope for all writes.
-	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
-	// Block override of encryption scope from the container default.
-	DenyEncryptionScopeOverride *bool `pulumi:"denyEncryptionScopeOverride"`
-	// A name-value pair to associate with the container as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *PublicAccess `pulumi:"publicAccess"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName                 string            `pulumi:"accountName"`
+	ContainerName               *string           `pulumi:"containerName"`
+	DefaultEncryptionScope      *string           `pulumi:"defaultEncryptionScope"`
+	DenyEncryptionScopeOverride *bool             `pulumi:"denyEncryptionScopeOverride"`
+	Metadata                    map[string]string `pulumi:"metadata"`
+	PublicAccess                *PublicAccess     `pulumi:"publicAccess"`
+	ResourceGroupName           string            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BlobContainer resource.
 type BlobContainerArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName pulumi.StringPtrInput
-	// Default the container to use specified encryption scope for all writes.
-	DefaultEncryptionScope pulumi.StringPtrInput
-	// Block override of encryption scope from the container default.
+	AccountName                 pulumi.StringInput
+	ContainerName               pulumi.StringPtrInput
+	DefaultEncryptionScope      pulumi.StringPtrInput
 	DenyEncryptionScopeOverride pulumi.BoolPtrInput
-	// A name-value pair to associate with the container as metadata.
-	Metadata pulumi.StringMapInput
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess PublicAccessPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Metadata                    pulumi.StringMapInput
+	PublicAccess                PublicAccessPtrInput
+	ResourceGroupName           pulumi.StringInput
 }
 
 func (BlobContainerArgs) ElementType() reflect.Type {

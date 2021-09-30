@@ -14,16 +14,11 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Gets the tag for optimistic concurrency control.
-	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// Gets the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the properties of the object.
+	ETag       pulumi.StringOutput                               `pulumi:"eTag"`
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                          `pulumi:"systemData"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +78,16 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Private link resource name.
-	PeConnectionName *string `pulumi:"peConnectionName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site name.
-	SiteName string `pulumi:"siteName"`
+	PeConnectionName  *string `pulumi:"peConnectionName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SiteName          string  `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Private link resource name.
-	PeConnectionName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	PeConnectionName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Site name.
-	SiteName pulumi.StringInput
+	SiteName          pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

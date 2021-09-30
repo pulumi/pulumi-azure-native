@@ -14,20 +14,13 @@ import (
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
-	// The integration service environment.
 	IntegrationServiceEnvironment IntegrationServiceEnvironmentResponsePtrOutput `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The sku.
-	Sku IntegrationAccountSkuResponsePtrOutput `pulumi:"sku"`
-	// The workflow state.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                      pulumi.StringPtrOutput                         `pulumi:"location"`
+	Name                          pulumi.StringOutput                            `pulumi:"name"`
+	Sku                           IntegrationAccountSkuResponsePtrOutput         `pulumi:"sku"`
+	State                         pulumi.StringPtrOutput                         `pulumi:"state"`
+	Tags                          pulumi.StringMapOutput                         `pulumi:"tags"`
+	Type                          pulumi.StringOutput                            `pulumi:"type"`
 }
 
 // NewIntegrationAccount registers a new resource with the given unique name, arguments, and options.
@@ -102,38 +95,24 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
-	// The integration account name.
-	IntegrationAccountName *string `pulumi:"integrationAccountName"`
-	// The integration service environment.
+	IntegrationAccountName        *string                            `pulumi:"integrationAccountName"`
 	IntegrationServiceEnvironment *IntegrationServiceEnvironmentType `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku.
-	Sku *IntegrationAccountSku `pulumi:"sku"`
-	// The workflow state.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location                      *string                            `pulumi:"location"`
+	ResourceGroupName             string                             `pulumi:"resourceGroupName"`
+	Sku                           *IntegrationAccountSku             `pulumi:"sku"`
+	State                         *string                            `pulumi:"state"`
+	Tags                          map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
-	// The integration account name.
-	IntegrationAccountName pulumi.StringPtrInput
-	// The integration service environment.
+	IntegrationAccountName        pulumi.StringPtrInput
 	IntegrationServiceEnvironment IntegrationServiceEnvironmentTypePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The sku.
-	Sku IntegrationAccountSkuPtrInput
-	// The workflow state.
-	State pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location                      pulumi.StringPtrInput
+	ResourceGroupName             pulumi.StringInput
+	Sku                           IntegrationAccountSkuPtrInput
+	State                         pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (IntegrationAccountArgs) ElementType() reflect.Type {

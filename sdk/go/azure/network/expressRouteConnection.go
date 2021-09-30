@@ -14,22 +14,14 @@ import (
 type ExpressRouteConnection struct {
 	pulumi.CustomResourceState
 
-	// Authorization key to establish the connection.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// Enable internet security.
-	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           pulumi.StringPtrOutput                     `pulumi:"authorizationKey"`
+	EnableInternetSecurity     pulumi.BoolPtrOutput                       `pulumi:"enableInternetSecurity"`
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponseOutput `pulumi:"expressRouteCircuitPeering"`
-	// Enable FastPath to vWan Firewall hub.
-	ExpressRouteGatewayBypass pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypass"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the express route connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration RoutingConfigurationResponsePtrOutput `pulumi:"routingConfiguration"`
-	// The routing weight associated to the connection.
-	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
+	ExpressRouteGatewayBypass  pulumi.BoolPtrOutput                       `pulumi:"expressRouteGatewayBypass"`
+	Name                       pulumi.StringOutput                        `pulumi:"name"`
+	ProvisioningState          pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RoutingConfiguration       RoutingConfigurationResponsePtrOutput      `pulumi:"routingConfiguration"`
+	RoutingWeight              pulumi.IntPtrOutput                        `pulumi:"routingWeight"`
 }
 
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
@@ -215,54 +207,32 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 }
 
 type expressRouteConnectionArgs struct {
-	// Authorization key to establish the connection.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The name of the connection subresource.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Enable internet security.
-	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           *string                      `pulumi:"authorizationKey"`
+	ConnectionName             *string                      `pulumi:"connectionName"`
+	EnableInternetSecurity     *bool                        `pulumi:"enableInternetSecurity"`
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
-	// Enable FastPath to vWan Firewall hub.
-	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
-	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration *RoutingConfiguration `pulumi:"routingConfiguration"`
-	// The routing weight associated to the connection.
-	RoutingWeight *int `pulumi:"routingWeight"`
+	ExpressRouteGatewayBypass  *bool                        `pulumi:"expressRouteGatewayBypass"`
+	ExpressRouteGatewayName    string                       `pulumi:"expressRouteGatewayName"`
+	Id                         *string                      `pulumi:"id"`
+	Name                       string                       `pulumi:"name"`
+	ResourceGroupName          string                       `pulumi:"resourceGroupName"`
+	RoutingConfiguration       *RoutingConfiguration        `pulumi:"routingConfiguration"`
+	RoutingWeight              *int                         `pulumi:"routingWeight"`
 }
 
 // The set of arguments for constructing a ExpressRouteConnection resource.
 type ExpressRouteConnectionArgs struct {
-	// Authorization key to establish the connection.
-	AuthorizationKey pulumi.StringPtrInput
-	// The name of the connection subresource.
-	ConnectionName pulumi.StringPtrInput
-	// Enable internet security.
-	EnableInternetSecurity pulumi.BoolPtrInput
-	// The ExpressRoute circuit peering.
+	AuthorizationKey           pulumi.StringPtrInput
+	ConnectionName             pulumi.StringPtrInput
+	EnableInternetSecurity     pulumi.BoolPtrInput
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
-	// Enable FastPath to vWan Firewall hub.
-	ExpressRouteGatewayBypass pulumi.BoolPtrInput
-	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration RoutingConfigurationPtrInput
-	// The routing weight associated to the connection.
-	RoutingWeight pulumi.IntPtrInput
+	ExpressRouteGatewayBypass  pulumi.BoolPtrInput
+	ExpressRouteGatewayName    pulumi.StringInput
+	Id                         pulumi.StringPtrInput
+	Name                       pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
+	RoutingConfiguration       RoutingConfigurationPtrInput
+	RoutingWeight              pulumi.IntPtrInput
 }
 
 func (ExpressRouteConnectionArgs) ElementType() reflect.Type {

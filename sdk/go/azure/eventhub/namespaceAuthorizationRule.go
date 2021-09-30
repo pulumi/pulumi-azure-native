@@ -14,12 +14,9 @@ import (
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewNamespaceAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -112,26 +109,18 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type namespaceAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	AuthorizationRuleName *string  `pulumi:"authorizationRuleName"`
+	NamespaceName         string   `pulumi:"namespaceName"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
+	Rights                []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
 type NamespaceAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
+	NamespaceName         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                pulumi.StringArrayInput
 }
 
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {

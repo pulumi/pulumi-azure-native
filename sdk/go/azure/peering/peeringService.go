@@ -14,26 +14,16 @@ import (
 type PeeringService struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The location (state/province) of the customer.
-	PeeringServiceLocation pulumi.StringPtrOutput `pulumi:"peeringServiceLocation"`
-	// The name of the service provider.
-	PeeringServiceProvider pulumi.StringPtrOutput `pulumi:"peeringServiceProvider"`
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation pulumi.StringPtrOutput `pulumi:"providerBackupPeeringLocation"`
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderPrimaryPeeringLocation pulumi.StringPtrOutput `pulumi:"providerPrimaryPeeringLocation"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU that defines the type of the peering service.
-	Sku PeeringServiceSkuResponsePtrOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                       pulumi.StringOutput                `pulumi:"location"`
+	Name                           pulumi.StringOutput                `pulumi:"name"`
+	PeeringServiceLocation         pulumi.StringPtrOutput             `pulumi:"peeringServiceLocation"`
+	PeeringServiceProvider         pulumi.StringPtrOutput             `pulumi:"peeringServiceProvider"`
+	ProviderBackupPeeringLocation  pulumi.StringPtrOutput             `pulumi:"providerBackupPeeringLocation"`
+	ProviderPrimaryPeeringLocation pulumi.StringPtrOutput             `pulumi:"providerPrimaryPeeringLocation"`
+	ProvisioningState              pulumi.StringOutput                `pulumi:"provisioningState"`
+	Sku                            PeeringServiceSkuResponsePtrOutput `pulumi:"sku"`
+	Tags                           pulumi.StringMapOutput             `pulumi:"tags"`
+	Type                           pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewPeeringService registers a new resource with the given unique name, arguments, and options.
@@ -126,46 +116,28 @@ func (PeeringServiceState) ElementType() reflect.Type {
 }
 
 type peeringServiceArgs struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The location (state/province) of the customer.
-	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The name of the peering service.
-	PeeringServiceName *string `pulumi:"peeringServiceName"`
-	// The name of the service provider.
-	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU that defines the type of the peering service.
-	Sku *PeeringServiceSku `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location                       *string            `pulumi:"location"`
+	PeeringServiceLocation         *string            `pulumi:"peeringServiceLocation"`
+	PeeringServiceName             *string            `pulumi:"peeringServiceName"`
+	PeeringServiceProvider         *string            `pulumi:"peeringServiceProvider"`
+	ProviderBackupPeeringLocation  *string            `pulumi:"providerBackupPeeringLocation"`
+	ProviderPrimaryPeeringLocation *string            `pulumi:"providerPrimaryPeeringLocation"`
+	ResourceGroupName              string             `pulumi:"resourceGroupName"`
+	Sku                            *PeeringServiceSku `pulumi:"sku"`
+	Tags                           map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PeeringService resource.
 type PeeringServiceArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The location (state/province) of the customer.
-	PeeringServiceLocation pulumi.StringPtrInput
-	// The name of the peering service.
-	PeeringServiceName pulumi.StringPtrInput
-	// The name of the service provider.
-	PeeringServiceProvider pulumi.StringPtrInput
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation pulumi.StringPtrInput
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	Location                       pulumi.StringPtrInput
+	PeeringServiceLocation         pulumi.StringPtrInput
+	PeeringServiceName             pulumi.StringPtrInput
+	PeeringServiceProvider         pulumi.StringPtrInput
+	ProviderBackupPeeringLocation  pulumi.StringPtrInput
 	ProviderPrimaryPeeringLocation pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The SKU that defines the type of the peering service.
-	Sku PeeringServiceSkuPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName              pulumi.StringInput
+	Sku                            PeeringServiceSkuPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (PeeringServiceArgs) ElementType() reflect.Type {

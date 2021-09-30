@@ -14,14 +14,10 @@ import (
 type TagRule struct {
 	pulumi.CustomResourceState
 
-	// Name of the rule set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the monitoring tag rules.
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties MonitoringTagRulesPropertiesResponseOutput `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the rule set.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                   `pulumi:"systemData"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewTagRule registers a new resource with the given unique name, arguments, and options.
@@ -87,26 +83,18 @@ func (TagRuleState) ElementType() reflect.Type {
 }
 
 type tagRuleArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// Properties of the monitoring tag rules.
-	Properties *MonitoringTagRulesProperties `pulumi:"properties"`
-	// The name of the resource group to which the Elastic resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tag Rule Set resource name
-	RuleSetName *string `pulumi:"ruleSetName"`
+	MonitorName       string                        `pulumi:"monitorName"`
+	Properties        *MonitoringTagRulesProperties `pulumi:"properties"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	RuleSetName       *string                       `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a TagRule resource.
 type TagRuleArgs struct {
-	// Monitor resource name
-	MonitorName pulumi.StringInput
-	// Properties of the monitoring tag rules.
-	Properties MonitoringTagRulesPropertiesPtrInput
-	// The name of the resource group to which the Elastic resource belongs.
+	MonitorName       pulumi.StringInput
+	Properties        MonitoringTagRulesPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tag Rule Set resource name
-	RuleSetName pulumi.StringPtrInput
+	RuleSetName       pulumi.StringPtrInput
 }
 
 func (TagRuleArgs) ElementType() reflect.Type {

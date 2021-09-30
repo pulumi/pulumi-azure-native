@@ -521,7 +521,7 @@ namespace Pulumi.AzureNative.Web.V20200901
         public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        /// Name of the deployment slot to create or update. The name 'production' is reserved.
         /// </summary>
         [Input("slot")]
         public Input<string>? Slot { get; set; }

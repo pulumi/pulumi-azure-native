@@ -14,25 +14,16 @@ import (
 type AFDOriginGroup struct {
 	pulumi.CustomResourceState
 
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersResponsePtrOutput `pulumi:"healthProbeSettings"`
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings LoadBalancingSettingsParametersResponsePtrOutput `pulumi:"loadBalancingSettings"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedAfdOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrOutput `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityState pulumi.StringPtrOutput `pulumi:"sessionAffinityState"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrOutput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeploymentStatus                                      pulumi.StringOutput                                          `pulumi:"deploymentStatus"`
+	HealthProbeSettings                                   HealthProbeParametersResponsePtrOutput                       `pulumi:"healthProbeSettings"`
+	LoadBalancingSettings                                 LoadBalancingSettingsParametersResponsePtrOutput             `pulumi:"loadBalancingSettings"`
+	Name                                                  pulumi.StringOutput                                          `pulumi:"name"`
+	ProvisioningState                                     pulumi.StringOutput                                          `pulumi:"provisioningState"`
+	ResponseBasedAfdOriginErrorDetectionSettings          ResponseBasedOriginErrorDetectionParametersResponsePtrOutput `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
+	SessionAffinityState                                  pulumi.StringPtrOutput                                       `pulumi:"sessionAffinityState"`
+	SystemData                                            SystemDataResponseOutput                                     `pulumi:"systemData"`
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrOutput                                          `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	Type                                                  pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewAFDOriginGroup registers a new resource with the given unique name, arguments, and options.
@@ -92,41 +83,25 @@ func (AFDOriginGroupState) ElementType() reflect.Type {
 }
 
 type afdoriginGroupArgs struct {
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings *HealthProbeParameters `pulumi:"healthProbeSettings"`
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings *LoadBalancingSettingsParameters `pulumi:"loadBalancingSettings"`
-	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName *string `pulumi:"originGroupName"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedAfdOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParameters `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityState *string `pulumi:"sessionAffinityState"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	HealthProbeSettings                                   *HealthProbeParameters                       `pulumi:"healthProbeSettings"`
+	LoadBalancingSettings                                 *LoadBalancingSettingsParameters             `pulumi:"loadBalancingSettings"`
+	OriginGroupName                                       *string                                      `pulumi:"originGroupName"`
+	ProfileName                                           string                                       `pulumi:"profileName"`
+	ResourceGroupName                                     string                                       `pulumi:"resourceGroupName"`
+	ResponseBasedAfdOriginErrorDetectionSettings          *ResponseBasedOriginErrorDetectionParameters `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
+	SessionAffinityState                                  *string                                      `pulumi:"sessionAffinityState"`
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int                                         `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 }
 
 // The set of arguments for constructing a AFDOriginGroup resource.
 type AFDOriginGroupArgs struct {
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersPtrInput
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings LoadBalancingSettingsParametersPtrInput
-	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName pulumi.StringPtrInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedAfdOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersPtrInput
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityState pulumi.StringPtrInput
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	HealthProbeSettings                                   HealthProbeParametersPtrInput
+	LoadBalancingSettings                                 LoadBalancingSettingsParametersPtrInput
+	OriginGroupName                                       pulumi.StringPtrInput
+	ProfileName                                           pulumi.StringInput
+	ResourceGroupName                                     pulumi.StringInput
+	ResponseBasedAfdOriginErrorDetectionSettings          ResponseBasedOriginErrorDetectionParametersPtrInput
+	SessionAffinityState                                  pulumi.StringPtrInput
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
 }
 

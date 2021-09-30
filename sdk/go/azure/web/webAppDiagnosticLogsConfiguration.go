@@ -14,20 +14,13 @@ import (
 type WebAppDiagnosticLogsConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Application logs configuration.
-	ApplicationLogs ApplicationLogsConfigResponsePtrOutput `pulumi:"applicationLogs"`
-	// Detailed error messages configuration.
-	DetailedErrorMessages EnabledConfigResponsePtrOutput `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration.
-	FailedRequestsTracing EnabledConfigResponsePtrOutput `pulumi:"failedRequestsTracing"`
-	// HTTP logs configuration.
-	HttpLogs HttpLogsConfigResponsePtrOutput `pulumi:"httpLogs"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ApplicationLogs       ApplicationLogsConfigResponsePtrOutput `pulumi:"applicationLogs"`
+	DetailedErrorMessages EnabledConfigResponsePtrOutput         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing EnabledConfigResponsePtrOutput         `pulumi:"failedRequestsTracing"`
+	HttpLogs              HttpLogsConfigResponsePtrOutput        `pulumi:"httpLogs"`
+	Kind                  pulumi.StringPtrOutput                 `pulumi:"kind"`
+	Name                  pulumi.StringOutput                    `pulumi:"name"`
+	Type                  pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewWebAppDiagnosticLogsConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -153,38 +146,24 @@ func (WebAppDiagnosticLogsConfigurationState) ElementType() reflect.Type {
 }
 
 type webAppDiagnosticLogsConfigurationArgs struct {
-	// Application logs configuration.
-	ApplicationLogs *ApplicationLogsConfig `pulumi:"applicationLogs"`
-	// Detailed error messages configuration.
-	DetailedErrorMessages *EnabledConfig `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration.
-	FailedRequestsTracing *EnabledConfig `pulumi:"failedRequestsTracing"`
-	// HTTP logs configuration.
-	HttpLogs *HttpLogsConfig `pulumi:"httpLogs"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ApplicationLogs       *ApplicationLogsConfig `pulumi:"applicationLogs"`
+	DetailedErrorMessages *EnabledConfig         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing *EnabledConfig         `pulumi:"failedRequestsTracing"`
+	HttpLogs              *HttpLogsConfig        `pulumi:"httpLogs"`
+	Kind                  *string                `pulumi:"kind"`
+	Name                  string                 `pulumi:"name"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppDiagnosticLogsConfiguration resource.
 type WebAppDiagnosticLogsConfigurationArgs struct {
-	// Application logs configuration.
-	ApplicationLogs ApplicationLogsConfigPtrInput
-	// Detailed error messages configuration.
+	ApplicationLogs       ApplicationLogsConfigPtrInput
 	DetailedErrorMessages EnabledConfigPtrInput
-	// Failed requests tracing configuration.
 	FailedRequestsTracing EnabledConfigPtrInput
-	// HTTP logs configuration.
-	HttpLogs HttpLogsConfigPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	HttpLogs              HttpLogsConfigPtrInput
+	Kind                  pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (WebAppDiagnosticLogsConfigurationArgs) ElementType() reflect.Type {

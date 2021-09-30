@@ -14,34 +14,20 @@ import (
 type OuContainer struct {
 	pulumi.CustomResourceState
 
-	// The list of container accounts
-	Accounts ContainerAccountResponseArrayOutput `pulumi:"accounts"`
-	// The OuContainer name
-	ContainerId pulumi.StringOutput `pulumi:"containerId"`
-	// The Deployment id
-	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// Distinguished Name of OuContainer instance
-	DistinguishedName pulumi.StringOutput `pulumi:"distinguishedName"`
-	// The domain name of Domain Services.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Resource etag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Status of OuContainer instance
-	ServiceStatus pulumi.StringOutput `pulumi:"serviceStatus"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure Active Directory tenant id
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Accounts          ContainerAccountResponseArrayOutput `pulumi:"accounts"`
+	ContainerId       pulumi.StringOutput                 `pulumi:"containerId"`
+	DeploymentId      pulumi.StringOutput                 `pulumi:"deploymentId"`
+	DistinguishedName pulumi.StringOutput                 `pulumi:"distinguishedName"`
+	DomainName        pulumi.StringOutput                 `pulumi:"domainName"`
+	Etag              pulumi.StringPtrOutput              `pulumi:"etag"`
+	Location          pulumi.StringPtrOutput              `pulumi:"location"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	ServiceStatus     pulumi.StringOutput                 `pulumi:"serviceStatus"`
+	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
+	TenantId          pulumi.StringOutput                 `pulumi:"tenantId"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewOuContainer registers a new resource with the given unique name, arguments, and options.
@@ -119,34 +105,22 @@ func (OuContainerState) ElementType() reflect.Type {
 }
 
 type ouContainerArgs struct {
-	// The account name
-	AccountName *string `pulumi:"accountName"`
-	// The name of the domain service.
-	DomainServiceName string `pulumi:"domainServiceName"`
-	// The name of the OuContainer.
-	OuContainerName *string `pulumi:"ouContainerName"`
-	// The account password
-	Password *string `pulumi:"password"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The account spn
-	Spn *string `pulumi:"spn"`
+	AccountName       *string `pulumi:"accountName"`
+	DomainServiceName string  `pulumi:"domainServiceName"`
+	OuContainerName   *string `pulumi:"ouContainerName"`
+	Password          *string `pulumi:"password"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Spn               *string `pulumi:"spn"`
 }
 
 // The set of arguments for constructing a OuContainer resource.
 type OuContainerArgs struct {
-	// The account name
-	AccountName pulumi.StringPtrInput
-	// The name of the domain service.
+	AccountName       pulumi.StringPtrInput
 	DomainServiceName pulumi.StringInput
-	// The name of the OuContainer.
-	OuContainerName pulumi.StringPtrInput
-	// The account password
-	Password pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	OuContainerName   pulumi.StringPtrInput
+	Password          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The account spn
-	Spn pulumi.StringPtrInput
+	Spn               pulumi.StringPtrInput
 }
 
 func (OuContainerArgs) ElementType() reflect.Type {

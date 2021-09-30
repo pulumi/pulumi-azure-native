@@ -14,16 +14,11 @@ import (
 type IntegrationAccountAssembly struct {
 	pulumi.CustomResourceState
 
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The assembly properties.
+	Location   pulumi.StringPtrOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
 	Properties AssemblyPropertiesResponseOutput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput           `pulumi:"tags"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewIntegrationAccountAssembly registers a new resource with the given unique name, arguments, and options.
@@ -98,34 +93,22 @@ func (IntegrationAccountAssemblyState) ElementType() reflect.Type {
 }
 
 type integrationAccountAssemblyArgs struct {
-	// The assembly artifact name.
-	AssemblyArtifactName *string `pulumi:"assemblyArtifactName"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The assembly properties.
-	Properties AssemblyProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AssemblyArtifactName   *string            `pulumi:"assemblyArtifactName"`
+	IntegrationAccountName string             `pulumi:"integrationAccountName"`
+	Location               *string            `pulumi:"location"`
+	Properties             AssemblyProperties `pulumi:"properties"`
+	ResourceGroupName      string             `pulumi:"resourceGroupName"`
+	Tags                   map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountAssembly resource.
 type IntegrationAccountAssemblyArgs struct {
-	// The assembly artifact name.
-	AssemblyArtifactName pulumi.StringPtrInput
-	// The integration account name.
+	AssemblyArtifactName   pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The assembly properties.
-	Properties AssemblyPropertiesInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	Properties             AssemblyPropertiesInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountAssemblyArgs) ElementType() reflect.Type {

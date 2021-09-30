@@ -14,14 +14,10 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The entity tag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the certificate.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The description of an X509 CA Certificate.
+	Etag       pulumi.StringOutput                 `pulumi:"etag"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties CertificatePropertiesResponseOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -195,26 +191,18 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The name of the certificate
-	CertificateName *string `pulumi:"certificateName"`
-	// The description of an X509 CA Certificate.
-	Properties *CertificateProperties `pulumi:"properties"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	CertificateName   *string                `pulumi:"certificateName"`
+	Properties        *CertificateProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	ResourceName      string                 `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The name of the certificate
-	CertificateName pulumi.StringPtrInput
-	// The description of an X509 CA Certificate.
-	Properties CertificatePropertiesPtrInput
-	// The name of the resource group that contains the IoT hub.
+	CertificateName   pulumi.StringPtrInput
+	Properties        CertificatePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	ResourceName      pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

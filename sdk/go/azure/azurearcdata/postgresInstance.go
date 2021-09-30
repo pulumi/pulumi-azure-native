@@ -14,22 +14,14 @@ import (
 type PostgresInstance struct {
 	pulumi.CustomResourceState
 
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// null
-	Properties PostgresInstancePropertiesResponseOutput `pulumi:"properties"`
-	// Resource sku.
-	Sku PostgresInstanceSkuResponsePtrOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ExtendedLocation ExtendedLocationResponsePtrOutput        `pulumi:"extendedLocation"`
+	Location         pulumi.StringOutput                      `pulumi:"location"`
+	Name             pulumi.StringOutput                      `pulumi:"name"`
+	Properties       PostgresInstancePropertiesResponseOutput `pulumi:"properties"`
+	Sku              PostgresInstanceSkuResponsePtrOutput     `pulumi:"sku"`
+	SystemData       SystemDataResponseOutput                 `pulumi:"systemData"`
+	Tags             pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type             pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewPostgresInstance registers a new resource with the given unique name, arguments, and options.
@@ -95,38 +87,24 @@ func (PostgresInstanceState) ElementType() reflect.Type {
 }
 
 type postgresInstanceArgs struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Name of PostgresInstance
-	PostgresInstanceName *string `pulumi:"postgresInstanceName"`
-	// null
-	Properties PostgresInstanceProperties `pulumi:"properties"`
-	// The name of the Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource sku.
-	Sku *PostgresInstanceSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ExtendedLocation     *ExtendedLocation          `pulumi:"extendedLocation"`
+	Location             *string                    `pulumi:"location"`
+	PostgresInstanceName *string                    `pulumi:"postgresInstanceName"`
+	Properties           PostgresInstanceProperties `pulumi:"properties"`
+	ResourceGroupName    string                     `pulumi:"resourceGroupName"`
+	Sku                  *PostgresInstanceSku       `pulumi:"sku"`
+	Tags                 map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PostgresInstance resource.
 type PostgresInstanceArgs struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Name of PostgresInstance
+	ExtendedLocation     ExtendedLocationPtrInput
+	Location             pulumi.StringPtrInput
 	PostgresInstanceName pulumi.StringPtrInput
-	// null
-	Properties PostgresInstancePropertiesInput
-	// The name of the Azure resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource sku.
-	Sku PostgresInstanceSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Properties           PostgresInstancePropertiesInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  PostgresInstanceSkuPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (PostgresInstanceArgs) ElementType() reflect.Type {

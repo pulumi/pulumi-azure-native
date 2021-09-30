@@ -14,20 +14,13 @@ import (
 type RestorePoint struct {
 	pulumi.CustomResourceState
 
-	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
-	ConsistencyMode pulumi.StringOutput `pulumi:"consistencyMode"`
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks ApiEntityReferenceResponseArrayOutput `pulumi:"excludeDisks"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the provisioning details set by the server during Create restore point operation.
+	ConsistencyMode     pulumi.StringOutput                           `pulumi:"consistencyMode"`
+	ExcludeDisks        ApiEntityReferenceResponseArrayOutput         `pulumi:"excludeDisks"`
+	Name                pulumi.StringOutput                           `pulumi:"name"`
 	ProvisioningDetails RestorePointProvisioningDetailsResponseOutput `pulumi:"provisioningDetails"`
-	// Gets the provisioning state of the restore point.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Gets the details of the VM captured at the time of the restore point creation.
-	SourceMetadata RestorePointSourceMetadataResponseOutput `pulumi:"sourceMetadata"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState   pulumi.StringOutput                           `pulumi:"provisioningState"`
+	SourceMetadata      RestorePointSourceMetadataResponseOutput      `pulumi:"sourceMetadata"`
+	Type                pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewRestorePoint registers a new resource with the given unique name, arguments, and options.
@@ -99,26 +92,18 @@ func (RestorePointState) ElementType() reflect.Type {
 }
 
 type restorePointArgs struct {
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks []ApiEntityReference `pulumi:"excludeDisks"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the restore point collection.
-	RestorePointCollectionName string `pulumi:"restorePointCollectionName"`
-	// The name of the restore point.
-	RestorePointName *string `pulumi:"restorePointName"`
+	ExcludeDisks               []ApiEntityReference `pulumi:"excludeDisks"`
+	ResourceGroupName          string               `pulumi:"resourceGroupName"`
+	RestorePointCollectionName string               `pulumi:"restorePointCollectionName"`
+	RestorePointName           *string              `pulumi:"restorePointName"`
 }
 
 // The set of arguments for constructing a RestorePoint resource.
 type RestorePointArgs struct {
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks ApiEntityReferenceArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the restore point collection.
+	ExcludeDisks               ApiEntityReferenceArrayInput
+	ResourceGroupName          pulumi.StringInput
 	RestorePointCollectionName pulumi.StringInput
-	// The name of the restore point.
-	RestorePointName pulumi.StringPtrInput
+	RestorePointName           pulumi.StringPtrInput
 }
 
 func (RestorePointArgs) ElementType() reflect.Type {

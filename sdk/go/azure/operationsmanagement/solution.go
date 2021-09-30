@@ -14,18 +14,12 @@ import (
 type Solution struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan SolutionPlanResponsePtrOutput `pulumi:"plan"`
-	// Properties for solution object supported by the OperationsManagement resource provider.
+	Location   pulumi.StringPtrOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
+	Plan       SolutionPlanResponsePtrOutput    `pulumi:"plan"`
 	Properties SolutionPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput           `pulumi:"tags"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewSolution registers a new resource with the given unique name, arguments, and options.
@@ -82,34 +76,22 @@ func (SolutionState) ElementType() reflect.Type {
 }
 
 type solutionArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan *SolutionPlan `pulumi:"plan"`
-	// Properties for solution object supported by the OperationsManagement resource provider.
-	Properties *SolutionProperties `pulumi:"properties"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// User Solution Name.
-	SolutionName *string `pulumi:"solutionName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string             `pulumi:"location"`
+	Plan              *SolutionPlan       `pulumi:"plan"`
+	Properties        *SolutionProperties `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	SolutionName      *string             `pulumi:"solutionName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Solution resource.
 type SolutionArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan SolutionPlanPtrInput
-	// Properties for solution object supported by the OperationsManagement resource provider.
-	Properties SolutionPropertiesPtrInput
-	// The name of the resource group to get. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	Plan              SolutionPlanPtrInput
+	Properties        SolutionPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// User Solution Name.
-	SolutionName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	SolutionName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (SolutionArgs) ElementType() reflect.Type {

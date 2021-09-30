@@ -14,16 +14,11 @@ import (
 type ActionRuleByName struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// action rule properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewActionRuleByName registers a new resource with the given unique name, arguments, and options.
@@ -92,30 +87,20 @@ func (ActionRuleByNameState) ElementType() reflect.Type {
 }
 
 type actionRuleByNameArgs struct {
-	// The name of action rule that needs to be created/updated
-	ActionRuleName *string `pulumi:"actionRuleName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// action rule properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource group name where the resource is created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ActionRuleName    *string           `pulumi:"actionRuleName"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ActionRuleByName resource.
 type ActionRuleByNameArgs struct {
-	// The name of action rule that needs to be created/updated
-	ActionRuleName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// action rule properties
-	Properties pulumi.Input
-	// Resource group name where the resource is created.
+	ActionRuleName    pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ActionRuleByNameArgs) ElementType() reflect.Type {

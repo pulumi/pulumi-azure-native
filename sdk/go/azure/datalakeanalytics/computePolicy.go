@@ -14,18 +14,12 @@ import (
 type ComputePolicy struct {
 	pulumi.CustomResourceState
 
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob pulumi.IntOutput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob pulumi.IntOutput `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringOutput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringOutput `pulumi:"objectType"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	MaxDegreeOfParallelismPerJob pulumi.IntOutput    `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            pulumi.IntOutput    `pulumi:"minPriorityPerJob"`
+	Name                         pulumi.StringOutput `pulumi:"name"`
+	ObjectId                     pulumi.StringOutput `pulumi:"objectId"`
+	ObjectType                   pulumi.StringOutput `pulumi:"objectType"`
+	Type                         pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewComputePolicy registers a new resource with the given unique name, arguments, and options.
@@ -103,38 +97,24 @@ func (ComputePolicyState) ElementType() reflect.Type {
 }
 
 type computePolicyArgs struct {
-	// The name of the Data Lake Analytics account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the compute policy to create or update.
-	ComputePolicyName *string `pulumi:"computePolicyName"`
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName                  string  `pulumi:"accountName"`
+	ComputePolicyName            *string `pulumi:"computePolicyName"`
+	MaxDegreeOfParallelismPerJob *int    `pulumi:"maxDegreeOfParallelismPerJob"`
+	MinPriorityPerJob            *int    `pulumi:"minPriorityPerJob"`
+	ObjectId                     string  `pulumi:"objectId"`
+	ObjectType                   string  `pulumi:"objectType"`
+	ResourceGroupName            string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ComputePolicy resource.
 type ComputePolicyArgs struct {
-	// The name of the Data Lake Analytics account.
-	AccountName pulumi.StringInput
-	// The name of the compute policy to create or update.
-	ComputePolicyName pulumi.StringPtrInput
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+	AccountName                  pulumi.StringInput
+	ComputePolicyName            pulumi.StringPtrInput
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob pulumi.IntPtrInput
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput
-	// The name of the Azure resource group.
-	ResourceGroupName pulumi.StringInput
+	MinPriorityPerJob            pulumi.IntPtrInput
+	ObjectId                     pulumi.StringInput
+	ObjectType                   pulumi.StringInput
+	ResourceGroupName            pulumi.StringInput
 }
 
 func (ComputePolicyArgs) ElementType() reflect.Type {

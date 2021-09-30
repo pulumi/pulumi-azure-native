@@ -15,14 +15,10 @@ import (
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	// Kind of data set.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// System Data of the Azure resource.
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -112,30 +108,20 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Kind of data set.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
+	AccountName       string  `pulumi:"accountName"`
+	DataSetName       *string `pulumi:"dataSetName"`
+	Kind              string  `pulumi:"kind"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ShareName         string  `pulumi:"shareName"`
 }
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Kind of data set.
-	Kind pulumi.StringInput
-	// The resource group name.
+	AccountName       pulumi.StringInput
+	DataSetName       pulumi.StringPtrInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
+	ShareName         pulumi.StringInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {

@@ -14,18 +14,12 @@ import (
 type ManagementGroupSubscription struct {
 	pulumi.CustomResourceState
 
-	// The friendly name of the subscription.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the parent management group.
-	Parent DescendantParentGroupInfoResponsePtrOutput `pulumi:"parent"`
-	// The state of the subscription.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Tenant pulumi.StringPtrOutput `pulumi:"tenant"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName pulumi.StringPtrOutput                     `pulumi:"displayName"`
+	Name        pulumi.StringOutput                        `pulumi:"name"`
+	Parent      DescendantParentGroupInfoResponsePtrOutput `pulumi:"parent"`
+	State       pulumi.StringPtrOutput                     `pulumi:"state"`
+	Tenant      pulumi.StringPtrOutput                     `pulumi:"tenant"`
+	Type        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewManagementGroupSubscription registers a new resource with the given unique name, arguments, and options.
@@ -94,17 +88,13 @@ func (ManagementGroupSubscriptionState) ElementType() reflect.Type {
 }
 
 type managementGroupSubscriptionArgs struct {
-	// Management Group ID.
-	GroupId string `pulumi:"groupId"`
-	// Subscription ID.
+	GroupId        string  `pulumi:"groupId"`
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a ManagementGroupSubscription resource.
 type ManagementGroupSubscriptionArgs struct {
-	// Management Group ID.
-	GroupId pulumi.StringInput
-	// Subscription ID.
+	GroupId        pulumi.StringInput
 	SubscriptionId pulumi.StringPtrInput
 }
 

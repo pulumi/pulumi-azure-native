@@ -14,34 +14,20 @@ import (
 type NotificationHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// A string that describes the claim type
-	ClaimType pulumi.StringOutput `pulumi:"claimType"`
-	// A string that describes the claim value
-	ClaimValue pulumi.StringOutput `pulumi:"claimValue"`
-	// The created time for this rule
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// A string that describes the authorization rule.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The last modified time for this rule
-	ModifiedTime pulumi.StringOutput `pulumi:"modifiedTime"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// The revision number for the rule
-	Revision pulumi.IntOutput `pulumi:"revision"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClaimType    pulumi.StringOutput      `pulumi:"claimType"`
+	ClaimValue   pulumi.StringOutput      `pulumi:"claimValue"`
+	CreatedTime  pulumi.StringOutput      `pulumi:"createdTime"`
+	KeyName      pulumi.StringOutput      `pulumi:"keyName"`
+	Location     pulumi.StringPtrOutput   `pulumi:"location"`
+	ModifiedTime pulumi.StringOutput      `pulumi:"modifiedTime"`
+	Name         pulumi.StringOutput      `pulumi:"name"`
+	PrimaryKey   pulumi.StringOutput      `pulumi:"primaryKey"`
+	Revision     pulumi.IntOutput         `pulumi:"revision"`
+	Rights       pulumi.StringArrayOutput `pulumi:"rights"`
+	SecondaryKey pulumi.StringOutput      `pulumi:"secondaryKey"`
+	Sku          SkuResponsePtrOutput     `pulumi:"sku"`
+	Tags         pulumi.StringMapOutput   `pulumi:"tags"`
+	Type         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewNotificationHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -113,30 +99,20 @@ func (NotificationHubAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type notificationHubAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The notification hub name.
-	NotificationHubName string `pulumi:"notificationHubName"`
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AuthorizationRuleName *string                                 `pulumi:"authorizationRuleName"`
+	NamespaceName         string                                  `pulumi:"namespaceName"`
+	NotificationHubName   string                                  `pulumi:"notificationHubName"`
+	Properties            SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
+	ResourceGroupName     string                                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NotificationHubAuthorizationRule resource.
 type NotificationHubAuthorizationRuleArgs struct {
-	// Authorization Rule Name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringInput
-	// The notification hub name.
-	NotificationHubName pulumi.StringInput
-	// Properties of the Namespace AuthorizationRules.
-	Properties SharedAccessAuthorizationRulePropertiesInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	NamespaceName         pulumi.StringInput
+	NotificationHubName   pulumi.StringInput
+	Properties            SharedAccessAuthorizationRulePropertiesInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (NotificationHubAuthorizationRuleArgs) ElementType() reflect.Type {

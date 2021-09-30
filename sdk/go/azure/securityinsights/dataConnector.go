@@ -15,14 +15,10 @@ import (
 type DataConnector struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The data connector kind
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind pulumi.StringOutput    `pulumi:"kind"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Type pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -97,30 +93,20 @@ func (DataConnectorState) ElementType() reflect.Type {
 }
 
 type dataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The data connector kind
-	Kind string `pulumi:"kind"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataConnectorId   *string `pulumi:"dataConnectorId"`
+	Etag              *string `pulumi:"etag"`
+	Kind              string  `pulumi:"kind"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a DataConnector resource.
 type DataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The data connector kind
-	Kind pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	DataConnectorId   pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DataConnectorArgs) ElementType() reflect.Type {

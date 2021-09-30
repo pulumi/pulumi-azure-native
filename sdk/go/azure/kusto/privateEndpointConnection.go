@@ -14,20 +14,13 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Group id of the private endpoint.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponseOutput `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
+	GroupId                           pulumi.StringOutput                                     `pulumi:"groupId"`
+	Name                              pulumi.StringOutput                                     `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponseOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponseOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                     `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponseOutput                                `pulumi:"systemData"`
+	Type                              pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -90,26 +83,18 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Connection State of the Private Endpoint Connection.
+	ClusterName                       string                                    `pulumi:"clusterName"`
+	PrivateEndpointConnectionName     *string                                   `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection State of the Private Endpoint Connection.
+	ClusterName                       pulumi.StringInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

@@ -77,25 +77,19 @@ func (ServerCollectorState) ElementType() reflect.Type {
 }
 
 type serverCollectorArgs struct {
-	ETag *string `pulumi:"eTag"`
-	// Name of the Azure Migrate project.
-	ProjectName string               `pulumi:"projectName"`
-	Properties  *CollectorProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique name of a Server collector within a project.
-	ServerCollectorName *string `pulumi:"serverCollectorName"`
+	ETag                *string              `pulumi:"eTag"`
+	ProjectName         string               `pulumi:"projectName"`
+	Properties          *CollectorProperties `pulumi:"properties"`
+	ResourceGroupName   string               `pulumi:"resourceGroupName"`
+	ServerCollectorName *string              `pulumi:"serverCollectorName"`
 }
 
 // The set of arguments for constructing a ServerCollector resource.
 type ServerCollectorArgs struct {
-	ETag pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	Properties  CollectorPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Unique name of a Server collector within a project.
+	ETag                pulumi.StringPtrInput
+	ProjectName         pulumi.StringInput
+	Properties          CollectorPropertiesPtrInput
+	ResourceGroupName   pulumi.StringInput
 	ServerCollectorName pulumi.StringPtrInput
 }
 

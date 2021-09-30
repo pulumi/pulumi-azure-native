@@ -14,26 +14,16 @@ import (
 type Blueprint struct {
 	pulumi.CustomResourceState
 
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.AnyOutput `pulumi:"layout"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters required by this blueprint definition.
-	Parameters ParameterDefinitionResponseMapOutput `pulumi:"parameters"`
-	// Resource group placeholders defined by this blueprint definition.
+	Description    pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName    pulumi.StringPtrOutput                   `pulumi:"displayName"`
+	Layout         pulumi.AnyOutput                         `pulumi:"layout"`
+	Name           pulumi.StringOutput                      `pulumi:"name"`
+	Parameters     ParameterDefinitionResponseMapOutput     `pulumi:"parameters"`
 	ResourceGroups ResourceGroupDefinitionResponseMapOutput `pulumi:"resourceGroups"`
-	// Status of the blueprint. This field is readonly.
-	Status BlueprintStatusResponseOutput `pulumi:"status"`
-	// The scope where this blueprint definition can be assigned.
-	TargetScope pulumi.StringOutput `pulumi:"targetScope"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Published versions of this blueprint definition.
-	Versions pulumi.AnyOutput `pulumi:"versions"`
+	Status         BlueprintStatusResponseOutput            `pulumi:"status"`
+	TargetScope    pulumi.StringOutput                      `pulumi:"targetScope"`
+	Type           pulumi.StringOutput                      `pulumi:"type"`
+	Versions       pulumi.AnyOutput                         `pulumi:"versions"`
 }
 
 // NewBlueprint registers a new resource with the given unique name, arguments, and options.
@@ -93,42 +83,26 @@ func (BlueprintState) ElementType() reflect.Type {
 }
 
 type blueprintArgs struct {
-	// Name of the blueprint definition.
-	BlueprintName *string `pulumi:"blueprintName"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Parameters required by this blueprint definition.
-	Parameters map[string]ParameterDefinition `pulumi:"parameters"`
-	// Resource group placeholders defined by this blueprint definition.
+	BlueprintName  *string                            `pulumi:"blueprintName"`
+	Description    *string                            `pulumi:"description"`
+	DisplayName    *string                            `pulumi:"displayName"`
+	Parameters     map[string]ParameterDefinition     `pulumi:"parameters"`
 	ResourceGroups map[string]ResourceGroupDefinition `pulumi:"resourceGroups"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-	ResourceScope string `pulumi:"resourceScope"`
-	// The scope where this blueprint definition can be assigned.
-	TargetScope string `pulumi:"targetScope"`
-	// Published versions of this blueprint definition.
-	Versions interface{} `pulumi:"versions"`
+	ResourceScope  string                             `pulumi:"resourceScope"`
+	TargetScope    string                             `pulumi:"targetScope"`
+	Versions       interface{}                        `pulumi:"versions"`
 }
 
 // The set of arguments for constructing a Blueprint resource.
 type BlueprintArgs struct {
-	// Name of the blueprint definition.
-	BlueprintName pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Parameters required by this blueprint definition.
-	Parameters ParameterDefinitionMapInput
-	// Resource group placeholders defined by this blueprint definition.
+	BlueprintName  pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	DisplayName    pulumi.StringPtrInput
+	Parameters     ParameterDefinitionMapInput
 	ResourceGroups ResourceGroupDefinitionMapInput
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-	ResourceScope pulumi.StringInput
-	// The scope where this blueprint definition can be assigned.
-	TargetScope pulumi.StringInput
-	// Published versions of this blueprint definition.
-	Versions pulumi.Input
+	ResourceScope  pulumi.StringInput
+	TargetScope    pulumi.StringInput
+	Versions       pulumi.Input
 }
 
 func (BlueprintArgs) ElementType() reflect.Type {

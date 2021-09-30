@@ -14,46 +14,26 @@ import (
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrOutput `pulumi:"cloudTiering"`
-	// Cloud tiering status. Only populated if cloud tiering is enabled.
-	CloudTieringStatus ServerEndpointCloudTieringStatusResponseOutput `pulumi:"cloudTieringStatus"`
-	// Friendly Name
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Policy for how namespace and files are recalled during FastDr.
-	InitialDownloadPolicy pulumi.StringPtrOutput `pulumi:"initialDownloadPolicy"`
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
-	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-	LocalCacheMode pulumi.StringPtrOutput `pulumi:"localCacheMode"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Offline data transfer
-	OfflineDataTransfer pulumi.StringPtrOutput `pulumi:"offlineDataTransfer"`
-	// Offline data transfer share name
-	OfflineDataTransferShareName pulumi.StringPtrOutput `pulumi:"offlineDataTransferShareName"`
-	// Offline data transfer storage account resource ID
-	OfflineDataTransferStorageAccountResourceId pulumi.StringOutput `pulumi:"offlineDataTransferStorageAccountResourceId"`
-	// Offline data transfer storage account tenant ID
-	OfflineDataTransferStorageAccountTenantId pulumi.StringOutput `pulumi:"offlineDataTransferStorageAccountTenantId"`
-	// ServerEndpoint Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Recall status. Only populated if cloud tiering is enabled.
-	RecallStatus ServerEndpointRecallStatusResponseOutput `pulumi:"recallStatus"`
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
-	// Server Endpoint sync status
-	SyncStatus ServerEndpointSyncStatusResponseOutput `pulumi:"syncStatus"`
-	// Tier files older than days.
-	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering                                pulumi.StringPtrOutput                         `pulumi:"cloudTiering"`
+	CloudTieringStatus                          ServerEndpointCloudTieringStatusResponseOutput `pulumi:"cloudTieringStatus"`
+	FriendlyName                                pulumi.StringPtrOutput                         `pulumi:"friendlyName"`
+	InitialDownloadPolicy                       pulumi.StringPtrOutput                         `pulumi:"initialDownloadPolicy"`
+	LastOperationName                           pulumi.StringOutput                            `pulumi:"lastOperationName"`
+	LastWorkflowId                              pulumi.StringOutput                            `pulumi:"lastWorkflowId"`
+	LocalCacheMode                              pulumi.StringPtrOutput                         `pulumi:"localCacheMode"`
+	Name                                        pulumi.StringOutput                            `pulumi:"name"`
+	OfflineDataTransfer                         pulumi.StringPtrOutput                         `pulumi:"offlineDataTransfer"`
+	OfflineDataTransferShareName                pulumi.StringPtrOutput                         `pulumi:"offlineDataTransferShareName"`
+	OfflineDataTransferStorageAccountResourceId pulumi.StringOutput                            `pulumi:"offlineDataTransferStorageAccountResourceId"`
+	OfflineDataTransferStorageAccountTenantId   pulumi.StringOutput                            `pulumi:"offlineDataTransferStorageAccountTenantId"`
+	ProvisioningState                           pulumi.StringOutput                            `pulumi:"provisioningState"`
+	RecallStatus                                ServerEndpointRecallStatusResponseOutput       `pulumi:"recallStatus"`
+	ServerLocalPath                             pulumi.StringPtrOutput                         `pulumi:"serverLocalPath"`
+	ServerResourceId                            pulumi.StringPtrOutput                         `pulumi:"serverResourceId"`
+	SyncStatus                                  ServerEndpointSyncStatusResponseOutput         `pulumi:"syncStatus"`
+	TierFilesOlderThanDays                      pulumi.IntPtrOutput                            `pulumi:"tierFilesOlderThanDays"`
+	Type                                        pulumi.StringOutput                            `pulumi:"type"`
+	VolumeFreeSpacePercent                      pulumi.IntPtrOutput                            `pulumi:"volumeFreeSpacePercent"`
 }
 
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -170,66 +150,38 @@ func (ServerEndpointState) ElementType() reflect.Type {
 }
 
 type serverEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering *string `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Policy for how namespace and files are recalled during FastDr.
-	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
-	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-	LocalCacheMode *string `pulumi:"localCacheMode"`
-	// Offline data transfer
-	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
-	// Offline data transfer share name
+	CloudTiering                 *string `pulumi:"cloudTiering"`
+	FriendlyName                 *string `pulumi:"friendlyName"`
+	InitialDownloadPolicy        *string `pulumi:"initialDownloadPolicy"`
+	LocalCacheMode               *string `pulumi:"localCacheMode"`
+	OfflineDataTransfer          *string `pulumi:"offlineDataTransfer"`
 	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Server Endpoint object.
-	ServerEndpointName *string `pulumi:"serverEndpointName"`
-	// Server Local path.
-	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId *string `pulumi:"serverResourceId"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
-	// Tier files older than days.
-	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
+	ResourceGroupName            string  `pulumi:"resourceGroupName"`
+	ServerEndpointName           *string `pulumi:"serverEndpointName"`
+	ServerLocalPath              *string `pulumi:"serverLocalPath"`
+	ServerResourceId             *string `pulumi:"serverResourceId"`
+	StorageSyncServiceName       string  `pulumi:"storageSyncServiceName"`
+	SyncGroupName                string  `pulumi:"syncGroupName"`
+	TierFilesOlderThanDays       *int    `pulumi:"tierFilesOlderThanDays"`
+	VolumeFreeSpacePercent       *int    `pulumi:"volumeFreeSpacePercent"`
 }
 
 // The set of arguments for constructing a ServerEndpoint resource.
 type ServerEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Policy for how namespace and files are recalled during FastDr.
-	InitialDownloadPolicy pulumi.StringPtrInput
-	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-	LocalCacheMode pulumi.StringPtrInput
-	// Offline data transfer
-	OfflineDataTransfer pulumi.StringPtrInput
-	// Offline data transfer share name
+	CloudTiering                 pulumi.StringPtrInput
+	FriendlyName                 pulumi.StringPtrInput
+	InitialDownloadPolicy        pulumi.StringPtrInput
+	LocalCacheMode               pulumi.StringPtrInput
+	OfflineDataTransfer          pulumi.StringPtrInput
 	OfflineDataTransferShareName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Server Endpoint object.
-	ServerEndpointName pulumi.StringPtrInput
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrInput
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
-	// Tier files older than days.
-	TierFilesOlderThanDays pulumi.IntPtrInput
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent pulumi.IntPtrInput
+	ResourceGroupName            pulumi.StringInput
+	ServerEndpointName           pulumi.StringPtrInput
+	ServerLocalPath              pulumi.StringPtrInput
+	ServerResourceId             pulumi.StringPtrInput
+	StorageSyncServiceName       pulumi.StringInput
+	SyncGroupName                pulumi.StringInput
+	TierFilesOlderThanDays       pulumi.IntPtrInput
+	VolumeFreeSpacePercent       pulumi.IntPtrInput
 }
 
 func (ServerEndpointArgs) ElementType() reflect.Type {

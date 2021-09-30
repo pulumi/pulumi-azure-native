@@ -14,14 +14,10 @@ import (
 type Association struct {
 	pulumi.CustomResourceState
 
-	// The association name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the association.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The REST resource instance of the target resource for this association.
-	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	// The association type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	TargetResourceId  pulumi.StringPtrOutput `pulumi:"targetResourceId"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
@@ -78,21 +74,15 @@ func (AssociationState) ElementType() reflect.Type {
 }
 
 type associationArgs struct {
-	// The name of the association.
-	AssociationName *string `pulumi:"associationName"`
-	// The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
-	Scope string `pulumi:"scope"`
-	// The REST resource instance of the target resource for this association.
+	AssociationName  *string `pulumi:"associationName"`
+	Scope            string  `pulumi:"scope"`
 	TargetResourceId *string `pulumi:"targetResourceId"`
 }
 
 // The set of arguments for constructing a Association resource.
 type AssociationArgs struct {
-	// The name of the association.
-	AssociationName pulumi.StringPtrInput
-	// The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
-	Scope pulumi.StringInput
-	// The REST resource instance of the target resource for this association.
+	AssociationName  pulumi.StringPtrInput
+	Scope            pulumi.StringInput
 	TargetResourceId pulumi.StringPtrInput
 }
 

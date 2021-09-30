@@ -14,15 +14,10 @@ import (
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrOutput `pulumi:"defaultAction"`
-	// List of IpRules
-	IpRules NWRuleSetIpRulesResponseArrayOutput `pulumi:"ipRules"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List VirtualNetwork Rules
+	DefaultAction       pulumi.StringPtrOutput                          `pulumi:"defaultAction"`
+	IpRules             NWRuleSetIpRulesResponseArrayOutput             `pulumi:"ipRules"`
+	Name                pulumi.StringOutput                             `pulumi:"name"`
+	Type                pulumi.StringOutput                             `pulumi:"type"`
 	VirtualNetworkRules NWRuleSetVirtualNetworkRulesResponseArrayOutput `pulumi:"virtualNetworkRules"`
 }
 
@@ -101,29 +96,19 @@ func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {
 }
 
 type namespaceNetworkRuleSetArgs struct {
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// List of IpRules
-	IpRules []NWRuleSetIpRules `pulumi:"ipRules"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// List VirtualNetwork Rules
+	DefaultAction       *string                        `pulumi:"defaultAction"`
+	IpRules             []NWRuleSetIpRules             `pulumi:"ipRules"`
+	NamespaceName       string                         `pulumi:"namespaceName"`
+	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
 	VirtualNetworkRules []NWRuleSetVirtualNetworkRules `pulumi:"virtualNetworkRules"`
 }
 
 // The set of arguments for constructing a NamespaceNetworkRuleSet resource.
 type NamespaceNetworkRuleSetArgs struct {
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrInput
-	// List of IpRules
-	IpRules NWRuleSetIpRulesArrayInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// List VirtualNetwork Rules
+	DefaultAction       pulumi.StringPtrInput
+	IpRules             NWRuleSetIpRulesArrayInput
+	NamespaceName       pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
 	VirtualNetworkRules NWRuleSetVirtualNetworkRulesArrayInput
 }
 

@@ -14,25 +14,16 @@ import (
 type AFDCustomDomain struct {
 	pulumi.CustomResourceState
 
-	// Resource reference to the Azure DNS zone
-	AzureDnsZone     ResourceReferenceResponsePtrOutput `pulumi:"azureDnsZone"`
-	DeploymentStatus pulumi.StringOutput                `pulumi:"deploymentStatus"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
-	DomainValidationState pulumi.StringOutput `pulumi:"domainValidationState"`
-	// The host name of the domain. Must be a domain name.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
-	TlsSettings AFDDomainHttpsParametersResponsePtrOutput `pulumi:"tlsSettings"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Values the customer needs to validate domain ownership
-	ValidationProperties DomainValidationPropertiesResponseOutput `pulumi:"validationProperties"`
+	AzureDnsZone          ResourceReferenceResponsePtrOutput        `pulumi:"azureDnsZone"`
+	DeploymentStatus      pulumi.StringOutput                       `pulumi:"deploymentStatus"`
+	DomainValidationState pulumi.StringOutput                       `pulumi:"domainValidationState"`
+	HostName              pulumi.StringOutput                       `pulumi:"hostName"`
+	Name                  pulumi.StringOutput                       `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput                       `pulumi:"provisioningState"`
+	SystemData            SystemDataResponseOutput                  `pulumi:"systemData"`
+	TlsSettings           AFDDomainHttpsParametersResponsePtrOutput `pulumi:"tlsSettings"`
+	Type                  pulumi.StringOutput                       `pulumi:"type"`
+	ValidationProperties  DomainValidationPropertiesResponseOutput  `pulumi:"validationProperties"`
 }
 
 // NewAFDCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -95,34 +86,22 @@ func (AFDCustomDomainState) ElementType() reflect.Type {
 }
 
 type afdcustomDomainArgs struct {
-	// Resource reference to the Azure DNS zone
-	AzureDnsZone *ResourceReference `pulumi:"azureDnsZone"`
-	// Name of the domain under the profile which is unique globally
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// The host name of the domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
-	TlsSettings *AFDDomainHttpsParameters `pulumi:"tlsSettings"`
+	AzureDnsZone      *ResourceReference        `pulumi:"azureDnsZone"`
+	CustomDomainName  *string                   `pulumi:"customDomainName"`
+	HostName          string                    `pulumi:"hostName"`
+	ProfileName       string                    `pulumi:"profileName"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	TlsSettings       *AFDDomainHttpsParameters `pulumi:"tlsSettings"`
 }
 
 // The set of arguments for constructing a AFDCustomDomain resource.
 type AFDCustomDomainArgs struct {
-	// Resource reference to the Azure DNS zone
-	AzureDnsZone ResourceReferencePtrInput
-	// Name of the domain under the profile which is unique globally
-	CustomDomainName pulumi.StringPtrInput
-	// The host name of the domain. Must be a domain name.
-	HostName pulumi.StringInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	AzureDnsZone      ResourceReferencePtrInput
+	CustomDomainName  pulumi.StringPtrInput
+	HostName          pulumi.StringInput
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
-	TlsSettings AFDDomainHttpsParametersPtrInput
+	TlsSettings       AFDDomainHttpsParametersPtrInput
 }
 
 func (AFDCustomDomainArgs) ElementType() reflect.Type {

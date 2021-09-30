@@ -14,51 +14,29 @@ import (
 type WebAppSiteExtensionSlot struct {
 	pulumi.CustomResourceState
 
-	// List of authors.
-	Authors pulumi.StringArrayOutput `pulumi:"authors"`
-	// Site Extension comment.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Detailed description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Count of downloads.
-	DownloadCount pulumi.IntPtrOutput `pulumi:"downloadCount"`
-	// Site extension ID.
-	ExtensionId pulumi.StringPtrOutput `pulumi:"extensionId"`
-	// Site extension type.
-	ExtensionType pulumi.StringPtrOutput `pulumi:"extensionType"`
-	// Extension URL.
-	ExtensionUrl pulumi.StringPtrOutput `pulumi:"extensionUrl"`
-	// Feed URL.
-	FeedUrl pulumi.StringPtrOutput `pulumi:"feedUrl"`
-	// Icon URL.
-	IconUrl pulumi.StringPtrOutput `pulumi:"iconUrl"`
-	// Installed timestamp.
-	InstalledDateTime pulumi.StringPtrOutput `pulumi:"installedDateTime"`
-	// Installer command line parameters.
-	InstallerCommandLineParams pulumi.StringPtrOutput `pulumi:"installerCommandLineParams"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// License URL.
-	LicenseUrl pulumi.StringPtrOutput `pulumi:"licenseUrl"`
-	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	LocalIsLatestVersion pulumi.BoolPtrOutput `pulumi:"localIsLatestVersion"`
-	// Local path.
-	LocalPath pulumi.StringPtrOutput `pulumi:"localPath"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Project URL.
-	ProjectUrl pulumi.StringPtrOutput `pulumi:"projectUrl"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Published timestamp.
-	PublishedDateTime pulumi.StringPtrOutput `pulumi:"publishedDateTime"`
-	// Summary description.
-	Summary pulumi.StringPtrOutput `pulumi:"summary"`
-	Title   pulumi.StringPtrOutput `pulumi:"title"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version information.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Authors                    pulumi.StringArrayOutput `pulumi:"authors"`
+	Comment                    pulumi.StringPtrOutput   `pulumi:"comment"`
+	Description                pulumi.StringPtrOutput   `pulumi:"description"`
+	DownloadCount              pulumi.IntPtrOutput      `pulumi:"downloadCount"`
+	ExtensionId                pulumi.StringPtrOutput   `pulumi:"extensionId"`
+	ExtensionType              pulumi.StringPtrOutput   `pulumi:"extensionType"`
+	ExtensionUrl               pulumi.StringPtrOutput   `pulumi:"extensionUrl"`
+	FeedUrl                    pulumi.StringPtrOutput   `pulumi:"feedUrl"`
+	IconUrl                    pulumi.StringPtrOutput   `pulumi:"iconUrl"`
+	InstalledDateTime          pulumi.StringPtrOutput   `pulumi:"installedDateTime"`
+	InstallerCommandLineParams pulumi.StringPtrOutput   `pulumi:"installerCommandLineParams"`
+	Kind                       pulumi.StringPtrOutput   `pulumi:"kind"`
+	LicenseUrl                 pulumi.StringPtrOutput   `pulumi:"licenseUrl"`
+	LocalIsLatestVersion       pulumi.BoolPtrOutput     `pulumi:"localIsLatestVersion"`
+	LocalPath                  pulumi.StringPtrOutput   `pulumi:"localPath"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	ProjectUrl                 pulumi.StringPtrOutput   `pulumi:"projectUrl"`
+	ProvisioningState          pulumi.StringPtrOutput   `pulumi:"provisioningState"`
+	PublishedDateTime          pulumi.StringPtrOutput   `pulumi:"publishedDateTime"`
+	Summary                    pulumi.StringPtrOutput   `pulumi:"summary"`
+	Title                      pulumi.StringPtrOutput   `pulumi:"title"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
+	Version                    pulumi.StringPtrOutput   `pulumi:"version"`
 }
 
 // NewWebAppSiteExtensionSlot registers a new resource with the given unique name, arguments, and options.
@@ -181,26 +159,18 @@ func (WebAppSiteExtensionSlotState) ElementType() reflect.Type {
 }
 
 type webAppSiteExtensionSlotArgs struct {
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site extension name.
-	SiteExtensionId *string `pulumi:"siteExtensionId"`
-	// Name of the deployment slot. If a slot is not specified, the API uses the production slot.
-	Slot string `pulumi:"slot"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SiteExtensionId   *string `pulumi:"siteExtensionId"`
+	Slot              string  `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppSiteExtensionSlot resource.
 type WebAppSiteExtensionSlotArgs struct {
-	// Site name.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Site extension name.
-	SiteExtensionId pulumi.StringPtrInput
-	// Name of the deployment slot. If a slot is not specified, the API uses the production slot.
-	Slot pulumi.StringInput
+	SiteExtensionId   pulumi.StringPtrInput
+	Slot              pulumi.StringInput
 }
 
 func (WebAppSiteExtensionSlotArgs) ElementType() reflect.Type {

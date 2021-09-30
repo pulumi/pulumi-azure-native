@@ -14,14 +14,10 @@ import (
 type ManagementAssociation struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
+	Location   pulumi.StringPtrOutput                        `pulumi:"location"`
+	Name       pulumi.StringOutput                           `pulumi:"name"`
 	Properties ManagementAssociationPropertiesResponseOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewManagementAssociation registers a new resource with the given unique name, arguments, and options.
@@ -87,38 +83,24 @@ func (ManagementAssociationState) ElementType() reflect.Type {
 }
 
 type managementAssociationArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// User ManagementAssociation Name.
-	ManagementAssociationName *string `pulumi:"managementAssociationName"`
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
-	Properties *ManagementAssociationProperties `pulumi:"properties"`
-	// Provider name for the parent resource.
-	ProviderName string `pulumi:"providerName"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Parent resource name.
-	ResourceName string `pulumi:"resourceName"`
-	// Resource type for the parent resource
-	ResourceType string `pulumi:"resourceType"`
+	Location                  *string                          `pulumi:"location"`
+	ManagementAssociationName *string                          `pulumi:"managementAssociationName"`
+	Properties                *ManagementAssociationProperties `pulumi:"properties"`
+	ProviderName              string                           `pulumi:"providerName"`
+	ResourceGroupName         string                           `pulumi:"resourceGroupName"`
+	ResourceName              string                           `pulumi:"resourceName"`
+	ResourceType              string                           `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ManagementAssociation resource.
 type ManagementAssociationArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// User ManagementAssociation Name.
+	Location                  pulumi.StringPtrInput
 	ManagementAssociationName pulumi.StringPtrInput
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
-	Properties ManagementAssociationPropertiesPtrInput
-	// Provider name for the parent resource.
-	ProviderName pulumi.StringInput
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Parent resource name.
-	ResourceName pulumi.StringInput
-	// Resource type for the parent resource
-	ResourceType pulumi.StringInput
+	Properties                ManagementAssociationPropertiesPtrInput
+	ProviderName              pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	ResourceName              pulumi.StringInput
+	ResourceType              pulumi.StringInput
 }
 
 func (ManagementAssociationArgs) ElementType() reflect.Type {

@@ -14,18 +14,12 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractPropertiesResponsePtrOutput `pulumi:"keyVault"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Subject attribute of the certificate.
-	Subject pulumi.StringOutput `pulumi:"subject"`
-	// Thumbprint of the certificate.
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ExpirationDate pulumi.StringOutput                         `pulumi:"expirationDate"`
+	KeyVault       KeyVaultContractPropertiesResponsePtrOutput `pulumi:"keyVault"`
+	Name           pulumi.StringOutput                         `pulumi:"name"`
+	Subject        pulumi.StringOutput                         `pulumi:"subject"`
+	Thumbprint     pulumi.StringOutput                         `pulumi:"thumbprint"`
+	Type           pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -151,34 +145,22 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId *string `pulumi:"certificateId"`
-	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data *string `pulumi:"data"`
-	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractCreateProperties `pulumi:"keyVault"`
-	// Password for the Certificate
-	Password *string `pulumi:"password"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	CertificateId     *string                           `pulumi:"certificateId"`
+	Data              *string                           `pulumi:"data"`
+	KeyVault          *KeyVaultContractCreateProperties `pulumi:"keyVault"`
+	Password          *string                           `pulumi:"password"`
+	ResourceGroupName string                            `pulumi:"resourceGroupName"`
+	ServiceName       string                            `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId pulumi.StringPtrInput
-	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data pulumi.StringPtrInput
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractCreatePropertiesPtrInput
-	// Password for the Certificate
-	Password pulumi.StringPtrInput
-	// The name of the resource group.
+	CertificateId     pulumi.StringPtrInput
+	Data              pulumi.StringPtrInput
+	KeyVault          KeyVaultContractCreatePropertiesPtrInput
+	Password          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

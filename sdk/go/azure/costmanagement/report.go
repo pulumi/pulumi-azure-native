@@ -14,20 +14,13 @@ import (
 type Report struct {
 	pulumi.CustomResourceState
 
-	// Has definition for the report.
-	Definition ReportDefinitionResponseOutput `pulumi:"definition"`
-	// Has delivery information for the report.
+	Definition   ReportDefinitionResponseOutput   `pulumi:"definition"`
 	DeliveryInfo ReportDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Has schedule information for the report.
-	Schedule ReportScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Format       pulumi.StringPtrOutput           `pulumi:"format"`
+	Name         pulumi.StringOutput              `pulumi:"name"`
+	Schedule     ReportScheduleResponsePtrOutput  `pulumi:"schedule"`
+	Tags         pulumi.StringMapOutput           `pulumi:"tags"`
+	Type         pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewReport registers a new resource with the given unique name, arguments, and options.
@@ -87,30 +80,20 @@ func (ReportState) ElementType() reflect.Type {
 }
 
 type reportArgs struct {
-	// Has definition for the report.
-	Definition ReportDefinition `pulumi:"definition"`
-	// Has delivery information for the report.
+	Definition   ReportDefinition   `pulumi:"definition"`
 	DeliveryInfo ReportDeliveryInfo `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Report Name.
-	ReportName *string `pulumi:"reportName"`
-	// Has schedule information for the report.
-	Schedule *ReportSchedule `pulumi:"schedule"`
+	Format       *string            `pulumi:"format"`
+	ReportName   *string            `pulumi:"reportName"`
+	Schedule     *ReportSchedule    `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a Report resource.
 type ReportArgs struct {
-	// Has definition for the report.
-	Definition ReportDefinitionInput
-	// Has delivery information for the report.
+	Definition   ReportDefinitionInput
 	DeliveryInfo ReportDeliveryInfoInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Report Name.
-	ReportName pulumi.StringPtrInput
-	// Has schedule information for the report.
-	Schedule ReportSchedulePtrInput
+	Format       pulumi.StringPtrInput
+	ReportName   pulumi.StringPtrInput
+	Schedule     ReportSchedulePtrInput
 }
 
 func (ReportArgs) ElementType() reflect.Type {

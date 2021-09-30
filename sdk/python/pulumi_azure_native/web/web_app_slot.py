@@ -79,7 +79,7 @@ class WebAppSlotArgs:
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input['SiteConfigArgs'] site_config: Configuration of the app.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
@@ -473,7 +473,7 @@ class WebAppSlotArgs:
     @pulumi.getter
     def slot(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        Name of the deployment slot to create or update. The name 'production' is reserved.
         """
         return pulumi.get(self, "slot")
 
@@ -592,7 +592,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.

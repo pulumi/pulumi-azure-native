@@ -14,12 +14,9 @@ import (
 type TrustedIdProvider struct {
 	pulumi.CustomResourceState
 
-	// The URL of this trusted identity provider.
 	IdProvider pulumi.StringOutput `pulumi:"idProvider"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTrustedIdProvider registers a new resource with the given unique name, arguments, and options.
@@ -82,25 +79,17 @@ func (TrustedIdProviderState) ElementType() reflect.Type {
 }
 
 type trustedIdProviderArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName string `pulumi:"accountName"`
-	// The URL of this trusted identity provider.
-	IdProvider string `pulumi:"idProvider"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
+	AccountName           string  `pulumi:"accountName"`
+	IdProvider            string  `pulumi:"idProvider"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 	TrustedIdProviderName *string `pulumi:"trustedIdProviderName"`
 }
 
 // The set of arguments for constructing a TrustedIdProvider resource.
 type TrustedIdProviderArgs struct {
-	// The name of the Data Lake Store account.
-	AccountName pulumi.StringInput
-	// The URL of this trusted identity provider.
-	IdProvider pulumi.StringInput
-	// The name of the Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
+	AccountName           pulumi.StringInput
+	IdProvider            pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	TrustedIdProviderName pulumi.StringPtrInput
 }
 

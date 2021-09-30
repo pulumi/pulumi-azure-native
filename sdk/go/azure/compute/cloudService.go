@@ -14,16 +14,11 @@ import (
 type CloudService struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Cloud service properties
+	Location   pulumi.StringOutput                  `pulumi:"location"`
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties CloudServicePropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput               `pulumi:"tags"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewCloudService registers a new resource with the given unique name, arguments, and options.
@@ -86,30 +81,20 @@ func (CloudServiceState) ElementType() reflect.Type {
 }
 
 type cloudServiceArgs struct {
-	// Name of the cloud service.
-	CloudServiceName *string `pulumi:"cloudServiceName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Cloud service properties
-	Properties *CloudServiceProperties `pulumi:"properties"`
-	// Name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CloudServiceName  *string                 `pulumi:"cloudServiceName"`
+	Location          *string                 `pulumi:"location"`
+	Properties        *CloudServiceProperties `pulumi:"properties"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudService resource.
 type CloudServiceArgs struct {
-	// Name of the cloud service.
-	CloudServiceName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Cloud service properties
-	Properties CloudServicePropertiesPtrInput
-	// Name of the resource group.
+	CloudServiceName  pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        CloudServicePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CloudServiceArgs) ElementType() reflect.Type {

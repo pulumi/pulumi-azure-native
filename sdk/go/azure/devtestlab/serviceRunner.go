@@ -14,16 +14,11 @@ import (
 type ServiceRunner struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
 	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location pulumi.StringPtrOutput              `pulumi:"location"`
+	Name     pulumi.StringOutput                 `pulumi:"name"`
+	Tags     pulumi.StringMapOutput              `pulumi:"tags"`
+	Type     pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewServiceRunner registers a new resource with the given unique name, arguments, and options.
@@ -89,34 +84,22 @@ func (ServiceRunnerState) ElementType() reflect.Type {
 }
 
 type serviceRunnerArgs struct {
-	// The identity of the resource.
-	Identity *IdentityProperties `pulumi:"identity"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the service runner.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Identity          *IdentityProperties `pulumi:"identity"`
+	LabName           string              `pulumi:"labName"`
+	Location          *string             `pulumi:"location"`
+	Name              *string             `pulumi:"name"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceRunner resource.
 type ServiceRunnerArgs struct {
-	// The identity of the resource.
-	Identity IdentityPropertiesPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the service runner.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
+	Identity          IdentityPropertiesPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServiceRunnerArgs) ElementType() reflect.Type {

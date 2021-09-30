@@ -14,20 +14,13 @@ import (
 type Bot struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to Healthbot resource.
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties HealthBotPropertiesResponseOutput `pulumi:"properties"`
-	// SKU of the HealthBot.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponseOutput                 `pulumi:"sku"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewBot registers a new resource with the given unique name, arguments, and options.
@@ -111,30 +104,20 @@ func (BotState) ElementType() reflect.Type {
 }
 
 type botArgs struct {
-	// The name of the Bot resource.
-	BotName *string `pulumi:"botName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Bot resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU of the HealthBot.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BotName           *string           `pulumi:"botName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bot resource.
 type BotArgs struct {
-	// The name of the Bot resource.
-	BotName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Bot resource group in the user subscription.
+	BotName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU of the HealthBot.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BotArgs) ElementType() reflect.Type {

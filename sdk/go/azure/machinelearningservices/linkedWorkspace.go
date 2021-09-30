@@ -14,12 +14,9 @@ import (
 type LinkedWorkspace struct {
 	pulumi.CustomResourceState
 
-	// Friendly name of the linked workspace.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// LinkedWorkspace specific properties.
+	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties LinkedWorkspacePropsResponseOutput `pulumi:"properties"`
-	// Resource type of linked workspace.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewLinkedWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -79,30 +76,20 @@ func (LinkedWorkspaceState) ElementType() reflect.Type {
 }
 
 type linkedWorkspaceArgs struct {
-	// Friendly name of the linked workspace
-	LinkName *string `pulumi:"linkName"`
-	// Friendly name of the linked workspace
-	Name *string `pulumi:"name"`
-	// LinkedWorkspace specific properties.
-	Properties *LinkedWorkspaceProps `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	LinkName          *string               `pulumi:"linkName"`
+	Name              *string               `pulumi:"name"`
+	Properties        *LinkedWorkspaceProps `pulumi:"properties"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	WorkspaceName     string                `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LinkedWorkspace resource.
 type LinkedWorkspaceArgs struct {
-	// Friendly name of the linked workspace
-	LinkName pulumi.StringPtrInput
-	// Friendly name of the linked workspace
-	Name pulumi.StringPtrInput
-	// LinkedWorkspace specific properties.
-	Properties LinkedWorkspacePropsPtrInput
-	// Name of the resource group in which workspace is located.
+	LinkName          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Properties        LinkedWorkspacePropsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LinkedWorkspaceArgs) ElementType() reflect.Type {

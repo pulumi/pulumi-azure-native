@@ -14,26 +14,16 @@ import (
 type IotConnector struct {
 	pulumi.CustomResourceState
 
-	// Device Mappings.
-	DeviceMapping IotMappingPropertiesResponsePtrOutput `pulumi:"deviceMapping"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServiceManagedIdentityResponseIdentityPtrOutput `pulumi:"identity"`
-	// Source configuration.
+	DeviceMapping                  IotMappingPropertiesResponsePtrOutput                      `pulumi:"deviceMapping"`
+	Etag                           pulumi.StringPtrOutput                                     `pulumi:"etag"`
+	Identity                       ServiceManagedIdentityResponseIdentityPtrOutput            `pulumi:"identity"`
 	IngestionEndpointConfiguration IotEventHubIngestionEndpointConfigurationResponsePtrOutput `pulumi:"ingestionEndpointConfiguration"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                       pulumi.StringPtrOutput                                     `pulumi:"location"`
+	Name                           pulumi.StringOutput                                        `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput                                        `pulumi:"provisioningState"`
+	SystemData                     SystemDataResponseOutput                                   `pulumi:"systemData"`
+	Tags                           pulumi.StringMapOutput                                     `pulumi:"tags"`
+	Type                           pulumi.StringOutput                                        `pulumi:"type"`
 }
 
 // NewIotConnector registers a new resource with the given unique name, arguments, and options.
@@ -93,46 +83,28 @@ func (IotConnectorState) ElementType() reflect.Type {
 }
 
 type iotConnectorArgs struct {
-	// Device Mappings.
-	DeviceMapping *IotMappingProperties `pulumi:"deviceMapping"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServiceManagedIdentityIdentity `pulumi:"identity"`
-	// Source configuration.
+	DeviceMapping                  *IotMappingProperties                      `pulumi:"deviceMapping"`
+	Etag                           *string                                    `pulumi:"etag"`
+	Identity                       *ServiceManagedIdentityIdentity            `pulumi:"identity"`
 	IngestionEndpointConfiguration *IotEventHubIngestionEndpointConfiguration `pulumi:"ingestionEndpointConfiguration"`
-	// The name of IoT Connector resource.
-	IotConnectorName *string `pulumi:"iotConnectorName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	IotConnectorName               *string                                    `pulumi:"iotConnectorName"`
+	Location                       *string                                    `pulumi:"location"`
+	ResourceGroupName              string                                     `pulumi:"resourceGroupName"`
+	Tags                           map[string]string                          `pulumi:"tags"`
+	WorkspaceName                  string                                     `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IotConnector resource.
 type IotConnectorArgs struct {
-	// Device Mappings.
-	DeviceMapping IotMappingPropertiesPtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServiceManagedIdentityIdentityPtrInput
-	// Source configuration.
+	DeviceMapping                  IotMappingPropertiesPtrInput
+	Etag                           pulumi.StringPtrInput
+	Identity                       ServiceManagedIdentityIdentityPtrInput
 	IngestionEndpointConfiguration IotEventHubIngestionEndpointConfigurationPtrInput
-	// The name of IoT Connector resource.
-	IotConnectorName pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of workspace resource.
-	WorkspaceName pulumi.StringInput
+	IotConnectorName               pulumi.StringPtrInput
+	Location                       pulumi.StringPtrInput
+	ResourceGroupName              pulumi.StringInput
+	Tags                           pulumi.StringMapInput
+	WorkspaceName                  pulumi.StringInput
 }
 
 func (IotConnectorArgs) ElementType() reflect.Type {

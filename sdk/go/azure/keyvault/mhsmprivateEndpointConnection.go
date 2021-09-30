@@ -14,26 +14,16 @@ import (
 type MHSMPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the managed HSM Pool.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint MHSMPrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Etag                              pulumi.StringPtrOutput                                 `pulumi:"etag"`
+	Location                          pulumi.StringPtrOutput                                 `pulumi:"location"`
+	Name                              pulumi.StringOutput                                    `pulumi:"name"`
+	PrivateEndpoint                   MHSMPrivateEndpointResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState MHSMPrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// SKU details
-	Sku ManagedHsmSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type of the managed HSM Pool.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                    `pulumi:"provisioningState"`
+	Sku                               ManagedHsmSkuResponsePtrOutput                         `pulumi:"sku"`
+	SystemData                        SystemDataResponseOutput                               `pulumi:"systemData"`
+	Tags                              pulumi.StringMapOutput                                 `pulumi:"tags"`
+	Type                              pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewMHSMPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -99,42 +89,26 @@ func (MHSMPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type mhsmprivateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location *string `pulumi:"location"`
-	// Name of the managed HSM Pool
-	Name string `pulumi:"name"`
-	// Name of the private endpoint connection associated with the managed hsm pool.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Approval state of the private link connection.
+	Etag                              *string                                `pulumi:"etag"`
+	Location                          *string                                `pulumi:"location"`
+	Name                              string                                 `pulumi:"name"`
+	PrivateEndpointConnectionName     *string                                `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *MHSMPrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of the resource group that contains the managed HSM pool.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU details
-	Sku *ManagedHsmSku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName                 string                                 `pulumi:"resourceGroupName"`
+	Sku                               *ManagedHsmSku                         `pulumi:"sku"`
+	Tags                              map[string]string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MHSMPrivateEndpointConnection resource.
 type MHSMPrivateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrInput
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrInput
-	// Name of the managed HSM Pool
-	Name pulumi.StringInput
-	// Name of the private endpoint connection associated with the managed hsm pool.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Approval state of the private link connection.
+	Etag                              pulumi.StringPtrInput
+	Location                          pulumi.StringPtrInput
+	Name                              pulumi.StringInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState MHSMPrivateLinkServiceConnectionStatePtrInput
-	// Name of the resource group that contains the managed HSM pool.
-	ResourceGroupName pulumi.StringInput
-	// SKU details
-	Sku ManagedHsmSkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceGroupName                 pulumi.StringInput
+	Sku                               ManagedHsmSkuPtrInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (MHSMPrivateEndpointConnectionArgs) ElementType() reflect.Type {

@@ -16,6 +16,9 @@ __all__ = [
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
     'AssessmentStatusResponse',
+    'AssignedComponentItemResponse',
+    'AssignedStandardItemResponse',
+    'AssignmentPropertiesResponseAdditionalData',
     'AutomationActionEventHubResponse',
     'AutomationActionLogicAppResponse',
     'AutomationActionWorkspaceResponse',
@@ -50,6 +53,7 @@ __all__ = [
     'SecurityContactPropertiesResponseAlertNotifications',
     'SecurityContactPropertiesResponseNotificationsByRole',
     'ServicePrincipalPropertiesResponse',
+    'StandardComponentPropertiesResponse',
     'SuppressionAlertsScopeResponse',
     'SystemDataResponse',
     'ThresholdCustomAlertRuleResponse',
@@ -364,6 +368,92 @@ class AssessmentStatusResponse(dict):
         Human readable description of the assessment status
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class AssignedComponentItemResponse(dict):
+    """
+    describe the properties of a security assessment object reference (by key)
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None):
+        """
+        describe the properties of a security assessment object reference (by key)
+        :param str key: unique key to a security assessment object
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        unique key to a security assessment object
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class AssignedStandardItemResponse(dict):
+    """
+    describe the properties of a of a security standard object reference
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        describe the properties of a of a security standard object reference
+        :param str id: full resourceId of the Microsoft.Security/standard object
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        full resourceId of the Microsoft.Security/standard object
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AssignmentPropertiesResponseAdditionalData(dict):
+    """
+    Additional data about the assignment
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exemptionCategory":
+            suggest = "exemption_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentPropertiesResponseAdditionalData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentPropertiesResponseAdditionalData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentPropertiesResponseAdditionalData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exemption_category: Optional[str] = None):
+        """
+        Additional data about the assignment
+        :param str exemption_category: Exemption category of this assignment
+        """
+        if exemption_category is not None:
+            pulumi.set(__self__, "exemption_category", exemption_category)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> Optional[str]:
+        """
+        Exemption category of this assignment
+        """
+        return pulumi.get(self, "exemption_category")
 
 
 @pulumi.output_type
@@ -2852,6 +2942,29 @@ class ServicePrincipalPropertiesResponse(dict):
         A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class StandardComponentPropertiesResponse(dict):
+    """
+    Describes properties of an component as related to the standard
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None):
+        """
+        Describes properties of an component as related to the standard
+        :param str key: Component Key matching componentMetadata
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Component Key matching componentMetadata
+        """
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Assessment{}
 	case "azure-native:security:AssessmentMetadataInSubscription":
 		r = &AssessmentMetadataInSubscription{}
+	case "azure-native:security:Assignment":
+		r = &Assignment{}
 	case "azure-native:security:Automation":
 		r = &Automation{}
 	case "azure-native:security:Connector":
@@ -53,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerVulnerabilityAssessment{}
 	case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
 		r = &SqlVulnerabilityAssessmentBaselineRule{}
+	case "azure-native:security:Standard":
+		r = &Standard{}
 	case "azure-native:security:WorkspaceSetting":
 		r = &WorkspaceSetting{}
 	default:

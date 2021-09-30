@@ -14,16 +14,11 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	// User-defined description of the job.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Schedule properties of the job.
-	Schedule JobScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The job version number.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Description pulumi.StringPtrOutput       `pulumi:"description"`
+	Name        pulumi.StringOutput          `pulumi:"name"`
+	Schedule    JobScheduleResponsePtrOutput `pulumi:"schedule"`
+	Type        pulumi.StringOutput          `pulumi:"type"`
+	Version     pulumi.IntOutput             `pulumi:"version"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -113,34 +108,22 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// User-defined description of the job.
-	Description *string `pulumi:"description"`
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the job to get.
-	JobName *string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schedule properties of the job.
-	Schedule *JobSchedule `pulumi:"schedule"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	Description       *string      `pulumi:"description"`
+	JobAgentName      string       `pulumi:"jobAgentName"`
+	JobName           *string      `pulumi:"jobName"`
+	ResourceGroupName string       `pulumi:"resourceGroupName"`
+	Schedule          *JobSchedule `pulumi:"schedule"`
+	ServerName        string       `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// User-defined description of the job.
-	Description pulumi.StringPtrInput
-	// The name of the job agent.
-	JobAgentName pulumi.StringInput
-	// The name of the job to get.
-	JobName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Description       pulumi.StringPtrInput
+	JobAgentName      pulumi.StringInput
+	JobName           pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Schedule properties of the job.
-	Schedule JobSchedulePtrInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	Schedule          JobSchedulePtrInput
+	ServerName        pulumi.StringInput
 }
 
 func (JobArgs) ElementType() reflect.Type {

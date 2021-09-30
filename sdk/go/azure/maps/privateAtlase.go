@@ -14,16 +14,11 @@ import (
 type PrivateAtlase struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Private Atlas resource properties.
+	Location   pulumi.StringOutput                  `pulumi:"location"`
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties PrivateAtlasPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput               `pulumi:"tags"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewPrivateAtlase registers a new resource with the given unique name, arguments, and options.
@@ -83,30 +78,20 @@ func (PrivateAtlaseState) ElementType() reflect.Type {
 }
 
 type privateAtlaseArgs struct {
-	// The name of the Maps Account.
-	AccountName string `pulumi:"accountName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the Private Atlas instance.
-	PrivateAtlasName *string `pulumi:"privateAtlasName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string            `pulumi:"accountName"`
+	Location          *string           `pulumi:"location"`
+	PrivateAtlasName  *string           `pulumi:"privateAtlasName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateAtlase resource.
 type PrivateAtlaseArgs struct {
-	// The name of the Maps Account.
-	AccountName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the Private Atlas instance.
-	PrivateAtlasName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	PrivateAtlasName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PrivateAtlaseArgs) ElementType() reflect.Type {

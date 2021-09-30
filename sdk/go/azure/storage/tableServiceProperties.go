@@ -14,12 +14,9 @@ import (
 type TableServiceProperties struct {
 	pulumi.CustomResourceState
 
-	// Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
 	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name pulumi.StringOutput        `pulumi:"name"`
+	Type pulumi.StringOutput        `pulumi:"type"`
 }
 
 // NewTableServiceProperties registers a new resource with the given unique name, arguments, and options.
@@ -109,26 +106,18 @@ func (TableServicePropertiesState) ElementType() reflect.Type {
 }
 
 type tableServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
-	Cors *CorsRules `pulumi:"cors"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
-	TableServiceName *string `pulumi:"tableServiceName"`
+	AccountName       string     `pulumi:"accountName"`
+	Cors              *CorsRules `pulumi:"cors"`
+	ResourceGroupName string     `pulumi:"resourceGroupName"`
+	TableServiceName  *string    `pulumi:"tableServiceName"`
 }
 
 // The set of arguments for constructing a TableServiceProperties resource.
 type TableServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
-	Cors CorsRulesPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Cors              CorsRulesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
-	TableServiceName pulumi.StringPtrInput
+	TableServiceName  pulumi.StringPtrInput
 }
 
 func (TableServicePropertiesArgs) ElementType() reflect.Type {

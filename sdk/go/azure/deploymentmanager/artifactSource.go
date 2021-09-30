@@ -14,20 +14,13 @@ import (
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 
-	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
-	ArtifactRoot pulumi.StringPtrOutput `pulumi:"artifactRoot"`
-	// The authentication method to use to access the artifact source.
+	ArtifactRoot   pulumi.StringPtrOutput          `pulumi:"artifactRoot"`
 	Authentication SasAuthenticationResponseOutput `pulumi:"authentication"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of artifact source used.
-	SourceType pulumi.StringOutput `pulumi:"sourceType"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location       pulumi.StringOutput             `pulumi:"location"`
+	Name           pulumi.StringOutput             `pulumi:"name"`
+	SourceType     pulumi.StringOutput             `pulumi:"sourceType"`
+	Tags           pulumi.StringMapOutput          `pulumi:"tags"`
+	Type           pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewArtifactSource registers a new resource with the given unique name, arguments, and options.
@@ -96,38 +89,24 @@ func (ArtifactSourceState) ElementType() reflect.Type {
 }
 
 type artifactSourceArgs struct {
-	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
-	ArtifactRoot *string `pulumi:"artifactRoot"`
-	// The name of the artifact source.
-	ArtifactSourceName *string `pulumi:"artifactSourceName"`
-	// The authentication method to use to access the artifact source.
-	Authentication SasAuthentication `pulumi:"authentication"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The type of artifact source used.
-	SourceType string `pulumi:"sourceType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ArtifactRoot       *string           `pulumi:"artifactRoot"`
+	ArtifactSourceName *string           `pulumi:"artifactSourceName"`
+	Authentication     SasAuthentication `pulumi:"authentication"`
+	Location           *string           `pulumi:"location"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	SourceType         string            `pulumi:"sourceType"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ArtifactSource resource.
 type ArtifactSourceArgs struct {
-	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
-	ArtifactRoot pulumi.StringPtrInput
-	// The name of the artifact source.
+	ArtifactRoot       pulumi.StringPtrInput
 	ArtifactSourceName pulumi.StringPtrInput
-	// The authentication method to use to access the artifact source.
-	Authentication SasAuthenticationInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The type of artifact source used.
-	SourceType pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Authentication     SasAuthenticationInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	SourceType         pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ArtifactSourceArgs) ElementType() reflect.Type {

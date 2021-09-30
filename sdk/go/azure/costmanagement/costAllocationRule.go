@@ -14,12 +14,9 @@ import (
 type CostAllocationRule struct {
 	pulumi.CustomResourceState
 
-	// Name of the rule. This is a read only value.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Cost allocation rule properties
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties CostAllocationRulePropertiesResponseOutput `pulumi:"properties"`
-	// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewCostAllocationRule registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +73,16 @@ func (CostAllocationRuleState) ElementType() reflect.Type {
 }
 
 type costAllocationRuleArgs struct {
-	// BillingAccount ID
-	BillingAccountId string `pulumi:"billingAccountId"`
-	// Cost allocation rule properties
-	Properties *CostAllocationRuleProperties `pulumi:"properties"`
-	// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-	RuleName *string `pulumi:"ruleName"`
+	BillingAccountId string                        `pulumi:"billingAccountId"`
+	Properties       *CostAllocationRuleProperties `pulumi:"properties"`
+	RuleName         *string                       `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a CostAllocationRule resource.
 type CostAllocationRuleArgs struct {
-	// BillingAccount ID
 	BillingAccountId pulumi.StringInput
-	// Cost allocation rule properties
-	Properties CostAllocationRulePropertiesPtrInput
-	// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-	RuleName pulumi.StringPtrInput
+	Properties       CostAllocationRulePropertiesPtrInput
+	RuleName         pulumi.StringPtrInput
 }
 
 func (CostAllocationRuleArgs) ElementType() reflect.Type {

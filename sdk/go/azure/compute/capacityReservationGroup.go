@@ -14,22 +14,14 @@ import (
 type CapacityReservationGroup struct {
 	pulumi.CustomResourceState
 
-	// A list of all capacity reservation resource ids that belong to capacity reservation group.
-	CapacityReservations SubResourceReadOnlyResponseArrayOutput `pulumi:"capacityReservations"`
-	// The capacity reservation group instance view which has the list of instance views for all the capacity reservations that belong to the capacity reservation group.
-	InstanceView CapacityReservationGroupInstanceViewResponseOutput `pulumi:"instanceView"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of references to all virtual machines associated to the capacity reservation group.
-	VirtualMachinesAssociated SubResourceReadOnlyResponseArrayOutput `pulumi:"virtualMachinesAssociated"`
-	// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	CapacityReservations      SubResourceReadOnlyResponseArrayOutput             `pulumi:"capacityReservations"`
+	InstanceView              CapacityReservationGroupInstanceViewResponseOutput `pulumi:"instanceView"`
+	Location                  pulumi.StringOutput                                `pulumi:"location"`
+	Name                      pulumi.StringOutput                                `pulumi:"name"`
+	Tags                      pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                      pulumi.StringOutput                                `pulumi:"type"`
+	VirtualMachinesAssociated SubResourceReadOnlyResponseArrayOutput             `pulumi:"virtualMachinesAssociated"`
+	Zones                     pulumi.StringArrayOutput                           `pulumi:"zones"`
 }
 
 // NewCapacityReservationGroup registers a new resource with the given unique name, arguments, and options.
@@ -92,30 +84,20 @@ func (CapacityReservationGroupState) ElementType() reflect.Type {
 }
 
 type capacityReservationGroupArgs struct {
-	// The name of the capacity reservation group.
-	CapacityReservationGroupName *string `pulumi:"capacityReservationGroupName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
-	Zones []string `pulumi:"zones"`
+	CapacityReservationGroupName *string           `pulumi:"capacityReservationGroupName"`
+	Location                     *string           `pulumi:"location"`
+	ResourceGroupName            string            `pulumi:"resourceGroupName"`
+	Tags                         map[string]string `pulumi:"tags"`
+	Zones                        []string          `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a CapacityReservationGroup resource.
 type CapacityReservationGroupArgs struct {
-	// The name of the capacity reservation group.
 	CapacityReservationGroupName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
-	Zones pulumi.StringArrayInput
+	Location                     pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	Tags                         pulumi.StringMapInput
+	Zones                        pulumi.StringArrayInput
 }
 
 func (CapacityReservationGroupArgs) ElementType() reflect.Type {

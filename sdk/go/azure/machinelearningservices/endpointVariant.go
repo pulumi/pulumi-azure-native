@@ -14,22 +14,14 @@ import (
 type EndpointVariant struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	SystemData SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewEndpointVariant registers a new resource with the given unique name, arguments, and options.
@@ -117,64 +109,36 @@ func (EndpointVariantState) ElementType() reflect.Type {
 }
 
 type endpointVariantArgs struct {
-	// The compute environment type for the service.
-	// Expected value is 'Custom'.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the service.
-	Description *string `pulumi:"description"`
-	// The Environment, models and assets needed for inferencing.
+	ComputeType             string                                       `pulumi:"computeType"`
+	Description             *string                                      `pulumi:"description"`
 	EnvironmentImageRequest *CreateServiceRequestEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// Is this the default variant.
-	IsDefault *bool `pulumi:"isDefault"`
-	// The authentication keys.
-	Keys *CreateServiceRequestKeys `pulumi:"keys"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The name of the Azure location/region.
-	Location *string `pulumi:"location"`
-	// The service properties dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Azure Machine Learning service.
-	ServiceName *string `pulumi:"serviceName"`
-	// The amount of traffic variant receives.
-	TrafficPercentile *float64 `pulumi:"trafficPercentile"`
-	// The type of the variant.
-	Type *string `pulumi:"type"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	IsDefault               *bool                                        `pulumi:"isDefault"`
+	Keys                    *CreateServiceRequestKeys                    `pulumi:"keys"`
+	KvTags                  map[string]string                            `pulumi:"kvTags"`
+	Location                *string                                      `pulumi:"location"`
+	Properties              map[string]string                            `pulumi:"properties"`
+	ResourceGroupName       string                                       `pulumi:"resourceGroupName"`
+	ServiceName             *string                                      `pulumi:"serviceName"`
+	TrafficPercentile       *float64                                     `pulumi:"trafficPercentile"`
+	Type                    *string                                      `pulumi:"type"`
+	WorkspaceName           string                                       `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a EndpointVariant resource.
 type EndpointVariantArgs struct {
-	// The compute environment type for the service.
-	// Expected value is 'Custom'.
-	ComputeType pulumi.StringInput
-	// The description of the service.
-	Description pulumi.StringPtrInput
-	// The Environment, models and assets needed for inferencing.
+	ComputeType             pulumi.StringInput
+	Description             pulumi.StringPtrInput
 	EnvironmentImageRequest CreateServiceRequestEnvironmentImageRequestPtrInput
-	// Is this the default variant.
-	IsDefault pulumi.BoolPtrInput
-	// The authentication keys.
-	Keys CreateServiceRequestKeysPtrInput
-	// The service tag dictionary. Tags are mutable.
-	KvTags pulumi.StringMapInput
-	// The name of the Azure location/region.
-	Location pulumi.StringPtrInput
-	// The service properties dictionary. Properties are immutable.
-	Properties pulumi.StringMapInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// Name of the Azure Machine Learning service.
-	ServiceName pulumi.StringPtrInput
-	// The amount of traffic variant receives.
-	TrafficPercentile pulumi.Float64PtrInput
-	// The type of the variant.
-	Type pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	IsDefault               pulumi.BoolPtrInput
+	Keys                    CreateServiceRequestKeysPtrInput
+	KvTags                  pulumi.StringMapInput
+	Location                pulumi.StringPtrInput
+	Properties              pulumi.StringMapInput
+	ResourceGroupName       pulumi.StringInput
+	ServiceName             pulumi.StringPtrInput
+	TrafficPercentile       pulumi.Float64PtrInput
+	Type                    pulumi.StringPtrInput
+	WorkspaceName           pulumi.StringInput
 }
 
 func (EndpointVariantArgs) ElementType() reflect.Type {

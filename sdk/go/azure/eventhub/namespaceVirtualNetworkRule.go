@@ -14,11 +14,8 @@ import (
 type NamespaceVirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// ARM ID of Virtual Network Subnet
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -79,25 +76,17 @@ func (NamespaceVirtualNetworkRuleState) ElementType() reflect.Type {
 }
 
 type namespaceVirtualNetworkRuleArgs struct {
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Virtual Network Rule name.
+	NamespaceName          string  `pulumi:"namespaceName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
-	// ARM ID of Virtual Network Subnet
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a NamespaceVirtualNetworkRule resource.
 type NamespaceVirtualNetworkRuleArgs struct {
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The Virtual Network Rule name.
+	NamespaceName          pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
 	VirtualNetworkRuleName pulumi.StringPtrInput
-	// ARM ID of Virtual Network Subnet
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 

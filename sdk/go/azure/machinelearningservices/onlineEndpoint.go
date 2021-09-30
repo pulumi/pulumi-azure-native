@@ -14,22 +14,14 @@ import (
 type OnlineEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Service identity associated with a resource.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties OnlineEndpointResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringPtrOutput            `pulumi:"kind"`
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
+	Properties OnlineEndpointResponseOutput      `pulumi:"properties"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewOnlineEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -92,42 +84,26 @@ func (OnlineEndpointState) ElementType() reflect.Type {
 }
 
 type onlineEndpointArgs struct {
-	// Online Endpoint name.
-	EndpointName *string `pulumi:"endpointName"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Additional attributes of the entity.
-	Properties OnlineEndpointType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	EndpointName      *string            `pulumi:"endpointName"`
+	Identity          *ResourceIdentity  `pulumi:"identity"`
+	Kind              *string            `pulumi:"kind"`
+	Location          *string            `pulumi:"location"`
+	Properties        OnlineEndpointType `pulumi:"properties"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Tags              map[string]string  `pulumi:"tags"`
+	WorkspaceName     string             `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a OnlineEndpoint resource.
 type OnlineEndpointArgs struct {
-	// Online Endpoint name.
-	EndpointName pulumi.StringPtrInput
-	// Service identity associated with a resource.
-	Identity ResourceIdentityPtrInput
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties OnlineEndpointTypeInput
-	// The name of the resource group. The name is case insensitive.
+	EndpointName      pulumi.StringPtrInput
+	Identity          ResourceIdentityPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        OnlineEndpointTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (OnlineEndpointArgs) ElementType() reflect.Type {

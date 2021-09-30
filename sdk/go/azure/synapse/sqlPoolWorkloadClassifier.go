@@ -14,22 +14,14 @@ import (
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 
-	// The workload classifier context.
-	Context pulumi.StringPtrOutput `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// The workload classifier importance.
+	Context    pulumi.StringPtrOutput `pulumi:"context"`
+	EndTime    pulumi.StringPtrOutput `pulumi:"endTime"`
 	Importance pulumi.StringPtrOutput `pulumi:"importance"`
-	// The workload classifier label.
-	Label pulumi.StringPtrOutput `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Label      pulumi.StringPtrOutput `pulumi:"label"`
+	MemberName pulumi.StringOutput    `pulumi:"memberName"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	StartTime  pulumi.StringPtrOutput `pulumi:"startTime"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSqlPoolWorkloadClassifier registers a new resource with the given unique name, arguments, and options.
@@ -134,54 +126,32 @@ func (SqlPoolWorkloadClassifierState) ElementType() reflect.Type {
 }
 
 type sqlPoolWorkloadClassifierArgs struct {
-	// The workload classifier context.
-	Context *string `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime *string `pulumi:"endTime"`
-	// The workload classifier importance.
-	Importance *string `pulumi:"importance"`
-	// The workload classifier label.
-	Label *string `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName string `pulumi:"memberName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
-	// The workload classifier start time for classification.
-	StartTime *string `pulumi:"startTime"`
-	// The name of the workload classifier.
+	Context                *string `pulumi:"context"`
+	EndTime                *string `pulumi:"endTime"`
+	Importance             *string `pulumi:"importance"`
+	Label                  *string `pulumi:"label"`
+	MemberName             string  `pulumi:"memberName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	SqlPoolName            string  `pulumi:"sqlPoolName"`
+	StartTime              *string `pulumi:"startTime"`
 	WorkloadClassifierName *string `pulumi:"workloadClassifierName"`
-	// The name of the workload group.
-	WorkloadGroupName string `pulumi:"workloadGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkloadGroupName      string  `pulumi:"workloadGroupName"`
+	WorkspaceName          string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlPoolWorkloadClassifier resource.
 type SqlPoolWorkloadClassifierArgs struct {
-	// The workload classifier context.
-	Context pulumi.StringPtrInput
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrInput
-	// The workload classifier importance.
-	Importance pulumi.StringPtrInput
-	// The workload classifier label.
-	Label pulumi.StringPtrInput
-	// The workload classifier member name.
-	MemberName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// SQL pool name
-	SqlPoolName pulumi.StringInput
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrInput
-	// The name of the workload classifier.
+	Context                pulumi.StringPtrInput
+	EndTime                pulumi.StringPtrInput
+	Importance             pulumi.StringPtrInput
+	Label                  pulumi.StringPtrInput
+	MemberName             pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	SqlPoolName            pulumi.StringInput
+	StartTime              pulumi.StringPtrInput
 	WorkloadClassifierName pulumi.StringPtrInput
-	// The name of the workload group.
-	WorkloadGroupName pulumi.StringInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	WorkloadGroupName      pulumi.StringInput
+	WorkspaceName          pulumi.StringInput
 }
 
 func (SqlPoolWorkloadClassifierArgs) ElementType() reflect.Type {

@@ -14,53 +14,26 @@ import (
 type WebPubSub struct {
 	pulumi.CustomResourceState
 
-	// The settings for event handler in webpubsub service.
-	EventHandler EventHandlerSettingsResponsePtrOutput `pulumi:"eventHandler"`
-	// The publicly accessible IP of the resource.
-	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features WebPubSubFeatureResponseArrayOutput `pulumi:"features"`
-	// FQDN of the service instance.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The managed identity response
-	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network ACLs
-	NetworkACLs WebPubSubNetworkACLsResponsePtrOutput `pulumi:"networkACLs"`
-	// Private endpoint connections to the resource.
+	EventHandler               EventHandlerSettingsResponsePtrOutput        `pulumi:"eventHandler"`
+	ExternalIP                 pulumi.StringOutput                          `pulumi:"externalIP"`
+	Features                   WebPubSubFeatureResponseArrayOutput          `pulumi:"features"`
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Identity                   ManagedIdentityResponsePtrOutput             `pulumi:"identity"`
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	NetworkACLs                WebPubSubNetworkACLsResponsePtrOutput        `pulumi:"networkACLs"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The publicly accessible port of the resource which is designed for browser/client side usage.
-	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The publicly accessible port of the resource which is designed for customer server side usage.
-	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// The list of shared private link resources.
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	PublicPort                 pulumi.IntOutput                             `pulumi:"publicPort"`
+	ServerPort                 pulumi.IntOutput                             `pulumi:"serverPort"`
 	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayOutput `pulumi:"sharedPrivateLinkResources"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// TLS settings.
-	Tls WebPubSubTlsSettingsResponsePtrOutput `pulumi:"tls"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Sku                        ResourceSkuResponsePtrOutput                 `pulumi:"sku"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Tls                        WebPubSubTlsSettingsResponsePtrOutput        `pulumi:"tls"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Version                    pulumi.StringOutput                          `pulumi:"version"`
 }
 
 // NewWebPubSub registers a new resource with the given unique name, arguments, and options.
@@ -138,68 +111,32 @@ func (WebPubSubState) ElementType() reflect.Type {
 }
 
 type webPubSubArgs struct {
-	// The settings for event handler in webpubsub service.
-	EventHandler *EventHandlerSettings `pulumi:"eventHandler"`
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features []WebPubSubFeature `pulumi:"features"`
-	// The managed identity response
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// Network ACLs
-	NetworkACLs *WebPubSubNetworkACLs `pulumi:"networkACLs"`
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku *ResourceSku `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// TLS settings.
-	Tls *WebPubSubTlsSettings `pulumi:"tls"`
+	EventHandler        *EventHandlerSettings `pulumi:"eventHandler"`
+	Features            []WebPubSubFeature    `pulumi:"features"`
+	Identity            *ManagedIdentity      `pulumi:"identity"`
+	Location            *string               `pulumi:"location"`
+	NetworkACLs         *WebPubSubNetworkACLs `pulumi:"networkACLs"`
+	PublicNetworkAccess *string               `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string                `pulumi:"resourceGroupName"`
+	ResourceName        *string               `pulumi:"resourceName"`
+	Sku                 *ResourceSku          `pulumi:"sku"`
+	Tags                map[string]string     `pulumi:"tags"`
+	Tls                 *WebPubSubTlsSettings `pulumi:"tls"`
 }
 
 // The set of arguments for constructing a WebPubSub resource.
 type WebPubSubArgs struct {
-	// The settings for event handler in webpubsub service.
-	EventHandler EventHandlerSettingsPtrInput
-	// List of the featureFlags.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, its globally default value will be used
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features WebPubSubFeatureArrayInput
-	// The managed identity response
-	Identity ManagedIdentityPtrInput
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput
-	// Network ACLs
-	NetworkACLs WebPubSubNetworkACLsPtrInput
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+	EventHandler        EventHandlerSettingsPtrInput
+	Features            WebPubSubFeatureArrayInput
+	Identity            ManagedIdentityPtrInput
+	Location            pulumi.StringPtrInput
+	NetworkACLs         WebPubSubNetworkACLsPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the resource.
-	ResourceName pulumi.StringPtrInput
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuPtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// TLS settings.
-	Tls WebPubSubTlsSettingsPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ResourceName        pulumi.StringPtrInput
+	Sku                 ResourceSkuPtrInput
+	Tags                pulumi.StringMapInput
+	Tls                 WebPubSubTlsSettingsPtrInput
 }
 
 func (WebPubSubArgs) ElementType() reflect.Type {

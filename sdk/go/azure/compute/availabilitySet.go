@@ -14,26 +14,16 @@ import (
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount pulumi.IntPtrOutput `pulumi:"platformUpdateDomainCount"`
-	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup SubResourceResponsePtrOutput `pulumi:"proximityPlacementGroup"`
-	// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The resource status information.
-	Statuses InstanceViewStatusResponseArrayOutput `pulumi:"statuses"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceResponseArrayOutput `pulumi:"virtualMachines"`
+	Location                  pulumi.StringOutput                   `pulumi:"location"`
+	Name                      pulumi.StringOutput                   `pulumi:"name"`
+	PlatformFaultDomainCount  pulumi.IntPtrOutput                   `pulumi:"platformFaultDomainCount"`
+	PlatformUpdateDomainCount pulumi.IntPtrOutput                   `pulumi:"platformUpdateDomainCount"`
+	ProximityPlacementGroup   SubResourceResponsePtrOutput          `pulumi:"proximityPlacementGroup"`
+	Sku                       SkuResponsePtrOutput                  `pulumi:"sku"`
+	Statuses                  InstanceViewStatusResponseArrayOutput `pulumi:"statuses"`
+	Tags                      pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                      pulumi.StringOutput                   `pulumi:"type"`
+	VirtualMachines           SubResourceResponseArrayOutput        `pulumi:"virtualMachines"`
 }
 
 // NewAvailabilitySet registers a new resource with the given unique name, arguments, and options.
@@ -180,46 +170,28 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 }
 
 type availabilitySetArgs struct {
-	// The name of the availability set.
-	AvailabilitySetName *string `pulumi:"availabilitySetName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Fault Domain count.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResource `pulumi:"proximityPlacementGroup"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResource `pulumi:"virtualMachines"`
+	AvailabilitySetName       *string           `pulumi:"availabilitySetName"`
+	Location                  *string           `pulumi:"location"`
+	PlatformFaultDomainCount  *int              `pulumi:"platformFaultDomainCount"`
+	PlatformUpdateDomainCount *int              `pulumi:"platformUpdateDomainCount"`
+	ProximityPlacementGroup   *SubResource      `pulumi:"proximityPlacementGroup"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	Sku                       *Sku              `pulumi:"sku"`
+	Tags                      map[string]string `pulumi:"tags"`
+	VirtualMachines           []SubResource     `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a AvailabilitySet resource.
 type AvailabilitySetArgs struct {
-	// The name of the availability set.
-	AvailabilitySetName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Update Domain count.
+	AvailabilitySetName       pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	PlatformFaultDomainCount  pulumi.IntPtrInput
 	PlatformUpdateDomainCount pulumi.IntPtrInput
-	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup SubResourcePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceArrayInput
+	ProximityPlacementGroup   SubResourcePtrInput
+	ResourceGroupName         pulumi.StringInput
+	Sku                       SkuPtrInput
+	Tags                      pulumi.StringMapInput
+	VirtualMachines           SubResourceArrayInput
 }
 
 func (AvailabilitySetArgs) ElementType() reflect.Type {

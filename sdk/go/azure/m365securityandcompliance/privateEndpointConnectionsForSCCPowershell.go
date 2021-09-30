@@ -14,18 +14,12 @@ import (
 type PrivateEndpointConnectionsForSCCPowershell struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Name                              pulumi.StringOutput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Required property for system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                             `pulumi:"provisioningState"`
+	SystemData                        SystemDataResponseOutput                        `pulumi:"systemData"`
+	Type                              pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnectionsForSCCPowershell registers a new resource with the given unique name, arguments, and options.
@@ -88,26 +82,18 @@ func (PrivateEndpointConnectionsForSCCPowershellState) ElementType() reflect.Typ
 }
 
 type privateEndpointConnectionsForSCCPowershellArgs struct {
-	// The name of the private endpoint connection associated with the Azure resource
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateEndpointConnectionName     *string                           `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service instance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName                 string                            `pulumi:"resourceGroupName"`
+	ResourceName                      string                            `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnectionsForSCCPowershell resource.
 type PrivateEndpointConnectionsForSCCPowershellArgs struct {
-	// The name of the private endpoint connection associated with the Azure resource
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName pulumi.StringInput
-	// The name of the service instance.
-	ResourceName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	ResourceName                      pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionsForSCCPowershellArgs) ElementType() reflect.Type {

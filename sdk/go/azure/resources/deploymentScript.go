@@ -15,20 +15,13 @@ import (
 type DeploymentScript struct {
 	pulumi.CustomResourceState
 
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Type of the script.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringOutput                     `pulumi:"kind"`
+	Location   pulumi.StringOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
+	SystemData SystemDataResponseOutput                `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewDeploymentScript registers a new resource with the given unique name, arguments, and options.
@@ -94,34 +87,22 @@ func (DeploymentScriptState) ElementType() reflect.Type {
 }
 
 type deploymentScriptArgs struct {
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Type of the script.
-	Kind string `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment script.
-	ScriptName *string `pulumi:"scriptName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Identity          *ManagedServiceIdentity `pulumi:"identity"`
+	Kind              string                  `pulumi:"kind"`
+	Location          *string                 `pulumi:"location"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	ScriptName        *string                 `pulumi:"scriptName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentScript resource.
 type DeploymentScriptArgs struct {
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityPtrInput
-	// Type of the script.
-	Kind pulumi.StringInput
-	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Identity          ManagedServiceIdentityPtrInput
+	Kind              pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the deployment script.
-	ScriptName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ScriptName        pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DeploymentScriptArgs) ElementType() reflect.Type {

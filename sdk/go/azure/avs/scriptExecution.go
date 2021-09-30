@@ -14,40 +14,23 @@ import (
 type ScriptExecution struct {
 	pulumi.CustomResourceState
 
-	// Standard error output stream from the powershell execution
-	Errors pulumi.StringArrayOutput `pulumi:"errors"`
-	// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-	FailureReason pulumi.StringPtrOutput `pulumi:"failureReason"`
-	// Time the script execution was finished
-	FinishedAt pulumi.StringOutput `pulumi:"finishedAt"`
-	// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
-	HiddenParameters pulumi.ArrayOutput `pulumi:"hiddenParameters"`
-	// Standard information out stream from the powershell execution
-	Information pulumi.StringArrayOutput `pulumi:"information"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// User-defined dictionary.
-	NamedOutputs pulumi.MapOutput `pulumi:"namedOutputs"`
-	// Standard output stream from the powershell execution
-	Output pulumi.StringArrayOutput `pulumi:"output"`
-	// Parameters the script will accept
-	Parameters pulumi.ArrayOutput `pulumi:"parameters"`
-	// The state of the script execution resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Time to live for the resource. If not provided, will be available for 60 days
-	Retention pulumi.StringPtrOutput `pulumi:"retention"`
-	// A reference to the script cmdlet resource if user is running a AVS script
-	ScriptCmdletId pulumi.StringPtrOutput `pulumi:"scriptCmdletId"`
-	// Time the script execution was started
-	StartedAt pulumi.StringOutput `pulumi:"startedAt"`
-	// Time the script execution was submitted
-	SubmittedAt pulumi.StringOutput `pulumi:"submittedAt"`
-	// Time limit for execution
-	Timeout pulumi.StringOutput `pulumi:"timeout"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Standard warning out stream from the powershell execution
-	Warnings pulumi.StringArrayOutput `pulumi:"warnings"`
+	Errors            pulumi.StringArrayOutput `pulumi:"errors"`
+	FailureReason     pulumi.StringPtrOutput   `pulumi:"failureReason"`
+	FinishedAt        pulumi.StringOutput      `pulumi:"finishedAt"`
+	HiddenParameters  pulumi.ArrayOutput       `pulumi:"hiddenParameters"`
+	Information       pulumi.StringArrayOutput `pulumi:"information"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	NamedOutputs      pulumi.MapOutput         `pulumi:"namedOutputs"`
+	Output            pulumi.StringArrayOutput `pulumi:"output"`
+	Parameters        pulumi.ArrayOutput       `pulumi:"parameters"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Retention         pulumi.StringPtrOutput   `pulumi:"retention"`
+	ScriptCmdletId    pulumi.StringPtrOutput   `pulumi:"scriptCmdletId"`
+	StartedAt         pulumi.StringOutput      `pulumi:"startedAt"`
+	SubmittedAt       pulumi.StringOutput      `pulumi:"submittedAt"`
+	Timeout           pulumi.StringOutput      `pulumi:"timeout"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
+	Warnings          pulumi.StringArrayOutput `pulumi:"warnings"`
 }
 
 // NewScriptExecution registers a new resource with the given unique name, arguments, and options.
@@ -110,54 +93,32 @@ func (ScriptExecutionState) ElementType() reflect.Type {
 }
 
 type scriptExecutionArgs struct {
-	// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-	FailureReason *string `pulumi:"failureReason"`
-	// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
-	HiddenParameters []interface{} `pulumi:"hiddenParameters"`
-	// User-defined dictionary.
-	NamedOutputs map[string]interface{} `pulumi:"namedOutputs"`
-	// Standard output stream from the powershell execution
-	Output []string `pulumi:"output"`
-	// Parameters the script will accept
-	Parameters []interface{} `pulumi:"parameters"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Time to live for the resource. If not provided, will be available for 60 days
-	Retention *string `pulumi:"retention"`
-	// A reference to the script cmdlet resource if user is running a AVS script
-	ScriptCmdletId *string `pulumi:"scriptCmdletId"`
-	// Name of the user-invoked script execution resource
-	ScriptExecutionName *string `pulumi:"scriptExecutionName"`
-	// Time limit for execution
-	Timeout string `pulumi:"timeout"`
+	FailureReason       *string                `pulumi:"failureReason"`
+	HiddenParameters    []interface{}          `pulumi:"hiddenParameters"`
+	NamedOutputs        map[string]interface{} `pulumi:"namedOutputs"`
+	Output              []string               `pulumi:"output"`
+	Parameters          []interface{}          `pulumi:"parameters"`
+	PrivateCloudName    string                 `pulumi:"privateCloudName"`
+	ResourceGroupName   string                 `pulumi:"resourceGroupName"`
+	Retention           *string                `pulumi:"retention"`
+	ScriptCmdletId      *string                `pulumi:"scriptCmdletId"`
+	ScriptExecutionName *string                `pulumi:"scriptExecutionName"`
+	Timeout             string                 `pulumi:"timeout"`
 }
 
 // The set of arguments for constructing a ScriptExecution resource.
 type ScriptExecutionArgs struct {
-	// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-	FailureReason pulumi.StringPtrInput
-	// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
-	HiddenParameters pulumi.ArrayInput
-	// User-defined dictionary.
-	NamedOutputs pulumi.MapInput
-	// Standard output stream from the powershell execution
-	Output pulumi.StringArrayInput
-	// Parameters the script will accept
-	Parameters pulumi.ArrayInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Time to live for the resource. If not provided, will be available for 60 days
-	Retention pulumi.StringPtrInput
-	// A reference to the script cmdlet resource if user is running a AVS script
-	ScriptCmdletId pulumi.StringPtrInput
-	// Name of the user-invoked script execution resource
+	FailureReason       pulumi.StringPtrInput
+	HiddenParameters    pulumi.ArrayInput
+	NamedOutputs        pulumi.MapInput
+	Output              pulumi.StringArrayInput
+	Parameters          pulumi.ArrayInput
+	PrivateCloudName    pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
+	Retention           pulumi.StringPtrInput
+	ScriptCmdletId      pulumi.StringPtrInput
 	ScriptExecutionName pulumi.StringPtrInput
-	// Time limit for execution
-	Timeout pulumi.StringInput
+	Timeout             pulumi.StringInput
 }
 
 func (ScriptExecutionArgs) ElementType() reflect.Type {

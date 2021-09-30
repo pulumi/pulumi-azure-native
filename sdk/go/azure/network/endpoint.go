@@ -14,36 +14,21 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// List of custom headers.
-	CustomHeaders EndpointPropertiesResponseCustomHeadersArrayOutput `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-	EndpointLocation pulumi.StringPtrOutput `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus pulumi.StringPtrOutput `pulumi:"endpointMonitorStatus"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus pulumi.StringPtrOutput `pulumi:"endpointStatus"`
-	// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping pulumi.StringArrayOutput `pulumi:"geoMapping"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrOutput `pulumi:"minChildEndpoints"`
-	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpointsIPv4 pulumi.Float64PtrOutput `pulumi:"minChildEndpointsIPv4"`
-	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpointsIPv6 pulumi.Float64PtrOutput `pulumi:"minChildEndpointsIPv6"`
-	// The name of the resource
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrOutput `pulumi:"priority"`
-	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-	Subnets EndpointPropertiesResponseSubnetsArrayOutput `pulumi:"subnets"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrOutput `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrOutput `pulumi:"weight"`
+	CustomHeaders         EndpointPropertiesResponseCustomHeadersArrayOutput `pulumi:"customHeaders"`
+	EndpointLocation      pulumi.StringPtrOutput                             `pulumi:"endpointLocation"`
+	EndpointMonitorStatus pulumi.StringPtrOutput                             `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        pulumi.StringPtrOutput                             `pulumi:"endpointStatus"`
+	GeoMapping            pulumi.StringArrayOutput                           `pulumi:"geoMapping"`
+	MinChildEndpoints     pulumi.Float64PtrOutput                            `pulumi:"minChildEndpoints"`
+	MinChildEndpointsIPv4 pulumi.Float64PtrOutput                            `pulumi:"minChildEndpointsIPv4"`
+	MinChildEndpointsIPv6 pulumi.Float64PtrOutput                            `pulumi:"minChildEndpointsIPv6"`
+	Name                  pulumi.StringPtrOutput                             `pulumi:"name"`
+	Priority              pulumi.Float64PtrOutput                            `pulumi:"priority"`
+	Subnets               EndpointPropertiesResponseSubnetsArrayOutput       `pulumi:"subnets"`
+	Target                pulumi.StringPtrOutput                             `pulumi:"target"`
+	TargetResourceId      pulumi.StringPtrOutput                             `pulumi:"targetResourceId"`
+	Type                  pulumi.StringPtrOutput                             `pulumi:"type"`
+	Weight                pulumi.Float64PtrOutput                            `pulumi:"weight"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -142,90 +127,50 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// List of custom headers.
-	CustomHeaders []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-	EndpointLocation *string `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
-	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName *string `pulumi:"endpointName"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus *string `pulumi:"endpointStatus"`
-	// The type of the Traffic Manager endpoint to be created or updated.
-	EndpointType string `pulumi:"endpointType"`
-	// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping []string `pulumi:"geoMapping"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id *string `pulumi:"id"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
-	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpointsIPv4 *float64 `pulumi:"minChildEndpointsIPv4"`
-	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpointsIPv6 *float64 `pulumi:"minChildEndpointsIPv6"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *float64 `pulumi:"priority"`
-	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
-	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-	Subnets []EndpointPropertiesSubnets `pulumi:"subnets"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target *string `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type *string `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *float64 `pulumi:"weight"`
+	CustomHeaders         []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
+	EndpointLocation      *string                           `pulumi:"endpointLocation"`
+	EndpointMonitorStatus *string                           `pulumi:"endpointMonitorStatus"`
+	EndpointName          *string                           `pulumi:"endpointName"`
+	EndpointStatus        *string                           `pulumi:"endpointStatus"`
+	EndpointType          string                            `pulumi:"endpointType"`
+	GeoMapping            []string                          `pulumi:"geoMapping"`
+	Id                    *string                           `pulumi:"id"`
+	MinChildEndpoints     *float64                          `pulumi:"minChildEndpoints"`
+	MinChildEndpointsIPv4 *float64                          `pulumi:"minChildEndpointsIPv4"`
+	MinChildEndpointsIPv6 *float64                          `pulumi:"minChildEndpointsIPv6"`
+	Name                  *string                           `pulumi:"name"`
+	Priority              *float64                          `pulumi:"priority"`
+	ProfileName           string                            `pulumi:"profileName"`
+	ResourceGroupName     string                            `pulumi:"resourceGroupName"`
+	Subnets               []EndpointPropertiesSubnets       `pulumi:"subnets"`
+	Target                *string                           `pulumi:"target"`
+	TargetResourceId      *string                           `pulumi:"targetResourceId"`
+	Type                  *string                           `pulumi:"type"`
+	Weight                *float64                          `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// List of custom headers.
-	CustomHeaders EndpointPropertiesCustomHeadersArrayInput
-	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-	EndpointLocation pulumi.StringPtrInput
-	// The monitoring status of the endpoint.
+	CustomHeaders         EndpointPropertiesCustomHeadersArrayInput
+	EndpointLocation      pulumi.StringPtrInput
 	EndpointMonitorStatus pulumi.StringPtrInput
-	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName pulumi.StringPtrInput
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus pulumi.StringPtrInput
-	// The type of the Traffic Manager endpoint to be created or updated.
-	EndpointType pulumi.StringInput
-	// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping pulumi.StringArrayInput
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id pulumi.StringPtrInput
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrInput
-	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	EndpointName          pulumi.StringPtrInput
+	EndpointStatus        pulumi.StringPtrInput
+	EndpointType          pulumi.StringInput
+	GeoMapping            pulumi.StringArrayInput
+	Id                    pulumi.StringPtrInput
+	MinChildEndpoints     pulumi.Float64PtrInput
 	MinChildEndpointsIPv4 pulumi.Float64PtrInput
-	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpointsIPv6 pulumi.Float64PtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrInput
-	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringInput
-	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
-	ResourceGroupName pulumi.StringInput
-	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-	Subnets EndpointPropertiesSubnetsArrayInput
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrInput
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrInput
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrInput
+	Name                  pulumi.StringPtrInput
+	Priority              pulumi.Float64PtrInput
+	ProfileName           pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Subnets               EndpointPropertiesSubnetsArrayInput
+	Target                pulumi.StringPtrInput
+	TargetResourceId      pulumi.StringPtrInput
+	Type                  pulumi.StringPtrInput
+	Weight                pulumi.Float64PtrInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

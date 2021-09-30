@@ -14,14 +14,10 @@ import (
 type SubAccountTagRule struct {
 	pulumi.CustomResourceState
 
-	// Name of the rule set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Definition of the properties for a TagRules resource.
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties MonitoringTagRulesPropertiesResponseOutput `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the rule set.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                   `pulumi:"systemData"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewSubAccountTagRule registers a new resource with the given unique name, arguments, and options.
@@ -90,28 +86,20 @@ func (SubAccountTagRuleState) ElementType() reflect.Type {
 }
 
 type subAccountTagRuleArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// Definition of the properties for a TagRules resource.
-	Properties *MonitoringTagRulesProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	RuleSetName       *string `pulumi:"ruleSetName"`
-	// Sub Account resource name
-	SubAccountName string `pulumi:"subAccountName"`
+	MonitorName       string                        `pulumi:"monitorName"`
+	Properties        *MonitoringTagRulesProperties `pulumi:"properties"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	RuleSetName       *string                       `pulumi:"ruleSetName"`
+	SubAccountName    string                        `pulumi:"subAccountName"`
 }
 
 // The set of arguments for constructing a SubAccountTagRule resource.
 type SubAccountTagRuleArgs struct {
-	// Monitor resource name
-	MonitorName pulumi.StringInput
-	// Definition of the properties for a TagRules resource.
-	Properties MonitoringTagRulesPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       pulumi.StringInput
+	Properties        MonitoringTagRulesPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 	RuleSetName       pulumi.StringPtrInput
-	// Sub Account resource name
-	SubAccountName pulumi.StringInput
+	SubAccountName    pulumi.StringInput
 }
 
 func (SubAccountTagRuleArgs) ElementType() reflect.Type {

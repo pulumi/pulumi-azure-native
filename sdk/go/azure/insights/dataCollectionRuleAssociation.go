@@ -14,18 +14,12 @@ import (
 type DataCollectionRuleAssociation struct {
 	pulumi.CustomResourceState
 
-	// The resource ID of the data collection rule that is to be associated.
 	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	Etag                 pulumi.StringOutput    `pulumi:"etag"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataCollectionRuleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -88,26 +82,18 @@ func (DataCollectionRuleAssociationState) ElementType() reflect.Type {
 }
 
 type dataCollectionRuleAssociationArgs struct {
-	// The name of the association. The name is case insensitive.
-	AssociationName *string `pulumi:"associationName"`
-	// The resource ID of the data collection rule that is to be associated.
+	AssociationName      *string `pulumi:"associationName"`
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description *string `pulumi:"description"`
-	// The identifier of the resource.
-	ResourceUri string `pulumi:"resourceUri"`
+	Description          *string `pulumi:"description"`
+	ResourceUri          string  `pulumi:"resourceUri"`
 }
 
 // The set of arguments for constructing a DataCollectionRuleAssociation resource.
 type DataCollectionRuleAssociationArgs struct {
-	// The name of the association. The name is case insensitive.
-	AssociationName pulumi.StringPtrInput
-	// The resource ID of the data collection rule that is to be associated.
+	AssociationName      pulumi.StringPtrInput
 	DataCollectionRuleId pulumi.StringPtrInput
-	// Description of the association.
-	Description pulumi.StringPtrInput
-	// The identifier of the resource.
-	ResourceUri pulumi.StringInput
+	Description          pulumi.StringPtrInput
+	ResourceUri          pulumi.StringInput
 }
 
 func (DataCollectionRuleAssociationArgs) ElementType() reflect.Type {

@@ -14,26 +14,16 @@ import (
 type GalleryApplication struct {
 	pulumi.CustomResourceState
 
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Application Definition.
-	Eula pulumi.StringPtrOutput `pulumi:"eula"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The privacy statement uri.
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	EndOfLifeDate       pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
+	Eula                pulumi.StringPtrOutput `pulumi:"eula"`
+	Location            pulumi.StringOutput    `pulumi:"location"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
 	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
-	// The release note uri.
-	ReleaseNoteUri pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType pulumi.StringOutput `pulumi:"supportedOSType"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ReleaseNoteUri      pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
+	SupportedOSType     pulumi.StringOutput    `pulumi:"supportedOSType"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGalleryApplication registers a new resource with the given unique name, arguments, and options.
@@ -120,54 +110,32 @@ func (GalleryApplicationState) ElementType() reflect.Type {
 }
 
 type galleryApplicationArgs struct {
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Application Definition.
-	Eula *string `pulumi:"eula"`
-	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryApplicationName *string `pulumi:"galleryApplicationName"`
-	// The name of the Shared Application Gallery in which the Application Definition is to be created.
-	GalleryName string `pulumi:"galleryName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The privacy statement uri.
-	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// The release note uri.
-	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType OperatingSystemTypes `pulumi:"supportedOSType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Description            *string              `pulumi:"description"`
+	EndOfLifeDate          *string              `pulumi:"endOfLifeDate"`
+	Eula                   *string              `pulumi:"eula"`
+	GalleryApplicationName *string              `pulumi:"galleryApplicationName"`
+	GalleryName            string               `pulumi:"galleryName"`
+	Location               *string              `pulumi:"location"`
+	PrivacyStatementUri    *string              `pulumi:"privacyStatementUri"`
+	ReleaseNoteUri         *string              `pulumi:"releaseNoteUri"`
+	ResourceGroupName      string               `pulumi:"resourceGroupName"`
+	SupportedOSType        OperatingSystemTypes `pulumi:"supportedOSType"`
+	Tags                   map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GalleryApplication resource.
 type GalleryApplicationArgs struct {
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description pulumi.StringPtrInput
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput
-	// The Eula agreement for the gallery Application Definition.
-	Eula pulumi.StringPtrInput
-	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	Description            pulumi.StringPtrInput
+	EndOfLifeDate          pulumi.StringPtrInput
+	Eula                   pulumi.StringPtrInput
 	GalleryApplicationName pulumi.StringPtrInput
-	// The name of the Shared Application Gallery in which the Application Definition is to be created.
-	GalleryName pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The privacy statement uri.
-	PrivacyStatementUri pulumi.StringPtrInput
-	// The release note uri.
-	ReleaseNoteUri pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType OperatingSystemTypesInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	GalleryName            pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	PrivacyStatementUri    pulumi.StringPtrInput
+	ReleaseNoteUri         pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SupportedOSType        OperatingSystemTypesInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (GalleryApplicationArgs) ElementType() reflect.Type {

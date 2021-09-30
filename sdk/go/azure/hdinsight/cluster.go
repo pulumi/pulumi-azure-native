@@ -14,20 +14,13 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The ETag for the resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The identity of the cluster, if configured.
-	Identity ClusterIdentityResponsePtrOutput `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the cluster.
+	Etag       pulumi.StringPtrOutput             `pulumi:"etag"`
+	Identity   ClusterIdentityResponsePtrOutput   `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput             `pulumi:"location"`
+	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties ClusterGetPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput             `pulumi:"tags"`
+	Type       pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -96,34 +89,22 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The identity of the cluster, if configured.
-	Identity *ClusterIdentity `pulumi:"identity"`
-	// The location of the cluster.
-	Location *string `pulumi:"location"`
-	// The cluster create parameters.
-	Properties *ClusterCreateProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterName       *string                  `pulumi:"clusterName"`
+	Identity          *ClusterIdentity         `pulumi:"identity"`
+	Location          *string                  `pulumi:"location"`
+	Properties        *ClusterCreateProperties `pulumi:"properties"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the cluster.
-	ClusterName pulumi.StringPtrInput
-	// The identity of the cluster, if configured.
-	Identity ClusterIdentityPtrInput
-	// The location of the cluster.
-	Location pulumi.StringPtrInput
-	// The cluster create parameters.
-	Properties ClusterCreatePropertiesPtrInput
-	// The name of the resource group.
+	ClusterName       pulumi.StringPtrInput
+	Identity          ClusterIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        ClusterCreatePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

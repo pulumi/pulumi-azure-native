@@ -69,7 +69,7 @@ class WebAppSlotArgs:
         :param pulumi.Input[bool] skip_custom_domain_verification: If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
         :param pulumi.Input[bool] skip_dns_registration: If true web app hostname is not registered with DNS on creation. This parameter is
                 only used for app creation.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
         :param pulumi.Input['SnapshotRecoveryRequestArgs'] snapshot_info: If specified during app creation, the app is created from a previous snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name.
@@ -400,7 +400,7 @@ class WebAppSlotArgs:
     @pulumi.getter
     def slot(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        Name of the deployment slot to create or update. The name 'production' is reserved.
         """
         return pulumi.get(self, "slot")
 
@@ -507,7 +507,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_custom_domain_verification: If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
         :param pulumi.Input[bool] skip_dns_registration: If true web app hostname is not registered with DNS on creation. This parameter is
                 only used for app creation.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
         :param pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']] snapshot_info: If specified during app creation, the app is created from a previous snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name.

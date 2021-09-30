@@ -14,25 +14,15 @@ import (
 type KustoClusterDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
-	KustoClusterResourceId pulumi.StringOutput `pulumi:"kustoClusterResourceId"`
-	// Location of the sink kusto cluster.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId              pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus   pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	Kind                   pulumi.StringOutput      `pulumi:"kind"`
+	KustoClusterResourceId pulumi.StringOutput      `pulumi:"kustoClusterResourceId"`
+	Location               pulumi.StringOutput      `pulumi:"location"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewKustoClusterDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -129,40 +119,24 @@ func (KustoClusterDataSetMappingState) ElementType() reflect.Type {
 }
 
 type kustoClusterDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
-	KustoClusterResourceId string `pulumi:"kustoClusterResourceId"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	AccountName            string  `pulumi:"accountName"`
+	DataSetId              string  `pulumi:"dataSetId"`
+	DataSetMappingName     *string `pulumi:"dataSetMappingName"`
+	Kind                   string  `pulumi:"kind"`
+	KustoClusterResourceId string  `pulumi:"kustoClusterResourceId"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName  string  `pulumi:"shareSubscriptionName"`
 }
 
 // The set of arguments for constructing a KustoClusterDataSetMapping resource.
 type KustoClusterDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind pulumi.StringInput
-	// Resource id of the sink kusto cluster.
+	AccountName            pulumi.StringInput
+	DataSetId              pulumi.StringInput
+	DataSetMappingName     pulumi.StringPtrInput
+	Kind                   pulumi.StringInput
 	KustoClusterResourceId pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ShareSubscriptionName  pulumi.StringInput
 }
 
 func (KustoClusterDataSetMappingArgs) ElementType() reflect.Type {

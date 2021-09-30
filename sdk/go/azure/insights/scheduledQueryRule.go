@@ -14,40 +14,23 @@ import (
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
-	// Action needs to be taken on rule execution.
-	Action pulumi.AnyOutput `pulumi:"action"`
-	// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
-	// The api-version used when creating this alert rule
-	CreatedWithApiVersion pulumi.StringOutput `pulumi:"createdWithApiVersion"`
-	// The description of the Log Search rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the alert rule
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
-	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// True if alert rule is legacy Log Analytic rule
-	IsLegacyLogAnalyticsRule pulumi.BoolOutput `pulumi:"isLegacyLogAnalyticsRule"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Last time the rule was updated in IS08601 format.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the scheduled query rule
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-	Schedule ScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Data Source against which rule will Query Data
-	Source SourceResponseOutput `pulumi:"source"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Action                   pulumi.AnyOutput          `pulumi:"action"`
+	AutoMitigate             pulumi.BoolPtrOutput      `pulumi:"autoMitigate"`
+	CreatedWithApiVersion    pulumi.StringOutput       `pulumi:"createdWithApiVersion"`
+	Description              pulumi.StringPtrOutput    `pulumi:"description"`
+	DisplayName              pulumi.StringPtrOutput    `pulumi:"displayName"`
+	Enabled                  pulumi.StringPtrOutput    `pulumi:"enabled"`
+	Etag                     pulumi.StringOutput       `pulumi:"etag"`
+	IsLegacyLogAnalyticsRule pulumi.BoolOutput         `pulumi:"isLegacyLogAnalyticsRule"`
+	Kind                     pulumi.StringOutput       `pulumi:"kind"`
+	LastUpdatedTime          pulumi.StringOutput       `pulumi:"lastUpdatedTime"`
+	Location                 pulumi.StringOutput       `pulumi:"location"`
+	Name                     pulumi.StringOutput       `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput       `pulumi:"provisioningState"`
+	Schedule                 ScheduleResponsePtrOutput `pulumi:"schedule"`
+	Source                   SourceResponseOutput      `pulumi:"source"`
+	Tags                     pulumi.StringMapOutput    `pulumi:"tags"`
+	Type                     pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
@@ -125,54 +108,32 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 }
 
 type scheduledQueryRuleArgs struct {
-	// Action needs to be taken on rule execution.
-	Action interface{} `pulumi:"action"`
-	// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-	AutoMitigate *bool `pulumi:"autoMitigate"`
-	// The description of the Log Search rule.
-	Description *string `pulumi:"description"`
-	// The display name of the alert rule
-	DisplayName *string `pulumi:"displayName"`
-	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-	Enabled *string `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
-	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-	Schedule *Schedule `pulumi:"schedule"`
-	// Data Source against which rule will Query Data
-	Source Source `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Action            interface{}       `pulumi:"action"`
+	AutoMitigate      *bool             `pulumi:"autoMitigate"`
+	Description       *string           `pulumi:"description"`
+	DisplayName       *string           `pulumi:"displayName"`
+	Enabled           *string           `pulumi:"enabled"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RuleName          *string           `pulumi:"ruleName"`
+	Schedule          *Schedule         `pulumi:"schedule"`
+	Source            Source            `pulumi:"source"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
-	// Action needs to be taken on rule execution.
-	Action pulumi.Input
-	// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
-	AutoMitigate pulumi.BoolPtrInput
-	// The description of the Log Search rule.
-	Description pulumi.StringPtrInput
-	// The display name of the alert rule
-	DisplayName pulumi.StringPtrInput
-	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-	Enabled pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Action            pulumi.Input
+	AutoMitigate      pulumi.BoolPtrInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	Enabled           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
-	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-	Schedule SchedulePtrInput
-	// Data Source against which rule will Query Data
-	Source SourceInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	RuleName          pulumi.StringPtrInput
+	Schedule          SchedulePtrInput
+	Source            SourceInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ScheduledQueryRuleArgs) ElementType() reflect.Type {

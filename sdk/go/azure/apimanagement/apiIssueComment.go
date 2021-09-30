@@ -14,16 +14,11 @@ import (
 type ApiIssueComment struct {
 	pulumi.CustomResourceState
 
-	// Date and time when the comment was created.
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Comment text.
-	Text pulumi.StringOutput `pulumi:"text"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A resource identifier for the user who left the comment.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Text        pulumi.StringOutput    `pulumi:"text"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	UserId      pulumi.StringOutput    `pulumi:"userId"`
 }
 
 // NewApiIssueComment registers a new resource with the given unique name, arguments, and options.
@@ -149,42 +144,26 @@ func (ApiIssueCommentState) ElementType() reflect.Type {
 }
 
 type apiIssueCommentArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Comment identifier within an Issue. Must be unique in the current Issue.
-	CommentId *string `pulumi:"commentId"`
-	// Date and time when the comment was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId string `pulumi:"issueId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Comment text.
-	Text string `pulumi:"text"`
-	// A resource identifier for the user who left the comment.
-	UserId string `pulumi:"userId"`
+	ApiId             string  `pulumi:"apiId"`
+	CommentId         *string `pulumi:"commentId"`
+	CreatedDate       *string `pulumi:"createdDate"`
+	IssueId           string  `pulumi:"issueId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Text              string  `pulumi:"text"`
+	UserId            string  `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a ApiIssueComment resource.
 type ApiIssueCommentArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId pulumi.StringInput
-	// Comment identifier within an Issue. Must be unique in the current Issue.
-	CommentId pulumi.StringPtrInput
-	// Date and time when the comment was created.
-	CreatedDate pulumi.StringPtrInput
-	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId pulumi.StringInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	CommentId         pulumi.StringPtrInput
+	CreatedDate       pulumi.StringPtrInput
+	IssueId           pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Comment text.
-	Text pulumi.StringInput
-	// A resource identifier for the user who left the comment.
-	UserId pulumi.StringInput
+	ServiceName       pulumi.StringInput
+	Text              pulumi.StringInput
+	UserId            pulumi.StringInput
 }
 
 func (ApiIssueCommentArgs) ElementType() reflect.Type {

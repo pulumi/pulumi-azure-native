@@ -14,14 +14,10 @@ import (
 type FavoriteProcess struct {
 	pulumi.CustomResourceState
 
-	// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
-	ActualProcessName pulumi.StringOutput `pulumi:"actualProcessName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ActualProcessName pulumi.StringOutput      `pulumi:"actualProcessName"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewFavoriteProcess registers a new resource with the given unique name, arguments, and options.
@@ -87,30 +83,20 @@ func (FavoriteProcessState) ElementType() reflect.Type {
 }
 
 type favoriteProcessArgs struct {
-	// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
-	ActualProcessName string `pulumi:"actualProcessName"`
-	// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+	ActualProcessName           string  `pulumi:"actualProcessName"`
 	FavoriteProcessResourceName *string `pulumi:"favoriteProcessResourceName"`
-	// The resource name of the Test Base Package.
-	PackageName string `pulumi:"packageName"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
-	TestBaseAccountName string `pulumi:"testBaseAccountName"`
+	PackageName                 string  `pulumi:"packageName"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	TestBaseAccountName         string  `pulumi:"testBaseAccountName"`
 }
 
 // The set of arguments for constructing a FavoriteProcess resource.
 type FavoriteProcessArgs struct {
-	// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
-	ActualProcessName pulumi.StringInput
-	// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+	ActualProcessName           pulumi.StringInput
 	FavoriteProcessResourceName pulumi.StringPtrInput
-	// The resource name of the Test Base Package.
-	PackageName pulumi.StringInput
-	// The name of the resource group that contains the resource.
-	ResourceGroupName pulumi.StringInput
-	// The resource name of the Test Base Account.
-	TestBaseAccountName pulumi.StringInput
+	PackageName                 pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	TestBaseAccountName         pulumi.StringInput
 }
 
 func (FavoriteProcessArgs) ElementType() reflect.Type {

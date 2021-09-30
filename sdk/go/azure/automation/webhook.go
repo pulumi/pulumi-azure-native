@@ -14,32 +14,19 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets or sets the expiry time.
-	ExpiryTime pulumi.StringPtrOutput `pulumi:"expiryTime"`
-	// Gets or sets the value of the enabled flag of the webhook.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Gets or sets the last invoked time.
-	LastInvokedTime pulumi.StringPtrOutput `pulumi:"lastInvokedTime"`
-	// Details of the user who last modified the Webhook
-	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Gets or sets the name of the hybrid worker group the webhook job will run on.
-	RunOn pulumi.StringPtrOutput `pulumi:"runOn"`
-	// Gets or sets the runbook the webhook is associated with.
-	Runbook RunbookAssociationPropertyResponsePtrOutput `pulumi:"runbook"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets or sets the webhook uri.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	CreationTime     pulumi.StringPtrOutput                      `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput                      `pulumi:"description"`
+	ExpiryTime       pulumi.StringPtrOutput                      `pulumi:"expiryTime"`
+	IsEnabled        pulumi.BoolPtrOutput                        `pulumi:"isEnabled"`
+	LastInvokedTime  pulumi.StringPtrOutput                      `pulumi:"lastInvokedTime"`
+	LastModifiedBy   pulumi.StringPtrOutput                      `pulumi:"lastModifiedBy"`
+	LastModifiedTime pulumi.StringPtrOutput                      `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput                         `pulumi:"name"`
+	Parameters       pulumi.StringMapOutput                      `pulumi:"parameters"`
+	RunOn            pulumi.StringPtrOutput                      `pulumi:"runOn"`
+	Runbook          RunbookAssociationPropertyResponsePtrOutput `pulumi:"runbook"`
+	Type             pulumi.StringOutput                         `pulumi:"type"`
+	Uri              pulumi.StringPtrOutput                      `pulumi:"uri"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
@@ -102,50 +89,30 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the expiry time.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the value of the enabled flag of webhook.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the name of the webhook.
-	Name string `pulumi:"name"`
-	// Gets or sets the parameters of the job.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the name of the hybrid worker group the webhook job will run on.
-	RunOn *string `pulumi:"runOn"`
-	// Gets or sets the runbook.
-	Runbook *RunbookAssociationProperty `pulumi:"runbook"`
-	// Gets or sets the uri.
-	Uri *string `pulumi:"uri"`
-	// The webhook name.
-	WebhookName *string `pulumi:"webhookName"`
+	AutomationAccountName string                      `pulumi:"automationAccountName"`
+	ExpiryTime            *string                     `pulumi:"expiryTime"`
+	IsEnabled             *bool                       `pulumi:"isEnabled"`
+	Name                  string                      `pulumi:"name"`
+	Parameters            map[string]string           `pulumi:"parameters"`
+	ResourceGroupName     string                      `pulumi:"resourceGroupName"`
+	RunOn                 *string                     `pulumi:"runOn"`
+	Runbook               *RunbookAssociationProperty `pulumi:"runbook"`
+	Uri                   *string                     `pulumi:"uri"`
+	WebhookName           *string                     `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the expiry time.
-	ExpiryTime pulumi.StringPtrInput
-	// Gets or sets the value of the enabled flag of webhook.
-	IsEnabled pulumi.BoolPtrInput
-	// Gets or sets the name of the webhook.
-	Name pulumi.StringInput
-	// Gets or sets the parameters of the job.
-	Parameters pulumi.StringMapInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the name of the hybrid worker group the webhook job will run on.
-	RunOn pulumi.StringPtrInput
-	// Gets or sets the runbook.
-	Runbook RunbookAssociationPropertyPtrInput
-	// Gets or sets the uri.
-	Uri pulumi.StringPtrInput
-	// The webhook name.
-	WebhookName pulumi.StringPtrInput
+	ExpiryTime            pulumi.StringPtrInput
+	IsEnabled             pulumi.BoolPtrInput
+	Name                  pulumi.StringInput
+	Parameters            pulumi.StringMapInput
+	ResourceGroupName     pulumi.StringInput
+	RunOn                 pulumi.StringPtrInput
+	Runbook               RunbookAssociationPropertyPtrInput
+	Uri                   pulumi.StringPtrInput
+	WebhookName           pulumi.StringPtrInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

@@ -14,12 +14,9 @@ import (
 type TagByProduct struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Type        pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTagByProduct registers a new resource with the given unique name, arguments, and options.
@@ -136,26 +133,18 @@ func (TagByProductState) ElementType() reflect.Type {
 }
 
 type tagByProductArgs struct {
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId *string `pulumi:"tagId"`
+	ProductId         string  `pulumi:"productId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	TagId             *string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a TagByProduct resource.
 type TagByProductArgs struct {
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId pulumi.StringInput
-	// The name of the resource group.
+	ProductId         pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	TagId             pulumi.StringPtrInput
 }
 
 func (TagByProductArgs) ElementType() reflect.Type {

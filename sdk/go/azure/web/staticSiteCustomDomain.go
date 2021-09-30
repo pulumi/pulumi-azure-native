@@ -14,21 +14,14 @@ import (
 type StaticSiteCustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The date and time on which the custom domain was created for the static site.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// The domain name for the static site custom domain.
-	DomainName   pulumi.StringOutput `pulumi:"domainName"`
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the custom domain
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The TXT record validation token
-	ValidationToken pulumi.StringOutput `pulumi:"validationToken"`
+	CreatedOn       pulumi.StringOutput    `pulumi:"createdOn"`
+	DomainName      pulumi.StringOutput    `pulumi:"domainName"`
+	ErrorMessage    pulumi.StringOutput    `pulumi:"errorMessage"`
+	Kind            pulumi.StringPtrOutput `pulumi:"kind"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	Status          pulumi.StringOutput    `pulumi:"status"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
+	ValidationToken pulumi.StringOutput    `pulumi:"validationToken"`
 }
 
 // NewStaticSiteCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -109,30 +102,20 @@ func (StaticSiteCustomDomainState) ElementType() reflect.Type {
 }
 
 type staticSiteCustomDomainArgs struct {
-	// The custom domain to create.
-	DomainName *string `pulumi:"domainName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Validation method for adding a custom domain
-	ValidationMethod *string `pulumi:"validationMethod"`
+	DomainName        *string `pulumi:"domainName"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ValidationMethod  *string `pulumi:"validationMethod"`
 }
 
 // The set of arguments for constructing a StaticSiteCustomDomain resource.
 type StaticSiteCustomDomainArgs struct {
-	// The custom domain to create.
-	DomainName pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the static site.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
+	DomainName        pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Validation method for adding a custom domain
-	ValidationMethod pulumi.StringPtrInput
+	ValidationMethod  pulumi.StringPtrInput
 }
 
 func (StaticSiteCustomDomainArgs) ElementType() reflect.Type {

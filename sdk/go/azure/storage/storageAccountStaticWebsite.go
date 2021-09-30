@@ -14,12 +14,9 @@ import (
 type StorageAccountStaticWebsite struct {
 	pulumi.CustomResourceState
 
-	// The name of the container to upload blobs to.
-	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+	ContainerName    pulumi.StringOutput    `pulumi:"containerName"`
 	Error404Document pulumi.StringPtrOutput `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
-	IndexDocument pulumi.StringPtrOutput `pulumi:"indexDocument"`
+	IndexDocument    pulumi.StringPtrOutput `pulumi:"indexDocument"`
 }
 
 // NewStorageAccountStaticWebsite registers a new resource with the given unique name, arguments, and options.
@@ -67,25 +64,17 @@ func (StorageAccountStaticWebsiteState) ElementType() reflect.Type {
 }
 
 type storageAccountStaticWebsiteArgs struct {
-	// The name of the storage account within the specified resource group.
-	AccountName string `pulumi:"accountName"`
-	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-	Error404Document *string `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
-	IndexDocument *string `pulumi:"indexDocument"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string  `pulumi:"accountName"`
+	Error404Document  *string `pulumi:"error404Document"`
+	IndexDocument     *string `pulumi:"indexDocument"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a StorageAccountStaticWebsite resource.
 type StorageAccountStaticWebsiteArgs struct {
-	// The name of the storage account within the specified resource group.
-	AccountName pulumi.StringInput
-	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-	Error404Document pulumi.StringPtrInput
-	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
-	IndexDocument pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Error404Document  pulumi.StringPtrInput
+	IndexDocument     pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

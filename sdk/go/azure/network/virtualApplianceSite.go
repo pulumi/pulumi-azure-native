@@ -14,18 +14,12 @@ import (
 type VirtualApplianceSite struct {
 	pulumi.CustomResourceState
 
-	// Address Prefix.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Name of the virtual appliance site.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Office 365 Policy.
-	O365Policy Office365PolicyPropertiesResponsePtrOutput `pulumi:"o365Policy"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Site type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AddressPrefix     pulumi.StringPtrOutput                     `pulumi:"addressPrefix"`
+	Etag              pulumi.StringOutput                        `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput                     `pulumi:"name"`
+	O365Policy        Office365PolicyPropertiesResponsePtrOutput `pulumi:"o365Policy"`
+	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewVirtualApplianceSite registers a new resource with the given unique name, arguments, and options.
@@ -121,38 +115,24 @@ func (VirtualApplianceSiteState) ElementType() reflect.Type {
 }
 
 type virtualApplianceSiteArgs struct {
-	// Address Prefix.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the virtual appliance site.
-	Name *string `pulumi:"name"`
-	// The name of the Network Virtual Appliance.
-	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
-	// Office 365 Policy.
-	O365Policy *Office365PolicyProperties `pulumi:"o365Policy"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the site.
-	SiteName *string `pulumi:"siteName"`
+	AddressPrefix               *string                    `pulumi:"addressPrefix"`
+	Id                          *string                    `pulumi:"id"`
+	Name                        *string                    `pulumi:"name"`
+	NetworkVirtualApplianceName string                     `pulumi:"networkVirtualApplianceName"`
+	O365Policy                  *Office365PolicyProperties `pulumi:"o365Policy"`
+	ResourceGroupName           string                     `pulumi:"resourceGroupName"`
+	SiteName                    *string                    `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a VirtualApplianceSite resource.
 type VirtualApplianceSiteArgs struct {
-	// Address Prefix.
-	AddressPrefix pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Name of the virtual appliance site.
-	Name pulumi.StringPtrInput
-	// The name of the Network Virtual Appliance.
+	AddressPrefix               pulumi.StringPtrInput
+	Id                          pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
 	NetworkVirtualApplianceName pulumi.StringInput
-	// Office 365 Policy.
-	O365Policy Office365PolicyPropertiesPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the site.
-	SiteName pulumi.StringPtrInput
+	O365Policy                  Office365PolicyPropertiesPtrInput
+	ResourceGroupName           pulumi.StringInput
+	SiteName                    pulumi.StringPtrInput
 }
 
 func (VirtualApplianceSiteArgs) ElementType() reflect.Type {

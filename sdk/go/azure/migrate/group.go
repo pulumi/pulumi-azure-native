@@ -14,14 +14,10 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Name of the group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the group.
+	ETag       pulumi.StringPtrOutput        `pulumi:"eTag"`
+	Name       pulumi.StringOutput           `pulumi:"name"`
 	Properties GroupPropertiesResponseOutput `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -84,29 +80,19 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a group within a project.
-	GroupName *string `pulumi:"groupName"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Properties of the group.
-	Properties GroupProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ETag              *string         `pulumi:"eTag"`
+	GroupName         *string         `pulumi:"groupName"`
+	ProjectName       string          `pulumi:"projectName"`
+	Properties        GroupProperties `pulumi:"properties"`
+	ResourceGroupName string          `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Unique name of a group within a project.
-	GroupName pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	// Properties of the group.
-	Properties GroupPropertiesInput
-	// Name of the Azure Resource Group that project is part of.
+	ETag              pulumi.StringPtrInput
+	GroupName         pulumi.StringPtrInput
+	ProjectName       pulumi.StringInput
+	Properties        GroupPropertiesInput
 	ResourceGroupName pulumi.StringInput
 }
 

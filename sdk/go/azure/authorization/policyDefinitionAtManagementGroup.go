@@ -14,24 +14,15 @@ import (
 type PolicyDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 
-	// The policy definition description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode pulumi.StringPtrOutput `pulumi:"mode"`
-	// The name of the policy definition.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters ParameterDefinitionsValueResponseMapOutput `pulumi:"parameters"`
-	// The policy rule.
-	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description pulumi.StringPtrOutput                     `pulumi:"description"`
+	DisplayName pulumi.StringPtrOutput                     `pulumi:"displayName"`
+	Metadata    pulumi.AnyOutput                           `pulumi:"metadata"`
+	Mode        pulumi.StringPtrOutput                     `pulumi:"mode"`
+	Name        pulumi.StringOutput                        `pulumi:"name"`
+	Parameters  ParameterDefinitionsValueResponseMapOutput `pulumi:"parameters"`
+	PolicyRule  pulumi.AnyOutput                           `pulumi:"policyRule"`
+	PolicyType  pulumi.StringPtrOutput                     `pulumi:"policyType"`
+	Type        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewPolicyDefinitionAtManagementGroup registers a new resource with the given unique name, arguments, and options.
@@ -139,46 +130,28 @@ func (PolicyDefinitionAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type policyDefinitionAtManagementGroupArgs struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the management group.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode *string `pulumi:"mode"`
-	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
-	// The name of the policy definition to create.
-	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-	PolicyType *string `pulumi:"policyType"`
+	Description          *string                              `pulumi:"description"`
+	DisplayName          *string                              `pulumi:"displayName"`
+	ManagementGroupId    string                               `pulumi:"managementGroupId"`
+	Metadata             interface{}                          `pulumi:"metadata"`
+	Mode                 *string                              `pulumi:"mode"`
+	Parameters           map[string]ParameterDefinitionsValue `pulumi:"parameters"`
+	PolicyDefinitionName *string                              `pulumi:"policyDefinitionName"`
+	PolicyRule           interface{}                          `pulumi:"policyRule"`
+	PolicyType           *string                              `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
 type PolicyDefinitionAtManagementGroupArgs struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The ID of the management group.
-	ManagementGroupId pulumi.StringInput
-	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.Input
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode pulumi.StringPtrInput
-	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters ParameterDefinitionsValueMapInput
-	// The name of the policy definition to create.
+	Description          pulumi.StringPtrInput
+	DisplayName          pulumi.StringPtrInput
+	ManagementGroupId    pulumi.StringInput
+	Metadata             pulumi.Input
+	Mode                 pulumi.StringPtrInput
+	Parameters           ParameterDefinitionsValueMapInput
 	PolicyDefinitionName pulumi.StringPtrInput
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-	PolicyType pulumi.StringPtrInput
+	PolicyRule           pulumi.Input
+	PolicyType           pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionAtManagementGroupArgs) ElementType() reflect.Type {

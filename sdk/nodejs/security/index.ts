@@ -10,6 +10,7 @@ export * from "./advancedThreatProtection";
 export * from "./alertsSuppressionRule";
 export * from "./assessment";
 export * from "./assessmentMetadataInSubscription";
+export * from "./assignment";
 export * from "./automation";
 export * from "./connector";
 export * from "./customAssessmentAutomation";
@@ -20,6 +21,7 @@ export * from "./getAdvancedThreatProtection";
 export * from "./getAlertsSuppressionRule";
 export * from "./getAssessment";
 export * from "./getAssessmentMetadataInSubscription";
+export * from "./getAssignment";
 export * from "./getAutomation";
 export * from "./getConnector";
 export * from "./getCustomAssessmentAutomation";
@@ -31,6 +33,7 @@ export * from "./getJitNetworkAccessPolicy";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSqlVulnerabilityAssessmentBaselineRule";
+export * from "./getStandard";
 export * from "./getWorkspaceSetting";
 export * from "./ingestionSetting";
 export * from "./iotSecuritySolution";
@@ -40,6 +43,7 @@ export * from "./listIngestionSettingTokens";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
 export * from "./sqlVulnerabilityAssessmentBaselineRule";
+export * from "./standard";
 export * from "./workspaceSetting";
 
 // Export enums:
@@ -57,6 +61,7 @@ import * as v20200701preview from "./v20200701preview";
 import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
+import * as v20210801preview from "./v20210801preview";
 
 export {
     v20150601preview,
@@ -70,6 +75,7 @@ export {
     v20210115preview,
     v20210601,
     v20210701preview,
+    v20210801preview,
 };
 
 // Import resources to register:
@@ -78,6 +84,7 @@ import { AdvancedThreatProtection } from "./advancedThreatProtection";
 import { AlertsSuppressionRule } from "./alertsSuppressionRule";
 import { Assessment } from "./assessment";
 import { AssessmentMetadataInSubscription } from "./assessmentMetadataInSubscription";
+import { Assignment } from "./assignment";
 import { Automation } from "./automation";
 import { Connector } from "./connector";
 import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
@@ -89,6 +96,7 @@ import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
+import { Standard } from "./standard";
 import { WorkspaceSetting } from "./workspaceSetting";
 
 const _module = {
@@ -105,6 +113,8 @@ const _module = {
                 return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security:AssessmentMetadataInSubscription":
                 return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
+            case "azure-native:security:Assignment":
+                return new Assignment(name, <any>undefined, { urn })
             case "azure-native:security:Automation":
                 return new Automation(name, <any>undefined, { urn })
             case "azure-native:security:Connector":
@@ -127,6 +137,8 @@ const _module = {
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
                 return new SqlVulnerabilityAssessmentBaselineRule(name, <any>undefined, { urn })
+            case "azure-native:security:Standard":
+                return new Standard(name, <any>undefined, { urn })
             case "azure-native:security:WorkspaceSetting":
                 return new WorkspaceSetting(name, <any>undefined, { urn })
             default:

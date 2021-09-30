@@ -14,18 +14,12 @@ import (
 type BlobContainerImmutabilityPolicy struct {
 	pulumi.CustomResourceState
 
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites pulumi.BoolPtrOutput `pulumi:"allowProtectedAppendWrites"`
-	// Resource Etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrOutput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllowProtectedAppendWrites            pulumi.BoolPtrOutput `pulumi:"allowProtectedAppendWrites"`
+	Etag                                  pulumi.StringOutput  `pulumi:"etag"`
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrOutput  `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	Name                                  pulumi.StringOutput  `pulumi:"name"`
+	State                                 pulumi.StringOutput  `pulumi:"state"`
+	Type                                  pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewBlobContainerImmutabilityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -148,34 +142,22 @@ func (BlobContainerImmutabilityPolicyState) ElementType() reflect.Type {
 }
 
 type blobContainerImmutabilityPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName string `pulumi:"containerName"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
-	ImmutabilityPolicyName *string `pulumi:"immutabilityPolicyName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName                           string  `pulumi:"accountName"`
+	AllowProtectedAppendWrites            *bool   `pulumi:"allowProtectedAppendWrites"`
+	ContainerName                         string  `pulumi:"containerName"`
+	ImmutabilityPeriodSinceCreationInDays *int    `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	ImmutabilityPolicyName                *string `pulumi:"immutabilityPolicyName"`
+	ResourceGroupName                     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BlobContainerImmutabilityPolicy resource.
 type BlobContainerImmutabilityPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites pulumi.BoolPtrInput
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName pulumi.StringInput
-	// The immutability period for the blobs in the container since the policy creation, in days.
+	AccountName                           pulumi.StringInput
+	AllowProtectedAppendWrites            pulumi.BoolPtrInput
+	ContainerName                         pulumi.StringInput
 	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput
-	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
-	ImmutabilityPolicyName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ImmutabilityPolicyName                pulumi.StringPtrInput
+	ResourceGroupName                     pulumi.StringInput
 }
 
 func (BlobContainerImmutabilityPolicyArgs) ElementType() reflect.Type {

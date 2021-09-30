@@ -14,16 +14,11 @@ import (
 type ManagementLockAtSubscriptionLevel struct {
 	pulumi.CustomResourceState
 
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level pulumi.StringOutput `pulumi:"level"`
-	// The name of the lock.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The owners of the lock.
+	Level  pulumi.StringOutput                    `pulumi:"level"`
+	Name   pulumi.StringOutput                    `pulumi:"name"`
+	Notes  pulumi.StringPtrOutput                 `pulumi:"notes"`
 	Owners ManagementLockOwnerResponseArrayOutput `pulumi:"owners"`
-	// The resource type of the lock - Microsoft.Authorization/locks.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewManagementLockAtSubscriptionLevel registers a new resource with the given unique name, arguments, and options.
@@ -98,26 +93,18 @@ func (ManagementLockAtSubscriptionLevelState) ElementType() reflect.Type {
 }
 
 type managementLockAtSubscriptionLevelArgs struct {
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level string `pulumi:"level"`
-	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
-	LockName *string `pulumi:"lockName"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes *string `pulumi:"notes"`
-	// The owners of the lock.
-	Owners []ManagementLockOwner `pulumi:"owners"`
+	Level    string                `pulumi:"level"`
+	LockName *string               `pulumi:"lockName"`
+	Notes    *string               `pulumi:"notes"`
+	Owners   []ManagementLockOwner `pulumi:"owners"`
 }
 
 // The set of arguments for constructing a ManagementLockAtSubscriptionLevel resource.
 type ManagementLockAtSubscriptionLevelArgs struct {
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level pulumi.StringInput
-	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
+	Level    pulumi.StringInput
 	LockName pulumi.StringPtrInput
-	// Notes about the lock. Maximum of 512 characters.
-	Notes pulumi.StringPtrInput
-	// The owners of the lock.
-	Owners ManagementLockOwnerArrayInput
+	Notes    pulumi.StringPtrInput
+	Owners   ManagementLockOwnerArrayInput
 }
 
 func (ManagementLockAtSubscriptionLevelArgs) ElementType() reflect.Type {

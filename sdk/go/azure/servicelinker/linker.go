@@ -14,20 +14,13 @@ import (
 type Linker struct {
 	pulumi.CustomResourceState
 
-	// The authentication type.
-	AuthInfo pulumi.AnyOutput `pulumi:"authInfo"`
-	// The application client type
-	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system data.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The resource Id of target service.
-	TargetId pulumi.StringPtrOutput `pulumi:"targetId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AuthInfo          pulumi.AnyOutput         `pulumi:"authInfo"`
+	ClientType        pulumi.StringPtrOutput   `pulumi:"clientType"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	TargetId          pulumi.StringPtrOutput   `pulumi:"targetId"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewLinker registers a new resource with the given unique name, arguments, and options.
@@ -84,30 +77,20 @@ func (LinkerState) ElementType() reflect.Type {
 }
 
 type linkerArgs struct {
-	// The authentication type.
-	AuthInfo interface{} `pulumi:"authInfo"`
-	// The application client type
-	ClientType *string `pulumi:"clientType"`
-	// The name Linker resource.
-	LinkerName *string `pulumi:"linkerName"`
-	// The fully qualified Azure Resource manager identifier of the resource to be connected.
-	ResourceUri string `pulumi:"resourceUri"`
-	// The resource Id of target service.
-	TargetId *string `pulumi:"targetId"`
+	AuthInfo    interface{} `pulumi:"authInfo"`
+	ClientType  *string     `pulumi:"clientType"`
+	LinkerName  *string     `pulumi:"linkerName"`
+	ResourceUri string      `pulumi:"resourceUri"`
+	TargetId    *string     `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a Linker resource.
 type LinkerArgs struct {
-	// The authentication type.
-	AuthInfo pulumi.Input
-	// The application client type
-	ClientType pulumi.StringPtrInput
-	// The name Linker resource.
-	LinkerName pulumi.StringPtrInput
-	// The fully qualified Azure Resource manager identifier of the resource to be connected.
+	AuthInfo    pulumi.Input
+	ClientType  pulumi.StringPtrInput
+	LinkerName  pulumi.StringPtrInput
 	ResourceUri pulumi.StringInput
-	// The resource Id of target service.
-	TargetId pulumi.StringPtrInput
+	TargetId    pulumi.StringPtrInput
 }
 
 func (LinkerArgs) ElementType() reflect.Type {

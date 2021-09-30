@@ -14,27 +14,16 @@ import (
 type IoTAddon struct {
 	pulumi.CustomResourceState
 
-	// Host OS supported by the IoT addon.
-	HostPlatform pulumi.StringOutput `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType pulumi.StringOutput `pulumi:"hostPlatformType"`
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponseOutput `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT Addon needs to be configured.
+	HostPlatform         pulumi.StringOutput         `pulumi:"hostPlatform"`
+	HostPlatformType     pulumi.StringOutput         `pulumi:"hostPlatformType"`
+	IoTDeviceDetails     IoTDeviceInfoResponseOutput `pulumi:"ioTDeviceDetails"`
 	IoTEdgeDeviceDetails IoTDeviceInfoResponseOutput `pulumi:"ioTEdgeDeviceDetails"`
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Addon Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Addon type
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of IoT running on the appliance.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Kind                 pulumi.StringOutput         `pulumi:"kind"`
+	Name                 pulumi.StringOutput         `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput         `pulumi:"provisioningState"`
+	SystemData           SystemDataResponseOutput    `pulumi:"systemData"`
+	Type                 pulumi.StringOutput         `pulumi:"type"`
+	Version              pulumi.StringOutput         `pulumi:"version"`
 }
 
 // NewIoTAddon registers a new resource with the given unique name, arguments, and options.
@@ -131,40 +120,24 @@ func (IoTAddonState) ElementType() reflect.Type {
 }
 
 type ioTAddonArgs struct {
-	// The addon name.
-	AddonName *string `pulumi:"addonName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails IoTDeviceInfo `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT Addon needs to be configured.
+	AddonName            *string       `pulumi:"addonName"`
+	DeviceName           string        `pulumi:"deviceName"`
+	IoTDeviceDetails     IoTDeviceInfo `pulumi:"ioTDeviceDetails"`
 	IoTEdgeDeviceDetails IoTDeviceInfo `pulumi:"ioTEdgeDeviceDetails"`
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	Kind                 string        `pulumi:"kind"`
+	ResourceGroupName    string        `pulumi:"resourceGroupName"`
+	RoleName             string        `pulumi:"roleName"`
 }
 
 // The set of arguments for constructing a IoTAddon resource.
 type IoTAddonArgs struct {
-	// The addon name.
-	AddonName pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoInput
-	// IoT edge device to which the IoT Addon needs to be configured.
+	AddonName            pulumi.StringPtrInput
+	DeviceName           pulumi.StringInput
+	IoTDeviceDetails     IoTDeviceInfoInput
 	IoTEdgeDeviceDetails IoTDeviceInfoInput
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The role name.
-	RoleName pulumi.StringInput
+	Kind                 pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
+	RoleName             pulumi.StringInput
 }
 
 func (IoTAddonArgs) ElementType() reflect.Type {

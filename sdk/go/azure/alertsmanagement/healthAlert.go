@@ -14,26 +14,16 @@ import (
 type HealthAlert struct {
 	pulumi.CustomResourceState
 
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions HealthAlertActionResponseArrayOutput `pulumi:"actions"`
-	// defines the specific alert criteria information.
-	Criteria HealthAlertCriteriaResponseOutput `pulumi:"criteria"`
-	// the description of the health alert that will be included in the alert email.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// the flag that indicates whether the health alert is enabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Last time the rule was updated in ISO8601 format.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// the list of resource id's that this health alert is scoped to.
-	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Actions         HealthAlertActionResponseArrayOutput `pulumi:"actions"`
+	Criteria        HealthAlertCriteriaResponseOutput    `pulumi:"criteria"`
+	Description     pulumi.StringOutput                  `pulumi:"description"`
+	Enabled         pulumi.BoolOutput                    `pulumi:"enabled"`
+	LastUpdatedTime pulumi.StringOutput                  `pulumi:"lastUpdatedTime"`
+	Location        pulumi.StringOutput                  `pulumi:"location"`
+	Name            pulumi.StringOutput                  `pulumi:"name"`
+	Scopes          pulumi.StringArrayOutput             `pulumi:"scopes"`
+	Tags            pulumi.StringMapOutput               `pulumi:"tags"`
+	Type            pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewHealthAlert registers a new resource with the given unique name, arguments, and options.
@@ -99,46 +89,28 @@ func (HealthAlertState) ElementType() reflect.Type {
 }
 
 type healthAlertArgs struct {
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []HealthAlertAction `pulumi:"actions"`
-	// defines the specific alert criteria information.
-	Criteria HealthAlertCriteria `pulumi:"criteria"`
-	// the description of the health alert that will be included in the alert email.
-	Description string `pulumi:"description"`
-	// the flag that indicates whether the health alert is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
-	// the list of resource id's that this health alert is scoped to.
-	Scopes []string `pulumi:"scopes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Actions           []HealthAlertAction `pulumi:"actions"`
+	Criteria          HealthAlertCriteria `pulumi:"criteria"`
+	Description       string              `pulumi:"description"`
+	Enabled           bool                `pulumi:"enabled"`
+	Location          *string             `pulumi:"location"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	RuleName          *string             `pulumi:"ruleName"`
+	Scopes            []string            `pulumi:"scopes"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HealthAlert resource.
 type HealthAlertArgs struct {
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions HealthAlertActionArrayInput
-	// defines the specific alert criteria information.
-	Criteria HealthAlertCriteriaInput
-	// the description of the health alert that will be included in the alert email.
-	Description pulumi.StringInput
-	// the flag that indicates whether the health alert is enabled.
-	Enabled pulumi.BoolInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Actions           HealthAlertActionArrayInput
+	Criteria          HealthAlertCriteriaInput
+	Description       pulumi.StringInput
+	Enabled           pulumi.BoolInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
-	// the list of resource id's that this health alert is scoped to.
-	Scopes pulumi.StringArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	RuleName          pulumi.StringPtrInput
+	Scopes            pulumi.StringArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (HealthAlertArgs) ElementType() reflect.Type {

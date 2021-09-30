@@ -14,25 +14,15 @@ import (
 type TemplateArtifact struct {
 	pulumi.CustomResourceState
 
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayOutput `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters ParameterValueResponseMapOutput `pulumi:"parameters"`
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// The Resource Manager template blueprint artifact body.
-	Template pulumi.AnyOutput `pulumi:"template"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DependsOn     pulumi.StringArrayOutput        `pulumi:"dependsOn"`
+	Description   pulumi.StringPtrOutput          `pulumi:"description"`
+	DisplayName   pulumi.StringPtrOutput          `pulumi:"displayName"`
+	Kind          pulumi.StringOutput             `pulumi:"kind"`
+	Name          pulumi.StringOutput             `pulumi:"name"`
+	Parameters    ParameterValueResponseMapOutput `pulumi:"parameters"`
+	ResourceGroup pulumi.StringPtrOutput          `pulumi:"resourceGroup"`
+	Template      pulumi.AnyOutput                `pulumi:"template"`
+	Type          pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewTemplateArtifact registers a new resource with the given unique name, arguments, and options.
@@ -102,52 +92,30 @@ func (TemplateArtifactState) ElementType() reflect.Type {
 }
 
 type templateArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName *string `pulumi:"artifactName"`
-	// Name of the blueprint definition.
-	BlueprintName string `pulumi:"blueprintName"`
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind string `pulumi:"kind"`
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters map[string]ParameterValue `pulumi:"parameters"`
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-	ResourceScope string `pulumi:"resourceScope"`
-	// The Resource Manager template blueprint artifact body.
-	Template interface{} `pulumi:"template"`
+	ArtifactName  *string                   `pulumi:"artifactName"`
+	BlueprintName string                    `pulumi:"blueprintName"`
+	DependsOn     []string                  `pulumi:"dependsOn"`
+	Description   *string                   `pulumi:"description"`
+	DisplayName   *string                   `pulumi:"displayName"`
+	Kind          string                    `pulumi:"kind"`
+	Parameters    map[string]ParameterValue `pulumi:"parameters"`
+	ResourceGroup *string                   `pulumi:"resourceGroup"`
+	ResourceScope string                    `pulumi:"resourceScope"`
+	Template      interface{}               `pulumi:"template"`
 }
 
 // The set of arguments for constructing a TemplateArtifact resource.
 type TemplateArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName pulumi.StringPtrInput
-	// Name of the blueprint definition.
+	ArtifactName  pulumi.StringPtrInput
 	BlueprintName pulumi.StringInput
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind pulumi.StringInput
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters ParameterValueMapInput
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
+	DependsOn     pulumi.StringArrayInput
+	Description   pulumi.StringPtrInput
+	DisplayName   pulumi.StringPtrInput
+	Kind          pulumi.StringInput
+	Parameters    ParameterValueMapInput
 	ResourceGroup pulumi.StringPtrInput
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
 	ResourceScope pulumi.StringInput
-	// The Resource Manager template blueprint artifact body.
-	Template pulumi.Input
+	Template      pulumi.Input
 }
 
 func (TemplateArtifactArgs) ElementType() reflect.Type {

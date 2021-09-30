@@ -3712,7 +3712,7 @@ class TransformationResponse(dict):
                  name: Optional[str] = None,
                  query: Optional[str] = None,
                  streaming_units: Optional[int] = None,
-                 valid_streaming_units: Optional[int] = None):
+                 valid_streaming_units: Optional[Sequence[int]] = None):
         """
         A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
         :param str etag: The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -3721,7 +3721,7 @@ class TransformationResponse(dict):
         :param str name: Resource name
         :param str query: Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
         :param int streaming_units: Specifies the number of streaming units that the streaming job uses.
-        :param int valid_streaming_units: Specifies the valid streaming units a streaming job can scale to.
+        :param Sequence[int] valid_streaming_units: Specifies the valid streaming units a streaming job can scale to.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -3785,7 +3785,7 @@ class TransformationResponse(dict):
 
     @property
     @pulumi.getter(name="validStreamingUnits")
-    def valid_streaming_units(self) -> Optional[int]:
+    def valid_streaming_units(self) -> Optional[Sequence[int]]:
         """
         Specifies the valid streaming units a streaming job can scale to.
         """

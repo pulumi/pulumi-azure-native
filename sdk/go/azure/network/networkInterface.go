@@ -14,52 +14,29 @@ import (
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
-	// The DNS settings in network interface.
-	DnsSettings NetworkInterfaceDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
-	// A reference to the dscp configuration to which the network interface is linked.
-	DscpConfiguration SubResourceResponseOutput `pulumi:"dscpConfiguration"`
-	// If the network interface is accelerated networking enabled.
-	EnableAcceleratedNetworking pulumi.BoolPtrOutput `pulumi:"enableAcceleratedNetworking"`
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding pulumi.BoolPtrOutput `pulumi:"enableIPForwarding"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The extended location of the network interface.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// A list of references to linked BareMetal resources.
-	HostedWorkloads pulumi.StringArrayOutput `pulumi:"hostedWorkloads"`
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The MAC address of the network interface.
-	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
-	// Migration phase of Network Interface resource.
-	MigrationPhase pulumi.StringPtrOutput `pulumi:"migrationPhase"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The reference to the NetworkSecurityGroup resource.
-	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
-	// Type of Network Interface resource.
-	NicType pulumi.StringPtrOutput `pulumi:"nicType"`
-	// Whether this is a primary network interface on a virtual machine.
-	Primary pulumi.BoolOutput `pulumi:"primary"`
-	// A reference to the private endpoint to which the network interface is linked.
-	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
-	// Privatelinkservice of the network interface resource.
-	PrivateLinkService PrivateLinkServiceResponsePtrOutput `pulumi:"privateLinkService"`
-	// The provisioning state of the network interface resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the network interface resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of TapConfigurations of the network interface.
-	TapConfigurations NetworkInterfaceTapConfigurationResponseArrayOutput `pulumi:"tapConfigurations"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The reference to a virtual machine.
-	VirtualMachine SubResourceResponseOutput `pulumi:"virtualMachine"`
+	DnsSettings                 NetworkInterfaceDnsSettingsResponsePtrOutput        `pulumi:"dnsSettings"`
+	DscpConfiguration           SubResourceResponseOutput                           `pulumi:"dscpConfiguration"`
+	EnableAcceleratedNetworking pulumi.BoolPtrOutput                                `pulumi:"enableAcceleratedNetworking"`
+	EnableIPForwarding          pulumi.BoolPtrOutput                                `pulumi:"enableIPForwarding"`
+	Etag                        pulumi.StringOutput                                 `pulumi:"etag"`
+	ExtendedLocation            ExtendedLocationResponsePtrOutput                   `pulumi:"extendedLocation"`
+	HostedWorkloads             pulumi.StringArrayOutput                            `pulumi:"hostedWorkloads"`
+	IpConfigurations            NetworkInterfaceIPConfigurationResponseArrayOutput  `pulumi:"ipConfigurations"`
+	Location                    pulumi.StringPtrOutput                              `pulumi:"location"`
+	MacAddress                  pulumi.StringOutput                                 `pulumi:"macAddress"`
+	MigrationPhase              pulumi.StringPtrOutput                              `pulumi:"migrationPhase"`
+	Name                        pulumi.StringOutput                                 `pulumi:"name"`
+	NetworkSecurityGroup        NetworkSecurityGroupResponsePtrOutput               `pulumi:"networkSecurityGroup"`
+	NicType                     pulumi.StringPtrOutput                              `pulumi:"nicType"`
+	Primary                     pulumi.BoolOutput                                   `pulumi:"primary"`
+	PrivateEndpoint             PrivateEndpointResponseOutput                       `pulumi:"privateEndpoint"`
+	PrivateLinkService          PrivateLinkServiceResponsePtrOutput                 `pulumi:"privateLinkService"`
+	ProvisioningState           pulumi.StringOutput                                 `pulumi:"provisioningState"`
+	ResourceGuid                pulumi.StringOutput                                 `pulumi:"resourceGuid"`
+	Tags                        pulumi.StringMapOutput                              `pulumi:"tags"`
+	TapConfigurations           NetworkInterfaceTapConfigurationResponseArrayOutput `pulumi:"tapConfigurations"`
+	Type                        pulumi.StringOutput                                 `pulumi:"type"`
+	VirtualMachine              SubResourceResponseOutput                           `pulumi:"virtualMachine"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -338,66 +315,38 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
-	// The DNS settings in network interface.
-	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
-	// If the network interface is accelerated networking enabled.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
-	// The extended location of the network interface.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Migration phase of Network Interface resource.
-	MigrationPhase *string `pulumi:"migrationPhase"`
-	// The name of the network interface.
-	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
-	// The reference to the NetworkSecurityGroup resource.
-	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
-	// Type of Network Interface resource.
-	NicType *string `pulumi:"nicType"`
-	// Privatelinkservice of the network interface resource.
-	PrivateLinkService *PrivateLinkServiceType `pulumi:"privateLinkService"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	DnsSettings                 *NetworkInterfaceDnsSettings      `pulumi:"dnsSettings"`
+	EnableAcceleratedNetworking *bool                             `pulumi:"enableAcceleratedNetworking"`
+	EnableIPForwarding          *bool                             `pulumi:"enableIPForwarding"`
+	ExtendedLocation            *ExtendedLocation                 `pulumi:"extendedLocation"`
+	Id                          *string                           `pulumi:"id"`
+	IpConfigurations            []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
+	Location                    *string                           `pulumi:"location"`
+	MigrationPhase              *string                           `pulumi:"migrationPhase"`
+	NetworkInterfaceName        *string                           `pulumi:"networkInterfaceName"`
+	NetworkSecurityGroup        *NetworkSecurityGroupType         `pulumi:"networkSecurityGroup"`
+	NicType                     *string                           `pulumi:"nicType"`
+	PrivateLinkService          *PrivateLinkServiceType           `pulumi:"privateLinkService"`
+	ResourceGroupName           string                            `pulumi:"resourceGroupName"`
+	Tags                        map[string]string                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
-	// The DNS settings in network interface.
-	DnsSettings NetworkInterfaceDnsSettingsPtrInput
-	// If the network interface is accelerated networking enabled.
+	DnsSettings                 NetworkInterfaceDnsSettingsPtrInput
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding pulumi.BoolPtrInput
-	// The extended location of the network interface.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations NetworkInterfaceIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Migration phase of Network Interface resource.
-	MigrationPhase pulumi.StringPtrInput
-	// The name of the network interface.
-	NetworkInterfaceName pulumi.StringPtrInput
-	// The reference to the NetworkSecurityGroup resource.
-	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
-	// Type of Network Interface resource.
-	NicType pulumi.StringPtrInput
-	// Privatelinkservice of the network interface resource.
-	PrivateLinkService PrivateLinkServiceTypePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	EnableIPForwarding          pulumi.BoolPtrInput
+	ExtendedLocation            ExtendedLocationPtrInput
+	Id                          pulumi.StringPtrInput
+	IpConfigurations            NetworkInterfaceIPConfigurationArrayInput
+	Location                    pulumi.StringPtrInput
+	MigrationPhase              pulumi.StringPtrInput
+	NetworkInterfaceName        pulumi.StringPtrInput
+	NetworkSecurityGroup        NetworkSecurityGroupTypePtrInput
+	NicType                     pulumi.StringPtrInput
+	PrivateLinkService          PrivateLinkServiceTypePtrInput
+	ResourceGroupName           pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

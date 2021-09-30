@@ -14,14 +14,10 @@ import (
 type WebAppAzureStorageAccounts struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure storage accounts.
+	Kind       pulumi.StringPtrOutput                 `pulumi:"kind"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties AzureStorageInfoValueResponseMapOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewWebAppAzureStorageAccounts registers a new resource with the given unique name, arguments, and options.
@@ -135,25 +131,17 @@ func (WebAppAzureStorageAccountsState) ElementType() reflect.Type {
 }
 
 type webAppAzureStorageAccountsArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Azure storage accounts.
-	Properties map[string]AzureStorageInfoValue `pulumi:"properties"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Kind              *string                          `pulumi:"kind"`
+	Name              string                           `pulumi:"name"`
+	Properties        map[string]AzureStorageInfoValue `pulumi:"properties"`
+	ResourceGroupName string                           `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppAzureStorageAccounts resource.
 type WebAppAzureStorageAccountsArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Azure storage accounts.
-	Properties AzureStorageInfoValueMapInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        AzureStorageInfoValueMapInput
 	ResourceGroupName pulumi.StringInput
 }
 

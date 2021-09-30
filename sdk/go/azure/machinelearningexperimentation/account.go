@@ -14,34 +14,20 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The immutable id associated with this team account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The creation date of the machine learning team account in ISO8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The description of this workspace.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The uri for this machine learning team account.
-	DiscoveryUri pulumi.StringOutput `pulumi:"discoveryUri"`
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// The fully qualified arm id of the user key vault.
-	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of team account resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The no of users/seats who can access this team account. This property defines the charge on the team account.
-	Seats pulumi.StringPtrOutput `pulumi:"seats"`
-	// The properties of the storage account for the machine learning team account.
-	StorageAccount StorageAccountPropertiesResponseOutput `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The fully qualified arm id of the vso account to be used for this team account.
-	VsoAccountId pulumi.StringOutput `pulumi:"vsoAccountId"`
+	AccountId         pulumi.StringOutput                    `pulumi:"accountId"`
+	CreationDate      pulumi.StringOutput                    `pulumi:"creationDate"`
+	Description       pulumi.StringPtrOutput                 `pulumi:"description"`
+	DiscoveryUri      pulumi.StringOutput                    `pulumi:"discoveryUri"`
+	FriendlyName      pulumi.StringPtrOutput                 `pulumi:"friendlyName"`
+	KeyVaultId        pulumi.StringOutput                    `pulumi:"keyVaultId"`
+	Location          pulumi.StringOutput                    `pulumi:"location"`
+	Name              pulumi.StringOutput                    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                    `pulumi:"provisioningState"`
+	Seats             pulumi.StringPtrOutput                 `pulumi:"seats"`
+	StorageAccount    StorageAccountPropertiesResponseOutput `pulumi:"storageAccount"`
+	Tags              pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type              pulumi.StringOutput                    `pulumi:"type"`
+	VsoAccountId      pulumi.StringOutput                    `pulumi:"vsoAccountId"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -107,50 +93,30 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the machine learning team account.
-	AccountName *string `pulumi:"accountName"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The fully qualified arm id of the user key vault.
-	KeyVaultId string `pulumi:"keyVaultId"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource group to which the machine learning team account belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The no of users/seats who can access this team account. This property defines the charge on the team account.
-	Seats *string `pulumi:"seats"`
-	// The properties of the storage account for the machine learning team account.
-	StorageAccount StorageAccountProperties `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The fully qualified arm id of the vso account to be used for this team account.
-	VsoAccountId string `pulumi:"vsoAccountId"`
+	AccountName       *string                  `pulumi:"accountName"`
+	Description       *string                  `pulumi:"description"`
+	FriendlyName      *string                  `pulumi:"friendlyName"`
+	KeyVaultId        string                   `pulumi:"keyVaultId"`
+	Location          *string                  `pulumi:"location"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Seats             *string                  `pulumi:"seats"`
+	StorageAccount    StorageAccountProperties `pulumi:"storageAccount"`
+	Tags              map[string]string        `pulumi:"tags"`
+	VsoAccountId      string                   `pulumi:"vsoAccountId"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the machine learning team account.
-	AccountName pulumi.StringPtrInput
-	// The description of this workspace.
-	Description pulumi.StringPtrInput
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName pulumi.StringPtrInput
-	// The fully qualified arm id of the user key vault.
-	KeyVaultId pulumi.StringInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource group to which the machine learning team account belongs.
+	AccountName       pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	FriendlyName      pulumi.StringPtrInput
+	KeyVaultId        pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The no of users/seats who can access this team account. This property defines the charge on the team account.
-	Seats pulumi.StringPtrInput
-	// The properties of the storage account for the machine learning team account.
-	StorageAccount StorageAccountPropertiesInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The fully qualified arm id of the vso account to be used for this team account.
-	VsoAccountId pulumi.StringInput
+	Seats             pulumi.StringPtrInput
+	StorageAccount    StorageAccountPropertiesInput
+	Tags              pulumi.StringMapInput
+	VsoAccountId      pulumi.StringInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

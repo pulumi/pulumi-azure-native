@@ -14,28 +14,17 @@ import (
 type ADCCatalog struct {
 	pulumi.CustomResourceState
 
-	// Azure data catalog admin list.
-	Admins PrincipalsResponseArrayOutput `pulumi:"admins"`
-	// Automatic unit adjustment enabled or not.
-	EnableAutomaticUnitAdjustment pulumi.BoolPtrOutput `pulumi:"enableAutomaticUnitAdjustment"`
-	// Resource etag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure data catalog SKU.
-	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned pulumi.BoolPtrOutput `pulumi:"successfullyProvisioned"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Azure data catalog units.
-	Units pulumi.IntPtrOutput `pulumi:"units"`
-	// Azure data catalog user list.
-	Users PrincipalsResponseArrayOutput `pulumi:"users"`
+	Admins                        PrincipalsResponseArrayOutput `pulumi:"admins"`
+	EnableAutomaticUnitAdjustment pulumi.BoolPtrOutput          `pulumi:"enableAutomaticUnitAdjustment"`
+	Etag                          pulumi.StringPtrOutput        `pulumi:"etag"`
+	Location                      pulumi.StringPtrOutput        `pulumi:"location"`
+	Name                          pulumi.StringOutput           `pulumi:"name"`
+	Sku                           pulumi.StringPtrOutput        `pulumi:"sku"`
+	SuccessfullyProvisioned       pulumi.BoolPtrOutput          `pulumi:"successfullyProvisioned"`
+	Tags                          pulumi.StringMapOutput        `pulumi:"tags"`
+	Type                          pulumi.StringOutput           `pulumi:"type"`
+	Units                         pulumi.IntPtrOutput           `pulumi:"units"`
+	Users                         PrincipalsResponseArrayOutput `pulumi:"users"`
 }
 
 // NewADCCatalog registers a new resource with the given unique name, arguments, and options.
@@ -92,54 +81,32 @@ func (ADCCatalogState) ElementType() reflect.Type {
 }
 
 type adccatalogArgs struct {
-	// Azure data catalog admin list.
-	Admins []Principals `pulumi:"admins"`
-	// The name of the data catalog in the specified subscription and resource group.
-	CatalogName *string `pulumi:"catalogName"`
-	// Automatic unit adjustment enabled or not.
-	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure data catalog SKU.
-	Sku *string `pulumi:"sku"`
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned *bool `pulumi:"successfullyProvisioned"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure data catalog units.
-	Units *int `pulumi:"units"`
-	// Azure data catalog user list.
-	Users []Principals `pulumi:"users"`
+	Admins                        []Principals      `pulumi:"admins"`
+	CatalogName                   *string           `pulumi:"catalogName"`
+	EnableAutomaticUnitAdjustment *bool             `pulumi:"enableAutomaticUnitAdjustment"`
+	Etag                          *string           `pulumi:"etag"`
+	Location                      *string           `pulumi:"location"`
+	ResourceGroupName             string            `pulumi:"resourceGroupName"`
+	Sku                           *string           `pulumi:"sku"`
+	SuccessfullyProvisioned       *bool             `pulumi:"successfullyProvisioned"`
+	Tags                          map[string]string `pulumi:"tags"`
+	Units                         *int              `pulumi:"units"`
+	Users                         []Principals      `pulumi:"users"`
 }
 
 // The set of arguments for constructing a ADCCatalog resource.
 type ADCCatalogArgs struct {
-	// Azure data catalog admin list.
-	Admins PrincipalsArrayInput
-	// The name of the data catalog in the specified subscription and resource group.
-	CatalogName pulumi.StringPtrInput
-	// Automatic unit adjustment enabled or not.
+	Admins                        PrincipalsArrayInput
+	CatalogName                   pulumi.StringPtrInput
 	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Azure data catalog SKU.
-	Sku pulumi.StringPtrInput
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure data catalog units.
-	Units pulumi.IntPtrInput
-	// Azure data catalog user list.
-	Users PrincipalsArrayInput
+	Etag                          pulumi.StringPtrInput
+	Location                      pulumi.StringPtrInput
+	ResourceGroupName             pulumi.StringInput
+	Sku                           pulumi.StringPtrInput
+	SuccessfullyProvisioned       pulumi.BoolPtrInput
+	Tags                          pulumi.StringMapInput
+	Units                         pulumi.IntPtrInput
+	Users                         PrincipalsArrayInput
 }
 
 func (ADCCatalogArgs) ElementType() reflect.Type {

@@ -14,18 +14,12 @@ import (
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties that define a Azure Arc PrivateLinkScope resource.
+	Location   pulumi.StringOutput                                   `pulumi:"location"`
+	Name       pulumi.StringOutput                                   `pulumi:"name"`
 	Properties HybridComputePrivateLinkScopePropertiesResponseOutput `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                              `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type       pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewPrivateLinkScope registers a new resource with the given unique name, arguments, and options.
@@ -118,30 +112,20 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 }
 
 type privateLinkScopeArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Properties that define a Azure Arc PrivateLinkScope resource.
-	Properties *HybridComputePrivateLinkScopeProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName *string `pulumi:"scopeName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                                  `pulumi:"location"`
+	Properties        *HybridComputePrivateLinkScopeProperties `pulumi:"properties"`
+	ResourceGroupName string                                   `pulumi:"resourceGroupName"`
+	ScopeName         *string                                  `pulumi:"scopeName"`
+	Tags              map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateLinkScope resource.
 type PrivateLinkScopeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Properties that define a Azure Arc PrivateLinkScope resource.
-	Properties HybridComputePrivateLinkScopePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	Properties        HybridComputePrivateLinkScopePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ScopeName         pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PrivateLinkScopeArgs) ElementType() reflect.Type {

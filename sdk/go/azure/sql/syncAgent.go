@@ -14,22 +14,14 @@ import (
 type SyncAgent struct {
 	pulumi.CustomResourceState
 
-	// Expiration time of the sync agent version.
-	ExpiryTime pulumi.StringOutput `pulumi:"expiryTime"`
-	// If the sync agent version is up to date.
-	IsUpToDate pulumi.BoolOutput `pulumi:"isUpToDate"`
-	// Last alive time of the sync agent.
-	LastAliveTime pulumi.StringOutput `pulumi:"lastAliveTime"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the sync agent.
-	State pulumi.StringOutput `pulumi:"state"`
-	// ARM resource id of the sync database in the sync agent.
+	ExpiryTime     pulumi.StringOutput    `pulumi:"expiryTime"`
+	IsUpToDate     pulumi.BoolOutput      `pulumi:"isUpToDate"`
+	LastAliveTime  pulumi.StringOutput    `pulumi:"lastAliveTime"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	State          pulumi.StringOutput    `pulumi:"state"`
 	SyncDatabaseId pulumi.StringPtrOutput `pulumi:"syncDatabaseId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the sync agent.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Type           pulumi.StringOutput    `pulumi:"type"`
+	Version        pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewSyncAgent registers a new resource with the given unique name, arguments, and options.
@@ -113,26 +105,18 @@ func (SyncAgentState) ElementType() reflect.Type {
 }
 
 type syncAgentArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server on which the sync agent is hosted.
-	ServerName string `pulumi:"serverName"`
-	// The name of the sync agent.
-	SyncAgentName *string `pulumi:"syncAgentName"`
-	// ARM resource id of the sync database in the sync agent.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
+	SyncAgentName     *string `pulumi:"syncAgentName"`
+	SyncDatabaseId    *string `pulumi:"syncDatabaseId"`
 }
 
 // The set of arguments for constructing a SyncAgent resource.
 type SyncAgentArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
-	// The name of the server on which the sync agent is hosted.
-	ServerName pulumi.StringInput
-	// The name of the sync agent.
-	SyncAgentName pulumi.StringPtrInput
-	// ARM resource id of the sync database in the sync agent.
-	SyncDatabaseId pulumi.StringPtrInput
+	ServerName        pulumi.StringInput
+	SyncAgentName     pulumi.StringPtrInput
+	SyncDatabaseId    pulumi.StringPtrInput
 }
 
 func (SyncAgentArgs) ElementType() reflect.Type {

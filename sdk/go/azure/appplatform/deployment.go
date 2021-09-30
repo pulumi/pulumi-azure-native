@@ -14,14 +14,10 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Deployment resource
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentResourcePropertiesResponseOutput `pulumi:"properties"`
-	// Sku of the Deployment resource
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput                       `pulumi:"sku"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -102,34 +98,22 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the Deployment resource.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// Properties of the Deployment resource
-	Properties *DeploymentResourceProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
-	// Sku of the Deployment resource
-	Sku *Sku `pulumi:"sku"`
+	AppName           string                        `pulumi:"appName"`
+	DeploymentName    *string                       `pulumi:"deploymentName"`
+	Properties        *DeploymentResourceProperties `pulumi:"properties"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
+	ServiceName       string                        `pulumi:"serviceName"`
+	Sku               *Sku                          `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The name of the App resource.
-	AppName pulumi.StringInput
-	// The name of the Deployment resource.
-	DeploymentName pulumi.StringPtrInput
-	// Properties of the Deployment resource
-	Properties DeploymentResourcePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           pulumi.StringInput
+	DeploymentName    pulumi.StringPtrInput
+	Properties        DeploymentResourcePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringInput
-	// Sku of the Deployment resource
-	Sku SkuPtrInput
+	ServiceName       pulumi.StringInput
+	Sku               SkuPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {

@@ -14,14 +14,10 @@ import (
 type PrivateDnsZoneGroup struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A collection of private dns zone configurations of the private dns zone group.
+	Etag                  pulumi.StringOutput                     `pulumi:"etag"`
+	Name                  pulumi.StringPtrOutput                  `pulumi:"name"`
 	PrivateDnsZoneConfigs PrivateDnsZoneConfigResponseArrayOutput `pulumi:"privateDnsZoneConfigs"`
-	// The provisioning state of the private dns zone group resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState     pulumi.StringOutput                     `pulumi:"provisioningState"`
 }
 
 // NewPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
@@ -129,34 +125,22 @@ func (PrivateDnsZoneGroupState) ElementType() reflect.Type {
 }
 
 type privateDnsZoneGroupArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// A collection of private dns zone configurations of the private dns zone group.
-	PrivateDnsZoneConfigs []PrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
-	// The name of the private dns zone group.
-	PrivateDnsZoneGroupName *string `pulumi:"privateDnsZoneGroupName"`
-	// The name of the private endpoint.
-	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Id                      *string                `pulumi:"id"`
+	Name                    *string                `pulumi:"name"`
+	PrivateDnsZoneConfigs   []PrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
+	PrivateDnsZoneGroupName *string                `pulumi:"privateDnsZoneGroupName"`
+	PrivateEndpointName     string                 `pulumi:"privateEndpointName"`
+	ResourceGroupName       string                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateDnsZoneGroup resource.
 type PrivateDnsZoneGroupArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// A collection of private dns zone configurations of the private dns zone group.
-	PrivateDnsZoneConfigs PrivateDnsZoneConfigArrayInput
-	// The name of the private dns zone group.
+	Id                      pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	PrivateDnsZoneConfigs   PrivateDnsZoneConfigArrayInput
 	PrivateDnsZoneGroupName pulumi.StringPtrInput
-	// The name of the private endpoint.
-	PrivateEndpointName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	PrivateEndpointName     pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (PrivateDnsZoneGroupArgs) ElementType() reflect.Type {

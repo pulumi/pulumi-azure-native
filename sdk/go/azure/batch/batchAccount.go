@@ -14,42 +14,25 @@ import (
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
-	// The account endpoint used to interact with the Batch service.
-	AccountEndpoint              pulumi.StringOutput `pulumi:"accountEndpoint"`
-	ActiveJobAndJobScheduleQuota pulumi.IntOutput    `pulumi:"activeJobAndJobScheduleQuota"`
-	// Contains information about the auto-storage account associated with a Batch account.
-	AutoStorage AutoStoragePropertiesResponseOutput `pulumi:"autoStorage"`
-	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-	DedicatedCoreQuota pulumi.IntOutput `pulumi:"dedicatedCoreQuota"`
-	// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-	DedicatedCoreQuotaPerVMFamily VirtualMachineFamilyCoreQuotaResponseArrayOutput `pulumi:"dedicatedCoreQuotaPerVMFamily"`
-	// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
-	DedicatedCoreQuotaPerVMFamilyEnforced pulumi.BoolOutput `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
-	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-	Encryption EncryptionPropertiesResponseOutput `pulumi:"encryption"`
-	// The identity of the Batch account.
-	Identity BatchAccountIdentityResponsePtrOutput `pulumi:"identity"`
-	// Identifies the Azure key vault associated with a Batch account.
-	KeyVaultReference KeyVaultReferenceResponseOutput `pulumi:"keyVaultReference"`
-	// The location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-	LowPriorityCoreQuota pulumi.IntOutput `pulumi:"lowPriorityCoreQuota"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The allocation mode for creating pools in the Batch account.
-	PoolAllocationMode pulumi.StringOutput `pulumi:"poolAllocationMode"`
-	PoolQuota          pulumi.IntOutput    `pulumi:"poolQuota"`
-	// List of private endpoint connections associated with the Batch account
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The provisioned state of the resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountEndpoint                       pulumi.StringOutput                              `pulumi:"accountEndpoint"`
+	ActiveJobAndJobScheduleQuota          pulumi.IntOutput                                 `pulumi:"activeJobAndJobScheduleQuota"`
+	AutoStorage                           AutoStoragePropertiesResponseOutput              `pulumi:"autoStorage"`
+	DedicatedCoreQuota                    pulumi.IntOutput                                 `pulumi:"dedicatedCoreQuota"`
+	DedicatedCoreQuotaPerVMFamily         VirtualMachineFamilyCoreQuotaResponseArrayOutput `pulumi:"dedicatedCoreQuotaPerVMFamily"`
+	DedicatedCoreQuotaPerVMFamilyEnforced pulumi.BoolOutput                                `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
+	Encryption                            EncryptionPropertiesResponseOutput               `pulumi:"encryption"`
+	Identity                              BatchAccountIdentityResponsePtrOutput            `pulumi:"identity"`
+	KeyVaultReference                     KeyVaultReferenceResponseOutput                  `pulumi:"keyVaultReference"`
+	Location                              pulumi.StringOutput                              `pulumi:"location"`
+	LowPriorityCoreQuota                  pulumi.IntOutput                                 `pulumi:"lowPriorityCoreQuota"`
+	Name                                  pulumi.StringOutput                              `pulumi:"name"`
+	PoolAllocationMode                    pulumi.StringOutput                              `pulumi:"poolAllocationMode"`
+	PoolQuota                             pulumi.IntOutput                                 `pulumi:"poolQuota"`
+	PrivateEndpointConnections            PrivateEndpointConnectionResponseArrayOutput     `pulumi:"privateEndpointConnections"`
+	ProvisioningState                     pulumi.StringOutput                              `pulumi:"provisioningState"`
+	PublicNetworkAccess                   pulumi.StringOutput                              `pulumi:"publicNetworkAccess"`
+	Tags                                  pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type                                  pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewBatchAccount registers a new resource with the given unique name, arguments, and options.
@@ -172,50 +155,30 @@ func (BatchAccountState) ElementType() reflect.Type {
 }
 
 type batchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName *string `pulumi:"accountName"`
-	// The properties related to the auto-storage account.
-	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
-	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-	Encryption *EncryptionProperties `pulumi:"encryption"`
-	// The identity of the Batch account.
-	Identity *BatchAccountIdentity `pulumi:"identity"`
-	// A reference to the Azure key vault associated with the Batch account.
-	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
-	// The region in which to create the account.
-	Location *string `pulumi:"location"`
-	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode *PoolAllocationMode `pulumi:"poolAllocationMode"`
-	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess *PublicNetworkAccessType `pulumi:"publicNetworkAccess"`
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The user-specified tags associated with the account.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName         *string                    `pulumi:"accountName"`
+	AutoStorage         *AutoStorageBaseProperties `pulumi:"autoStorage"`
+	Encryption          *EncryptionProperties      `pulumi:"encryption"`
+	Identity            *BatchAccountIdentity      `pulumi:"identity"`
+	KeyVaultReference   *KeyVaultReference         `pulumi:"keyVaultReference"`
+	Location            *string                    `pulumi:"location"`
+	PoolAllocationMode  *PoolAllocationMode        `pulumi:"poolAllocationMode"`
+	PublicNetworkAccess *PublicNetworkAccessType   `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string                     `pulumi:"resourceGroupName"`
+	Tags                map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName pulumi.StringPtrInput
-	// The properties related to the auto-storage account.
-	AutoStorage AutoStorageBasePropertiesPtrInput
-	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-	Encryption EncryptionPropertiesPtrInput
-	// The identity of the Batch account.
-	Identity BatchAccountIdentityPtrInput
-	// A reference to the Azure key vault associated with the Batch account.
-	KeyVaultReference KeyVaultReferencePtrInput
-	// The region in which to create the account.
-	Location pulumi.StringPtrInput
-	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode PoolAllocationModePtrInput
-	// If not specified, the default value is 'enabled'.
+	AccountName         pulumi.StringPtrInput
+	AutoStorage         AutoStorageBasePropertiesPtrInput
+	Encryption          EncryptionPropertiesPtrInput
+	Identity            BatchAccountIdentityPtrInput
+	KeyVaultReference   KeyVaultReferencePtrInput
+	Location            pulumi.StringPtrInput
+	PoolAllocationMode  PoolAllocationModePtrInput
 	PublicNetworkAccess PublicNetworkAccessTypePtrInput
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName pulumi.StringInput
-	// The user-specified tags associated with the account.
-	Tags pulumi.StringMapInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (BatchAccountArgs) ElementType() reflect.Type {

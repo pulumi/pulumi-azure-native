@@ -14,22 +14,14 @@ import (
 type MediaGraph struct {
 	pulumi.CustomResourceState
 
-	// Date the Media Graph was created.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Media Graph description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Date the Media Graph was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Media Graph sinks.
-	Sinks MediaGraphAssetSinkResponseArrayOutput `pulumi:"sinks"`
-	// Media Graph sources.
-	Sources MediaGraphRtspSourceResponseArrayOutput `pulumi:"sources"`
-	// Media Graph state which indicates the resource allocation status for running the media graph pipeline.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Created      pulumi.StringOutput                     `pulumi:"created"`
+	Description  pulumi.StringPtrOutput                  `pulumi:"description"`
+	LastModified pulumi.StringOutput                     `pulumi:"lastModified"`
+	Name         pulumi.StringOutput                     `pulumi:"name"`
+	Sinks        MediaGraphAssetSinkResponseArrayOutput  `pulumi:"sinks"`
+	Sources      MediaGraphRtspSourceResponseArrayOutput `pulumi:"sources"`
+	State        pulumi.StringOutput                     `pulumi:"state"`
+	Type         pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewMediaGraph registers a new resource with the given unique name, arguments, and options.
@@ -101,34 +93,22 @@ func (MediaGraphState) ElementType() reflect.Type {
 }
 
 type mediaGraphArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// Media Graph description.
-	Description *string `pulumi:"description"`
-	// The Media Graph name.
-	MediaGraphName *string `pulumi:"mediaGraphName"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Media Graph sinks.
-	Sinks []MediaGraphAssetSink `pulumi:"sinks"`
-	// Media Graph sources.
-	Sources []MediaGraphRtspSource `pulumi:"sources"`
+	AccountName       string                 `pulumi:"accountName"`
+	Description       *string                `pulumi:"description"`
+	MediaGraphName    *string                `pulumi:"mediaGraphName"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	Sinks             []MediaGraphAssetSink  `pulumi:"sinks"`
+	Sources           []MediaGraphRtspSource `pulumi:"sources"`
 }
 
 // The set of arguments for constructing a MediaGraph resource.
 type MediaGraphArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// Media Graph description.
-	Description pulumi.StringPtrInput
-	// The Media Graph name.
-	MediaGraphName pulumi.StringPtrInput
-	// The name of the resource group within the Azure subscription.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	MediaGraphName    pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Media Graph sinks.
-	Sinks MediaGraphAssetSinkArrayInput
-	// Media Graph sources.
-	Sources MediaGraphRtspSourceArrayInput
+	Sinks             MediaGraphAssetSinkArrayInput
+	Sources           MediaGraphRtspSourceArrayInput
 }
 
 func (MediaGraphArgs) ElementType() reflect.Type {

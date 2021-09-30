@@ -8202,7 +8202,7 @@ type Transformation struct {
 	Name                *string `pulumi:"name"`
 	Query               *string `pulumi:"query"`
 	StreamingUnits      *int    `pulumi:"streamingUnits"`
-	ValidStreamingUnits *int    `pulumi:"validStreamingUnits"`
+	ValidStreamingUnits []int   `pulumi:"validStreamingUnits"`
 }
 
 // TransformationInput is an input type that accepts TransformationArgs and TransformationOutput values.
@@ -8220,7 +8220,7 @@ type TransformationArgs struct {
 	Name                pulumi.StringPtrInput `pulumi:"name"`
 	Query               pulumi.StringPtrInput `pulumi:"query"`
 	StreamingUnits      pulumi.IntPtrInput    `pulumi:"streamingUnits"`
-	ValidStreamingUnits pulumi.IntPtrInput    `pulumi:"validStreamingUnits"`
+	ValidStreamingUnits pulumi.IntArrayInput  `pulumi:"validStreamingUnits"`
 }
 
 func (TransformationArgs) ElementType() reflect.Type {
@@ -8312,8 +8312,8 @@ func (o TransformationOutput) StreamingUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Transformation) *int { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }
 
-func (o TransformationOutput) ValidStreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Transformation) *int { return v.ValidStreamingUnits }).(pulumi.IntPtrOutput)
+func (o TransformationOutput) ValidStreamingUnits() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v Transformation) []int { return v.ValidStreamingUnits }).(pulumi.IntArrayOutput)
 }
 
 type TransformationPtrOutput struct{ *pulumi.OutputState }
@@ -8367,13 +8367,13 @@ func (o TransformationPtrOutput) StreamingUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o TransformationPtrOutput) ValidStreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Transformation) *int {
+func (o TransformationPtrOutput) ValidStreamingUnits() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Transformation) []int {
 		if v == nil {
 			return nil
 		}
 		return v.ValidStreamingUnits
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.IntArrayOutput)
 }
 
 type TransformationResponse struct {
@@ -8383,7 +8383,7 @@ type TransformationResponse struct {
 	Query               *string `pulumi:"query"`
 	StreamingUnits      *int    `pulumi:"streamingUnits"`
 	Type                string  `pulumi:"type"`
-	ValidStreamingUnits *int    `pulumi:"validStreamingUnits"`
+	ValidStreamingUnits []int   `pulumi:"validStreamingUnits"`
 }
 
 // TransformationResponseInput is an input type that accepts TransformationResponseArgs and TransformationResponseOutput values.
@@ -8404,7 +8404,7 @@ type TransformationResponseArgs struct {
 	Query               pulumi.StringPtrInput `pulumi:"query"`
 	StreamingUnits      pulumi.IntPtrInput    `pulumi:"streamingUnits"`
 	Type                pulumi.StringInput    `pulumi:"type"`
-	ValidStreamingUnits pulumi.IntPtrInput    `pulumi:"validStreamingUnits"`
+	ValidStreamingUnits pulumi.IntArrayInput  `pulumi:"validStreamingUnits"`
 }
 
 func (TransformationResponseArgs) ElementType() reflect.Type {
@@ -8508,8 +8508,8 @@ func (o TransformationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o TransformationResponseOutput) ValidStreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TransformationResponse) *int { return v.ValidStreamingUnits }).(pulumi.IntPtrOutput)
+func (o TransformationResponseOutput) ValidStreamingUnits() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TransformationResponse) []int { return v.ValidStreamingUnits }).(pulumi.IntArrayOutput)
 }
 
 type TransformationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8590,13 +8590,13 @@ func (o TransformationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TransformationResponsePtrOutput) ValidStreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TransformationResponse) *int {
+func (o TransformationResponsePtrOutput) ValidStreamingUnits() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *TransformationResponse) []int {
 		if v == nil {
 			return nil
 		}
 		return v.ValidStreamingUnits
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.IntArrayOutput)
 }
 
 func init() {

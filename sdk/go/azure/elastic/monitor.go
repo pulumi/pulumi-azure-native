@@ -14,22 +14,14 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
-	// Identity properties of the monitor resource.
-	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	// The location of the monitor resource
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the monitor resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the monitor resource.
-	Properties MonitorPropertiesResponseOutput `pulumi:"properties"`
-	// SKU of the monitor resource.
-	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tags of the monitor resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
+	Properties MonitorPropertiesResponseOutput     `pulumi:"properties"`
+	Sku        ResourceSkuResponsePtrOutput        `pulumi:"sku"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +84,24 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
-	// Identity properties of the monitor resource.
-	Identity *IdentityProperties `pulumi:"identity"`
-	// The location of the monitor resource
-	Location *string `pulumi:"location"`
-	// Monitor resource name
-	MonitorName *string `pulumi:"monitorName"`
-	// Properties of the monitor resource.
-	Properties *MonitorProperties `pulumi:"properties"`
-	// The name of the resource group to which the Elastic resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU of the monitor resource.
-	Sku *ResourceSku `pulumi:"sku"`
-	// The tags of the monitor resource.
-	Tags map[string]string `pulumi:"tags"`
+	Identity          *IdentityProperties `pulumi:"identity"`
+	Location          *string             `pulumi:"location"`
+	MonitorName       *string             `pulumi:"monitorName"`
+	Properties        *MonitorProperties  `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Sku               *ResourceSku        `pulumi:"sku"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
-	// Identity properties of the monitor resource.
-	Identity IdentityPropertiesPtrInput
-	// The location of the monitor resource
-	Location pulumi.StringPtrInput
-	// Monitor resource name
-	MonitorName pulumi.StringPtrInput
-	// Properties of the monitor resource.
-	Properties MonitorPropertiesPtrInput
-	// The name of the resource group to which the Elastic resource belongs.
+	Identity          IdentityPropertiesPtrInput
+	Location          pulumi.StringPtrInput
+	MonitorName       pulumi.StringPtrInput
+	Properties        MonitorPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU of the monitor resource.
-	Sku ResourceSkuPtrInput
-	// The tags of the monitor resource.
-	Tags pulumi.StringMapInput
+	Sku               ResourceSkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {

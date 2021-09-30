@@ -14,12 +14,9 @@ import (
 type QueueServiceProperties struct {
 	pulumi.CustomResourceState
 
-	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
 	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name pulumi.StringOutput        `pulumi:"name"`
+	Type pulumi.StringOutput        `pulumi:"type"`
 }
 
 // NewQueueServiceProperties registers a new resource with the given unique name, arguments, and options.
@@ -109,25 +106,17 @@ func (QueueServicePropertiesState) ElementType() reflect.Type {
 }
 
 type queueServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
-	Cors *CorsRules `pulumi:"cors"`
-	// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
-	QueueServiceName *string `pulumi:"queueServiceName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string     `pulumi:"accountName"`
+	Cors              *CorsRules `pulumi:"cors"`
+	QueueServiceName  *string    `pulumi:"queueServiceName"`
+	ResourceGroupName string     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a QueueServiceProperties resource.
 type QueueServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
-	Cors CorsRulesPtrInput
-	// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
-	QueueServiceName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Cors              CorsRulesPtrInput
+	QueueServiceName  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

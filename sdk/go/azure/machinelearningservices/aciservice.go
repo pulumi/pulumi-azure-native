@@ -14,22 +14,14 @@ import (
 type ACIService struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	SystemData SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewACIService registers a new resource with the given unique name, arguments, and options.
@@ -126,96 +118,52 @@ func (ACIServiceState) ElementType() reflect.Type {
 }
 
 type aciserviceArgs struct {
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
-	// Whether or not authentication is enabled on the service.
-	AuthEnabled *bool `pulumi:"authEnabled"`
-	// The CName for the service.
-	Cname *string `pulumi:"cname"`
-	// The compute environment type for the service.
-	// Expected value is 'ACI'.
-	ComputeType string `pulumi:"computeType"`
-	// The container resource requirements.
-	ContainerResourceRequirements *ContainerResourceRequirements `pulumi:"containerResourceRequirements"`
-	// Details of the data collection options specified.
-	DataCollection *ACIServiceCreateRequestDataCollection `pulumi:"dataCollection"`
-	// The description of the service.
-	Description *string `pulumi:"description"`
-	// The Dns label for the service.
-	DnsNameLabel *string `pulumi:"dnsNameLabel"`
-	// The encryption properties.
-	EncryptionProperties *ACIServiceCreateRequestEncryptionProperties `pulumi:"encryptionProperties"`
-	// The Environment, models and assets needed for inferencing.
-	EnvironmentImageRequest *CreateServiceRequestEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// The authentication keys.
-	Keys *CreateServiceRequestKeys `pulumi:"keys"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The name of the Azure location/region.
-	Location *string `pulumi:"location"`
-	// The service properties dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Azure Machine Learning service.
-	ServiceName *string `pulumi:"serviceName"`
-	// The public SSL certificate in PEM format to use if SSL is enabled.
-	SslCertificate *string `pulumi:"sslCertificate"`
-	// Whether or not SSL is enabled.
-	SslEnabled *bool `pulumi:"sslEnabled"`
-	// The public SSL key in PEM format for the certificate.
-	SslKey *string `pulumi:"sslKey"`
-	// The virtual network configuration.
-	VnetConfiguration *ACIServiceCreateRequestVnetConfiguration `pulumi:"vnetConfiguration"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AppInsightsEnabled            *bool                                        `pulumi:"appInsightsEnabled"`
+	AuthEnabled                   *bool                                        `pulumi:"authEnabled"`
+	Cname                         *string                                      `pulumi:"cname"`
+	ComputeType                   string                                       `pulumi:"computeType"`
+	ContainerResourceRequirements *ContainerResourceRequirements               `pulumi:"containerResourceRequirements"`
+	DataCollection                *ACIServiceCreateRequestDataCollection       `pulumi:"dataCollection"`
+	Description                   *string                                      `pulumi:"description"`
+	DnsNameLabel                  *string                                      `pulumi:"dnsNameLabel"`
+	EncryptionProperties          *ACIServiceCreateRequestEncryptionProperties `pulumi:"encryptionProperties"`
+	EnvironmentImageRequest       *CreateServiceRequestEnvironmentImageRequest `pulumi:"environmentImageRequest"`
+	Keys                          *CreateServiceRequestKeys                    `pulumi:"keys"`
+	KvTags                        map[string]string                            `pulumi:"kvTags"`
+	Location                      *string                                      `pulumi:"location"`
+	Properties                    map[string]string                            `pulumi:"properties"`
+	ResourceGroupName             string                                       `pulumi:"resourceGroupName"`
+	ServiceName                   *string                                      `pulumi:"serviceName"`
+	SslCertificate                *string                                      `pulumi:"sslCertificate"`
+	SslEnabled                    *bool                                        `pulumi:"sslEnabled"`
+	SslKey                        *string                                      `pulumi:"sslKey"`
+	VnetConfiguration             *ACIServiceCreateRequestVnetConfiguration    `pulumi:"vnetConfiguration"`
+	WorkspaceName                 string                                       `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a ACIService resource.
 type ACIServiceArgs struct {
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled pulumi.BoolPtrInput
-	// Whether or not authentication is enabled on the service.
-	AuthEnabled pulumi.BoolPtrInput
-	// The CName for the service.
-	Cname pulumi.StringPtrInput
-	// The compute environment type for the service.
-	// Expected value is 'ACI'.
-	ComputeType pulumi.StringInput
-	// The container resource requirements.
+	AppInsightsEnabled            pulumi.BoolPtrInput
+	AuthEnabled                   pulumi.BoolPtrInput
+	Cname                         pulumi.StringPtrInput
+	ComputeType                   pulumi.StringInput
 	ContainerResourceRequirements ContainerResourceRequirementsPtrInput
-	// Details of the data collection options specified.
-	DataCollection ACIServiceCreateRequestDataCollectionPtrInput
-	// The description of the service.
-	Description pulumi.StringPtrInput
-	// The Dns label for the service.
-	DnsNameLabel pulumi.StringPtrInput
-	// The encryption properties.
-	EncryptionProperties ACIServiceCreateRequestEncryptionPropertiesPtrInput
-	// The Environment, models and assets needed for inferencing.
-	EnvironmentImageRequest CreateServiceRequestEnvironmentImageRequestPtrInput
-	// The authentication keys.
-	Keys CreateServiceRequestKeysPtrInput
-	// The service tag dictionary. Tags are mutable.
-	KvTags pulumi.StringMapInput
-	// The name of the Azure location/region.
-	Location pulumi.StringPtrInput
-	// The service properties dictionary. Properties are immutable.
-	Properties pulumi.StringMapInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// Name of the Azure Machine Learning service.
-	ServiceName pulumi.StringPtrInput
-	// The public SSL certificate in PEM format to use if SSL is enabled.
-	SslCertificate pulumi.StringPtrInput
-	// Whether or not SSL is enabled.
-	SslEnabled pulumi.BoolPtrInput
-	// The public SSL key in PEM format for the certificate.
-	SslKey pulumi.StringPtrInput
-	// The virtual network configuration.
-	VnetConfiguration ACIServiceCreateRequestVnetConfigurationPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	DataCollection                ACIServiceCreateRequestDataCollectionPtrInput
+	Description                   pulumi.StringPtrInput
+	DnsNameLabel                  pulumi.StringPtrInput
+	EncryptionProperties          ACIServiceCreateRequestEncryptionPropertiesPtrInput
+	EnvironmentImageRequest       CreateServiceRequestEnvironmentImageRequestPtrInput
+	Keys                          CreateServiceRequestKeysPtrInput
+	KvTags                        pulumi.StringMapInput
+	Location                      pulumi.StringPtrInput
+	Properties                    pulumi.StringMapInput
+	ResourceGroupName             pulumi.StringInput
+	ServiceName                   pulumi.StringPtrInput
+	SslCertificate                pulumi.StringPtrInput
+	SslEnabled                    pulumi.BoolPtrInput
+	SslKey                        pulumi.StringPtrInput
+	VnetConfiguration             ACIServiceCreateRequestVnetConfigurationPtrInput
+	WorkspaceName                 pulumi.StringInput
 }
 
 func (ACIServiceArgs) ElementType() reflect.Type {

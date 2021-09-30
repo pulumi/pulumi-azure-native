@@ -14,14 +14,10 @@ import (
 type RulesEngine struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource status.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules RulesEngineRuleResponseArrayOutput `pulumi:"rules"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name          pulumi.StringOutput                `pulumi:"name"`
+	ResourceState pulumi.StringOutput                `pulumi:"resourceState"`
+	Rules         RulesEngineRuleResponseArrayOutput `pulumi:"rules"`
+	Type          pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewRulesEngine registers a new resource with the given unique name, arguments, and options.
@@ -93,26 +89,18 @@ func (RulesEngineState) ElementType() reflect.Type {
 }
 
 type rulesEngineArgs struct {
-	// Name of the Front Door which is globally unique.
-	FrontDoorName string `pulumi:"frontDoorName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules []RulesEngineRule `pulumi:"rules"`
-	// Name of the Rules Engine which is unique within the Front Door.
-	RulesEngineName *string `pulumi:"rulesEngineName"`
+	FrontDoorName     string            `pulumi:"frontDoorName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Rules             []RulesEngineRule `pulumi:"rules"`
+	RulesEngineName   *string           `pulumi:"rulesEngineName"`
 }
 
 // The set of arguments for constructing a RulesEngine resource.
 type RulesEngineArgs struct {
-	// Name of the Front Door which is globally unique.
-	FrontDoorName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	FrontDoorName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules RulesEngineRuleArrayInput
-	// Name of the Rules Engine which is unique within the Front Door.
-	RulesEngineName pulumi.StringPtrInput
+	Rules             RulesEngineRuleArrayInput
+	RulesEngineName   pulumi.StringPtrInput
 }
 
 func (RulesEngineArgs) ElementType() reflect.Type {

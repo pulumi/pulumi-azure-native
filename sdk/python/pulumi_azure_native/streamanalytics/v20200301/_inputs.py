@@ -3460,13 +3460,13 @@ class TransformationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  streaming_units: Optional[pulumi.Input[int]] = None,
-                 valid_streaming_units: Optional[pulumi.Input[int]] = None):
+                 valid_streaming_units: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] query: Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses.
-        :param pulumi.Input[int] valid_streaming_units: Specifies the valid streaming units a streaming job can scale to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] valid_streaming_units: Specifies the valid streaming units a streaming job can scale to.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3515,14 +3515,14 @@ class TransformationArgs:
 
     @property
     @pulumi.getter(name="validStreamingUnits")
-    def valid_streaming_units(self) -> Optional[pulumi.Input[int]]:
+    def valid_streaming_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Specifies the valid streaming units a streaming job can scale to.
         """
         return pulumi.get(self, "valid_streaming_units")
 
     @valid_streaming_units.setter
-    def valid_streaming_units(self, value: Optional[pulumi.Input[int]]):
+    def valid_streaming_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "valid_streaming_units", value)
 
 

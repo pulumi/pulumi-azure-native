@@ -14,32 +14,19 @@ import (
 type RelationshipLink struct {
 	pulumi.CustomResourceState
 
-	// Localized descriptions for the Relationship Link.
-	Description pulumi.StringMapOutput `pulumi:"description"`
-	// Localized display name for the Relationship Link.
-	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
-	// The InteractionType associated with the Relationship Link.
-	InteractionType pulumi.StringOutput `pulumi:"interactionType"`
-	// The name of the Relationship Link.
-	LinkName pulumi.StringOutput `pulumi:"linkName"`
-	// The mappings between Interaction and Relationship fields.
-	Mappings RelationshipLinkFieldMappingResponseArrayOutput `pulumi:"mappings"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences ParticipantProfilePropertyReferenceResponseArrayOutput `pulumi:"profilePropertyReferences"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The property references for the Related Profile of the Relationship.
+	Description                      pulumi.StringMapOutput                                 `pulumi:"description"`
+	DisplayName                      pulumi.StringMapOutput                                 `pulumi:"displayName"`
+	InteractionType                  pulumi.StringOutput                                    `pulumi:"interactionType"`
+	LinkName                         pulumi.StringOutput                                    `pulumi:"linkName"`
+	Mappings                         RelationshipLinkFieldMappingResponseArrayOutput        `pulumi:"mappings"`
+	Name                             pulumi.StringOutput                                    `pulumi:"name"`
+	ProfilePropertyReferences        ParticipantProfilePropertyReferenceResponseArrayOutput `pulumi:"profilePropertyReferences"`
+	ProvisioningState                pulumi.StringOutput                                    `pulumi:"provisioningState"`
 	RelatedProfilePropertyReferences ParticipantProfilePropertyReferenceResponseArrayOutput `pulumi:"relatedProfilePropertyReferences"`
-	// The relationship guid id.
-	RelationshipGuidId pulumi.StringOutput `pulumi:"relationshipGuidId"`
-	// The Relationship associated with the Link.
-	RelationshipName pulumi.StringOutput `pulumi:"relationshipName"`
-	// The hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	RelationshipGuidId               pulumi.StringOutput                                    `pulumi:"relationshipGuidId"`
+	RelationshipName                 pulumi.StringOutput                                    `pulumi:"relationshipName"`
+	TenantId                         pulumi.StringOutput                                    `pulumi:"tenantId"`
+	Type                             pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewRelationshipLink registers a new resource with the given unique name, arguments, and options.
@@ -117,50 +104,30 @@ func (RelationshipLinkState) ElementType() reflect.Type {
 }
 
 type relationshipLinkArgs struct {
-	// Localized descriptions for the Relationship Link.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Relationship Link.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The InteractionType associated with the Relationship Link.
-	InteractionType string `pulumi:"interactionType"`
-	// The mappings between Interaction and Relationship fields.
-	Mappings []RelationshipLinkFieldMapping `pulumi:"mappings"`
-	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences []ParticipantProfilePropertyReference `pulumi:"profilePropertyReferences"`
-	// The property references for the Related Profile of the Relationship.
+	Description                      map[string]string                     `pulumi:"description"`
+	DisplayName                      map[string]string                     `pulumi:"displayName"`
+	HubName                          string                                `pulumi:"hubName"`
+	InteractionType                  string                                `pulumi:"interactionType"`
+	Mappings                         []RelationshipLinkFieldMapping        `pulumi:"mappings"`
+	ProfilePropertyReferences        []ParticipantProfilePropertyReference `pulumi:"profilePropertyReferences"`
 	RelatedProfilePropertyReferences []ParticipantProfilePropertyReference `pulumi:"relatedProfilePropertyReferences"`
-	// The name of the relationship link.
-	RelationshipLinkName *string `pulumi:"relationshipLinkName"`
-	// The Relationship associated with the Link.
-	RelationshipName string `pulumi:"relationshipName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	RelationshipLinkName             *string                               `pulumi:"relationshipLinkName"`
+	RelationshipName                 string                                `pulumi:"relationshipName"`
+	ResourceGroupName                string                                `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a RelationshipLink resource.
 type RelationshipLinkArgs struct {
-	// Localized descriptions for the Relationship Link.
-	Description pulumi.StringMapInput
-	// Localized display name for the Relationship Link.
-	DisplayName pulumi.StringMapInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// The InteractionType associated with the Relationship Link.
-	InteractionType pulumi.StringInput
-	// The mappings between Interaction and Relationship fields.
-	Mappings RelationshipLinkFieldMappingArrayInput
-	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences ParticipantProfilePropertyReferenceArrayInput
-	// The property references for the Related Profile of the Relationship.
+	Description                      pulumi.StringMapInput
+	DisplayName                      pulumi.StringMapInput
+	HubName                          pulumi.StringInput
+	InteractionType                  pulumi.StringInput
+	Mappings                         RelationshipLinkFieldMappingArrayInput
+	ProfilePropertyReferences        ParticipantProfilePropertyReferenceArrayInput
 	RelatedProfilePropertyReferences ParticipantProfilePropertyReferenceArrayInput
-	// The name of the relationship link.
-	RelationshipLinkName pulumi.StringPtrInput
-	// The Relationship associated with the Link.
-	RelationshipName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	RelationshipLinkName             pulumi.StringPtrInput
+	RelationshipName                 pulumi.StringInput
+	ResourceGroupName                pulumi.StringInput
 }
 
 func (RelationshipLinkArgs) ElementType() reflect.Type {

@@ -14,14 +14,10 @@ import (
 type ReplicationMigrationItem struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The migration item properties.
+	Location   pulumi.StringPtrOutput                `pulumi:"location"`
+	Name       pulumi.StringOutput                   `pulumi:"name"`
 	Properties MigrationItemPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewReplicationMigrationItem registers a new resource with the given unique name, arguments, and options.
@@ -132,34 +128,22 @@ func (ReplicationMigrationItemState) ElementType() reflect.Type {
 }
 
 type replicationMigrationItemArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Migration item name.
-	MigrationItemName *string `pulumi:"migrationItemName"`
-	// Enable migration input properties.
-	Properties EnableMigrationInputProperties `pulumi:"properties"`
-	// Protection container name.
-	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName              string                         `pulumi:"fabricName"`
+	MigrationItemName       *string                        `pulumi:"migrationItemName"`
+	Properties              EnableMigrationInputProperties `pulumi:"properties"`
+	ProtectionContainerName string                         `pulumi:"protectionContainerName"`
+	ResourceGroupName       string                         `pulumi:"resourceGroupName"`
+	ResourceName            string                         `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationMigrationItem resource.
 type ReplicationMigrationItemArgs struct {
-	// Fabric name.
-	FabricName pulumi.StringInput
-	// Migration item name.
-	MigrationItemName pulumi.StringPtrInput
-	// Enable migration input properties.
-	Properties EnableMigrationInputPropertiesInput
-	// Protection container name.
+	FabricName              pulumi.StringInput
+	MigrationItemName       pulumi.StringPtrInput
+	Properties              EnableMigrationInputPropertiesInput
 	ProtectionContainerName pulumi.StringInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	ResourceName            pulumi.StringInput
 }
 
 func (ReplicationMigrationItemArgs) ElementType() reflect.Type {

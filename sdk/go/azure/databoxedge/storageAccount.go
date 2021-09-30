@@ -14,24 +14,15 @@ import (
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
-	// BlobEndpoint of Storage Account
-	BlobEndpoint pulumi.StringOutput `pulumi:"blobEndpoint"`
-	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-	ContainerCount pulumi.IntOutput `pulumi:"containerCount"`
-	// Data policy of the storage Account.
-	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
-	// Description for the storage Account.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Storage Account Credential Id
-	StorageAccountCredentialId pulumi.StringPtrOutput `pulumi:"storageAccountCredentialId"`
-	// Current status of the storage account
-	StorageAccountStatus pulumi.StringPtrOutput `pulumi:"storageAccountStatus"`
-	// StorageAccount object on ASE device
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	BlobEndpoint               pulumi.StringOutput      `pulumi:"blobEndpoint"`
+	ContainerCount             pulumi.IntOutput         `pulumi:"containerCount"`
+	DataPolicy                 pulumi.StringOutput      `pulumi:"dataPolicy"`
+	Description                pulumi.StringPtrOutput   `pulumi:"description"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	StorageAccountCredentialId pulumi.StringPtrOutput   `pulumi:"storageAccountCredentialId"`
+	StorageAccountStatus       pulumi.StringPtrOutput   `pulumi:"storageAccountStatus"`
+	SystemData                 SystemDataResponseOutput `pulumi:"systemData"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewStorageAccount registers a new resource with the given unique name, arguments, and options.
@@ -130,38 +121,24 @@ func (StorageAccountState) ElementType() reflect.Type {
 }
 
 type storageAccountArgs struct {
-	// Data policy of the storage Account.
-	DataPolicy string `pulumi:"dataPolicy"`
-	// Description for the storage Account.
-	Description *string `pulumi:"description"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Storage Account Credential Id
+	DataPolicy                 string  `pulumi:"dataPolicy"`
+	Description                *string `pulumi:"description"`
+	DeviceName                 string  `pulumi:"deviceName"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
-	// The StorageAccount name.
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Current status of the storage account
-	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
+	StorageAccountName         *string `pulumi:"storageAccountName"`
+	StorageAccountStatus       *string `pulumi:"storageAccountStatus"`
 }
 
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
-	// Data policy of the storage Account.
-	DataPolicy pulumi.StringInput
-	// Description for the storage Account.
-	Description pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Storage Account Credential Id
+	DataPolicy                 pulumi.StringInput
+	Description                pulumi.StringPtrInput
+	DeviceName                 pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
 	StorageAccountCredentialId pulumi.StringPtrInput
-	// The StorageAccount name.
-	StorageAccountName pulumi.StringPtrInput
-	// Current status of the storage account
-	StorageAccountStatus pulumi.StringPtrInput
+	StorageAccountName         pulumi.StringPtrInput
+	StorageAccountStatus       pulumi.StringPtrInput
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {

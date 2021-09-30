@@ -14,16 +14,11 @@ import (
 type SqlResourceSqlRoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
-	// The unique identifier for the associated Role Definition.
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId      pulumi.StringPtrOutput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Scope            pulumi.StringPtrOutput `pulumi:"scope"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSqlResourceSqlRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -119,34 +114,22 @@ func (SqlResourceSqlRoleAssignmentState) ElementType() reflect.Type {
 }
 
 type sqlResourceSqlRoleAssignmentArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId *string `pulumi:"principalId"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The GUID for the Role Assignment.
-	RoleAssignmentId *string `pulumi:"roleAssignmentId"`
-	// The unique identifier for the associated Role Definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope *string `pulumi:"scope"`
+	AccountName       string  `pulumi:"accountName"`
+	PrincipalId       *string `pulumi:"principalId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RoleAssignmentId  *string `pulumi:"roleAssignmentId"`
+	RoleDefinitionId  *string `pulumi:"roleDefinitionId"`
+	Scope             *string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlRoleAssignment resource.
 type SqlResourceSqlRoleAssignmentArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	PrincipalId       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The GUID for the Role Assignment.
-	RoleAssignmentId pulumi.StringPtrInput
-	// The unique identifier for the associated Role Definition.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope pulumi.StringPtrInput
+	RoleAssignmentId  pulumi.StringPtrInput
+	RoleDefinitionId  pulumi.StringPtrInput
+	Scope             pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlRoleAssignmentArgs) ElementType() reflect.Type {

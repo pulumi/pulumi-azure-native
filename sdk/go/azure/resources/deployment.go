@@ -14,16 +14,11 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// the location of the deployment.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment properties.
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -185,30 +180,20 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// The location to store the deployment data.
-	Location *string `pulumi:"location"`
-	// The deployment properties.
-	Properties DeploymentProperties `pulumi:"properties"`
-	// The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentName    *string              `pulumi:"deploymentName"`
+	Location          *string              `pulumi:"location"`
+	Properties        DeploymentProperties `pulumi:"properties"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	Tags              map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The name of the deployment.
-	DeploymentName pulumi.StringPtrInput
-	// The location to store the deployment data.
-	Location pulumi.StringPtrInput
-	// The deployment properties.
-	Properties DeploymentPropertiesInput
-	// The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
+	DeploymentName    pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        DeploymentPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {

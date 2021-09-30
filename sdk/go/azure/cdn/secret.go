@@ -14,17 +14,12 @@ import (
 type Secret struct {
 	pulumi.CustomResourceState
 
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// object which contains secret parameters
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
-	// Provisioning status
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeploymentStatus  pulumi.StringOutput      `pulumi:"deploymentStatus"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	Parameters        pulumi.AnyOutput         `pulumi:"parameters"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -84,26 +79,18 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// object which contains secret parameters
-	Parameters interface{} `pulumi:"parameters"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Secret under the profile.
-	SecretName *string `pulumi:"secretName"`
+	Parameters        interface{} `pulumi:"parameters"`
+	ProfileName       string      `pulumi:"profileName"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	SecretName        *string     `pulumi:"secretName"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// object which contains secret parameters
-	Parameters pulumi.Input
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	Parameters        pulumi.Input
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the Secret under the profile.
-	SecretName pulumi.StringPtrInput
+	SecretName        pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

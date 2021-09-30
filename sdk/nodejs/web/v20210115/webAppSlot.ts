@@ -475,7 +475,7 @@ export interface WebAppSlotArgs {
      */
     siteConfig?: pulumi.Input<inputs.web.v20210115.SiteConfigArgs>;
     /**
-     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+     * Name of the deployment slot to create or update. The name 'production' is reserved.
      */
     slot?: pulumi.Input<string>;
     /**

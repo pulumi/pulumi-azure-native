@@ -14,14 +14,10 @@ import (
 type DataFlow struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Data flow properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringOutput `pulumi:"etag"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDataFlow registers a new resource with the given unique name, arguments, and options.
@@ -84,25 +80,17 @@ func (DataFlowState) ElementType() reflect.Type {
 }
 
 type dataFlowArgs struct {
-	// The data flow name.
-	DataFlowName *string `pulumi:"dataFlowName"`
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// Data flow properties.
-	Properties interface{} `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DataFlowName      *string     `pulumi:"dataFlowName"`
+	FactoryName       string      `pulumi:"factoryName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DataFlow resource.
 type DataFlowArgs struct {
-	// The data flow name.
-	DataFlowName pulumi.StringPtrInput
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// Data flow properties.
-	Properties pulumi.Input
-	// The resource group name.
+	DataFlowName      pulumi.StringPtrInput
+	FactoryName       pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 

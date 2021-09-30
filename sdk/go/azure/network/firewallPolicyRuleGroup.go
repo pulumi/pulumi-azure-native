@@ -14,18 +14,12 @@ import (
 type FirewallPolicyRuleGroup struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Group resource.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Group of Firewall Policy rules.
-	Rules pulumi.ArrayOutput `pulumi:"rules"`
-	// Rule Group type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput    `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput `pulumi:"name"`
+	Priority          pulumi.IntPtrOutput    `pulumi:"priority"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Rules             pulumi.ArrayOutput     `pulumi:"rules"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewFirewallPolicyRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -127,38 +121,24 @@ func (FirewallPolicyRuleGroupState) ElementType() reflect.Type {
 }
 
 type firewallPolicyRuleGroupArgs struct {
-	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Group resource.
-	Priority *int `pulumi:"priority"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the FirewallPolicyRuleGroup.
-	RuleGroupName *string `pulumi:"ruleGroupName"`
-	// Group of Firewall Policy rules.
-	Rules []interface{} `pulumi:"rules"`
+	FirewallPolicyName string        `pulumi:"firewallPolicyName"`
+	Id                 *string       `pulumi:"id"`
+	Name               *string       `pulumi:"name"`
+	Priority           *int          `pulumi:"priority"`
+	ResourceGroupName  string        `pulumi:"resourceGroupName"`
+	RuleGroupName      *string       `pulumi:"ruleGroupName"`
+	Rules              []interface{} `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a FirewallPolicyRuleGroup resource.
 type FirewallPolicyRuleGroupArgs struct {
-	// The name of the Firewall Policy.
 	FirewallPolicyName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Priority of the Firewall Policy Rule Group resource.
-	Priority pulumi.IntPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the FirewallPolicyRuleGroup.
-	RuleGroupName pulumi.StringPtrInput
-	// Group of Firewall Policy rules.
-	Rules pulumi.ArrayInput
+	Id                 pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Priority           pulumi.IntPtrInput
+	ResourceGroupName  pulumi.StringInput
+	RuleGroupName      pulumi.StringPtrInput
+	Rules              pulumi.ArrayInput
 }
 
 func (FirewallPolicyRuleGroupArgs) ElementType() reflect.Type {

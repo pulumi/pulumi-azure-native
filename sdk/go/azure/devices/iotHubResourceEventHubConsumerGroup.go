@@ -14,14 +14,10 @@ import (
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 
-	// The etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The Event Hub-compatible consumer group name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tags.
+	Etag       pulumi.StringOutput    `pulumi:"etag"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIotHubResourceEventHubConsumerGroup registers a new resource with the given unique name, arguments, and options.
@@ -210,30 +206,20 @@ func (IotHubResourceEventHubConsumerGroupState) ElementType() reflect.Type {
 }
 
 type iotHubResourceEventHubConsumerGroupArgs struct {
-	// The name of the Event Hub-compatible endpoint in the IoT hub.
-	EventHubEndpointName string `pulumi:"eventHubEndpointName"`
-	// The name of the consumer group to add.
-	Name *string `pulumi:"name"`
-	// The EventHub consumer group name.
-	Properties *EventHubConsumerGroupName `pulumi:"properties"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	EventHubEndpointName string                     `pulumi:"eventHubEndpointName"`
+	Name                 *string                    `pulumi:"name"`
+	Properties           *EventHubConsumerGroupName `pulumi:"properties"`
+	ResourceGroupName    string                     `pulumi:"resourceGroupName"`
+	ResourceName         string                     `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a IotHubResourceEventHubConsumerGroup resource.
 type IotHubResourceEventHubConsumerGroupArgs struct {
-	// The name of the Event Hub-compatible endpoint in the IoT hub.
 	EventHubEndpointName pulumi.StringInput
-	// The name of the consumer group to add.
-	Name pulumi.StringPtrInput
-	// The EventHub consumer group name.
-	Properties EventHubConsumerGroupNamePtrInput
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName pulumi.StringInput
-	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	Name                 pulumi.StringPtrInput
+	Properties           EventHubConsumerGroupNamePtrInput
+	ResourceGroupName    pulumi.StringInput
+	ResourceName         pulumi.StringInput
 }
 
 func (IotHubResourceEventHubConsumerGroupArgs) ElementType() reflect.Type {

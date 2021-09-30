@@ -14,16 +14,11 @@ import (
 type PrivateEndpointConnectionByName struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Name                              pulumi.StringOutput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnectionByName registers a new resource with the given unique name, arguments, and options.
@@ -83,30 +78,20 @@ func (PrivateEndpointConnectionByNameState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionByNameArgs struct {
-	// Private Endpoint Connection Resource Id.
-	Id *string `pulumi:"id"`
-	// Name of the private endpoint connection.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The connection state of the private endpoint connection.
-	Properties *PrivateEndpointConnectionRequestProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	Id                            *string                                     `pulumi:"id"`
+	PrivateEndpointConnectionName *string                                     `pulumi:"privateEndpointConnectionName"`
+	Properties                    *PrivateEndpointConnectionRequestProperties `pulumi:"properties"`
+	ResourceGroupName             string                                      `pulumi:"resourceGroupName"`
+	ServiceName                   string                                      `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnectionByName resource.
 type PrivateEndpointConnectionByNameArgs struct {
-	// Private Endpoint Connection Resource Id.
-	Id pulumi.StringPtrInput
-	// Name of the private endpoint connection.
+	Id                            pulumi.StringPtrInput
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The connection state of the private endpoint connection.
-	Properties PrivateEndpointConnectionRequestPropertiesPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	Properties                    PrivateEndpointConnectionRequestPropertiesPtrInput
+	ResourceGroupName             pulumi.StringInput
+	ServiceName                   pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionByNameArgs) ElementType() reflect.Type {

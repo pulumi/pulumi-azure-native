@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
         /// <summary>
         /// Specifies the valid streaming units a streaming job can scale to.
         /// </summary>
-        public readonly int? ValidStreamingUnits;
+        public readonly ImmutableArray<int> ValidStreamingUnits;
 
         [OutputConstructor]
         private TransformationResponse(
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 
             string type,
 
-            int? validStreamingUnits)
+            ImmutableArray<int> validStreamingUnits)
         {
             Etag = etag;
             Id = id;

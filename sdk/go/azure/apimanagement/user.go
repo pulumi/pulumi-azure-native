@@ -14,26 +14,16 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Email address.
-	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// First name.
-	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// Collection of groups user is part of.
-	Groups GroupContractPropertiesResponseArrayOutput `pulumi:"groups"`
-	// Collection of user identities.
-	Identities UserIdentityContractResponseArrayOutput `pulumi:"identities"`
-	// Last name.
-	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Optional note about a user set by the administrator.
-	Note pulumi.StringPtrOutput `pulumi:"note"`
-	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	RegistrationDate pulumi.StringPtrOutput `pulumi:"registrationDate"`
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Email            pulumi.StringPtrOutput                     `pulumi:"email"`
+	FirstName        pulumi.StringPtrOutput                     `pulumi:"firstName"`
+	Groups           GroupContractPropertiesResponseArrayOutput `pulumi:"groups"`
+	Identities       UserIdentityContractResponseArrayOutput    `pulumi:"identities"`
+	LastName         pulumi.StringPtrOutput                     `pulumi:"lastName"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	Note             pulumi.StringPtrOutput                     `pulumi:"note"`
+	RegistrationDate pulumi.StringPtrOutput                     `pulumi:"registrationDate"`
+	State            pulumi.StringPtrOutput                     `pulumi:"state"`
+	Type             pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -171,62 +161,36 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Determines the type of application which send the create user request. Default is legacy portal.
-	AppType *string `pulumi:"appType"`
-	// Determines the type of confirmation e-mail that will be sent to the newly created user.
-	Confirmation *string `pulumi:"confirmation"`
-	// Email address. Must not be empty and must be unique within the service instance.
-	Email string `pulumi:"email"`
-	// First name.
-	FirstName string `pulumi:"firstName"`
-	// Collection of user identities.
-	Identities []UserIdentityContract `pulumi:"identities"`
-	// Last name.
-	LastName string `pulumi:"lastName"`
-	// Optional note about a user set by the administrator.
-	Note *string `pulumi:"note"`
-	// Send an Email notification to the User.
-	Notify *bool `pulumi:"notify"`
-	// User Password. If no value is provided, a default password is generated.
-	Password *string `pulumi:"password"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State *string `pulumi:"state"`
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId *string `pulumi:"userId"`
+	AppType           *string                `pulumi:"appType"`
+	Confirmation      *string                `pulumi:"confirmation"`
+	Email             string                 `pulumi:"email"`
+	FirstName         string                 `pulumi:"firstName"`
+	Identities        []UserIdentityContract `pulumi:"identities"`
+	LastName          string                 `pulumi:"lastName"`
+	Note              *string                `pulumi:"note"`
+	Notify            *bool                  `pulumi:"notify"`
+	Password          *string                `pulumi:"password"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	ServiceName       string                 `pulumi:"serviceName"`
+	State             *string                `pulumi:"state"`
+	UserId            *string                `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Determines the type of application which send the create user request. Default is legacy portal.
-	AppType pulumi.StringPtrInput
-	// Determines the type of confirmation e-mail that will be sent to the newly created user.
-	Confirmation pulumi.StringPtrInput
-	// Email address. Must not be empty and must be unique within the service instance.
-	Email pulumi.StringInput
-	// First name.
-	FirstName pulumi.StringInput
-	// Collection of user identities.
-	Identities UserIdentityContractArrayInput
-	// Last name.
-	LastName pulumi.StringInput
-	// Optional note about a user set by the administrator.
-	Note pulumi.StringPtrInput
-	// Send an Email notification to the User.
-	Notify pulumi.BoolPtrInput
-	// User Password. If no value is provided, a default password is generated.
-	Password pulumi.StringPtrInput
-	// The name of the resource group.
+	AppType           pulumi.StringPtrInput
+	Confirmation      pulumi.StringPtrInput
+	Email             pulumi.StringInput
+	FirstName         pulumi.StringInput
+	Identities        UserIdentityContractArrayInput
+	LastName          pulumi.StringInput
+	Note              pulumi.StringPtrInput
+	Notify            pulumi.BoolPtrInput
+	Password          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State pulumi.StringPtrInput
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	State             pulumi.StringPtrInput
+	UserId            pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

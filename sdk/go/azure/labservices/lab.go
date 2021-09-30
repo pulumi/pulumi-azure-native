@@ -14,36 +14,21 @@ import (
 type Lab struct {
 	pulumi.CustomResourceState
 
-	// Object id of the user that created the lab.
-	CreatedByObjectId pulumi.StringOutput `pulumi:"createdByObjectId"`
-	// Lab creator name
-	CreatedByUserPrincipalName pulumi.StringOutput `pulumi:"createdByUserPrincipalName"`
-	// Creation date for the lab
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Invitation code that users can use to join a lab.
-	InvitationCode pulumi.StringOutput `pulumi:"invitationCode"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab pulumi.IntPtrOutput `pulumi:"maxUsersInLab"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota pulumi.StringPtrOutput `pulumi:"usageQuota"`
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode pulumi.StringPtrOutput `pulumi:"userAccessMode"`
-	// Maximum value MaxUsersInLab can be set to, as specified by the service
-	UserQuota pulumi.IntOutput `pulumi:"userQuota"`
+	CreatedByObjectId          pulumi.StringOutput                 `pulumi:"createdByObjectId"`
+	CreatedByUserPrincipalName pulumi.StringOutput                 `pulumi:"createdByUserPrincipalName"`
+	CreatedDate                pulumi.StringOutput                 `pulumi:"createdDate"`
+	InvitationCode             pulumi.StringOutput                 `pulumi:"invitationCode"`
+	LatestOperationResult      LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
+	Location                   pulumi.StringPtrOutput              `pulumi:"location"`
+	MaxUsersInLab              pulumi.IntPtrOutput                 `pulumi:"maxUsersInLab"`
+	Name                       pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState          pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	Tags                       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type                       pulumi.StringOutput                 `pulumi:"type"`
+	UniqueIdentifier           pulumi.StringPtrOutput              `pulumi:"uniqueIdentifier"`
+	UsageQuota                 pulumi.StringPtrOutput              `pulumi:"usageQuota"`
+	UserAccessMode             pulumi.StringPtrOutput              `pulumi:"userAccessMode"`
+	UserQuota                  pulumi.IntOutput                    `pulumi:"userQuota"`
 }
 
 // NewLab registers a new resource with the given unique name, arguments, and options.
@@ -103,50 +88,30 @@ func (LabState) ElementType() reflect.Type {
 }
 
 type labArgs struct {
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
-	LabName *string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab *int `pulumi:"maxUsersInLab"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota *string `pulumi:"usageQuota"`
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode *string `pulumi:"userAccessMode"`
+	LabAccountName    string            `pulumi:"labAccountName"`
+	LabName           *string           `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	MaxUsersInLab     *int              `pulumi:"maxUsersInLab"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
+	UsageQuota        *string           `pulumi:"usageQuota"`
+	UserAccessMode    *string           `pulumi:"userAccessMode"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
-	LabName pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Maximum number of users allowed in the lab.
-	MaxUsersInLab pulumi.IntPtrInput
-	// The provisioning status of the resource.
+	LabAccountName    pulumi.StringInput
+	LabName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	MaxUsersInLab     pulumi.IntPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
-	// Maximum duration a user can use an environment for in the lab.
-	UsageQuota pulumi.StringPtrInput
-	// Lab user access mode (open to all vs. restricted to those listed on the lab).
-	UserAccessMode pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UniqueIdentifier  pulumi.StringPtrInput
+	UsageQuota        pulumi.StringPtrInput
+	UserAccessMode    pulumi.StringPtrInput
 }
 
 func (LabArgs) ElementType() reflect.Type {

@@ -14,18 +14,12 @@ import (
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections
+	Location                   pulumi.StringOutput                                                `pulumi:"location"`
+	Name                       pulumi.StringOutput                                                `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// PrivateLinkHub provisioning state
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState          pulumi.StringPtrOutput                                             `pulumi:"provisioningState"`
+	Tags                       pulumi.StringMapOutput                                             `pulumi:"tags"`
+	Type                       pulumi.StringOutput                                                `pulumi:"type"`
 }
 
 // NewPrivateLinkHub registers a new resource with the given unique name, arguments, and options.
@@ -118,30 +112,20 @@ func (PrivateLinkHubState) ElementType() reflect.Type {
 }
 
 type privateLinkHubArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Name of the privateLinkHub
-	PrivateLinkHubName *string `pulumi:"privateLinkHubName"`
-	// PrivateLinkHub provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location           *string           `pulumi:"location"`
+	PrivateLinkHubName *string           `pulumi:"privateLinkHubName"`
+	ProvisioningState  *string           `pulumi:"provisioningState"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateLinkHub resource.
 type PrivateLinkHubArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Name of the privateLinkHub
+	Location           pulumi.StringPtrInput
 	PrivateLinkHubName pulumi.StringPtrInput
-	// PrivateLinkHub provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ProvisioningState  pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (PrivateLinkHubArgs) ElementType() reflect.Type {

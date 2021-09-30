@@ -14,22 +14,14 @@ import (
 type SqlServerRegistration struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Optional Properties as JSON string
-	PropertyBag pulumi.StringPtrOutput `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// Subscription Id
-	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location       pulumi.StringOutput      `pulumi:"location"`
+	Name           pulumi.StringOutput      `pulumi:"name"`
+	PropertyBag    pulumi.StringPtrOutput   `pulumi:"propertyBag"`
+	ResourceGroup  pulumi.StringPtrOutput   `pulumi:"resourceGroup"`
+	SubscriptionId pulumi.StringPtrOutput   `pulumi:"subscriptionId"`
+	SystemData     SystemDataResponseOutput `pulumi:"systemData"`
+	Tags           pulumi.StringMapOutput   `pulumi:"tags"`
+	Type           pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlServerRegistration registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +84,24 @@ func (SqlServerRegistrationState) ElementType() reflect.Type {
 }
 
 type sqlServerRegistrationArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Optional Properties as JSON string
-	PropertyBag *string `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL Server registration.
-	SqlServerRegistrationName *string `pulumi:"sqlServerRegistrationName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location                  *string           `pulumi:"location"`
+	PropertyBag               *string           `pulumi:"propertyBag"`
+	ResourceGroup             *string           `pulumi:"resourceGroup"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	SqlServerRegistrationName *string           `pulumi:"sqlServerRegistrationName"`
+	SubscriptionId            *string           `pulumi:"subscriptionId"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlServerRegistration resource.
 type SqlServerRegistrationArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Optional Properties as JSON string
-	PropertyBag pulumi.StringPtrInput
-	// Resource Group Name
-	ResourceGroup pulumi.StringPtrInput
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Name of the SQL Server registration.
+	Location                  pulumi.StringPtrInput
+	PropertyBag               pulumi.StringPtrInput
+	ResourceGroup             pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
 	SqlServerRegistrationName pulumi.StringPtrInput
-	// Subscription Id
-	SubscriptionId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	SubscriptionId            pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (SqlServerRegistrationArgs) ElementType() reflect.Type {

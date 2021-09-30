@@ -14,20 +14,13 @@ import (
 type InstanceDetails struct {
 	pulumi.CustomResourceState
 
-	// A collection of DFP instance administrators
-	Administration DFPInstanceAdministratorsResponsePtrOutput `pulumi:"administration"`
-	// Location of the DFP resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of DFP resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Administration    DFPInstanceAdministratorsResponsePtrOutput `pulumi:"administration"`
+	Location          pulumi.StringOutput                        `pulumi:"location"`
+	Name              pulumi.StringOutput                        `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput                   `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type              pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewInstanceDetails registers a new resource with the given unique name, arguments, and options.
@@ -84,30 +77,20 @@ func (InstanceDetailsState) ElementType() reflect.Type {
 }
 
 type instanceDetailsArgs struct {
-	// A collection of DFP instance administrators
-	Administration *DFPInstanceAdministrators `pulumi:"administration"`
-	// The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
-	InstanceName *string `pulumi:"instanceName"`
-	// Location of the DFP resource.
-	Location *string `pulumi:"location"`
-	// The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
+	Administration    *DFPInstanceAdministrators `pulumi:"administration"`
+	InstanceName      *string                    `pulumi:"instanceName"`
+	Location          *string                    `pulumi:"location"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	Tags              map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceDetails resource.
 type InstanceDetailsArgs struct {
-	// A collection of DFP instance administrators
-	Administration DFPInstanceAdministratorsPtrInput
-	// The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
-	InstanceName pulumi.StringPtrInput
-	// Location of the DFP resource.
-	Location pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
+	Administration    DFPInstanceAdministratorsPtrInput
+	InstanceName      pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (InstanceDetailsArgs) ElementType() reflect.Type {

@@ -14,20 +14,13 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Specifies the job identity details
-	Identity IdentityDetailsResponsePtrOutput `pulumi:"identity"`
-	// Specifies the Azure location where the job is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the job.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the job properties
-	Properties JobDetailsResponseOutput `pulumi:"properties"`
-	// SystemData of ImportExport Jobs.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Specifies the tags that are assigned to the job.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Specifies the type of the job resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityDetailsResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
+	Properties JobDetailsResponseOutput         `pulumi:"properties"`
+	SystemData SystemDataResponseOutput         `pulumi:"systemData"`
+	Tags       pulumi.AnyOutput                 `pulumi:"tags"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -96,30 +89,20 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// The name of the import/export job.
-	JobName *string `pulumi:"jobName"`
-	// Specifies the supported Azure location where the job should be created
-	Location *string `pulumi:"location"`
-	// Specifies the job properties
-	Properties *JobDetails `pulumi:"properties"`
-	// The resource group name uniquely identifies the resource group within the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the tags that will be assigned to the job.
-	Tags interface{} `pulumi:"tags"`
+	JobName           *string     `pulumi:"jobName"`
+	Location          *string     `pulumi:"location"`
+	Properties        *JobDetails `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	Tags              interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// The name of the import/export job.
-	JobName pulumi.StringPtrInput
-	// Specifies the supported Azure location where the job should be created
-	Location pulumi.StringPtrInput
-	// Specifies the job properties
-	Properties JobDetailsPtrInput
-	// The resource group name uniquely identifies the resource group within the user subscription.
+	JobName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        JobDetailsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Specifies the tags that will be assigned to the job.
-	Tags pulumi.Input
+	Tags              pulumi.Input
 }
 
 func (JobArgs) ElementType() reflect.Type {

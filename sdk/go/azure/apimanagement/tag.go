@@ -14,12 +14,9 @@ import (
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Type        pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -136,26 +133,18 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Tag name.
-	DisplayName string `pulumi:"displayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId *string `pulumi:"tagId"`
+	DisplayName       string  `pulumi:"displayName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	TagId             *string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Tag name.
-	DisplayName pulumi.StringInput
-	// The name of the resource group.
+	DisplayName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	TagId             pulumi.StringPtrInput
 }
 
 func (TagArgs) ElementType() reflect.Type {

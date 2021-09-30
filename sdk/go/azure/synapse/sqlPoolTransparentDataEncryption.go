@@ -14,14 +14,10 @@ import (
 type SqlPoolTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location pulumi.StringOutput    `pulumi:"location"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Status   pulumi.StringPtrOutput `pulumi:"status"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSqlPoolTransparentDataEncryption registers a new resource with the given unique name, arguments, and options.
@@ -120,30 +116,20 @@ func (SqlPoolTransparentDataEncryptionState) ElementType() reflect.Type {
 }
 
 type sqlPoolTransparentDataEncryptionArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-	// The name of the transparent data encryption configuration.
+	ResourceGroupName             string  `pulumi:"resourceGroupName"`
+	SqlPoolName                   string  `pulumi:"sqlPoolName"`
+	Status                        *string `pulumi:"status"`
 	TransparentDataEncryptionName *string `pulumi:"transparentDataEncryptionName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName                 string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
 type SqlPoolTransparentDataEncryptionArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// SQL pool name
-	SqlPoolName pulumi.StringInput
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput
-	// The name of the transparent data encryption configuration.
+	ResourceGroupName             pulumi.StringInput
+	SqlPoolName                   pulumi.StringInput
+	Status                        pulumi.StringPtrInput
 	TransparentDataEncryptionName pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	WorkspaceName                 pulumi.StringInput
 }
 
 func (SqlPoolTransparentDataEncryptionArgs) ElementType() reflect.Type {

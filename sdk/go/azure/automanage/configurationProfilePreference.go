@@ -14,16 +14,11 @@ import (
 type ConfigurationProfilePreference struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the configuration profile preference.
+	Location   pulumi.StringOutput                                    `pulumi:"location"`
+	Name       pulumi.StringOutput                                    `pulumi:"name"`
 	Properties ConfigurationProfilePreferencePropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                                 `pulumi:"tags"`
+	Type       pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewConfigurationProfilePreference registers a new resource with the given unique name, arguments, and options.
@@ -80,30 +75,20 @@ func (ConfigurationProfilePreferenceState) ElementType() reflect.Type {
 }
 
 type configurationProfilePreferenceArgs struct {
-	// Name of the configuration profile preference.
-	ConfigurationProfilePreferenceName *string `pulumi:"configurationProfilePreferenceName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Properties of the configuration profile preference.
-	Properties *ConfigurationProfilePreferenceProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ConfigurationProfilePreferenceName *string                                   `pulumi:"configurationProfilePreferenceName"`
+	Location                           *string                                   `pulumi:"location"`
+	Properties                         *ConfigurationProfilePreferenceProperties `pulumi:"properties"`
+	ResourceGroupName                  string                                    `pulumi:"resourceGroupName"`
+	Tags                               map[string]string                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationProfilePreference resource.
 type ConfigurationProfilePreferenceArgs struct {
-	// Name of the configuration profile preference.
 	ConfigurationProfilePreferenceName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Properties of the configuration profile preference.
-	Properties ConfigurationProfilePreferencePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Location                           pulumi.StringPtrInput
+	Properties                         ConfigurationProfilePreferencePropertiesPtrInput
+	ResourceGroupName                  pulumi.StringInput
+	Tags                               pulumi.StringMapInput
 }
 
 func (ConfigurationProfilePreferenceArgs) ElementType() reflect.Type {

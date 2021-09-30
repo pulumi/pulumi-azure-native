@@ -14,22 +14,14 @@ import (
 type BatchDeployment struct {
 	pulumi.CustomResourceState
 
-	// Service identity associated with a resource.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties BatchDeploymentResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringPtrOutput            `pulumi:"kind"`
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
+	Properties BatchDeploymentResponseOutput     `pulumi:"properties"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewBatchDeployment registers a new resource with the given unique name, arguments, and options.
@@ -95,46 +87,28 @@ func (BatchDeploymentState) ElementType() reflect.Type {
 }
 
 type batchDeploymentArgs struct {
-	// The identifier for the Batch inference deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// Inference endpoint name
-	EndpointName string `pulumi:"endpointName"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Additional attributes of the entity.
-	Properties BatchDeploymentType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DeploymentName    *string             `pulumi:"deploymentName"`
+	EndpointName      string              `pulumi:"endpointName"`
+	Identity          *ResourceIdentity   `pulumi:"identity"`
+	Kind              *string             `pulumi:"kind"`
+	Location          *string             `pulumi:"location"`
+	Properties        BatchDeploymentType `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
+	WorkspaceName     string              `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a BatchDeployment resource.
 type BatchDeploymentArgs struct {
-	// The identifier for the Batch inference deployment.
-	DeploymentName pulumi.StringPtrInput
-	// Inference endpoint name
-	EndpointName pulumi.StringInput
-	// Service identity associated with a resource.
-	Identity ResourceIdentityPtrInput
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties BatchDeploymentTypeInput
-	// The name of the resource group. The name is case insensitive.
+	DeploymentName    pulumi.StringPtrInput
+	EndpointName      pulumi.StringInput
+	Identity          ResourceIdentityPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        BatchDeploymentTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (BatchDeploymentArgs) ElementType() reflect.Type {

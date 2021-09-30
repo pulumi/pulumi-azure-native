@@ -14,18 +14,12 @@ import (
 type ConfigurationAssignment struct {
 	pulumi.CustomResourceState
 
-	// Location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique resourceId
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                   pulumi.StringPtrOutput   `pulumi:"location"`
+	MaintenanceConfigurationId pulumi.StringPtrOutput   `pulumi:"maintenanceConfigurationId"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	ResourceId                 pulumi.StringPtrOutput   `pulumi:"resourceId"`
+	SystemData                 SystemDataResponseOutput `pulumi:"systemData"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewConfigurationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -97,42 +91,26 @@ func (ConfigurationAssignmentState) ElementType() reflect.Type {
 }
 
 type configurationAssignmentArgs struct {
-	// Configuration assignment name
 	ConfigurationAssignmentName *string `pulumi:"configurationAssignmentName"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Resource provider name
-	ProviderName string `pulumi:"providerName"`
-	// Resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The unique resourceId
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource identifier
-	ResourceName string `pulumi:"resourceName"`
-	// Resource type
-	ResourceType string `pulumi:"resourceType"`
+	Location                    *string `pulumi:"location"`
+	MaintenanceConfigurationId  *string `pulumi:"maintenanceConfigurationId"`
+	ProviderName                string  `pulumi:"providerName"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	ResourceId                  *string `pulumi:"resourceId"`
+	ResourceName                string  `pulumi:"resourceName"`
+	ResourceType                string  `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ConfigurationAssignment resource.
 type ConfigurationAssignmentArgs struct {
-	// Configuration assignment name
 	ConfigurationAssignmentName pulumi.StringPtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Resource provider name
-	ProviderName pulumi.StringInput
-	// Resource group name
-	ResourceGroupName pulumi.StringInput
-	// The unique resourceId
-	ResourceId pulumi.StringPtrInput
-	// Resource identifier
-	ResourceName pulumi.StringInput
-	// Resource type
-	ResourceType pulumi.StringInput
+	Location                    pulumi.StringPtrInput
+	MaintenanceConfigurationId  pulumi.StringPtrInput
+	ProviderName                pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	ResourceId                  pulumi.StringPtrInput
+	ResourceName                pulumi.StringInput
+	ResourceType                pulumi.StringInput
 }
 
 func (ConfigurationAssignmentArgs) ElementType() reflect.Type {

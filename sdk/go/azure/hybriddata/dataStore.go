@@ -14,20 +14,13 @@ import (
 type DataStore struct {
 	pulumi.CustomResourceState
 
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
-	// The arm id of the data store type.
-	DataStoreTypeId pulumi.StringOutput `pulumi:"dataStoreTypeId"`
-	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.AnyOutput `pulumi:"extendedProperties"`
-	// Name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Arm Id for the manager resource to which the data source is associated. This is optional.
-	RepositoryId pulumi.StringPtrOutput `pulumi:"repositoryId"`
-	// State of the data source.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CustomerSecrets    CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
+	DataStoreTypeId    pulumi.StringOutput               `pulumi:"dataStoreTypeId"`
+	ExtendedProperties pulumi.AnyOutput                  `pulumi:"extendedProperties"`
+	Name               pulumi.StringOutput               `pulumi:"name"`
+	RepositoryId       pulumi.StringPtrOutput            `pulumi:"repositoryId"`
+	State              pulumi.StringOutput               `pulumi:"state"`
+	Type               pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewDataStore registers a new resource with the given unique name, arguments, and options.
@@ -99,42 +92,26 @@ func (DataStoreState) ElementType() reflect.Type {
 }
 
 type dataStoreArgs struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets []CustomerSecret `pulumi:"customerSecrets"`
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName string `pulumi:"dataManagerName"`
-	// The data store/repository name to be created or updated.
-	DataStoreName *string `pulumi:"dataStoreName"`
-	// The arm id of the data store type.
-	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
-	// A generic json used differently by each data source type.
-	ExtendedProperties interface{} `pulumi:"extendedProperties"`
-	// Arm Id for the manager resource to which the data source is associated. This is optional.
-	RepositoryId *string `pulumi:"repositoryId"`
-	// The Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// State of the data source.
-	State State `pulumi:"state"`
+	CustomerSecrets    []CustomerSecret `pulumi:"customerSecrets"`
+	DataManagerName    string           `pulumi:"dataManagerName"`
+	DataStoreName      *string          `pulumi:"dataStoreName"`
+	DataStoreTypeId    string           `pulumi:"dataStoreTypeId"`
+	ExtendedProperties interface{}      `pulumi:"extendedProperties"`
+	RepositoryId       *string          `pulumi:"repositoryId"`
+	ResourceGroupName  string           `pulumi:"resourceGroupName"`
+	State              State            `pulumi:"state"`
 }
 
 // The set of arguments for constructing a DataStore resource.
 type DataStoreArgs struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets CustomerSecretArrayInput
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName pulumi.StringInput
-	// The data store/repository name to be created or updated.
-	DataStoreName pulumi.StringPtrInput
-	// The arm id of the data store type.
-	DataStoreTypeId pulumi.StringInput
-	// A generic json used differently by each data source type.
+	CustomerSecrets    CustomerSecretArrayInput
+	DataManagerName    pulumi.StringInput
+	DataStoreName      pulumi.StringPtrInput
+	DataStoreTypeId    pulumi.StringInput
 	ExtendedProperties pulumi.Input
-	// Arm Id for the manager resource to which the data source is associated. This is optional.
-	RepositoryId pulumi.StringPtrInput
-	// The Resource Group Name
-	ResourceGroupName pulumi.StringInput
-	// State of the data source.
-	State StateInput
+	RepositoryId       pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	State              StateInput
 }
 
 func (DataStoreArgs) ElementType() reflect.Type {

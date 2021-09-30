@@ -14,26 +14,16 @@ import (
 type NetworkGroup struct {
 	pulumi.CustomResourceState
 
-	// Network group conditional filter.
-	ConditionalMembership pulumi.StringPtrOutput `pulumi:"conditionalMembership"`
-	// A description of the network group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A friendly name for the network group.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Group members of network group.
-	GroupMembers GroupMembersItemResponseArrayOutput `pulumi:"groupMembers"`
-	// Group member type.
-	MemberType pulumi.StringPtrOutput `pulumi:"memberType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConditionalMembership pulumi.StringPtrOutput              `pulumi:"conditionalMembership"`
+	Description           pulumi.StringPtrOutput              `pulumi:"description"`
+	DisplayName           pulumi.StringPtrOutput              `pulumi:"displayName"`
+	Etag                  pulumi.StringOutput                 `pulumi:"etag"`
+	GroupMembers          GroupMembersItemResponseArrayOutput `pulumi:"groupMembers"`
+	MemberType            pulumi.StringPtrOutput              `pulumi:"memberType"`
+	Name                  pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput                 `pulumi:"provisioningState"`
+	SystemData            SystemDataResponseOutput            `pulumi:"systemData"`
+	Type                  pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewNetworkGroup registers a new resource with the given unique name, arguments, and options.
@@ -93,42 +83,26 @@ func (NetworkGroupState) ElementType() reflect.Type {
 }
 
 type networkGroupArgs struct {
-	// Network group conditional filter.
-	ConditionalMembership *string `pulumi:"conditionalMembership"`
-	// A description of the network group.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network group.
-	DisplayName *string `pulumi:"displayName"`
-	// Group members of network group.
-	GroupMembers []GroupMembersItem `pulumi:"groupMembers"`
-	// Group member type.
-	MemberType *string `pulumi:"memberType"`
-	// The name of the network group to get.
-	NetworkGroupName *string `pulumi:"networkGroupName"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ConditionalMembership *string            `pulumi:"conditionalMembership"`
+	Description           *string            `pulumi:"description"`
+	DisplayName           *string            `pulumi:"displayName"`
+	GroupMembers          []GroupMembersItem `pulumi:"groupMembers"`
+	MemberType            *string            `pulumi:"memberType"`
+	NetworkGroupName      *string            `pulumi:"networkGroupName"`
+	NetworkManagerName    string             `pulumi:"networkManagerName"`
+	ResourceGroupName     string             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NetworkGroup resource.
 type NetworkGroupArgs struct {
-	// Network group conditional filter.
 	ConditionalMembership pulumi.StringPtrInput
-	// A description of the network group.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network group.
-	DisplayName pulumi.StringPtrInput
-	// Group members of network group.
-	GroupMembers GroupMembersItemArrayInput
-	// Group member type.
-	MemberType pulumi.StringPtrInput
-	// The name of the network group to get.
-	NetworkGroupName pulumi.StringPtrInput
-	// The name of the network manager.
-	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	Description           pulumi.StringPtrInput
+	DisplayName           pulumi.StringPtrInput
+	GroupMembers          GroupMembersItemArrayInput
+	MemberType            pulumi.StringPtrInput
+	NetworkGroupName      pulumi.StringPtrInput
+	NetworkManagerName    pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (NetworkGroupArgs) ElementType() reflect.Type {

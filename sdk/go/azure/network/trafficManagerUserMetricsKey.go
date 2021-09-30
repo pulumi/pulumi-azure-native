@@ -13,11 +13,8 @@ import (
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 
-	// The key returned by the User Metrics operation.
-	Key pulumi.StringPtrOutput `pulumi:"key"`
-	// The name of the resource
+	Key  pulumi.StringPtrOutput `pulumi:"key"`
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 

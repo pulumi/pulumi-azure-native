@@ -33,11 +33,17 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
 
+        [Input("validStreamingUnits")]
+        private InputList<int>? _validStreamingUnits;
+
         /// <summary>
         /// Specifies the valid streaming units a streaming job can scale to.
         /// </summary>
-        [Input("validStreamingUnits")]
-        public Input<int>? ValidStreamingUnits { get; set; }
+        public InputList<int> ValidStreamingUnits
+        {
+            get => _validStreamingUnits ?? (_validStreamingUnits = new InputList<int>());
+            set => _validStreamingUnits = value;
+        }
 
         public TransformationArgs()
         {

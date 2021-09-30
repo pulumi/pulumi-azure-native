@@ -14,16 +14,11 @@ import (
 type BlobInventoryPolicy struct {
 	pulumi.CustomResourceState
 
-	// Returns the last modified date and time of the blob inventory policy.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy BlobInventoryPolicySchemaResponseOutput `pulumi:"policy"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	LastModifiedTime pulumi.StringOutput                     `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput                     `pulumi:"name"`
+	Policy           BlobInventoryPolicySchemaResponseOutput `pulumi:"policy"`
+	SystemData       SystemDataResponseOutput                `pulumi:"systemData"`
+	Type             pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewBlobInventoryPolicy registers a new resource with the given unique name, arguments, and options.
@@ -116,26 +111,18 @@ func (BlobInventoryPolicyState) ElementType() reflect.Type {
 }
 
 type blobInventoryPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the storage account blob inventory policy. It should always be 'default'
-	BlobInventoryPolicyName *string `pulumi:"blobInventoryPolicyName"`
-	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy BlobInventoryPolicySchema `pulumi:"policy"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName             string                    `pulumi:"accountName"`
+	BlobInventoryPolicyName *string                   `pulumi:"blobInventoryPolicyName"`
+	Policy                  BlobInventoryPolicySchema `pulumi:"policy"`
+	ResourceGroupName       string                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BlobInventoryPolicy resource.
 type BlobInventoryPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the storage account blob inventory policy. It should always be 'default'
+	AccountName             pulumi.StringInput
 	BlobInventoryPolicyName pulumi.StringPtrInput
-	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy BlobInventoryPolicySchemaInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Policy                  BlobInventoryPolicySchemaInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (BlobInventoryPolicyArgs) ElementType() reflect.Type {

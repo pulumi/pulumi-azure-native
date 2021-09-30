@@ -14,26 +14,16 @@ import (
 type ApiOperation struct {
 	pulumi.CustomResourceState
 
-	// Description of the operation. May include HTML formatting tags.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Operation Name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method pulumi.StringOutput `pulumi:"method"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Operation Policies
-	Policies pulumi.StringPtrOutput `pulumi:"policies"`
-	// An entity containing request details.
-	Request RequestContractResponsePtrOutput `pulumi:"request"`
-	// Array of Operation responses.
-	Responses ResponseContractResponseArrayOutput `pulumi:"responses"`
-	// Collection of URL template parameters.
+	Description        pulumi.StringPtrOutput               `pulumi:"description"`
+	DisplayName        pulumi.StringOutput                  `pulumi:"displayName"`
+	Method             pulumi.StringOutput                  `pulumi:"method"`
+	Name               pulumi.StringOutput                  `pulumi:"name"`
+	Policies           pulumi.StringPtrOutput               `pulumi:"policies"`
+	Request            RequestContractResponsePtrOutput     `pulumi:"request"`
+	Responses          ResponseContractResponseArrayOutput  `pulumi:"responses"`
 	TemplateParameters ParameterContractResponseArrayOutput `pulumi:"templateParameters"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate pulumi.StringOutput `pulumi:"urlTemplate"`
+	Type               pulumi.StringOutput                  `pulumi:"type"`
+	UrlTemplate        pulumi.StringOutput                  `pulumi:"urlTemplate"`
 }
 
 // NewApiOperation registers a new resource with the given unique name, arguments, and options.
@@ -171,58 +161,34 @@ func (ApiOperationState) ElementType() reflect.Type {
 }
 
 type apiOperationArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Description of the operation. May include HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Operation Name.
-	DisplayName string `pulumi:"displayName"`
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method string `pulumi:"method"`
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId *string `pulumi:"operationId"`
-	// Operation Policies
-	Policies *string `pulumi:"policies"`
-	// An entity containing request details.
-	Request *RequestContract `pulumi:"request"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Array of Operation responses.
-	Responses []ResponseContract `pulumi:"responses"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Collection of URL template parameters.
+	ApiId              string              `pulumi:"apiId"`
+	Description        *string             `pulumi:"description"`
+	DisplayName        string              `pulumi:"displayName"`
+	Method             string              `pulumi:"method"`
+	OperationId        *string             `pulumi:"operationId"`
+	Policies           *string             `pulumi:"policies"`
+	Request            *RequestContract    `pulumi:"request"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	Responses          []ResponseContract  `pulumi:"responses"`
+	ServiceName        string              `pulumi:"serviceName"`
 	TemplateParameters []ParameterContract `pulumi:"templateParameters"`
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate string `pulumi:"urlTemplate"`
+	UrlTemplate        string              `pulumi:"urlTemplate"`
 }
 
 // The set of arguments for constructing a ApiOperation resource.
 type ApiOperationArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// Description of the operation. May include HTML formatting tags.
-	Description pulumi.StringPtrInput
-	// Operation Name.
-	DisplayName pulumi.StringInput
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method pulumi.StringInput
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId pulumi.StringPtrInput
-	// Operation Policies
-	Policies pulumi.StringPtrInput
-	// An entity containing request details.
-	Request RequestContractPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Array of Operation responses.
-	Responses ResponseContractArrayInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Collection of URL template parameters.
+	ApiId              pulumi.StringInput
+	Description        pulumi.StringPtrInput
+	DisplayName        pulumi.StringInput
+	Method             pulumi.StringInput
+	OperationId        pulumi.StringPtrInput
+	Policies           pulumi.StringPtrInput
+	Request            RequestContractPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Responses          ResponseContractArrayInput
+	ServiceName        pulumi.StringInput
 	TemplateParameters ParameterContractArrayInput
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate pulumi.StringInput
+	UrlTemplate        pulumi.StringInput
 }
 
 func (ApiOperationArgs) ElementType() reflect.Type {

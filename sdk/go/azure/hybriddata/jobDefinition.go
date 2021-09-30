@@ -14,28 +14,17 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
-	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.AnyOutput `pulumi:"dataServiceInput"`
-	// Data Sink Id associated to the job definition.
-	DataSinkId pulumi.StringOutput `pulumi:"dataSinkId"`
-	// Data Source Id associated to the job definition.
-	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
-	// Last modified time of the job definition.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// Name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// This is the preferred geo location for the job to run.
-	RunLocation pulumi.StringPtrOutput `pulumi:"runLocation"`
-	// Schedule for running the job definition
-	Schedules ScheduleResponseArrayOutput `pulumi:"schedules"`
-	// State of the job definition.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation pulumi.StringPtrOutput `pulumi:"userConfirmation"`
+	CustomerSecrets  CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
+	DataServiceInput pulumi.AnyOutput                  `pulumi:"dataServiceInput"`
+	DataSinkId       pulumi.StringOutput               `pulumi:"dataSinkId"`
+	DataSourceId     pulumi.StringOutput               `pulumi:"dataSourceId"`
+	LastModifiedTime pulumi.StringPtrOutput            `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput               `pulumi:"name"`
+	RunLocation      pulumi.StringPtrOutput            `pulumi:"runLocation"`
+	Schedules        ScheduleResponseArrayOutput       `pulumi:"schedules"`
+	State            pulumi.StringOutput               `pulumi:"state"`
+	Type             pulumi.StringOutput               `pulumi:"type"`
+	UserConfirmation pulumi.StringPtrOutput            `pulumi:"userConfirmation"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -116,62 +105,36 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets []CustomerSecret `pulumi:"customerSecrets"`
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName string `pulumi:"dataManagerName"`
-	// A generic json used differently by each data service type.
-	DataServiceInput interface{} `pulumi:"dataServiceInput"`
-	// The data service type of the job definition.
-	DataServiceName string `pulumi:"dataServiceName"`
-	// Data Sink Id associated to the job definition.
-	DataSinkId string `pulumi:"dataSinkId"`
-	// Data Source Id associated to the job definition.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// The job definition name to be created or updated.
-	JobDefinitionName *string `pulumi:"jobDefinitionName"`
-	// Last modified time of the job definition.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// This is the preferred geo location for the job to run.
-	RunLocation *RunLocation `pulumi:"runLocation"`
-	// Schedule for running the job definition
-	Schedules []Schedule `pulumi:"schedules"`
-	// State of the job definition.
-	State State `pulumi:"state"`
-	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation *UserConfirmation `pulumi:"userConfirmation"`
+	CustomerSecrets   []CustomerSecret  `pulumi:"customerSecrets"`
+	DataManagerName   string            `pulumi:"dataManagerName"`
+	DataServiceInput  interface{}       `pulumi:"dataServiceInput"`
+	DataServiceName   string            `pulumi:"dataServiceName"`
+	DataSinkId        string            `pulumi:"dataSinkId"`
+	DataSourceId      string            `pulumi:"dataSourceId"`
+	JobDefinitionName *string           `pulumi:"jobDefinitionName"`
+	LastModifiedTime  *string           `pulumi:"lastModifiedTime"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RunLocation       *RunLocation      `pulumi:"runLocation"`
+	Schedules         []Schedule        `pulumi:"schedules"`
+	State             State             `pulumi:"state"`
+	UserConfirmation  *UserConfirmation `pulumi:"userConfirmation"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets CustomerSecretArrayInput
-	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName pulumi.StringInput
-	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.Input
-	// The data service type of the job definition.
-	DataServiceName pulumi.StringInput
-	// Data Sink Id associated to the job definition.
-	DataSinkId pulumi.StringInput
-	// Data Source Id associated to the job definition.
-	DataSourceId pulumi.StringInput
-	// The job definition name to be created or updated.
+	CustomerSecrets   CustomerSecretArrayInput
+	DataManagerName   pulumi.StringInput
+	DataServiceInput  pulumi.Input
+	DataServiceName   pulumi.StringInput
+	DataSinkId        pulumi.StringInput
+	DataSourceId      pulumi.StringInput
 	JobDefinitionName pulumi.StringPtrInput
-	// Last modified time of the job definition.
-	LastModifiedTime pulumi.StringPtrInput
-	// The Resource Group Name
+	LastModifiedTime  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// This is the preferred geo location for the job to run.
-	RunLocation RunLocationPtrInput
-	// Schedule for running the job definition
-	Schedules ScheduleArrayInput
-	// State of the job definition.
-	State StateInput
-	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation UserConfirmationPtrInput
+	RunLocation       RunLocationPtrInput
+	Schedules         ScheduleArrayInput
+	State             StateInput
+	UserConfirmation  UserConfirmationPtrInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {

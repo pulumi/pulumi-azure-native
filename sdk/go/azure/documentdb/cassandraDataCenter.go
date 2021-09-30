@@ -14,12 +14,9 @@ import (
 type CassandraDataCenter struct {
 	pulumi.CustomResourceState
 
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a managed Cassandra data center.
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DataCenterResourceResponsePropertiesOutput `pulumi:"properties"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewCassandraDataCenter registers a new resource with the given unique name, arguments, and options.
@@ -91,25 +88,17 @@ func (CassandraDataCenterState) ElementType() reflect.Type {
 }
 
 type cassandraDataCenterArgs struct {
-	// Managed Cassandra cluster name.
-	ClusterName string `pulumi:"clusterName"`
-	// Data center name in a managed Cassandra cluster.
-	DataCenterName *string `pulumi:"dataCenterName"`
-	// Properties of a managed Cassandra data center.
-	Properties *DataCenterResourceProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName       string                        `pulumi:"clusterName"`
+	DataCenterName    *string                       `pulumi:"dataCenterName"`
+	Properties        *DataCenterResourceProperties `pulumi:"properties"`
+	ResourceGroupName string                        `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CassandraDataCenter resource.
 type CassandraDataCenterArgs struct {
-	// Managed Cassandra cluster name.
-	ClusterName pulumi.StringInput
-	// Data center name in a managed Cassandra cluster.
-	DataCenterName pulumi.StringPtrInput
-	// Properties of a managed Cassandra data center.
-	Properties DataCenterResourcePropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       pulumi.StringInput
+	DataCenterName    pulumi.StringPtrInput
+	Properties        DataCenterResourcePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 

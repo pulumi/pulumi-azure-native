@@ -14,28 +14,17 @@ import (
 type AlertRule struct {
 	pulumi.CustomResourceState
 
-	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-	Action pulumi.AnyOutput `pulumi:"action"`
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions pulumi.ArrayOutput `pulumi:"actions"`
-	// the condition that results in the alert rule being activated.
-	Condition pulumi.AnyOutput `pulumi:"condition"`
-	// the description of the alert rule that will be included in the alert email.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// the flag that indicates whether the alert rule is enabled.
-	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
-	// Last time the rule was updated in ISO8601 format.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// the provisioning state.
+	Action            pulumi.AnyOutput       `pulumi:"action"`
+	Actions           pulumi.ArrayOutput     `pulumi:"actions"`
+	Condition         pulumi.AnyOutput       `pulumi:"condition"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	IsEnabled         pulumi.BoolOutput      `pulumi:"isEnabled"`
+	LastUpdatedTime   pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
@@ -107,54 +96,32 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
-	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-	Action interface{} `pulumi:"action"`
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []interface{} `pulumi:"actions"`
-	// the condition that results in the alert rule being activated.
-	Condition interface{} `pulumi:"condition"`
-	// the description of the alert rule that will be included in the alert email.
-	Description *string `pulumi:"description"`
-	// the flag that indicates whether the alert rule is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// the name of the alert rule.
-	Name string `pulumi:"name"`
-	// the provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Action            interface{}       `pulumi:"action"`
+	Actions           []interface{}     `pulumi:"actions"`
+	Condition         interface{}       `pulumi:"condition"`
+	Description       *string           `pulumi:"description"`
+	IsEnabled         bool              `pulumi:"isEnabled"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RuleName          *string           `pulumi:"ruleName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
-	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-	Action pulumi.Input
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions pulumi.ArrayInput
-	// the condition that results in the alert rule being activated.
-	Condition pulumi.Input
-	// the description of the alert rule that will be included in the alert email.
-	Description pulumi.StringPtrInput
-	// the flag that indicates whether the alert rule is enabled.
-	IsEnabled pulumi.BoolInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// the name of the alert rule.
-	Name pulumi.StringInput
-	// the provisioning state.
+	Action            pulumi.Input
+	Actions           pulumi.ArrayInput
+	Condition         pulumi.Input
+	Description       pulumi.StringPtrInput
+	IsEnabled         pulumi.BoolInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	RuleName          pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AlertRuleArgs) ElementType() reflect.Type {

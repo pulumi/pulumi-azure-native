@@ -14,14 +14,10 @@ import (
 type ApiPolicy struct {
 	pulumi.CustomResourceState
 
-	// Format of the policyContent.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Name   pulumi.StringOutput    `pulumi:"name"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
+	Value  pulumi.StringOutput    `pulumi:"value"`
 }
 
 // NewApiPolicy registers a new resource with the given unique name, arguments, and options.
@@ -144,34 +140,22 @@ func (ApiPolicyState) ElementType() reflect.Type {
 }
 
 type apiPolicyArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Format of the policyContent.
-	Format *string `pulumi:"format"`
-	// The identifier of the Policy.
-	PolicyId *string `pulumi:"policyId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Contents of the Policy as defined by the format.
-	Value string `pulumi:"value"`
+	ApiId             string  `pulumi:"apiId"`
+	Format            *string `pulumi:"format"`
+	PolicyId          *string `pulumi:"policyId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Value             string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiPolicy resource.
 type ApiPolicyArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// Format of the policyContent.
-	Format pulumi.StringPtrInput
-	// The identifier of the Policy.
-	PolicyId pulumi.StringPtrInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	Format            pulumi.StringPtrInput
+	PolicyId          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringInput
+	ServiceName       pulumi.StringInput
+	Value             pulumi.StringInput
 }
 
 func (ApiPolicyArgs) ElementType() reflect.Type {

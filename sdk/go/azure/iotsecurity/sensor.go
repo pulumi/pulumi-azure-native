@@ -14,32 +14,19 @@ import (
 type Sensor struct {
 	pulumi.CustomResourceState
 
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime pulumi.StringOutput `pulumi:"connectivityTime"`
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning pulumi.BoolOutput `pulumi:"dynamicLearning"`
-	// Learning mode status of the IoT sensor
-	LearningMode pulumi.BoolOutput `pulumi:"learningMode"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the IoT sensor
-	SensorStatus pulumi.StringOutput `pulumi:"sensorStatus"`
-	// Type of sensor
-	SensorType pulumi.StringPtrOutput `pulumi:"sensorType"`
-	// Version of the IoT sensor
-	SensorVersion pulumi.StringOutput `pulumi:"sensorVersion"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"tiAutomaticUpdates"`
-	// TI Status of the IoT sensor
-	TiStatus pulumi.StringOutput `pulumi:"tiStatus"`
-	// TI Version of the IoT sensor
-	TiVersion pulumi.StringOutput `pulumi:"tiVersion"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Zone of the IoT sensor
-	Zone pulumi.StringPtrOutput `pulumi:"zone"`
+	ConnectivityTime   pulumi.StringOutput      `pulumi:"connectivityTime"`
+	DynamicLearning    pulumi.BoolOutput        `pulumi:"dynamicLearning"`
+	LearningMode       pulumi.BoolOutput        `pulumi:"learningMode"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	SensorStatus       pulumi.StringOutput      `pulumi:"sensorStatus"`
+	SensorType         pulumi.StringPtrOutput   `pulumi:"sensorType"`
+	SensorVersion      pulumi.StringOutput      `pulumi:"sensorVersion"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	TiAutomaticUpdates pulumi.BoolPtrOutput     `pulumi:"tiAutomaticUpdates"`
+	TiStatus           pulumi.StringOutput      `pulumi:"tiStatus"`
+	TiVersion          pulumi.StringOutput      `pulumi:"tiVersion"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
+	Zone               pulumi.StringPtrOutput   `pulumi:"zone"`
 }
 
 // NewSensor registers a new resource with the given unique name, arguments, and options.
@@ -102,30 +89,20 @@ func (SensorState) ElementType() reflect.Type {
 }
 
 type sensorArgs struct {
-	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
-	Scope string `pulumi:"scope"`
-	// Name of the IoT sensor
-	SensorName *string `pulumi:"sensorName"`
-	// Type of sensor
-	SensorType *string `pulumi:"sensorType"`
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
-	// Zone of the IoT sensor
-	Zone *string `pulumi:"zone"`
+	Scope              string  `pulumi:"scope"`
+	SensorName         *string `pulumi:"sensorName"`
+	SensorType         *string `pulumi:"sensorType"`
+	TiAutomaticUpdates *bool   `pulumi:"tiAutomaticUpdates"`
+	Zone               *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a Sensor resource.
 type SensorArgs struct {
-	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
-	Scope pulumi.StringInput
-	// Name of the IoT sensor
-	SensorName pulumi.StringPtrInput
-	// Type of sensor
-	SensorType pulumi.StringPtrInput
-	// TI Automatic mode status of the IoT sensor
+	Scope              pulumi.StringInput
+	SensorName         pulumi.StringPtrInput
+	SensorType         pulumi.StringPtrInput
 	TiAutomaticUpdates pulumi.BoolPtrInput
-	// Zone of the IoT sensor
-	Zone pulumi.StringPtrInput
+	Zone               pulumi.StringPtrInput
 }
 
 func (SensorArgs) ElementType() reflect.Type {

@@ -14,18 +14,12 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	// The GEO location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Service resource
+	Location   pulumi.StringPtrOutput                  `pulumi:"location"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties ClusterResourcePropertiesResponseOutput `pulumi:"properties"`
-	// Sku of the Service resource
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput                    `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -100,34 +94,22 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The GEO location of the resource.
-	Location *string `pulumi:"location"`
-	// Properties of the Service resource
-	Properties *ClusterResourceProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName *string `pulumi:"serviceName"`
-	// Sku of the Service resource
-	Sku *Sku `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                    `pulumi:"location"`
+	Properties        *ClusterResourceProperties `pulumi:"properties"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	ServiceName       *string                    `pulumi:"serviceName"`
+	Sku               *Sku                       `pulumi:"sku"`
+	Tags              map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The GEO location of the resource.
-	Location pulumi.StringPtrInput
-	// Properties of the Service resource
-	Properties ClusterResourcePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Location          pulumi.StringPtrInput
+	Properties        ClusterResourcePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringPtrInput
-	// Sku of the Service resource
-	Sku SkuPtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
+	ServiceName       pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

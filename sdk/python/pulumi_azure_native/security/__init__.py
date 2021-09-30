@@ -11,6 +11,7 @@ from .advanced_threat_protection import *
 from .alerts_suppression_rule import *
 from .assessment import *
 from .assessment_metadata_in_subscription import *
+from .assignment import *
 from .automation import *
 from .connector import *
 from .custom_assessment_automation import *
@@ -21,6 +22,7 @@ from .get_advanced_threat_protection import *
 from .get_alerts_suppression_rule import *
 from .get_assessment import *
 from .get_assessment_metadata_in_subscription import *
+from .get_assignment import *
 from .get_automation import *
 from .get_connector import *
 from .get_custom_assessment_automation import *
@@ -32,6 +34,7 @@ from .get_jit_network_access_policy import *
 from .get_security_contact import *
 from .get_server_vulnerability_assessment import *
 from .get_sql_vulnerability_assessment_baseline_rule import *
+from .get_standard import *
 from .get_workspace_setting import *
 from .ingestion_setting import *
 from .iot_security_solution import *
@@ -41,6 +44,7 @@ from .list_ingestion_setting_tokens import *
 from .security_contact import *
 from .server_vulnerability_assessment import *
 from .sql_vulnerability_assessment_baseline_rule import *
+from .standard import *
 from .workspace_setting import *
 from ._inputs import *
 from . import outputs
@@ -69,6 +73,8 @@ if typing.TYPE_CHECKING:
     v20210601 = __v20210601
     import pulumi_azure_native.security.v20210701preview as __v20210701preview
     v20210701preview = __v20210701preview
+    import pulumi_azure_native.security.v20210801preview as __v20210801preview
+    v20210801preview = __v20210801preview
 else:
     v20150601preview = _utilities.lazy_import('pulumi_azure_native.security.v20150601preview')
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
@@ -81,4 +87,5 @@ else:
     v20210115preview = _utilities.lazy_import('pulumi_azure_native.security.v20210115preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.security.v20210601')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.security.v20210701preview')
+    v20210801preview = _utilities.lazy_import('pulumi_azure_native.security.v20210801preview')
 

@@ -14,30 +14,18 @@ import (
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// Daily backups count to keep
-	DailyBackupsToKeep pulumi.IntPtrOutput `pulumi:"dailyBackupsToKeep"`
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Monthly backups count to keep
-	MonthlyBackupsToKeep pulumi.IntPtrOutput `pulumi:"monthlyBackupsToKeep"`
-	// Name of backup policy
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of volumes assigned to this policy
-	VolumeBackups VolumeBackupsResponseArrayOutput `pulumi:"volumeBackups"`
-	// Volumes using current backup policy
-	VolumesAssigned pulumi.IntPtrOutput `pulumi:"volumesAssigned"`
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep pulumi.IntPtrOutput `pulumi:"weeklyBackupsToKeep"`
-	// Yearly backups count to keep
-	YearlyBackupsToKeep pulumi.IntPtrOutput `pulumi:"yearlyBackupsToKeep"`
+	DailyBackupsToKeep   pulumi.IntPtrOutput              `pulumi:"dailyBackupsToKeep"`
+	Enabled              pulumi.BoolPtrOutput             `pulumi:"enabled"`
+	Location             pulumi.StringOutput              `pulumi:"location"`
+	MonthlyBackupsToKeep pulumi.IntPtrOutput              `pulumi:"monthlyBackupsToKeep"`
+	Name                 pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput              `pulumi:"provisioningState"`
+	Tags                 pulumi.StringMapOutput           `pulumi:"tags"`
+	Type                 pulumi.StringOutput              `pulumi:"type"`
+	VolumeBackups        VolumeBackupsResponseArrayOutput `pulumi:"volumeBackups"`
+	VolumesAssigned      pulumi.IntPtrOutput              `pulumi:"volumesAssigned"`
+	WeeklyBackupsToKeep  pulumi.IntPtrOutput              `pulumi:"weeklyBackupsToKeep"`
+	YearlyBackupsToKeep  pulumi.IntPtrOutput              `pulumi:"yearlyBackupsToKeep"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -157,58 +145,34 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// Backup policy Name which uniquely identify backup policy.
-	BackupPolicyName *string `pulumi:"backupPolicyName"`
-	// Daily backups count to keep
-	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Monthly backups count to keep
-	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// A list of volumes assigned to this policy
-	VolumeBackups []VolumeBackups `pulumi:"volumeBackups"`
-	// Volumes using current backup policy
-	VolumesAssigned *int `pulumi:"volumesAssigned"`
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
-	// Yearly backups count to keep
-	YearlyBackupsToKeep *int `pulumi:"yearlyBackupsToKeep"`
+	AccountName          string            `pulumi:"accountName"`
+	BackupPolicyName     *string           `pulumi:"backupPolicyName"`
+	DailyBackupsToKeep   *int              `pulumi:"dailyBackupsToKeep"`
+	Enabled              *bool             `pulumi:"enabled"`
+	Location             *string           `pulumi:"location"`
+	MonthlyBackupsToKeep *int              `pulumi:"monthlyBackupsToKeep"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	Tags                 map[string]string `pulumi:"tags"`
+	VolumeBackups        []VolumeBackups   `pulumi:"volumeBackups"`
+	VolumesAssigned      *int              `pulumi:"volumesAssigned"`
+	WeeklyBackupsToKeep  *int              `pulumi:"weeklyBackupsToKeep"`
+	YearlyBackupsToKeep  *int              `pulumi:"yearlyBackupsToKeep"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// Backup policy Name which uniquely identify backup policy.
-	BackupPolicyName pulumi.StringPtrInput
-	// Daily backups count to keep
-	DailyBackupsToKeep pulumi.IntPtrInput
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Monthly backups count to keep
+	AccountName          pulumi.StringInput
+	BackupPolicyName     pulumi.StringPtrInput
+	DailyBackupsToKeep   pulumi.IntPtrInput
+	Enabled              pulumi.BoolPtrInput
+	Location             pulumi.StringPtrInput
 	MonthlyBackupsToKeep pulumi.IntPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// A list of volumes assigned to this policy
-	VolumeBackups VolumeBackupsArrayInput
-	// Volumes using current backup policy
-	VolumesAssigned pulumi.IntPtrInput
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep pulumi.IntPtrInput
-	// Yearly backups count to keep
-	YearlyBackupsToKeep pulumi.IntPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
+	VolumeBackups        VolumeBackupsArrayInput
+	VolumesAssigned      pulumi.IntPtrInput
+	WeeklyBackupsToKeep  pulumi.IntPtrInput
+	YearlyBackupsToKeep  pulumi.IntPtrInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {

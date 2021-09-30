@@ -14,24 +14,15 @@ import (
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 
-	// Key Vault resource Id.
-	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
-	// Key Vault secret name.
-	KeyVaultSecretName pulumi.StringPtrOutput `pulumi:"keyVaultSecretName"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the Key Vault secret.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	KeyVaultId         pulumi.StringPtrOutput   `pulumi:"keyVaultId"`
+	KeyVaultSecretName pulumi.StringPtrOutput   `pulumi:"keyVaultSecretName"`
+	Kind               pulumi.StringPtrOutput   `pulumi:"kind"`
+	Location           pulumi.StringOutput      `pulumi:"location"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAppServiceCertificateOrderCertificate registers a new resource with the given unique name, arguments, and options.
@@ -145,42 +136,26 @@ func (AppServiceCertificateOrderCertificateState) ElementType() reflect.Type {
 }
 
 type appServiceCertificateOrderCertificateArgs struct {
-	// Name of the certificate order.
-	CertificateOrderName string `pulumi:"certificateOrderName"`
-	// Key Vault resource Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key Vault secret name.
-	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Name of the certificate.
-	Name *string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CertificateOrderName string            `pulumi:"certificateOrderName"`
+	KeyVaultId           *string           `pulumi:"keyVaultId"`
+	KeyVaultSecretName   *string           `pulumi:"keyVaultSecretName"`
+	Kind                 *string           `pulumi:"kind"`
+	Location             *string           `pulumi:"location"`
+	Name                 *string           `pulumi:"name"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppServiceCertificateOrderCertificate resource.
 type AppServiceCertificateOrderCertificateArgs struct {
-	// Name of the certificate order.
 	CertificateOrderName pulumi.StringInput
-	// Key Vault resource Id.
-	KeyVaultId pulumi.StringPtrInput
-	// Key Vault secret name.
-	KeyVaultSecretName pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Name of the certificate.
-	Name pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	KeyVaultId           pulumi.StringPtrInput
+	KeyVaultSecretName   pulumi.StringPtrInput
+	Kind                 pulumi.StringPtrInput
+	Location             pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (AppServiceCertificateOrderCertificateArgs) ElementType() reflect.Type {

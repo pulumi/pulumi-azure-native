@@ -14,22 +14,14 @@ import (
 type IncidentRelation struct {
 	pulumi.CustomResourceState
 
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the related resource
-	RelatedResourceId pulumi.StringOutput `pulumi:"relatedResourceId"`
-	// The resource kind of the related resource
-	RelatedResourceKind pulumi.StringOutput `pulumi:"relatedResourceKind"`
-	// The name of the related resource
-	RelatedResourceName pulumi.StringOutput `pulumi:"relatedResourceName"`
-	// The resource type of the related resource
-	RelatedResourceType pulumi.StringOutput `pulumi:"relatedResourceType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                pulumi.StringPtrOutput   `pulumi:"etag"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	RelatedResourceId   pulumi.StringOutput      `pulumi:"relatedResourceId"`
+	RelatedResourceKind pulumi.StringOutput      `pulumi:"relatedResourceKind"`
+	RelatedResourceName pulumi.StringOutput      `pulumi:"relatedResourceName"`
+	RelatedResourceType pulumi.StringOutput      `pulumi:"relatedResourceType"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewIncidentRelation registers a new resource with the given unique name, arguments, and options.
@@ -110,38 +102,24 @@ func (IncidentRelationState) ElementType() reflect.Type {
 }
 
 type incidentRelationArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Incident ID
-	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The resource ID of the related resource
-	RelatedResourceId string `pulumi:"relatedResourceId"`
-	// Relation Name
-	RelationName *string `pulumi:"relationName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                                *string `pulumi:"etag"`
+	IncidentId                          string  `pulumi:"incidentId"`
+	OperationalInsightsResourceProvider string  `pulumi:"operationalInsightsResourceProvider"`
+	RelatedResourceId                   string  `pulumi:"relatedResourceId"`
+	RelationName                        *string `pulumi:"relationName"`
+	ResourceGroupName                   string  `pulumi:"resourceGroupName"`
+	WorkspaceName                       string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IncidentRelation resource.
 type IncidentRelationArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Incident ID
-	IncidentId pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Etag                                pulumi.StringPtrInput
+	IncidentId                          pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The resource ID of the related resource
-	RelatedResourceId pulumi.StringInput
-	// Relation Name
-	RelationName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	RelatedResourceId                   pulumi.StringInput
+	RelationName                        pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (IncidentRelationArgs) ElementType() reflect.Type {

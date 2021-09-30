@@ -14,24 +14,15 @@ import (
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The principal name
-	PrincipalName pulumi.StringOutput `pulumi:"principalName"`
-	// Principal type.
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Cluster principal role.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// The tenant id of the principal
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The tenant name of the principal
-	TenantName pulumi.StringOutput `pulumi:"tenantName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId       pulumi.StringOutput    `pulumi:"principalId"`
+	PrincipalName     pulumi.StringOutput    `pulumi:"principalName"`
+	PrincipalType     pulumi.StringOutput    `pulumi:"principalType"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Role              pulumi.StringOutput    `pulumi:"role"`
+	TenantId          pulumi.StringPtrOutput `pulumi:"tenantId"`
+	TenantName        pulumi.StringOutput    `pulumi:"tenantName"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewClusterPrincipalAssignment registers a new resource with the given unique name, arguments, and options.
@@ -130,38 +121,24 @@ func (ClusterPrincipalAssignmentState) ElementType() reflect.Type {
 }
 
 type clusterPrincipalAssignmentArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the Kusto principalAssignment.
+	ClusterName             string  `pulumi:"clusterName"`
 	PrincipalAssignmentName *string `pulumi:"principalAssignmentName"`
-	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-	PrincipalId string `pulumi:"principalId"`
-	// Principal type.
-	PrincipalType string `pulumi:"principalType"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cluster principal role.
-	Role string `pulumi:"role"`
-	// The tenant id of the principal
-	TenantId *string `pulumi:"tenantId"`
+	PrincipalId             string  `pulumi:"principalId"`
+	PrincipalType           string  `pulumi:"principalType"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
+	Role                    string  `pulumi:"role"`
+	TenantId                *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ClusterPrincipalAssignment resource.
 type ClusterPrincipalAssignmentArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the Kusto principalAssignment.
+	ClusterName             pulumi.StringInput
 	PrincipalAssignmentName pulumi.StringPtrInput
-	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-	PrincipalId pulumi.StringInput
-	// Principal type.
-	PrincipalType pulumi.StringInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// Cluster principal role.
-	Role pulumi.StringInput
-	// The tenant id of the principal
-	TenantId pulumi.StringPtrInput
+	PrincipalId             pulumi.StringInput
+	PrincipalType           pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	Role                    pulumi.StringInput
+	TenantId                pulumi.StringPtrInput
 }
 
 func (ClusterPrincipalAssignmentArgs) ElementType() reflect.Type {

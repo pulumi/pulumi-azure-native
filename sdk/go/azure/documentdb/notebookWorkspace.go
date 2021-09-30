@@ -14,14 +14,10 @@ import (
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the endpoint of Notebook server.
+	Name                   pulumi.StringOutput `pulumi:"name"`
 	NotebookServerEndpoint pulumi.StringOutput `pulumi:"notebookServerEndpoint"`
-	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Status                 pulumi.StringOutput `pulumi:"status"`
+	Type                   pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewNotebookWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -159,22 +155,16 @@ func (NotebookWorkspaceState) ElementType() reflect.Type {
 }
 
 type notebookWorkspaceArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the notebook workspace resource.
+	AccountName           string  `pulumi:"accountName"`
 	NotebookWorkspaceName *string `pulumi:"notebookWorkspaceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NotebookWorkspace resource.
 type NotebookWorkspaceArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// The name of the notebook workspace resource.
+	AccountName           pulumi.StringInput
 	NotebookWorkspaceName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (NotebookWorkspaceArgs) ElementType() reflect.Type {

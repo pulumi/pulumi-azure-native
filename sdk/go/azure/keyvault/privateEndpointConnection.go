@@ -14,22 +14,14 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Azure location of the key vault resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the key vault resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Etag                              pulumi.StringPtrOutput                             `pulumi:"etag"`
+	Location                          pulumi.StringOutput                                `pulumi:"location"`
+	Name                              pulumi.StringOutput                                `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Tags                              pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -113,30 +105,20 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// Name of the private endpoint connection associated with the key vault.
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Approval state of the private link connection.
+	Etag                              *string                            `pulumi:"etag"`
+	PrivateEndpointConnectionName     *string                            `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of the resource group that contains the key vault.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the key vault.
-	VaultName string `pulumi:"vaultName"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
+	VaultName                         string                             `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrInput
-	// Name of the private endpoint connection associated with the key vault.
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Approval state of the private link connection.
+	Etag                              pulumi.StringPtrInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// Name of the resource group that contains the key vault.
-	ResourceGroupName pulumi.StringInput
-	// The name of the key vault.
-	VaultName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	VaultName                         pulumi.StringInput
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {

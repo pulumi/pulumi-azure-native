@@ -14,12 +14,9 @@ import (
 type ConfigurationProfileAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the configuration profile assignment.
+	Name       pulumi.StringOutput                                    `pulumi:"name"`
 	Properties ConfigurationProfileAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewConfigurationProfileAssignment registers a new resource with the given unique name, arguments, and options.
@@ -79,26 +76,18 @@ func (ConfigurationProfileAssignmentState) ElementType() reflect.Type {
 }
 
 type configurationProfileAssignmentArgs struct {
-	// Name of the configuration profile assignment. Only default is supported.
-	ConfigurationProfileAssignmentName *string `pulumi:"configurationProfileAssignmentName"`
-	// Properties of the configuration profile assignment.
-	Properties *ConfigurationProfileAssignmentProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	ConfigurationProfileAssignmentName *string                                   `pulumi:"configurationProfileAssignmentName"`
+	Properties                         *ConfigurationProfileAssignmentProperties `pulumi:"properties"`
+	ResourceGroupName                  string                                    `pulumi:"resourceGroupName"`
+	VmName                             string                                    `pulumi:"vmName"`
 }
 
 // The set of arguments for constructing a ConfigurationProfileAssignment resource.
 type ConfigurationProfileAssignmentArgs struct {
-	// Name of the configuration profile assignment. Only default is supported.
 	ConfigurationProfileAssignmentName pulumi.StringPtrInput
-	// Properties of the configuration profile assignment.
-	Properties ConfigurationProfileAssignmentPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the virtual machine.
-	VmName pulumi.StringInput
+	Properties                         ConfigurationProfileAssignmentPropertiesPtrInput
+	ResourceGroupName                  pulumi.StringInput
+	VmName                             pulumi.StringInput
 }
 
 func (ConfigurationProfileAssignmentArgs) ElementType() reflect.Type {

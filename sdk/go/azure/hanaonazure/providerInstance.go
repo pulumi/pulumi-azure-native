@@ -14,16 +14,11 @@ import (
 type ProviderInstance struct {
 	pulumi.CustomResourceState
 
-	// A JSON string containing metadata of the provider instance.
-	Metadata pulumi.StringPtrOutput `pulumi:"metadata"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A JSON string containing the properties of the provider instance.
-	Properties pulumi.StringOutput `pulumi:"properties"`
-	// State of provisioning of the provider instance
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Metadata          pulumi.StringPtrOutput `pulumi:"metadata"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Properties        pulumi.StringOutput    `pulumi:"properties"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewProviderInstance registers a new resource with the given unique name, arguments, and options.
@@ -83,34 +78,22 @@ func (ProviderInstanceState) ElementType() reflect.Type {
 }
 
 type providerInstanceArgs struct {
-	// A JSON string containing metadata of the provider instance.
-	Metadata *string `pulumi:"metadata"`
-	// A JSON string containing the properties of the provider instance.
-	Properties *string `pulumi:"properties"`
-	// Name of the provider instance.
+	Metadata             *string `pulumi:"metadata"`
+	Properties           *string `pulumi:"properties"`
 	ProviderInstanceName *string `pulumi:"providerInstanceName"`
-	// Name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SAP monitor resource.
-	SapMonitorName string `pulumi:"sapMonitorName"`
-	// The type of provider instance.
-	Type *string `pulumi:"type"`
+	ResourceGroupName    string  `pulumi:"resourceGroupName"`
+	SapMonitorName       string  `pulumi:"sapMonitorName"`
+	Type                 *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ProviderInstance resource.
 type ProviderInstanceArgs struct {
-	// A JSON string containing metadata of the provider instance.
-	Metadata pulumi.StringPtrInput
-	// A JSON string containing the properties of the provider instance.
-	Properties pulumi.StringPtrInput
-	// Name of the provider instance.
+	Metadata             pulumi.StringPtrInput
+	Properties           pulumi.StringPtrInput
 	ProviderInstanceName pulumi.StringPtrInput
-	// Name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Name of the SAP monitor resource.
-	SapMonitorName pulumi.StringInput
-	// The type of provider instance.
-	Type pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	SapMonitorName       pulumi.StringInput
+	Type                 pulumi.StringPtrInput
 }
 
 func (ProviderInstanceArgs) ElementType() reflect.Type {

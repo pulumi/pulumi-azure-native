@@ -14,18 +14,12 @@ import (
 type ServerCommunicationLink struct {
 	pulumi.CustomResourceState
 
-	// Communication link kind.  This property is used for Azure Portal metadata.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Communication link location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the partner server.
+	Kind          pulumi.StringOutput `pulumi:"kind"`
+	Location      pulumi.StringOutput `pulumi:"location"`
+	Name          pulumi.StringOutput `pulumi:"name"`
 	PartnerServer pulumi.StringOutput `pulumi:"partnerServer"`
-	// The state.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	State         pulumi.StringOutput `pulumi:"state"`
+	Type          pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerCommunicationLink registers a new resource with the given unique name, arguments, and options.
@@ -88,26 +82,18 @@ func (ServerCommunicationLinkState) ElementType() reflect.Type {
 }
 
 type serverCommunicationLinkArgs struct {
-	// The name of the server communication link.
 	CommunicationLinkName *string `pulumi:"communicationLinkName"`
-	// The name of the partner server.
-	PartnerServer string `pulumi:"partnerServer"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	PartnerServer         string  `pulumi:"partnerServer"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ServerName            string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a ServerCommunicationLink resource.
 type ServerCommunicationLinkArgs struct {
-	// The name of the server communication link.
 	CommunicationLinkName pulumi.StringPtrInput
-	// The name of the partner server.
-	PartnerServer pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	PartnerServer         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	ServerName            pulumi.StringInput
 }
 
 func (ServerCommunicationLinkArgs) ElementType() reflect.Type {

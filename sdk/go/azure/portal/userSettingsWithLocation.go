@@ -14,7 +14,6 @@ import (
 type UserSettingsWithLocation struct {
 	pulumi.CustomResourceState
 
-	// The cloud shell user settings properties.
 	Properties UserPropertiesResponseOutput `pulumi:"properties"`
 }
 
@@ -75,21 +74,15 @@ func (UserSettingsWithLocationState) ElementType() reflect.Type {
 }
 
 type userSettingsWithLocationArgs struct {
-	// The provider location
-	Location string `pulumi:"location"`
-	// The cloud shell user settings properties.
-	Properties UserProperties `pulumi:"properties"`
-	// The name of the user settings
-	UserSettingsName *string `pulumi:"userSettingsName"`
+	Location         string         `pulumi:"location"`
+	Properties       UserProperties `pulumi:"properties"`
+	UserSettingsName *string        `pulumi:"userSettingsName"`
 }
 
 // The set of arguments for constructing a UserSettingsWithLocation resource.
 type UserSettingsWithLocationArgs struct {
-	// The provider location
-	Location pulumi.StringInput
-	// The cloud shell user settings properties.
-	Properties UserPropertiesInput
-	// The name of the user settings
+	Location         pulumi.StringInput
+	Properties       UserPropertiesInput
 	UserSettingsName pulumi.StringPtrInput
 }
 
