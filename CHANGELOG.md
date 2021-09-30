@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.34.0 (2021-09-30)
+
 #### New resources:
 
 - `security.Assignment`
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `security.getAssignment`
 - `security.getStandard`
-
----
 
 ## 1.33.0 (2021-09-28)
 
