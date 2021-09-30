@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering Service
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01.
  */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
     if (!opts) {
@@ -46,10 +46,6 @@ export interface GetPeeringServiceResult {
      * The location of the resource.
      */
     readonly location: string;
-    /**
-     * The Log Analytics Workspace Properties
-     */
-    readonly logAnalyticsWorkspaceProperties?: outputs.peering.LogAnalyticsWorkspacePropertiesResponse;
     /**
      * The name of the resource.
      */

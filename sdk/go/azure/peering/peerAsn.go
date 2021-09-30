@@ -26,7 +26,7 @@ type PeerAsn struct {
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringOutput `pulumi:"validationState"`
+	ValidationState pulumi.StringPtrOutput `pulumi:"validationState"`
 }
 
 // NewPeerAsn registers a new resource with the given unique name, arguments, and options.
@@ -124,6 +124,8 @@ type peerAsnArgs struct {
 	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
 	// The name of the peer.
 	PeerName *string `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState *string `pulumi:"validationState"`
 }
 
 // The set of arguments for constructing a PeerAsn resource.
@@ -136,6 +138,8 @@ type PeerAsnArgs struct {
 	PeerContactDetail ContactDetailArrayInput
 	// The name of the peer.
 	PeerName pulumi.StringPtrInput
+	// The validation state of the ASN associated with the peer.
+	ValidationState pulumi.StringPtrInput
 }
 
 func (PeerAsnArgs) ElementType() reflect.Type {

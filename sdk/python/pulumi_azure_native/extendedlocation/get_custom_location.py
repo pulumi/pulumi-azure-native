@@ -20,7 +20,7 @@ class GetCustomLocationResult:
     """
     Custom Locations definition.
     """
-    def __init__(__self__, authentication=None, cluster_extension_ids=None, display_name=None, host_resource_id=None, host_type=None, id=None, identity=None, location=None, name=None, namespace=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication=None, cluster_extension_ids=None, display_name=None, host_resource_id=None, host_type=None, id=None, location=None, name=None, namespace=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if authentication and not isinstance(authentication, dict):
             raise TypeError("Expected argument 'authentication' to be a dict")
         pulumi.set(__self__, "authentication", authentication)
@@ -39,9 +39,6 @@ class GetCustomLocationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -114,14 +111,6 @@ class GetCustomLocationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        Identity for the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
@@ -189,7 +178,6 @@ class AwaitableGetCustomLocationResult(GetCustomLocationResult):
             host_resource_id=self.host_resource_id,
             host_type=self.host_type,
             id=self.id,
-            identity=self.identity,
             location=self.location,
             name=self.name,
             namespace=self.namespace,
@@ -204,7 +192,7 @@ def get_custom_location(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomLocationResult:
     """
     Custom Locations definition.
-    API Version: 2021-08-15.
+    API Version: 2021-03-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -226,7 +214,6 @@ def get_custom_location(resource_group_name: Optional[str] = None,
         host_resource_id=__ret__.host_resource_id,
         host_type=__ret__.host_type,
         id=__ret__.id,
-        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         namespace=__ret__.namespace,

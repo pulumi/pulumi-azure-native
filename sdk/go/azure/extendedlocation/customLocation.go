@@ -24,8 +24,6 @@ type CustomLocation struct {
 	HostResourceId pulumi.StringPtrOutput `pulumi:"hostResourceId"`
 	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
 	HostType pulumi.StringPtrOutput `pulumi:"hostType"`
-	// Identity for the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -112,8 +110,6 @@ type customLocationArgs struct {
 	HostResourceId *string `pulumi:"hostResourceId"`
 	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
 	HostType *string `pulumi:"hostType"`
-	// Identity for the resource.
-	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Kubernetes namespace that will be created on the specified cluster.
@@ -140,8 +136,6 @@ type CustomLocationArgs struct {
 	HostResourceId pulumi.StringPtrInput
 	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
 	HostType pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Kubernetes namespace that will be created on the specified cluster.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The customer's ASN that is registered by the peering service provider.
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
     if (!opts) {

@@ -44,6 +44,37 @@ namespace Pulumi.AzureNative.Peering
     }
 
     /// <summary>
+    /// The family of the peering SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct Family : IEquatable<Family>
+    {
+        private readonly string _value;
+
+        private Family(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Family Direct { get; } = new Family("Direct");
+        public static Family Exchange { get; } = new Family("Exchange");
+
+        public static bool operator ==(Family left, Family right) => left.Equals(right);
+        public static bool operator !=(Family left, Family right) => !left.Equals(right);
+
+        public static explicit operator string(Family value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Family other && Equals(other);
+        public bool Equals(Family other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of the peering.
     /// </summary>
     [EnumType]
@@ -133,6 +164,102 @@ namespace Pulumi.AzureNative.Peering
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SessionAddressProvider other && Equals(other);
         public bool Equals(SessionAddressProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The size of the peering SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct Size : IEquatable<Size>
+    {
+        private readonly string _value;
+
+        private Size(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Size Free { get; } = new Size("Free");
+        public static Size Metered { get; } = new Size("Metered");
+        public static Size Unlimited { get; } = new Size("Unlimited");
+
+        public static bool operator ==(Size left, Size right) => left.Equals(right);
+        public static bool operator !=(Size left, Size right) => !left.Equals(right);
+
+        public static explicit operator string(Size value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Size other && Equals(other);
+        public bool Equals(Size other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The tier of the peering SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct Tier : IEquatable<Tier>
+    {
+        private readonly string _value;
+
+        private Tier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Tier Basic { get; } = new Tier("Basic");
+        public static Tier Premium { get; } = new Tier("Premium");
+
+        public static bool operator ==(Tier left, Tier right) => left.Equals(right);
+        public static bool operator !=(Tier left, Tier right) => !left.Equals(right);
+
+        public static explicit operator string(Tier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Tier other && Equals(other);
+        public bool Equals(Tier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The validation state of the ASN associated with the peer.
+    /// </summary>
+    [EnumType]
+    public readonly struct ValidationState : IEquatable<ValidationState>
+    {
+        private readonly string _value;
+
+        private ValidationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ValidationState None { get; } = new ValidationState("None");
+        public static ValidationState Pending { get; } = new ValidationState("Pending");
+        public static ValidationState Approved { get; } = new ValidationState("Approved");
+        public static ValidationState Failed { get; } = new ValidationState("Failed");
+
+        public static bool operator ==(ValidationState left, ValidationState right) => left.Equals(right);
+        public static bool operator !=(ValidationState left, ValidationState right) => !left.Equals(right);
+
+        public static explicit operator string(ValidationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValidationState other && Equals(other);
+        public bool Equals(ValidationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

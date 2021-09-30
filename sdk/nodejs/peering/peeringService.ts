@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering Service
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**
@@ -40,10 +40,6 @@ export class PeeringService extends pulumi.CustomResource {
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The Log Analytics Workspace Properties
-     */
-    public /*out*/ readonly logAnalyticsWorkspaceProperties!: pulumi.Output<outputs.peering.LogAnalyticsWorkspacePropertiesResponse | undefined>;
     /**
      * The name of the resource.
      */
@@ -104,13 +100,11 @@ export class PeeringService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["logAnalyticsWorkspaceProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
-            inputs["logAnalyticsWorkspaceProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["peeringServiceLocation"] = undefined /*out*/;
             inputs["peeringServiceProvider"] = undefined /*out*/;

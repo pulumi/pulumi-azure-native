@@ -16,8 +16,6 @@ type PeeringService struct {
 
 	// The location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The Log Analytics Workspace Properties
-	LogAnalyticsWorkspaceProperties LogAnalyticsWorkspacePropertiesResponsePtrOutput `pulumi:"logAnalyticsWorkspaceProperties"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The location (state/province) of the customer.

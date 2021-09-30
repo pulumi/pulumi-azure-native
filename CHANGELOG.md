@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `security.Assignment`
+- `security.Standard`
+
+#### New functions:
+
+- `security.getAssignment`
+- `security.getStandard`
 
 ---
 

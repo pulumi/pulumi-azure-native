@@ -29,5 +29,5 @@ type LookupPeerAsnResult struct {
 	PeerContactDetail []ContactDetailResponse `pulumi:"peerContactDetail"`
 	PeerName          *string                 `pulumi:"peerName"`
 	Type              string                  `pulumi:"type"`
-	ValidationState   string                  `pulumi:"validationState"`
+	ValidationState   *string                 `pulumi:"validationState"`
 }

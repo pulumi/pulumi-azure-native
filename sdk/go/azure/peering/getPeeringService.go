@@ -23,16 +23,15 @@ type LookupPeeringServiceArgs struct {
 
 // Peering Service
 type LookupPeeringServiceResult struct {
-	Id                              string                                   `pulumi:"id"`
-	Location                        string                                   `pulumi:"location"`
-	LogAnalyticsWorkspaceProperties *LogAnalyticsWorkspacePropertiesResponse `pulumi:"logAnalyticsWorkspaceProperties"`
-	Name                            string                                   `pulumi:"name"`
-	PeeringServiceLocation          *string                                  `pulumi:"peeringServiceLocation"`
-	PeeringServiceProvider          *string                                  `pulumi:"peeringServiceProvider"`
-	ProviderBackupPeeringLocation   *string                                  `pulumi:"providerBackupPeeringLocation"`
-	ProviderPrimaryPeeringLocation  *string                                  `pulumi:"providerPrimaryPeeringLocation"`
-	ProvisioningState               string                                   `pulumi:"provisioningState"`
-	Sku                             *PeeringServiceSkuResponse               `pulumi:"sku"`
-	Tags                            map[string]string                        `pulumi:"tags"`
-	Type                            string                                   `pulumi:"type"`
+	Id                             string                     `pulumi:"id"`
+	Location                       string                     `pulumi:"location"`
+	Name                           string                     `pulumi:"name"`
+	PeeringServiceLocation         *string                    `pulumi:"peeringServiceLocation"`
+	PeeringServiceProvider         *string                    `pulumi:"peeringServiceProvider"`
+	ProviderBackupPeeringLocation  *string                    `pulumi:"providerBackupPeeringLocation"`
+	ProviderPrimaryPeeringLocation *string                    `pulumi:"providerPrimaryPeeringLocation"`
+	ProvisioningState              string                     `pulumi:"provisioningState"`
+	Sku                            *PeeringServiceSkuResponse `pulumi:"sku"`
+	Tags                           map[string]string          `pulumi:"tags"`
+	Type                           string                     `pulumi:"type"`
 }

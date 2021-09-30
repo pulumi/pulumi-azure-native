@@ -35,6 +35,16 @@ export const DirectPeeringType = {
  */
 export type DirectPeeringType = (typeof DirectPeeringType)[keyof typeof DirectPeeringType];
 
+export const Family = {
+    Direct: "Direct",
+    Exchange: "Exchange",
+} as const;
+
+/**
+ * The family of the peering SKU.
+ */
+export type Family = (typeof Family)[keyof typeof Family];
+
 export const Kind = {
     Direct: "Direct",
     Exchange: "Exchange",
@@ -68,3 +78,36 @@ export const SessionAddressProvider = {
  * The field indicating if Microsoft provides session ip addresses.
  */
 export type SessionAddressProvider = (typeof SessionAddressProvider)[keyof typeof SessionAddressProvider];
+
+export const Size = {
+    Free: "Free",
+    Metered: "Metered",
+    Unlimited: "Unlimited",
+} as const;
+
+/**
+ * The size of the peering SKU.
+ */
+export type Size = (typeof Size)[keyof typeof Size];
+
+export const Tier = {
+    Basic: "Basic",
+    Premium: "Premium",
+} as const;
+
+/**
+ * The tier of the peering SKU.
+ */
+export type Tier = (typeof Tier)[keyof typeof Tier];
+
+export const ValidationState = {
+    None: "None",
+    Pending: "Pending",
+    Approved: "Approved",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The validation state of the ASN associated with the peer.
+ */
+export type ValidationState = (typeof ValidationState)[keyof typeof ValidationState];

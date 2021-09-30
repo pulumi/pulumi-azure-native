@@ -1254,169 +1254,6 @@ func (o ExchangeConnectionResponseArrayOutput) Index(i pulumi.IntInput) Exchange
 	}).(ExchangeConnectionResponseOutput)
 }
 
-type LogAnalyticsWorkspacePropertiesResponse struct {
-	ConnectedAgents []string `pulumi:"connectedAgents"`
-	Key             string   `pulumi:"key"`
-	WorkspaceID     string   `pulumi:"workspaceID"`
-}
-
-// LogAnalyticsWorkspacePropertiesResponseInput is an input type that accepts LogAnalyticsWorkspacePropertiesResponseArgs and LogAnalyticsWorkspacePropertiesResponseOutput values.
-// You can construct a concrete instance of `LogAnalyticsWorkspacePropertiesResponseInput` via:
-//
-//          LogAnalyticsWorkspacePropertiesResponseArgs{...}
-type LogAnalyticsWorkspacePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsWorkspacePropertiesResponseOutput() LogAnalyticsWorkspacePropertiesResponseOutput
-	ToLogAnalyticsWorkspacePropertiesResponseOutputWithContext(context.Context) LogAnalyticsWorkspacePropertiesResponseOutput
-}
-
-type LogAnalyticsWorkspacePropertiesResponseArgs struct {
-	ConnectedAgents pulumi.StringArrayInput `pulumi:"connectedAgents"`
-	Key             pulumi.StringInput      `pulumi:"key"`
-	WorkspaceID     pulumi.StringInput      `pulumi:"workspaceID"`
-}
-
-func (LogAnalyticsWorkspacePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i LogAnalyticsWorkspacePropertiesResponseArgs) ToLogAnalyticsWorkspacePropertiesResponseOutput() LogAnalyticsWorkspacePropertiesResponseOutput {
-	return i.ToLogAnalyticsWorkspacePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsWorkspacePropertiesResponseArgs) ToLogAnalyticsWorkspacePropertiesResponseOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspacePropertiesResponseOutput)
-}
-
-func (i LogAnalyticsWorkspacePropertiesResponseArgs) ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return i.ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsWorkspacePropertiesResponseArgs) ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspacePropertiesResponseOutput).ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LogAnalyticsWorkspacePropertiesResponsePtrInput is an input type that accepts LogAnalyticsWorkspacePropertiesResponseArgs, LogAnalyticsWorkspacePropertiesResponsePtr and LogAnalyticsWorkspacePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LogAnalyticsWorkspacePropertiesResponsePtrInput` via:
-//
-//          LogAnalyticsWorkspacePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LogAnalyticsWorkspacePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput
-	ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput
-}
-
-type logAnalyticsWorkspacePropertiesResponsePtrType LogAnalyticsWorkspacePropertiesResponseArgs
-
-func LogAnalyticsWorkspacePropertiesResponsePtr(v *LogAnalyticsWorkspacePropertiesResponseArgs) LogAnalyticsWorkspacePropertiesResponsePtrInput {
-	return (*logAnalyticsWorkspacePropertiesResponsePtrType)(v)
-}
-
-func (*logAnalyticsWorkspacePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i *logAnalyticsWorkspacePropertiesResponsePtrType) ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return i.ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *logAnalyticsWorkspacePropertiesResponsePtrType) ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspacePropertiesResponsePtrOutput)
-}
-
-type LogAnalyticsWorkspacePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LogAnalyticsWorkspacePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponseOutput() LogAnalyticsWorkspacePropertiesResponseOutput {
-	return o
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponseOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponseOutput {
-	return o
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return o.ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsWorkspacePropertiesResponse) *LogAnalyticsWorkspacePropertiesResponse {
-		return &v
-	}).(LogAnalyticsWorkspacePropertiesResponsePtrOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) ConnectedAgents() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) []string { return v.ConnectedAgents }).(pulumi.StringArrayOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponseOutput) WorkspaceID() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsWorkspacePropertiesResponse) string { return v.WorkspaceID }).(pulumi.StringOutput)
-}
-
-type LogAnalyticsWorkspacePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LogAnalyticsWorkspacePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogAnalyticsWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutput() LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ToLogAnalyticsWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) Elem() LogAnalyticsWorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) LogAnalyticsWorkspacePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsWorkspacePropertiesResponse
-		return ret
-	}).(LogAnalyticsWorkspacePropertiesResponseOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) ConnectedAgents() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectedAgents
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LogAnalyticsWorkspacePropertiesResponsePtrOutput) WorkspaceID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogAnalyticsWorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkspaceID
-	}).(pulumi.StringPtrOutput)
-}
-
 type PeeringPropertiesDirect struct {
 	Connections       []DirectConnection `pulumi:"connections"`
 	DirectPeeringType *string            `pulumi:"directPeeringType"`
@@ -2439,7 +2276,10 @@ func (o PeeringServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type PeeringSku struct {
-	Name *string `pulumi:"name"`
+	Family *string `pulumi:"family"`
+	Name   *string `pulumi:"name"`
+	Size   *string `pulumi:"size"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // PeeringSkuInput is an input type that accepts PeeringSkuArgs and PeeringSkuOutput values.
@@ -2454,7 +2294,10 @@ type PeeringSkuInput interface {
 }
 
 type PeeringSkuArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Size   pulumi.StringPtrInput `pulumi:"size"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PeeringSkuArgs) ElementType() reflect.Type {
@@ -2534,8 +2377,20 @@ func (o PeeringSkuOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Context) 
 	}).(PeeringSkuPtrOutput)
 }
 
+func (o PeeringSkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
 func (o PeeringSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PeeringSkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSku) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+func (o PeeringSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type PeeringSkuPtrOutput struct{ *pulumi.OutputState }
@@ -2562,6 +2417,15 @@ func (o PeeringSkuPtrOutput) Elem() PeeringSkuOutput {
 	}).(PeeringSkuOutput)
 }
 
+func (o PeeringSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o PeeringSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringSku) *string {
 		if v == nil {
@@ -2571,11 +2435,29 @@ func (o PeeringSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o PeeringSkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 type PeeringSkuResponse struct {
-	Family string  `pulumi:"family"`
+	Family *string `pulumi:"family"`
 	Name   *string `pulumi:"name"`
-	Size   string  `pulumi:"size"`
-	Tier   string  `pulumi:"tier"`
+	Size   *string `pulumi:"size"`
+	Tier   *string `pulumi:"tier"`
 }
 
 // PeeringSkuResponseInput is an input type that accepts PeeringSkuResponseArgs and PeeringSkuResponseOutput values.
@@ -2590,10 +2472,10 @@ type PeeringSkuResponseInput interface {
 }
 
 type PeeringSkuResponseArgs struct {
-	Family pulumi.StringInput    `pulumi:"family"`
+	Family pulumi.StringPtrInput `pulumi:"family"`
 	Name   pulumi.StringPtrInput `pulumi:"name"`
-	Size   pulumi.StringInput    `pulumi:"size"`
-	Tier   pulumi.StringInput    `pulumi:"tier"`
+	Size   pulumi.StringPtrInput `pulumi:"size"`
+	Tier   pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PeeringSkuResponseArgs) ElementType() reflect.Type {
@@ -2673,20 +2555,20 @@ func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutputWithContext(ctx c
 	}).(PeeringSkuResponsePtrOutput)
 }
 
-func (o PeeringSkuResponseOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Family }).(pulumi.StringOutput)
+func (o PeeringSkuResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
 func (o PeeringSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o PeeringSkuResponseOutput) Size() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Size }).(pulumi.StringOutput)
+func (o PeeringSkuResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-func (o PeeringSkuResponseOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
+func (o PeeringSkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type PeeringSkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2718,7 +2600,7 @@ func (o PeeringSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Family
+		return v.Family
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2736,7 +2618,7 @@ func (o PeeringSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Size
+		return v.Size
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2745,7 +2627,7 @@ func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Tier
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3032,8 +2914,6 @@ func init() {
 	pulumi.RegisterOutputType(ExchangeConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(LogAnalyticsWorkspacePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LogAnalyticsWorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectPtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectResponseOutput{})

@@ -29,7 +29,6 @@ type LookupCustomLocationResult struct {
 	HostResourceId      *string                                         `pulumi:"hostResourceId"`
 	HostType            *string                                         `pulumi:"hostType"`
 	Id                  string                                          `pulumi:"id"`
-	Identity            *IdentityResponse                               `pulumi:"identity"`
 	Location            string                                          `pulumi:"location"`
 	Name                string                                          `pulumi:"name"`
 	Namespace           *string                                         `pulumi:"namespace"`

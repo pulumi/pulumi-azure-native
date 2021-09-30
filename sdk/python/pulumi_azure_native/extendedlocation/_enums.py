@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'HostType',
-    'ResourceIdentityType',
 ]
 
 
@@ -15,11 +14,3 @@ class HostType(str, Enum):
     Type of host the Custom Locations is referencing (Kubernetes, etc...).
     """
     KUBERNETES = "Kubernetes"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"

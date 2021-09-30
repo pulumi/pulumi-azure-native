@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The customer's prefix that is registered by the peering service provider.
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01.
  */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
     if (!opts) {

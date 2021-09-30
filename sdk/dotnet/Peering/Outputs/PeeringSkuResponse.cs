@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Peering.Outputs
         /// <summary>
         /// The family of the peering SKU.
         /// </summary>
-        public readonly string Family;
+        public readonly string? Family;
         /// <summary>
         /// The name of the peering SKU.
         /// </summary>
@@ -27,21 +27,21 @@ namespace Pulumi.AzureNative.Peering.Outputs
         /// <summary>
         /// The size of the peering SKU.
         /// </summary>
-        public readonly string Size;
+        public readonly string? Size;
         /// <summary>
         /// The tier of the peering SKU.
         /// </summary>
-        public readonly string Tier;
+        public readonly string? Tier;
 
         [OutputConstructor]
         private PeeringSkuResponse(
-            string family,
+            string? family,
 
             string? name,
 
-            string size,
+            string? size,
 
-            string tier)
+            string? tier)
         {
             Family = family;
             Name = name;

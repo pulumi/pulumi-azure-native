@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * API Version: 2021-08-15.
+ * API Version: 2021-03-15-preview.
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**
@@ -57,10 +57,6 @@ export class CustomLocation extends pulumi.CustomResource {
      */
     public readonly hostType!: pulumi.Output<string | undefined>;
     /**
-     * Identity for the resource.
-     */
-    public readonly identity!: pulumi.Output<outputs.extendedlocation.IdentityResponse | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -108,7 +104,6 @@ export class CustomLocation extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hostResourceId"] = args ? args.hostResourceId : undefined;
             inputs["hostType"] = args ? args.hostType : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -124,7 +119,6 @@ export class CustomLocation extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["hostResourceId"] = undefined /*out*/;
             inputs["hostType"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["namespace"] = undefined /*out*/;
@@ -166,10 +160,6 @@ export interface CustomLocationArgs {
      * Type of host the Custom Locations is referencing (Kubernetes, etc...).
      */
     hostType?: pulumi.Input<string | enums.extendedlocation.HostType>;
-    /**
-     * Identity for the resource.
-     */
-    identity?: pulumi.Input<inputs.extendedlocation.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

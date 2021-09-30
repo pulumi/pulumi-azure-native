@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The essential information related to the peer's ASN.
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01.
  */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
     if (!opts) {
@@ -64,5 +64,5 @@ export interface GetPeerAsnResult {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    readonly validationState: string;
+    readonly validationState?: string;
 }
