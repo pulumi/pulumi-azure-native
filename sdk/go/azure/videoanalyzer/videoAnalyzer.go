@@ -14,20 +14,15 @@ import (
 type VideoAnalyzer struct {
 	pulumi.CustomResourceState
 
-	Encryption                 AccountEncryptionResponsePtrOutput           `pulumi:"encryption"`
-	Endpoints                  EndpointResponseArrayOutput                  `pulumi:"endpoints"`
-	Identity                   VideoAnalyzerIdentityResponsePtrOutput       `pulumi:"identity"`
-	IotHubs                    IotHubResponseArrayOutput                    `pulumi:"iotHubs"`
-	Location                   pulumi.StringOutput                          `pulumi:"location"`
-	Name                       pulumi.StringOutput                          `pulumi:"name"`
-	NetworkAccessControl       NetworkAccessControlResponsePtrOutput        `pulumi:"networkAccessControl"`
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
-	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
-	StorageAccounts            StorageAccountResponseArrayOutput            `pulumi:"storageAccounts"`
-	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
-	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
-	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	Encryption      AccountEncryptionResponseOutput        `pulumi:"encryption"`
+	Endpoints       EndpointResponseArrayOutput            `pulumi:"endpoints"`
+	Identity        VideoAnalyzerIdentityResponsePtrOutput `pulumi:"identity"`
+	Location        pulumi.StringOutput                    `pulumi:"location"`
+	Name            pulumi.StringOutput                    `pulumi:"name"`
+	StorageAccounts StorageAccountResponseArrayOutput      `pulumi:"storageAccounts"`
+	SystemData      SystemDataResponseOutput               `pulumi:"systemData"`
+	Tags            pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type            pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewVideoAnalyzer registers a new resource with the given unique name, arguments, and options.
@@ -37,6 +32,9 @@ func NewVideoAnalyzer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Encryption == nil {
+		return nil, errors.New("invalid value for required argument 'Encryption'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -93,30 +91,24 @@ func (VideoAnalyzerState) ElementType() reflect.Type {
 }
 
 type videoAnalyzerArgs struct {
-	AccountName          *string                `pulumi:"accountName"`
-	Encryption           *AccountEncryption     `pulumi:"encryption"`
-	Identity             *VideoAnalyzerIdentity `pulumi:"identity"`
-	IotHubs              []IotHub               `pulumi:"iotHubs"`
-	Location             *string                `pulumi:"location"`
-	NetworkAccessControl *NetworkAccessControl  `pulumi:"networkAccessControl"`
-	PublicNetworkAccess  *string                `pulumi:"publicNetworkAccess"`
-	ResourceGroupName    string                 `pulumi:"resourceGroupName"`
-	StorageAccounts      []StorageAccount       `pulumi:"storageAccounts"`
-	Tags                 map[string]string      `pulumi:"tags"`
+	AccountName       *string                `pulumi:"accountName"`
+	Encryption        AccountEncryption      `pulumi:"encryption"`
+	Identity          *VideoAnalyzerIdentity `pulumi:"identity"`
+	Location          *string                `pulumi:"location"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	StorageAccounts   []StorageAccount       `pulumi:"storageAccounts"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VideoAnalyzer resource.
 type VideoAnalyzerArgs struct {
-	AccountName          pulumi.StringPtrInput
-	Encryption           AccountEncryptionPtrInput
-	Identity             VideoAnalyzerIdentityPtrInput
-	IotHubs              IotHubArrayInput
-	Location             pulumi.StringPtrInput
-	NetworkAccessControl NetworkAccessControlPtrInput
-	PublicNetworkAccess  pulumi.StringPtrInput
-	ResourceGroupName    pulumi.StringInput
-	StorageAccounts      StorageAccountArrayInput
-	Tags                 pulumi.StringMapInput
+	AccountName       pulumi.StringPtrInput
+	Encryption        AccountEncryptionInput
+	Identity          VideoAnalyzerIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	StorageAccounts   StorageAccountArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (VideoAnalyzerArgs) ElementType() reflect.Type {

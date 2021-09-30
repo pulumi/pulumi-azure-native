@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
     /// <summary>
-    /// The Video Analyzer account.
-    /// API Version: 2021-11-01-preview.
+    /// A Video Analyzer account.
+    /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:VideoAnalyzer")]
     public partial class VideoAnalyzer : Pulumi.CustomResource
@@ -20,25 +20,19 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// The account encryption properties.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.AccountEncryptionResponse?> Encryption { get; private set; } = null!;
+        public Output<Outputs.AccountEncryptionResponse> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoints associated with this resource.
+        /// The list of endpoints associated with this resource.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.EndpointResponse>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The identities associated to the Video Analyzer resource.
+        /// The set of managed identities associated with the Video Analyzer resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.VideoAnalyzerIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The IoT Hubs for this resource.
-        /// </summary>
-        [Output("iotHubs")]
-        public Output<ImmutableArray<Outputs.IotHubResponse>> IotHubs { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -53,37 +47,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network access control for Video Analyzer.
-        /// </summary>
-        [Output("networkAccessControl")]
-        public Output<Outputs.NetworkAccessControlResponse?> NetworkAccessControl { get; private set; } = null!;
-
-        /// <summary>
-        /// Private Endpoint Connections created under Video Analyzer account.
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// Provisioning state of the Video Analyzer account.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not public network access is allowed for resources under the Video Analyzer account.
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
-
-        /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.StorageAccountResponse>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// The system data of the Video Analyzer account.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -162,44 +132,20 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// <summary>
         /// The account encryption properties.
         /// </summary>
-        [Input("encryption")]
-        public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
+        [Input("encryption", required: true)]
+        public Input<Inputs.AccountEncryptionArgs> Encryption { get; set; } = null!;
 
         /// <summary>
-        /// The identities associated to the Video Analyzer resource.
+        /// The set of managed identities associated with the Video Analyzer resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VideoAnalyzerIdentityArgs>? Identity { get; set; }
-
-        [Input("iotHubs")]
-        private InputList<Inputs.IotHubArgs>? _iotHubs;
-
-        /// <summary>
-        /// The IoT Hubs for this resource.
-        /// </summary>
-        public InputList<Inputs.IotHubArgs> IotHubs
-        {
-            get => _iotHubs ?? (_iotHubs = new InputList<Inputs.IotHubArgs>());
-            set => _iotHubs = value;
-        }
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Network access control for Video Analyzer.
-        /// </summary>
-        [Input("networkAccessControl")]
-        public Input<Inputs.NetworkAccessControlArgs>? NetworkAccessControl { get; set; }
-
-        /// <summary>
-        /// Whether or not public network access is allowed for resources under the Video Analyzer account.
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.VideoAnalyzer.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

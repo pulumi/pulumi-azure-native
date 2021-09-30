@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetAccessPolicyResult:
     """
-    Access policies help define the authentication rules, and control access to specific video resources.
+    Policy that determines how a video can be accessed.
     """
     def __init__(__self__, authentication=None, id=None, name=None, role=None, system_data=None, type=None):
         if authentication and not isinstance(authentication, dict):
@@ -76,7 +76,7 @@ class GetAccessPolicyResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -108,11 +108,11 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
-    Access policies help define the authentication rules, and control access to specific video resources.
-    API Version: 2021-11-01-preview.
+    Policy that determines how a video can be accessed.
+    API Version: 2021-05-01-preview.
 
 
-    :param str access_policy_name: The Access Policy name.
+    :param str access_policy_name: The name of the access policy to retrieve.
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetVideo
     {
         /// <summary>
-        /// 
-        /// API Version: 2021-11-01-preview.
+        /// The representation of a single video in a Video Analyzer account.
+        /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetVideoResult> InvokeAsync(GetVideoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer:getVideo", args ?? new GetVideoArgs(), options.WithVersion());
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Video name.
+        /// The name of the video to retrieve.
         /// </summary>
         [Input("videoName", required: true)]
         public string VideoName { get; set; } = null!;
@@ -49,14 +49,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     [OutputType]
     public sealed class GetVideoResult
     {
-        /// <summary>
-        /// Video archival properties.
-        /// </summary>
-        public readonly Outputs.VideoArchivalResponse? Archival;
-        /// <summary>
-        /// Set of URLs to the video content.
-        /// </summary>
-        public readonly Outputs.VideoContentUrlsResponse ContentUrls;
         /// <summary>
         /// Optional video description provided by the user. Value can be up to 2048 characters long.
         /// </summary>
@@ -78,7 +70,11 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// Video streaming holds information about video streaming URLs.
+        /// </summary>
+        public readonly Outputs.VideoStreamingResponse Streaming;
+        /// <summary>
+        /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -92,10 +88,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetVideoResult(
-            Outputs.VideoArchivalResponse? archival,
-
-            Outputs.VideoContentUrlsResponse contentUrls,
-
             string? description,
 
             Outputs.VideoFlagsResponse flags,
@@ -106,19 +98,20 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string name,
 
+            Outputs.VideoStreamingResponse streaming,
+
             Outputs.SystemDataResponse systemData,
 
             string? title,
 
             string type)
         {
-            Archival = archival;
-            ContentUrls = contentUrls;
             Description = description;
             Flags = flags;
             Id = id;
             MediaInfo = mediaInfo;
             Name = name;
+            Streaming = streaming;
             SystemData = systemData;
             Title = title;
             Type = type;

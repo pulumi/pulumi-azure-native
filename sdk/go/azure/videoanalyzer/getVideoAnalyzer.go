@@ -21,21 +21,16 @@ type LookupVideoAnalyzerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// The Video Analyzer account.
+// A Video Analyzer account.
 type LookupVideoAnalyzerResult struct {
-	Encryption                 *AccountEncryptionResponse          `pulumi:"encryption"`
-	Endpoints                  []EndpointResponse                  `pulumi:"endpoints"`
-	Id                         string                              `pulumi:"id"`
-	Identity                   *VideoAnalyzerIdentityResponse      `pulumi:"identity"`
-	IotHubs                    []IotHubResponse                    `pulumi:"iotHubs"`
-	Location                   string                              `pulumi:"location"`
-	Name                       string                              `pulumi:"name"`
-	NetworkAccessControl       *NetworkAccessControlResponse       `pulumi:"networkAccessControl"`
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	ProvisioningState          string                              `pulumi:"provisioningState"`
-	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
-	StorageAccounts            []StorageAccountResponse            `pulumi:"storageAccounts"`
-	SystemData                 SystemDataResponse                  `pulumi:"systemData"`
-	Tags                       map[string]string                   `pulumi:"tags"`
-	Type                       string                              `pulumi:"type"`
+	Encryption      AccountEncryptionResponse      `pulumi:"encryption"`
+	Endpoints       []EndpointResponse             `pulumi:"endpoints"`
+	Id              string                         `pulumi:"id"`
+	Identity        *VideoAnalyzerIdentityResponse `pulumi:"identity"`
+	Location        string                         `pulumi:"location"`
+	Name            string                         `pulumi:"name"`
+	StorageAccounts []StorageAccountResponse       `pulumi:"storageAccounts"`
+	SystemData      SystemDataResponse             `pulumi:"systemData"`
+	Tags            map[string]string              `pulumi:"tags"`
+	Type            string                         `pulumi:"type"`
 }

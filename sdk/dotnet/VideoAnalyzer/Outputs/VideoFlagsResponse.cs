@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
         /// </summary>
         public readonly bool HasData;
         /// <summary>
-        /// Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+        /// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
         /// </summary>
-        public readonly bool IsInUse;
+        public readonly bool IsRecording;
 
         [OutputConstructor]
         private VideoFlagsResponse(
@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 
             bool hasData,
 
-            bool isInUse)
+            bool isRecording)
         {
             CanStream = canStream;
             HasData = hasData;
-            IsInUse = isInUse;
+            IsRecording = isRecording;
         }
     }
 }

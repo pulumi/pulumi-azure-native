@@ -6,7 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-11-01-preview.
+ * The representation of a single video in a Video Analyzer account.
+ * API Version: 2021-05-01-preview.
  */
 export class Video extends pulumi.CustomResource {
     /**
@@ -36,14 +37,6 @@ export class Video extends pulumi.CustomResource {
     }
 
     /**
-     * Video archival properties.
-     */
-    public readonly archival!: pulumi.Output<outputs.videoanalyzer.VideoArchivalResponse | undefined>;
-    /**
-     * Set of URLs to the video content.
-     */
-    public /*out*/ readonly contentUrls!: pulumi.Output<outputs.videoanalyzer.VideoContentUrlsResponse>;
-    /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -60,7 +53,11 @@ export class Video extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Video streaming holds information about video streaming URLs.
+     */
+    public /*out*/ readonly streaming!: pulumi.Output<outputs.videoanalyzer.VideoStreamingResponse>;
+    /**
+     * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
@@ -90,24 +87,22 @@ export class Video extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["archival"] = args ? args.archival : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["videoName"] = args ? args.videoName : undefined;
-            inputs["contentUrls"] = undefined /*out*/;
             inputs["flags"] = undefined /*out*/;
             inputs["mediaInfo"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["streaming"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["archival"] = undefined /*out*/;
-            inputs["contentUrls"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["flags"] = undefined /*out*/;
             inputs["mediaInfo"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["streaming"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -130,10 +125,6 @@ export interface VideoArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Video archival properties.
-     */
-    archival?: pulumi.Input<inputs.videoanalyzer.VideoArchivalArgs>;
-    /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
     description?: pulumi.Input<string>;
@@ -146,7 +137,7 @@ export interface VideoArgs {
      */
     title?: pulumi.Input<string>;
     /**
-     * The Video name.
+     * The name of the video to create or update.
      */
     videoName?: pulumi.Input<string>;
 }

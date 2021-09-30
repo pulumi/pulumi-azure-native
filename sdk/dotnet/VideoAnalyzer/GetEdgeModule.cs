@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     {
         /// <summary>
         /// The representation of an edge module.
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetEdgeModuleResult> InvokeAsync(GetEdgeModuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The Edge Module name.
+        /// The name of the edge module to retrieve.
         /// </summary>
         [Input("edgeModuleName", required: true)]
         public string EdgeModuleName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

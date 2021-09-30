@@ -17,13 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetVideoResult:
-    def __init__(__self__, archival=None, content_urls=None, description=None, flags=None, id=None, media_info=None, name=None, system_data=None, title=None, type=None):
-        if archival and not isinstance(archival, dict):
-            raise TypeError("Expected argument 'archival' to be a dict")
-        pulumi.set(__self__, "archival", archival)
-        if content_urls and not isinstance(content_urls, dict):
-            raise TypeError("Expected argument 'content_urls' to be a dict")
-        pulumi.set(__self__, "content_urls", content_urls)
+    """
+    The representation of a single video in a Video Analyzer account.
+    """
+    def __init__(__self__, description=None, flags=None, id=None, media_info=None, name=None, streaming=None, system_data=None, title=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +36,9 @@ class GetVideoResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if streaming and not isinstance(streaming, dict):
+            raise TypeError("Expected argument 'streaming' to be a dict")
+        pulumi.set(__self__, "streaming", streaming)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -48,22 +48,6 @@ class GetVideoResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def archival(self) -> Optional['outputs.VideoArchivalResponse']:
-        """
-        Video archival properties.
-        """
-        return pulumi.get(self, "archival")
-
-    @property
-    @pulumi.getter(name="contentUrls")
-    def content_urls(self) -> 'outputs.VideoContentUrlsResponse':
-        """
-        Set of URLs to the video content.
-        """
-        return pulumi.get(self, "content_urls")
 
     @property
     @pulumi.getter
@@ -106,10 +90,18 @@ class GetVideoResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def streaming(self) -> 'outputs.VideoStreamingResponse':
+        """
+        Video streaming holds information about video streaming URLs.
+        """
+        return pulumi.get(self, "streaming")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -136,13 +128,12 @@ class AwaitableGetVideoResult(GetVideoResult):
         if False:
             yield self
         return GetVideoResult(
-            archival=self.archival,
-            content_urls=self.content_urls,
             description=self.description,
             flags=self.flags,
             id=self.id,
             media_info=self.media_info,
             name=self.name,
+            streaming=self.streaming,
             system_data=self.system_data,
             title=self.title,
             type=self.type)
@@ -153,12 +144,13 @@ def get_video(account_name: Optional[str] = None,
               video_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoResult:
     """
-    API Version: 2021-11-01-preview.
+    The representation of a single video in a Video Analyzer account.
+    API Version: 2021-05-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str video_name: The Video name.
+    :param str video_name: The name of the video to retrieve.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -171,13 +163,12 @@ def get_video(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getVideo', __args__, opts=opts, typ=GetVideoResult).value
 
     return AwaitableGetVideoResult(
-        archival=__ret__.archival,
-        content_urls=__ret__.content_urls,
         description=__ret__.description,
         flags=__ret__.flags,
         id=__ret__.id,
         media_info=__ret__.media_info,
         name=__ret__.name,
+        streaming=__ret__.streaming,
         system_data=__ret__.system_data,
         title=__ret__.title,
         type=__ret__.type)

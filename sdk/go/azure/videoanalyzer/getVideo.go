@@ -22,15 +22,15 @@ type LookupVideoArgs struct {
 	VideoName         string `pulumi:"videoName"`
 }
 
+// The representation of a single video in a Video Analyzer account.
 type LookupVideoResult struct {
-	Archival    *VideoArchivalResponse   `pulumi:"archival"`
-	ContentUrls VideoContentUrlsResponse `pulumi:"contentUrls"`
-	Description *string                  `pulumi:"description"`
-	Flags       VideoFlagsResponse       `pulumi:"flags"`
-	Id          string                   `pulumi:"id"`
-	MediaInfo   VideoMediaInfoResponse   `pulumi:"mediaInfo"`
-	Name        string                   `pulumi:"name"`
-	SystemData  SystemDataResponse       `pulumi:"systemData"`
-	Title       *string                  `pulumi:"title"`
-	Type        string                   `pulumi:"type"`
+	Description *string                `pulumi:"description"`
+	Flags       VideoFlagsResponse     `pulumi:"flags"`
+	Id          string                 `pulumi:"id"`
+	MediaInfo   VideoMediaInfoResponse `pulumi:"mediaInfo"`
+	Name        string                 `pulumi:"name"`
+	Streaming   VideoStreamingResponse `pulumi:"streaming"`
+	SystemData  SystemDataResponse     `pulumi:"systemData"`
+	Title       *string                `pulumi:"title"`
+	Type        string                 `pulumi:"type"`
 }

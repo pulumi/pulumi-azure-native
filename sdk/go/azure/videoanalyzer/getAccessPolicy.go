@@ -22,7 +22,7 @@ type LookupAccessPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Access policies help define the authentication rules, and control access to specific video resources.
+// Policy that determines how a video can be accessed.
 type LookupAccessPolicyResult struct {
 	Authentication *JwtAuthenticationResponse `pulumi:"authentication"`
 	Id             string                     `pulumi:"id"`

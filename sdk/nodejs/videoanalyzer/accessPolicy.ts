@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Access policies help define the authentication rules, and control access to specific video resources.
- * API Version: 2021-11-01-preview.
+ * Policy that determines how a video can be accessed.
+ * API Version: 2021-05-01-preview.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
@@ -103,7 +103,7 @@ export class AccessPolicy extends pulumi.CustomResource {
  */
 export interface AccessPolicyArgs {
     /**
-     * The Access Policy name.
+     * The name of the access policy to create or update.
      */
     accessPolicyName?: pulumi.Input<string>;
     /**

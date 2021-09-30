@@ -6,7 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-11-01-preview.
+ * The representation of a single video in a Video Analyzer account.
+ * API Version: 2021-05-01-preview.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
     if (!opts) {
@@ -33,20 +34,15 @@ export interface GetVideoArgs {
      */
     resourceGroupName: string;
     /**
-     * The Video name.
+     * The name of the video to retrieve.
      */
     videoName: string;
 }
 
+/**
+ * The representation of a single video in a Video Analyzer account.
+ */
 export interface GetVideoResult {
-    /**
-     * Video archival properties.
-     */
-    readonly archival?: outputs.videoanalyzer.VideoArchivalResponse;
-    /**
-     * Set of URLs to the video content.
-     */
-    readonly contentUrls: outputs.videoanalyzer.VideoContentUrlsResponse;
     /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
@@ -68,7 +64,11 @@ export interface GetVideoResult {
      */
     readonly name: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Video streaming holds information about video streaming URLs.
+     */
+    readonly streaming: outputs.videoanalyzer.VideoStreamingResponse;
+    /**
+     * The system metadata relating to this resource.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**

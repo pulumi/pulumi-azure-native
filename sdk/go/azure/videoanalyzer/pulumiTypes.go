@@ -1349,478 +1349,6 @@ func (o EndpointResponseArrayOutput) Index(i pulumi.IntInput) EndpointResponseOu
 	}).(EndpointResponseOutput)
 }
 
-type GroupLevelAccessControl struct {
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-}
-
-// GroupLevelAccessControlInput is an input type that accepts GroupLevelAccessControlArgs and GroupLevelAccessControlOutput values.
-// You can construct a concrete instance of `GroupLevelAccessControlInput` via:
-//
-//          GroupLevelAccessControlArgs{...}
-type GroupLevelAccessControlInput interface {
-	pulumi.Input
-
-	ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput
-	ToGroupLevelAccessControlOutputWithContext(context.Context) GroupLevelAccessControlOutput
-}
-
-type GroupLevelAccessControlArgs struct {
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-}
-
-func (GroupLevelAccessControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupLevelAccessControl)(nil)).Elem()
-}
-
-func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput {
-	return i.ToGroupLevelAccessControlOutputWithContext(context.Background())
-}
-
-func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlOutputWithContext(ctx context.Context) GroupLevelAccessControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlOutput)
-}
-
-func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
-	return i.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i GroupLevelAccessControlArgs) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlOutput).ToGroupLevelAccessControlPtrOutputWithContext(ctx)
-}
-
-// GroupLevelAccessControlPtrInput is an input type that accepts GroupLevelAccessControlArgs, GroupLevelAccessControlPtr and GroupLevelAccessControlPtrOutput values.
-// You can construct a concrete instance of `GroupLevelAccessControlPtrInput` via:
-//
-//          GroupLevelAccessControlArgs{...}
-//
-//  or:
-//
-//          nil
-type GroupLevelAccessControlPtrInput interface {
-	pulumi.Input
-
-	ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput
-	ToGroupLevelAccessControlPtrOutputWithContext(context.Context) GroupLevelAccessControlPtrOutput
-}
-
-type groupLevelAccessControlPtrType GroupLevelAccessControlArgs
-
-func GroupLevelAccessControlPtr(v *GroupLevelAccessControlArgs) GroupLevelAccessControlPtrInput {
-	return (*groupLevelAccessControlPtrType)(v)
-}
-
-func (*groupLevelAccessControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupLevelAccessControl)(nil)).Elem()
-}
-
-func (i *groupLevelAccessControlPtrType) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
-	return i.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i *groupLevelAccessControlPtrType) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlPtrOutput)
-}
-
-type GroupLevelAccessControlOutput struct{ *pulumi.OutputState }
-
-func (GroupLevelAccessControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupLevelAccessControl)(nil)).Elem()
-}
-
-func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlOutput() GroupLevelAccessControlOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlOutputWithContext(ctx context.Context) GroupLevelAccessControlOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
-	return o.ToGroupLevelAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (o GroupLevelAccessControlOutput) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupLevelAccessControl) *GroupLevelAccessControl {
-		return &v
-	}).(GroupLevelAccessControlPtrOutput)
-}
-
-func (o GroupLevelAccessControlOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupLevelAccessControl) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
-type GroupLevelAccessControlPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupLevelAccessControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupLevelAccessControl)(nil)).Elem()
-}
-
-func (o GroupLevelAccessControlPtrOutput) ToGroupLevelAccessControlPtrOutput() GroupLevelAccessControlPtrOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlPtrOutput) ToGroupLevelAccessControlPtrOutputWithContext(ctx context.Context) GroupLevelAccessControlPtrOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlPtrOutput) Elem() GroupLevelAccessControlOutput {
-	return o.ApplyT(func(v *GroupLevelAccessControl) GroupLevelAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret GroupLevelAccessControl
-		return ret
-	}).(GroupLevelAccessControlOutput)
-}
-
-func (o GroupLevelAccessControlPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupLevelAccessControl) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicNetworkAccess
-	}).(pulumi.StringPtrOutput)
-}
-
-type GroupLevelAccessControlResponse struct {
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-}
-
-// GroupLevelAccessControlResponseInput is an input type that accepts GroupLevelAccessControlResponseArgs and GroupLevelAccessControlResponseOutput values.
-// You can construct a concrete instance of `GroupLevelAccessControlResponseInput` via:
-//
-//          GroupLevelAccessControlResponseArgs{...}
-type GroupLevelAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToGroupLevelAccessControlResponseOutput() GroupLevelAccessControlResponseOutput
-	ToGroupLevelAccessControlResponseOutputWithContext(context.Context) GroupLevelAccessControlResponseOutput
-}
-
-type GroupLevelAccessControlResponseArgs struct {
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-}
-
-func (GroupLevelAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupLevelAccessControlResponse)(nil)).Elem()
-}
-
-func (i GroupLevelAccessControlResponseArgs) ToGroupLevelAccessControlResponseOutput() GroupLevelAccessControlResponseOutput {
-	return i.ToGroupLevelAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i GroupLevelAccessControlResponseArgs) ToGroupLevelAccessControlResponseOutputWithContext(ctx context.Context) GroupLevelAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlResponseOutput)
-}
-
-func (i GroupLevelAccessControlResponseArgs) ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput {
-	return i.ToGroupLevelAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GroupLevelAccessControlResponseArgs) ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx context.Context) GroupLevelAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlResponseOutput).ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-// GroupLevelAccessControlResponsePtrInput is an input type that accepts GroupLevelAccessControlResponseArgs, GroupLevelAccessControlResponsePtr and GroupLevelAccessControlResponsePtrOutput values.
-// You can construct a concrete instance of `GroupLevelAccessControlResponsePtrInput` via:
-//
-//          GroupLevelAccessControlResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GroupLevelAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput
-	ToGroupLevelAccessControlResponsePtrOutputWithContext(context.Context) GroupLevelAccessControlResponsePtrOutput
-}
-
-type groupLevelAccessControlResponsePtrType GroupLevelAccessControlResponseArgs
-
-func GroupLevelAccessControlResponsePtr(v *GroupLevelAccessControlResponseArgs) GroupLevelAccessControlResponsePtrInput {
-	return (*groupLevelAccessControlResponsePtrType)(v)
-}
-
-func (*groupLevelAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupLevelAccessControlResponse)(nil)).Elem()
-}
-
-func (i *groupLevelAccessControlResponsePtrType) ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput {
-	return i.ToGroupLevelAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *groupLevelAccessControlResponsePtrType) ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx context.Context) GroupLevelAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-type GroupLevelAccessControlResponseOutput struct{ *pulumi.OutputState }
-
-func (GroupLevelAccessControlResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupLevelAccessControlResponse)(nil)).Elem()
-}
-
-func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponseOutput() GroupLevelAccessControlResponseOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponseOutputWithContext(ctx context.Context) GroupLevelAccessControlResponseOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput {
-	return o.ToGroupLevelAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GroupLevelAccessControlResponseOutput) ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx context.Context) GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupLevelAccessControlResponse) *GroupLevelAccessControlResponse {
-		return &v
-	}).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-func (o GroupLevelAccessControlResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupLevelAccessControlResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
-type GroupLevelAccessControlResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GroupLevelAccessControlResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupLevelAccessControlResponse)(nil)).Elem()
-}
-
-func (o GroupLevelAccessControlResponsePtrOutput) ToGroupLevelAccessControlResponsePtrOutput() GroupLevelAccessControlResponsePtrOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlResponsePtrOutput) ToGroupLevelAccessControlResponsePtrOutputWithContext(ctx context.Context) GroupLevelAccessControlResponsePtrOutput {
-	return o
-}
-
-func (o GroupLevelAccessControlResponsePtrOutput) Elem() GroupLevelAccessControlResponseOutput {
-	return o.ApplyT(func(v *GroupLevelAccessControlResponse) GroupLevelAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GroupLevelAccessControlResponse
-		return ret
-	}).(GroupLevelAccessControlResponseOutput)
-}
-
-func (o GroupLevelAccessControlResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupLevelAccessControlResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicNetworkAccess
-	}).(pulumi.StringPtrOutput)
-}
-
-type IotHub struct {
-	Id       string           `pulumi:"id"`
-	Identity ResourceIdentity `pulumi:"identity"`
-}
-
-// IotHubInput is an input type that accepts IotHubArgs and IotHubOutput values.
-// You can construct a concrete instance of `IotHubInput` via:
-//
-//          IotHubArgs{...}
-type IotHubInput interface {
-	pulumi.Input
-
-	ToIotHubOutput() IotHubOutput
-	ToIotHubOutputWithContext(context.Context) IotHubOutput
-}
-
-type IotHubArgs struct {
-	Id       pulumi.StringInput    `pulumi:"id"`
-	Identity ResourceIdentityInput `pulumi:"identity"`
-}
-
-func (IotHubArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHub)(nil)).Elem()
-}
-
-func (i IotHubArgs) ToIotHubOutput() IotHubOutput {
-	return i.ToIotHubOutputWithContext(context.Background())
-}
-
-func (i IotHubArgs) ToIotHubOutputWithContext(ctx context.Context) IotHubOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubOutput)
-}
-
-// IotHubArrayInput is an input type that accepts IotHubArray and IotHubArrayOutput values.
-// You can construct a concrete instance of `IotHubArrayInput` via:
-//
-//          IotHubArray{ IotHubArgs{...} }
-type IotHubArrayInput interface {
-	pulumi.Input
-
-	ToIotHubArrayOutput() IotHubArrayOutput
-	ToIotHubArrayOutputWithContext(context.Context) IotHubArrayOutput
-}
-
-type IotHubArray []IotHubInput
-
-func (IotHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IotHub)(nil)).Elem()
-}
-
-func (i IotHubArray) ToIotHubArrayOutput() IotHubArrayOutput {
-	return i.ToIotHubArrayOutputWithContext(context.Background())
-}
-
-func (i IotHubArray) ToIotHubArrayOutputWithContext(ctx context.Context) IotHubArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubArrayOutput)
-}
-
-type IotHubOutput struct{ *pulumi.OutputState }
-
-func (IotHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHub)(nil)).Elem()
-}
-
-func (o IotHubOutput) ToIotHubOutput() IotHubOutput {
-	return o
-}
-
-func (o IotHubOutput) ToIotHubOutputWithContext(ctx context.Context) IotHubOutput {
-	return o
-}
-
-func (o IotHubOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHub) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o IotHubOutput) Identity() ResourceIdentityOutput {
-	return o.ApplyT(func(v IotHub) ResourceIdentity { return v.Identity }).(ResourceIdentityOutput)
-}
-
-type IotHubArrayOutput struct{ *pulumi.OutputState }
-
-func (IotHubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IotHub)(nil)).Elem()
-}
-
-func (o IotHubArrayOutput) ToIotHubArrayOutput() IotHubArrayOutput {
-	return o
-}
-
-func (o IotHubArrayOutput) ToIotHubArrayOutputWithContext(ctx context.Context) IotHubArrayOutput {
-	return o
-}
-
-func (o IotHubArrayOutput) Index(i pulumi.IntInput) IotHubOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHub {
-		return vs[0].([]IotHub)[vs[1].(int)]
-	}).(IotHubOutput)
-}
-
-type IotHubResponse struct {
-	Id       string                   `pulumi:"id"`
-	Identity ResourceIdentityResponse `pulumi:"identity"`
-	Status   string                   `pulumi:"status"`
-}
-
-// IotHubResponseInput is an input type that accepts IotHubResponseArgs and IotHubResponseOutput values.
-// You can construct a concrete instance of `IotHubResponseInput` via:
-//
-//          IotHubResponseArgs{...}
-type IotHubResponseInput interface {
-	pulumi.Input
-
-	ToIotHubResponseOutput() IotHubResponseOutput
-	ToIotHubResponseOutputWithContext(context.Context) IotHubResponseOutput
-}
-
-type IotHubResponseArgs struct {
-	Id       pulumi.StringInput            `pulumi:"id"`
-	Identity ResourceIdentityResponseInput `pulumi:"identity"`
-	Status   pulumi.StringInput            `pulumi:"status"`
-}
-
-func (IotHubResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResponse)(nil)).Elem()
-}
-
-func (i IotHubResponseArgs) ToIotHubResponseOutput() IotHubResponseOutput {
-	return i.ToIotHubResponseOutputWithContext(context.Background())
-}
-
-func (i IotHubResponseArgs) ToIotHubResponseOutputWithContext(ctx context.Context) IotHubResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubResponseOutput)
-}
-
-// IotHubResponseArrayInput is an input type that accepts IotHubResponseArray and IotHubResponseArrayOutput values.
-// You can construct a concrete instance of `IotHubResponseArrayInput` via:
-//
-//          IotHubResponseArray{ IotHubResponseArgs{...} }
-type IotHubResponseArrayInput interface {
-	pulumi.Input
-
-	ToIotHubResponseArrayOutput() IotHubResponseArrayOutput
-	ToIotHubResponseArrayOutputWithContext(context.Context) IotHubResponseArrayOutput
-}
-
-type IotHubResponseArray []IotHubResponseInput
-
-func (IotHubResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IotHubResponse)(nil)).Elem()
-}
-
-func (i IotHubResponseArray) ToIotHubResponseArrayOutput() IotHubResponseArrayOutput {
-	return i.ToIotHubResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IotHubResponseArray) ToIotHubResponseArrayOutputWithContext(ctx context.Context) IotHubResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubResponseArrayOutput)
-}
-
-type IotHubResponseOutput struct{ *pulumi.OutputState }
-
-func (IotHubResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResponse)(nil)).Elem()
-}
-
-func (o IotHubResponseOutput) ToIotHubResponseOutput() IotHubResponseOutput {
-	return o
-}
-
-func (o IotHubResponseOutput) ToIotHubResponseOutputWithContext(ctx context.Context) IotHubResponseOutput {
-	return o
-}
-
-func (o IotHubResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o IotHubResponseOutput) Identity() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v IotHubResponse) ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponseOutput)
-}
-
-func (o IotHubResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type IotHubResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (IotHubResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IotHubResponse)(nil)).Elem()
-}
-
-func (o IotHubResponseArrayOutput) ToIotHubResponseArrayOutput() IotHubResponseArrayOutput {
-	return o
-}
-
-func (o IotHubResponseArrayOutput) ToIotHubResponseArrayOutputWithContext(ctx context.Context) IotHubResponseArrayOutput {
-	return o
-}
-
-func (o IotHubResponseArrayOutput) Index(i pulumi.IntInput) IotHubResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubResponse {
-		return vs[0].([]IotHubResponse)[vs[1].(int)]
-	}).(IotHubResponseOutput)
-}
-
 type JwtAuthentication struct {
 	Audiences []string      `pulumi:"audiences"`
 	Claims    []TokenClaim  `pulumi:"claims"`
@@ -2486,332 +2014,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 		}
 		return &v.KeyIdentifier
 	}).(pulumi.StringPtrOutput)
-}
-
-type NetworkAccessControl struct {
-	Consumption *GroupLevelAccessControl `pulumi:"consumption"`
-	Ingestion   *GroupLevelAccessControl `pulumi:"ingestion"`
-	Integration *GroupLevelAccessControl `pulumi:"integration"`
-}
-
-// NetworkAccessControlInput is an input type that accepts NetworkAccessControlArgs and NetworkAccessControlOutput values.
-// You can construct a concrete instance of `NetworkAccessControlInput` via:
-//
-//          NetworkAccessControlArgs{...}
-type NetworkAccessControlInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlOutput() NetworkAccessControlOutput
-	ToNetworkAccessControlOutputWithContext(context.Context) NetworkAccessControlOutput
-}
-
-type NetworkAccessControlArgs struct {
-	Consumption GroupLevelAccessControlPtrInput `pulumi:"consumption"`
-	Ingestion   GroupLevelAccessControlPtrInput `pulumi:"ingestion"`
-	Integration GroupLevelAccessControlPtrInput `pulumi:"integration"`
-}
-
-func (NetworkAccessControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControl)(nil)).Elem()
-}
-
-func (i NetworkAccessControlArgs) ToNetworkAccessControlOutput() NetworkAccessControlOutput {
-	return i.ToNetworkAccessControlOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlArgs) ToNetworkAccessControlOutputWithContext(ctx context.Context) NetworkAccessControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlOutput)
-}
-
-func (i NetworkAccessControlArgs) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
-	return i.ToNetworkAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlArgs) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlOutput).ToNetworkAccessControlPtrOutputWithContext(ctx)
-}
-
-// NetworkAccessControlPtrInput is an input type that accepts NetworkAccessControlArgs, NetworkAccessControlPtr and NetworkAccessControlPtrOutput values.
-// You can construct a concrete instance of `NetworkAccessControlPtrInput` via:
-//
-//          NetworkAccessControlArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkAccessControlPtrInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput
-	ToNetworkAccessControlPtrOutputWithContext(context.Context) NetworkAccessControlPtrOutput
-}
-
-type networkAccessControlPtrType NetworkAccessControlArgs
-
-func NetworkAccessControlPtr(v *NetworkAccessControlArgs) NetworkAccessControlPtrInput {
-	return (*networkAccessControlPtrType)(v)
-}
-
-func (*networkAccessControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkAccessControl)(nil)).Elem()
-}
-
-func (i *networkAccessControlPtrType) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
-	return i.ToNetworkAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i *networkAccessControlPtrType) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlPtrOutput)
-}
-
-type NetworkAccessControlOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControl)(nil)).Elem()
-}
-
-func (o NetworkAccessControlOutput) ToNetworkAccessControlOutput() NetworkAccessControlOutput {
-	return o
-}
-
-func (o NetworkAccessControlOutput) ToNetworkAccessControlOutputWithContext(ctx context.Context) NetworkAccessControlOutput {
-	return o
-}
-
-func (o NetworkAccessControlOutput) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
-	return o.ToNetworkAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkAccessControlOutput) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAccessControl) *NetworkAccessControl {
-		return &v
-	}).(NetworkAccessControlPtrOutput)
-}
-
-func (o NetworkAccessControlOutput) Consumption() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Consumption }).(GroupLevelAccessControlPtrOutput)
-}
-
-func (o NetworkAccessControlOutput) Ingestion() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Ingestion }).(GroupLevelAccessControlPtrOutput)
-}
-
-func (o NetworkAccessControlOutput) Integration() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControl) *GroupLevelAccessControl { return v.Integration }).(GroupLevelAccessControlPtrOutput)
-}
-
-type NetworkAccessControlPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkAccessControl)(nil)).Elem()
-}
-
-func (o NetworkAccessControlPtrOutput) ToNetworkAccessControlPtrOutput() NetworkAccessControlPtrOutput {
-	return o
-}
-
-func (o NetworkAccessControlPtrOutput) ToNetworkAccessControlPtrOutputWithContext(ctx context.Context) NetworkAccessControlPtrOutput {
-	return o
-}
-
-func (o NetworkAccessControlPtrOutput) Elem() NetworkAccessControlOutput {
-	return o.ApplyT(func(v *NetworkAccessControl) NetworkAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkAccessControl
-		return ret
-	}).(NetworkAccessControlOutput)
-}
-
-func (o NetworkAccessControlPtrOutput) Consumption() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
-		if v == nil {
-			return nil
-		}
-		return v.Consumption
-	}).(GroupLevelAccessControlPtrOutput)
-}
-
-func (o NetworkAccessControlPtrOutput) Ingestion() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
-		if v == nil {
-			return nil
-		}
-		return v.Ingestion
-	}).(GroupLevelAccessControlPtrOutput)
-}
-
-func (o NetworkAccessControlPtrOutput) Integration() GroupLevelAccessControlPtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControl) *GroupLevelAccessControl {
-		if v == nil {
-			return nil
-		}
-		return v.Integration
-	}).(GroupLevelAccessControlPtrOutput)
-}
-
-type NetworkAccessControlResponse struct {
-	Consumption *GroupLevelAccessControlResponse `pulumi:"consumption"`
-	Ingestion   *GroupLevelAccessControlResponse `pulumi:"ingestion"`
-	Integration *GroupLevelAccessControlResponse `pulumi:"integration"`
-}
-
-// NetworkAccessControlResponseInput is an input type that accepts NetworkAccessControlResponseArgs and NetworkAccessControlResponseOutput values.
-// You can construct a concrete instance of `NetworkAccessControlResponseInput` via:
-//
-//          NetworkAccessControlResponseArgs{...}
-type NetworkAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlResponseOutput() NetworkAccessControlResponseOutput
-	ToNetworkAccessControlResponseOutputWithContext(context.Context) NetworkAccessControlResponseOutput
-}
-
-type NetworkAccessControlResponseArgs struct {
-	Consumption GroupLevelAccessControlResponsePtrInput `pulumi:"consumption"`
-	Ingestion   GroupLevelAccessControlResponsePtrInput `pulumi:"ingestion"`
-	Integration GroupLevelAccessControlResponsePtrInput `pulumi:"integration"`
-}
-
-func (NetworkAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlResponse)(nil)).Elem()
-}
-
-func (i NetworkAccessControlResponseArgs) ToNetworkAccessControlResponseOutput() NetworkAccessControlResponseOutput {
-	return i.ToNetworkAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlResponseArgs) ToNetworkAccessControlResponseOutputWithContext(ctx context.Context) NetworkAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlResponseOutput)
-}
-
-func (i NetworkAccessControlResponseArgs) ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput {
-	return i.ToNetworkAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlResponseArgs) ToNetworkAccessControlResponsePtrOutputWithContext(ctx context.Context) NetworkAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlResponseOutput).ToNetworkAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-// NetworkAccessControlResponsePtrInput is an input type that accepts NetworkAccessControlResponseArgs, NetworkAccessControlResponsePtr and NetworkAccessControlResponsePtrOutput values.
-// You can construct a concrete instance of `NetworkAccessControlResponsePtrInput` via:
-//
-//          NetworkAccessControlResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput
-	ToNetworkAccessControlResponsePtrOutputWithContext(context.Context) NetworkAccessControlResponsePtrOutput
-}
-
-type networkAccessControlResponsePtrType NetworkAccessControlResponseArgs
-
-func NetworkAccessControlResponsePtr(v *NetworkAccessControlResponseArgs) NetworkAccessControlResponsePtrInput {
-	return (*networkAccessControlResponsePtrType)(v)
-}
-
-func (*networkAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkAccessControlResponse)(nil)).Elem()
-}
-
-func (i *networkAccessControlResponsePtrType) ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput {
-	return i.ToNetworkAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *networkAccessControlResponsePtrType) ToNetworkAccessControlResponsePtrOutputWithContext(ctx context.Context) NetworkAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlResponsePtrOutput)
-}
-
-type NetworkAccessControlResponseOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlResponse)(nil)).Elem()
-}
-
-func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponseOutput() NetworkAccessControlResponseOutput {
-	return o
-}
-
-func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponseOutputWithContext(ctx context.Context) NetworkAccessControlResponseOutput {
-	return o
-}
-
-func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput {
-	return o.ToNetworkAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkAccessControlResponseOutput) ToNetworkAccessControlResponsePtrOutputWithContext(ctx context.Context) NetworkAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAccessControlResponse) *NetworkAccessControlResponse {
-		return &v
-	}).(NetworkAccessControlResponsePtrOutput)
-}
-
-func (o NetworkAccessControlResponseOutput) Consumption() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Consumption }).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-func (o NetworkAccessControlResponseOutput) Ingestion() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Ingestion }).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-func (o NetworkAccessControlResponseOutput) Integration() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlResponse) *GroupLevelAccessControlResponse { return v.Integration }).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-type NetworkAccessControlResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkAccessControlResponse)(nil)).Elem()
-}
-
-func (o NetworkAccessControlResponsePtrOutput) ToNetworkAccessControlResponsePtrOutput() NetworkAccessControlResponsePtrOutput {
-	return o
-}
-
-func (o NetworkAccessControlResponsePtrOutput) ToNetworkAccessControlResponsePtrOutputWithContext(ctx context.Context) NetworkAccessControlResponsePtrOutput {
-	return o
-}
-
-func (o NetworkAccessControlResponsePtrOutput) Elem() NetworkAccessControlResponseOutput {
-	return o.ApplyT(func(v *NetworkAccessControlResponse) NetworkAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkAccessControlResponse
-		return ret
-	}).(NetworkAccessControlResponseOutput)
-}
-
-func (o NetworkAccessControlResponsePtrOutput) Consumption() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Consumption
-	}).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-func (o NetworkAccessControlResponsePtrOutput) Ingestion() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Ingestion
-	}).(GroupLevelAccessControlResponsePtrOutput)
-}
-
-func (o NetworkAccessControlResponsePtrOutput) Integration() GroupLevelAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v *NetworkAccessControlResponse) *GroupLevelAccessControlResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Integration
-	}).(GroupLevelAccessControlResponsePtrOutput)
 }
 
 type NodeInput struct {
@@ -3868,138 +3070,6 @@ func (o PipelineJobErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 		}
 		return v.Message
 	}).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointConnectionResponse struct {
-	Id                                string                                    `pulumi:"id"`
-	Name                              string                                    `pulumi:"name"`
-	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	ProvisioningState                 string                                    `pulumi:"provisioningState"`
-	SystemData                        SystemDataResponse                        `pulumi:"systemData"`
-	Type                              string                                    `pulumi:"type"`
-}
-
-// PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionResponseInput` via:
-//
-//          PrivateEndpointConnectionResponseArgs{...}
-type PrivateEndpointConnectionResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput
-	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
-}
-
-type PrivateEndpointConnectionResponseArgs struct {
-	Id                                pulumi.StringInput                             `pulumi:"id"`
-	Name                              pulumi.StringInput                             `pulumi:"name"`
-	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
-	SystemData                        SystemDataResponseInput                        `pulumi:"systemData"`
-	Type                              pulumi.StringInput                             `pulumi:"type"`
-}
-
-func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
-	return i.ToPrivateEndpointConnectionResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseOutput)
-}
-
-// PrivateEndpointConnectionResponseArrayInput is an input type that accepts PrivateEndpointConnectionResponseArray and PrivateEndpointConnectionResponseArrayOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionResponseArrayInput` via:
-//
-//          PrivateEndpointConnectionResponseArray{ PrivateEndpointConnectionResponseArgs{...} }
-type PrivateEndpointConnectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput
-	ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionResponseArrayOutput
-}
-
-type PrivateEndpointConnectionResponseArray []PrivateEndpointConnectionResponseInput
-
-func (PrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
-	return i.ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
-}
-
-type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
-func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
-		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
-	}).(PrivateEndpointConnectionResponseOutput)
 }
 
 type PrivateEndpointResponse struct {
@@ -5615,7 +4685,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type StorageAccount struct {
-	Id       string            `pulumi:"id"`
+	Id       *string           `pulumi:"id"`
 	Identity *ResourceIdentity `pulumi:"identity"`
 }
 
@@ -5631,7 +4701,7 @@ type StorageAccountInput interface {
 }
 
 type StorageAccountArgs struct {
-	Id       pulumi.StringInput       `pulumi:"id"`
+	Id       pulumi.StringPtrInput    `pulumi:"id"`
 	Identity ResourceIdentityPtrInput `pulumi:"identity"`
 }
 
@@ -5686,8 +4756,8 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o StorageAccountOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
+func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o StorageAccountOutput) Identity() ResourceIdentityPtrOutput {
@@ -5715,7 +4785,7 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 }
 
 type StorageAccountResponse struct {
-	Id       string                    `pulumi:"id"`
+	Id       *string                   `pulumi:"id"`
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	Status   string                    `pulumi:"status"`
 }
@@ -5732,7 +4802,7 @@ type StorageAccountResponseInput interface {
 }
 
 type StorageAccountResponseArgs struct {
-	Id       pulumi.StringInput               `pulumi:"id"`
+	Id       pulumi.StringPtrInput            `pulumi:"id"`
 	Identity ResourceIdentityResponsePtrInput `pulumi:"identity"`
 	Status   pulumi.StringInput               `pulumi:"status"`
 }
@@ -5788,8 +4858,8 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 	return o
 }
 
-func (o StorageAccountResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o StorageAccountResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
@@ -7540,450 +6610,6 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) UserAssignedIdentities() UserAss
 	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-type VideoArchival struct {
-	RetentionPeriod *string `pulumi:"retentionPeriod"`
-}
-
-// VideoArchivalInput is an input type that accepts VideoArchivalArgs and VideoArchivalOutput values.
-// You can construct a concrete instance of `VideoArchivalInput` via:
-//
-//          VideoArchivalArgs{...}
-type VideoArchivalInput interface {
-	pulumi.Input
-
-	ToVideoArchivalOutput() VideoArchivalOutput
-	ToVideoArchivalOutputWithContext(context.Context) VideoArchivalOutput
-}
-
-type VideoArchivalArgs struct {
-	RetentionPeriod pulumi.StringPtrInput `pulumi:"retentionPeriod"`
-}
-
-func (VideoArchivalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoArchival)(nil)).Elem()
-}
-
-func (i VideoArchivalArgs) ToVideoArchivalOutput() VideoArchivalOutput {
-	return i.ToVideoArchivalOutputWithContext(context.Background())
-}
-
-func (i VideoArchivalArgs) ToVideoArchivalOutputWithContext(ctx context.Context) VideoArchivalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalOutput)
-}
-
-func (i VideoArchivalArgs) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
-	return i.ToVideoArchivalPtrOutputWithContext(context.Background())
-}
-
-func (i VideoArchivalArgs) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalOutput).ToVideoArchivalPtrOutputWithContext(ctx)
-}
-
-// VideoArchivalPtrInput is an input type that accepts VideoArchivalArgs, VideoArchivalPtr and VideoArchivalPtrOutput values.
-// You can construct a concrete instance of `VideoArchivalPtrInput` via:
-//
-//          VideoArchivalArgs{...}
-//
-//  or:
-//
-//          nil
-type VideoArchivalPtrInput interface {
-	pulumi.Input
-
-	ToVideoArchivalPtrOutput() VideoArchivalPtrOutput
-	ToVideoArchivalPtrOutputWithContext(context.Context) VideoArchivalPtrOutput
-}
-
-type videoArchivalPtrType VideoArchivalArgs
-
-func VideoArchivalPtr(v *VideoArchivalArgs) VideoArchivalPtrInput {
-	return (*videoArchivalPtrType)(v)
-}
-
-func (*videoArchivalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoArchival)(nil)).Elem()
-}
-
-func (i *videoArchivalPtrType) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
-	return i.ToVideoArchivalPtrOutputWithContext(context.Background())
-}
-
-func (i *videoArchivalPtrType) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalPtrOutput)
-}
-
-type VideoArchivalOutput struct{ *pulumi.OutputState }
-
-func (VideoArchivalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoArchival)(nil)).Elem()
-}
-
-func (o VideoArchivalOutput) ToVideoArchivalOutput() VideoArchivalOutput {
-	return o
-}
-
-func (o VideoArchivalOutput) ToVideoArchivalOutputWithContext(ctx context.Context) VideoArchivalOutput {
-	return o
-}
-
-func (o VideoArchivalOutput) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
-	return o.ToVideoArchivalPtrOutputWithContext(context.Background())
-}
-
-func (o VideoArchivalOutput) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoArchival) *VideoArchival {
-		return &v
-	}).(VideoArchivalPtrOutput)
-}
-
-func (o VideoArchivalOutput) RetentionPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoArchival) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
-}
-
-type VideoArchivalPtrOutput struct{ *pulumi.OutputState }
-
-func (VideoArchivalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoArchival)(nil)).Elem()
-}
-
-func (o VideoArchivalPtrOutput) ToVideoArchivalPtrOutput() VideoArchivalPtrOutput {
-	return o
-}
-
-func (o VideoArchivalPtrOutput) ToVideoArchivalPtrOutputWithContext(ctx context.Context) VideoArchivalPtrOutput {
-	return o
-}
-
-func (o VideoArchivalPtrOutput) Elem() VideoArchivalOutput {
-	return o.ApplyT(func(v *VideoArchival) VideoArchival {
-		if v != nil {
-			return *v
-		}
-		var ret VideoArchival
-		return ret
-	}).(VideoArchivalOutput)
-}
-
-func (o VideoArchivalPtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoArchival) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RetentionPeriod
-	}).(pulumi.StringPtrOutput)
-}
-
-type VideoArchivalResponse struct {
-	RetentionPeriod *string `pulumi:"retentionPeriod"`
-}
-
-// VideoArchivalResponseInput is an input type that accepts VideoArchivalResponseArgs and VideoArchivalResponseOutput values.
-// You can construct a concrete instance of `VideoArchivalResponseInput` via:
-//
-//          VideoArchivalResponseArgs{...}
-type VideoArchivalResponseInput interface {
-	pulumi.Input
-
-	ToVideoArchivalResponseOutput() VideoArchivalResponseOutput
-	ToVideoArchivalResponseOutputWithContext(context.Context) VideoArchivalResponseOutput
-}
-
-type VideoArchivalResponseArgs struct {
-	RetentionPeriod pulumi.StringPtrInput `pulumi:"retentionPeriod"`
-}
-
-func (VideoArchivalResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoArchivalResponse)(nil)).Elem()
-}
-
-func (i VideoArchivalResponseArgs) ToVideoArchivalResponseOutput() VideoArchivalResponseOutput {
-	return i.ToVideoArchivalResponseOutputWithContext(context.Background())
-}
-
-func (i VideoArchivalResponseArgs) ToVideoArchivalResponseOutputWithContext(ctx context.Context) VideoArchivalResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalResponseOutput)
-}
-
-func (i VideoArchivalResponseArgs) ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput {
-	return i.ToVideoArchivalResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VideoArchivalResponseArgs) ToVideoArchivalResponsePtrOutputWithContext(ctx context.Context) VideoArchivalResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalResponseOutput).ToVideoArchivalResponsePtrOutputWithContext(ctx)
-}
-
-// VideoArchivalResponsePtrInput is an input type that accepts VideoArchivalResponseArgs, VideoArchivalResponsePtr and VideoArchivalResponsePtrOutput values.
-// You can construct a concrete instance of `VideoArchivalResponsePtrInput` via:
-//
-//          VideoArchivalResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VideoArchivalResponsePtrInput interface {
-	pulumi.Input
-
-	ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput
-	ToVideoArchivalResponsePtrOutputWithContext(context.Context) VideoArchivalResponsePtrOutput
-}
-
-type videoArchivalResponsePtrType VideoArchivalResponseArgs
-
-func VideoArchivalResponsePtr(v *VideoArchivalResponseArgs) VideoArchivalResponsePtrInput {
-	return (*videoArchivalResponsePtrType)(v)
-}
-
-func (*videoArchivalResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoArchivalResponse)(nil)).Elem()
-}
-
-func (i *videoArchivalResponsePtrType) ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput {
-	return i.ToVideoArchivalResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *videoArchivalResponsePtrType) ToVideoArchivalResponsePtrOutputWithContext(ctx context.Context) VideoArchivalResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoArchivalResponsePtrOutput)
-}
-
-type VideoArchivalResponseOutput struct{ *pulumi.OutputState }
-
-func (VideoArchivalResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoArchivalResponse)(nil)).Elem()
-}
-
-func (o VideoArchivalResponseOutput) ToVideoArchivalResponseOutput() VideoArchivalResponseOutput {
-	return o
-}
-
-func (o VideoArchivalResponseOutput) ToVideoArchivalResponseOutputWithContext(ctx context.Context) VideoArchivalResponseOutput {
-	return o
-}
-
-func (o VideoArchivalResponseOutput) ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput {
-	return o.ToVideoArchivalResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VideoArchivalResponseOutput) ToVideoArchivalResponsePtrOutputWithContext(ctx context.Context) VideoArchivalResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoArchivalResponse) *VideoArchivalResponse {
-		return &v
-	}).(VideoArchivalResponsePtrOutput)
-}
-
-func (o VideoArchivalResponseOutput) RetentionPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoArchivalResponse) *string { return v.RetentionPeriod }).(pulumi.StringPtrOutput)
-}
-
-type VideoArchivalResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VideoArchivalResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoArchivalResponse)(nil)).Elem()
-}
-
-func (o VideoArchivalResponsePtrOutput) ToVideoArchivalResponsePtrOutput() VideoArchivalResponsePtrOutput {
-	return o
-}
-
-func (o VideoArchivalResponsePtrOutput) ToVideoArchivalResponsePtrOutputWithContext(ctx context.Context) VideoArchivalResponsePtrOutput {
-	return o
-}
-
-func (o VideoArchivalResponsePtrOutput) Elem() VideoArchivalResponseOutput {
-	return o.ApplyT(func(v *VideoArchivalResponse) VideoArchivalResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoArchivalResponse
-		return ret
-	}).(VideoArchivalResponseOutput)
-}
-
-func (o VideoArchivalResponsePtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoArchivalResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RetentionPeriod
-	}).(pulumi.StringPtrOutput)
-}
-
-type VideoContentUrlsResponse struct {
-	ArchiveBaseUrl   *string                        `pulumi:"archiveBaseUrl"`
-	DownloadUrl      *string                        `pulumi:"downloadUrl"`
-	PreviewImageUrls *VideoPreviewImageUrlsResponse `pulumi:"previewImageUrls"`
-	RtspTunnelUrl    *string                        `pulumi:"rtspTunnelUrl"`
-}
-
-// VideoContentUrlsResponseInput is an input type that accepts VideoContentUrlsResponseArgs and VideoContentUrlsResponseOutput values.
-// You can construct a concrete instance of `VideoContentUrlsResponseInput` via:
-//
-//          VideoContentUrlsResponseArgs{...}
-type VideoContentUrlsResponseInput interface {
-	pulumi.Input
-
-	ToVideoContentUrlsResponseOutput() VideoContentUrlsResponseOutput
-	ToVideoContentUrlsResponseOutputWithContext(context.Context) VideoContentUrlsResponseOutput
-}
-
-type VideoContentUrlsResponseArgs struct {
-	ArchiveBaseUrl   pulumi.StringPtrInput                 `pulumi:"archiveBaseUrl"`
-	DownloadUrl      pulumi.StringPtrInput                 `pulumi:"downloadUrl"`
-	PreviewImageUrls VideoPreviewImageUrlsResponsePtrInput `pulumi:"previewImageUrls"`
-	RtspTunnelUrl    pulumi.StringPtrInput                 `pulumi:"rtspTunnelUrl"`
-}
-
-func (VideoContentUrlsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoContentUrlsResponse)(nil)).Elem()
-}
-
-func (i VideoContentUrlsResponseArgs) ToVideoContentUrlsResponseOutput() VideoContentUrlsResponseOutput {
-	return i.ToVideoContentUrlsResponseOutputWithContext(context.Background())
-}
-
-func (i VideoContentUrlsResponseArgs) ToVideoContentUrlsResponseOutputWithContext(ctx context.Context) VideoContentUrlsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoContentUrlsResponseOutput)
-}
-
-func (i VideoContentUrlsResponseArgs) ToVideoContentUrlsResponsePtrOutput() VideoContentUrlsResponsePtrOutput {
-	return i.ToVideoContentUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VideoContentUrlsResponseArgs) ToVideoContentUrlsResponsePtrOutputWithContext(ctx context.Context) VideoContentUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoContentUrlsResponseOutput).ToVideoContentUrlsResponsePtrOutputWithContext(ctx)
-}
-
-// VideoContentUrlsResponsePtrInput is an input type that accepts VideoContentUrlsResponseArgs, VideoContentUrlsResponsePtr and VideoContentUrlsResponsePtrOutput values.
-// You can construct a concrete instance of `VideoContentUrlsResponsePtrInput` via:
-//
-//          VideoContentUrlsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VideoContentUrlsResponsePtrInput interface {
-	pulumi.Input
-
-	ToVideoContentUrlsResponsePtrOutput() VideoContentUrlsResponsePtrOutput
-	ToVideoContentUrlsResponsePtrOutputWithContext(context.Context) VideoContentUrlsResponsePtrOutput
-}
-
-type videoContentUrlsResponsePtrType VideoContentUrlsResponseArgs
-
-func VideoContentUrlsResponsePtr(v *VideoContentUrlsResponseArgs) VideoContentUrlsResponsePtrInput {
-	return (*videoContentUrlsResponsePtrType)(v)
-}
-
-func (*videoContentUrlsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoContentUrlsResponse)(nil)).Elem()
-}
-
-func (i *videoContentUrlsResponsePtrType) ToVideoContentUrlsResponsePtrOutput() VideoContentUrlsResponsePtrOutput {
-	return i.ToVideoContentUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *videoContentUrlsResponsePtrType) ToVideoContentUrlsResponsePtrOutputWithContext(ctx context.Context) VideoContentUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoContentUrlsResponsePtrOutput)
-}
-
-type VideoContentUrlsResponseOutput struct{ *pulumi.OutputState }
-
-func (VideoContentUrlsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoContentUrlsResponse)(nil)).Elem()
-}
-
-func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponseOutput() VideoContentUrlsResponseOutput {
-	return o
-}
-
-func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponseOutputWithContext(ctx context.Context) VideoContentUrlsResponseOutput {
-	return o
-}
-
-func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponsePtrOutput() VideoContentUrlsResponsePtrOutput {
-	return o.ToVideoContentUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VideoContentUrlsResponseOutput) ToVideoContentUrlsResponsePtrOutputWithContext(ctx context.Context) VideoContentUrlsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoContentUrlsResponse) *VideoContentUrlsResponse {
-		return &v
-	}).(VideoContentUrlsResponsePtrOutput)
-}
-
-func (o VideoContentUrlsResponseOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.ArchiveBaseUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o VideoContentUrlsResponseOutput) DownloadUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.DownloadUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o VideoContentUrlsResponseOutput) PreviewImageUrls() VideoPreviewImageUrlsResponsePtrOutput {
-	return o.ApplyT(func(v VideoContentUrlsResponse) *VideoPreviewImageUrlsResponse { return v.PreviewImageUrls }).(VideoPreviewImageUrlsResponsePtrOutput)
-}
-
-func (o VideoContentUrlsResponseOutput) RtspTunnelUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoContentUrlsResponse) *string { return v.RtspTunnelUrl }).(pulumi.StringPtrOutput)
-}
-
-type VideoContentUrlsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VideoContentUrlsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoContentUrlsResponse)(nil)).Elem()
-}
-
-func (o VideoContentUrlsResponsePtrOutput) ToVideoContentUrlsResponsePtrOutput() VideoContentUrlsResponsePtrOutput {
-	return o
-}
-
-func (o VideoContentUrlsResponsePtrOutput) ToVideoContentUrlsResponsePtrOutputWithContext(ctx context.Context) VideoContentUrlsResponsePtrOutput {
-	return o
-}
-
-func (o VideoContentUrlsResponsePtrOutput) Elem() VideoContentUrlsResponseOutput {
-	return o.ApplyT(func(v *VideoContentUrlsResponse) VideoContentUrlsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoContentUrlsResponse
-		return ret
-	}).(VideoContentUrlsResponseOutput)
-}
-
-func (o VideoContentUrlsResponsePtrOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoContentUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArchiveBaseUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VideoContentUrlsResponsePtrOutput) DownloadUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoContentUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DownloadUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VideoContentUrlsResponsePtrOutput) PreviewImageUrls() VideoPreviewImageUrlsResponsePtrOutput {
-	return o.ApplyT(func(v *VideoContentUrlsResponse) *VideoPreviewImageUrlsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PreviewImageUrls
-	}).(VideoPreviewImageUrlsResponsePtrOutput)
-}
-
-func (o VideoContentUrlsResponsePtrOutput) RtspTunnelUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoContentUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RtspTunnelUrl
-	}).(pulumi.StringPtrOutput)
-}
-
 type VideoCreationProperties struct {
 	Description     *string `pulumi:"description"`
 	RetentionPeriod *string `pulumi:"retentionPeriod"`
@@ -8697,9 +7323,9 @@ func (o VideoEncoderH264ResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type VideoFlagsResponse struct {
-	CanStream bool `pulumi:"canStream"`
-	HasData   bool `pulumi:"hasData"`
-	IsInUse   bool `pulumi:"isInUse"`
+	CanStream   bool `pulumi:"canStream"`
+	HasData     bool `pulumi:"hasData"`
+	IsRecording bool `pulumi:"isRecording"`
 }
 
 // VideoFlagsResponseInput is an input type that accepts VideoFlagsResponseArgs and VideoFlagsResponseOutput values.
@@ -8714,9 +7340,9 @@ type VideoFlagsResponseInput interface {
 }
 
 type VideoFlagsResponseArgs struct {
-	CanStream pulumi.BoolInput `pulumi:"canStream"`
-	HasData   pulumi.BoolInput `pulumi:"hasData"`
-	IsInUse   pulumi.BoolInput `pulumi:"isInUse"`
+	CanStream   pulumi.BoolInput `pulumi:"canStream"`
+	HasData     pulumi.BoolInput `pulumi:"hasData"`
+	IsRecording pulumi.BoolInput `pulumi:"isRecording"`
 }
 
 func (VideoFlagsResponseArgs) ElementType() reflect.Type {
@@ -8804,8 +7430,8 @@ func (o VideoFlagsResponseOutput) HasData() pulumi.BoolOutput {
 	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.HasData }).(pulumi.BoolOutput)
 }
 
-func (o VideoFlagsResponseOutput) IsInUse() pulumi.BoolOutput {
-	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.IsInUse }).(pulumi.BoolOutput)
+func (o VideoFlagsResponseOutput) IsRecording() pulumi.BoolOutput {
+	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.IsRecording }).(pulumi.BoolOutput)
 }
 
 type VideoFlagsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8850,12 +7476,12 @@ func (o VideoFlagsResponsePtrOutput) HasData() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o VideoFlagsResponsePtrOutput) IsInUse() pulumi.BoolPtrOutput {
+func (o VideoFlagsResponsePtrOutput) IsRecording() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VideoFlagsResponse) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.IsInUse
+		return &v.IsRecording
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -8989,169 +7615,6 @@ func (o VideoMediaInfoResponsePtrOutput) SegmentLength() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.SegmentLength
-	}).(pulumi.StringPtrOutput)
-}
-
-type VideoPreviewImageUrlsResponse struct {
-	Large  *string `pulumi:"large"`
-	Medium *string `pulumi:"medium"`
-	Small  *string `pulumi:"small"`
-}
-
-// VideoPreviewImageUrlsResponseInput is an input type that accepts VideoPreviewImageUrlsResponseArgs and VideoPreviewImageUrlsResponseOutput values.
-// You can construct a concrete instance of `VideoPreviewImageUrlsResponseInput` via:
-//
-//          VideoPreviewImageUrlsResponseArgs{...}
-type VideoPreviewImageUrlsResponseInput interface {
-	pulumi.Input
-
-	ToVideoPreviewImageUrlsResponseOutput() VideoPreviewImageUrlsResponseOutput
-	ToVideoPreviewImageUrlsResponseOutputWithContext(context.Context) VideoPreviewImageUrlsResponseOutput
-}
-
-type VideoPreviewImageUrlsResponseArgs struct {
-	Large  pulumi.StringPtrInput `pulumi:"large"`
-	Medium pulumi.StringPtrInput `pulumi:"medium"`
-	Small  pulumi.StringPtrInput `pulumi:"small"`
-}
-
-func (VideoPreviewImageUrlsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoPreviewImageUrlsResponse)(nil)).Elem()
-}
-
-func (i VideoPreviewImageUrlsResponseArgs) ToVideoPreviewImageUrlsResponseOutput() VideoPreviewImageUrlsResponseOutput {
-	return i.ToVideoPreviewImageUrlsResponseOutputWithContext(context.Background())
-}
-
-func (i VideoPreviewImageUrlsResponseArgs) ToVideoPreviewImageUrlsResponseOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoPreviewImageUrlsResponseOutput)
-}
-
-func (i VideoPreviewImageUrlsResponseArgs) ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput {
-	return i.ToVideoPreviewImageUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VideoPreviewImageUrlsResponseArgs) ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoPreviewImageUrlsResponseOutput).ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx)
-}
-
-// VideoPreviewImageUrlsResponsePtrInput is an input type that accepts VideoPreviewImageUrlsResponseArgs, VideoPreviewImageUrlsResponsePtr and VideoPreviewImageUrlsResponsePtrOutput values.
-// You can construct a concrete instance of `VideoPreviewImageUrlsResponsePtrInput` via:
-//
-//          VideoPreviewImageUrlsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VideoPreviewImageUrlsResponsePtrInput interface {
-	pulumi.Input
-
-	ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput
-	ToVideoPreviewImageUrlsResponsePtrOutputWithContext(context.Context) VideoPreviewImageUrlsResponsePtrOutput
-}
-
-type videoPreviewImageUrlsResponsePtrType VideoPreviewImageUrlsResponseArgs
-
-func VideoPreviewImageUrlsResponsePtr(v *VideoPreviewImageUrlsResponseArgs) VideoPreviewImageUrlsResponsePtrInput {
-	return (*videoPreviewImageUrlsResponsePtrType)(v)
-}
-
-func (*videoPreviewImageUrlsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoPreviewImageUrlsResponse)(nil)).Elem()
-}
-
-func (i *videoPreviewImageUrlsResponsePtrType) ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput {
-	return i.ToVideoPreviewImageUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *videoPreviewImageUrlsResponsePtrType) ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VideoPreviewImageUrlsResponsePtrOutput)
-}
-
-type VideoPreviewImageUrlsResponseOutput struct{ *pulumi.OutputState }
-
-func (VideoPreviewImageUrlsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoPreviewImageUrlsResponse)(nil)).Elem()
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponseOutput() VideoPreviewImageUrlsResponseOutput {
-	return o
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponseOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponseOutput {
-	return o
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput {
-	return o.ToVideoPreviewImageUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoPreviewImageUrlsResponse) *VideoPreviewImageUrlsResponse {
-		return &v
-	}).(VideoPreviewImageUrlsResponsePtrOutput)
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) Large() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Large }).(pulumi.StringPtrOutput)
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Medium }).(pulumi.StringPtrOutput)
-}
-
-func (o VideoPreviewImageUrlsResponseOutput) Small() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoPreviewImageUrlsResponse) *string { return v.Small }).(pulumi.StringPtrOutput)
-}
-
-type VideoPreviewImageUrlsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VideoPreviewImageUrlsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VideoPreviewImageUrlsResponse)(nil)).Elem()
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) ToVideoPreviewImageUrlsResponsePtrOutput() VideoPreviewImageUrlsResponsePtrOutput {
-	return o
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) ToVideoPreviewImageUrlsResponsePtrOutputWithContext(ctx context.Context) VideoPreviewImageUrlsResponsePtrOutput {
-	return o
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) Elem() VideoPreviewImageUrlsResponseOutput {
-	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) VideoPreviewImageUrlsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoPreviewImageUrlsResponse
-		return ret
-	}).(VideoPreviewImageUrlsResponseOutput)
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) Large() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Large
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Medium
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VideoPreviewImageUrlsResponsePtrOutput) Small() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoPreviewImageUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Small
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10299,6 +8762,139 @@ func (o VideoSourceResponseOutput) VideoName() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoSourceResponse) string { return v.VideoName }).(pulumi.StringOutput)
 }
 
+type VideoStreamingResponse struct {
+	ArchiveBaseUrl *string `pulumi:"archiveBaseUrl"`
+}
+
+// VideoStreamingResponseInput is an input type that accepts VideoStreamingResponseArgs and VideoStreamingResponseOutput values.
+// You can construct a concrete instance of `VideoStreamingResponseInput` via:
+//
+//          VideoStreamingResponseArgs{...}
+type VideoStreamingResponseInput interface {
+	pulumi.Input
+
+	ToVideoStreamingResponseOutput() VideoStreamingResponseOutput
+	ToVideoStreamingResponseOutputWithContext(context.Context) VideoStreamingResponseOutput
+}
+
+type VideoStreamingResponseArgs struct {
+	ArchiveBaseUrl pulumi.StringPtrInput `pulumi:"archiveBaseUrl"`
+}
+
+func (VideoStreamingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoStreamingResponse)(nil)).Elem()
+}
+
+func (i VideoStreamingResponseArgs) ToVideoStreamingResponseOutput() VideoStreamingResponseOutput {
+	return i.ToVideoStreamingResponseOutputWithContext(context.Background())
+}
+
+func (i VideoStreamingResponseArgs) ToVideoStreamingResponseOutputWithContext(ctx context.Context) VideoStreamingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamingResponseOutput)
+}
+
+func (i VideoStreamingResponseArgs) ToVideoStreamingResponsePtrOutput() VideoStreamingResponsePtrOutput {
+	return i.ToVideoStreamingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VideoStreamingResponseArgs) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamingResponseOutput).ToVideoStreamingResponsePtrOutputWithContext(ctx)
+}
+
+// VideoStreamingResponsePtrInput is an input type that accepts VideoStreamingResponseArgs, VideoStreamingResponsePtr and VideoStreamingResponsePtrOutput values.
+// You can construct a concrete instance of `VideoStreamingResponsePtrInput` via:
+//
+//          VideoStreamingResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VideoStreamingResponsePtrInput interface {
+	pulumi.Input
+
+	ToVideoStreamingResponsePtrOutput() VideoStreamingResponsePtrOutput
+	ToVideoStreamingResponsePtrOutputWithContext(context.Context) VideoStreamingResponsePtrOutput
+}
+
+type videoStreamingResponsePtrType VideoStreamingResponseArgs
+
+func VideoStreamingResponsePtr(v *VideoStreamingResponseArgs) VideoStreamingResponsePtrInput {
+	return (*videoStreamingResponsePtrType)(v)
+}
+
+func (*videoStreamingResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoStreamingResponse)(nil)).Elem()
+}
+
+func (i *videoStreamingResponsePtrType) ToVideoStreamingResponsePtrOutput() VideoStreamingResponsePtrOutput {
+	return i.ToVideoStreamingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *videoStreamingResponsePtrType) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamingResponsePtrOutput)
+}
+
+type VideoStreamingResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoStreamingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoStreamingResponse)(nil)).Elem()
+}
+
+func (o VideoStreamingResponseOutput) ToVideoStreamingResponseOutput() VideoStreamingResponseOutput {
+	return o
+}
+
+func (o VideoStreamingResponseOutput) ToVideoStreamingResponseOutputWithContext(ctx context.Context) VideoStreamingResponseOutput {
+	return o
+}
+
+func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutput() VideoStreamingResponsePtrOutput {
+	return o.ToVideoStreamingResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoStreamingResponse) *VideoStreamingResponse {
+		return &v
+	}).(VideoStreamingResponsePtrOutput)
+}
+
+func (o VideoStreamingResponseOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoStreamingResponse) *string { return v.ArchiveBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+type VideoStreamingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VideoStreamingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoStreamingResponse)(nil)).Elem()
+}
+
+func (o VideoStreamingResponsePtrOutput) ToVideoStreamingResponsePtrOutput() VideoStreamingResponsePtrOutput {
+	return o
+}
+
+func (o VideoStreamingResponsePtrOutput) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
+	return o
+}
+
+func (o VideoStreamingResponsePtrOutput) Elem() VideoStreamingResponseOutput {
+	return o.ApplyT(func(v *VideoStreamingResponse) VideoStreamingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoStreamingResponse
+		return ret
+	}).(VideoStreamingResponseOutput)
+}
+
+func (o VideoStreamingResponsePtrOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoStreamingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
@@ -10320,14 +8916,6 @@ func init() {
 	pulumi.RegisterOutputType(EncoderSystemPresetResponseOutput{})
 	pulumi.RegisterOutputType(EndpointResponseOutput{})
 	pulumi.RegisterOutputType(EndpointResponseArrayOutput{})
-	pulumi.RegisterOutputType(GroupLevelAccessControlOutput{})
-	pulumi.RegisterOutputType(GroupLevelAccessControlPtrOutput{})
-	pulumi.RegisterOutputType(GroupLevelAccessControlResponseOutput{})
-	pulumi.RegisterOutputType(GroupLevelAccessControlResponsePtrOutput{})
-	pulumi.RegisterOutputType(IotHubOutput{})
-	pulumi.RegisterOutputType(IotHubArrayOutput{})
-	pulumi.RegisterOutputType(IotHubResponseOutput{})
-	pulumi.RegisterOutputType(IotHubResponseArrayOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(JwtAuthenticationResponseOutput{})
@@ -10336,10 +8924,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlPtrOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlResponseOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(NodeInputOutput{})
 	pulumi.RegisterOutputType(NodeInputArrayOutput{})
 	pulumi.RegisterOutputType(NodeInputResponseOutput{})
@@ -10358,8 +8942,6 @@ func init() {
 	pulumi.RegisterOutputType(PemCertificateListResponsePtrOutput{})
 	pulumi.RegisterOutputType(PipelineJobErrorResponseOutput{})
 	pulumi.RegisterOutputType(PipelineJobErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
@@ -10410,12 +8992,6 @@ func init() {
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityResponseOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(VideoArchivalOutput{})
-	pulumi.RegisterOutputType(VideoArchivalPtrOutput{})
-	pulumi.RegisterOutputType(VideoArchivalResponseOutput{})
-	pulumi.RegisterOutputType(VideoArchivalResponsePtrOutput{})
-	pulumi.RegisterOutputType(VideoContentUrlsResponseOutput{})
-	pulumi.RegisterOutputType(VideoContentUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VideoCreationPropertiesResponseOutput{})
@@ -10428,8 +9004,6 @@ func init() {
 	pulumi.RegisterOutputType(VideoFlagsResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoMediaInfoResponseOutput{})
 	pulumi.RegisterOutputType(VideoMediaInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(VideoPreviewImageUrlsResponseOutput{})
-	pulumi.RegisterOutputType(VideoPreviewImageUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VideoPublishingOptionsResponseOutput{})
@@ -10446,4 +9020,6 @@ func init() {
 	pulumi.RegisterOutputType(VideoSinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(VideoSourceOutput{})
 	pulumi.RegisterOutputType(VideoSourceResponseOutput{})
+	pulumi.RegisterOutputType(VideoStreamingResponseOutput{})
+	pulumi.RegisterOutputType(VideoStreamingResponsePtrOutput{})
 }

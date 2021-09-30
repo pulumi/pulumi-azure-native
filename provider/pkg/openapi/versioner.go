@@ -148,6 +148,7 @@ var cutoffProviderVersions = map[string]string{
 	"storagesync":             "v20200301",
 	"storagepool":             "v20200315preview",
 	"synapse":                 "v20210301",
+	"videoanalyzer":           "v20210501preview",
 	"web":                     "v20201201",
 	"webpubsub":               "v20210401preview",
 }

@@ -16,47 +16,46 @@ __all__ = ['VideoAnalyzerArgs', 'VideoAnalyzer']
 @pulumi.input_type
 class VideoAnalyzerArgs:
     def __init__(__self__, *,
+                 encryption: pulumi.Input['AccountEncryptionArgs'],
                  resource_group_name: pulumi.Input[str],
                  storage_accounts: pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]],
                  account_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VideoAnalyzerIdentityArgs']] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input['NetworkAccessControlArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VideoAnalyzer resource.
+        :param pulumi.Input['AccountEncryptionArgs'] encryption: The account encryption properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[str] account_name: The Video Analyzer account name.
-        :param pulumi.Input['AccountEncryptionArgs'] encryption: The account encryption properties.
-        :param pulumi.Input['VideoAnalyzerIdentityArgs'] identity: The identities associated to the Video Analyzer resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IotHubArgs']]] iot_hubs: The IoT Hubs for this resource.
+        :param pulumi.Input['VideoAnalyzerIdentityArgs'] identity: The set of managed identities associated with the Video Analyzer resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['NetworkAccessControlArgs'] network_access_control: Network access control for Video Analyzer.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Video Analyzer account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "encryption", encryption)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_accounts", storage_accounts)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if iot_hubs is not None:
-            pulumi.set(__self__, "iot_hubs", iot_hubs)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if network_access_control is not None:
-            pulumi.set(__self__, "network_access_control", network_access_control)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Input['AccountEncryptionArgs']:
+        """
+        The account encryption properties.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: pulumi.Input['AccountEncryptionArgs']):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -96,39 +95,15 @@ class VideoAnalyzerArgs:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
-        """
-        The account encryption properties.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['VideoAnalyzerIdentityArgs']]:
         """
-        The identities associated to the Video Analyzer resource.
+        The set of managed identities associated with the Video Analyzer resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['VideoAnalyzerIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubArgs']]]]:
-        """
-        The IoT Hubs for this resource.
-        """
-        return pulumi.get(self, "iot_hubs")
-
-    @iot_hubs.setter
-    def iot_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubArgs']]]]):
-        pulumi.set(self, "iot_hubs", value)
 
     @property
     @pulumi.getter
@@ -141,30 +116,6 @@ class VideoAnalyzerArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['NetworkAccessControlArgs']]:
-        """
-        Network access control for Video Analyzer.
-        """
-        return pulumi.get(self, "network_access_control")
-
-    @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['NetworkAccessControlArgs']]):
-        pulumi.set(self, "network_access_control", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
-        """
-        Whether or not public network access is allowed for resources under the Video Analyzer account.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
-        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
@@ -187,27 +138,21 @@ class VideoAnalyzer(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VideoAnalyzerIdentityArgs']]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input[pulumi.InputType['NetworkAccessControlArgs']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The Video Analyzer account.
-        API Version: 2021-11-01-preview.
+        A Video Analyzer account.
+        API Version: 2021-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Video Analyzer account name.
         :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: The account encryption properties.
-        :param pulumi.Input[pulumi.InputType['VideoAnalyzerIdentityArgs']] identity: The identities associated to the Video Analyzer resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubArgs']]]] iot_hubs: The IoT Hubs for this resource.
+        :param pulumi.Input[pulumi.InputType['VideoAnalyzerIdentityArgs']] identity: The set of managed identities associated with the Video Analyzer resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NetworkAccessControlArgs']] network_access_control: Network access control for Video Analyzer.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Video Analyzer account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -219,8 +164,8 @@ class VideoAnalyzer(pulumi.CustomResource):
                  args: VideoAnalyzerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The Video Analyzer account.
-        API Version: 2021-11-01-preview.
+        A Video Analyzer account.
+        API Version: 2021-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VideoAnalyzerArgs args: The arguments to use to populate this resource's properties.
@@ -240,10 +185,7 @@ class VideoAnalyzer(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VideoAnalyzerIdentityArgs']]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input[pulumi.InputType['NetworkAccessControlArgs']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -260,12 +202,11 @@ class VideoAnalyzer(pulumi.CustomResource):
             __props__ = VideoAnalyzerArgs.__new__(VideoAnalyzerArgs)
 
             __props__.__dict__["account_name"] = account_name
+            if encryption is None and not opts.urn:
+                raise TypeError("Missing required property 'encryption'")
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["iot_hubs"] = iot_hubs
             __props__.__dict__["location"] = location
-            __props__.__dict__["network_access_control"] = network_access_control
-            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -275,8 +216,6 @@ class VideoAnalyzer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["private_endpoint_connections"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:videoanalyzer:VideoAnalyzer"), pulumi.Alias(type_="azure-native:videoanalyzer/v20210501preview:VideoAnalyzer"), pulumi.Alias(type_="azure-nextgen:videoanalyzer/v20210501preview:VideoAnalyzer"), pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:VideoAnalyzer"), pulumi.Alias(type_="azure-nextgen:videoanalyzer/v20211101preview:VideoAnalyzer")])
@@ -306,13 +245,8 @@ class VideoAnalyzer(pulumi.CustomResource):
         __props__.__dict__["encryption"] = None
         __props__.__dict__["endpoints"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["iot_hubs"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["network_access_control"] = None
-        __props__.__dict__["private_endpoint_connections"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["storage_accounts"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -321,7 +255,7 @@ class VideoAnalyzer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.AccountEncryptionResponse']]:
+    def encryption(self) -> pulumi.Output['outputs.AccountEncryptionResponse']:
         """
         The account encryption properties.
         """
@@ -331,7 +265,7 @@ class VideoAnalyzer(pulumi.CustomResource):
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.EndpointResponse']]:
         """
-        The endpoints associated with this resource.
+        The list of endpoints associated with this resource.
         """
         return pulumi.get(self, "endpoints")
 
@@ -339,17 +273,9 @@ class VideoAnalyzer(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.VideoAnalyzerIdentityResponse']]:
         """
-        The identities associated to the Video Analyzer resource.
+        The set of managed identities associated with the Video Analyzer resource.
         """
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> pulumi.Output[Optional[Sequence['outputs.IotHubResponse']]]:
-        """
-        The IoT Hubs for this resource.
-        """
-        return pulumi.get(self, "iot_hubs")
 
     @property
     @pulumi.getter
@@ -368,38 +294,6 @@ class VideoAnalyzer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> pulumi.Output[Optional['outputs.NetworkAccessControlResponse']]:
-        """
-        Network access control for Video Analyzer.
-        """
-        return pulumi.get(self, "network_access_control")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
-        """
-        Private Endpoint Connections created under Video Analyzer account.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning state of the Video Analyzer account.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether or not public network access is allowed for resources under the Video Analyzer account.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> pulumi.Output[Sequence['outputs.StorageAccountResponse']]:
         """
@@ -411,7 +305,7 @@ class VideoAnalyzer(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        The system data of the Video Analyzer account.
         """
         return pulumi.get(self, "system_data")
 

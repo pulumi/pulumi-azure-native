@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
     /// <summary>
-    /// Access policies help define the authentication rules, and control access to specific video resources.
-    /// API Version: 2021-11-01-preview.
+    /// Policy that determines how a video can be accessed.
+    /// API Version: 2021-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// The system metadata relating to this resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Access Policy name.
+        /// The name of the access policy to create or update.
         /// </summary>
         [Input("accessPolicyName")]
         public Input<string>? AccessPolicyName { get; set; }

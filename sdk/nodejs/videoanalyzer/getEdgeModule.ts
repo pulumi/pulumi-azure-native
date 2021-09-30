@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The representation of an edge module.
- * API Version: 2021-11-01-preview.
+ * API Version: 2021-05-01-preview.
  */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
     if (!opts) {
@@ -30,7 +30,7 @@ export interface GetEdgeModuleArgs {
      */
     accountName: string;
     /**
-     * The Edge Module name.
+     * The name of the edge module to retrieve.
      */
     edgeModuleName: string;
     /**
@@ -56,7 +56,7 @@ export interface GetEdgeModuleResult {
      */
     readonly name: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * The system metadata relating to this resource.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**

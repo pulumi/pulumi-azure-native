@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Access policies help define the authentication rules, and control access to specific video resources.
- * API Version: 2021-11-01-preview.
+ * Policy that determines how a video can be accessed.
+ * API Version: 2021-05-01-preview.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     if (!opts) {
@@ -26,7 +26,7 @@ export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeO
 
 export interface GetAccessPolicyArgs {
     /**
-     * The Access Policy name.
+     * The name of the access policy to retrieve.
      */
     accessPolicyName: string;
     /**
@@ -40,7 +40,7 @@ export interface GetAccessPolicyArgs {
 }
 
 /**
- * Access policies help define the authentication rules, and control access to specific video resources.
+ * Policy that determines how a video can be accessed.
  */
 export interface GetAccessPolicyResult {
     /**
@@ -60,7 +60,7 @@ export interface GetAccessPolicyResult {
      */
     readonly role?: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * The system metadata relating to this resource.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**

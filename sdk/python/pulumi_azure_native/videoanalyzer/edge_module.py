@@ -21,7 +21,7 @@ class EdgeModuleArgs:
         The set of arguments for constructing a EdgeModule resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] edge_module_name: The Edge Module name.
+        :param pulumi.Input[str] edge_module_name: The name of the edge module to create or update.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -56,7 +56,7 @@ class EdgeModuleArgs:
     @pulumi.getter(name="edgeModuleName")
     def edge_module_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Edge Module name.
+        The name of the edge module to create or update.
         """
         return pulumi.get(self, "edge_module_name")
 
@@ -76,12 +76,12 @@ class EdgeModule(pulumi.CustomResource):
                  __props__=None):
         """
         The representation of an edge module.
-        API Version: 2021-11-01-preview.
+        API Version: 2021-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
-        :param pulumi.Input[str] edge_module_name: The Edge Module name.
+        :param pulumi.Input[str] edge_module_name: The name of the edge module to create or update.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -92,7 +92,7 @@ class EdgeModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The representation of an edge module.
-        API Version: 2021-11-01-preview.
+        API Version: 2021-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EdgeModuleArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class EdgeModule(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
