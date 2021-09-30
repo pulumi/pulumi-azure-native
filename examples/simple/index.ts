@@ -187,7 +187,7 @@ new storage.EncryptionScope("encscope", {
     source: storage.EncryptionScopeSource.Microsoft_Storage,
 });
 
-export const existingRg = resources.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
+export const createdRg = resourceGroup;
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) =>
     storage.listStorageAccountKeys({ resourceGroupName, accountName }));
