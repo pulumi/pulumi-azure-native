@@ -9,10 +9,19 @@ export * from "./accessPolicy";
 export * from "./edgeModule";
 export * from "./getAccessPolicy";
 export * from "./getEdgeModule";
+export * from "./getLivePipeline";
+export * from "./getPipelineJob";
+export * from "./getPipelineTopology";
+export * from "./getPrivateEndpointConnection";
 export * from "./getVideo";
 export * from "./getVideoAnalyzer";
 export * from "./listEdgeModuleProvisioningToken";
+export * from "./listVideoContentToken";
 export * from "./listVideoStreamingToken";
+export * from "./livePipeline";
+export * from "./pipelineJob";
+export * from "./pipelineTopology";
+export * from "./privateEndpointConnection";
 export * from "./video";
 export * from "./videoAnalyzer";
 
@@ -21,14 +30,20 @@ export * from "../types/enums/videoanalyzer";
 
 // Export sub-modules:
 import * as v20210501preview from "./v20210501preview";
+import * as v20211101preview from "./v20211101preview";
 
 export {
     v20210501preview,
+    v20211101preview,
 };
 
 // Import resources to register:
 import { AccessPolicy } from "./accessPolicy";
 import { EdgeModule } from "./edgeModule";
+import { LivePipeline } from "./livePipeline";
+import { PipelineJob } from "./pipelineJob";
+import { PipelineTopology } from "./pipelineTopology";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Video } from "./video";
 import { VideoAnalyzer } from "./videoAnalyzer";
 
@@ -40,6 +55,14 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:videoanalyzer:EdgeModule":
                 return new EdgeModule(name, <any>undefined, { urn })
+            case "azure-native:videoanalyzer:LivePipeline":
+                return new LivePipeline(name, <any>undefined, { urn })
+            case "azure-native:videoanalyzer:PipelineJob":
+                return new PipelineJob(name, <any>undefined, { urn })
+            case "azure-native:videoanalyzer:PipelineTopology":
+                return new PipelineTopology(name, <any>undefined, { urn })
+            case "azure-native:videoanalyzer:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:videoanalyzer:Video":
                 return new Video(name, <any>undefined, { urn })
             case "azure-native:videoanalyzer:VideoAnalyzer":

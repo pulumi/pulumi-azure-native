@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.Outputs
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// The earliest restore point time (ISO8601 format) for server.
-        /// </summary>
-        public readonly string EarliestRestoreDate;
-        /// <summary>
         /// A value indicating whether Geo-Redundant backup is enabled on the server.
         /// </summary>
         public readonly string? GeoRedundantBackup;
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.Outputs
         private StorageProfileResponse(
             int? backupRetentionDays,
 
-            string earliestRestoreDate,
-
             string? geoRedundantBackup,
 
             int? storageMB)
         {
             BackupRetentionDays = backupRetentionDays;
-            EarliestRestoreDate = earliestRestoreDate;
             GeoRedundantBackup = geoRedundantBackup;
             StorageMB = storageMB;
         }

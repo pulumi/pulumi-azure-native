@@ -521,6 +521,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["byok_enforcement"] = None
+            __props__.__dict__["earliest_restore_date"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["ha_state"] = None
             __props__.__dict__["minor_version"] = None
@@ -558,6 +559,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["byok_enforcement"] = None
         __props__.__dict__["delegated_subnet_arguments"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["earliest_restore_date"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["ha_enabled"] = None
         __props__.__dict__["ha_state"] = None
@@ -619,6 +621,14 @@ class Server(pulumi.CustomResource):
         The display name of a server.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="earliestRestoreDate")
+    def earliest_restore_date(self) -> pulumi.Output[str]:
+        """
+        The earliest restore point time (ISO8601 format) for server.
+        """
+        return pulumi.get(self, "earliest_restore_date")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")

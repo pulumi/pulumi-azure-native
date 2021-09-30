@@ -24,14 +24,15 @@ type LookupInstanceArgs struct {
 
 // Device Update instance details.
 type LookupInstanceResult struct {
-	AccountName       string                   `pulumi:"accountName"`
-	EnableDiagnostics *bool                    `pulumi:"enableDiagnostics"`
-	Id                string                   `pulumi:"id"`
-	IotHubs           []IotHubSettingsResponse `pulumi:"iotHubs"`
-	Location          string                   `pulumi:"location"`
-	Name              string                   `pulumi:"name"`
-	ProvisioningState string                   `pulumi:"provisioningState"`
-	SystemData        SystemDataResponse       `pulumi:"systemData"`
-	Tags              map[string]string        `pulumi:"tags"`
-	Type              string                   `pulumi:"type"`
+	AccountName                 string                               `pulumi:"accountName"`
+	DiagnosticStorageProperties *DiagnosticStoragePropertiesResponse `pulumi:"diagnosticStorageProperties"`
+	EnableDiagnostics           *bool                                `pulumi:"enableDiagnostics"`
+	Id                          string                               `pulumi:"id"`
+	IotHubs                     []IotHubSettingsResponse             `pulumi:"iotHubs"`
+	Location                    string                               `pulumi:"location"`
+	Name                        string                               `pulumi:"name"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
+	SystemData                  SystemDataResponse                   `pulumi:"systemData"`
+	Tags                        map[string]string                    `pulumi:"tags"`
+	Type                        string                               `pulumi:"type"`
 }

@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// Customer-initiated diagnostic log collection storage properties
+        /// </summary>
+        [Output("diagnosticStorageProperties")]
+        public Output<Outputs.DiagnosticStoragePropertiesResponse?> DiagnosticStorageProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Enables or Disables the diagnostic logs collection
         /// </summary>
         [Output("enableDiagnostics")]
@@ -126,6 +132,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Customer-initiated diagnostic log collection storage properties
+        /// </summary>
+        [Input("diagnosticStorageProperties")]
+        public Input<Inputs.DiagnosticStoragePropertiesArgs>? DiagnosticStorageProperties { get; set; }
 
         /// <summary>
         /// Enables or Disables the diagnostic logs collection

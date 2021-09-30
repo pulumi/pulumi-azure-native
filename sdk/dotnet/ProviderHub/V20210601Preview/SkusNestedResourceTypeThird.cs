@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeThird"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:SkusNestedResourceTypeThird"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeThird"},
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210901preview:SkusNestedResourceTypeThird"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

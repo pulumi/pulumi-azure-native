@@ -68,6 +68,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:NotificationRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:NotificationRegistration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210901preview:NotificationRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

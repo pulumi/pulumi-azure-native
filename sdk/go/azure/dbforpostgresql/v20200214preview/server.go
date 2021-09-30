@@ -19,6 +19,7 @@ type Server struct {
 	ByokEnforcement          pulumi.StringOutput                                       `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput `pulumi:"delegatedSubnetArguments"`
 	DisplayName              pulumi.StringPtrOutput                                    `pulumi:"displayName"`
+	EarliestRestoreDate      pulumi.StringOutput                                       `pulumi:"earliestRestoreDate"`
 	FullyQualifiedDomainName pulumi.StringOutput                                       `pulumi:"fullyQualifiedDomainName"`
 	HaEnabled                pulumi.StringPtrOutput                                    `pulumi:"haEnabled"`
 	HaState                  pulumi.StringOutput                                       `pulumi:"haState"`

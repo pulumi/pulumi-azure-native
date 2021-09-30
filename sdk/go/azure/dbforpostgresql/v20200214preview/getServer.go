@@ -28,6 +28,7 @@ type LookupServerResult struct {
 	ByokEnforcement          string                                            `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	DisplayName              *string                                           `pulumi:"displayName"`
+	EarliestRestoreDate      string                                            `pulumi:"earliestRestoreDate"`
 	FullyQualifiedDomainName string                                            `pulumi:"fullyQualifiedDomainName"`
 	HaEnabled                *string                                           `pulumi:"haEnabled"`
 	HaState                  string                                            `pulumi:"haState"`

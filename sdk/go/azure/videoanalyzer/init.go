@@ -25,6 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessPolicy{}
 	case "azure-native:videoanalyzer:EdgeModule":
 		r = &EdgeModule{}
+	case "azure-native:videoanalyzer:LivePipeline":
+		r = &LivePipeline{}
+	case "azure-native:videoanalyzer:PipelineJob":
+		r = &PipelineJob{}
+	case "azure-native:videoanalyzer:PipelineTopology":
+		r = &PipelineTopology{}
+	case "azure-native:videoanalyzer:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	case "azure-native:videoanalyzer:Video":
 		r = &Video{}
 	case "azure-native:videoanalyzer:VideoAnalyzer":

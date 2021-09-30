@@ -60,6 +60,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The earliest restore point time (ISO8601 format) for server.
+        /// </summary>
+        public readonly string EarliestRestoreDate;
+        /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
 
             string? displayName,
 
+            string earliestRestoreDate,
+
             string fullyQualifiedDomainName,
 
             string? haEnabled,
@@ -218,6 +224,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
             ByokEnforcement = byokEnforcement;
             DelegatedSubnetArguments = delegatedSubnetArguments;
             DisplayName = displayName;
+            EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HaEnabled = haEnabled;
             HaState = haState;

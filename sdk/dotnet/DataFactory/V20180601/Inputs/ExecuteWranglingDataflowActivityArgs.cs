@@ -69,6 +69,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
+        [Input("queries")]
+        private InputList<Inputs.PowerQuerySinkMappingArgs>? _queries;
+
+        /// <summary>
+        /// List of mapping for Power Query mashup query to sink dataset(s).
+        /// </summary>
+        public InputList<Inputs.PowerQuerySinkMappingArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.PowerQuerySinkMappingArgs>());
+            set => _queries = value;
+        }
+
         /// <summary>
         /// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         /// </summary>
@@ -79,7 +91,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         private InputMap<Inputs.PowerQuerySinkArgs>? _sinks;
 
         /// <summary>
-        /// List of Power Query activity sinks mapped to a queryName.
+        /// (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         /// </summary>
         public InputMap<Inputs.PowerQuerySinkArgs> Sinks
         {

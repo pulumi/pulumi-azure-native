@@ -52,6 +52,12 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:ResourceTypeRegistration"),
 		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20210901preview:ResourceTypeRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20210901preview:ResourceTypeRegistration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ResourceTypeRegistration

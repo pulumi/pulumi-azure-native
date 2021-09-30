@@ -10,10 +10,65 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'DiagnosticStoragePropertiesArgs',
     'IdentityArgs',
     'IotHubSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
+
+@pulumi.input_type
+class DiagnosticStoragePropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[Union[str, 'AuthenticationType']],
+                 resource_id: pulumi.Input[str],
+                 connection_string: Optional[pulumi.Input[str]] = None):
+        """
+        Customer-initiated diagnostic log collection storage properties
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Authentication Type
+        :param pulumi.Input[str] resource_id: ResourceId of the diagnostic storage account
+        :param pulumi.Input[str] connection_string: ConnectionString of the diagnostic storage account
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[Union[str, 'AuthenticationType']]:
+        """
+        Authentication Type
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[Union[str, 'AuthenticationType']]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        ResourceId of the diagnostic storage account
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        ConnectionString of the diagnostic storage account
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
 
 @pulumi.input_type
 class IdentityArgs:

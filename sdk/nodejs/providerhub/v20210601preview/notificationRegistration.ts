@@ -78,7 +78,7 @@ export class NotificationRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20210601preview:NotificationRegistration" }, { type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-native:providerhub/v20201120:NotificationRegistration" }, { type: "azure-nextgen:providerhub/v20201120:NotificationRegistration" }, { type: "azure-native:providerhub/v20210501preview:NotificationRegistration" }, { type: "azure-nextgen:providerhub/v20210501preview:NotificationRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20210601preview:NotificationRegistration" }, { type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-native:providerhub/v20201120:NotificationRegistration" }, { type: "azure-nextgen:providerhub/v20201120:NotificationRegistration" }, { type: "azure-native:providerhub/v20210501preview:NotificationRegistration" }, { type: "azure-nextgen:providerhub/v20210501preview:NotificationRegistration" }, { type: "azure-native:providerhub/v20210901preview:NotificationRegistration" }, { type: "azure-nextgen:providerhub/v20210901preview:NotificationRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRegistration.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,15 @@ export {
     v20200301preview,
 };
 
+export const AuthenticationType = {
+    KeyBased: "KeyBased",
+} as const;
+
+/**
+ * Authentication Type
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

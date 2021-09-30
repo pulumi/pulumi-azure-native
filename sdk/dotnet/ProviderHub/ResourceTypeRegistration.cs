@@ -62,6 +62,8 @@ namespace Pulumi.AzureNative.ProviderHub
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210601preview:ResourceTypeRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:ResourceTypeRegistration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210901preview:ResourceTypeRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

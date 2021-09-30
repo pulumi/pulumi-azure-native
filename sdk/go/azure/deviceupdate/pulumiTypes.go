@@ -10,6 +10,332 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DiagnosticStorageProperties struct {
+	AuthenticationType string  `pulumi:"authenticationType"`
+	ConnectionString   *string `pulumi:"connectionString"`
+	ResourceId         string  `pulumi:"resourceId"`
+}
+
+// DiagnosticStoragePropertiesInput is an input type that accepts DiagnosticStoragePropertiesArgs and DiagnosticStoragePropertiesOutput values.
+// You can construct a concrete instance of `DiagnosticStoragePropertiesInput` via:
+//
+//          DiagnosticStoragePropertiesArgs{...}
+type DiagnosticStoragePropertiesInput interface {
+	pulumi.Input
+
+	ToDiagnosticStoragePropertiesOutput() DiagnosticStoragePropertiesOutput
+	ToDiagnosticStoragePropertiesOutputWithContext(context.Context) DiagnosticStoragePropertiesOutput
+}
+
+type DiagnosticStoragePropertiesArgs struct {
+	AuthenticationType pulumi.StringInput    `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput `pulumi:"connectionString"`
+	ResourceId         pulumi.StringInput    `pulumi:"resourceId"`
+}
+
+func (DiagnosticStoragePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticStorageProperties)(nil)).Elem()
+}
+
+func (i DiagnosticStoragePropertiesArgs) ToDiagnosticStoragePropertiesOutput() DiagnosticStoragePropertiesOutput {
+	return i.ToDiagnosticStoragePropertiesOutputWithContext(context.Background())
+}
+
+func (i DiagnosticStoragePropertiesArgs) ToDiagnosticStoragePropertiesOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesOutput)
+}
+
+func (i DiagnosticStoragePropertiesArgs) ToDiagnosticStoragePropertiesPtrOutput() DiagnosticStoragePropertiesPtrOutput {
+	return i.ToDiagnosticStoragePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticStoragePropertiesArgs) ToDiagnosticStoragePropertiesPtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesOutput).ToDiagnosticStoragePropertiesPtrOutputWithContext(ctx)
+}
+
+// DiagnosticStoragePropertiesPtrInput is an input type that accepts DiagnosticStoragePropertiesArgs, DiagnosticStoragePropertiesPtr and DiagnosticStoragePropertiesPtrOutput values.
+// You can construct a concrete instance of `DiagnosticStoragePropertiesPtrInput` via:
+//
+//          DiagnosticStoragePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticStoragePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticStoragePropertiesPtrOutput() DiagnosticStoragePropertiesPtrOutput
+	ToDiagnosticStoragePropertiesPtrOutputWithContext(context.Context) DiagnosticStoragePropertiesPtrOutput
+}
+
+type diagnosticStoragePropertiesPtrType DiagnosticStoragePropertiesArgs
+
+func DiagnosticStoragePropertiesPtr(v *DiagnosticStoragePropertiesArgs) DiagnosticStoragePropertiesPtrInput {
+	return (*diagnosticStoragePropertiesPtrType)(v)
+}
+
+func (*diagnosticStoragePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticStorageProperties)(nil)).Elem()
+}
+
+func (i *diagnosticStoragePropertiesPtrType) ToDiagnosticStoragePropertiesPtrOutput() DiagnosticStoragePropertiesPtrOutput {
+	return i.ToDiagnosticStoragePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticStoragePropertiesPtrType) ToDiagnosticStoragePropertiesPtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesPtrOutput)
+}
+
+type DiagnosticStoragePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticStoragePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticStorageProperties)(nil)).Elem()
+}
+
+func (o DiagnosticStoragePropertiesOutput) ToDiagnosticStoragePropertiesOutput() DiagnosticStoragePropertiesOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesOutput) ToDiagnosticStoragePropertiesOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesOutput) ToDiagnosticStoragePropertiesPtrOutput() DiagnosticStoragePropertiesPtrOutput {
+	return o.ToDiagnosticStoragePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticStoragePropertiesOutput) ToDiagnosticStoragePropertiesPtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticStorageProperties) *DiagnosticStorageProperties {
+		return &v
+	}).(DiagnosticStoragePropertiesPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticStorageProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticStoragePropertiesOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticStorageProperties) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticStorageProperties) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type DiagnosticStoragePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticStoragePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticStorageProperties)(nil)).Elem()
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) ToDiagnosticStoragePropertiesPtrOutput() DiagnosticStoragePropertiesPtrOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) ToDiagnosticStoragePropertiesPtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesPtrOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) Elem() DiagnosticStoragePropertiesOutput {
+	return o.ApplyT(func(v *DiagnosticStorageProperties) DiagnosticStorageProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticStorageProperties
+		return ret
+	}).(DiagnosticStoragePropertiesOutput)
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStorageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStorageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStorageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DiagnosticStoragePropertiesResponse struct {
+	AuthenticationType string  `pulumi:"authenticationType"`
+	ConnectionString   *string `pulumi:"connectionString"`
+	ResourceId         string  `pulumi:"resourceId"`
+}
+
+// DiagnosticStoragePropertiesResponseInput is an input type that accepts DiagnosticStoragePropertiesResponseArgs and DiagnosticStoragePropertiesResponseOutput values.
+// You can construct a concrete instance of `DiagnosticStoragePropertiesResponseInput` via:
+//
+//          DiagnosticStoragePropertiesResponseArgs{...}
+type DiagnosticStoragePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDiagnosticStoragePropertiesResponseOutput() DiagnosticStoragePropertiesResponseOutput
+	ToDiagnosticStoragePropertiesResponseOutputWithContext(context.Context) DiagnosticStoragePropertiesResponseOutput
+}
+
+type DiagnosticStoragePropertiesResponseArgs struct {
+	AuthenticationType pulumi.StringInput    `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput `pulumi:"connectionString"`
+	ResourceId         pulumi.StringInput    `pulumi:"resourceId"`
+}
+
+func (DiagnosticStoragePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticStoragePropertiesResponse)(nil)).Elem()
+}
+
+func (i DiagnosticStoragePropertiesResponseArgs) ToDiagnosticStoragePropertiesResponseOutput() DiagnosticStoragePropertiesResponseOutput {
+	return i.ToDiagnosticStoragePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DiagnosticStoragePropertiesResponseArgs) ToDiagnosticStoragePropertiesResponseOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesResponseOutput)
+}
+
+func (i DiagnosticStoragePropertiesResponseArgs) ToDiagnosticStoragePropertiesResponsePtrOutput() DiagnosticStoragePropertiesResponsePtrOutput {
+	return i.ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticStoragePropertiesResponseArgs) ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesResponseOutput).ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// DiagnosticStoragePropertiesResponsePtrInput is an input type that accepts DiagnosticStoragePropertiesResponseArgs, DiagnosticStoragePropertiesResponsePtr and DiagnosticStoragePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `DiagnosticStoragePropertiesResponsePtrInput` via:
+//
+//          DiagnosticStoragePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticStoragePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticStoragePropertiesResponsePtrOutput() DiagnosticStoragePropertiesResponsePtrOutput
+	ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(context.Context) DiagnosticStoragePropertiesResponsePtrOutput
+}
+
+type diagnosticStoragePropertiesResponsePtrType DiagnosticStoragePropertiesResponseArgs
+
+func DiagnosticStoragePropertiesResponsePtr(v *DiagnosticStoragePropertiesResponseArgs) DiagnosticStoragePropertiesResponsePtrInput {
+	return (*diagnosticStoragePropertiesResponsePtrType)(v)
+}
+
+func (*diagnosticStoragePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticStoragePropertiesResponse)(nil)).Elem()
+}
+
+func (i *diagnosticStoragePropertiesResponsePtrType) ToDiagnosticStoragePropertiesResponsePtrOutput() DiagnosticStoragePropertiesResponsePtrOutput {
+	return i.ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticStoragePropertiesResponsePtrType) ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticStoragePropertiesResponsePtrOutput)
+}
+
+type DiagnosticStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticStoragePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticStoragePropertiesResponse)(nil)).Elem()
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ToDiagnosticStoragePropertiesResponseOutput() DiagnosticStoragePropertiesResponseOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ToDiagnosticStoragePropertiesResponseOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponseOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ToDiagnosticStoragePropertiesResponsePtrOutput() DiagnosticStoragePropertiesResponsePtrOutput {
+	return o.ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticStoragePropertiesResponse) *DiagnosticStoragePropertiesResponse {
+		return &v
+	}).(DiagnosticStoragePropertiesResponsePtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticStoragePropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticStoragePropertiesResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticStoragePropertiesResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type DiagnosticStoragePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticStoragePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticStoragePropertiesResponse)(nil)).Elem()
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) ToDiagnosticStoragePropertiesResponsePtrOutput() DiagnosticStoragePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) ToDiagnosticStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) DiagnosticStoragePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) Elem() DiagnosticStoragePropertiesResponseOutput {
+	return o.ApplyT(func(v *DiagnosticStoragePropertiesResponse) DiagnosticStoragePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticStoragePropertiesResponse
+		return ret
+	}).(DiagnosticStoragePropertiesResponseOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStoragePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStoragePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DiagnosticStoragePropertiesResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticStoragePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type Identity struct {
 	Type *ResourceIdentityType `pulumi:"type"`
 }
@@ -1186,6 +1512,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(DiagnosticStoragePropertiesOutput{})
+	pulumi.RegisterOutputType(DiagnosticStoragePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticStoragePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DiagnosticStoragePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

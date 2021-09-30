@@ -12,19 +12,44 @@ from ._enums import *
 
 __all__ = [
     'AccountEncryptionResponse',
+    'AudioEncoderAacResponse',
     'EccTokenKeyResponse',
+    'EncoderCustomPresetResponse',
+    'EncoderProcessorResponse',
+    'EncoderSystemPresetResponse',
     'EndpointResponse',
     'JwtAuthenticationResponse',
     'KeyVaultPropertiesResponse',
+    'NodeInputResponse',
+    'ParameterDeclarationResponse',
+    'ParameterDefinitionResponse',
+    'PemCertificateListResponse',
+    'PipelineJobErrorResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'ResourceIdentityResponse',
     'RsaTokenKeyResponse',
+    'RtspSourceResponse',
+    'SecureIotDeviceRemoteTunnelResponse',
+    'SkuResponse',
     'StorageAccountResponse',
     'SystemDataResponse',
+    'TlsEndpointResponse',
+    'TlsValidationOptionsResponse',
     'TokenClaimResponse',
+    'UnsecuredEndpointResponse',
     'UserAssignedManagedIdentityResponse',
+    'UsernamePasswordCredentialsResponse',
     'VideoAnalyzerIdentityResponse',
+    'VideoCreationPropertiesResponse',
+    'VideoEncoderH264Response',
     'VideoFlagsResponse',
     'VideoMediaInfoResponse',
+    'VideoPublishingOptionsResponse',
+    'VideoScaleResponse',
+    'VideoSequenceAbsoluteTimeMarkersResponse',
+    'VideoSinkResponse',
+    'VideoSourceResponse',
     'VideoStreamingResponse',
 ]
 
@@ -103,6 +128,59 @@ class AccountEncryptionResponse(dict):
 
 
 @pulumi.output_type
+class AudioEncoderAacResponse(dict):
+    """
+    A custom preset for encoding audio with the AAC codec.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitrateKbps":
+            suggest = "bitrate_kbps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AudioEncoderAacResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AudioEncoderAacResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AudioEncoderAacResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 bitrate_kbps: Optional[str] = None):
+        """
+        A custom preset for encoding audio with the AAC codec.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
+        :param str bitrate_kbps: Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.AudioEncoderAac')
+        if bitrate_kbps is not None:
+            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bitrateKbps")
+    def bitrate_kbps(self) -> Optional[str]:
+        """
+        Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
+        """
+        return pulumi.get(self, "bitrate_kbps")
+
+
+@pulumi.output_type
 class EccTokenKeyResponse(dict):
     """
     Required validation properties for tokens generated with Elliptical Curve algorithm.
@@ -168,6 +246,165 @@ class EccTokenKeyResponse(dict):
         Y coordinate.
         """
         return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class EncoderCustomPresetResponse(dict):
+    """
+    Describes a custom preset for encoding the input content using the encoder processor.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioEncoder":
+            suggest = "audio_encoder"
+        elif key == "videoEncoder":
+            suggest = "video_encoder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncoderCustomPresetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncoderCustomPresetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncoderCustomPresetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 audio_encoder: Optional['outputs.AudioEncoderAacResponse'] = None,
+                 video_encoder: Optional['outputs.VideoEncoderH264Response'] = None):
+        """
+        Describes a custom preset for encoding the input content using the encoder processor.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
+        :param 'AudioEncoderAacResponse' audio_encoder: Describes a custom preset for encoding audio.
+        :param 'VideoEncoderH264Response' video_encoder: Describes a custom preset for encoding video.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderCustomPreset')
+        if audio_encoder is not None:
+            pulumi.set(__self__, "audio_encoder", audio_encoder)
+        if video_encoder is not None:
+            pulumi.set(__self__, "video_encoder", video_encoder)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="audioEncoder")
+    def audio_encoder(self) -> Optional['outputs.AudioEncoderAacResponse']:
+        """
+        Describes a custom preset for encoding audio.
+        """
+        return pulumi.get(self, "audio_encoder")
+
+    @property
+    @pulumi.getter(name="videoEncoder")
+    def video_encoder(self) -> Optional['outputs.VideoEncoderH264Response']:
+        """
+        Describes a custom preset for encoding video.
+        """
+        return pulumi.get(self, "video_encoder")
+
+
+@pulumi.output_type
+class EncoderProcessorResponse(dict):
+    """
+    Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
+    """
+    def __init__(__self__, *,
+                 inputs: Sequence['outputs.NodeInputResponse'],
+                 name: str,
+                 preset: Any,
+                 type: str):
+        """
+        Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
+        :param Sequence['NodeInputResponse'] inputs: An array of upstream node references within the topology to be used as inputs for this node.
+        :param str name: Node name. Must be unique within the topology.
+        :param Union['EncoderCustomPresetResponse', 'EncoderSystemPresetResponse'] preset: The encoder preset, which defines the recipe or instructions on how the input content should be processed.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
+        """
+        pulumi.set(__self__, "inputs", inputs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "preset", preset)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderProcessor')
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence['outputs.NodeInputResponse']:
+        """
+        An array of upstream node references within the topology to be used as inputs for this node.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Node name. Must be unique within the topology.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def preset(self) -> Any:
+        """
+        The encoder preset, which defines the recipe or instructions on how the input content should be processed.
+        """
+        return pulumi.get(self, "preset")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EncoderSystemPresetResponse(dict):
+    """
+    Describes a built-in preset for encoding the input content using the encoder processor.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        Describes a built-in preset for encoding the input content using the encoder processor.
+        :param str name: Name of the built-in encoding preset.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderSystemPreset')
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the built-in encoding preset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -346,6 +583,292 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class NodeInputResponse(dict):
+    """
+    Describes an input signal to be used on a pipeline node.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeInputResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_name: str):
+        """
+        Describes an input signal to be used on a pipeline node.
+        :param str node_name: The name of the upstream node in the pipeline which output is used as input of the current node.
+        """
+        pulumi.set(__self__, "node_name", node_name)
+
+    @property
+    @pulumi.getter(name="nodeName")
+    def node_name(self) -> str:
+        """
+        The name of the upstream node in the pipeline which output is used as input of the current node.
+        """
+        return pulumi.get(self, "node_name")
+
+
+@pulumi.output_type
+class ParameterDeclarationResponse(dict):
+    """
+    Single topology parameter declaration. Declared parameters can and must be referenced throughout the topology and can optionally have default values to be used when they are not defined in the pipelines.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None):
+        """
+        Single topology parameter declaration. Declared parameters can and must be referenced throughout the topology and can optionally have default values to be used when they are not defined in the pipelines.
+        :param str name: Name of the parameter.
+        :param str type: Type of the parameter.
+        :param str default: The default value for the parameter to be used if the pipeline does not specify a value.
+        :param str description: Description of the parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        """
+        The default value for the parameter to be used if the pipeline does not specify a value.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the parameter.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ParameterDefinitionResponse(dict):
+    """
+    Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: Optional[str] = None):
+        """
+        Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
+        :param str name: Name of the parameter declared in the pipeline topology.
+        :param str value: Parameter value to be applied on this specific pipeline.
+        """
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the parameter declared in the pipeline topology.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Parameter value to be applied on this specific pipeline.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PemCertificateListResponse(dict):
+    """
+    A list of PEM formatted certificates.
+    """
+    def __init__(__self__, *,
+                 certificates: Sequence[str],
+                 type: str):
+        """
+        A list of PEM formatted certificates.
+        :param Sequence[str] certificates: PEM formatted public certificates. One certificate per entry.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.PemCertificateList')
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence[str]:
+        """
+        PEM formatted public certificates. One certificate per entry.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PipelineJobErrorResponse(dict):
+    """
+    Details about the error for a failed pipeline job.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        Details about the error for a failed pipeline job.
+        :param str code: The error code.
+        :param str message: The error message.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The Private Endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The Private Endpoint resource.
+        :param str id: The ARM identifier for Private Endpoint
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for Private Endpoint
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
     The user assigned managed identity to use when accessing a resource.
@@ -450,6 +973,162 @@ class RsaTokenKeyResponse(dict):
         Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RtspSourceResponse(dict):
+    """
+    RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
+    """
+    def __init__(__self__, *,
+                 endpoint: Any,
+                 name: str,
+                 type: str,
+                 transport: Optional[str] = None):
+        """
+        RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
+        :param Union['TlsEndpointResponse', 'UnsecuredEndpointResponse'] endpoint: RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
+        :param str name: Node name. Must be unique within the topology.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
+        :param str transport: Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RtspSource')
+        if transport is not None:
+            pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Any:
+        """
+        RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Node name. Must be unique within the topology.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> Optional[str]:
+        """
+        Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
+        """
+        return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class SecureIotDeviceRemoteTunnelResponse(dict):
+    """
+    A remote tunnel securely established using IoT Hub device information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceId":
+            suggest = "device_id"
+        elif key == "iotHubName":
+            suggest = "iot_hub_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecureIotDeviceRemoteTunnelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecureIotDeviceRemoteTunnelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecureIotDeviceRemoteTunnelResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_id: str,
+                 iot_hub_name: str,
+                 type: str):
+        """
+        A remote tunnel securely established using IoT Hub device information.
+        :param str device_id: The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
+        :param str iot_hub_name: Name of the IoT Hub.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
+        """
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel')
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> str:
+        """
+        The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
+        """
+        return pulumi.get(self, "device_id")
+
+    @property
+    @pulumi.getter(name="iotHubName")
+    def iot_hub_name(self) -> str:
+        """
+        Name of the IoT Hub.
+        """
+        return pulumi.get(self, "iot_hub_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The SKU details.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU details.
+        :param str name: The SKU name.
+        :param str tier: The SKU tier.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -609,6 +1288,162 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TlsEndpointResponse(dict):
+    """
+    TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustedCertificates":
+            suggest = "trusted_certificates"
+        elif key == "validationOptions":
+            suggest = "validation_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 url: str,
+                 credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
+                 trusted_certificates: Optional['outputs.PemCertificateListResponse'] = None,
+                 tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None,
+                 validation_options: Optional['outputs.TlsValidationOptionsResponse'] = None):
+        """
+        TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
+        :param str url: The endpoint URL for Video Analyzer to connect to.
+        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
+        :param 'PemCertificateListResponse' trusted_certificates: List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
+        :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        :param 'TlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
+        pulumi.set(__self__, "url", url)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if trusted_certificates is not None:
+            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+        if tunnel is not None:
+            pulumi.set(__self__, "tunnel", tunnel)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The endpoint URL for Video Analyzer to connect to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="trustedCertificates")
+    def trusted_certificates(self) -> Optional['outputs.PemCertificateListResponse']:
+        """
+        List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
+        """
+        return pulumi.get(self, "trusted_certificates")
+
+    @property
+    @pulumi.getter
+    def tunnel(self) -> Optional['outputs.SecureIotDeviceRemoteTunnelResponse']:
+        """
+        Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        """
+        return pulumi.get(self, "tunnel")
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional['outputs.TlsValidationOptionsResponse']:
+        """
+        Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+        return pulumi.get(self, "validation_options")
+
+
+@pulumi.output_type
+class TlsValidationOptionsResponse(dict):
+    """
+    Options for controlling the validation of TLS endpoints.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreHostname":
+            suggest = "ignore_hostname"
+        elif key == "ignoreSignature":
+            suggest = "ignore_signature"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsValidationOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsValidationOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsValidationOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ignore_hostname: Optional[str] = None,
+                 ignore_signature: Optional[str] = None):
+        """
+        Options for controlling the validation of TLS endpoints.
+        :param str ignore_hostname: When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
+        :param str ignore_signature: When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
+        """
+        if ignore_hostname is not None:
+            pulumi.set(__self__, "ignore_hostname", ignore_hostname)
+        if ignore_signature is not None:
+            pulumi.set(__self__, "ignore_signature", ignore_signature)
+
+    @property
+    @pulumi.getter(name="ignoreHostname")
+    def ignore_hostname(self) -> Optional[str]:
+        """
+        When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
+        """
+        return pulumi.get(self, "ignore_hostname")
+
+    @property
+    @pulumi.getter(name="ignoreSignature")
+    def ignore_signature(self) -> Optional[str]:
+        """
+        When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
+        """
+        return pulumi.get(self, "ignore_signature")
+
+
+@pulumi.output_type
 class TokenClaimResponse(dict):
     """
     Properties for expected token claims.
@@ -639,6 +1474,65 @@ class TokenClaimResponse(dict):
         Expected value of the claim to be present on the token.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UnsecuredEndpointResponse(dict):
+    """
+    Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 url: str,
+                 credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
+                 tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None):
+        """
+        Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
+        :param str url: The endpoint URL for Video Analyzer to connect to.
+        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
+        :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
+        pulumi.set(__self__, "url", url)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if tunnel is not None:
+            pulumi.set(__self__, "tunnel", tunnel)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The endpoint URL for Video Analyzer to connect to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def tunnel(self) -> Optional['outputs.SecureIotDeviceRemoteTunnelResponse']:
+        """
+        Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        """
+        return pulumi.get(self, "tunnel")
 
 
 @pulumi.output_type
@@ -694,6 +1588,52 @@ class UserAssignedManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
+class UsernamePasswordCredentialsResponse(dict):
+    """
+    Username and password credentials.
+    """
+    def __init__(__self__, *,
+                 password: str,
+                 type: str,
+                 username: str):
+        """
+        Username and password credentials.
+        :param str password: Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
+        :param str username: Username to be presented as part of the credentials.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials')
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Username to be presented as part of the credentials.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class VideoAnalyzerIdentityResponse(dict):
     """
     The managed identity for the Video Analyzer resource.
@@ -742,6 +1682,163 @@ class VideoAnalyzerIdentityResponse(dict):
         The User Assigned Managed Identities.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class VideoCreationPropertiesResponse(dict):
+    """
+    Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriod":
+            suggest = "retention_period"
+        elif key == "segmentLength":
+            suggest = "segment_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoCreationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoCreationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoCreationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 retention_period: Optional[str] = None,
+                 segment_length: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
+        :param str description: Optional description provided by the user. Value can be up to 2048 characters long.
+        :param str retention_period: Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        :param str segment_length: Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
+        :param str title: Optional title provided by the user. Value can be up to 256 characters long.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Optional description provided by the user. Value can be up to 2048 characters long.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[str]:
+        """
+        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        return pulumi.get(self, "retention_period")
+
+    @property
+    @pulumi.getter(name="segmentLength")
+    def segment_length(self) -> Optional[str]:
+        """
+        Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        return pulumi.get(self, "segment_length")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Optional title provided by the user. Value can be up to 256 characters long.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class VideoEncoderH264Response(dict):
+    """
+    A custom preset for encoding video with the H.264 (AVC) codec.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitrateKbps":
+            suggest = "bitrate_kbps"
+        elif key == "frameRate":
+            suggest = "frame_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoEncoderH264Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoEncoderH264Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoEncoderH264Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 bitrate_kbps: Optional[str] = None,
+                 frame_rate: Optional[str] = None,
+                 scale: Optional['outputs.VideoScaleResponse'] = None):
+        """
+        A custom preset for encoding video with the H.264 (AVC) codec.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.VideoEncoderH264'.
+        :param str bitrate_kbps: The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
+        :param str frame_rate: The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
+        :param 'VideoScaleResponse' scale: Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoEncoderH264')
+        if bitrate_kbps is not None:
+            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+        if frame_rate is not None:
+            pulumi.set(__self__, "frame_rate", frame_rate)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoEncoderH264'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bitrateKbps")
+    def bitrate_kbps(self) -> Optional[str]:
+        """
+        The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
+        """
+        return pulumi.get(self, "bitrate_kbps")
+
+    @property
+    @pulumi.getter(name="frameRate")
+    def frame_rate(self) -> Optional[str]:
+        """
+        The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
+        """
+        return pulumi.get(self, "frame_rate")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.VideoScaleResponse']:
+        """
+        Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
+        """
+        return pulumi.get(self, "scale")
 
 
 @pulumi.output_type
@@ -846,6 +1943,334 @@ class VideoMediaInfoResponse(dict):
         Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
         return pulumi.get(self, "segment_length")
+
+
+@pulumi.output_type
+class VideoPublishingOptionsResponse(dict):
+    """
+    Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableArchive":
+            suggest = "disable_archive"
+        elif key == "disableRtspPublishing":
+            suggest = "disable_rtsp_publishing"
+        elif key == "disableVideoPreviewImage":
+            suggest = "disable_video_preview_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoPublishingOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoPublishingOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoPublishingOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_archive: Optional[str] = None,
+                 disable_rtsp_publishing: Optional[str] = None,
+                 disable_video_preview_image: Optional[str] = None):
+        """
+        Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
+        :param str disable_archive: When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
+        :param str disable_rtsp_publishing: When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
+        :param str disable_video_preview_image: When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
+        """
+        if disable_archive is not None:
+            pulumi.set(__self__, "disable_archive", disable_archive)
+        if disable_rtsp_publishing is not None:
+            pulumi.set(__self__, "disable_rtsp_publishing", disable_rtsp_publishing)
+        if disable_video_preview_image is not None:
+            pulumi.set(__self__, "disable_video_preview_image", disable_video_preview_image)
+
+    @property
+    @pulumi.getter(name="disableArchive")
+    def disable_archive(self) -> Optional[str]:
+        """
+        When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
+        """
+        return pulumi.get(self, "disable_archive")
+
+    @property
+    @pulumi.getter(name="disableRtspPublishing")
+    def disable_rtsp_publishing(self) -> Optional[str]:
+        """
+        When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
+        """
+        return pulumi.get(self, "disable_rtsp_publishing")
+
+    @property
+    @pulumi.getter(name="disableVideoPreviewImage")
+    def disable_video_preview_image(self) -> Optional[str]:
+        """
+        When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
+        """
+        return pulumi.get(self, "disable_video_preview_image")
+
+
+@pulumi.output_type
+class VideoScaleResponse(dict):
+    """
+    The video scaling information.
+    """
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 mode: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        The video scaling information.
+        :param str height: The desired output video height.
+        :param str mode: Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
+        :param str width: The desired output video width.
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The desired output video height.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The desired output video width.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class VideoSequenceAbsoluteTimeMarkersResponse(dict):
+    """
+    A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
+    """
+    def __init__(__self__, *,
+                 ranges: str,
+                 type: str):
+        """
+        A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
+        :param str ranges: The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
+        """
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers')
+
+    @property
+    @pulumi.getter
+    def ranges(self) -> str:
+        """
+        The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
+        """
+        return pulumi.get(self, "ranges")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class VideoSinkResponse(dict):
+    """
+    Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "videoName":
+            suggest = "video_name"
+        elif key == "videoCreationProperties":
+            suggest = "video_creation_properties"
+        elif key == "videoPublishingOptions":
+            suggest = "video_publishing_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inputs: Sequence['outputs.NodeInputResponse'],
+                 name: str,
+                 type: str,
+                 video_name: str,
+                 video_creation_properties: Optional['outputs.VideoCreationPropertiesResponse'] = None,
+                 video_publishing_options: Optional['outputs.VideoPublishingOptionsResponse'] = None):
+        """
+        Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
+        :param Sequence['NodeInputResponse'] inputs: An array of upstream node references within the topology to be used as inputs for this node.
+        :param str name: Node name. Must be unique within the topology.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
+        :param str video_name: Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.
+        :param 'VideoCreationPropertiesResponse' video_creation_properties: Optional video properties to be used in case a new video resource needs to be created on the service.
+        :param 'VideoPublishingOptionsResponse' video_publishing_options: Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        pulumi.set(__self__, "inputs", inputs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSink')
+        pulumi.set(__self__, "video_name", video_name)
+        if video_creation_properties is not None:
+            pulumi.set(__self__, "video_creation_properties", video_creation_properties)
+        if video_publishing_options is not None:
+            pulumi.set(__self__, "video_publishing_options", video_publishing_options)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence['outputs.NodeInputResponse']:
+        """
+        An array of upstream node references within the topology to be used as inputs for this node.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Node name. Must be unique within the topology.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="videoName")
+    def video_name(self) -> str:
+        """
+        Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.
+        """
+        return pulumi.get(self, "video_name")
+
+    @property
+    @pulumi.getter(name="videoCreationProperties")
+    def video_creation_properties(self) -> Optional['outputs.VideoCreationPropertiesResponse']:
+        """
+        Optional video properties to be used in case a new video resource needs to be created on the service.
+        """
+        return pulumi.get(self, "video_creation_properties")
+
+    @property
+    @pulumi.getter(name="videoPublishingOptions")
+    def video_publishing_options(self) -> Optional['outputs.VideoPublishingOptionsResponse']:
+        """
+        Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        return pulumi.get(self, "video_publishing_options")
+
+
+@pulumi.output_type
+class VideoSourceResponse(dict):
+    """
+    Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeSequences":
+            suggest = "time_sequences"
+        elif key == "videoName":
+            suggest = "video_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 time_sequences: 'outputs.VideoSequenceAbsoluteTimeMarkersResponse',
+                 type: str,
+                 video_name: str):
+        """
+        Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
+        :param str name: Node name. Must be unique within the topology.
+        :param 'VideoSequenceAbsoluteTimeMarkersResponse' time_sequences: Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.
+        :param str type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
+        :param str video_name: Name of the Video Analyzer video resource to be used as the source.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "time_sequences", time_sequences)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSource')
+        pulumi.set(__self__, "video_name", video_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Node name. Must be unique within the topology.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="timeSequences")
+    def time_sequences(self) -> 'outputs.VideoSequenceAbsoluteTimeMarkersResponse':
+        """
+        Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.
+        """
+        return pulumi.get(self, "time_sequences")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="videoName")
+    def video_name(self) -> str:
+        """
+        Name of the Video Analyzer video resource to be used as the source.
+        """
+        return pulumi.get(self, "video_name")
 
 
 @pulumi.output_type

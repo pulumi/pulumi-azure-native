@@ -10,12 +10,79 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DiagnosticStoragePropertiesResponse',
     'IdentityResponse',
     'IotHubSettingsResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class DiagnosticStoragePropertiesResponse(dict):
+    """
+    Customer-initiated diagnostic log collection storage properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticStoragePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticStoragePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticStoragePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: str,
+                 resource_id: str,
+                 connection_string: Optional[str] = None):
+        """
+        Customer-initiated diagnostic log collection storage properties
+        :param str authentication_type: Authentication Type
+        :param str resource_id: ResourceId of the diagnostic storage account
+        :param str connection_string: ConnectionString of the diagnostic storage account
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        Authentication Type
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        ResourceId of the diagnostic storage account
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        ConnectionString of the diagnostic storage account
+        """
+        return pulumi.get(self, "connection_string")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):

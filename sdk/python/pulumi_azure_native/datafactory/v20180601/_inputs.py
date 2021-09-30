@@ -391,6 +391,7 @@ __all__ = [
     'PostgreSqlLinkedServiceArgs',
     'PostgreSqlSourceArgs',
     'PostgreSqlTableDatasetArgs',
+    'PowerQuerySinkMappingArgs',
     'PowerQuerySinkArgs',
     'PowerQuerySourceArgs',
     'PrestoLinkedServiceArgs',
@@ -30444,6 +30445,7 @@ class ExecuteWranglingDataflowActivityArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]]] = None,
                  run_concurrently: Optional[Any] = None,
                  sinks: Optional[pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]]] = None,
                  staging: Optional[pulumi.Input['DataFlowStagingInfoArgs']] = None,
@@ -30461,8 +30463,9 @@ class ExecuteWranglingDataflowActivityArgs:
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] integration_runtime: The integration runtime reference.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]] queries: List of mapping for Power Query mashup query to sink dataset(s).
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        :param pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]] sinks: List of Power Query activity sinks mapped to a queryName.
+        :param pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]] sinks: (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         :param pulumi.Input['DataFlowStagingInfoArgs'] staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -30482,6 +30485,8 @@ class ExecuteWranglingDataflowActivityArgs:
             pulumi.set(__self__, "integration_runtime", integration_runtime)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
         if run_concurrently is not None:
             pulumi.set(__self__, "run_concurrently", run_concurrently)
         if sinks is not None:
@@ -30603,6 +30608,18 @@ class ExecuteWranglingDataflowActivityArgs:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]]]:
+        """
+        List of mapping for Power Query mashup query to sink dataset(s).
+        """
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]]]):
+        pulumi.set(self, "queries", value)
+
+    @property
     @pulumi.getter(name="runConcurrently")
     def run_concurrently(self) -> Optional[Any]:
         """
@@ -30618,7 +30635,7 @@ class ExecuteWranglingDataflowActivityArgs:
     @pulumi.getter
     def sinks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]]]:
         """
-        List of Power Query activity sinks mapped to a queryName.
+        (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         """
         return pulumi.get(self, "sinks")
 
@@ -55417,6 +55434,46 @@ class PostgreSqlTableDatasetArgs:
 
 
 @pulumi.input_type
+class PowerQuerySinkMappingArgs:
+    def __init__(__self__, *,
+                 dataflow_sinks: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkArgs']]]] = None,
+                 query_name: Optional[pulumi.Input[str]] = None):
+        """
+        Map Power Query mashup query to sink dataset(s).
+        :param pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkArgs']]] dataflow_sinks: List of sinks mapped to Power Query mashup query.
+        :param pulumi.Input[str] query_name: Name of the query in Power Query mashup document.
+        """
+        if dataflow_sinks is not None:
+            pulumi.set(__self__, "dataflow_sinks", dataflow_sinks)
+        if query_name is not None:
+            pulumi.set(__self__, "query_name", query_name)
+
+    @property
+    @pulumi.getter(name="dataflowSinks")
+    def dataflow_sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkArgs']]]]:
+        """
+        List of sinks mapped to Power Query mashup query.
+        """
+        return pulumi.get(self, "dataflow_sinks")
+
+    @dataflow_sinks.setter
+    def dataflow_sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkArgs']]]]):
+        pulumi.set(self, "dataflow_sinks", value)
+
+    @property
+    @pulumi.getter(name="queryName")
+    def query_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the query in Power Query mashup document.
+        """
+        return pulumi.get(self, "query_name")
+
+    @query_name.setter
+    def query_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_name", value)
+
+
+@pulumi.input_type
 class PowerQuerySinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -75985,6 +76042,7 @@ class WranglingDataFlowArgs:
     def __init__(__self__, *,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 document_locale: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]]] = None,
@@ -75993,6 +76051,7 @@ class WranglingDataFlowArgs:
         Power Query data flow.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the data flow.
         :param pulumi.Input[str] description: The description of the data flow.
+        :param pulumi.Input[str] document_locale: Locale of the Power query mashup document.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param pulumi.Input[str] script: Power query mashup script.
         :param pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]] sources: List of sources in Power Query.
@@ -76003,6 +76062,8 @@ class WranglingDataFlowArgs:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if document_locale is not None:
+            pulumi.set(__self__, "document_locale", document_locale)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
         if script is not None:
@@ -76035,6 +76096,18 @@ class WranglingDataFlowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentLocale")
+    def document_locale(self) -> Optional[pulumi.Input[str]]:
+        """
+        Locale of the Power query mashup document.
+        """
+        return pulumi.get(self, "document_locale")
+
+    @document_locale.setter
+    def document_locale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_locale", value)
 
     @property
     @pulumi.getter

@@ -40,6 +40,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * Customer-initiated diagnostic log collection storage properties
+     */
+    public readonly diagnosticStorageProperties!: pulumi.Output<outputs.deviceupdate.v20200301preview.DiagnosticStoragePropertiesResponse | undefined>;
+    /**
      * Enables or Disables the diagnostic logs collection
      */
     public readonly enableDiagnostics!: pulumi.Output<boolean | undefined>;
@@ -90,6 +94,7 @@ export class Instance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["diagnosticStorageProperties"] = args ? args.diagnosticStorageProperties : undefined;
             inputs["enableDiagnostics"] = args ? args.enableDiagnostics : undefined;
             inputs["instanceName"] = args ? args.instanceName : undefined;
             inputs["iotHubs"] = args ? args.iotHubs : undefined;
@@ -102,6 +107,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["accountName"] = undefined /*out*/;
+            inputs["diagnosticStorageProperties"] = undefined /*out*/;
             inputs["enableDiagnostics"] = undefined /*out*/;
             inputs["iotHubs"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface InstanceArgs {
      * Account name.
      */
     accountName: pulumi.Input<string>;
+    /**
+     * Customer-initiated diagnostic log collection storage properties
+     */
+    diagnosticStorageProperties?: pulumi.Input<inputs.deviceupdate.v20200301preview.DiagnosticStoragePropertiesArgs>;
     /**
      * Enables or Disables the diagnostic logs collection
      */

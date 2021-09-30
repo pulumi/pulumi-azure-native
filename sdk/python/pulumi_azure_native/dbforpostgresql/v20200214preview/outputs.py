@@ -277,9 +277,7 @@ class StorageProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "earliestRestoreDate":
-            suggest = "earliest_restore_date"
-        elif key == "backupRetentionDays":
+        if key == "backupRetentionDays":
             suggest = "backup_retention_days"
         elif key == "geoRedundantBackup":
             suggest = "geo_redundant_backup"
@@ -298,32 +296,21 @@ class StorageProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 earliest_restore_date: str,
                  backup_retention_days: Optional[int] = None,
                  geo_redundant_backup: Optional[str] = None,
                  storage_mb: Optional[int] = None):
         """
         Storage Profile properties of a server
-        :param str earliest_restore_date: The earliest restore point time (ISO8601 format) for server.
         :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
         :param int storage_mb: Max storage allowed for a server.
         """
-        pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:
             pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
-
-    @property
-    @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> str:
-        """
-        The earliest restore point time (ISO8601 format) for server.
-        """
-        return pulumi.get(self, "earliest_restore_date")
 
     @property
     @pulumi.getter(name="backupRetentionDays")

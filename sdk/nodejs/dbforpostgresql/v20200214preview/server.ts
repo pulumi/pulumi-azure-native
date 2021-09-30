@@ -53,6 +53,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * The earliest restore point time (ISO8601 format) for server.
+     */
+    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string>;
+    /**
      * The fully qualified domain name of a server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class Server extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["byokEnforcement"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["minorVersion"] = undefined /*out*/;
@@ -194,6 +199,7 @@ export class Server extends pulumi.CustomResource {
             inputs["byokEnforcement"] = undefined /*out*/;
             inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haEnabled"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;

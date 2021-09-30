@@ -14,15 +14,16 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	AccountName       pulumi.StringOutput               `pulumi:"accountName"`
-	EnableDiagnostics pulumi.BoolPtrOutput              `pulumi:"enableDiagnostics"`
-	IotHubs           IotHubSettingsResponseArrayOutput `pulumi:"iotHubs"`
-	Location          pulumi.StringOutput               `pulumi:"location"`
-	Name              pulumi.StringOutput               `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput               `pulumi:"provisioningState"`
-	SystemData        SystemDataResponseOutput          `pulumi:"systemData"`
-	Tags              pulumi.StringMapOutput            `pulumi:"tags"`
-	Type              pulumi.StringOutput               `pulumi:"type"`
+	AccountName                 pulumi.StringOutput                          `pulumi:"accountName"`
+	DiagnosticStorageProperties DiagnosticStoragePropertiesResponsePtrOutput `pulumi:"diagnosticStorageProperties"`
+	EnableDiagnostics           pulumi.BoolPtrOutput                         `pulumi:"enableDiagnostics"`
+	IotHubs                     IotHubSettingsResponseArrayOutput            `pulumi:"iotHubs"`
+	Location                    pulumi.StringOutput                          `pulumi:"location"`
+	Name                        pulumi.StringOutput                          `pulumi:"name"`
+	ProvisioningState           pulumi.StringOutput                          `pulumi:"provisioningState"`
+	SystemData                  SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                        pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                        pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -82,24 +83,26 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	AccountName       string            `pulumi:"accountName"`
-	EnableDiagnostics *bool             `pulumi:"enableDiagnostics"`
-	InstanceName      *string           `pulumi:"instanceName"`
-	IotHubs           []IotHubSettings  `pulumi:"iotHubs"`
-	Location          *string           `pulumi:"location"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	AccountName                 string                       `pulumi:"accountName"`
+	DiagnosticStorageProperties *DiagnosticStorageProperties `pulumi:"diagnosticStorageProperties"`
+	EnableDiagnostics           *bool                        `pulumi:"enableDiagnostics"`
+	InstanceName                *string                      `pulumi:"instanceName"`
+	IotHubs                     []IotHubSettings             `pulumi:"iotHubs"`
+	Location                    *string                      `pulumi:"location"`
+	ResourceGroupName           string                       `pulumi:"resourceGroupName"`
+	Tags                        map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	AccountName       pulumi.StringInput
-	EnableDiagnostics pulumi.BoolPtrInput
-	InstanceName      pulumi.StringPtrInput
-	IotHubs           IotHubSettingsArrayInput
-	Location          pulumi.StringPtrInput
-	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	AccountName                 pulumi.StringInput
+	DiagnosticStorageProperties DiagnosticStoragePropertiesPtrInput
+	EnableDiagnostics           pulumi.BoolPtrInput
+	InstanceName                pulumi.StringPtrInput
+	IotHubs                     IotHubSettingsArrayInput
+	Location                    pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {

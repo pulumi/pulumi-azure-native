@@ -43,6 +43,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The earliest restore point time (ISO8601 format) for server.
+        /// </summary>
+        [Output("earliestRestoreDate")]
+        public Output<string> EarliestRestoreDate { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]

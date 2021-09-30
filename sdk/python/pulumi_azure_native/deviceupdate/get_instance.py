@@ -20,10 +20,13 @@ class GetInstanceResult:
     """
     Device Update instance details.
     """
-    def __init__(__self__, account_name=None, enable_diagnostics=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_name=None, diagnostic_storage_properties=None, enable_diagnostics=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if diagnostic_storage_properties and not isinstance(diagnostic_storage_properties, dict):
+            raise TypeError("Expected argument 'diagnostic_storage_properties' to be a dict")
+        pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
         if enable_diagnostics and not isinstance(enable_diagnostics, bool):
             raise TypeError("Expected argument 'enable_diagnostics' to be a bool")
         pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
@@ -59,6 +62,14 @@ class GetInstanceResult:
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="diagnosticStorageProperties")
+    def diagnostic_storage_properties(self) -> Optional['outputs.DiagnosticStoragePropertiesResponse']:
+        """
+        Customer-initiated diagnostic log collection storage properties
+        """
+        return pulumi.get(self, "diagnostic_storage_properties")
 
     @property
     @pulumi.getter(name="enableDiagnostics")
@@ -140,6 +151,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             yield self
         return GetInstanceResult(
             account_name=self.account_name,
+            diagnostic_storage_properties=self.diagnostic_storage_properties,
             enable_diagnostics=self.enable_diagnostics,
             id=self.id,
             iot_hubs=self.iot_hubs,
@@ -176,6 +188,7 @@ def get_instance(account_name: Optional[str] = None,
 
     return AwaitableGetInstanceResult(
         account_name=__ret__.account_name,
+        diagnostic_storage_properties=__ret__.diagnostic_storage_properties,
         enable_diagnostics=__ret__.enable_diagnostics,
         id=__ret__.id,
         iot_hubs=__ret__.iot_hubs,

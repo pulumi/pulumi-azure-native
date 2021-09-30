@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Locale of the Power query mashup document.
+        /// </summary>
+        [Input("documentLocale")]
+        public Input<string>? DocumentLocale { get; set; }
+
+        /// <summary>
         /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         /// </summary>
         [Input("folder")]

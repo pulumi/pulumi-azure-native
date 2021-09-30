@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -17,6 +18,7 @@ class InstanceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 diagnostic_storage_properties: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']] = None,
                  enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
@@ -26,6 +28,7 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] account_name: Account name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input['DiagnosticStoragePropertiesArgs'] diagnostic_storage_properties: Customer-initiated diagnostic log collection storage properties
         :param pulumi.Input[bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
         :param pulumi.Input[str] instance_name: Instance name.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]] iot_hubs: List of IoT Hubs associated with the account.
@@ -34,6 +37,8 @@ class InstanceArgs:
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if diagnostic_storage_properties is not None:
+            pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
         if enable_diagnostics is not None:
             pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
         if instance_name is not None:
@@ -68,6 +73,18 @@ class InstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="diagnosticStorageProperties")
+    def diagnostic_storage_properties(self) -> Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]:
+        """
+        Customer-initiated diagnostic log collection storage properties
+        """
+        return pulumi.get(self, "diagnostic_storage_properties")
+
+    @diagnostic_storage_properties.setter
+    def diagnostic_storage_properties(self, value: Optional[pulumi.Input['DiagnosticStoragePropertiesArgs']]):
+        pulumi.set(self, "diagnostic_storage_properties", value)
 
     @property
     @pulumi.getter(name="enableDiagnostics")
@@ -136,6 +153,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 diagnostic_storage_properties: Optional[pulumi.Input[pulumi.InputType['DiagnosticStoragePropertiesArgs']]] = None,
                  enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]]] = None,
@@ -150,6 +168,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input[pulumi.InputType['DiagnosticStoragePropertiesArgs']] diagnostic_storage_properties: Customer-initiated diagnostic log collection storage properties
         :param pulumi.Input[bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
         :param pulumi.Input[str] instance_name: Instance name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]] iot_hubs: List of IoT Hubs associated with the account.
@@ -183,6 +202,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 diagnostic_storage_properties: Optional[pulumi.Input[pulumi.InputType['DiagnosticStoragePropertiesArgs']]] = None,
                  enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]]] = None,
@@ -204,6 +224,7 @@ class Instance(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["diagnostic_storage_properties"] = diagnostic_storage_properties
             __props__.__dict__["enable_diagnostics"] = enable_diagnostics
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["iot_hubs"] = iot_hubs
@@ -241,6 +262,7 @@ class Instance(pulumi.CustomResource):
         __props__ = InstanceArgs.__new__(InstanceArgs)
 
         __props__.__dict__["account_name"] = None
+        __props__.__dict__["diagnostic_storage_properties"] = None
         __props__.__dict__["enable_diagnostics"] = None
         __props__.__dict__["iot_hubs"] = None
         __props__.__dict__["location"] = None
@@ -258,6 +280,14 @@ class Instance(pulumi.CustomResource):
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="diagnosticStorageProperties")
+    def diagnostic_storage_properties(self) -> pulumi.Output[Optional['outputs.DiagnosticStoragePropertiesResponse']]:
+        """
+        Customer-initiated diagnostic log collection storage properties
+        """
+        return pulumi.get(self, "diagnostic_storage_properties")
 
     @property
     @pulumi.getter(name="enableDiagnostics")

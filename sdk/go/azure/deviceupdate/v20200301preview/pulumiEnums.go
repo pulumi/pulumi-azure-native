@@ -10,6 +10,169 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AuthenticationType string
+
+const (
+	AuthenticationTypeKeyBased = AuthenticationType("KeyBased")
+)
+
+func (AuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationType)(nil)).Elem()
+}
+
+func (e AuthenticationType) ToAuthenticationTypeOutput() AuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(AuthenticationTypeOutput)
+}
+
+func (e AuthenticationType) ToAuthenticationTypeOutputWithContext(ctx context.Context) AuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AuthenticationTypeOutput)
+}
+
+func (e AuthenticationType) ToAuthenticationTypePtrOutput() AuthenticationTypePtrOutput {
+	return e.ToAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AuthenticationType) ToAuthenticationTypePtrOutputWithContext(ctx context.Context) AuthenticationTypePtrOutput {
+	return AuthenticationType(e).ToAuthenticationTypeOutputWithContext(ctx).ToAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e AuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationType)(nil)).Elem()
+}
+
+func (o AuthenticationTypeOutput) ToAuthenticationTypeOutput() AuthenticationTypeOutput {
+	return o
+}
+
+func (o AuthenticationTypeOutput) ToAuthenticationTypeOutputWithContext(ctx context.Context) AuthenticationTypeOutput {
+	return o
+}
+
+func (o AuthenticationTypeOutput) ToAuthenticationTypePtrOutput() AuthenticationTypePtrOutput {
+	return o.ToAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationTypeOutput) ToAuthenticationTypePtrOutputWithContext(ctx context.Context) AuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationType) *AuthenticationType {
+		return &v
+	}).(AuthenticationTypePtrOutput)
+}
+
+func (o AuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationType)(nil)).Elem()
+}
+
+func (o AuthenticationTypePtrOutput) ToAuthenticationTypePtrOutput() AuthenticationTypePtrOutput {
+	return o
+}
+
+func (o AuthenticationTypePtrOutput) ToAuthenticationTypePtrOutputWithContext(ctx context.Context) AuthenticationTypePtrOutput {
+	return o
+}
+
+func (o AuthenticationTypePtrOutput) Elem() AuthenticationTypeOutput {
+	return o.ApplyT(func(v *AuthenticationType) AuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationType
+		return ret
+	}).(AuthenticationTypeOutput)
+}
+
+func (o AuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AuthenticationTypeInput is an input type that accepts AuthenticationTypeArgs and AuthenticationTypeOutput values.
+// You can construct a concrete instance of `AuthenticationTypeInput` via:
+//
+//          AuthenticationTypeArgs{...}
+type AuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToAuthenticationTypeOutput() AuthenticationTypeOutput
+	ToAuthenticationTypeOutputWithContext(context.Context) AuthenticationTypeOutput
+}
+
+var authenticationTypePtrType = reflect.TypeOf((**AuthenticationType)(nil)).Elem()
+
+type AuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationTypePtrOutput() AuthenticationTypePtrOutput
+	ToAuthenticationTypePtrOutputWithContext(context.Context) AuthenticationTypePtrOutput
+}
+
+type authenticationTypePtr string
+
+func AuthenticationTypePtr(v string) AuthenticationTypePtrInput {
+	return (*authenticationTypePtr)(&v)
+}
+
+func (*authenticationTypePtr) ElementType() reflect.Type {
+	return authenticationTypePtrType
+}
+
+func (in *authenticationTypePtr) ToAuthenticationTypePtrOutput() AuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(AuthenticationTypePtrOutput)
+}
+
+func (in *authenticationTypePtr) ToAuthenticationTypePtrOutputWithContext(ctx context.Context) AuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AuthenticationTypePtrOutput)
+}
+
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -504,6 +667,8 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterOutputType(AuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(AuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(PublicNetworkAccessOutput{})

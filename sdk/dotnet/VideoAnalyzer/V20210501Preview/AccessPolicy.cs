@@ -73,6 +73,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer/v20210501preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:videoanalyzer:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer/v20211101preview:AccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

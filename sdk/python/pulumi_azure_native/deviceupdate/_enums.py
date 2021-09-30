@@ -5,10 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationType',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ResourceIdentityType',
 ]
+
+
+class AuthenticationType(str, Enum):
+    """
+    Authentication Type
+    """
+    KEY_BASED = "KeyBased"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

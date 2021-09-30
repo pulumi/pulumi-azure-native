@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Locale of the Power query mashup document.
+        /// </summary>
+        public readonly string? DocumentLocale;
+        /// <summary>
         /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         /// </summary>
         public readonly Outputs.DataFlowResponseFolder? Folder;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            string? documentLocale,
+
             Outputs.DataFlowResponseFolder? folder,
 
             string? script,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         {
             Annotations = annotations;
             Description = description;
+            DocumentLocale = documentLocale;
             Folder = folder;
             Script = script;
             Sources = sources;

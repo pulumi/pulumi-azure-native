@@ -44,6 +44,12 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:videoanalyzer/v20210501preview:AccessPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:videoanalyzer/v20211101preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:AccessPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessPolicy

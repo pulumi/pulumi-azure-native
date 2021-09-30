@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
+    /// Authentication Type
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationType : IEquatable<AuthenticationType>
+    {
+        private readonly string _value;
+
+        private AuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationType KeyBased { get; } = new AuthenticationType("KeyBased");
+
+        public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AuthenticationType left, AuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationType other && Equals(other);
+        public bool Equals(AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]

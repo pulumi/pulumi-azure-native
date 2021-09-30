@@ -54,6 +54,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string AccountName;
         /// <summary>
+        /// Customer-initiated diagnostic log collection storage properties
+        /// </summary>
+        public readonly Outputs.DiagnosticStoragePropertiesResponse? DiagnosticStorageProperties;
+        /// <summary>
         /// Enables or Disables the diagnostic logs collection
         /// </summary>
         public readonly bool? EnableDiagnostics;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         private GetInstanceResult(
             string accountName,
 
+            Outputs.DiagnosticStoragePropertiesResponse? diagnosticStorageProperties,
+
             bool? enableDiagnostics,
 
             string id,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
             string type)
         {
             AccountName = accountName;
+            DiagnosticStorageProperties = diagnosticStorageProperties;
             EnableDiagnostics = enableDiagnostics;
             Id = id;
             IotHubs = iotHubs;

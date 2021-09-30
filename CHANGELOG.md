@@ -3,7 +3,20 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `videoanalyzer.LivePipeline`
+- `videoanalyzer.PipelineJob`
+- `videoanalyzer.PipelineTopology`
+- `videoanalyzer.PrivateEndpointConnection`
+
+#### New functions:
+
+- `videoanalyzer.getLivePipeline`
+- `videoanalyzer.getPipelineJob`
+- `videoanalyzer.getPipelineTopology`
+- `videoanalyzer.getPrivateEndpointConnection`
+- `videoanalyzer.listVideoContentToken`
 
 ---
 

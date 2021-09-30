@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, log_backup_storage_sku=None, maintenance_window=None, minor_version=None, name=None, point_in_time_utc=None, private_dns_zone_arguments=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, standby_count=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, log_backup_storage_sku=None, maintenance_window=None, minor_version=None, name=None, point_in_time_utc=None, private_dns_zone_arguments=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, standby_count=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -36,6 +36,9 @@ class GetServerResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if earliest_restore_date and not isinstance(earliest_restore_date, str):
+            raise TypeError("Expected argument 'earliest_restore_date' to be a str")
+        pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -145,6 +148,14 @@ class GetServerResult:
         The display name of a server.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="earliestRestoreDate")
+    def earliest_restore_date(self) -> str:
+        """
+        The earliest restore point time (ISO8601 format) for server.
+        """
+        return pulumi.get(self, "earliest_restore_date")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -347,6 +358,7 @@ class AwaitableGetServerResult(GetServerResult):
             byok_enforcement=self.byok_enforcement,
             delegated_subnet_arguments=self.delegated_subnet_arguments,
             display_name=self.display_name,
+            earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             ha_enabled=self.ha_enabled,
             ha_state=self.ha_state,
@@ -398,6 +410,7 @@ def get_server(resource_group_name: Optional[str] = None,
         byok_enforcement=__ret__.byok_enforcement,
         delegated_subnet_arguments=__ret__.delegated_subnet_arguments,
         display_name=__ret__.display_name,
+        earliest_restore_date=__ret__.earliest_restore_date,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         ha_enabled=__ret__.ha_enabled,
         ha_state=__ret__.ha_state,

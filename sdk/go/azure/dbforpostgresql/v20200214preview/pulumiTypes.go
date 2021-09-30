@@ -1655,7 +1655,6 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 
 type StorageProfileResponse struct {
 	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
-	EarliestRestoreDate string  `pulumi:"earliestRestoreDate"`
 	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
 	StorageMB           *int    `pulumi:"storageMB"`
 }
@@ -1673,7 +1672,6 @@ type StorageProfileResponseInput interface {
 
 type StorageProfileResponseArgs struct {
 	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
-	EarliestRestoreDate pulumi.StringInput    `pulumi:"earliestRestoreDate"`
 	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 	StorageMB           pulumi.IntPtrInput    `pulumi:"storageMB"`
 }
@@ -1759,10 +1757,6 @@ func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-func (o StorageProfileResponseOutput) EarliestRestoreDate() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageProfileResponse) string { return v.EarliestRestoreDate }).(pulumi.StringOutput)
-}
-
 func (o StorageProfileResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
@@ -1802,15 +1796,6 @@ func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutp
 		}
 		return v.BackupRetentionDays
 	}).(pulumi.IntPtrOutput)
-}
-
-func (o StorageProfileResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EarliestRestoreDate
-	}).(pulumi.StringPtrOutput)
 }
 
 func (o StorageProfileResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {

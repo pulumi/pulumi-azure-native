@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer/v20210501preview:EdgeModule"},
                     new Pulumi.Alias { Type = "azure-native:videoanalyzer:EdgeModule"},
                     new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer:EdgeModule"},
+                    new Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:EdgeModule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:videoanalyzer/v20211101preview:EdgeModule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

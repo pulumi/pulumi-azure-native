@@ -55,6 +55,10 @@ export interface GetServerResult {
      */
     readonly displayName?: string;
     /**
+     * The earliest restore point time (ISO8601 format) for server.
+     */
+    readonly earliestRestoreDate: string;
+    /**
      * The fully qualified domain name of a server.
      */
     readonly fullyQualifiedDomainName: string;

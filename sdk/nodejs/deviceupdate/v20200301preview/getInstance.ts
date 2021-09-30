@@ -47,6 +47,10 @@ export interface GetInstanceResult {
      */
     readonly accountName: string;
     /**
+     * Customer-initiated diagnostic log collection storage properties
+     */
+    readonly diagnosticStorageProperties?: outputs.deviceupdate.v20200301preview.DiagnosticStoragePropertiesResponse;
+    /**
      * Enables or Disables the diagnostic logs collection
      */
     readonly enableDiagnostics?: boolean;

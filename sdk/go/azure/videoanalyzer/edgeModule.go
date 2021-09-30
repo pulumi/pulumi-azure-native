@@ -43,6 +43,12 @@ func NewEdgeModule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:videoanalyzer/v20210501preview:EdgeModule"),
 		},
+		{
+			Type: pulumi.String("azure-native:videoanalyzer/v20211101preview:EdgeModule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:EdgeModule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EdgeModule

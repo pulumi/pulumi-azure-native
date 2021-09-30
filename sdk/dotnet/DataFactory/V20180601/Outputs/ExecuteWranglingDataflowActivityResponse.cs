@@ -49,11 +49,15 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
+        /// List of mapping for Power Query mashup query to sink dataset(s).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerQuerySinkMappingResponse> Queries;
+        /// <summary>
         /// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         /// </summary>
         public readonly object? RunConcurrently;
         /// <summary>
-        /// List of Power Query activity sinks mapped to a queryName.
+        /// (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? Sinks;
         /// <summary>
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
+            ImmutableArray<Outputs.PowerQuerySinkMappingResponse> queries,
+
             object? runConcurrently,
 
             ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? sinks,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             IntegrationRuntime = integrationRuntime;
             Name = name;
             Policy = policy;
+            Queries = queries;
             RunConcurrently = runConcurrently;
             Sinks = sinks;
             Staging = staging;

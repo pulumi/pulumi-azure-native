@@ -398,6 +398,7 @@ __all__ = [
     'PostgreSqlLinkedServiceResponse',
     'PostgreSqlSourceResponse',
     'PostgreSqlTableDatasetResponse',
+    'PowerQuerySinkMappingResponse',
     'PowerQuerySinkResponse',
     'PowerQuerySourceResponse',
     'PrestoLinkedServiceResponse',
@@ -29040,6 +29041,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  description: Optional[str] = None,
                  integration_runtime: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 queries: Optional[Sequence['outputs.PowerQuerySinkMappingResponse']] = None,
                  run_concurrently: Optional[Any] = None,
                  sinks: Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']] = None,
                  staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
@@ -29057,8 +29059,9 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         :param str description: Activity description.
         :param 'IntegrationRuntimeReferenceResponse' integration_runtime: The integration runtime reference.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['PowerQuerySinkMappingResponse'] queries: List of mapping for Power Query mashup query to sink dataset(s).
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
-        :param Mapping[str, 'PowerQuerySinkResponse'] sinks: List of Power Query activity sinks mapped to a queryName.
+        :param Mapping[str, 'PowerQuerySinkResponse'] sinks: (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -29078,6 +29081,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             pulumi.set(__self__, "integration_runtime", integration_runtime)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if queries is not None:
+            pulumi.set(__self__, "queries", queries)
         if run_concurrently is not None:
             pulumi.set(__self__, "run_concurrently", run_concurrently)
         if sinks is not None:
@@ -29163,6 +29168,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter
+    def queries(self) -> Optional[Sequence['outputs.PowerQuerySinkMappingResponse']]:
+        """
+        List of mapping for Power Query mashup query to sink dataset(s).
+        """
+        return pulumi.get(self, "queries")
+
+    @property
     @pulumi.getter(name="runConcurrently")
     def run_concurrently(self) -> Optional[Any]:
         """
@@ -29174,7 +29187,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
     @pulumi.getter
     def sinks(self) -> Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']]:
         """
-        List of Power Query activity sinks mapped to a queryName.
+        (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         """
         return pulumi.get(self, "sinks")
 
@@ -53137,6 +53150,60 @@ class PostgreSqlTableDatasetResponse(dict):
 
 
 @pulumi.output_type
+class PowerQuerySinkMappingResponse(dict):
+    """
+    Map Power Query mashup query to sink dataset(s).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataflowSinks":
+            suggest = "dataflow_sinks"
+        elif key == "queryName":
+            suggest = "query_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerQuerySinkMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerQuerySinkMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerQuerySinkMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataflow_sinks: Optional[Sequence['outputs.PowerQuerySinkResponse']] = None,
+                 query_name: Optional[str] = None):
+        """
+        Map Power Query mashup query to sink dataset(s).
+        :param Sequence['PowerQuerySinkResponse'] dataflow_sinks: List of sinks mapped to Power Query mashup query.
+        :param str query_name: Name of the query in Power Query mashup document.
+        """
+        if dataflow_sinks is not None:
+            pulumi.set(__self__, "dataflow_sinks", dataflow_sinks)
+        if query_name is not None:
+            pulumi.set(__self__, "query_name", query_name)
+
+    @property
+    @pulumi.getter(name="dataflowSinks")
+    def dataflow_sinks(self) -> Optional[Sequence['outputs.PowerQuerySinkResponse']]:
+        """
+        List of sinks mapped to Power Query mashup query.
+        """
+        return pulumi.get(self, "dataflow_sinks")
+
+    @property
+    @pulumi.getter(name="queryName")
+    def query_name(self) -> Optional[str]:
+        """
+        Name of the query in Power Query mashup document.
+        """
+        return pulumi.get(self, "query_name")
+
+
+@pulumi.output_type
 class PowerQuerySinkResponse(dict):
     """
     Power query sink.
@@ -73999,9 +74066,27 @@ class WranglingDataFlowResponse(dict):
     """
     Power Query data flow.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentLocale":
+            suggest = "document_locale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WranglingDataFlowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WranglingDataFlowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WranglingDataFlowResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
+                 document_locale: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
                  script: Optional[str] = None,
                  sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None,
@@ -74010,6 +74095,7 @@ class WranglingDataFlowResponse(dict):
         Power Query data flow.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
+        :param str document_locale: Locale of the Power query mashup document.
         :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param str script: Power query mashup script.
         :param Sequence['PowerQuerySourceResponse'] sources: List of sources in Power Query.
@@ -74020,6 +74106,8 @@ class WranglingDataFlowResponse(dict):
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if document_locale is not None:
+            pulumi.set(__self__, "document_locale", document_locale)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
         if script is not None:
@@ -74044,6 +74132,14 @@ class WranglingDataFlowResponse(dict):
         The description of the data flow.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentLocale")
+    def document_locale(self) -> Optional[str]:
+        """
+        Locale of the Power query mashup document.
+        """
+        return pulumi.get(self, "document_locale")
 
     @property
     @pulumi.getter

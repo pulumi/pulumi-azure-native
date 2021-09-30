@@ -12778,6 +12778,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "providerhub/v20210901preview",
+  "fqn": "pulumi_azure_native.providerhub.v20210901preview",
+  "classes": {
+   "azure-native:providerhub/v20210901preview:DefaultRollout": "DefaultRollout",
+   "azure-native:providerhub/v20210901preview:NotificationRegistration": "NotificationRegistration",
+   "azure-native:providerhub/v20210901preview:OperationByProviderRegistration": "OperationByProviderRegistration",
+   "azure-native:providerhub/v20210901preview:ProviderRegistration": "ProviderRegistration",
+   "azure-native:providerhub/v20210901preview:ResourceTypeRegistration": "ResourceTypeRegistration",
+   "azure-native:providerhub/v20210901preview:Skus": "Skus",
+   "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst": "SkusNestedResourceTypeFirst",
+   "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond": "SkusNestedResourceTypeSecond",
+   "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeThird": "SkusNestedResourceTypeThird"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "purview",
   "fqn": "pulumi_azure_native.purview",
   "classes": {
@@ -15291,6 +15307,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storagecache/v20210901",
+  "fqn": "pulumi_azure_native.storagecache.v20210901",
+  "classes": {
+   "azure-native:storagecache/v20210901:Cache": "Cache",
+   "azure-native:storagecache/v20210901:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storagepool",
   "fqn": "pulumi_azure_native.storagepool",
   "classes": {
@@ -15951,6 +15976,10 @@ _utilities.register(
   "classes": {
    "azure-native:videoanalyzer:AccessPolicy": "AccessPolicy",
    "azure-native:videoanalyzer:EdgeModule": "EdgeModule",
+   "azure-native:videoanalyzer:LivePipeline": "LivePipeline",
+   "azure-native:videoanalyzer:PipelineJob": "PipelineJob",
+   "azure-native:videoanalyzer:PipelineTopology": "PipelineTopology",
+   "azure-native:videoanalyzer:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:videoanalyzer:Video": "Video",
    "azure-native:videoanalyzer:VideoAnalyzer": "VideoAnalyzer"
   }
@@ -15964,6 +15993,21 @@ _utilities.register(
    "azure-native:videoanalyzer/v20210501preview:EdgeModule": "EdgeModule",
    "azure-native:videoanalyzer/v20210501preview:Video": "Video",
    "azure-native:videoanalyzer/v20210501preview:VideoAnalyzer": "VideoAnalyzer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "videoanalyzer/v20211101preview",
+  "fqn": "pulumi_azure_native.videoanalyzer.v20211101preview",
+  "classes": {
+   "azure-native:videoanalyzer/v20211101preview:AccessPolicy": "AccessPolicy",
+   "azure-native:videoanalyzer/v20211101preview:EdgeModule": "EdgeModule",
+   "azure-native:videoanalyzer/v20211101preview:LivePipeline": "LivePipeline",
+   "azure-native:videoanalyzer/v20211101preview:PipelineJob": "PipelineJob",
+   "azure-native:videoanalyzer/v20211101preview:PipelineTopology": "PipelineTopology",
+   "azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:videoanalyzer/v20211101preview:Video": "Video",
+   "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer": "VideoAnalyzer"
   }
  },
  {
