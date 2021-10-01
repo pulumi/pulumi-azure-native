@@ -117,18 +117,18 @@ func (CustomIPPrefixState) ElementType() reflect.Type {
 }
 
 type customIPPrefixArgs struct {
-	AuthorizationMessage *string           `pulumi:"authorizationMessage"`
-	Cidr                 *string           `pulumi:"cidr"`
-	CommissionedState    *string           `pulumi:"commissionedState"`
-	CustomIpPrefixName   *string           `pulumi:"customIpPrefixName"`
-	CustomIpPrefixParent *CustomIpPrefix   `pulumi:"customIpPrefixParent"`
-	ExtendedLocation     *ExtendedLocation `pulumi:"extendedLocation"`
-	Id                   *string           `pulumi:"id"`
-	Location             *string           `pulumi:"location"`
-	ResourceGroupName    string            `pulumi:"resourceGroupName"`
-	SignedMessage        *string           `pulumi:"signedMessage"`
-	Tags                 map[string]string `pulumi:"tags"`
-	Zones                []string          `pulumi:"zones"`
+	AuthorizationMessage *string             `pulumi:"authorizationMessage"`
+	Cidr                 *string             `pulumi:"cidr"`
+	CommissionedState    *string             `pulumi:"commissionedState"`
+	CustomIpPrefixName   *string             `pulumi:"customIpPrefixName"`
+	CustomIpPrefixParent *CustomIpPrefixType `pulumi:"customIpPrefixParent"`
+	ExtendedLocation     *ExtendedLocation   `pulumi:"extendedLocation"`
+	Id                   *string             `pulumi:"id"`
+	Location             *string             `pulumi:"location"`
+	ResourceGroupName    string              `pulumi:"resourceGroupName"`
+	SignedMessage        *string             `pulumi:"signedMessage"`
+	Tags                 map[string]string   `pulumi:"tags"`
+	Zones                []string            `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a CustomIPPrefix resource.
@@ -137,7 +137,7 @@ type CustomIPPrefixArgs struct {
 	Cidr                 pulumi.StringPtrInput
 	CommissionedState    pulumi.StringPtrInput
 	CustomIpPrefixName   pulumi.StringPtrInput
-	CustomIpPrefixParent CustomIpPrefixPtrInput
+	CustomIpPrefixParent CustomIpPrefixTypePtrInput
 	ExtendedLocation     ExtendedLocationPtrInput
 	Id                   pulumi.StringPtrInput
 	Location             pulumi.StringPtrInput

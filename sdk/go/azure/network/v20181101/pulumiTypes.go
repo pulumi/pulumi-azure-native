@@ -27138,7 +27138,7 @@ func (o P2SVpnServerConfigVpnClientRootCertificateResponseArrayOutput) Index(i p
 	}).(P2SVpnServerConfigVpnClientRootCertificateResponseOutput)
 }
 
-type P2SVpnServerConfiguration struct {
+type P2SVpnServerConfigurationType struct {
 	Etag                                           *string                                         `pulumi:"etag"`
 	Id                                             *string                                         `pulumi:"id"`
 	Name                                           *string                                         `pulumi:"name"`
@@ -27152,18 +27152,18 @@ type P2SVpnServerConfiguration struct {
 	VpnProtocols                                   []string                                        `pulumi:"vpnProtocols"`
 }
 
-// P2SVpnServerConfigurationInput is an input type that accepts P2SVpnServerConfigurationArgs and P2SVpnServerConfigurationOutput values.
-// You can construct a concrete instance of `P2SVpnServerConfigurationInput` via:
+// P2SVpnServerConfigurationTypeInput is an input type that accepts P2SVpnServerConfigurationTypeArgs and P2SVpnServerConfigurationTypeOutput values.
+// You can construct a concrete instance of `P2SVpnServerConfigurationTypeInput` via:
 //
-//          P2SVpnServerConfigurationArgs{...}
-type P2SVpnServerConfigurationInput interface {
+//          P2SVpnServerConfigurationTypeArgs{...}
+type P2SVpnServerConfigurationTypeInput interface {
 	pulumi.Input
 
-	ToP2SVpnServerConfigurationOutput() P2SVpnServerConfigurationOutput
-	ToP2SVpnServerConfigurationOutputWithContext(context.Context) P2SVpnServerConfigurationOutput
+	ToP2SVpnServerConfigurationTypeOutput() P2SVpnServerConfigurationTypeOutput
+	ToP2SVpnServerConfigurationTypeOutputWithContext(context.Context) P2SVpnServerConfigurationTypeOutput
 }
 
-type P2SVpnServerConfigurationArgs struct {
+type P2SVpnServerConfigurationTypeArgs struct {
 	Etag                                           pulumi.StringPtrInput                                   `pulumi:"etag"`
 	Id                                             pulumi.StringPtrInput                                   `pulumi:"id"`
 	Name                                           pulumi.StringPtrInput                                   `pulumi:"name"`
@@ -27177,127 +27177,127 @@ type P2SVpnServerConfigurationArgs struct {
 	VpnProtocols                                   pulumi.StringArrayInput                                 `pulumi:"vpnProtocols"`
 }
 
-func (P2SVpnServerConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*P2SVpnServerConfiguration)(nil)).Elem()
+func (P2SVpnServerConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2SVpnServerConfigurationType)(nil)).Elem()
 }
 
-func (i P2SVpnServerConfigurationArgs) ToP2SVpnServerConfigurationOutput() P2SVpnServerConfigurationOutput {
-	return i.ToP2SVpnServerConfigurationOutputWithContext(context.Background())
+func (i P2SVpnServerConfigurationTypeArgs) ToP2SVpnServerConfigurationTypeOutput() P2SVpnServerConfigurationTypeOutput {
+	return i.ToP2SVpnServerConfigurationTypeOutputWithContext(context.Background())
 }
 
-func (i P2SVpnServerConfigurationArgs) ToP2SVpnServerConfigurationOutputWithContext(ctx context.Context) P2SVpnServerConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(P2SVpnServerConfigurationOutput)
+func (i P2SVpnServerConfigurationTypeArgs) ToP2SVpnServerConfigurationTypeOutputWithContext(ctx context.Context) P2SVpnServerConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(P2SVpnServerConfigurationTypeOutput)
 }
 
-// P2SVpnServerConfigurationArrayInput is an input type that accepts P2SVpnServerConfigurationArray and P2SVpnServerConfigurationArrayOutput values.
-// You can construct a concrete instance of `P2SVpnServerConfigurationArrayInput` via:
+// P2SVpnServerConfigurationTypeArrayInput is an input type that accepts P2SVpnServerConfigurationTypeArray and P2SVpnServerConfigurationTypeArrayOutput values.
+// You can construct a concrete instance of `P2SVpnServerConfigurationTypeArrayInput` via:
 //
-//          P2SVpnServerConfigurationArray{ P2SVpnServerConfigurationArgs{...} }
-type P2SVpnServerConfigurationArrayInput interface {
+//          P2SVpnServerConfigurationTypeArray{ P2SVpnServerConfigurationTypeArgs{...} }
+type P2SVpnServerConfigurationTypeArrayInput interface {
 	pulumi.Input
 
-	ToP2SVpnServerConfigurationArrayOutput() P2SVpnServerConfigurationArrayOutput
-	ToP2SVpnServerConfigurationArrayOutputWithContext(context.Context) P2SVpnServerConfigurationArrayOutput
+	ToP2SVpnServerConfigurationTypeArrayOutput() P2SVpnServerConfigurationTypeArrayOutput
+	ToP2SVpnServerConfigurationTypeArrayOutputWithContext(context.Context) P2SVpnServerConfigurationTypeArrayOutput
 }
 
-type P2SVpnServerConfigurationArray []P2SVpnServerConfigurationInput
+type P2SVpnServerConfigurationTypeArray []P2SVpnServerConfigurationTypeInput
 
-func (P2SVpnServerConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]P2SVpnServerConfiguration)(nil)).Elem()
+func (P2SVpnServerConfigurationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]P2SVpnServerConfigurationType)(nil)).Elem()
 }
 
-func (i P2SVpnServerConfigurationArray) ToP2SVpnServerConfigurationArrayOutput() P2SVpnServerConfigurationArrayOutput {
-	return i.ToP2SVpnServerConfigurationArrayOutputWithContext(context.Background())
+func (i P2SVpnServerConfigurationTypeArray) ToP2SVpnServerConfigurationTypeArrayOutput() P2SVpnServerConfigurationTypeArrayOutput {
+	return i.ToP2SVpnServerConfigurationTypeArrayOutputWithContext(context.Background())
 }
 
-func (i P2SVpnServerConfigurationArray) ToP2SVpnServerConfigurationArrayOutputWithContext(ctx context.Context) P2SVpnServerConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(P2SVpnServerConfigurationArrayOutput)
+func (i P2SVpnServerConfigurationTypeArray) ToP2SVpnServerConfigurationTypeArrayOutputWithContext(ctx context.Context) P2SVpnServerConfigurationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(P2SVpnServerConfigurationTypeArrayOutput)
 }
 
-type P2SVpnServerConfigurationOutput struct{ *pulumi.OutputState }
+type P2SVpnServerConfigurationTypeOutput struct{ *pulumi.OutputState }
 
-func (P2SVpnServerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*P2SVpnServerConfiguration)(nil)).Elem()
+func (P2SVpnServerConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2SVpnServerConfigurationType)(nil)).Elem()
 }
 
-func (o P2SVpnServerConfigurationOutput) ToP2SVpnServerConfigurationOutput() P2SVpnServerConfigurationOutput {
+func (o P2SVpnServerConfigurationTypeOutput) ToP2SVpnServerConfigurationTypeOutput() P2SVpnServerConfigurationTypeOutput {
 	return o
 }
 
-func (o P2SVpnServerConfigurationOutput) ToP2SVpnServerConfigurationOutputWithContext(ctx context.Context) P2SVpnServerConfigurationOutput {
+func (o P2SVpnServerConfigurationTypeOutput) ToP2SVpnServerConfigurationTypeOutputWithContext(ctx context.Context) P2SVpnServerConfigurationTypeOutput {
 	return o
 }
 
-func (o P2SVpnServerConfigurationOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) *string { return v.Etag }).(pulumi.StringPtrOutput)
+func (o P2SVpnServerConfigurationTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o P2SVpnServerConfigurationTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o P2SVpnServerConfigurationTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) P2SVpnServerConfigRadiusClientRootCertificates() P2SVpnServerConfigRadiusClientRootCertificateArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []P2SVpnServerConfigRadiusClientRootCertificate {
+func (o P2SVpnServerConfigurationTypeOutput) P2SVpnServerConfigRadiusClientRootCertificates() P2SVpnServerConfigRadiusClientRootCertificateArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []P2SVpnServerConfigRadiusClientRootCertificate {
 		return v.P2SVpnServerConfigRadiusClientRootCertificates
 	}).(P2SVpnServerConfigRadiusClientRootCertificateArrayOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) P2SVpnServerConfigRadiusServerRootCertificates() P2SVpnServerConfigRadiusServerRootCertificateArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []P2SVpnServerConfigRadiusServerRootCertificate {
+func (o P2SVpnServerConfigurationTypeOutput) P2SVpnServerConfigRadiusServerRootCertificates() P2SVpnServerConfigRadiusServerRootCertificateArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []P2SVpnServerConfigRadiusServerRootCertificate {
 		return v.P2SVpnServerConfigRadiusServerRootCertificates
 	}).(P2SVpnServerConfigRadiusServerRootCertificateArrayOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) P2SVpnServerConfigVpnClientRevokedCertificates() P2SVpnServerConfigVpnClientRevokedCertificateArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []P2SVpnServerConfigVpnClientRevokedCertificate {
+func (o P2SVpnServerConfigurationTypeOutput) P2SVpnServerConfigVpnClientRevokedCertificates() P2SVpnServerConfigVpnClientRevokedCertificateArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []P2SVpnServerConfigVpnClientRevokedCertificate {
 		return v.P2SVpnServerConfigVpnClientRevokedCertificates
 	}).(P2SVpnServerConfigVpnClientRevokedCertificateArrayOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) P2SVpnServerConfigVpnClientRootCertificates() P2SVpnServerConfigVpnClientRootCertificateArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []P2SVpnServerConfigVpnClientRootCertificate {
+func (o P2SVpnServerConfigurationTypeOutput) P2SVpnServerConfigVpnClientRootCertificates() P2SVpnServerConfigVpnClientRootCertificateArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []P2SVpnServerConfigVpnClientRootCertificate {
 		return v.P2SVpnServerConfigVpnClientRootCertificates
 	}).(P2SVpnServerConfigVpnClientRootCertificateArrayOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) RadiusServerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
+func (o P2SVpnServerConfigurationTypeOutput) RadiusServerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) RadiusServerSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
+func (o P2SVpnServerConfigurationTypeOutput) RadiusServerSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) VpnClientIpsecPolicies() IpsecPolicyArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []IpsecPolicy { return v.VpnClientIpsecPolicies }).(IpsecPolicyArrayOutput)
+func (o P2SVpnServerConfigurationTypeOutput) VpnClientIpsecPolicies() IpsecPolicyArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []IpsecPolicy { return v.VpnClientIpsecPolicies }).(IpsecPolicyArrayOutput)
 }
 
-func (o P2SVpnServerConfigurationOutput) VpnProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v P2SVpnServerConfiguration) []string { return v.VpnProtocols }).(pulumi.StringArrayOutput)
+func (o P2SVpnServerConfigurationTypeOutput) VpnProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v P2SVpnServerConfigurationType) []string { return v.VpnProtocols }).(pulumi.StringArrayOutput)
 }
 
-type P2SVpnServerConfigurationArrayOutput struct{ *pulumi.OutputState }
+type P2SVpnServerConfigurationTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (P2SVpnServerConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]P2SVpnServerConfiguration)(nil)).Elem()
+func (P2SVpnServerConfigurationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]P2SVpnServerConfigurationType)(nil)).Elem()
 }
 
-func (o P2SVpnServerConfigurationArrayOutput) ToP2SVpnServerConfigurationArrayOutput() P2SVpnServerConfigurationArrayOutput {
+func (o P2SVpnServerConfigurationTypeArrayOutput) ToP2SVpnServerConfigurationTypeArrayOutput() P2SVpnServerConfigurationTypeArrayOutput {
 	return o
 }
 
-func (o P2SVpnServerConfigurationArrayOutput) ToP2SVpnServerConfigurationArrayOutputWithContext(ctx context.Context) P2SVpnServerConfigurationArrayOutput {
+func (o P2SVpnServerConfigurationTypeArrayOutput) ToP2SVpnServerConfigurationTypeArrayOutputWithContext(ctx context.Context) P2SVpnServerConfigurationTypeArrayOutput {
 	return o
 }
 
-func (o P2SVpnServerConfigurationArrayOutput) Index(i pulumi.IntInput) P2SVpnServerConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) P2SVpnServerConfiguration {
-		return vs[0].([]P2SVpnServerConfiguration)[vs[1].(int)]
-	}).(P2SVpnServerConfigurationOutput)
+func (o P2SVpnServerConfigurationTypeArrayOutput) Index(i pulumi.IntInput) P2SVpnServerConfigurationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) P2SVpnServerConfigurationType {
+		return vs[0].([]P2SVpnServerConfigurationType)[vs[1].(int)]
+	}).(P2SVpnServerConfigurationTypeOutput)
 }
 
 type P2SVpnServerConfigurationResponse struct {
@@ -39415,8 +39415,8 @@ func init() {
 	pulumi.RegisterOutputType(P2SVpnServerConfigVpnClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(P2SVpnServerConfigVpnClientRootCertificateResponseOutput{})
 	pulumi.RegisterOutputType(P2SVpnServerConfigVpnClientRootCertificateResponseArrayOutput{})
-	pulumi.RegisterOutputType(P2SVpnServerConfigurationOutput{})
-	pulumi.RegisterOutputType(P2SVpnServerConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(P2SVpnServerConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(P2SVpnServerConfigurationTypeArrayOutput{})
 	pulumi.RegisterOutputType(P2SVpnServerConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(P2SVpnServerConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(PacketCaptureFilterOutput{})

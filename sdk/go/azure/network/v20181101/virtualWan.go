@@ -222,16 +222,16 @@ func (VirtualWanState) ElementType() reflect.Type {
 }
 
 type virtualWanArgs struct {
-	AllowBranchToBranchTraffic *bool                       `pulumi:"allowBranchToBranchTraffic"`
-	AllowVnetToVnetTraffic     *bool                       `pulumi:"allowVnetToVnetTraffic"`
-	DisableVpnEncryption       *bool                       `pulumi:"disableVpnEncryption"`
-	Id                         *string                     `pulumi:"id"`
-	Location                   *string                     `pulumi:"location"`
-	P2SVpnServerConfigurations []P2SVpnServerConfiguration `pulumi:"p2SVpnServerConfigurations"`
-	ResourceGroupName          string                      `pulumi:"resourceGroupName"`
-	SecurityProviderName       *string                     `pulumi:"securityProviderName"`
-	Tags                       map[string]string           `pulumi:"tags"`
-	VirtualWANName             *string                     `pulumi:"virtualWANName"`
+	AllowBranchToBranchTraffic *bool                           `pulumi:"allowBranchToBranchTraffic"`
+	AllowVnetToVnetTraffic     *bool                           `pulumi:"allowVnetToVnetTraffic"`
+	DisableVpnEncryption       *bool                           `pulumi:"disableVpnEncryption"`
+	Id                         *string                         `pulumi:"id"`
+	Location                   *string                         `pulumi:"location"`
+	P2SVpnServerConfigurations []P2SVpnServerConfigurationType `pulumi:"p2SVpnServerConfigurations"`
+	ResourceGroupName          string                          `pulumi:"resourceGroupName"`
+	SecurityProviderName       *string                         `pulumi:"securityProviderName"`
+	Tags                       map[string]string               `pulumi:"tags"`
+	VirtualWANName             *string                         `pulumi:"virtualWANName"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
@@ -241,7 +241,7 @@ type VirtualWanArgs struct {
 	DisableVpnEncryption       pulumi.BoolPtrInput
 	Id                         pulumi.StringPtrInput
 	Location                   pulumi.StringPtrInput
-	P2SVpnServerConfigurations P2SVpnServerConfigurationArrayInput
+	P2SVpnServerConfigurations P2SVpnServerConfigurationTypeArrayInput
 	ResourceGroupName          pulumi.StringInput
 	SecurityProviderName       pulumi.StringPtrInput
 	Tags                       pulumi.StringMapInput

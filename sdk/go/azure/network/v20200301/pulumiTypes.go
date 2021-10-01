@@ -1379,6 +1379,47 @@ func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseOutput)
 }
 
+func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return i.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseOutput).ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayBackendAddressPoolResponsePtrInput is an input type that accepts ApplicationGatewayBackendAddressPoolResponseArgs, ApplicationGatewayBackendAddressPoolResponsePtr and ApplicationGatewayBackendAddressPoolResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolResponsePtrInput` via:
+//
+//          ApplicationGatewayBackendAddressPoolResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewayBackendAddressPoolResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput
+	ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput
+}
+
+type applicationGatewayBackendAddressPoolResponsePtrType ApplicationGatewayBackendAddressPoolResponseArgs
+
+func ApplicationGatewayBackendAddressPoolResponsePtr(v *ApplicationGatewayBackendAddressPoolResponseArgs) ApplicationGatewayBackendAddressPoolResponsePtrInput {
+	return (*applicationGatewayBackendAddressPoolResponsePtrType)(v)
+}
+
+func (*applicationGatewayBackendAddressPoolResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
+}
+
+func (i *applicationGatewayBackendAddressPoolResponsePtrType) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return i.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayBackendAddressPoolResponsePtrType) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponsePtrOutput)
+}
+
 // ApplicationGatewayBackendAddressPoolResponseArrayInput is an input type that accepts ApplicationGatewayBackendAddressPoolResponseArray and ApplicationGatewayBackendAddressPoolResponseArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolResponseArrayInput` via:
 //
@@ -1418,6 +1459,16 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGateway
 	return o
 }
 
+func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayBackendAddressPoolResponse) *ApplicationGatewayBackendAddressPoolResponse {
+		return &v
+	}).(ApplicationGatewayBackendAddressPoolResponsePtrOutput)
+}
+
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
 		return v.BackendAddresses
@@ -1448,6 +1499,93 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) ProvisioningState() 
 
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayBackendAddressPoolResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendAddressPoolResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Elem() ApplicationGatewayBackendAddressPoolResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) ApplicationGatewayBackendAddressPoolResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendAddressPoolResponse
+		return ret
+	}).(ApplicationGatewayBackendAddressPoolResponseOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendAddresses
+	}).(ApplicationGatewayBackendAddressResponseArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendIPConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []NetworkInterfaceIPConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendIPConfigurations
+	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayBackendAddressPoolResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1603,6 +1741,47 @@ func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput)
 }
 
+func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return i.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput).ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput is an input type that accepts ApplicationGatewayBackendHealthHttpSettingsResponseArgs, ApplicationGatewayBackendHealthHttpSettingsResponsePtr and ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput` via:
+//
+//          ApplicationGatewayBackendHealthHttpSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput
+	ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput
+}
+
+type applicationGatewayBackendHealthHttpSettingsResponsePtrType ApplicationGatewayBackendHealthHttpSettingsResponseArgs
+
+func ApplicationGatewayBackendHealthHttpSettingsResponsePtr(v *ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput {
+	return (*applicationGatewayBackendHealthHttpSettingsResponsePtrType)(v)
+}
+
+func (*applicationGatewayBackendHealthHttpSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (i *applicationGatewayBackendHealthHttpSettingsResponsePtrType) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return i.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayBackendHealthHttpSettingsResponsePtrType) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput)
+}
+
 type ApplicationGatewayBackendHealthHttpSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ElementType() reflect.Type {
@@ -1617,6 +1796,16 @@ func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplication
 	return o
 }
 
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHealthHttpSettingsResponse {
+		return &v
+	}).(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput)
+}
+
 func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
 		return v.BackendHttpSettings
@@ -1625,6 +1814,48 @@ func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) BackendHttpSe
 
 func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		return v.Servers
+	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
+}
+
+type ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Elem() ApplicationGatewayBackendHealthHttpSettingsResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) ApplicationGatewayBackendHealthHttpSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendHealthHttpSettingsResponse
+		return ret
+	}).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput)
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendHttpSettings
+	}).(ApplicationGatewayBackendHttpSettingsResponsePtrOutput)
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		if v == nil {
+			return nil
+		}
 		return v.Servers
 	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
 }
@@ -55413,10 +55644,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsOutput{})

@@ -639,6 +639,47 @@ func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPoli
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyResponseOutput)
 }
 
+func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return i.ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyResponseOutput).ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// EdgeUsageDataCollectionPolicyResponsePtrInput is an input type that accepts EdgeUsageDataCollectionPolicyResponseArgs, EdgeUsageDataCollectionPolicyResponsePtr and EdgeUsageDataCollectionPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `EdgeUsageDataCollectionPolicyResponsePtrInput` via:
+//
+//          EdgeUsageDataCollectionPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeUsageDataCollectionPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput
+	ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput
+}
+
+type edgeUsageDataCollectionPolicyResponsePtrType EdgeUsageDataCollectionPolicyResponseArgs
+
+func EdgeUsageDataCollectionPolicyResponsePtr(v *EdgeUsageDataCollectionPolicyResponseArgs) EdgeUsageDataCollectionPolicyResponsePtrInput {
+	return (*edgeUsageDataCollectionPolicyResponsePtrType)(v)
+}
+
+func (*edgeUsageDataCollectionPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (i *edgeUsageDataCollectionPolicyResponsePtrType) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return i.ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edgeUsageDataCollectionPolicyResponsePtrType) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyResponsePtrOutput)
+}
+
 type EdgeUsageDataCollectionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (EdgeUsageDataCollectionPolicyResponseOutput) ElementType() reflect.Type {
@@ -651,6 +692,16 @@ func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPo
 
 func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
 	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o.ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataCollectionPolicyResponse {
+		return &v
+	}).(EdgeUsageDataCollectionPolicyResponsePtrOutput)
 }
 
 func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
@@ -667,6 +718,66 @@ func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsage
 
 func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataCollectionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) Elem() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) EdgeUsageDataCollectionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataCollectionPolicyResponse
+		return ret
+	}).(EdgeUsageDataCollectionPolicyResponseOutput)
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCollectionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataReportingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubDetails
+	}).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAllowedUnreportedUsageDuration
+	}).(pulumi.StringPtrOutput)
 }
 
 type EdgeUsageDataEventHubResponse struct {
@@ -2552,6 +2663,7 @@ func init() {
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponseOutput{})
 	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyDeliveryOutput{})

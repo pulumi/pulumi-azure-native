@@ -1379,6 +1379,47 @@ func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseOutput)
 }
 
+func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return i.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseOutput).ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayBackendAddressPoolResponsePtrInput is an input type that accepts ApplicationGatewayBackendAddressPoolResponseArgs, ApplicationGatewayBackendAddressPoolResponsePtr and ApplicationGatewayBackendAddressPoolResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolResponsePtrInput` via:
+//
+//          ApplicationGatewayBackendAddressPoolResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewayBackendAddressPoolResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput
+	ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput
+}
+
+type applicationGatewayBackendAddressPoolResponsePtrType ApplicationGatewayBackendAddressPoolResponseArgs
+
+func ApplicationGatewayBackendAddressPoolResponsePtr(v *ApplicationGatewayBackendAddressPoolResponseArgs) ApplicationGatewayBackendAddressPoolResponsePtrInput {
+	return (*applicationGatewayBackendAddressPoolResponsePtrType)(v)
+}
+
+func (*applicationGatewayBackendAddressPoolResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
+}
+
+func (i *applicationGatewayBackendAddressPoolResponsePtrType) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return i.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayBackendAddressPoolResponsePtrType) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponsePtrOutput)
+}
+
 // ApplicationGatewayBackendAddressPoolResponseArrayInput is an input type that accepts ApplicationGatewayBackendAddressPoolResponseArray and ApplicationGatewayBackendAddressPoolResponseArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolResponseArrayInput` via:
 //
@@ -1418,6 +1459,16 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGateway
 	return o
 }
 
+func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o.ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponseOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayBackendAddressPoolResponse) *ApplicationGatewayBackendAddressPoolResponse {
+		return &v
+	}).(ApplicationGatewayBackendAddressPoolResponsePtrOutput)
+}
+
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
 		return v.BackendAddresses
@@ -1448,6 +1499,93 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) ProvisioningState() 
 
 func (o ApplicationGatewayBackendAddressPoolResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayBackendAddressPoolResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendAddressPoolResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Elem() ApplicationGatewayBackendAddressPoolResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) ApplicationGatewayBackendAddressPoolResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendAddressPoolResponse
+		return ret
+	}).(ApplicationGatewayBackendAddressPoolResponseOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendAddresses
+	}).(ApplicationGatewayBackendAddressResponseArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendIPConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []NetworkInterfaceIPConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendIPConfigurations
+	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayBackendAddressPoolResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1603,6 +1741,47 @@ func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput)
 }
 
+func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return i.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput).ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput is an input type that accepts ApplicationGatewayBackendHealthHttpSettingsResponseArgs, ApplicationGatewayBackendHealthHttpSettingsResponsePtr and ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput` via:
+//
+//          ApplicationGatewayBackendHealthHttpSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput
+	ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput
+}
+
+type applicationGatewayBackendHealthHttpSettingsResponsePtrType ApplicationGatewayBackendHealthHttpSettingsResponseArgs
+
+func ApplicationGatewayBackendHealthHttpSettingsResponsePtr(v *ApplicationGatewayBackendHealthHttpSettingsResponseArgs) ApplicationGatewayBackendHealthHttpSettingsResponsePtrInput {
+	return (*applicationGatewayBackendHealthHttpSettingsResponsePtrType)(v)
+}
+
+func (*applicationGatewayBackendHealthHttpSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (i *applicationGatewayBackendHealthHttpSettingsResponsePtrType) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return i.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayBackendHealthHttpSettingsResponsePtrType) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput)
+}
+
 type ApplicationGatewayBackendHealthHttpSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ElementType() reflect.Type {
@@ -1617,6 +1796,16 @@ func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplication
 	return o
 }
 
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o.ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHealthHttpSettingsResponse {
+		return &v
+	}).(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput)
+}
+
 func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
 		return v.BackendHttpSettings
@@ -1625,6 +1814,48 @@ func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) BackendHttpSe
 
 func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		return v.Servers
+	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
+}
+
+type ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Elem() ApplicationGatewayBackendHealthHttpSettingsResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) ApplicationGatewayBackendHealthHttpSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendHealthHttpSettingsResponse
+		return ret
+	}).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput)
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendHttpSettings
+	}).(ApplicationGatewayBackendHttpSettingsResponsePtrOutput)
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		if v == nil {
+			return nil
+		}
 		return v.Servers
 	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
 }
@@ -22679,186 +22910,186 @@ func (o CustomDnsConfigPropertiesFormatResponseArrayOutput) Index(i pulumi.IntIn
 	}).(CustomDnsConfigPropertiesFormatResponseOutput)
 }
 
-type CustomIpPrefix struct {
-	AuthorizationMessage *string           `pulumi:"authorizationMessage"`
-	Cidr                 *string           `pulumi:"cidr"`
-	CommissionedState    *string           `pulumi:"commissionedState"`
-	CustomIpPrefixParent *CustomIpPrefix   `pulumi:"customIpPrefixParent"`
-	ExtendedLocation     *ExtendedLocation `pulumi:"extendedLocation"`
-	Id                   *string           `pulumi:"id"`
-	Location             *string           `pulumi:"location"`
-	SignedMessage        *string           `pulumi:"signedMessage"`
-	Tags                 map[string]string `pulumi:"tags"`
-	Zones                []string          `pulumi:"zones"`
+type CustomIpPrefixType struct {
+	AuthorizationMessage *string             `pulumi:"authorizationMessage"`
+	Cidr                 *string             `pulumi:"cidr"`
+	CommissionedState    *string             `pulumi:"commissionedState"`
+	CustomIpPrefixParent *CustomIpPrefixType `pulumi:"customIpPrefixParent"`
+	ExtendedLocation     *ExtendedLocation   `pulumi:"extendedLocation"`
+	Id                   *string             `pulumi:"id"`
+	Location             *string             `pulumi:"location"`
+	SignedMessage        *string             `pulumi:"signedMessage"`
+	Tags                 map[string]string   `pulumi:"tags"`
+	Zones                []string            `pulumi:"zones"`
 }
 
-// CustomIpPrefixInput is an input type that accepts CustomIpPrefixArgs and CustomIpPrefixOutput values.
-// You can construct a concrete instance of `CustomIpPrefixInput` via:
+// CustomIpPrefixTypeInput is an input type that accepts CustomIpPrefixTypeArgs and CustomIpPrefixTypeOutput values.
+// You can construct a concrete instance of `CustomIpPrefixTypeInput` via:
 //
-//          CustomIpPrefixArgs{...}
-type CustomIpPrefixInput interface {
+//          CustomIpPrefixTypeArgs{...}
+type CustomIpPrefixTypeInput interface {
 	pulumi.Input
 
-	ToCustomIpPrefixOutput() CustomIpPrefixOutput
-	ToCustomIpPrefixOutputWithContext(context.Context) CustomIpPrefixOutput
+	ToCustomIpPrefixTypeOutput() CustomIpPrefixTypeOutput
+	ToCustomIpPrefixTypeOutputWithContext(context.Context) CustomIpPrefixTypeOutput
 }
 
-type CustomIpPrefixArgs struct {
-	AuthorizationMessage pulumi.StringPtrInput    `pulumi:"authorizationMessage"`
-	Cidr                 pulumi.StringPtrInput    `pulumi:"cidr"`
-	CommissionedState    pulumi.StringPtrInput    `pulumi:"commissionedState"`
-	CustomIpPrefixParent CustomIpPrefixPtrInput   `pulumi:"customIpPrefixParent"`
-	ExtendedLocation     ExtendedLocationPtrInput `pulumi:"extendedLocation"`
-	Id                   pulumi.StringPtrInput    `pulumi:"id"`
-	Location             pulumi.StringPtrInput    `pulumi:"location"`
-	SignedMessage        pulumi.StringPtrInput    `pulumi:"signedMessage"`
-	Tags                 pulumi.StringMapInput    `pulumi:"tags"`
-	Zones                pulumi.StringArrayInput  `pulumi:"zones"`
+type CustomIpPrefixTypeArgs struct {
+	AuthorizationMessage pulumi.StringPtrInput      `pulumi:"authorizationMessage"`
+	Cidr                 pulumi.StringPtrInput      `pulumi:"cidr"`
+	CommissionedState    pulumi.StringPtrInput      `pulumi:"commissionedState"`
+	CustomIpPrefixParent CustomIpPrefixTypePtrInput `pulumi:"customIpPrefixParent"`
+	ExtendedLocation     ExtendedLocationPtrInput   `pulumi:"extendedLocation"`
+	Id                   pulumi.StringPtrInput      `pulumi:"id"`
+	Location             pulumi.StringPtrInput      `pulumi:"location"`
+	SignedMessage        pulumi.StringPtrInput      `pulumi:"signedMessage"`
+	Tags                 pulumi.StringMapInput      `pulumi:"tags"`
+	Zones                pulumi.StringArrayInput    `pulumi:"zones"`
 }
 
-func (CustomIpPrefixArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIpPrefix)(nil)).Elem()
+func (CustomIpPrefixTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomIpPrefixType)(nil)).Elem()
 }
 
-func (i CustomIpPrefixArgs) ToCustomIpPrefixOutput() CustomIpPrefixOutput {
-	return i.ToCustomIpPrefixOutputWithContext(context.Background())
+func (i CustomIpPrefixTypeArgs) ToCustomIpPrefixTypeOutput() CustomIpPrefixTypeOutput {
+	return i.ToCustomIpPrefixTypeOutputWithContext(context.Background())
 }
 
-func (i CustomIpPrefixArgs) ToCustomIpPrefixOutputWithContext(ctx context.Context) CustomIpPrefixOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixOutput)
+func (i CustomIpPrefixTypeArgs) ToCustomIpPrefixTypeOutputWithContext(ctx context.Context) CustomIpPrefixTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixTypeOutput)
 }
 
-func (i CustomIpPrefixArgs) ToCustomIpPrefixPtrOutput() CustomIpPrefixPtrOutput {
-	return i.ToCustomIpPrefixPtrOutputWithContext(context.Background())
+func (i CustomIpPrefixTypeArgs) ToCustomIpPrefixTypePtrOutput() CustomIpPrefixTypePtrOutput {
+	return i.ToCustomIpPrefixTypePtrOutputWithContext(context.Background())
 }
 
-func (i CustomIpPrefixArgs) ToCustomIpPrefixPtrOutputWithContext(ctx context.Context) CustomIpPrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixOutput).ToCustomIpPrefixPtrOutputWithContext(ctx)
+func (i CustomIpPrefixTypeArgs) ToCustomIpPrefixTypePtrOutputWithContext(ctx context.Context) CustomIpPrefixTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixTypeOutput).ToCustomIpPrefixTypePtrOutputWithContext(ctx)
 }
 
-// CustomIpPrefixPtrInput is an input type that accepts CustomIpPrefixArgs, CustomIpPrefixPtr and CustomIpPrefixPtrOutput values.
-// You can construct a concrete instance of `CustomIpPrefixPtrInput` via:
+// CustomIpPrefixTypePtrInput is an input type that accepts CustomIpPrefixTypeArgs, CustomIpPrefixTypePtr and CustomIpPrefixTypePtrOutput values.
+// You can construct a concrete instance of `CustomIpPrefixTypePtrInput` via:
 //
-//          CustomIpPrefixArgs{...}
+//          CustomIpPrefixTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type CustomIpPrefixPtrInput interface {
+type CustomIpPrefixTypePtrInput interface {
 	pulumi.Input
 
-	ToCustomIpPrefixPtrOutput() CustomIpPrefixPtrOutput
-	ToCustomIpPrefixPtrOutputWithContext(context.Context) CustomIpPrefixPtrOutput
+	ToCustomIpPrefixTypePtrOutput() CustomIpPrefixTypePtrOutput
+	ToCustomIpPrefixTypePtrOutputWithContext(context.Context) CustomIpPrefixTypePtrOutput
 }
 
-type customIpPrefixPtrType CustomIpPrefixArgs
+type customIpPrefixTypePtrType CustomIpPrefixTypeArgs
 
-func CustomIpPrefixPtr(v *CustomIpPrefixArgs) CustomIpPrefixPtrInput {
-	return (*customIpPrefixPtrType)(v)
+func CustomIpPrefixTypePtr(v *CustomIpPrefixTypeArgs) CustomIpPrefixTypePtrInput {
+	return (*customIpPrefixTypePtrType)(v)
 }
 
-func (*customIpPrefixPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomIpPrefix)(nil)).Elem()
+func (*customIpPrefixTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomIpPrefixType)(nil)).Elem()
 }
 
-func (i *customIpPrefixPtrType) ToCustomIpPrefixPtrOutput() CustomIpPrefixPtrOutput {
-	return i.ToCustomIpPrefixPtrOutputWithContext(context.Background())
+func (i *customIpPrefixTypePtrType) ToCustomIpPrefixTypePtrOutput() CustomIpPrefixTypePtrOutput {
+	return i.ToCustomIpPrefixTypePtrOutputWithContext(context.Background())
 }
 
-func (i *customIpPrefixPtrType) ToCustomIpPrefixPtrOutputWithContext(ctx context.Context) CustomIpPrefixPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixPtrOutput)
+func (i *customIpPrefixTypePtrType) ToCustomIpPrefixTypePtrOutputWithContext(ctx context.Context) CustomIpPrefixTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomIpPrefixTypePtrOutput)
 }
 
-type CustomIpPrefixOutput struct{ *pulumi.OutputState }
+type CustomIpPrefixTypeOutput struct{ *pulumi.OutputState }
 
-func (CustomIpPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIpPrefix)(nil)).Elem()
+func (CustomIpPrefixTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomIpPrefixType)(nil)).Elem()
 }
 
-func (o CustomIpPrefixOutput) ToCustomIpPrefixOutput() CustomIpPrefixOutput {
+func (o CustomIpPrefixTypeOutput) ToCustomIpPrefixTypeOutput() CustomIpPrefixTypeOutput {
 	return o
 }
 
-func (o CustomIpPrefixOutput) ToCustomIpPrefixOutputWithContext(ctx context.Context) CustomIpPrefixOutput {
+func (o CustomIpPrefixTypeOutput) ToCustomIpPrefixTypeOutputWithContext(ctx context.Context) CustomIpPrefixTypeOutput {
 	return o
 }
 
-func (o CustomIpPrefixOutput) ToCustomIpPrefixPtrOutput() CustomIpPrefixPtrOutput {
-	return o.ToCustomIpPrefixPtrOutputWithContext(context.Background())
+func (o CustomIpPrefixTypeOutput) ToCustomIpPrefixTypePtrOutput() CustomIpPrefixTypePtrOutput {
+	return o.ToCustomIpPrefixTypePtrOutputWithContext(context.Background())
 }
 
-func (o CustomIpPrefixOutput) ToCustomIpPrefixPtrOutputWithContext(ctx context.Context) CustomIpPrefixPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomIpPrefix) *CustomIpPrefix {
+func (o CustomIpPrefixTypeOutput) ToCustomIpPrefixTypePtrOutputWithContext(ctx context.Context) CustomIpPrefixTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomIpPrefixType) *CustomIpPrefixType {
 		return &v
-	}).(CustomIpPrefixPtrOutput)
+	}).(CustomIpPrefixTypePtrOutput)
 }
 
-func (o CustomIpPrefixOutput) AuthorizationMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.AuthorizationMessage }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) AuthorizationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.AuthorizationMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) CommissionedState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.CommissionedState }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) CommissionedState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.CommissionedState }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) CustomIpPrefixParent() CustomIpPrefixPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *CustomIpPrefix { return v.CustomIpPrefixParent }).(CustomIpPrefixPtrOutput)
+func (o CustomIpPrefixTypeOutput) CustomIpPrefixParent() CustomIpPrefixTypePtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *CustomIpPrefixType { return v.CustomIpPrefixParent }).(CustomIpPrefixTypePtrOutput)
 }
 
-func (o CustomIpPrefixOutput) ExtendedLocation() ExtendedLocationPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *ExtendedLocation { return v.ExtendedLocation }).(ExtendedLocationPtrOutput)
+func (o CustomIpPrefixTypeOutput) ExtendedLocation() ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *ExtendedLocation { return v.ExtendedLocation }).(ExtendedLocationPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) SignedMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomIpPrefix) *string { return v.SignedMessage }).(pulumi.StringPtrOutput)
+func (o CustomIpPrefixTypeOutput) SignedMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) *string { return v.SignedMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CustomIpPrefix) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o CustomIpPrefixTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o CustomIpPrefixOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CustomIpPrefix) []string { return v.Zones }).(pulumi.StringArrayOutput)
+func (o CustomIpPrefixTypeOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomIpPrefixType) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
-type CustomIpPrefixPtrOutput struct{ *pulumi.OutputState }
+type CustomIpPrefixTypePtrOutput struct{ *pulumi.OutputState }
 
-func (CustomIpPrefixPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomIpPrefix)(nil)).Elem()
+func (CustomIpPrefixTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomIpPrefixType)(nil)).Elem()
 }
 
-func (o CustomIpPrefixPtrOutput) ToCustomIpPrefixPtrOutput() CustomIpPrefixPtrOutput {
+func (o CustomIpPrefixTypePtrOutput) ToCustomIpPrefixTypePtrOutput() CustomIpPrefixTypePtrOutput {
 	return o
 }
 
-func (o CustomIpPrefixPtrOutput) ToCustomIpPrefixPtrOutputWithContext(ctx context.Context) CustomIpPrefixPtrOutput {
+func (o CustomIpPrefixTypePtrOutput) ToCustomIpPrefixTypePtrOutputWithContext(ctx context.Context) CustomIpPrefixTypePtrOutput {
 	return o
 }
 
-func (o CustomIpPrefixPtrOutput) Elem() CustomIpPrefixOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) CustomIpPrefix {
+func (o CustomIpPrefixTypePtrOutput) Elem() CustomIpPrefixTypeOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) CustomIpPrefixType {
 		if v != nil {
 			return *v
 		}
-		var ret CustomIpPrefix
+		var ret CustomIpPrefixType
 		return ret
-	}).(CustomIpPrefixOutput)
+	}).(CustomIpPrefixTypeOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) AuthorizationMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) AuthorizationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22866,8 +23097,8 @@ func (o CustomIpPrefixPtrOutput) AuthorizationMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22875,8 +23106,8 @@ func (o CustomIpPrefixPtrOutput) Cidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) CommissionedState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) CommissionedState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22884,17 +23115,17 @@ func (o CustomIpPrefixPtrOutput) CommissionedState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) CustomIpPrefixParent() CustomIpPrefixPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *CustomIpPrefix {
+func (o CustomIpPrefixTypePtrOutput) CustomIpPrefixParent() CustomIpPrefixTypePtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *CustomIpPrefixType {
 		if v == nil {
 			return nil
 		}
 		return v.CustomIpPrefixParent
-	}).(CustomIpPrefixPtrOutput)
+	}).(CustomIpPrefixTypePtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) ExtendedLocation() ExtendedLocationPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *ExtendedLocation {
+func (o CustomIpPrefixTypePtrOutput) ExtendedLocation() ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *ExtendedLocation {
 		if v == nil {
 			return nil
 		}
@@ -22902,8 +23133,8 @@ func (o CustomIpPrefixPtrOutput) ExtendedLocation() ExtendedLocationPtrOutput {
 	}).(ExtendedLocationPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22911,8 +23142,8 @@ func (o CustomIpPrefixPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22920,8 +23151,8 @@ func (o CustomIpPrefixPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) SignedMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) *string {
+func (o CustomIpPrefixTypePtrOutput) SignedMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) *string {
 		if v == nil {
 			return nil
 		}
@@ -22929,8 +23160,8 @@ func (o CustomIpPrefixPtrOutput) SignedMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) map[string]string {
+func (o CustomIpPrefixTypePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -22938,8 +23169,8 @@ func (o CustomIpPrefixPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-func (o CustomIpPrefixPtrOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CustomIpPrefix) []string {
+func (o CustomIpPrefixTypePtrOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomIpPrefixType) []string {
 		if v == nil {
 			return nil
 		}
@@ -71193,10 +71424,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsOutput{})
@@ -71496,8 +71729,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomDnsConfigPropertiesFormatArrayOutput{})
 	pulumi.RegisterOutputType(CustomDnsConfigPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(CustomDnsConfigPropertiesFormatResponseArrayOutput{})
-	pulumi.RegisterOutputType(CustomIpPrefixOutput{})
-	pulumi.RegisterOutputType(CustomIpPrefixPtrOutput{})
+	pulumi.RegisterOutputType(CustomIpPrefixTypeOutput{})
+	pulumi.RegisterOutputType(CustomIpPrefixTypePtrOutput{})
 	pulumi.RegisterOutputType(CustomIpPrefixResponseOutput{})
 	pulumi.RegisterOutputType(CustomIpPrefixResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomIpPrefixResponseArrayOutput{})

@@ -3573,6 +3573,47 @@ func (i GetInsightsResultsMetadataResponseArgs) ToGetInsightsResultsMetadataResp
 	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsResultsMetadataResponseOutput)
 }
 
+func (i GetInsightsResultsMetadataResponseArgs) ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput {
+	return i.ToGetInsightsResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GetInsightsResultsMetadataResponseArgs) ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsResultsMetadataResponseOutput).ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx)
+}
+
+// GetInsightsResultsMetadataResponsePtrInput is an input type that accepts GetInsightsResultsMetadataResponseArgs, GetInsightsResultsMetadataResponsePtr and GetInsightsResultsMetadataResponsePtrOutput values.
+// You can construct a concrete instance of `GetInsightsResultsMetadataResponsePtrInput` via:
+//
+//          GetInsightsResultsMetadataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GetInsightsResultsMetadataResponsePtrInput interface {
+	pulumi.Input
+
+	ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput
+	ToGetInsightsResultsMetadataResponsePtrOutputWithContext(context.Context) GetInsightsResultsMetadataResponsePtrOutput
+}
+
+type getInsightsResultsMetadataResponsePtrType GetInsightsResultsMetadataResponseArgs
+
+func GetInsightsResultsMetadataResponsePtr(v *GetInsightsResultsMetadataResponseArgs) GetInsightsResultsMetadataResponsePtrInput {
+	return (*getInsightsResultsMetadataResponsePtrType)(v)
+}
+
+func (*getInsightsResultsMetadataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (i *getInsightsResultsMetadataResponsePtrType) ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput {
+	return i.ToGetInsightsResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *getInsightsResultsMetadataResponsePtrType) ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInsightsResultsMetadataResponsePtrOutput)
+}
+
 type GetInsightsResultsMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (GetInsightsResultsMetadataResponseOutput) ElementType() reflect.Type {
@@ -3587,12 +3628,64 @@ func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataRe
 	return o
 }
 
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput {
+	return o.ToGetInsightsResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetInsightsResultsMetadataResponse) *GetInsightsResultsMetadataResponse {
+		return &v
+	}).(GetInsightsResultsMetadataResponsePtrOutput)
+}
+
 func (o GetInsightsResultsMetadataResponseOutput) Errors() GetInsightsErrorResponseArrayOutput {
 	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse { return v.Errors }).(GetInsightsErrorResponseArrayOutput)
 }
 
 func (o GetInsightsResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
+type GetInsightsResultsMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsResultsMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) Elem() GetInsightsResultsMetadataResponseOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) GetInsightsResultsMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GetInsightsResultsMetadataResponse
+		return ret
+	}).(GetInsightsResultsMetadataResponseOutput)
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) Errors() GetInsightsErrorResponseArrayOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(GetInsightsErrorResponseArrayOutput)
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) TotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type IncidentAdditionalDataResponse struct {
@@ -10269,6 +10362,47 @@ func (i TimelineResultsMetadataResponseArgs) ToTimelineResultsMetadataResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(TimelineResultsMetadataResponseOutput)
 }
 
+func (i TimelineResultsMetadataResponseArgs) ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput {
+	return i.ToTimelineResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TimelineResultsMetadataResponseArgs) ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx context.Context) TimelineResultsMetadataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineResultsMetadataResponseOutput).ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx)
+}
+
+// TimelineResultsMetadataResponsePtrInput is an input type that accepts TimelineResultsMetadataResponseArgs, TimelineResultsMetadataResponsePtr and TimelineResultsMetadataResponsePtrOutput values.
+// You can construct a concrete instance of `TimelineResultsMetadataResponsePtrInput` via:
+//
+//          TimelineResultsMetadataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TimelineResultsMetadataResponsePtrInput interface {
+	pulumi.Input
+
+	ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput
+	ToTimelineResultsMetadataResponsePtrOutputWithContext(context.Context) TimelineResultsMetadataResponsePtrOutput
+}
+
+type timelineResultsMetadataResponsePtrType TimelineResultsMetadataResponseArgs
+
+func TimelineResultsMetadataResponsePtr(v *TimelineResultsMetadataResponseArgs) TimelineResultsMetadataResponsePtrInput {
+	return (*timelineResultsMetadataResponsePtrType)(v)
+}
+
+func (*timelineResultsMetadataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (i *timelineResultsMetadataResponsePtrType) ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput {
+	return i.ToTimelineResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *timelineResultsMetadataResponsePtrType) ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx context.Context) TimelineResultsMetadataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineResultsMetadataResponsePtrOutput)
+}
+
 type TimelineResultsMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (TimelineResultsMetadataResponseOutput) ElementType() reflect.Type {
@@ -10283,6 +10417,16 @@ func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponse
 	return o
 }
 
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput {
+	return o.ToTimelineResultsMetadataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx context.Context) TimelineResultsMetadataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimelineResultsMetadataResponse) *TimelineResultsMetadataResponse {
+		return &v
+	}).(TimelineResultsMetadataResponsePtrOutput)
+}
+
 func (o TimelineResultsMetadataResponseOutput) Aggregations() TimelineAggregationResponseArrayOutput {
 	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineAggregationResponse { return v.Aggregations }).(TimelineAggregationResponseArrayOutput)
 }
@@ -10293,6 +10437,57 @@ func (o TimelineResultsMetadataResponseOutput) Errors() TimelineErrorResponseArr
 
 func (o TimelineResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
 	return o.ApplyT(func(v TimelineResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
+type TimelineResultsMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TimelineResultsMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx context.Context) TimelineResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) Elem() TimelineResultsMetadataResponseOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) TimelineResultsMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TimelineResultsMetadataResponse
+		return ret
+	}).(TimelineResultsMetadataResponseOutput)
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) Aggregations() TimelineAggregationResponseArrayOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) []TimelineAggregationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregations
+	}).(TimelineAggregationResponseArrayOutput)
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) Errors() TimelineErrorResponseArrayOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) []TimelineErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(TimelineErrorResponseArrayOutput)
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) TotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type UserInfo struct {
@@ -10941,6 +11136,7 @@ func init() {
 	pulumi.RegisterOutputType(GetInsightsErrorResponseOutput{})
 	pulumi.RegisterOutputType(GetInsightsErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(GetInsightsResultsMetadataResponseOutput{})
+	pulumi.RegisterOutputType(GetInsightsResultsMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoOutput{})
@@ -11034,6 +11230,7 @@ func init() {
 	pulumi.RegisterOutputType(TimelineErrorResponseOutput{})
 	pulumi.RegisterOutputType(TimelineErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(TimelineResultsMetadataResponseOutput{})
+	pulumi.RegisterOutputType(TimelineResultsMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})

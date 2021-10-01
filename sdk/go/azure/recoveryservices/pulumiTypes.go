@@ -1557,6 +1557,47 @@ func (i AADPropertiesArgs) ToAADPropertiesOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AADPropertiesOutput)
 }
 
+func (i AADPropertiesArgs) ToAADPropertiesPtrOutput() AADPropertiesPtrOutput {
+	return i.ToAADPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AADPropertiesArgs) ToAADPropertiesPtrOutputWithContext(ctx context.Context) AADPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADPropertiesOutput).ToAADPropertiesPtrOutputWithContext(ctx)
+}
+
+// AADPropertiesPtrInput is an input type that accepts AADPropertiesArgs, AADPropertiesPtr and AADPropertiesPtrOutput values.
+// You can construct a concrete instance of `AADPropertiesPtrInput` via:
+//
+//          AADPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AADPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAADPropertiesPtrOutput() AADPropertiesPtrOutput
+	ToAADPropertiesPtrOutputWithContext(context.Context) AADPropertiesPtrOutput
+}
+
+type aadpropertiesPtrType AADPropertiesArgs
+
+func AADPropertiesPtr(v *AADPropertiesArgs) AADPropertiesPtrInput {
+	return (*aadpropertiesPtrType)(v)
+}
+
+func (*aadpropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AADProperties)(nil)).Elem()
+}
+
+func (i *aadpropertiesPtrType) ToAADPropertiesPtrOutput() AADPropertiesPtrOutput {
+	return i.ToAADPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *aadpropertiesPtrType) ToAADPropertiesPtrOutputWithContext(ctx context.Context) AADPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADPropertiesPtrOutput)
+}
+
 type AADPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AADPropertiesOutput) ElementType() reflect.Type {
@@ -1569,6 +1610,16 @@ func (o AADPropertiesOutput) ToAADPropertiesOutput() AADPropertiesOutput {
 
 func (o AADPropertiesOutput) ToAADPropertiesOutputWithContext(ctx context.Context) AADPropertiesOutput {
 	return o
+}
+
+func (o AADPropertiesOutput) ToAADPropertiesPtrOutput() AADPropertiesPtrOutput {
+	return o.ToAADPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AADPropertiesOutput) ToAADPropertiesPtrOutputWithContext(ctx context.Context) AADPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AADProperties) *AADProperties {
+		return &v
+	}).(AADPropertiesPtrOutput)
 }
 
 func (o AADPropertiesOutput) Audience() pulumi.StringPtrOutput {
@@ -1589,6 +1640,75 @@ func (o AADPropertiesOutput) ServicePrincipalObjectId() pulumi.StringPtrOutput {
 
 func (o AADPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AADProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type AADPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AADPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AADProperties)(nil)).Elem()
+}
+
+func (o AADPropertiesPtrOutput) ToAADPropertiesPtrOutput() AADPropertiesPtrOutput {
+	return o
+}
+
+func (o AADPropertiesPtrOutput) ToAADPropertiesPtrOutputWithContext(ctx context.Context) AADPropertiesPtrOutput {
+	return o
+}
+
+func (o AADPropertiesPtrOutput) Elem() AADPropertiesOutput {
+	return o.ApplyT(func(v *AADProperties) AADProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AADProperties
+		return ret
+	}).(AADPropertiesOutput)
+}
+
+func (o AADPropertiesPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AADPropertiesPtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AADPropertiesPtrOutput) ServicePrincipalClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipalClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AADPropertiesPtrOutput) ServicePrincipalObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipalObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AADPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 type AddRecoveryServicesProviderInputProperties struct {
@@ -43160,6 +43280,7 @@ func init() {
 	pulumi.RegisterOutputType(A2AVmManagedDiskInputDetailsOutput{})
 	pulumi.RegisterOutputType(A2AVmManagedDiskInputDetailsArrayOutput{})
 	pulumi.RegisterOutputType(AADPropertiesOutput{})
+	pulumi.RegisterOutputType(AADPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AddRecoveryServicesProviderInputPropertiesOutput{})
 	pulumi.RegisterOutputType(AddRecoveryServicesProviderInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AddVCenterRequestPropertiesOutput{})

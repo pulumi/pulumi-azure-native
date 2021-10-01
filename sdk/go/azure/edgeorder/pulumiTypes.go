@@ -1478,6 +1478,47 @@ func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput)
 }
 
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return i.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput).ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomerSubscriptionDetailsPtrInput is an input type that accepts CustomerSubscriptionDetailsArgs, CustomerSubscriptionDetailsPtr and CustomerSubscriptionDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomerSubscriptionDetailsPtrInput` via:
+//
+//          CustomerSubscriptionDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerSubscriptionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput
+	ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Context) CustomerSubscriptionDetailsPtrOutput
+}
+
+type customerSubscriptionDetailsPtrType CustomerSubscriptionDetailsArgs
+
+func CustomerSubscriptionDetailsPtr(v *CustomerSubscriptionDetailsArgs) CustomerSubscriptionDetailsPtrInput {
+	return (*customerSubscriptionDetailsPtrType)(v)
+}
+
+func (*customerSubscriptionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (i *customerSubscriptionDetailsPtrType) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return i.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customerSubscriptionDetailsPtrType) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsPtrOutput)
+}
+
 type CustomerSubscriptionDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionDetailsOutput) ElementType() reflect.Type {
@@ -1492,6 +1533,16 @@ func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsOutputWi
 	return o
 }
 
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return o.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomerSubscriptionDetails) *CustomerSubscriptionDetails {
+		return &v
+	}).(CustomerSubscriptionDetailsPtrOutput)
+}
+
 func (o CustomerSubscriptionDetailsOutput) LocationPlacementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomerSubscriptionDetails) *string { return v.LocationPlacementId }).(pulumi.StringPtrOutput)
 }
@@ -1502,6 +1553,57 @@ func (o CustomerSubscriptionDetailsOutput) QuotaId() pulumi.StringOutput {
 
 func (o CustomerSubscriptionDetailsOutput) RegisteredFeatures() CustomerSubscriptionRegisteredFeaturesArrayOutput {
 	return o.ApplyT(func(v CustomerSubscriptionDetails) []CustomerSubscriptionRegisteredFeatures {
+		return v.RegisteredFeatures
+	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
+}
+
+type CustomerSubscriptionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerSubscriptionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) Elem() CustomerSubscriptionDetailsOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) CustomerSubscriptionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CustomerSubscriptionDetails
+		return ret
+	}).(CustomerSubscriptionDetailsOutput)
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationPlacementId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QuotaId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) RegisteredFeatures() CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) []CustomerSubscriptionRegisteredFeatures {
+		if v == nil {
+			return nil
+		}
 		return v.RegisteredFeatures
 	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
 }
@@ -7181,6 +7283,7 @@ func init() {
 	pulumi.RegisterOutputType(ContactDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CostInformationResponseOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionDetailsOutput{})
+	pulumi.RegisterOutputType(CustomerSubscriptionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionRegisteredFeaturesOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionRegisteredFeaturesArrayOutput{})
 	pulumi.RegisterOutputType(DescriptionResponseOutput{})
