@@ -13,6 +13,7 @@ __all__ = [
     'GetSettingResult',
     'AwaitableGetSettingResult',
     'get_setting',
+    'get_setting_output',
 ]
 
 @pulumi.output_type
@@ -139,3 +140,15 @@ def get_setting(setting_name: Optional[str] = None,
         scope=__ret__.scope,
         start_on=__ret__.start_on,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_setting)
+def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSettingResult]:
+    """
+    State of the myscope setting.
+
+
+    :param str setting_name: Name of the setting. Allowed values: myscope
+    """
+    ...

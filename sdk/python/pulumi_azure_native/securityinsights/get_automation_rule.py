@@ -13,6 +13,7 @@ __all__ = [
     'GetAutomationRuleResult',
     'AwaitableGetAutomationRuleResult',
     'get_automation_rule',
+    'get_automation_rule_output',
 ]
 
 @pulumi.output_type
@@ -214,3 +215,22 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
         order=__ret__.order,
         triggering_logic=__ret__.triggering_logic,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_automation_rule)
+def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] = None,
+                               operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               workspace_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
+    """
+    Represents an automation rule.
+    API Version: 2019-01-01-preview.
+
+
+    :param str automation_rule_id: Automation rule ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

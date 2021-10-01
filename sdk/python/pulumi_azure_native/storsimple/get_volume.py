@@ -12,6 +12,7 @@ __all__ = [
     'GetVolumeResult',
     'AwaitableGetVolumeResult',
     'get_volume',
+    'get_volume_output',
 ]
 
 @pulumi.output_type
@@ -229,3 +230,24 @@ def get_volume(device_name: Optional[str] = None,
         volume_container_id=__ret__.volume_container_id,
         volume_status=__ret__.volume_status,
         volume_type=__ret__.volume_type)
+
+
+@_utilities.lift_output_func(get_volume)
+def get_volume_output(device_name: Optional[pulumi.Input[str]] = None,
+                      manager_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      volume_container_name: Optional[pulumi.Input[str]] = None,
+                      volume_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+    """
+    The volume.
+    API Version: 2017-06-01.
+
+
+    :param str device_name: The device name
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    :param str volume_container_name: The volume container name.
+    :param str volume_name: The volume name.
+    """
+    ...

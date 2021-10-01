@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduledQueryRuleResult',
     'AwaitableGetScheduledQueryRuleResult',
     'get_scheduled_query_rule',
+    'get_scheduled_query_rule_output',
 ]
 
 @pulumi.output_type
@@ -389,3 +390,17 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         target_resource_types=__ret__.target_resource_types,
         type=__ret__.type,
         window_size=__ret__.window_size)
+
+
+@_utilities.lift_output_func(get_scheduled_query_rule)
+def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    rule_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
+    """
+    The scheduled query rule resource.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str rule_name: The name of the rule.
+    """
+    ...

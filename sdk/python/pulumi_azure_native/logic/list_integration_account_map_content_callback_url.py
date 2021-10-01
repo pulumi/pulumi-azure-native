@@ -14,6 +14,7 @@ __all__ = [
     'ListIntegrationAccountMapContentCallbackUrlResult',
     'AwaitableListIntegrationAccountMapContentCallbackUrlResult',
     'list_integration_account_map_content_callback_url',
+    'list_integration_account_map_content_callback_url_output',
 ]
 
 @pulumi.output_type
@@ -140,3 +141,24 @@ def list_integration_account_map_content_callback_url(integration_account_name: 
         relative_path=__ret__.relative_path,
         relative_path_parameters=__ret__.relative_path_parameters,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_integration_account_map_content_callback_url)
+def list_integration_account_map_content_callback_url_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                                                             key_type: Optional[pulumi.Input[Optional[Union[str, 'KeyType']]]] = None,
+                                                             map_name: Optional[pulumi.Input[str]] = None,
+                                                             not_after: Optional[pulumi.Input[Optional[str]]] = None,
+                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountMapContentCallbackUrlResult]:
+    """
+    The workflow trigger callback URL.
+    API Version: 2019-05-01.
+
+
+    :param str integration_account_name: The integration account name.
+    :param Union[str, 'KeyType'] key_type: The key type.
+    :param str map_name: The integration account map name.
+    :param str not_after: The expiry time.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

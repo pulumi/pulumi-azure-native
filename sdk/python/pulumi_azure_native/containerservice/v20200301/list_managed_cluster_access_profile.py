@@ -12,6 +12,7 @@ __all__ = [
     'ListManagedClusterAccessProfileResult',
     'AwaitableListManagedClusterAccessProfileResult',
     'list_managed_cluster_access_profile',
+    'list_managed_cluster_access_profile_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_managed_cluster_access_profile)
+def list_managed_cluster_access_profile_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               resource_name: Optional[pulumi.Input[str]] = None,
+                                               role_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
+    """
+    Managed cluster Access Profile.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the managed cluster resource.
+    :param str role_name: The name of the role for managed cluster accessProfile resource.
+    """
+    ...

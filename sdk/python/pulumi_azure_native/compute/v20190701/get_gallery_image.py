@@ -13,6 +13,7 @@ __all__ = [
     'GetGalleryImageResult',
     'AwaitableGetGalleryImageResult',
     'get_gallery_image',
+    'get_gallery_image_output',
 ]
 
 @pulumi.output_type
@@ -288,3 +289,19 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         release_note_uri=__ret__.release_note_uri,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gallery_image)
+def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = None,
+                             gallery_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
+    """
+    Specifies information about the gallery Image Definition that you want to create or update.
+
+
+    :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.
+    :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetIpFirewallRuleResult',
     'AwaitableGetIpFirewallRuleResult',
     'get_ip_firewall_rule',
+    'get_ip_firewall_rule_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,20 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         start_ip_address=__ret__.start_ip_address,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ip_firewall_rule)
+def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                rule_name: Optional[pulumi.Input[str]] = None,
+                                workspace_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpFirewallRuleResult]:
+    """
+    IP firewall rule
+    API Version: 2021-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str rule_name: The IP firewall rule name
+    :param str workspace_name: The name of the workspace
+    """
+    ...

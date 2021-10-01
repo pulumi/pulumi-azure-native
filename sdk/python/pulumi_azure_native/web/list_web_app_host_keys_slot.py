@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppHostKeysSlotResult',
     'AwaitableListWebAppHostKeysSlotResult',
     'list_web_app_host_keys_slot',
+    'list_web_app_host_keys_slot_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,20 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
         function_keys=__ret__.function_keys,
         master_key=__ret__.master_key,
         system_keys=__ret__.system_keys)
+
+
+@_utilities.lift_output_func(list_web_app_host_keys_slot)
+def list_web_app_host_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       slot: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHostKeysSlotResult]:
+    """
+    Functions host level keys.
+    API Version: 2020-12-01.
+
+
+    :param str name: Site name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot.
+    """
+    ...

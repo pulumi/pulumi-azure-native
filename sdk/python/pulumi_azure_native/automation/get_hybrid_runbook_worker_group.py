@@ -13,6 +13,7 @@ __all__ = [
     'GetHybridRunbookWorkerGroupResult',
     'AwaitableGetHybridRunbookWorkerGroupResult',
     'get_hybrid_runbook_worker_group',
+    'get_hybrid_runbook_worker_group_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_hybrid_runbook_worker_group)
+def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                           hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerGroupResult]:
+    """
+    Definition of hybrid runbook worker group.
+    API Version: 2021-06-22.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

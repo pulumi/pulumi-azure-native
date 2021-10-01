@@ -13,6 +13,7 @@ __all__ = [
     'GetBudgetResult',
     'AwaitableGetBudgetResult',
     'get_budget',
+    'get_budget_output',
 ]
 
 @pulumi.output_type
@@ -191,3 +192,15 @@ def get_budget(budget_name: Optional[str] = None,
         time_grain=__ret__.time_grain,
         time_period=__ret__.time_period,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_budget)
+def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
+    """
+    A budget resource.
+
+
+    :param str budget_name: Budget Name.
+    """
+    ...

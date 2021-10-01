@@ -12,6 +12,7 @@ __all__ = [
     'GetProjectResult',
     'AwaitableGetProjectResult',
     'get_project',
+    'get_project_output',
 ]
 
 @pulumi.output_type
@@ -225,3 +226,21 @@ def get_project(account_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
+
+
+@_utilities.lift_output_func(get_project)
+def get_project_output(account_name: Optional[pulumi.Input[str]] = None,
+                       project_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       workspace_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+    """
+    An object that represents a machine learning project.
+
+
+    :param str account_name: The name of the machine learning team account.
+    :param str project_name: The name of the machine learning project under a team account workspace.
+    :param str resource_group_name: The name of the resource group to which the machine learning team account belongs.
+    :param str workspace_name: The name of the machine learning team account workspace.
+    """
+    ...

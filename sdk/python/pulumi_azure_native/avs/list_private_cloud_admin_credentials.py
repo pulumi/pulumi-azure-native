@@ -12,6 +12,7 @@ __all__ = [
     'ListPrivateCloudAdminCredentialsResult',
     'AwaitableListPrivateCloudAdminCredentialsResult',
     'list_private_cloud_admin_credentials',
+    'list_private_cloud_admin_credentials_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,18 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
         nsxt_username=__ret__.nsxt_username,
         vcenter_password=__ret__.vcenter_password,
         vcenter_username=__ret__.vcenter_username)
+
+
+@_utilities.lift_output_func(list_private_cloud_admin_credentials)
+def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateCloudAdminCredentialsResult]:
+    """
+    Administrative credentials for accessing vCenter and NSX-T
+    API Version: 2020-03-20.
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

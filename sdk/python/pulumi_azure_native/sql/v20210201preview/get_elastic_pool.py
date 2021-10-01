@@ -13,6 +13,7 @@ __all__ = [
     'GetElasticPoolResult',
     'AwaitableGetElasticPoolResult',
     'get_elastic_pool',
+    'get_elastic_pool_output',
 ]
 
 @pulumi.output_type
@@ -242,3 +243,19 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_elastic_pool)
+def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            server_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
+    """
+    An elastic pool.
+
+
+    :param str elastic_pool_name: The name of the elastic pool.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

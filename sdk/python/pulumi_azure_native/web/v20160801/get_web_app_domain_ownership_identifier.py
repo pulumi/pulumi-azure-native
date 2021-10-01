@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppDomainOwnershipIdentifierResult',
     'AwaitableGetWebAppDomainOwnershipIdentifierResult',
     'get_web_app_domain_ownership_identifier',
+    'get_web_app_domain_ownership_identifier_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_web_app_domain_ownership_identifier(domain_ownership_identifier_name: Op
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_domain_ownership_identifier)
+def get_web_app_domain_ownership_identifier_output(domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
+                                                   name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDomainOwnershipIdentifierResult]:
+    """
+    A domain specific resource identifier.
+
+
+    :param str domain_ownership_identifier_name: Name of domain ownership identifier.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

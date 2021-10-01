@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationServiceEnvironmentManagedApiResult',
     'AwaitableGetIntegrationServiceEnvironmentManagedApiResult',
     'get_integration_service_environment_managed_api',
+    'get_integration_service_environment_managed_api_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_service_environment_managed_api)
+def get_integration_service_environment_managed_api_output(api_name: Optional[pulumi.Input[str]] = None,
+                                                           integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                                                           resource_group: Optional[pulumi.Input[str]] = None,
+                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:
+    """
+    The managed api definition.
+    API Version: 2019-05-01.
+
+
+    :param str api_name: The api name.
+    :param str integration_service_environment_name: The integration service environment name.
+    :param str resource_group: The resource group name.
+    """
+    ...

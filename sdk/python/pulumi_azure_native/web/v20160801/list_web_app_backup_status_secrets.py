@@ -15,6 +15,7 @@ __all__ = [
     'ListWebAppBackupStatusSecretsResult',
     'AwaitableListWebAppBackupStatusSecretsResult',
     'list_web_app_backup_status_secrets',
+    'list_web_app_backup_status_secrets_output',
 ]
 
 @pulumi.output_type
@@ -298,3 +299,33 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
         storage_account_url=__ret__.storage_account_url,
         type=__ret__.type,
         website_size_in_bytes=__ret__.website_size_in_bytes)
+
+
+@_utilities.lift_output_func(list_web_app_backup_status_secrets)
+def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[str]] = None,
+                                              backup_request_name: Optional[pulumi.Input[str]] = None,
+                                              backup_schedule: Optional[pulumi.Input[Optional[pulumi.InputType['BackupSchedule']]]] = None,
+                                              databases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['DatabaseBackupSetting']]]]] = None,
+                                              enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                                              kind: Optional[pulumi.Input[Optional[str]]] = None,
+                                              name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              storage_account_url: Optional[pulumi.Input[str]] = None,
+                                              type: Optional[pulumi.Input[Optional['BackupRestoreOperationType']]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsResult]:
+    """
+    Backup description.
+
+
+    :param str backup_id: ID of backup.
+    :param str backup_request_name: Name of the backup.
+    :param pulumi.InputType['BackupSchedule'] backup_schedule: Schedule for the backup if it is executed periodically.
+    :param Sequence[pulumi.InputType['DatabaseBackupSetting']] databases: Databases included in the backup.
+    :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+    :param str kind: Kind of resource.
+    :param str name: Name of web app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str storage_account_url: SAS URL to the container.
+    :param 'BackupRestoreOperationType' type: Type of the backup.
+    """
+    ...

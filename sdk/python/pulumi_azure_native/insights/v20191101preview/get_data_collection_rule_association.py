@@ -12,6 +12,7 @@ __all__ = [
     'GetDataCollectionRuleAssociationResult',
     'AwaitableGetDataCollectionRuleAssociationResult',
     'get_data_collection_rule_association',
+    'get_data_collection_rule_association_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,17 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_collection_rule_association)
+def get_data_collection_rule_association_output(association_name: Optional[pulumi.Input[str]] = None,
+                                                resource_uri: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
+    """
+    Definition of generic ARM proxy resource.
+
+
+    :param str association_name: The name of the association. The name is case insensitive.
+    :param str resource_uri: The identifier of the resource.
+    """
+    ...

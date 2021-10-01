@@ -13,6 +13,7 @@ __all__ = [
     'GetEnvironmentResult',
     'AwaitableGetEnvironmentResult',
     'get_environment',
+    'get_environment_output',
 ]
 
 @pulumi.output_type
@@ -284,3 +285,25 @@ def get_environment(environment_name: Optional[str] = None,
         total_usage=__ret__.total_usage,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_environment)
+def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
+                           environment_setting_name: Optional[pulumi.Input[str]] = None,
+                           expand: Optional[pulumi.Input[Optional[str]]] = None,
+                           lab_account_name: Optional[pulumi.Input[str]] = None,
+                           lab_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+    """
+    Represents an environment instance
+
+
+    :param str environment_name: The name of the environment.
+    :param str environment_setting_name: The name of the environment Setting.
+    :param str expand: Specify the $expand query. Example: 'properties($expand=networkInterface)'
+    :param str lab_account_name: The name of the lab Account.
+    :param str lab_name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

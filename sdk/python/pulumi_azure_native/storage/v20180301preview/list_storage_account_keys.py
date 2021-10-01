@@ -13,6 +13,7 @@ __all__ = [
     'ListStorageAccountKeysResult',
     'AwaitableListStorageAccountKeysResult',
     'list_storage_account_keys',
+    'list_storage_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def list_storage_account_keys(account_name: Optional[str] = None,
 
     return AwaitableListStorageAccountKeysResult(
         keys=__ret__.keys)
+
+
+@_utilities.lift_output_func(list_storage_account_keys)
+def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
+    """
+    The response from the ListKeys operation.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

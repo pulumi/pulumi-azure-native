@@ -13,6 +13,7 @@ __all__ = [
     'GetBastionHostResult',
     'AwaitableGetBastionHostResult',
     'get_bastion_host',
+    'get_bastion_host_output',
 ]
 
 @pulumi.output_type
@@ -259,3 +260,17 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_bastion_host)
+def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
+    """
+    Bastion Host resource.
+
+
+    :param str bastion_host_name: The name of the Bastion Host.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

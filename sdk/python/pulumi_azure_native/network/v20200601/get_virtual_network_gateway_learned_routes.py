@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayLearnedRoutesResult',
     'AwaitableGetVirtualNetworkGatewayLearnedRoutesResult',
     'get_virtual_network_gateway_learned_routes',
+    'get_virtual_network_gateway_learned_routes_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
 
     return AwaitableGetVirtualNetworkGatewayLearnedRoutesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_learned_routes)
+def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                      virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
+    """
+    List of virtual network gateway routes.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_gateway_name: The name of the virtual network gateway.
+    """
+    ...

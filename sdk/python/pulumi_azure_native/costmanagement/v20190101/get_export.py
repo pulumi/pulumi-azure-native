@@ -13,6 +13,7 @@ __all__ = [
     'GetExportResult',
     'AwaitableGetExportResult',
     'get_export',
+    'get_export_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_export(export_name: Optional[str] = None,
         schedule=__ret__.schedule,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_export)
+def get_export_output(export_name: Optional[pulumi.Input[str]] = None,
+                      scope: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
+    """
+    A export resource.
+
+
+    :param str export_name: Export Name.
+    :param str scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope.
+    """
+    ...

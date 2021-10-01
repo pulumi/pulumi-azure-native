@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteSourceControlResult',
     'AwaitableGetSiteSourceControlResult',
     'get_site_source_control',
+    'get_site_source_control_output',
 ]
 
 @pulumi.output_type
@@ -193,3 +194,17 @@ def get_site_source_control(name: Optional[str] = None,
         repo_url=__ret__.repo_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_source_control)
+def get_site_source_control_output(name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteSourceControlResult]:
+    """
+    Describes the source control configuration for web app
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetVideoAnalyzerResult',
     'AwaitableGetVideoAnalyzerResult',
     'get_video_analyzer',
+    'get_video_analyzer_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_video_analyzer(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_video_analyzer)
+def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoAnalyzerResult]:
+    """
+    A Video Analyzer account.
+
+
+    :param str account_name: The Video Analyzer account name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

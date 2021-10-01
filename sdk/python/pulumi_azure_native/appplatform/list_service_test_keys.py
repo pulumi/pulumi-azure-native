@@ -12,6 +12,7 @@ __all__ = [
     'ListServiceTestKeysResult',
     'AwaitableListServiceTestKeysResult',
     'list_service_test_keys',
+    'list_service_test_keys_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,18 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
         primary_test_endpoint=__ret__.primary_test_endpoint,
         secondary_key=__ret__.secondary_key,
         secondary_test_endpoint=__ret__.secondary_test_endpoint)
+
+
+@_utilities.lift_output_func(list_service_test_keys)
+def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  service_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceTestKeysResult]:
+    """
+    Test keys payload
+    API Version: 2020-07-01.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str service_name: The name of the Service resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetSystemTopicEventSubscriptionDeliveryAttributesResult',
     'AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult',
     'get_system_topic_event_subscription_delivery_attributes',
+    'get_system_topic_event_subscription_delivery_attributes_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,20 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
 
     return AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_system_topic_event_subscription_delivery_attributes)
+def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
+                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                   system_topic_name: Optional[pulumi.Input[str]] = None,
+                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
+    """
+    Result of the Get delivery attributes operation.
+    API Version: 2021-06-01-preview.
+
+
+    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str system_topic_name: Name of the system topic.
+    """
+    ...

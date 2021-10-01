@@ -13,6 +13,7 @@ __all__ = [
     'GetTemplateArtifactResult',
     'AwaitableGetTemplateArtifactResult',
     'get_template_artifact',
+    'get_template_artifact_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,19 @@ def get_template_artifact(artifact_name: Optional[str] = None,
         resource_group=__ret__.resource_group,
         template=__ret__.template,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_template_artifact)
+def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                                 blueprint_name: Optional[pulumi.Input[str]] = None,
+                                 management_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateArtifactResult]:
+    """
+    Blueprint artifact deploys Azure resource manager template.
+
+
+    :param str artifact_name: name of the artifact.
+    :param str blueprint_name: name of the blueprint.
+    :param str management_group_name: ManagementGroup where blueprint stores.
+    """
+    ...

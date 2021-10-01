@@ -13,6 +13,7 @@ __all__ = [
     'GetReferenceDataSetResult',
     'AwaitableGetReferenceDataSetResult',
     'get_reference_data_set',
+    'get_reference_data_set_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_reference_data_set(environment_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_reference_data_set)
+def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                  reference_data_set_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReferenceDataSetResult]:
+    """
+    A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppSlotResult',
     'AwaitableGetWebAppSlotResult',
     'get_web_app_slot',
+    'get_web_app_slot_output',
 ]
 
 @pulumi.output_type
@@ -604,3 +605,19 @@ def get_web_app_slot(name: Optional[str] = None,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,
         type=__ret__.type,
         usage_state=__ret__.usage_state)
+
+
+@_utilities.lift_output_func(get_web_app_slot)
+def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            slot: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotResult]:
+    """
+    A web app, a mobile app backend, or an API app.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. By default, this API returns the production slot.
+    """
+    ...

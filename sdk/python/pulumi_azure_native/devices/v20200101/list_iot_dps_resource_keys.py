@@ -13,6 +13,7 @@ __all__ = [
     'ListIotDpsResourceKeysResult',
     'AwaitableListIotDpsResourceKeysResult',
     'list_iot_dps_resource_keys',
+    'list_iot_dps_resource_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_iot_dps_resource_keys(provisioning_service_name: Optional[str] = None,
     return AwaitableListIotDpsResourceKeysResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_iot_dps_resource_keys)
+def list_iot_dps_resource_keys_output(provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysResult]:
+    """
+    List of shared access keys.
+
+
+    :param str provisioning_service_name: The provisioning service name to get the shared access keys for.
+    :param str resource_group_name: resource group name
+    """
+    ...

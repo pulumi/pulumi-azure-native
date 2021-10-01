@@ -13,6 +13,7 @@ __all__ = [
     'GetReportByDepartmentResult',
     'AwaitableGetReportByDepartmentResult',
     'get_report_by_department',
+    'get_report_by_department_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_report_by_department(department_id: Optional[str] = None,
         schedule=__ret__.schedule,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_report_by_department)
+def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] = None,
+                                    report_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByDepartmentResult]:
+    """
+    A report resource.
+
+
+    :param str department_id: Department ID
+    :param str report_name: Report Name.
+    """
+    ...

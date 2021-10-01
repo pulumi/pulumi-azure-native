@@ -12,6 +12,7 @@ __all__ = [
     'GetGatewayCertificateAuthorityResult',
     'AwaitableGetGatewayCertificateAuthorityResult',
     'get_gateway_certificate_authority',
+    'get_gateway_certificate_authority_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
         is_trusted=__ret__.is_trusted,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gateway_certificate_authority)
+def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Input[str]] = None,
+                                             gateway_id: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             service_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCertificateAuthorityResult]:
+    """
+    Gateway certificate authority details.
+
+
+    :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
+    :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

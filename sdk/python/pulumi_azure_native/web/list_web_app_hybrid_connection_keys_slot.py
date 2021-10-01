@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppHybridConnectionKeysSlotResult',
     'AwaitableListWebAppHybridConnectionKeysSlotResult',
     'list_web_app_hybrid_connection_keys_slot',
+    'list_web_app_hybrid_connection_keys_slot_output',
 ]
 
 @pulumi.output_type
@@ -138,3 +139,24 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
         send_key_name=__ret__.send_key_name,
         send_key_value=__ret__.send_key_value,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_hybrid_connection_keys_slot)
+def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                                    namespace_name: Optional[pulumi.Input[str]] = None,
+                                                    relay_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    slot: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHybridConnectionKeysSlotResult]:
+    """
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    API Version: 2018-11-01.
+
+
+    :param str name: The name of the web app.
+    :param str namespace_name: The namespace for this hybrid connection.
+    :param str relay_name: The relay name for this hybrid connection.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: The name of the slot for the web app.
+    """
+    ...

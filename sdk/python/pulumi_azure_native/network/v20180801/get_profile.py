@@ -13,6 +13,7 @@ __all__ = [
     'GetProfileResult',
     'AwaitableGetProfileResult',
     'get_profile',
+    'get_profile_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_profile(profile_name: Optional[str] = None,
         traffic_routing_method=__ret__.traffic_routing_method,
         traffic_view_enrollment_status=__ret__.traffic_view_enrollment_status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_profile)
+def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
+    """
+    Class representing a Traffic Manager profile.
+
+
+    :param str profile_name: The name of the Traffic Manager profile.
+    :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_private_endpoint_connection(environment_name: Optional[str] = None,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    The Private Endpoint Connection resource.
+    API Version: 2021-03-31-preview.
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

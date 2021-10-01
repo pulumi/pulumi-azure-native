@@ -13,6 +13,7 @@ __all__ = [
     'GetBandwidthScheduleResult',
     'AwaitableGetBandwidthScheduleResult',
     'get_bandwidth_schedule',
+    'get_bandwidth_schedule_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
         stop=__ret__.stop,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_bandwidth_schedule)
+def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBandwidthScheduleResult]:
+    """
+    The bandwidth schedule details.
+
+
+    :param str device_name: The device name.
+    :param str name: The bandwidth schedule name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetManagedDatabaseSensitivityLabelResult',
     'AwaitableGetManagedDatabaseSensitivityLabelResult',
     'get_managed_database_sensitivity_label',
+    'get_managed_database_sensitivity_label_output',
 ]
 
 @pulumi.output_type
@@ -179,3 +180,27 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
         name=__ret__.name,
         rank=__ret__.rank,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_database_sensitivity_label)
+def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.Input[str]] = None,
+                                                  database_name: Optional[pulumi.Input[str]] = None,
+                                                  managed_instance_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  schema_name: Optional[pulumi.Input[str]] = None,
+                                                  sensitivity_label_source: Optional[pulumi.Input[str]] = None,
+                                                  table_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
+    """
+    A sensitivity label.
+
+
+    :param str column_name: The name of the column.
+    :param str database_name: The name of the database.
+    :param str managed_instance_name: The name of the managed instance.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str schema_name: The name of the schema.
+    :param str sensitivity_label_source: The source of the sensitivity label.
+    :param str table_name: The name of the table.
+    """
+    ...

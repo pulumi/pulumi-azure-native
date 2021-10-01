@@ -12,6 +12,7 @@ __all__ = [
     'GetSerialPortResult',
     'AwaitableGetSerialPortResult',
     'get_serial_port',
+    'get_serial_port_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,23 @@ def get_serial_port(parent_resource: Optional[str] = None,
         name=__ret__.name,
         state=__ret__.state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_serial_port)
+def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
+                           parent_resource_type: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+                           serial_port: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSerialPortResult]:
+    """
+    Represents the serial port of the parent resource.
+
+
+    :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
+    :param str parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_provider_namespace: The namespace of the resource provider.
+    :param str serial_port: The name of the serial port to connect to.
+    """
+    ...

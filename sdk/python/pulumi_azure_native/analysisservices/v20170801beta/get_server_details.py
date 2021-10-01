@@ -13,6 +13,7 @@ __all__ = [
     'GetServerDetailsResult',
     'AwaitableGetServerDetailsResult',
     'get_server_details',
+    'get_server_details_output',
 ]
 
 @pulumi.output_type
@@ -259,3 +260,17 @@ def get_server_details(resource_group_name: Optional[str] = None,
         state=__ret__.state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_details)
+def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              server_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDetailsResult]:
+    """
+    Represents an instance of an Analysis Services resource.
+
+
+    :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+    :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+    """
+    ...

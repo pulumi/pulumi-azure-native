@@ -13,6 +13,7 @@ __all__ = [
     'GetP2sVpnGatewayP2sVpnConnectionHealthResult',
     'AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthResult',
     'get_p2s_vpn_gateway_p2s_vpn_connection_health',
+    'get_p2s_vpn_gateway_p2s_vpn_connection_health_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
         vpn_client_address_pool=__ret__.vpn_client_address_pool,
         vpn_client_connection_health=__ret__.vpn_client_connection_health,
         vpn_gateway_scale_unit=__ret__.vpn_gateway_scale_unit)
+
+
+@_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health)
+def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[pulumi.Input[str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
+    """
+    P2SVpnGateway Resource.
+
+
+    :param str gateway_name: The name of the P2SVpnGateway.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetSubnetResult',
     'AwaitableGetSubnetResult',
     'get_subnet',
+    'get_subnet_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_subnet(resource_group_name: Optional[str] = None,
         network_security_group=__ret__.network_security_group,
         provisioning_state=__ret__.provisioning_state,
         route_table=__ret__.route_table)
+
+
+@_utilities.lift_output_func(get_subnet)
+def get_subnet_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      subnet_name: Optional[pulumi.Input[str]] = None,
+                      virtual_network_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
+    """
+    Subnet in a VirtualNetwork resource
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str subnet_name: The name of the subnet.
+    :param str virtual_network_name: The name of the virtual network.
+    """
+    ...

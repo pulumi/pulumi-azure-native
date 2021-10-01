@@ -13,6 +13,7 @@ __all__ = [
     'GetPackageResult',
     'AwaitableGetPackageResult',
     'get_package',
+    'get_package_output',
 ]
 
 @pulumi.output_type
@@ -301,3 +302,19 @@ def get_package(package_name: Optional[str] = None,
         type=__ret__.type,
         validation_results=__ret__.validation_results,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_package)
+def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       test_base_account_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
+    """
+    The Test Base Package resource.
+
+
+    :param str package_name: The resource name of the Test Base Package.
+    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str test_base_account_name: The resource name of the Test Base Account.
+    """
+    ...

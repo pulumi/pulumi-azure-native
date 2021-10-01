@@ -13,6 +13,7 @@ __all__ = [
     'GetASCDataConnectorResult',
     'AwaitableGetASCDataConnectorResult',
     'get_asc_data_connector',
+    'get_asc_data_connector_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,20 @@ def get_asc_data_connector(data_connector_id: Optional[str] = None,
         name=__ret__.name,
         subscription_id=__ret__.subscription_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_asc_data_connector)
+def get_asc_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  workspace_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetASCDataConnectorResult]:
+    """
+    Represents ASC (Azure Security Center) data connector.
+    API Version: 2020-01-01.
+
+
+    :param str data_connector_id: Connector ID
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

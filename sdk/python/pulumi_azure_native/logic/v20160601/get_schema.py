@@ -13,6 +13,7 @@ __all__ = [
     'GetSchemaResult',
     'AwaitableGetSchemaResult',
     'get_schema',
+    'get_schema_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,19 @@ def get_schema(integration_account_name: Optional[str] = None,
         tags=__ret__.tags,
         target_namespace=__ret__.target_namespace,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_schema)
+def get_schema_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      schema_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
+    """
+    The integration account schema.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    :param str schema_name: The integration account schema name.
+    """
+    ...

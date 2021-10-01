@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageAccountCredentialResult',
     'AwaitableGetStorageAccountCredentialResult',
     'get_storage_account_credential',
+    'get_storage_account_credential_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_storage_account_credential(credential_name: Optional[str] = None,
         login=__ret__.login,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_account_credential)
+def get_storage_account_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
+                                          manager_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
+    """
+    The storage account credential
+
+
+    :param str credential_name: The name of storage account credential to be fetched.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

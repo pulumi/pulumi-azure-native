@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppDomainOwnershipIdentifierSlotResult',
     'AwaitableGetWebAppDomainOwnershipIdentifierSlotResult',
     'get_web_app_domain_ownership_identifier_slot',
+    'get_web_app_domain_ownership_identifier_slot_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,22 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
         name=__ret__.name,
         type=__ret__.type,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_web_app_domain_ownership_identifier_slot)
+def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
+                                                        name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        slot: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDomainOwnershipIdentifierSlotResult]:
+    """
+    A domain specific resource identifier.
+    API Version: 2020-12-01.
+
+
+    :param str domain_ownership_identifier_name: Name of domain ownership identifier.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+    """
+    ...

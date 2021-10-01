@@ -13,6 +13,7 @@ __all__ = [
     'GetAdminRuleCollectionResult',
     'AwaitableGetAdminRuleCollectionResult',
     'get_admin_rule_collection',
+    'get_admin_rule_collection_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,21 @@ def get_admin_rule_collection(configuration_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_admin_rule_collection)
+def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[str]] = None,
+                                     network_manager_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     rule_collection_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
+    """
+    Defines the rule collection.
+
+
+    :param str configuration_name: The name of the network manager security Configuration.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_collection_name: The name of the network manager security Configuration rule collection.
+    """
+    ...

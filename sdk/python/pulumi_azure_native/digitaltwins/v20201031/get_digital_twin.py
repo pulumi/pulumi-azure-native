@@ -12,6 +12,7 @@ __all__ = [
     'GetDigitalTwinResult',
     'AwaitableGetDigitalTwinResult',
     'get_digital_twin',
+    'get_digital_twin_output',
 ]
 
 @pulumi.output_type
@@ -167,3 +168,17 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_digital_twin)
+def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            resource_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinResult]:
+    """
+    The description of the DigitalTwins service.
+
+
+    :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
+    :param str resource_name: The name of the DigitalTwinsInstance.
+    """
+    ...

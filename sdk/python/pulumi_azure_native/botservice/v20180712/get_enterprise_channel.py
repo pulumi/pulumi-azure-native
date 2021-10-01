@@ -13,6 +13,7 @@ __all__ = [
     'GetEnterpriseChannelResult',
     'AwaitableGetEnterpriseChannelResult',
     'get_enterprise_channel',
+    'get_enterprise_channel_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_enterprise_channel(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_enterprise_channel)
+def get_enterprise_channel_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  resource_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseChannelResult]:
+    """
+    Enterprise Channel resource definition
+
+
+    :param str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param str resource_name: The name of the Bot resource.
+    """
+    ...

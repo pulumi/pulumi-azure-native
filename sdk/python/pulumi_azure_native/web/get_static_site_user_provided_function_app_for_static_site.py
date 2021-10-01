@@ -12,6 +12,7 @@ __all__ = [
     'GetStaticSiteUserProvidedFunctionAppForStaticSiteResult',
     'AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult',
     'get_static_site_user_provided_function_app_for_static_site',
+    'get_static_site_user_provided_function_app_for_static_site_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_static_site_user_provided_function_app_for_static_site)
+def get_static_site_user_provided_function_app_for_static_site_output(function_app_name: Optional[pulumi.Input[str]] = None,
+                                                                      name: Optional[pulumi.Input[str]] = None,
+                                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
+    """
+    Static Site User Provided Function App ARM resource.
+    API Version: 2020-12-01.
+
+
+    :param str function_app_name: Name of the function app registered with the static site.
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetStaticSiteCustomDomainResult',
     'AwaitableGetStaticSiteCustomDomainResult',
     'get_static_site_custom_domain',
+    'get_static_site_custom_domain_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,20 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
         status=__ret__.status,
         type=__ret__.type,
         validation_token=__ret__.validation_token)
+
+
+@_utilities.lift_output_func(get_static_site_custom_domain)
+def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
+                                         name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
+    """
+    Static Site Custom Domain Overview ARM resource.
+    API Version: 2020-12-01.
+
+
+    :param str domain_name: The custom domain name.
+    :param str name: Name of the static site resource to search in.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

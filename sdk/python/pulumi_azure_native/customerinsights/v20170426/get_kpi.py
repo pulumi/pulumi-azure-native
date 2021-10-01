@@ -13,6 +13,7 @@ __all__ = [
     'GetKpiResult',
     'AwaitableGetKpiResult',
     'get_kpi',
+    'get_kpi_output',
 ]
 
 @pulumi.output_type
@@ -340,3 +341,19 @@ def get_kpi(hub_name: Optional[str] = None,
         thres_holds=__ret__.thres_holds,
         type=__ret__.type,
         unit=__ret__.unit)
+
+
+@_utilities.lift_output_func(get_kpi)
+def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
+                   kpi_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKpiResult]:
+    """
+    The KPI resource format.
+
+
+    :param str hub_name: The name of the hub.
+    :param str kpi_name: The name of the KPI.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetTestResultDownloadURLResult',
     'AwaitableGetTestResultDownloadURLResult',
     'get_test_result_download_url',
+    'get_test_result_download_url_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,22 @@ def get_test_result_download_url(package_name: Optional[str] = None,
     return AwaitableGetTestResultDownloadURLResult(
         download_url=__ret__.download_url,
         expiration_time=__ret__.expiration_time)
+
+
+@_utilities.lift_output_func(get_test_result_download_url)
+def get_test_result_download_url_output(package_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        test_base_account_name: Optional[pulumi.Input[str]] = None,
+                                        test_result_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultDownloadURLResult]:
+    """
+    The response of getting a download URL.
+    API Version: 2020-12-16-preview.
+
+
+    :param str package_name: The resource name of the Test Base Package.
+    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str test_base_account_name: The resource name of the Test Base Account.
+    :param str test_result_name: The Test Result Name. It equals to {osName}-{TestResultId} string.
+    """
+    ...

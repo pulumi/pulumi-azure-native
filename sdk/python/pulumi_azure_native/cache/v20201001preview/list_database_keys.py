@@ -12,6 +12,7 @@ __all__ = [
     'ListDatabaseKeysResult',
     'AwaitableListDatabaseKeysResult',
     'list_database_keys',
+    'list_database_keys_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def list_database_keys(cluster_name: Optional[str] = None,
     return AwaitableListDatabaseKeysResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_database_keys)
+def list_database_keys_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                              database_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseKeysResult]:
+    """
+    The secret access keys used for authenticating connections to redis
+
+
+    :param str cluster_name: The name of the RedisEnterprise cluster.
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

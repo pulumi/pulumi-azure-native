@@ -13,6 +13,7 @@ __all__ = [
     'GetDatasetResult',
     'AwaitableGetDatasetResult',
     'get_dataset',
+    'get_dataset_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_dataset(dataset_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dataset)
+def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
+                       factory_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+    """
+    Dataset resource type.
+    API Version: 2018-06-01.
+
+
+    :param str dataset_name: The dataset name.
+    :param str factory_name: The factory name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

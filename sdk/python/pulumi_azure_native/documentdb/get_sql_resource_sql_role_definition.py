@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlResourceSqlRoleDefinitionResult',
     'AwaitableGetSqlResourceSqlRoleDefinitionResult',
     'get_sql_resource_sql_role_definition',
+    'get_sql_resource_sql_role_definition_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
         permissions=__ret__.permissions,
         role_name=__ret__.role_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_resource_sql_role_definition)
+def get_sql_resource_sql_role_definition_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                role_definition_id: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlRoleDefinitionResult]:
+    """
+    An Azure Cosmos DB SQL Role Definition.
+    API Version: 2021-03-01-preview.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str role_definition_id: The GUID for the Role Definition.
+    """
+    ...

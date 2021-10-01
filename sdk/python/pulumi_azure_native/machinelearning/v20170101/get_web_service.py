@@ -13,6 +13,7 @@ __all__ = [
     'GetWebServiceResult',
     'AwaitableGetWebServiceResult',
     'get_web_service',
+    'get_web_service_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_web_service(region: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_service)
+def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           web_service_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebServiceResult]:
+    """
+    Instance of an Azure ML web service resource.
+
+
+    :param str region: The region for which encrypted credential parameters are valid.
+    :param str resource_group_name: Name of the resource group in which the web service is located.
+    :param str web_service_name: The name of the web service.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -261,3 +262,19 @@ def get_application(application_group_name: Optional[str] = None,
         name=__ret__.name,
         show_in_portal=__ret__.show_in_portal,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(application_group_name: Optional[pulumi.Input[str]] = None,
+                           application_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    Schema for Application properties.
+
+
+    :param str application_group_name: The name of the application group
+    :param str application_name: The name of the application within the specified application group
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

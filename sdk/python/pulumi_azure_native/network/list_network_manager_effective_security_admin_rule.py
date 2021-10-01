@@ -13,6 +13,7 @@ __all__ = [
     'ListNetworkManagerEffectiveSecurityAdminRuleResult',
     'AwaitableListNetworkManagerEffectiveSecurityAdminRuleResult',
     'list_network_manager_effective_security_admin_rule',
+    'list_network_manager_effective_security_admin_rule_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def list_network_manager_effective_security_admin_rule(resource_group_name: Opti
     return AwaitableListNetworkManagerEffectiveSecurityAdminRuleResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_network_manager_effective_security_admin_rule)
+def list_network_manager_effective_security_admin_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                              skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                              virtual_network_name: Optional[pulumi.Input[str]] = None,
+                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRuleResult]:
+    """
+    Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+    API Version: 2021-02-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    :param str virtual_network_name: The name of the virtual network.
+    """
+    ...

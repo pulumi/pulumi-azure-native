@@ -12,6 +12,7 @@ __all__ = [
     'ListWorkspaceKeysResult',
     'AwaitableListWorkspaceKeysResult',
     'list_workspace_keys',
+    'list_workspace_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceKeysResult(
         primary_token=__ret__.primary_token,
         secondary_token=__ret__.secondary_token)
+
+
+@_utilities.lift_output_func(list_workspace_keys)
+def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               workspace_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
+    """
+    Workspace authorization keys for a workspace.
+    API Version: 2016-04-01.
+
+
+    :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
+    :param str workspace_name: The name of the machine learning workspace.
+    """
+    ...

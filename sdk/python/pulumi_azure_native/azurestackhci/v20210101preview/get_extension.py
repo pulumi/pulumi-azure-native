@@ -13,6 +13,7 @@ __all__ = [
     'GetExtensionResult',
     'AwaitableGetExtensionResult',
     'get_extension',
+    'get_extension_output',
 ]
 
 @pulumi.output_type
@@ -291,3 +292,21 @@ def get_extension(arc_setting_name: Optional[str] = None,
         settings=__ret__.settings,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
+
+
+@_utilities.lift_output_func(get_extension)
+def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
+                         cluster_name: Optional[pulumi.Input[str]] = None,
+                         extension_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+    """
+    Details of a particular extension in HCI Cluster.
+
+
+    :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
+    :param str cluster_name: The name of the cluster.
+    :param str extension_name: The name of the machine extension.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

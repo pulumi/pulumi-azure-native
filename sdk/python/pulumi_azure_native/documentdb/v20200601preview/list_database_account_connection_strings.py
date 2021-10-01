@@ -13,6 +13,7 @@ __all__ = [
     'ListDatabaseAccountConnectionStringsResult',
     'AwaitableListDatabaseAccountConnectionStringsResult',
     'list_database_account_connection_strings',
+    'list_database_account_connection_strings_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
 
     return AwaitableListDatabaseAccountConnectionStringsResult(
         connection_strings=__ret__.connection_strings)
+
+
+@_utilities.lift_output_func(list_database_account_connection_strings)
+def list_database_account_connection_strings_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountConnectionStringsResult]:
+    """
+    The connection strings for the given database account.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

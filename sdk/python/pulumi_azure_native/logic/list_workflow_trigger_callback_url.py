@@ -13,6 +13,7 @@ __all__ = [
     'ListWorkflowTriggerCallbackUrlResult',
     'AwaitableListWorkflowTriggerCallbackUrlResult',
     'list_workflow_trigger_callback_url',
+    'list_workflow_trigger_callback_url_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
         relative_path=__ret__.relative_path,
         relative_path_parameters=__ret__.relative_path_parameters,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_workflow_trigger_callback_url)
+def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              trigger_name: Optional[pulumi.Input[str]] = None,
+                                              workflow_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
+    """
+    The workflow trigger callback URL.
+    API Version: 2019-05-01.
+
+
+    :param str resource_group_name: The resource group name.
+    :param str trigger_name: The workflow trigger name.
+    :param str workflow_name: The workflow name.
+    """
+    ...

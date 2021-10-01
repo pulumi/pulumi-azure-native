@@ -13,6 +13,7 @@ __all__ = [
     'GetAgentPoolResult',
     'AwaitableGetAgentPoolResult',
     'get_agent_pool',
+    'get_agent_pool_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,21 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         tier=__ret__.tier,
         type=__ret__.type,
         virtual_network_subnet_resource_id=__ret__.virtual_network_subnet_resource_id)
+
+
+@_utilities.lift_output_func(get_agent_pool)
+def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
+                          registry_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
+    """
+    The agentpool that has the ARM resource and properties.
+    The agentpool will have all information to create an agent pool.
+    API Version: 2019-06-01-preview.
+
+
+    :param str agent_pool_name: The name of the agent pool.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementLockByScopeResult',
     'AwaitableGetManagementLockByScopeResult',
     'get_management_lock_by_scope',
+    'get_management_lock_by_scope_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
         notes=__ret__.notes,
         owners=__ret__.owners,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_lock_by_scope)
+def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] = None,
+                                        scope: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
+    """
+    The lock information.
+
+
+    :param str lock_name: The name of lock.
+    :param str scope: The scope for the lock. 
+    """
+    ...

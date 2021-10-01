@@ -12,6 +12,7 @@ __all__ = [
     'GetControllerDetailsResult',
     'AwaitableGetControllerDetailsResult',
     'get_controller_details',
+    'get_controller_details_output',
 ]
 
 @pulumi.output_type
@@ -180,3 +181,17 @@ def get_controller_details(resource_group_name: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_controller_details)
+def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  resource_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerDetailsResult]:
+    """
+    Represents an instance of a DNC controller.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+    """
+    ...

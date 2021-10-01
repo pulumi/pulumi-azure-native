@@ -13,6 +13,7 @@ __all__ = [
     'GetConfigurationAssignmentParentResult',
     'AwaitableGetConfigurationAssignmentParentResult',
     'get_configuration_assignment_parent',
+    'get_configuration_assignment_parent_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,28 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
         resource_id=__ret__.resource_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_configuration_assignment_parent)
+def get_configuration_assignment_parent_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                                               provider_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               resource_name: Optional[pulumi.Input[str]] = None,
+                                               resource_parent_name: Optional[pulumi.Input[str]] = None,
+                                               resource_parent_type: Optional[pulumi.Input[str]] = None,
+                                               resource_type: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
+    """
+    Configuration Assignment
+    API Version: 2021-04-01-preview.
+
+
+    :param str configuration_assignment_name: Configuration assignment name
+    :param str provider_name: Resource provider name
+    :param str resource_group_name: Resource group name
+    :param str resource_name: Resource identifier
+    :param str resource_parent_name: Resource parent identifier
+    :param str resource_parent_type: Resource parent type
+    :param str resource_type: Resource type
+    """
+    ...

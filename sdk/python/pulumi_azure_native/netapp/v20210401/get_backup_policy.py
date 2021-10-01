@@ -13,6 +13,7 @@ __all__ = [
     'GetBackupPolicyResult',
     'AwaitableGetBackupPolicyResult',
     'get_backup_policy',
+    'get_backup_policy_output',
 ]
 
 @pulumi.output_type
@@ -262,3 +263,19 @@ def get_backup_policy(account_name: Optional[str] = None,
         volumes_assigned=__ret__.volumes_assigned,
         weekly_backups_to_keep=__ret__.weekly_backups_to_keep,
         yearly_backups_to_keep=__ret__.yearly_backups_to_keep)
+
+
+@_utilities.lift_output_func(get_backup_policy)
+def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
+                             backup_policy_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
+    """
+    Backup policy information
+
+
+    :param str account_name: The name of the NetApp account
+    :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

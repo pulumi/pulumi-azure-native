@@ -13,6 +13,7 @@ __all__ = [
     'GetFactoryDataPlaneAccessResult',
     'AwaitableGetFactoryDataPlaneAccessResult',
     'get_factory_data_plane_access',
+    'get_factory_data_plane_access_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,27 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
         access_token=__ret__.access_token,
         data_plane_url=__ret__.data_plane_url,
         policy=__ret__.policy)
+
+
+@_utilities.lift_output_func(get_factory_data_plane_access)
+def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.Input[Optional[str]]] = None,
+                                         expire_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                         factory_name: Optional[pulumi.Input[str]] = None,
+                                         permissions: Optional[pulumi.Input[Optional[str]]] = None,
+                                         profile_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         start_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
+    """
+    Get Data Plane read only token response definition.
+
+
+    :param str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+    :param str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+    :param str factory_name: The factory name.
+    :param str permissions: The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+    :param str profile_name: The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+    :param str resource_group_name: The resource group name.
+    :param str start_time: Start time for the token. If not specified the current time will be used.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetComputePolicyResult',
     'AwaitableGetComputePolicyResult',
     'get_compute_policy',
+    'get_compute_policy_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_compute_policy(account_name: Optional[str] = None,
         object_id=__ret__.object_id,
         object_type=__ret__.object_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_compute_policy)
+def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
+                              compute_policy_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputePolicyResult]:
+    """
+    Data Lake Analytics compute policy information.
+    API Version: 2016-11-01.
+
+
+    :param str account_name: The name of the Data Lake Analytics account.
+    :param str compute_policy_name: The name of the compute policy to retrieve.
+    :param str resource_group_name: The name of the Azure resource group.
+    """
+    ...

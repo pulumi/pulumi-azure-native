@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkloadNetworkSegmentResult',
     'AwaitableGetWorkloadNetworkSegmentResult',
     'get_workload_network_segment',
+    'get_workload_network_segment_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
         status=__ret__.status,
         subnet=__ret__.subnet,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_segment)
+def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        segment_id: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkSegmentResult]:
+    """
+    NSX Segment
+    API Version: 2020-07-17-preview.
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
+    """
+    ...

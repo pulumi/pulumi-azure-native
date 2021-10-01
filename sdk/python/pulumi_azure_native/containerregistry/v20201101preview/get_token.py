@@ -13,6 +13,7 @@ __all__ = [
     'GetTokenResult',
     'AwaitableGetTokenResult',
     'get_token',
+    'get_token_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_token(registry_name: Optional[str] = None,
         status=__ret__.status,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_token)
+def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     token_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTokenResult]:
+    """
+    An object that represents a token for a container registry.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str token_name: The name of the token.
+    """
+    ...

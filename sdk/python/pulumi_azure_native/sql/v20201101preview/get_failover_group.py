@@ -13,6 +13,7 @@ __all__ = [
     'GetFailoverGroupResult',
     'AwaitableGetFailoverGroupResult',
     'get_failover_group',
+    'get_failover_group_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_failover_group(failover_group_name: Optional[str] = None,
         replication_state=__ret__.replication_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_failover_group)
+def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              server_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFailoverGroupResult]:
+    """
+    A failover group.
+
+
+    :param str failover_group_name: The name of the failover group.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server containing the failover group.
+    """
+    ...

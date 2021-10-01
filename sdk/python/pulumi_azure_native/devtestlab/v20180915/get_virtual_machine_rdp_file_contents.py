@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualMachineRdpFileContentsResult',
     'AwaitableGetVirtualMachineRdpFileContentsResult',
     'get_virtual_machine_rdp_file_contents',
+    'get_virtual_machine_rdp_file_contents_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,19 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
 
     return AwaitableGetVirtualMachineRdpFileContentsResult(
         contents=__ret__.contents)
+
+
+@_utilities.lift_output_func(get_virtual_machine_rdp_file_contents)
+def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                                 name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
+    """
+    Represents a .rdp file
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the virtual machine.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

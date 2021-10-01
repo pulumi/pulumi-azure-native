@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateLinkScopeResult',
     'AwaitableGetPrivateLinkScopeResult',
     'get_private_link_scope',
+    'get_private_link_scope_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_link_scope)
+def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  scope_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
+    """
+    An Azure Monitor PrivateLinkScope definition.
+    API Version: 2019-10-17-preview.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
+    """
+    ...

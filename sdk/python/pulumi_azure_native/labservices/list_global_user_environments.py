@@ -13,6 +13,7 @@ __all__ = [
     'ListGlobalUserEnvironmentsResult',
     'AwaitableListGlobalUserEnvironmentsResult',
     'list_global_user_environments',
+    'list_global_user_environments_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def list_global_user_environments(lab_id: Optional[str] = None,
 
     return AwaitableListGlobalUserEnvironmentsResult(
         environments=__ret__.environments)
+
+
+@_utilities.lift_output_func(list_global_user_environments)
+def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                         user_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
+    """
+    Represents the list of environments owned by a user
+    API Version: 2018-10-15.
+
+
+    :param str lab_id: The resource Id of the lab
+    :param str user_name: The name of the user.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetSubscriptionFeatureRegistrationResult',
     'AwaitableGetSubscriptionFeatureRegistrationResult',
     'get_subscription_feature_registration',
+    'get_subscription_feature_registration_output',
 ]
 
 @pulumi.output_type
@@ -101,3 +102,18 @@ def get_subscription_feature_registration(feature_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_subscription_feature_registration)
+def get_subscription_feature_registration_output(feature_name: Optional[pulumi.Input[str]] = None,
+                                                 provider_namespace: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
+    """
+    Subscription feature registration details
+    API Version: 2021-07-01.
+
+
+    :param str feature_name: The feature name.
+    :param str provider_namespace: The provider namespace.
+    """
+    ...

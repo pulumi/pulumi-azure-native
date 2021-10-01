@@ -13,6 +13,7 @@ __all__ = [
     'GetIncidentCommentResult',
     'AwaitableGetIncidentCommentResult',
     'get_incident_comment',
+    'get_incident_comment_output',
 ]
 
 @pulumi.output_type
@@ -164,3 +165,23 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
         message=__ret__.message,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_incident_comment)
+def get_incident_comment_output(incident_comment_id: Optional[pulumi.Input[str]] = None,
+                                incident_id: Optional[pulumi.Input[str]] = None,
+                                operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                workspace_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCommentResult]:
+    """
+    Represents an incident comment
+
+
+    :param str incident_comment_id: Incident comment ID
+    :param str incident_id: Incident ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

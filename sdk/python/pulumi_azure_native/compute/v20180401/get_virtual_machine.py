@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineResult',
     'AwaitableGetVirtualMachineResult',
     'get_virtual_machine',
+    'get_virtual_machine_output',
 ]
 
 @pulumi.output_type
@@ -314,3 +315,19 @@ def get_virtual_machine(expand: Optional[str] = None,
         type=__ret__.type,
         vm_id=__ret__.vm_id,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_virtual_machine)
+def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               vm_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+    """
+    Describes a Virtual Machine.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str resource_group_name: The name of the resource group.
+    :param str vm_name: The name of the virtual machine.
+    """
+    ...

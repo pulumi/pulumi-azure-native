@@ -12,6 +12,7 @@ __all__ = [
     'GetConnectionMonitorTestResult',
     'AwaitableGetConnectionMonitorTestResult',
     'get_connection_monitor_test',
+    'get_connection_monitor_test_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,20 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
         source_agent=__ret__.source_agent,
         test_frequency_in_sec=__ret__.test_frequency_in_sec,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connection_monitor_test)
+def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pulumi.Input[str]] = None,
+                                       peering_service_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
+    """
+    The Connection Monitor Test class.
+    API Version: 2021-06-01.
+
+
+    :param str connection_monitor_test_name: The name of the connection monitor test
+    :param str peering_service_name: The name of the peering service.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

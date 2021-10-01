@@ -12,6 +12,7 @@ __all__ = [
     'GetExpressRouteCircuitAuthorizationResult',
     'AwaitableGetExpressRouteCircuitAuthorizationResult',
     'get_express_route_circuit_authorization',
+    'get_express_route_circuit_authorization_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state)
+
+
+@_utilities.lift_output_func(get_express_route_circuit_authorization)
+def get_express_route_circuit_authorization_output(authorization_name: Optional[pulumi.Input[str]] = None,
+                                                   circuit_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
+    """
+    Authorization in a ExpressRouteCircuit resource
+
+
+    :param str authorization_name: The name of the authorization.
+    :param str circuit_name: The name of the express route circuit.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

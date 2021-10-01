@@ -13,6 +13,7 @@ __all__ = [
     'GetSystemTopicResult',
     'AwaitableGetSystemTopicResult',
     'get_system_topic',
+    'get_system_topic_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_system_topic(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         topic_type=__ret__.topic_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_system_topic)
+def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            system_topic_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
+    """
+    EventGrid System Topic.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str system_topic_name: Name of the system topic.
+    """
+    ...

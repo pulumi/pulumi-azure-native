@@ -13,6 +13,7 @@ __all__ = [
     'GetAutomationAccountResult',
     'AwaitableGetAutomationAccountResult',
     'get_automation_account',
+    'get_automation_account_output',
 ]
 
 @pulumi.output_type
@@ -298,3 +299,17 @@ def get_automation_account(automation_account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_automation_account)
+def get_automation_account_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationAccountResult]:
+    """
+    Definition of the automation account type.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

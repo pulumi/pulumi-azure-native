@@ -13,6 +13,7 @@ __all__ = [
     'GetVaultResult',
     'AwaitableGetVaultResult',
     'get_vault',
+    'get_vault_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_vault(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_vault)
+def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                     vault_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
+    """
+    Resource information, as returned by the resource provider.
+
+
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str vault_name: The name of the recovery services vault.
+    """
+    ...

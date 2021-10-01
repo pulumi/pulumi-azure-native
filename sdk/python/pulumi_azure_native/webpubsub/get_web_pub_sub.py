@@ -13,6 +13,7 @@ __all__ = [
     'GetWebPubSubResult',
     'AwaitableGetWebPubSubResult',
     'get_web_pub_sub',
+    'get_web_pub_sub_output',
 ]
 
 @pulumi.output_type
@@ -332,3 +333,18 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
         tls=__ret__.tls,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_web_pub_sub)
+def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           resource_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubResult]:
+    """
+    A class represent a resource.
+    API Version: 2021-04-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_name: The name of the resource.
+    """
+    ...

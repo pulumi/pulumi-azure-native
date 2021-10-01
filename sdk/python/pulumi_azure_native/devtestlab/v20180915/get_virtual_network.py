@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkResult',
     'AwaitableGetVirtualNetworkResult',
     'get_virtual_network',
+    'get_virtual_network_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,21 @@ def get_virtual_network(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_virtual_network)
+def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               lab_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
+    """
+    A virtual network.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the virtual network.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

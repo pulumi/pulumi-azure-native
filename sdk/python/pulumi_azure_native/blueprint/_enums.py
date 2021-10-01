@@ -36,9 +36,13 @@ class BlueprintTargetScope(str, Enum):
     The scope where this blueprint definition can be assigned.
     """
     SUBSCRIPTION = "subscription"
-    """The blueprint targets a subscription during blueprint assignment."""
+    """
+    The blueprint targets a subscription during blueprint assignment.
+    """
     MANAGEMENT_GROUP = "managementGroup"
-    """The blueprint targets a management group during blueprint assignment. This is reserved for future use."""
+    """
+    The blueprint targets a management group during blueprint assignment. This is reserved for future use.
+    """
 
 
 class ManagedServiceIdentityType(str, Enum):

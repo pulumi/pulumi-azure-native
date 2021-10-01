@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppResult',
     'AwaitableGetWebAppResult',
     'get_web_app',
+    'get_web_app_output',
 ]
 
 @pulumi.output_type
@@ -536,3 +537,17 @@ def get_web_app(name: Optional[str] = None,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,
         type=__ret__.type,
         usage_state=__ret__.usage_state)
+
+
+@_utilities.lift_output_func(get_web_app)
+def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppResult]:
+    """
+    A web app, a mobile app backend, or an API app.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

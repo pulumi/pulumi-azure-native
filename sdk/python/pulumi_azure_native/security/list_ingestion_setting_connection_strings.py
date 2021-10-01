@@ -13,6 +13,7 @@ __all__ = [
     'ListIngestionSettingConnectionStringsResult',
     'AwaitableListIngestionSettingConnectionStringsResult',
     'list_ingestion_setting_connection_strings',
+    'list_ingestion_setting_connection_strings_output',
 ]
 
 @pulumi.output_type
@@ -62,3 +63,16 @@ def list_ingestion_setting_connection_strings(ingestion_setting_name: Optional[s
 
     return AwaitableListIngestionSettingConnectionStringsResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_ingestion_setting_connection_strings)
+def list_ingestion_setting_connection_strings_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingConnectionStringsResult]:
+    """
+    Connection string for ingesting security data and logs
+    API Version: 2021-01-15-preview.
+
+
+    :param str ingestion_setting_name: Name of the ingestion setting
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetMigrationConfigResult',
     'AwaitableGetMigrationConfigResult',
     'get_migration_config',
+    'get_migration_config_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_migration_config(config_name: Optional[str] = None,
         system_data=__ret__.system_data,
         target_namespace=__ret__.target_namespace,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_migration_config)
+def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
+                                namespace_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationConfigResult]:
+    """
+    Single item in List or Get Migration Config operation
+
+
+    :param str config_name: The configuration name. Should always be "$default".
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

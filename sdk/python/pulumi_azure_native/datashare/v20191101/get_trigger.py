@@ -12,6 +12,7 @@ __all__ = [
     'GetTriggerResult',
     'AwaitableGetTriggerResult',
     'get_trigger',
+    'get_trigger_output',
 ]
 
 warnings.warn("""Please use one of the variants: ScheduledTrigger.""", DeprecationWarning)
@@ -111,3 +112,22 @@ def get_trigger(account_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_trigger)
+def get_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       share_subscription_name: Optional[pulumi.Input[str]] = None,
+                       trigger_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
+    """
+    A Trigger data transfer object.
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    :param str trigger_name: The name of the trigger.
+    """
+    pulumi.log.warn("""get_trigger is deprecated: Please use one of the variants: ScheduledTrigger.""")
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationTypeVersionResult',
     'AwaitableGetApplicationTypeVersionResult',
     'get_application_type_version',
+    'get_application_type_version_output',
 ]
 
 @pulumi.output_type
@@ -173,3 +174,21 @@ def get_application_type_version(application_type_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_application_type_version)
+def get_application_type_version_output(application_type_name: Optional[pulumi.Input[str]] = None,
+                                        cluster_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        version: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationTypeVersionResult]:
+    """
+    An application type version resource for the specified application type name resource.
+
+
+    :param str application_type_name: The name of the application type name resource.
+    :param str cluster_name: The name of the cluster resource.
+    :param str resource_group_name: The name of the resource group.
+    :param str version: The application type version.
+    """
+    ...

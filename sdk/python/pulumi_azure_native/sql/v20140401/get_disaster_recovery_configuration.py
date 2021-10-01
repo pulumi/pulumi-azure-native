@@ -12,6 +12,7 @@ __all__ = [
     'GetDisasterRecoveryConfigurationResult',
     'AwaitableGetDisasterRecoveryConfigurationResult',
     'get_disaster_recovery_configuration',
+    'get_disaster_recovery_configuration_output',
 ]
 
 @pulumi.output_type
@@ -196,3 +197,19 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
         role=__ret__.role,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_disaster_recovery_configuration)
+def get_disaster_recovery_configuration_output(disaster_recovery_configuration_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               server_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigurationResult]:
+    """
+    Represents a disaster recovery configuration.
+
+
+    :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

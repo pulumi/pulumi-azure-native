@@ -12,6 +12,7 @@ __all__ = [
     'GetGatewayHostnameConfigurationResult',
     'AwaitableGetGatewayHostnameConfigurationResult',
     'get_gateway_hostname_configuration',
+    'get_gateway_hostname_configuration_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,21 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
         name=__ret__.name,
         negotiate_client_certificate=__ret__.negotiate_client_certificate,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gateway_hostname_configuration)
+def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[str]] = None,
+                                              hc_id: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              service_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
+    """
+    Gateway hostname configuration details.
+
+
+    :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    :param str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

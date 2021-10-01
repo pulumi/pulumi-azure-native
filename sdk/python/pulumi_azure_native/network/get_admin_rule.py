@@ -13,6 +13,7 @@ __all__ = [
     'GetAdminRuleResult',
     'AwaitableGetAdminRuleResult',
     'get_admin_rule',
+    'get_admin_rule_output',
 ]
 
 warnings.warn("""Please use one of the variants: AdminRule, DefaultAdminRule.""", DeprecationWarning)
@@ -142,3 +143,25 @@ def get_admin_rule(configuration_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_admin_rule)
+def get_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
+                          network_manager_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          rule_collection_name: Optional[pulumi.Input[str]] = None,
+                          rule_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleResult]:
+    """
+    Network base admin rule.
+    API Version: 2021-02-01-preview.
+
+
+    :param str configuration_name: The name of the network manager security Configuration.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_collection_name: The name of the network manager security Configuration rule collection.
+    :param str rule_name: The name of the rule.
+    """
+    pulumi.log.warn("""get_admin_rule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.""")
+    ...

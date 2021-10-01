@@ -13,6 +13,7 @@ __all__ = [
     'ListComputeNodesResult',
     'AwaitableListComputeNodesResult',
     'list_compute_nodes',
+    'list_compute_nodes_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_compute_nodes(compute_name: Optional[str] = None,
     return AwaitableListComputeNodesResult(
         next_link=__ret__.next_link,
         nodes=__ret__.nodes)
+
+
+@_utilities.lift_output_func(list_compute_nodes)
+def list_compute_nodes_output(compute_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              workspace_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeNodesResult]:
+    """
+    Result of AmlCompute Nodes
+
+
+    :param str compute_name: Name of the Azure Machine Learning compute.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetAdvancedThreatProtectionResult',
     'AwaitableGetAdvancedThreatProtectionResult',
     'get_advanced_threat_protection',
+    'get_advanced_threat_protection_output',
 ]
 
 @pulumi.output_type
@@ -102,3 +103,17 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
         is_enabled=__ret__.is_enabled,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_advanced_threat_protection)
+def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str]] = None,
+                                          setting_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
+    """
+    The Advanced Threat Protection resource.
+
+
+    :param str resource_id: The identifier of the resource.
+    :param str setting_name: Advanced Threat Protection setting name.
+    """
+    ...

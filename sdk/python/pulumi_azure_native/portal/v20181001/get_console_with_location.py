@@ -13,6 +13,7 @@ __all__ = [
     'GetConsoleWithLocationResult',
     'AwaitableGetConsoleWithLocationResult',
     'get_console_with_location',
+    'get_console_with_location_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def get_console_with_location(console_name: Optional[str] = None,
 
     return AwaitableGetConsoleWithLocationResult(
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_console_with_location)
+def get_console_with_location_output(console_name: Optional[pulumi.Input[str]] = None,
+                                     location: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleWithLocationResult]:
+    """
+    Cloud shell console
+
+
+    :param str console_name: The name of the console
+    :param str location: The provider location
+    """
+    ...

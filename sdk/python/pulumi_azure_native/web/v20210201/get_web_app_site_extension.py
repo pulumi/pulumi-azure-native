@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppSiteExtensionResult',
     'AwaitableGetWebAppSiteExtensionResult',
     'get_web_app_site_extension',
+    'get_web_app_site_extension_output',
 ]
 
 @pulumi.output_type
@@ -362,3 +363,19 @@ def get_web_app_site_extension(name: Optional[str] = None,
         title=__ret__.title,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_web_app_site_extension)
+def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      site_extension_id: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
+    """
+    Site Extension Information.
+
+
+    :param str name: Site name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str site_extension_id: Site extension name.
+    """
+    ...

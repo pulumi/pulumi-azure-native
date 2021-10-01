@@ -13,6 +13,7 @@ __all__ = [
     'GetDomainServiceResult',
     'AwaitableGetDomainServiceResult',
     'get_domain_service',
+    'get_domain_service_output',
 ]
 
 @pulumi.output_type
@@ -338,3 +339,18 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_domain_service)
+def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
+    """
+    Domain service.
+    API Version: 2021-03-01.
+
+
+    :param str domain_service_name: The name of the domain service.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

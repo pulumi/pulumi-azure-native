@@ -13,6 +13,7 @@ __all__ = [
     'GetThreatIntelligenceAlertRuleResult',
     'AwaitableGetThreatIntelligenceAlertRuleResult',
     'get_threat_intelligence_alert_rule',
+    'get_threat_intelligence_alert_rule_output',
 ]
 
 @pulumi.output_type
@@ -227,3 +228,21 @@ def get_threat_intelligence_alert_rule(operational_insights_resource_provider: O
         system_data=__ret__.system_data,
         tactics=__ret__.tactics,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_threat_intelligence_alert_rule)
+def get_threat_intelligence_alert_rule_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              rule_id: Optional[pulumi.Input[str]] = None,
+                                              workspace_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceAlertRuleResult]:
+    """
+    Represents Threat Intelligence alert rule.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str rule_id: Alert rule ID
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

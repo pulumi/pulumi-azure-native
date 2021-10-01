@@ -14,8 +14,14 @@ class ComplianceState(str, Enum):
     The compliance state that should be set on the resource.
     """
     COMPLIANT = "Compliant"
-    """The resource is in compliance with the policy."""
+    """
+    The resource is in compliance with the policy.
+    """
     NON_COMPLIANT = "NonCompliant"
-    """The resource is not in compliance with the policy."""
+    """
+    The resource is not in compliance with the policy.
+    """
     UNKNOWN = "Unknown"
-    """The compliance state of the resource is not known."""
+    """
+    The compliance state of the resource is not known.
+    """

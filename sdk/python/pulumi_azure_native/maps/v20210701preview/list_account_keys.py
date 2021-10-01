@@ -12,6 +12,7 @@ __all__ = [
     'ListAccountKeysResult',
     'AwaitableListAccountKeysResult',
     'list_account_keys',
+    'list_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -102,3 +103,17 @@ def list_account_keys(account_name: Optional[str] = None,
         primary_key_last_updated=__ret__.primary_key_last_updated,
         secondary_key=__ret__.secondary_key,
         secondary_key_last_updated=__ret__.secondary_key_last_updated)
+
+
+@_utilities.lift_output_func(list_account_keys)
+def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+    """
+    The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+
+
+    :param str account_name: The name of the Maps Account.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

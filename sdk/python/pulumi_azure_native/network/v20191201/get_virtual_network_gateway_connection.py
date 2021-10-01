@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayConnectionResult',
     'AwaitableGetVirtualNetworkGatewayConnectionResult',
     'get_virtual_network_gateway_connection',
+    'get_virtual_network_gateway_connection_output',
 ]
 
 @pulumi.output_type
@@ -402,3 +403,17 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
         use_policy_based_traffic_selectors=__ret__.use_policy_based_traffic_selectors,
         virtual_network_gateway1=__ret__.virtual_network_gateway1,
         virtual_network_gateway2=__ret__.virtual_network_gateway2)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_connection)
+def get_virtual_network_gateway_connection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
+    """
+    A common class for general resource information.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
+    """
+    ...

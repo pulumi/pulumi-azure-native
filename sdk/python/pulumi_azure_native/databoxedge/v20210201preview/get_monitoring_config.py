@@ -13,6 +13,7 @@ __all__ = [
     'GetMonitoringConfigResult',
     'AwaitableGetMonitoringConfigResult',
     'get_monitoring_config',
+    'get_monitoring_config_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_monitoring_config(device_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_monitoring_config)
+def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 role_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringConfigResult]:
+    """
+    The metric setting details for the role
+
+
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    :param str role_name: The role name.
+    """
+    ...

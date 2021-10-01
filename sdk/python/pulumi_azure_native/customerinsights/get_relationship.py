@@ -13,6 +13,7 @@ __all__ = [
     'GetRelationshipResult',
     'AwaitableGetRelationshipResult',
     'get_relationship',
+    'get_relationship_output',
 ]
 
 @pulumi.output_type
@@ -250,3 +251,20 @@ def get_relationship(hub_name: Optional[str] = None,
         relationship_name=__ret__.relationship_name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_relationship)
+def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
+                            relationship_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRelationshipResult]:
+    """
+    The relationship resource format.
+    API Version: 2017-04-26.
+
+
+    :param str hub_name: The name of the hub.
+    :param str relationship_name: The name of the relationship.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

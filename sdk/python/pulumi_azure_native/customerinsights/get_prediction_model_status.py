@@ -12,6 +12,7 @@ __all__ = [
     'GetPredictionModelStatusResult',
     'AwaitableGetPredictionModelStatusResult',
     'get_prediction_model_status',
+    'get_prediction_model_status_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,20 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
         training_accuracy=__ret__.training_accuracy,
         training_set_count=__ret__.training_set_count,
         validation_set_count=__ret__.validation_set_count)
+
+
+@_utilities.lift_output_func(get_prediction_model_status)
+def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = None,
+                                       prediction_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
+    """
+    The prediction model status.
+    API Version: 2017-04-26.
+
+
+    :param str hub_name: The name of the hub.
+    :param str prediction_name: The name of the Prediction.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

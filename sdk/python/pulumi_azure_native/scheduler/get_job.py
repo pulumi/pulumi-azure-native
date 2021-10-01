@@ -13,6 +13,7 @@ __all__ = [
     'GetJobResult',
     'AwaitableGetJobResult',
     'get_job',
+    'get_job_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,19 @@ def get_job(job_collection_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_job)
+def get_job_output(job_collection_name: Optional[pulumi.Input[str]] = None,
+                   job_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
+    """
+    API Version: 2016-03-01.
+
+
+    :param str job_collection_name: The job collection name.
+    :param str job_name: The job name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

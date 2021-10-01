@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageAccountResult',
     'AwaitableGetStorageAccountResult',
     'get_storage_account',
+    'get_storage_account_output',
 ]
 
 @pulumi.output_type
@@ -392,3 +393,19 @@ def get_storage_account(account_name: Optional[str] = None,
         status_of_secondary=__ret__.status_of_secondary,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_account)
+def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
+                               expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountResult]:
+    """
+    The storage account.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

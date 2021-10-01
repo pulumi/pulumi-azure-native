@@ -14,6 +14,7 @@ __all__ = [
     'ListIntegrationAccountKeyVaultKeysResult',
     'AwaitableListIntegrationAccountKeyVaultKeysResult',
     'list_integration_account_key_vault_keys',
+    'list_integration_account_key_vault_keys_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,21 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
     return AwaitableListIntegrationAccountKeyVaultKeysResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_integration_account_key_vault_keys)
+def list_integration_account_key_vault_keys_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                                                   key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultReference']]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
+    """
+    Collection of key vault keys.
+
+
+    :param str integration_account_name: The integration account name.
+    :param pulumi.InputType['KeyVaultReference'] key_vault: The key vault reference.
+    :param str resource_group_name: The resource group name.
+    :param str skip_token: The skip token.
+    """
+    ...

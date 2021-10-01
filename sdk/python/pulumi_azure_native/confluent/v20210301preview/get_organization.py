@@ -13,6 +13,7 @@ __all__ = [
     'GetOrganizationResult',
     'AwaitableGetOrganizationResult',
     'get_organization',
+    'get_organization_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,17 @@ def get_organization(organization_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         user_detail=__ret__.user_detail)
+
+
+@_utilities.lift_output_func(get_organization)
+def get_organization_output(organization_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+    """
+    Organization resource.
+
+
+    :param str organization_name: Organization resource name
+    :param str resource_group_name: Resource group name
+    """
+    ...

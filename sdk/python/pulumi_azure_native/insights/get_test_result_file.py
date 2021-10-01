@@ -12,6 +12,7 @@ __all__ = [
     'GetTestResultFileResult',
     'AwaitableGetTestResultFileResult',
     'get_test_result_file',
+    'get_test_result_file_output',
 ]
 
 @pulumi.output_type
@@ -92,3 +93,28 @@ def get_test_result_file(continuation_token: Optional[str] = None,
     return AwaitableGetTestResultFileResult(
         data=__ret__.data,
         next_link=__ret__.next_link)
+
+
+@_utilities.lift_output_func(get_test_result_file)
+def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                download_as: Optional[pulumi.Input[str]] = None,
+                                geo_location_id: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                test_successful_criteria: Optional[pulumi.Input[Optional[bool]]] = None,
+                                time_stamp: Optional[pulumi.Input[int]] = None,
+                                web_test_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultFileResult]:
+    """
+    Test result.
+    API Version: 2020-02-10-preview.
+
+
+    :param str continuation_token: The continuation token.
+    :param str download_as: The format to use when returning the webtest result.
+    :param str geo_location_id: The location ID where the webtest was physically run.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param bool test_successful_criteria: The success state criteria for the webtest result.
+    :param int time_stamp: The posix (epoch) time stamp for the webtest result.
+    :param str web_test_name: The name of the Application Insights webtest resource.
+    """
+    ...

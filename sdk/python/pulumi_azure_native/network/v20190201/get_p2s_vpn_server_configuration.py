@@ -13,6 +13,7 @@ __all__ = [
     'GetP2sVpnServerConfigurationResult',
     'AwaitableGetP2sVpnServerConfigurationResult',
     'get_p2s_vpn_server_configuration',
+    'get_p2s_vpn_server_configuration_output',
 ]
 
 @pulumi.output_type
@@ -223,3 +224,19 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
         radius_server_secret=__ret__.radius_server_secret,
         vpn_client_ipsec_policies=__ret__.vpn_client_ipsec_policies,
         vpn_protocols=__ret__.vpn_protocols)
+
+
+@_utilities.lift_output_func(get_p2s_vpn_server_configuration)
+def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            virtual_wan_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
+    """
+    P2SVpnServerConfiguration Resource.
+
+
+    :param str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
+    :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
+    :param str virtual_wan_name: The name of the VirtualWan.
+    """
+    ...

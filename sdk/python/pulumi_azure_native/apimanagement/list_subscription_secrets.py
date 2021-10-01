@@ -12,6 +12,7 @@ __all__ = [
     'ListSubscriptionSecretsResult',
     'AwaitableListSubscriptionSecretsResult',
     'list_subscription_secrets',
+    'list_subscription_secrets_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,20 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
     return AwaitableListSubscriptionSecretsResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_subscription_secrets)
+def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     service_name: Optional[pulumi.Input[str]] = None,
+                                     sid: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubscriptionSecretsResult]:
+    """
+    Subscription keys.
+    API Version: 2020-12-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+    """
+    ...

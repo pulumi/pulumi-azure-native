@@ -13,6 +13,7 @@ __all__ = [
     'GetScriptExecutionLogsResult',
     'AwaitableGetScriptExecutionLogsResult',
     'get_script_execution_logs',
+    'get_script_execution_logs_output',
 ]
 
 @pulumi.output_type
@@ -288,3 +289,19 @@ def get_script_execution_logs(private_cloud_name: Optional[str] = None,
         timeout=__ret__.timeout,
         type=__ret__.type,
         warnings=__ret__.warnings)
+
+
+@_utilities.lift_output_func(get_script_execution_logs)
+def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     script_execution_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptExecutionLogsResult]:
+    """
+    An instance of a script executed by a user - custom or AVS
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str script_execution_name: Name of the user-invoked script execution resource
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetWebhookCallbackConfigResult',
     'AwaitableGetWebhookCallbackConfigResult',
     'get_webhook_callback_config',
+    'get_webhook_callback_config_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
     return AwaitableGetWebhookCallbackConfigResult(
         custom_headers=__ret__.custom_headers,
         service_uri=__ret__.service_uri)
+
+
+@_utilities.lift_output_func(get_webhook_callback_config)
+def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       webhook_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
+    """
+    The configuration of service URI and custom headers for the webhook.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str webhook_name: The name of the webhook.
+    """
+    ...

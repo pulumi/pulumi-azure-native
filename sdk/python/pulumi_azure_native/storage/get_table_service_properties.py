@@ -13,6 +13,7 @@ __all__ = [
     'GetTableServicePropertiesResult',
     'AwaitableGetTableServicePropertiesResult',
     'get_table_service_properties',
+    'get_table_service_properties_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,20 @@ def get_table_service_properties(account_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_table_service_properties)
+def get_table_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        table_service_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableServicePropertiesResult]:
+    """
+    The properties of a storage account’s Table service.
+    API Version: 2021-02-01.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str table_service_name: The name of the Table Service within the specified storage account. Table Service Name must be 'default'
+    """
+    ...

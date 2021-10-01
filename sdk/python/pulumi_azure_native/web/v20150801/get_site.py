@@ -13,6 +13,7 @@ __all__ = [
     'GetSiteResult',
     'AwaitableGetSiteResult',
     'get_site',
+    'get_site_output',
 ]
 
 @pulumi.output_type
@@ -496,3 +497,19 @@ def get_site(name: Optional[str] = None,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,
         type=__ret__.type,
         usage_state=__ret__.usage_state)
+
+
+@_utilities.lift_output_func(get_site)
+def get_site_output(name: Optional[pulumi.Input[str]] = None,
+                    properties_to_include: Optional[pulumi.Input[Optional[str]]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
+    """
+    Represents a web app
+
+
+    :param str name: Name of web app
+    :param str properties_to_include: Additional web app properties included in the response
+    :param str resource_group_name: Name of resource group
+    """
+    ...

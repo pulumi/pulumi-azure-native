@@ -13,6 +13,7 @@ __all__ = [
     'GetPipelineJobResult',
     'AwaitableGetPipelineJobResult',
     'get_pipeline_job',
+    'get_pipeline_job_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_pipeline_job(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         topology_name=__ret__.topology_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_pipeline_job)
+def get_pipeline_job_output(account_name: Optional[pulumi.Input[str]] = None,
+                            pipeline_job_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineJobResult]:
+    """
+    Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
+    API Version: 2021-11-01-preview.
+
+
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str pipeline_job_name: The pipeline job name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

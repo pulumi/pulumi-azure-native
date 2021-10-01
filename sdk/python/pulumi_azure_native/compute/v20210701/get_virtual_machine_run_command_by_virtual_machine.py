@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineRunCommandByVirtualMachineResult',
     'AwaitableGetVirtualMachineRunCommandByVirtualMachineResult',
     'get_virtual_machine_run_command_by_virtual_machine',
+    'get_virtual_machine_run_command_by_virtual_machine_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,21 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
         tags=__ret__.tags,
         timeout_in_seconds=__ret__.timeout_in_seconds,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_machine_run_command_by_virtual_machine)
+def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                              run_command_name: Optional[pulumi.Input[str]] = None,
+                                                              vm_name: Optional[pulumi.Input[str]] = None,
+                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRunCommandByVirtualMachineResult]:
+    """
+    Describes a Virtual Machine run command.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str resource_group_name: The name of the resource group.
+    :param str run_command_name: The name of the virtual machine run command.
+    :param str vm_name: The name of the virtual machine containing the run command.
+    """
+    ...

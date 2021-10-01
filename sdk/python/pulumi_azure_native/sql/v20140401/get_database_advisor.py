@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseAdvisorResult',
     'AwaitableGetDatabaseAdvisorResult',
     'get_database_advisor',
+    'get_database_advisor_output',
 ]
 
 @pulumi.output_type
@@ -173,3 +174,21 @@ def get_database_advisor(advisor_name: Optional[str] = None,
         name=__ret__.name,
         recommendations_status=__ret__.recommendations_status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_database_advisor)
+def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
+                                database_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                server_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
+    """
+    Database Advisor.
+
+
+    :param str advisor_name: The name of the Database Advisor.
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

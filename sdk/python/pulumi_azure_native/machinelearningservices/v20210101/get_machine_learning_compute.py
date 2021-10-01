@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineLearningComputeResult',
     'AwaitableGetMachineLearningComputeResult',
     'get_machine_learning_compute',
+    'get_machine_learning_compute_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_machine_learning_compute)
+def get_machine_learning_compute_output(compute_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        workspace_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningComputeResult]:
+    """
+    Machine Learning compute object wrapped into ARM resource envelope.
+
+
+    :param str compute_name: Name of the Azure Machine Learning compute.
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

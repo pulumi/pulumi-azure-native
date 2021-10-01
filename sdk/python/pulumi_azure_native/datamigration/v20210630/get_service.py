@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_service(group_name: Optional[str] = None,
         type=__ret__.type,
         virtual_nic_id=__ret__.virtual_nic_id,
         virtual_subnet_id=__ret__.virtual_subnet_id)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
+                       service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    A Database Migration Service resource
+
+
+    :param str group_name: Name of the resource group
+    :param str service_name: Name of the service
+    """
+    ...

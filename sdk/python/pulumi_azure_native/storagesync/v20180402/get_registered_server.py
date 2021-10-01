@@ -12,6 +12,7 @@ __all__ = [
     'GetRegisteredServerResult',
     'AwaitableGetRegisteredServerResult',
     'get_registered_server',
+    'get_registered_server_output',
 ]
 
 @pulumi.output_type
@@ -326,3 +327,19 @@ def get_registered_server(resource_group_name: Optional[str] = None,
         service_location=__ret__.service_location,
         storage_sync_service_uid=__ret__.storage_sync_service_uid,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registered_server)
+def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 server_id: Optional[pulumi.Input[str]] = None,
+                                 storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredServerResult]:
+    """
+    Registered Server resource.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_id: GUID identifying the on-premises server.
+    :param str storage_sync_service_name: Name of Storage Sync Service resource.
+    """
+    ...

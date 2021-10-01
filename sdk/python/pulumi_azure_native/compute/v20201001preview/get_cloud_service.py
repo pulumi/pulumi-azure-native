@@ -13,6 +13,7 @@ __all__ = [
     'GetCloudServiceResult',
     'AwaitableGetCloudServiceResult',
     'get_cloud_service',
+    'get_cloud_service_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cloud_service)
+def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServiceResult]:
+    """
+    Describes the cloud service.
+
+
+    :param str cloud_service_name: Name of the cloud service.
+    :param str resource_group_name: Name of the resource group.
+    """
+    ...

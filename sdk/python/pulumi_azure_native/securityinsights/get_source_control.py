@@ -13,6 +13,7 @@ __all__ = [
     'GetSourceControlResult',
     'AwaitableGetSourceControlResult',
     'get_source_control',
+    'get_source_control_output',
 ]
 
 @pulumi.output_type
@@ -201,3 +202,22 @@ def get_source_control(operational_insights_resource_provider: Optional[str] = N
         source_control_id=__ret__.source_control_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_source_control)
+def get_source_control_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              source_control_id: Optional[pulumi.Input[str]] = None,
+                              workspace_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
+    """
+    Represents a SourceControl in Azure Security Insights.
+    API Version: 2021-03-01-preview.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str source_control_id: Source control Id
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

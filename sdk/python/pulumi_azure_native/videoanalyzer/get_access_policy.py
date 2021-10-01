@@ -13,6 +13,7 @@ __all__ = [
     'GetAccessPolicyResult',
     'AwaitableGetAccessPolicyResult',
     'get_access_policy',
+    'get_access_policy_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_access_policy(access_policy_name: Optional[str] = None,
         role=__ret__.role,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_access_policy)
+def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = None,
+                             account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
+    """
+    Policy that determines how a video can be accessed.
+    API Version: 2021-05-01-preview.
+
+
+    :param str access_policy_name: The name of the access policy to retrieve.
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetAKSServiceResult',
     'AwaitableGetAKSServiceResult',
     'get_aks_service',
+    'get_aks_service_output',
 ]
 
 @pulumi.output_type
@@ -175,3 +176,22 @@ def get_aks_service(expand: Optional[bool] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_aks_service)
+def get_aks_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           service_name: Optional[pulumi.Input[str]] = None,
+                           workspace_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAKSServiceResult]:
+    """
+    Machine Learning service object wrapped into ARM resource envelope.
+    API Version: 2021-01-01.
+
+
+    :param bool expand: Set to True to include Model details.
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str service_name: Name of the Azure Machine Learning service.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

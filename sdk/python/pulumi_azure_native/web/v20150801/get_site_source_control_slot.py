@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteSourceControlSlotResult',
     'AwaitableGetSiteSourceControlSlotResult',
     'get_site_source_control_slot',
+    'get_site_source_control_slot_output',
 ]
 
 @pulumi.output_type
@@ -196,3 +197,19 @@ def get_site_source_control_slot(name: Optional[str] = None,
         repo_url=__ret__.repo_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_source_control_slot)
+def get_site_source_control_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        slot: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteSourceControlSlotResult]:
+    """
+    Describes the source control configuration for web app
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
+    """
+    ...

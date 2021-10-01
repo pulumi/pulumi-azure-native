@@ -13,6 +13,7 @@ __all__ = [
     'GetAssignmentResult',
     'AwaitableGetAssignmentResult',
     'get_assignment',
+    'get_assignment_output',
 ]
 
 @pulumi.output_type
@@ -234,3 +235,18 @@ def get_assignment(assignment_name: Optional[str] = None,
         scope=__ret__.scope,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_assignment)
+def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
+                          resource_scope: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
+    """
+    Represents a blueprint assignment.
+    API Version: 2018-11-01-preview.
+
+
+    :param str assignment_name: Name of the blueprint assignment.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    """
+    ...

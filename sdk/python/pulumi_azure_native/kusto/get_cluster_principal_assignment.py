@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterPrincipalAssignmentResult',
     'AwaitableGetClusterPrincipalAssignmentResult',
     'get_cluster_principal_assignment',
+    'get_cluster_principal_assignment_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,20 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
         tenant_id=__ret__.tenant_id,
         tenant_name=__ret__.tenant_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cluster_principal_assignment)
+def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                            principal_assignment_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
+    """
+    Class representing a cluster principal assignment.
+    API Version: 2021-01-01.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str principal_assignment_name: The name of the Kusto principalAssignment.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

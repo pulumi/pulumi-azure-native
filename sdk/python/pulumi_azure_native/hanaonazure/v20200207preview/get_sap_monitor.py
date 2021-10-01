@@ -12,6 +12,7 @@ __all__ = [
     'GetSapMonitorResult',
     'AwaitableGetSapMonitorResult',
     'get_sap_monitor',
+    'get_sap_monitor_output',
 ]
 
 @pulumi.output_type
@@ -219,3 +220,17 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
         sap_monitor_collector_version=__ret__.sap_monitor_collector_version,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sap_monitor)
+def get_sap_monitor_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           sap_monitor_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapMonitorResult]:
+    """
+    SAP monitor info on Azure (ARM properties and SAP monitor properties)
+
+
+    :param str resource_group_name: Name of the resource group.
+    :param str sap_monitor_name: Name of the SAP monitor resource.
+    """
+    ...

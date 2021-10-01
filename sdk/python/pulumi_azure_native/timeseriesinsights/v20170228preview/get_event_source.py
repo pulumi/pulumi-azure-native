@@ -12,6 +12,7 @@ __all__ = [
     'GetEventSourceResult',
     'AwaitableGetEventSourceResult',
     'get_event_source',
+    'get_event_source_output',
 ]
 
 warnings.warn("""Please use one of the variants: EventHubEventSource, IoTHubEventSource.""", DeprecationWarning)
@@ -134,3 +135,20 @@ def get_event_source(environment_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_event_source)
+def get_event_source_output(environment_name: Optional[pulumi.Input[str]] = None,
+                            event_source_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceResult]:
+    """
+    An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    pulumi.log.warn("""get_event_source is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.""")
+    ...

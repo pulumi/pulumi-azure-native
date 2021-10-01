@@ -13,6 +13,7 @@ __all__ = [
     'ListVirtualMachineApplicableSchedulesResult',
     'AwaitableListVirtualMachineApplicableSchedulesResult',
     'list_virtual_machine_applicable_schedules',
+    'list_virtual_machine_applicable_schedules_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_virtual_machine_applicable_schedules)
+def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                                     name: Optional[pulumi.Input[str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVirtualMachineApplicableSchedulesResult]:
+    """
+    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the virtual machine.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

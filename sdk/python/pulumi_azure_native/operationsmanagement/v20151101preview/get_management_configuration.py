@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementConfigurationResult',
     'AwaitableGetManagementConfigurationResult',
     'get_management_configuration',
+    'get_management_configuration_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,17 @@ def get_management_configuration(management_configuration_name: Optional[str] = 
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_configuration)
+def get_management_configuration_output(management_configuration_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementConfigurationResult]:
+    """
+    The container for solution.
+
+
+    :param str management_configuration_name: User Management Configuration Name.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    """
+    ...

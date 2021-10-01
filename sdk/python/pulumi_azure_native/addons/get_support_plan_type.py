@@ -12,6 +12,7 @@ __all__ = [
     'GetSupportPlanTypeResult',
     'AwaitableGetSupportPlanTypeResult',
     'get_support_plan_type',
+    'get_support_plan_type_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,18 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_support_plan_type)
+def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = None,
+                                 provider_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
+    """
+    The status of the Canonical support plan.
+    API Version: 2018-03-01.
+
+
+    :param str plan_type_name: The Canonical support plan type.
+    :param str provider_name: The support plan type. For now the only valid type is "canonical".
+    """
+    ...

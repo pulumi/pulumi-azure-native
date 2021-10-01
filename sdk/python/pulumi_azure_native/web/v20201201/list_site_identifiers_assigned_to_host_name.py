@@ -13,6 +13,7 @@ __all__ = [
     'ListSiteIdentifiersAssignedToHostNameResult',
     'AwaitableListSiteIdentifiersAssignedToHostNameResult',
     'list_site_identifiers_assigned_to_host_name',
+    'list_site_identifiers_assigned_to_host_name_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,15 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
     return AwaitableListSiteIdentifiersAssignedToHostNameResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_site_identifiers_assigned_to_host_name)
+def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
+    """
+    Collection of identifiers.
+
+
+    :param str name: Name of the object.
+    """
+    ...

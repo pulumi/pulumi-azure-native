@@ -12,6 +12,7 @@ __all__ = [
     'GetRoleAssignmentResult',
     'AwaitableGetRoleAssignmentResult',
     'get_role_assignment',
+    'get_role_assignment_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,20 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         type=__ret__.type,
         updated_by=__ret__.updated_by,
         updated_on=__ret__.updated_on)
+
+
+@_utilities.lift_output_func(get_role_assignment)
+def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]] = None,
+                               scope: Optional[pulumi.Input[str]] = None,
+                               tenant_id: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
+    """
+    Role Assignments
+    API Version: 2020-08-01-preview.
+
+
+    :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
+    :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    :param str tenant_id: Tenant ID for cross-tenant request
+    """
+    ...

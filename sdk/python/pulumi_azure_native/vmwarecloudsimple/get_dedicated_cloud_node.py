@@ -13,6 +13,7 @@ __all__ = [
     'GetDedicatedCloudNodeResult',
     'AwaitableGetDedicatedCloudNodeResult',
     'get_dedicated_cloud_node',
+    'get_dedicated_cloud_node_output',
 ]
 
 @pulumi.output_type
@@ -299,3 +300,18 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         vmware_cluster_name=__ret__.vmware_cluster_name)
+
+
+@_utilities.lift_output_func(get_dedicated_cloud_node)
+def get_dedicated_cloud_node_output(dedicated_cloud_node_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
+    """
+    Dedicated cloud node model
+    API Version: 2019-04-01.
+
+
+    :param str dedicated_cloud_node_name: dedicated cloud node name
+    :param str resource_group_name: The name of the resource group
+    """
+    ...

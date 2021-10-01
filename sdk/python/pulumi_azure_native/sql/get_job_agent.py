@@ -13,6 +13,7 @@ __all__ = [
     'GetJobAgentResult',
     'AwaitableGetJobAgentResult',
     'get_job_agent',
+    'get_job_agent_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_job_agent(job_agent_name: Optional[str] = None,
         state=__ret__.state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_job_agent)
+def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         server_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobAgentResult]:
+    """
+    An Azure SQL job agent.
+    API Version: 2020-11-01-preview.
+
+
+    :param str job_agent_name: The name of the job agent to be retrieved.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

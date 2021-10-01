@@ -13,6 +13,7 @@ __all__ = [
     'GetPartnerNamespaceResult',
     'AwaitableGetPartnerNamespaceResult',
     'get_partner_namespace',
+    'get_partner_namespace_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,17 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_partner_namespace)
+def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
+    """
+    EventGrid Partner Namespace.
+
+
+    :param str partner_namespace_name: Name of the partner namespace.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    """
+    ...

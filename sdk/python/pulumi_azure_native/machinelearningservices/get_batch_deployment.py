@@ -13,6 +13,7 @@ __all__ = [
     'GetBatchDeploymentResult',
     'AwaitableGetBatchDeploymentResult',
     'get_batch_deployment',
+    'get_batch_deployment_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,21 @@ def get_batch_deployment(deployment_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_batch_deployment)
+def get_batch_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                                endpoint_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                workspace_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchDeploymentResult]:
+    """
+    API Version: 2021-03-01-preview.
+
+
+    :param str deployment_name: The identifier for the Batch deployments.
+    :param str endpoint_name: Endpoint name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

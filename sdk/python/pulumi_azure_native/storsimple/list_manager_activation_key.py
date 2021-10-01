@@ -12,6 +12,7 @@ __all__ = [
     'ListManagerActivationKeyResult',
     'AwaitableListManagerActivationKeyResult',
     'list_manager_activation_key',
+    'list_manager_activation_key_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def list_manager_activation_key(manager_name: Optional[str] = None,
 
     return AwaitableListManagerActivationKeyResult(
         activation_key=__ret__.activation_key)
+
+
+@_utilities.lift_output_func(list_manager_activation_key)
+def list_manager_activation_key_output(manager_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerActivationKeyResult]:
+    """
+    The key.
+    API Version: 2017-06-01.
+
+
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

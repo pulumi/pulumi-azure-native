@@ -13,6 +13,7 @@ __all__ = [
     'GetStreamingEndpointResult',
     'AwaitableGetStreamingEndpointResult',
     'get_streaming_endpoint',
+    'get_streaming_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -327,3 +328,19 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
         scale_units=__ret__.scale_units,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_streaming_endpoint)
+def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingEndpointResult]:
+    """
+    The StreamingEndpoint.
+
+
+    :param str account_name: The Media Services account name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    :param str streaming_endpoint_name: The name of the StreamingEndpoint.
+    """
+    ...

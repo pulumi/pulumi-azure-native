@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlPoolWorkloadGroupResult',
     'AwaitableGetSqlPoolWorkloadGroupResult',
     'get_sql_pool_workload_group',
+    'get_sql_pool_workload_group_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,22 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         query_execution_timeout=__ret__.query_execution_timeout,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_pool_workload_group)
+def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       sql_pool_name: Optional[pulumi.Input[str]] = None,
+                                       workload_group_name: Optional[pulumi.Input[str]] = None,
+                                       workspace_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
+    """
+    Workload group operations for a sql pool
+    API Version: 2021-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sql_pool_name: SQL pool name
+    :param str workload_group_name: The name of the workload group.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

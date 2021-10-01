@@ -13,6 +13,7 @@ __all__ = [
     'GetLivePipelineResult',
     'AwaitableGetLivePipelineResult',
     'get_live_pipeline',
+    'get_live_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_live_pipeline(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         topology_name=__ret__.topology_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_live_pipeline)
+def get_live_pipeline_output(account_name: Optional[pulumi.Input[str]] = None,
+                             live_pipeline_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLivePipelineResult]:
+    """
+    Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+
+
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str live_pipeline_name: Live pipeline unique identifier.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

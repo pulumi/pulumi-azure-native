@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkTapResult',
     'AwaitableGetVirtualNetworkTapResult',
     'get_virtual_network_tap',
+    'get_virtual_network_tap_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,17 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_network_tap)
+def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   tap_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkTapResult]:
+    """
+    Virtual Network Tap resource
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str tap_name: The name of virtual network tap.
+    """
+    ...

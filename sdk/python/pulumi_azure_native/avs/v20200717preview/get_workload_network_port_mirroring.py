@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadNetworkPortMirroringResult',
     'AwaitableGetWorkloadNetworkPortMirroringResult',
     'get_workload_network_port_mirroring',
+    'get_workload_network_port_mirroring_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,19 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
         source=__ret__.source,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_port_mirroring)
+def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulumi.Input[str]] = None,
+                                               private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkPortMirroringResult]:
+    """
+    NSX Port Mirroring
+
+
+    :param str port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

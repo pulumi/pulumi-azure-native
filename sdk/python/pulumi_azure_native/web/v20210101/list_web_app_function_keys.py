@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppFunctionKeysResult',
     'AwaitableListWebAppFunctionKeysResult',
     'list_web_app_function_keys',
+    'list_web_app_function_keys_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_function_keys)
+def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]] = None,
+                                      name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionKeysResult]:
+    """
+    String dictionary resource.
+
+
+    :param str function_name: Function name.
+    :param str name: Site name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

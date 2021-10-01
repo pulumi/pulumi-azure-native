@@ -13,6 +13,7 @@ __all__ = [
     'ListClusterFollowerDatabasesResult',
     'AwaitableListClusterFollowerDatabasesResult',
     'list_cluster_follower_databases',
+    'list_cluster_follower_databases_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
 
     return AwaitableListClusterFollowerDatabasesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_cluster_follower_databases)
+def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
+    """
+    The list Kusto database principals operation response.
+    API Version: 2021-01-01.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

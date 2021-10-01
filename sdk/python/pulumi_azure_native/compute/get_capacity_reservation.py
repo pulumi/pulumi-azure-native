@@ -13,6 +13,7 @@ __all__ = [
     'GetCapacityReservationResult',
     'AwaitableGetCapacityReservationResult',
     'get_capacity_reservation',
+    'get_capacity_reservation_output',
 ]
 
 @pulumi.output_type
@@ -214,3 +215,22 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
         type=__ret__.type,
         virtual_machines_associated=__ret__.virtual_machines_associated,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_capacity_reservation)
+def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pulumi.Input[str]] = None,
+                                    capacity_reservation_name: Optional[pulumi.Input[str]] = None,
+                                    expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
+    """
+    Specifies information about the capacity reservation.
+    API Version: 2021-04-01.
+
+
+    :param str capacity_reservation_group_name: The name of the capacity reservation group.
+    :param str capacity_reservation_name: The name of the capacity reservation.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

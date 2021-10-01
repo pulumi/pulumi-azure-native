@@ -13,6 +13,7 @@ __all__ = [
     'GetAgentPoolResult',
     'AwaitableGetAgentPoolResult',
     'get_agent_pool',
+    'get_agent_pool_output',
 ]
 
 @pulumi.output_type
@@ -536,3 +537,20 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         upgrade_settings=__ret__.upgrade_settings,
         vm_size=__ret__.vm_size,
         vnet_subnet_id=__ret__.vnet_subnet_id)
+
+
+@_utilities.lift_output_func(get_agent_pool)
+def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          resource_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
+    """
+    Agent Pool.
+    API Version: 2021-03-01.
+
+
+    :param str agent_pool_name: The name of the agent pool.
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the managed cluster resource.
+    """
+    ...

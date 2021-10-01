@@ -12,6 +12,7 @@ __all__ = [
     'ListOrderDCAccessCodeResult',
     'AwaitableListOrderDCAccessCodeResult',
     'list_order_dc_access_code',
+    'list_order_dc_access_code_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
 
     return AwaitableListOrderDCAccessCodeResult(
         auth_code=__ret__.auth_code)
+
+
+@_utilities.lift_output_func(list_order_dc_access_code)
+def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
+    """
+    DC Access code in the case of Self Managed Shipping.
+    API Version: 2020-12-01.
+
+
+    :param str device_name: The device name
+    :param str resource_group_name: The resource group name.
+    """
+    ...

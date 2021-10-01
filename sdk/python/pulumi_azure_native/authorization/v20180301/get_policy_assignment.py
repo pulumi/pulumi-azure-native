@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicyAssignmentResult',
     'AwaitableGetPolicyAssignmentResult',
     'get_policy_assignment',
+    'get_policy_assignment_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         scope=__ret__.scope,
         sku=__ret__.sku,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_assignment)
+def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[str]] = None,
+                                 scope: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
+    """
+    The policy assignment.
+
+
+    :param str policy_assignment_name: The name of the policy assignment to get.
+    :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    """
+    ...

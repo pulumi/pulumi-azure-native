@@ -12,6 +12,7 @@ __all__ = [
     'GetRegistrationActivationKeyResult',
     'AwaitableGetRegistrationActivationKeyResult',
     'get_registration_activation_key',
+    'get_registration_activation_key_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
 
     return AwaitableGetRegistrationActivationKeyResult(
         activation_key=__ret__.activation_key)
+
+
+@_utilities.lift_output_func(get_registration_activation_key)
+def get_registration_activation_key_output(registration_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationActivationKeyResult]:
+    """
+    The resource containing the Azure Stack activation key.
+    API Version: 2017-06-01.
+
+
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

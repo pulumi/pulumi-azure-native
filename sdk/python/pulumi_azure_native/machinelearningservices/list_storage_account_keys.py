@@ -12,6 +12,7 @@ __all__ = [
     'ListStorageAccountKeysResult',
     'AwaitableListStorageAccountKeysResult',
     'list_storage_account_keys',
+    'list_storage_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -57,3 +58,17 @@ def list_storage_account_keys(resource_group_name: Optional[str] = None,
 
     return AwaitableListStorageAccountKeysResult(
         user_storage_key=__ret__.user_storage_key)
+
+
+@_utilities.lift_output_func(list_storage_account_keys)
+def list_storage_account_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     workspace_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
+    """
+    API Version: 2021-01-01.
+
+
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

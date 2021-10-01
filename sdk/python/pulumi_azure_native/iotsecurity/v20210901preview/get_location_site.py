@@ -13,6 +13,7 @@ __all__ = [
     'GetLocationSiteResult',
     'AwaitableGetLocationSiteResult',
     'get_location_site',
+    'get_location_site_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def get_location_site(iot_defender_location: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_location_site)
+def get_location_site_output(iot_defender_location: Optional[pulumi.Input[str]] = None,
+                             site_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSiteResult]:
+    """
+    IoT site model
+
+
+    :param str iot_defender_location: Defender for IoT location
+    :param str site_name: Site Name
+    """
+    ...

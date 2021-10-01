@@ -12,6 +12,7 @@ __all__ = [
     'GetBuildLogLinkResult',
     'AwaitableGetBuildLogLinkResult',
     'get_build_log_link',
+    'get_build_log_link_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,20 @@ def get_build_log_link(build_id: Optional[str] = None,
 
     return AwaitableGetBuildLogLinkResult(
         log_link=__ret__.log_link)
+
+
+@_utilities.lift_output_func(get_build_log_link)
+def get_build_log_link_output(build_id: Optional[pulumi.Input[str]] = None,
+                              registry_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildLogLinkResult]:
+    """
+    The result of get log link operation.
+    API Version: 2018-02-01-preview.
+
+
+    :param str build_id: The build ID.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

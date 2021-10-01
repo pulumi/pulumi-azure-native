@@ -12,6 +12,7 @@ __all__ = [
     'GetRegistrationResult',
     'AwaitableGetRegistrationResult',
     'get_registration',
+    'get_registration_output',
 ]
 
 @pulumi.output_type
@@ -167,3 +168,17 @@ def get_registration(registration_name: Optional[str] = None,
         object_id=__ret__.object_id,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registration)
+def get_registration_output(registration_name: Optional[pulumi.Input[str]] = None,
+                            resource_group: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
+    """
+    Registration information.
+
+
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

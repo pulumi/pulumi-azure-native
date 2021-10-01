@@ -13,6 +13,7 @@ __all__ = [
     'GetContainerGroupResult',
     'AwaitableGetContainerGroupResult',
     'get_container_group',
+    'get_container_group_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,17 @@ def get_container_group(container_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         volumes=__ret__.volumes)
+
+
+@_utilities.lift_output_func(get_container_group)
+def get_container_group_output(container_group_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupResult]:
+    """
+    A container group.
+
+
+    :param str container_group_name: The name of the container group.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetViewResult',
     'AwaitableGetViewResult',
     'get_view',
+    'get_view_output',
 ]
 
 @pulumi.output_type
@@ -295,3 +296,15 @@ def get_view(view_name: Optional[str] = None,
         time_period=__ret__.time_period,
         timeframe=__ret__.timeframe,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_view)
+def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
+    """
+    States and configurations of Cost Analysis.
+
+
+    :param str view_name: View name
+    """
+    ...

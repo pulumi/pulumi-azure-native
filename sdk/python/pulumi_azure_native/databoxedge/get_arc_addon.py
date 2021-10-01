@@ -13,6 +13,7 @@ __all__ = [
     'GetArcAddonResult',
     'AwaitableGetArcAddonResult',
     'get_arc_addon',
+    'get_arc_addon_output',
 ]
 
 @pulumi.output_type
@@ -228,3 +229,22 @@ def get_arc_addon(addon_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_arc_addon)
+def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
+                         device_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         role_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcAddonResult]:
+    """
+    Arc Addon.
+    API Version: 2020-12-01.
+
+
+    :param str addon_name: The addon name.
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    :param str role_name: The role name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRulesEngineResult',
     'AwaitableGetRulesEngineResult',
     'get_rules_engine',
+    'get_rules_engine_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_rules_engine(front_door_name: Optional[str] = None,
         resource_state=__ret__.resource_state,
         rules=__ret__.rules,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_rules_engine)
+def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            rules_engine_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesEngineResult]:
+    """
+    A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    API Version: 2020-05-01.
+
+
+    :param str front_door_name: Name of the Front Door which is globally unique.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
+    """
+    ...

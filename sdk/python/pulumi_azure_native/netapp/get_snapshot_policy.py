@@ -13,6 +13,7 @@ __all__ = [
     'GetSnapshotPolicyResult',
     'AwaitableGetSnapshotPolicyResult',
     'get_snapshot_policy',
+    'get_snapshot_policy_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_snapshot_policy(account_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         weekly_schedule=__ret__.weekly_schedule)
+
+
+@_utilities.lift_output_func(get_snapshot_policy)
+def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               snapshot_policy_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
+    """
+    Snapshot policy information
+    API Version: 2020-12-01.
+
+
+    :param str account_name: The name of the NetApp account
+    :param str resource_group_name: The name of the resource group.
+    :param str snapshot_policy_name: The name of the snapshot policy
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -575,3 +576,17 @@ def get_cluster(cluster_name: Optional[str] = None,
         vm_image=__ret__.vm_image,
         vmss_zonal_upgrade_mode=__ret__.vmss_zonal_upgrade_mode,
         wave_upgrade_paused=__ret__.wave_upgrade_paused)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    The cluster resource
+
+
+    :param str cluster_name: The name of the cluster resource.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

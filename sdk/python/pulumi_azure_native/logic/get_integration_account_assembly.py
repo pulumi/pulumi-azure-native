@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationAccountAssemblyResult',
     'AwaitableGetIntegrationAccountAssemblyResult',
     'get_integration_account_assembly',
+    'get_integration_account_assembly_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_assembly)
+def get_integration_account_assembly_output(assembly_artifact_name: Optional[pulumi.Input[str]] = None,
+                                            integration_account_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountAssemblyResult]:
+    """
+    The assembly definition.
+    API Version: 2019-05-01.
+
+
+    :param str assembly_artifact_name: The assembly artifact name.
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

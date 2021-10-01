@@ -12,6 +12,7 @@ __all__ = [
     'GetIngestionSettingResult',
     'AwaitableGetIngestionSettingResult',
     'get_ingestion_setting',
+    'get_ingestion_setting_output',
 ]
 
 @pulumi.output_type
@@ -87,3 +88,16 @@ def get_ingestion_setting(ingestion_setting_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ingestion_setting)
+def get_ingestion_setting_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIngestionSettingResult]:
+    """
+    Configures how to correlate scan data and logs with resources associated with the subscription.
+    API Version: 2021-01-15-preview.
+
+
+    :param str ingestion_setting_name: Name of the ingestion setting
+    """
+    ...

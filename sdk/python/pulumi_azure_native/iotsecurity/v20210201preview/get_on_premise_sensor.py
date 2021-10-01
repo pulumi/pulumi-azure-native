@@ -13,6 +13,7 @@ __all__ = [
     'GetOnPremiseSensorResult',
     'AwaitableGetOnPremiseSensorResult',
     'get_on_premise_sensor',
+    'get_on_premise_sensor_output',
 ]
 
 @pulumi.output_type
@@ -100,3 +101,15 @@ def get_on_premise_sensor(on_premise_sensor_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_on_premise_sensor)
+def get_on_premise_sensor_output(on_premise_sensor_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnPremiseSensorResult]:
+    """
+    On-premise IoT sensor
+
+
+    :param str on_premise_sensor_name: Name of the on-premise IoT sensor
+    """
+    ...

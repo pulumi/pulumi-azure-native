@@ -13,6 +13,7 @@ __all__ = [
     'GetFluidRelayServerResult',
     'AwaitableGetFluidRelayServerResult',
     'get_fluid_relay_server',
+    'get_fluid_relay_server_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,18 @@ def get_fluid_relay_server(name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_fluid_relay_server)
+def get_fluid_relay_server_output(name: Optional[pulumi.Input[str]] = None,
+                                  resource_group: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerResult]:
+    """
+    A FluidRelay Server.
+    API Version: 2021-03-12-preview.
+
+
+    :param str name: The resource name.
+    :param str resource_group: The resource group containing the resource.
+    """
+    ...

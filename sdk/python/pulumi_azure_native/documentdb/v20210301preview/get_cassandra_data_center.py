@@ -13,6 +13,7 @@ __all__ = [
     'GetCassandraDataCenterResult',
     'AwaitableGetCassandraDataCenterResult',
     'get_cassandra_data_center',
+    'get_cassandra_data_center_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,19 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cassandra_data_center)
+def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                     data_center_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
+    """
+    A managed Cassandra data center.
+
+
+    :param str cluster_name: Managed Cassandra cluster name.
+    :param str data_center_name: Data center name in a managed Cassandra cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

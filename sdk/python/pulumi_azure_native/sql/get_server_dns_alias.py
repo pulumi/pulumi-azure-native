@@ -12,6 +12,7 @@ __all__ = [
     'GetServerDnsAliasResult',
     'AwaitableGetServerDnsAliasResult',
     'get_server_dns_alias',
+    'get_server_dns_alias_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,20 @@ def get_server_dns_alias(dns_alias_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_dns_alias)
+def get_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                server_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDnsAliasResult]:
+    """
+    A server DNS alias.
+    API Version: 2020-11-01-preview.
+
+
+    :param str dns_alias_name: The name of the server dns alias.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server that the alias is pointing to.
+    """
+    ...

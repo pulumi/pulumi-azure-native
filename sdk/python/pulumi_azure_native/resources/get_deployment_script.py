@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentScriptResult',
     'AwaitableGetDeploymentScriptResult',
     'get_deployment_script',
+    'get_deployment_script_output',
 ]
 
 warnings.warn("""Please use one of the variants: AzureCliScript, AzurePowerShellScript.""", DeprecationWarning)
@@ -159,3 +160,19 @@ def get_deployment_script(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_deployment_script)
+def get_deployment_script_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 script_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentScriptResult]:
+    """
+    Deployment script object.
+    API Version: 2020-10-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str script_name: Name of the deployment script.
+    """
+    pulumi.log.warn("""get_deployment_script is deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.""")
+    ...

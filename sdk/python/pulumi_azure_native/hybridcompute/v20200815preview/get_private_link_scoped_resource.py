@@ -12,6 +12,7 @@ __all__ = [
     'GetPrivateLinkScopedResourceResult',
     'AwaitableGetPrivateLinkScopedResourceResult',
     'get_private_link_scoped_resource',
+    'get_private_link_scoped_resource_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_link_scoped_resource)
+def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            scope_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopedResourceResult]:
+    """
+    A private link scoped resource
+
+
+    :param str name: The name of the scoped resource object.
+    :param str resource_group_name: The name of the resource group.
+    :param str scope_name: The name of the Azure Arc PrivateLinkScope resource.
+    """
+    ...

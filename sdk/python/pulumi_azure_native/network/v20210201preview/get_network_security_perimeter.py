@@ -12,6 +12,7 @@ __all__ = [
     'GetNetworkSecurityPerimeterResult',
     'AwaitableGetNetworkSecurityPerimeterResult',
     'get_network_security_perimeter',
+    'get_network_security_perimeter_output',
 ]
 
 @pulumi.output_type
@@ -167,3 +168,17 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network_security_perimeter)
+def get_network_security_perimeter_output(network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityPerimeterResult]:
+    """
+    The Network Security Perimeter resource
+
+
+    :param str network_security_perimeter_name: The name of the network security perimeter.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -364,3 +365,18 @@ def get_account(account_name: Optional[str] = None,
         trusted_id_providers=__ret__.trusted_id_providers,
         type=__ret__.type,
         virtual_network_rules=__ret__.virtual_network_rules)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Data Lake Store account information.
+    API Version: 2016-11-01.
+
+
+    :param str account_name: The name of the Data Lake Store account.
+    :param str resource_group_name: The name of the Azure resource group.
+    """
+    ...

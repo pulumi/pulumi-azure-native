@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineLearningDatastoreResult',
     'AwaitableGetMachineLearningDatastoreResult',
     'get_machine_learning_datastore',
+    'get_machine_learning_datastore_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_machine_learning_datastore(datastore_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_machine_learning_datastore)
+def get_machine_learning_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          workspace_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatastoreResult]:
+    """
+    Machine Learning datastore object wrapped into ARM resource envelope.
+    API Version: 2020-05-01-preview.
+
+
+    :param str datastore_name: The Datastore name.
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetAssetEncryptionKeyResult',
     'AwaitableGetAssetEncryptionKeyResult',
     'get_asset_encryption_key',
+    'get_asset_encryption_key_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
     return AwaitableGetAssetEncryptionKeyResult(
         asset_file_encryption_metadata=__ret__.asset_file_encryption_metadata,
         key=__ret__.key)
+
+
+@_utilities.lift_output_func(get_asset_encryption_key)
+def get_asset_encryption_key_output(account_name: Optional[pulumi.Input[str]] = None,
+                                    asset_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetEncryptionKeyResult]:
+    """
+    Data needed to decrypt asset files encrypted with legacy storage encryption.
+    API Version: 2020-05-01.
+
+
+    :param str account_name: The Media Services account name.
+    :param str asset_name: The Asset name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    """
+    ...

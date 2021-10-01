@@ -13,6 +13,7 @@ __all__ = [
     'GetGraphResourceGraphResult',
     'AwaitableGetGraphResourceGraphResult',
     'get_graph_resource_graph',
+    'get_graph_resource_graph_output',
 ]
 
 @pulumi.output_type
@@ -153,3 +154,20 @@ def get_graph_resource_graph(account_name: Optional[str] = None,
         resource=__ret__.resource,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_graph_resource_graph)
+def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[str]] = None,
+                                    graph_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResourceGraphResult]:
+    """
+    An Azure Cosmos DB Graph resource.
+    API Version: 2021-07-01-preview.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str graph_name: Cosmos DB graph resource name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

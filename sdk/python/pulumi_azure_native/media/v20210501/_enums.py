@@ -19,9 +19,13 @@ class AccountEncryptionKeyType(str, Enum):
     The type of key used to encrypt the Account Key.
     """
     SYSTEM_KEY = "SystemKey"
-    """The Account Key is encrypted with a System Key."""
+    """
+    The Account Key is encrypted with a System Key.
+    """
     CUSTOMER_KEY = "CustomerKey"
-    """The Account Key is encrypted with a Customer Key."""
+    """
+    The Account Key is encrypted with a Customer Key.
+    """
 
 
 class DefaultAction(str, Enum):
@@ -29,9 +33,13 @@ class DefaultAction(str, Enum):
     The behavior for IP access control in Key Delivery.
     """
     ALLOW = "Allow"
-    """All public IP addresses are allowed."""
+    """
+    All public IP addresses are allowed.
+    """
     DENY = "Deny"
-    """Public IP addresses are blocked."""
+    """
+    Public IP addresses are blocked.
+    """
 
 
 class ManagedIdentityType(str, Enum):
@@ -39,9 +47,13 @@ class ManagedIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    """A system-assigned managed identity."""
+    """
+    A system-assigned managed identity.
+    """
     NONE = "None"
-    """No managed identity."""
+    """
+    No managed identity.
+    """
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -58,13 +70,21 @@ class StorageAccountType(str, Enum):
     The type of the storage account.
     """
     PRIMARY = "Primary"
-    """The primary storage account for the Media Services account."""
+    """
+    The primary storage account for the Media Services account.
+    """
     SECONDARY = "Secondary"
-    """A secondary storage account for the Media Services account."""
+    """
+    A secondary storage account for the Media Services account.
+    """
 
 
 class StorageAuthentication(str, Enum):
     SYSTEM = "System"
-    """System authentication."""
+    """
+    System authentication.
+    """
     MANAGED_IDENTITY = "ManagedIdentity"
-    """Managed Identity authentication."""
+    """
+    Managed Identity authentication.
+    """

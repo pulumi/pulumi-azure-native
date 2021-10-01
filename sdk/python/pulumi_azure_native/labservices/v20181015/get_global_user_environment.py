@@ -13,6 +13,7 @@ __all__ = [
     'GetGlobalUserEnvironmentResult',
     'AwaitableGetGlobalUserEnvironmentResult',
     'get_global_user_environment',
+    'get_global_user_environment_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,19 @@ def get_global_user_environment(environment_id: Optional[str] = None,
 
     return AwaitableGetGlobalUserEnvironmentResult(
         environment=__ret__.environment)
+
+
+@_utilities.lift_output_func(get_global_user_environment)
+def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
+                                       expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                       user_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserEnvironmentResult]:
+    """
+    Represents the environments details
+
+
+    :param str environment_id: The resourceId of the environment
+    :param str expand: Specify the $expand query. Example: 'properties($expand=environment)'
+    :param str user_name: The name of the user.
+    """
+    ...

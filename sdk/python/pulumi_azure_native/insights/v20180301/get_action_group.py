@@ -13,6 +13,7 @@ __all__ = [
     'GetActionGroupResult',
     'AwaitableGetActionGroupResult',
     'get_action_group',
+    'get_action_group_output',
 ]
 
 @pulumi.output_type
@@ -259,3 +260,17 @@ def get_action_group(action_group_name: Optional[str] = None,
         type=__ret__.type,
         voice_receivers=__ret__.voice_receivers,
         webhook_receivers=__ret__.webhook_receivers)
+
+
+@_utilities.lift_output_func(get_action_group)
+def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
+    """
+    An action group resource.
+
+
+    :param str action_group_name: The name of the action group.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

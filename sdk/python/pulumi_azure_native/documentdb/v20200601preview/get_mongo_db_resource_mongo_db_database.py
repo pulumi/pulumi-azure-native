@@ -13,6 +13,7 @@ __all__ = [
     'GetMongoDBResourceMongoDBDatabaseResult',
     'AwaitableGetMongoDBResourceMongoDBDatabaseResult',
     'get_mongo_db_resource_mongo_db_database',
+    'get_mongo_db_resource_mongo_db_database_output',
 ]
 
 @pulumi.output_type
@@ -152,3 +153,19 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
         resource=__ret__.resource,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_mongo_db_resource_mongo_db_database)
+def get_mongo_db_resource_mongo_db_database_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                   database_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoDBDatabaseResult]:
+    """
+    An Azure Cosmos DB MongoDB database.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str database_name: Cosmos DB database name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetExpressRouteCircuitPeeringResult',
     'AwaitableGetExpressRouteCircuitPeeringResult',
     'get_express_route_circuit_peering',
+    'get_express_route_circuit_peering_output',
 ]
 
 @pulumi.output_type
@@ -327,3 +328,19 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
         state=__ret__.state,
         stats=__ret__.stats,
         vlan_id=__ret__.vlan_id)
+
+
+@_utilities.lift_output_func(get_express_route_circuit_peering)
+def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input[str]] = None,
+                                             peering_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitPeeringResult]:
+    """
+    Peering in an ExpressRouteCircuit resource.
+
+
+    :param str circuit_name: The name of the express route circuit.
+    :param str peering_name: The name of the peering.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

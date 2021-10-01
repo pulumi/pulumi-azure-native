@@ -13,6 +13,7 @@ __all__ = [
     'GetStaticSitePrivateEndpointConnectionResult',
     'AwaitableGetStaticSitePrivateEndpointConnectionResult',
     'get_static_site_private_endpoint_connection',
+    'get_static_site_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,20 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_static_site_private_endpoint_connection)
+def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                                       private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSitePrivateEndpointConnectionResult]:
+    """
+    Remote Private Endpoint Connection ARM resource.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the static site.
+    :param str private_endpoint_connection_name: Name of the private endpoint connection.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

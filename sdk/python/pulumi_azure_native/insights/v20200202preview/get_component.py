@@ -13,6 +13,7 @@ __all__ = [
     'GetComponentResult',
     'AwaitableGetComponentResult',
     'get_component',
+    'get_component_output',
 ]
 
 @pulumi.output_type
@@ -454,3 +455,17 @@ def get_component(resource_group_name: Optional[str] = None,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         workspace_resource_id=__ret__.workspace_resource_id)
+
+
+@_utilities.lift_output_func(get_component)
+def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                         resource_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
+    """
+    An Application Insights component definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRuleResult',
     'AwaitableGetRuleResult',
     'get_rule',
+    'get_rule_output',
 ]
 
 @pulumi.output_type
@@ -152,3 +153,24 @@ def get_rule(namespace_name: Optional[str] = None,
         name=__ret__.name,
         sql_filter=__ret__.sql_filter,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_rule)
+def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    rule_name: Optional[pulumi.Input[str]] = None,
+                    subscription_name: Optional[pulumi.Input[str]] = None,
+                    topic_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+    """
+    Description of Rule Resource.
+    API Version: 2017-04-01.
+
+
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str rule_name: The rule name.
+    :param str subscription_name: The subscription name.
+    :param str topic_name: The topic name.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetTagByApiResult',
     'AwaitableGetTagByApiResult',
     'get_tag_by_api',
+    'get_tag_by_api_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_tag_by_api(api_id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_tag_by_api)
+def get_tag_by_api_output(api_id: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          tag_id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagByApiResult]:
+    """
+    Tag Contract details.
+
+
+    :param str api_id: API identifier. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
+    """
+    ...

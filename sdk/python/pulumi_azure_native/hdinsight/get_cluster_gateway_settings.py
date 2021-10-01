@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterGatewaySettingsResult',
     'AwaitableGetClusterGatewaySettingsResult',
     'get_cluster_gateway_settings',
+    'get_cluster_gateway_settings_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,18 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
         is_credential_enabled=__ret__.is_credential_enabled,
         password=__ret__.password,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_cluster_gateway_settings)
+def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
+    """
+    Gateway settings.
+    API Version: 2018-06-01-preview.
+
+
+    :param str cluster_name: The name of the cluster.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

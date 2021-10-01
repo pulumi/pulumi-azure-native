@@ -14,6 +14,7 @@ __all__ = [
     'GetRecoveryPointAccessTokenResult',
     'AwaitableGetRecoveryPointAccessTokenResult',
     'get_recovery_point_access_token',
+    'get_recovery_point_access_token_output',
 ]
 
 @pulumi.output_type
@@ -163,3 +164,32 @@ def get_recovery_point_access_token(container_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_recovery_point_access_token)
+def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input[str]] = None,
+                                           e_tag: Optional[pulumi.Input[Optional[str]]] = None,
+                                           fabric_name: Optional[pulumi.Input[str]] = None,
+                                           location: Optional[pulumi.Input[Optional[str]]] = None,
+                                           properties: Optional[pulumi.Input[Optional[pulumi.InputType['AADProperties']]]] = None,
+                                           protected_item_name: Optional[pulumi.Input[str]] = None,
+                                           recovery_point_id: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                           vault_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryPointAccessTokenResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str container_name: Name of the container.
+    :param str e_tag: Optional ETag.
+    :param str fabric_name: Fabric name associated with the container.
+    :param str location: Resource location.
+    :param pulumi.InputType['AADProperties'] properties: AADPropertiesResource properties
+    :param str protected_item_name: Name of the Protected Item.
+    :param str recovery_point_id: Recovery Point Id
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param Mapping[str, str] tags: Resource tags.
+    :param str vault_name: The name of the recovery services vault.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetAssessmentResult',
     'AwaitableGetAssessmentResult',
     'get_assessment',
+    'get_assessment_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_assessment(assessment_name: Optional[str] = None,
         resource_details=__ret__.resource_details,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_assessment)
+def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
+                          expand: Optional[pulumi.Input[Optional[str]]] = None,
+                          resource_id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
+    """
+    Security assessment on a resource
+
+
+    :param str assessment_name: The Assessment Key - Unique key for the assessment type
+    :param str expand: OData expand. Optional.
+    :param str resource_id: The identifier of the resource.
+    """
+    ...

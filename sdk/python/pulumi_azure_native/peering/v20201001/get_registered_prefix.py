@@ -12,6 +12,7 @@ __all__ = [
     'GetRegisteredPrefixResult',
     'AwaitableGetRegisteredPrefixResult',
     'get_registered_prefix',
+    'get_registered_prefix_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_registered_prefix(peering_name: Optional[str] = None,
         prefix_validation_state=__ret__.prefix_validation_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registered_prefix)
+def get_registered_prefix_output(peering_name: Optional[pulumi.Input[str]] = None,
+                                 registered_prefix_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredPrefixResult]:
+    """
+    The customer's prefix that is registered by the peering service provider.
+
+
+    :param str peering_name: The name of the peering.
+    :param str registered_prefix_name: The name of the registered prefix.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

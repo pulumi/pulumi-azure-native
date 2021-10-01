@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppDiagnosticLogsConfigurationResult',
     'AwaitableGetWebAppDiagnosticLogsConfigurationResult',
     'get_web_app_diagnostic_logs_configuration',
+    'get_web_app_diagnostic_logs_configuration_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_diagnostic_logs_configuration)
+def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationResult]:
+    """
+    Configuration of App Service site logs.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

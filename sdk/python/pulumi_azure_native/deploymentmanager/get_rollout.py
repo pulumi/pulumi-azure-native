@@ -13,6 +13,7 @@ __all__ = [
     'GetRolloutResult',
     'AwaitableGetRolloutResult',
     'get_rollout',
+    'get_rollout_output',
 ]
 
 @pulumi.output_type
@@ -237,3 +238,20 @@ def get_rollout(resource_group_name: Optional[str] = None,
         target_service_topology_id=__ret__.target_service_topology_id,
         total_retry_attempts=__ret__.total_retry_attempts,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_rollout)
+def get_rollout_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                       retry_attempt: Optional[pulumi.Input[Optional[int]]] = None,
+                       rollout_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolloutResult]:
+    """
+    Defines the PUT rollout request body.
+    API Version: 2019-11-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
+    :param str rollout_name: The rollout name.
+    """
+    ...

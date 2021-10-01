@@ -12,6 +12,7 @@ __all__ = [
     'ListDatastoreSecretsResult',
     'AwaitableListDatastoreSecretsResult',
     'list_datastore_secrets',
+    'list_datastore_secrets_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,20 @@ def list_datastore_secrets(name: Optional[str] = None,
 
     return AwaitableListDatastoreSecretsResult(
         secrets_type=__ret__.secrets_type)
+
+
+@_utilities.lift_output_func(list_datastore_secrets)
+def list_datastore_secrets_output(name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  workspace_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatastoreSecretsResult]:
+    """
+    Base definition for datastore secrets.
+    API Version: 2021-03-01-preview.
+
+
+    :param str name: Datastore name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

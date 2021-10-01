@@ -12,6 +12,7 @@ __all__ = [
     'GetBackupPolicyResult',
     'AwaitableGetBackupPolicyResult',
     'get_backup_policy',
+    'get_backup_policy_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,22 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
         ssm_host_name=__ret__.ssm_host_name,
         type=__ret__.type,
         volume_ids=__ret__.volume_ids)
+
+
+@_utilities.lift_output_func(get_backup_policy)
+def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = None,
+                             device_name: Optional[pulumi.Input[str]] = None,
+                             manager_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
+    """
+    The backup policy.
+    API Version: 2017-06-01.
+
+
+    :param str backup_policy_name: The name of backup policy to be fetched.
+    :param str device_name: The device name
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetCostAllocationRuleResult',
     'AwaitableGetCostAllocationRuleResult',
     'get_cost_allocation_rule',
+    'get_cost_allocation_rule_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,17 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cost_allocation_rule)
+def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[str]] = None,
+                                    rule_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
+    """
+    The cost allocation rule model definition
+
+
+    :param str billing_account_id: BillingAccount ID
+    :param str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
+    """
+    ...

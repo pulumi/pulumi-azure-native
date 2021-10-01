@@ -13,6 +13,7 @@ __all__ = [
     'GetServerFarmResult',
     'AwaitableGetServerFarmResult',
     'get_server_farm',
+    'get_server_farm_output',
 ]
 
 @pulumi.output_type
@@ -286,3 +287,17 @@ def get_server_farm(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         worker_tier_name=__ret__.worker_tier_name)
+
+
+@_utilities.lift_output_func(get_server_farm)
+def get_server_farm_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerFarmResult]:
+    """
+    App Service Plan Model
+
+
+    :param str name: Name of App Service Plan
+    :param str resource_group_name: Name of resource group
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListMediaServiceKeysResult',
     'AwaitableListMediaServiceKeysResult',
     'list_media_service_keys',
+    'list_media_service_keys_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,18 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
         scope=__ret__.scope,
         secondary_auth_endpoint=__ret__.secondary_auth_endpoint,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_media_service_keys)
+def list_media_service_keys_output(media_service_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceKeysResult]:
+    """
+    The response body for a ListKeys API.
+    API Version: 2015-10-01.
+
+
+    :param str media_service_name: Name of the Media Service.
+    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    """
+    ...

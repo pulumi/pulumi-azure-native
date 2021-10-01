@@ -12,6 +12,7 @@ __all__ = [
     'ListTopicSharedAccessKeysResult',
     'AwaitableListTopicSharedAccessKeysResult',
     'list_topic_shared_access_keys',
+    'list_topic_shared_access_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
     return AwaitableListTopicSharedAccessKeysResult(
         key1=__ret__.key1,
         key2=__ret__.key2)
+
+
+@_utilities.lift_output_func(list_topic_shared_access_keys)
+def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         topic_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
+    """
+    Shared access keys of the Topic
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str topic_name: Name of the topic.
+    """
+    ...

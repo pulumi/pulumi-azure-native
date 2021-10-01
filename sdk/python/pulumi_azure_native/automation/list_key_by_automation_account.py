@@ -13,6 +13,7 @@ __all__ = [
     'ListKeyByAutomationAccountResult',
     'AwaitableListKeyByAutomationAccountResult',
     'list_key_by_automation_account',
+    'list_key_by_automation_account_output',
 ]
 
 @pulumi.output_type
@@ -61,3 +62,17 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
 
     return AwaitableListKeyByAutomationAccountResult(
         keys=__ret__.keys)
+
+
+@_utilities.lift_output_func(list_key_by_automation_account)
+def list_key_by_automation_account_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
+    """
+    API Version: 2021-06-22.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

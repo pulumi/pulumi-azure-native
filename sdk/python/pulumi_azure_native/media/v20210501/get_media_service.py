@@ -13,6 +13,7 @@ __all__ = [
     'GetMediaServiceResult',
     'AwaitableGetMediaServiceResult',
     'get_media_service',
+    'get_media_service_output',
 ]
 
 @pulumi.output_type
@@ -204,3 +205,17 @@ def get_media_service(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_media_service)
+def get_media_service_output(account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMediaServiceResult]:
+    """
+    A Media Services account.
+
+
+    :param str account_name: The Media Services account name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    """
+    ...

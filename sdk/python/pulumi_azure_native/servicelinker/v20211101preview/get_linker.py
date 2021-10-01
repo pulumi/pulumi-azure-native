@@ -13,6 +13,7 @@ __all__ = [
     'GetLinkerResult',
     'AwaitableGetLinkerResult',
     'get_linker',
+    'get_linker_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_linker(linker_name: Optional[str] = None,
         system_data=__ret__.system_data,
         target_id=__ret__.target_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linker)
+def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
+                      resource_uri: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
+    """
+    Linker of source and target resource
+
+
+    :param str linker_name: The name Linker resource.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementGroupDiagnosticSettingResult',
     'AwaitableGetManagementGroupDiagnosticSettingResult',
     'get_management_group_diagnostic_setting',
+    'get_management_group_diagnostic_setting_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
         system_data=__ret__.system_data,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
+
+
+@_utilities.lift_output_func(get_management_group_diagnostic_setting)
+def get_management_group_diagnostic_setting_output(management_group_id: Optional[pulumi.Input[str]] = None,
+                                                   name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
+    """
+    The management group diagnostic setting resource.
+
+
+    :param str management_group_id: The management group id.
+    :param str name: The name of the diagnostic setting.
+    """
+    ...

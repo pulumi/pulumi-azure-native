@@ -13,6 +13,7 @@ __all__ = [
     'GetUserSettingsResult',
     'AwaitableGetUserSettingsResult',
     'get_user_settings',
+    'get_user_settings_output',
 ]
 
 @pulumi.output_type
@@ -62,3 +63,16 @@ def get_user_settings(user_settings_name: Optional[str] = None,
 
     return AwaitableGetUserSettingsResult(
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_user_settings)
+def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
+    """
+    Response to get user settings
+    API Version: 2018-10-01.
+
+
+    :param str user_settings_name: The name of the user settings
+    """
+    ...

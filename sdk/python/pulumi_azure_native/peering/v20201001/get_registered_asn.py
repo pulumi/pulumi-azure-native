@@ -12,6 +12,7 @@ __all__ = [
     'GetRegisteredAsnResult',
     'AwaitableGetRegisteredAsnResult',
     'get_registered_asn',
+    'get_registered_asn_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_registered_asn(peering_name: Optional[str] = None,
         peering_service_prefix_key=__ret__.peering_service_prefix_key,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registered_asn)
+def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
+                              registered_asn_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredAsnResult]:
+    """
+    The customer's ASN that is registered by the peering service provider.
+
+
+    :param str peering_name: The name of the peering.
+    :param str registered_asn_name: The name of the registered ASN.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

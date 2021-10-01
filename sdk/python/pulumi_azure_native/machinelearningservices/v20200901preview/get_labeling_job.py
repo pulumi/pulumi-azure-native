@@ -13,6 +13,7 @@ __all__ = [
     'GetLabelingJobResult',
     'AwaitableGetLabelingJobResult',
     'get_labeling_job',
+    'get_labeling_job_output',
 ]
 
 @pulumi.output_type
@@ -125,3 +126,23 @@ def get_labeling_job(include_job_instructions: Optional[bool] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_labeling_job)
+def get_labeling_job_output(include_job_instructions: Optional[pulumi.Input[Optional[bool]]] = None,
+                            include_label_categories: Optional[pulumi.Input[Optional[bool]]] = None,
+                            labeling_job_id: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelingJobResult]:
+    """
+    Machine Learning labeling job object wrapped into ARM resource envelope.
+
+
+    :param bool include_job_instructions: Boolean value to indicate whether to include JobInstructions in response.
+    :param bool include_label_categories: Boolean value to indicate whether to include LabelCategories in response.
+    :param str labeling_job_id: Name and identifier for LabelingJob.
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

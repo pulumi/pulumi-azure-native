@@ -13,6 +13,7 @@ __all__ = [
     'GetAttestationAtSubscriptionResult',
     'AwaitableGetAttestationAtSubscriptionResult',
     'get_attestation_at_subscription',
+    'get_attestation_at_subscription_output',
 ]
 
 @pulumi.output_type
@@ -218,3 +219,16 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_attestation_at_subscription)
+def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
+    """
+    An attestation resource.
+    API Version: 2021-01-01.
+
+
+    :param str attestation_name: The name of the attestation.
+    """
+    ...

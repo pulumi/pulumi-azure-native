@@ -13,6 +13,7 @@ __all__ = [
     'GetSkusResult',
     'AwaitableGetSkusResult',
     'get_skus',
+    'get_skus_output',
 ]
 
 @pulumi.output_type
@@ -100,3 +101,19 @@ def get_skus(provider_namespace: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_skus)
+def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
+                    resource_type: Optional[pulumi.Input[str]] = None,
+                    sku: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusResult]:
+    """
+    API Version: 2020-11-20.
+
+
+    :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
+    :param str resource_type: The resource type.
+    :param str sku: The SKU.
+    """
+    ...

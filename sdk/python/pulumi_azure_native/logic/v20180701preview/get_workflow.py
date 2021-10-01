@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkflowResult',
     'AwaitableGetWorkflowResult',
     'get_workflow',
+    'get_workflow_output',
 ]
 
 @pulumi.output_type
@@ -246,3 +247,17 @@ def get_workflow(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_workflow)
+def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        workflow_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
+    """
+    The workflow type.
+
+
+    :param str resource_group_name: The resource group name.
+    :param str workflow_name: The workflow name.
+    """
+    ...

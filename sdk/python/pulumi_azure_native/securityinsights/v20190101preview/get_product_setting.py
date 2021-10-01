@@ -12,6 +12,7 @@ __all__ = [
     'GetProductSettingResult',
     'AwaitableGetProductSettingResult',
     'get_product_setting',
+    'get_product_setting_output',
 ]
 
 warnings.warn("""Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
@@ -124,3 +125,22 @@ def get_product_setting(operational_insights_resource_provider: Optional[str] = 
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_product_setting)
+def get_product_setting_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               settings_name: Optional[pulumi.Input[str]] = None,
+                               workspace_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductSettingResult]:
+    """
+    The Setting.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+    :param str workspace_name: The name of the workspace.
+    """
+    pulumi.log.warn("""get_product_setting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
+    ...

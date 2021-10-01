@@ -12,6 +12,7 @@ __all__ = [
     'ListSiteAppSettingsSlotResult',
     'AwaitableListSiteAppSettingsSlotResult',
     'list_site_app_settings_slot',
+    'list_site_app_settings_slot_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,19 @@ def list_site_app_settings_slot(name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_site_app_settings_slot)
+def list_site_app_settings_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       slot: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteAppSettingsSlotResult]:
+    """
+    String dictionary resource
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
+    """
+    ...

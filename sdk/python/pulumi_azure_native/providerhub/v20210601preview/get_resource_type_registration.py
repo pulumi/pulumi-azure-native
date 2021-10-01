@@ -13,6 +13,7 @@ __all__ = [
     'GetResourceTypeRegistrationResult',
     'AwaitableGetResourceTypeRegistrationResult',
     'get_resource_type_registration',
+    'get_resource_type_registration_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,16 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_resource_type_registration)
+def get_resource_type_registration_output(provider_namespace: Optional[pulumi.Input[str]] = None,
+                                          resource_type: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
+    :param str resource_type: The resource type.
+    """
+    ...

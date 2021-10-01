@@ -12,6 +12,7 @@ __all__ = [
     'GetEventHubEventSourceResult',
     'AwaitableGetEventHubEventSourceResult',
     'get_event_hub_event_source',
+    'get_event_hub_event_source_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
         tags=__ret__.tags,
         timestamp_property_name=__ret__.timestamp_property_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_event_hub_event_source)
+def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                      event_source_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
+    """
+    An event source that receives its data from an Azure EventHub.
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

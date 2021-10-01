@@ -15,6 +15,7 @@ __all__ = [
     'ListCustomApiWsdlInterfacesResult',
     'AwaitableListCustomApiWsdlInterfacesResult',
     'list_custom_api_wsdl_interfaces',
+    'list_custom_api_wsdl_interfaces_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,25 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
 
     return AwaitableListCustomApiWsdlInterfacesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_custom_api_wsdl_interfaces)
+def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Optional[str]]] = None,
+                                           import_method: Optional[pulumi.Input[Optional[Union[str, 'WsdlImportMethod']]]] = None,
+                                           location: Optional[pulumi.Input[str]] = None,
+                                           service: Optional[pulumi.Input[Optional[pulumi.InputType['WsdlService']]]] = None,
+                                           subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                           url: Optional[pulumi.Input[Optional[str]]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
+    """
+    A list of custom API WSDL interfaces
+
+
+    :param str content: The WSDL content
+    :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
+    :param str location: The location
+    :param pulumi.InputType['WsdlService'] service: The service with name and endpoint names
+    :param str subscription_id: Subscription Id
+    :param str url: The WSDL URL
+    """
+    ...

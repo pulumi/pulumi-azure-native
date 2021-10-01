@@ -13,6 +13,7 @@ __all__ = [
     'GetIoTRoleResult',
     'AwaitableGetIoTRoleResult',
     'get_io_t_role',
+    'get_io_t_role_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,19 @@ def get_io_t_role(device_name: Optional[str] = None,
         share_mappings=__ret__.share_mappings,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_io_t_role)
+def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
+                         name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTRoleResult]:
+    """
+    Compute role.
+
+
+    :param str device_name: The device name.
+    :param str name: The role name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

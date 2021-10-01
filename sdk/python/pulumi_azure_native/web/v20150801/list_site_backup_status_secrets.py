@@ -15,6 +15,7 @@ __all__ = [
     'ListSiteBackupStatusSecretsResult',
     'AwaitableListSiteBackupStatusSecretsResult',
     'list_site_backup_status_secrets',
+    'list_site_backup_status_secrets_output',
 ]
 
 @pulumi.output_type
@@ -317,3 +318,37 @@ def list_site_backup_status_secrets(backup_id: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         website_size_in_bytes=__ret__.website_size_in_bytes)
+
+
+@_utilities.lift_output_func(list_site_backup_status_secrets)
+def list_site_backup_status_secrets_output(backup_id: Optional[pulumi.Input[str]] = None,
+                                           backup_schedule: Optional[pulumi.Input[Optional[pulumi.InputType['BackupSchedule']]]] = None,
+                                           databases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['DatabaseBackupSetting']]]]] = None,
+                                           enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                                           id: Optional[pulumi.Input[Optional[str]]] = None,
+                                           kind: Optional[pulumi.Input[Optional[str]]] = None,
+                                           location: Optional[pulumi.Input[Optional[str]]] = None,
+                                           name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           storage_account_url: Optional[pulumi.Input[Optional[str]]] = None,
+                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                           type: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteBackupStatusSecretsResult]:
+    """
+    Backup description
+
+
+    :param str backup_id: Id of backup
+    :param pulumi.InputType['BackupSchedule'] backup_schedule: Schedule for the backup if it is executed periodically
+    :param Sequence[pulumi.InputType['DatabaseBackupSetting']] databases: Databases included in the backup
+    :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+    :param str id: Resource Id
+    :param str kind: Kind of resource
+    :param str location: Resource Location
+    :param str name: Resource Name
+    :param str resource_group_name: Name of resource group
+    :param str storage_account_url: SAS URL to the container
+    :param Mapping[str, str] tags: Resource tags
+    :param str type: Resource type
+    """
+    ...

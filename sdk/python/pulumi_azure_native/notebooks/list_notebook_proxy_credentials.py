@@ -12,6 +12,7 @@ __all__ = [
     'ListNotebookProxyCredentialsResult',
     'AwaitableListNotebookProxyCredentialsResult',
     'list_notebook_proxy_credentials',
+    'list_notebook_proxy_credentials_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,18 @@ def list_notebook_proxy_credentials(resource_group_name: Optional[str] = None,
         primary_access_key=__ret__.primary_access_key,
         resource_id=__ret__.resource_id,
         secondary_access_key=__ret__.secondary_access_key)
+
+
+@_utilities.lift_output_func(list_notebook_proxy_credentials)
+def list_notebook_proxy_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           resource_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotebookProxyCredentialsResult]:
+    """
+    Credentials and other properties of NotebookProxy resource
+    API Version: 2019-10-11-preview.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the resource.
+    """
+    ...

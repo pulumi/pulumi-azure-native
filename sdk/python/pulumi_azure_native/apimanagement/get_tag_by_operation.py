@@ -12,6 +12,7 @@ __all__ = [
     'GetTagByOperationResult',
     'AwaitableGetTagByOperationResult',
     'get_tag_by_operation',
+    'get_tag_by_operation_output',
 ]
 
 @pulumi.output_type
@@ -112,3 +113,24 @@ def get_tag_by_operation(api_id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_tag_by_operation)
+def get_tag_by_operation_output(api_id: Optional[pulumi.Input[str]] = None,
+                                operation_id: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                service_name: Optional[pulumi.Input[str]] = None,
+                                tag_id: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagByOperationResult]:
+    """
+    Tag Contract details.
+    API Version: 2020-12-01.
+
+
+    :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
+    """
+    ...

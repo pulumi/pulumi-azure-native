@@ -13,6 +13,7 @@ __all__ = [
     'GetCloudConnectorResult',
     'AwaitableGetCloudConnectorResult',
     'get_cloud_connector',
+    'get_cloud_connector_output',
 ]
 
 @pulumi.output_type
@@ -286,3 +287,18 @@ def get_cloud_connector(connector_name: Optional[str] = None,
         status=__ret__.status,
         subscription_id=__ret__.subscription_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cloud_connector)
+def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
+                               expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectorResult]:
+    """
+    The Connector model definition
+    API Version: 2019-03-01-preview.
+
+
+    :param str connector_name: Connector Name.
+    :param str expand: May be used to expand the collectionInfo property. By default, collectionInfo is not included.
+    """
+    ...

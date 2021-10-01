@@ -12,6 +12,7 @@ __all__ = [
     'GetStorageAccountResult',
     'AwaitableGetStorageAccountResult',
     'get_storage_account',
+    'get_storage_account_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,19 @@ def get_storage_account(device_name: Optional[str] = None,
         storage_account_credential_id=__ret__.storage_account_credential_id,
         storage_account_status=__ret__.storage_account_status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_account)
+def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               storage_account_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountResult]:
+    """
+    Represents a Storage Account on the  Data Box Edge/Gateway device.
+
+
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    :param str storage_account_name: The storage account name.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListDeviceRegistrationKeyResult',
     'AwaitableListDeviceRegistrationKeyResult',
     'list_device_registration_key',
+    'list_device_registration_key_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def list_device_registration_key(device_name: Optional[str] = None,
 
     return AwaitableListDeviceRegistrationKeyResult(
         registration_key=__ret__.registration_key)
+
+
+@_utilities.lift_output_func(list_device_registration_key)
+def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
+    """
+    The device registration key.
+    API Version: 2020-01-01-preview.
+
+
+    :param str device_name: The name of the device resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

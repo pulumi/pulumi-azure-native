@@ -13,6 +13,7 @@ __all__ = [
     'GetCapacityDetailsResult',
     'AwaitableGetCapacityDetailsResult',
     'get_capacity_details',
+    'get_capacity_details_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,18 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_capacity_details)
+def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityDetailsResult]:
+    """
+    Represents an instance of a Dedicated Capacity resource.
+    API Version: 2021-01-01.
+
+
+    :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+    :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+    """
+    ...

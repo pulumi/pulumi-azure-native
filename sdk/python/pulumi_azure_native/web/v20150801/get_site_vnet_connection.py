@@ -13,6 +13,7 @@ __all__ = [
     'GetSiteVNETConnectionResult',
     'AwaitableGetSiteVNETConnectionResult',
     'get_site_vnet_connection',
+    'get_site_vnet_connection_output',
 ]
 
 @pulumi.output_type
@@ -211,3 +212,19 @@ def get_site_vnet_connection(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         vnet_resource_id=__ret__.vnet_resource_id)
+
+
+@_utilities.lift_output_func(get_site_vnet_connection)
+def get_site_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    vnet_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteVNETConnectionResult]:
+    """
+    VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+
+
+    :param str name: The name of the web app
+    :param str resource_group_name: The resource group name
+    :param str vnet_name: The name of the Virtual Network
+    """
+    ...

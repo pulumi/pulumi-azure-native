@@ -12,6 +12,7 @@ __all__ = [
     'GetIntegrationAccountSessionResult',
     'AwaitableGetIntegrationAccountSessionResult',
     'get_integration_account_session',
+    'get_integration_account_session_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,20 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_session)
+def get_integration_account_session_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           session_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSessionResult]:
+    """
+    The integration account session.
+    API Version: 2019-05-01.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    :param str session_name: The integration account session name.
+    """
+    ...

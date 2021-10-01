@@ -13,6 +13,7 @@ __all__ = [
     'GetScriptResult',
     'AwaitableGetScriptResult',
     'get_script',
+    'get_script_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,21 @@ def get_script(cluster_name: Optional[str] = None,
         script_url=__ret__.script_url,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_script)
+def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                      database_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      script_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
+    """
+    Class representing a database script.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str database_name: The name of the database in the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str script_name: The name of the Kusto database script.
+    """
+    ...

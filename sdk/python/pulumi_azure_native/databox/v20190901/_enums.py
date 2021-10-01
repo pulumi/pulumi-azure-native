@@ -20,11 +20,17 @@ class AddressType(str, Enum):
     Type of address.
     """
     NONE = "None"
-    """Address type not known."""
+    """
+    Address type not known.
+    """
     RESIDENTIAL = "Residential"
-    """Residential Address."""
+    """
+    Residential Address.
+    """
     COMMERCIAL = "Commercial"
-    """Commercial Address."""
+    """
+    Commercial Address.
+    """
 
 
 class ClassDiscriminator(str, Enum):
@@ -32,11 +38,17 @@ class ClassDiscriminator(str, Enum):
     Indicates the type of job details.
     """
     DATA_BOX = "DataBox"
-    """Databox orders."""
+    """
+    Databox orders.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """DataboxDisk orders."""
+    """
+    DataboxDisk orders.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """DataboxHeavy orders."""
+    """
+    DataboxHeavy orders.
+    """
 
 
 class DataDestinationType(str, Enum):
@@ -44,9 +56,13 @@ class DataDestinationType(str, Enum):
     Data Destination Type.
     """
     STORAGE_ACCOUNT = "StorageAccount"
-    """Storage Accounts ."""
+    """
+    Storage Accounts .
+    """
     MANAGED_DISK = "ManagedDisk"
-    """Azure Managed disk storage."""
+    """
+    Azure Managed disk storage.
+    """
 
 
 class JobDeliveryType(str, Enum):
@@ -54,9 +70,13 @@ class JobDeliveryType(str, Enum):
     Delivery type of Job.
     """
     NON_SCHEDULED = "NonScheduled"
-    """Non Scheduled job."""
+    """
+    Non Scheduled job.
+    """
     SCHEDULED = "Scheduled"
-    """Scheduled job."""
+    """
+    Scheduled job.
+    """
 
 
 class NotificationStageName(str, Enum):
@@ -64,17 +84,29 @@ class NotificationStageName(str, Enum):
     Name of the stage.
     """
     DEVICE_PREPARED = "DevicePrepared"
-    """Notification at device prepared stage."""
+    """
+    Notification at device prepared stage.
+    """
     DISPATCHED = "Dispatched"
-    """Notification at device dispatched stage."""
+    """
+    Notification at device dispatched stage.
+    """
     DELIVERED = "Delivered"
-    """Notification at device delivered stage."""
+    """
+    Notification at device delivered stage.
+    """
     PICKED_UP = "PickedUp"
-    """Notification at device picked up from user stage."""
+    """
+    Notification at device picked up from user stage.
+    """
     AT_AZURE_DC = "AtAzureDC"
-    """Notification at device received at azure datacenter stage."""
+    """
+    Notification at device received at azure datacenter stage.
+    """
     DATA_COPY = "DataCopy"
-    """Notification at data copy started stage."""
+    """
+    Notification at data copy started stage.
+    """
 
 
 class SkuName(str, Enum):
@@ -82,11 +114,17 @@ class SkuName(str, Enum):
     The sku name.
     """
     DATA_BOX = "DataBox"
-    """Databox."""
+    """
+    Databox.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """DataboxDisk."""
+    """
+    DataboxDisk.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """DataboxHeavy."""
+    """
+    DataboxHeavy.
+    """
 
 
 class TransportShipmentTypes(str, Enum):
@@ -94,6 +132,10 @@ class TransportShipmentTypes(str, Enum):
     Indicates Shipment Logistics type that the customer preferred.
     """
     CUSTOMER_MANAGED = "CustomerManaged"
-    """Shipment Logistics is handled by the customer."""
+    """
+    Shipment Logistics is handled by the customer.
+    """
     MICROSOFT_MANAGED = "MicrosoftManaged"
-    """Shipment Logistics is handled by Microsoft."""
+    """
+    Shipment Logistics is handled by Microsoft.
+    """

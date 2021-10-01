@@ -13,6 +13,7 @@ __all__ = [
     'ListSiteBackupConfigurationSlotResult',
     'AwaitableListSiteBackupConfigurationSlotResult',
     'list_site_backup_configuration_slot',
+    'list_site_backup_configuration_slot_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def list_site_backup_configuration_slot(name: Optional[str] = None,
         storage_account_url=__ret__.storage_account_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_site_backup_configuration_slot)
+def list_site_backup_configuration_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               slot: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteBackupConfigurationSlotResult]:
+    """
+    Description of a backup which will be performed
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlPoolSensitivityLabelResult',
     'AwaitableGetSqlPoolSensitivityLabelResult',
     'get_sql_pool_sensitivity_label',
+    'get_sql_pool_sensitivity_label_output',
 ]
 
 @pulumi.output_type
@@ -232,3 +233,28 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
         schema_name=__ret__.schema_name,
         table_name=__ret__.table_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_pool_sensitivity_label)
+def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          schema_name: Optional[pulumi.Input[str]] = None,
+                                          sensitivity_label_source: Optional[pulumi.Input[str]] = None,
+                                          sql_pool_name: Optional[pulumi.Input[str]] = None,
+                                          table_name: Optional[pulumi.Input[str]] = None,
+                                          workspace_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
+    """
+    A sensitivity label.
+    API Version: 2021-03-01.
+
+
+    :param str column_name: The name of the column.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str schema_name: The name of the schema.
+    :param str sensitivity_label_source: The source of the sensitivity label.
+    :param str sql_pool_name: SQL pool name
+    :param str table_name: The name of the table.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

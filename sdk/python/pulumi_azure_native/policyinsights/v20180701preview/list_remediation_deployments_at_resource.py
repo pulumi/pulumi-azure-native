@@ -13,6 +13,7 @@ __all__ = [
     'ListRemediationDeploymentsAtResourceResult',
     'AwaitableListRemediationDeploymentsAtResourceResult',
     'list_remediation_deployments_at_resource',
+    'list_remediation_deployments_at_resource_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
     return AwaitableListRemediationDeploymentsAtResourceResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_remediation_deployments_at_resource)
+def list_remediation_deployments_at_resource_output(remediation_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_id: Optional[pulumi.Input[str]] = None,
+                                                    top: Optional[pulumi.Input[Optional[int]]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
+    """
+    List of deployments for a remediation.
+
+
+    :param str remediation_name: The name of the remediation.
+    :param str resource_id: Resource ID.
+    :param int top: Maximum number of records to return.
+    """
+    ...

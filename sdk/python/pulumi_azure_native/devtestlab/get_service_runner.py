@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceRunnerResult',
     'AwaitableGetServiceRunnerResult',
     'get_service_runner',
+    'get_service_runner_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_service_runner(lab_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service_runner)
+def get_service_runner_output(lab_name: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRunnerResult]:
+    """
+    A container for a managed identity to execute DevTest lab services.
+    API Version: 2018-09-15.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the service runner.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_private_endpoint_connection(automation_account_name: Optional[str] = Non
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    A private endpoint connection
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetAttachedDatabaseConfigurationResult',
     'AwaitableGetAttachedDatabaseConfigurationResult',
     'get_attached_database_configuration',
+    'get_attached_database_configuration_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,19 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_attached_database_configuration)
+def get_attached_database_configuration_output(attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+                                               cluster_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
+    """
+    Class representing an attached database configuration.
+
+
+    :param str attached_database_configuration_name: The name of the attached database configuration.
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListAccountKeysResult',
     'AwaitableListAccountKeysResult',
     'list_account_keys',
+    'list_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_account_keys(account_name: Optional[str] = None,
     return AwaitableListAccountKeysResult(
         key1=__ret__.key1,
         key2=__ret__.key2)
+
+
+@_utilities.lift_output_func(list_account_keys)
+def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+    """
+    The access keys for the cognitive services account.
+
+
+    :param str account_name: The name of Cognitive Services account.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

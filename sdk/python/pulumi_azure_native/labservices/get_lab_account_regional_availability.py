@@ -13,6 +13,7 @@ __all__ = [
     'GetLabAccountRegionalAvailabilityResult',
     'AwaitableGetLabAccountRegionalAvailabilityResult',
     'get_lab_account_regional_availability',
+    'get_lab_account_regional_availability_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
 
     return AwaitableGetLabAccountRegionalAvailabilityResult(
         regional_availability=__ret__.regional_availability)
+
+
+@_utilities.lift_output_func(get_lab_account_regional_availability)
+def get_lab_account_regional_availability_output(lab_account_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
+    """
+    The response model from the GetRegionalAvailability action
+    API Version: 2018-10-15.
+
+
+    :param str lab_account_name: The name of the lab Account.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

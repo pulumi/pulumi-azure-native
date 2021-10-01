@@ -13,6 +13,7 @@ __all__ = [
     'GetVendorSkusResult',
     'AwaitableGetVendorSkusResult',
     'get_vendor_skus',
+    'get_vendor_skus_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_vendor_skus(sku_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         sku_type=__ret__.sku_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_vendor_skus)
+def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
+                           vendor_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
+    """
+    Sku sub resource.
+    API Version: 2020-01-01-preview.
+
+
+    :param str sku_name: The name of the sku.
+    :param str vendor_name: The name of the vendor.
+    """
+    ...

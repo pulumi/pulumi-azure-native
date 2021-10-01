@@ -13,6 +13,7 @@ __all__ = [
     'GetPublicIPPrefixResult',
     'AwaitableGetPublicIPPrefixResult',
     'get_public_ip_prefix',
+    'get_public_ip_prefix_output',
 ]
 
 @pulumi.output_type
@@ -301,3 +302,19 @@ def get_public_ip_prefix(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_public_ip_prefix)
+def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPPrefixResult]:
+    """
+    Public IP prefix resource.
+
+
+    :param str expand: Expands referenced resources.
+    :param str public_ip_prefix_name: The name of the public IP prefix.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

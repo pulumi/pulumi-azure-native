@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -376,3 +377,17 @@ def get_application(application_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_by=__ret__.updated_by)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    Information about managed application.
+
+
+    :param str application_name: The name of the managed application.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

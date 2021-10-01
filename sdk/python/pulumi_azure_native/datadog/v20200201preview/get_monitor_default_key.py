@@ -12,6 +12,7 @@ __all__ = [
     'GetMonitorDefaultKeyResult',
     'AwaitableGetMonitorDefaultKeyResult',
     'get_monitor_default_key',
+    'get_monitor_default_key_output',
 ]
 
 @pulumi.output_type
@@ -98,3 +99,16 @@ def get_monitor_default_key(monitor_name: Optional[str] = None,
         created_by=__ret__.created_by,
         key=__ret__.key,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_monitor_default_key)
+def get_monitor_default_key_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorDefaultKeyResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group to which the Datadog resource belongs.
+    """
+    ...

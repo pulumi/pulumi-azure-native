@@ -13,6 +13,7 @@ __all__ = [
     'GetAssessmentMetadataInSubscriptionResult',
     'AwaitableGetAssessmentMetadataInSubscriptionResult',
     'get_assessment_metadata_in_subscription',
+    'get_assessment_metadata_in_subscription_output',
 ]
 
 @pulumi.output_type
@@ -237,3 +238,15 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
         threats=__ret__.threats,
         type=__ret__.type,
         user_impact=__ret__.user_impact)
+
+
+@_utilities.lift_output_func(get_assessment_metadata_in_subscription)
+def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
+    """
+    Security assessment metadata
+
+
+    :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
+    """
+    ...

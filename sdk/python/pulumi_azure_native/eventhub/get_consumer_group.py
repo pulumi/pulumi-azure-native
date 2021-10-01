@@ -12,6 +12,7 @@ __all__ = [
     'GetConsumerGroupResult',
     'AwaitableGetConsumerGroupResult',
     'get_consumer_group',
+    'get_consumer_group_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,22 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         user_metadata=__ret__.user_metadata)
+
+
+@_utilities.lift_output_func(get_consumer_group)
+def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] = None,
+                              event_hub_name: Optional[pulumi.Input[str]] = None,
+                              namespace_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumerGroupResult]:
+    """
+    Single item in List or Get Consumer group operation
+    API Version: 2017-04-01.
+
+
+    :param str consumer_group_name: The consumer group name
+    :param str event_hub_name: The Event Hub name
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

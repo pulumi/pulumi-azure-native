@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteInstanceDeploymentResult',
     'AwaitableGetSiteInstanceDeploymentResult',
     'get_site_instance_deployment',
+    'get_site_instance_deployment_output',
 ]
 
 @pulumi.output_type
@@ -251,3 +252,21 @@ def get_site_instance_deployment(id: Optional[str] = None,
         status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_instance_deployment)
+def get_site_instance_deployment_output(id: Optional[pulumi.Input[str]] = None,
+                                        instance_id: Optional[pulumi.Input[str]] = None,
+                                        name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteInstanceDeploymentResult]:
+    """
+    Represents user credentials used for publishing activity
+
+
+    :param str id: Id of the deployment
+    :param str instance_id: Id of web app instance
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

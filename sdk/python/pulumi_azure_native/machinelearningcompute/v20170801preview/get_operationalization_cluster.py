@@ -13,6 +13,7 @@ __all__ = [
     'GetOperationalizationClusterResult',
     'AwaitableGetOperationalizationClusterResult',
     'get_operationalization_cluster',
+    'get_operationalization_cluster_output',
 ]
 
 @pulumi.output_type
@@ -259,3 +260,17 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
         storage_account=__ret__.storage_account,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_operationalization_cluster)
+def get_operationalization_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOperationalizationClusterResult]:
+    """
+    Instance of an Azure ML Operationalization Cluster resource.
+
+
+    :param str cluster_name: The name of the cluster.
+    :param str resource_group_name: Name of the resource group in which the cluster is located.
+    """
+    ...

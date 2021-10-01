@@ -13,6 +13,7 @@ __all__ = [
     'GetManagerResult',
     'AwaitableGetManagerResult',
     'get_manager',
+    'get_manager_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_manager(manager_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_manager)
+def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerResult]:
+    """
+    The StorSimple Manager.
+
+
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetViewByScopeResult',
     'AwaitableGetViewByScopeResult',
     'get_view_by_scope',
+    'get_view_by_scope_output',
 ]
 
 @pulumi.output_type
@@ -259,3 +260,17 @@ def get_view_by_scope(scope: Optional[str] = None,
         time_period=__ret__.time_period,
         timeframe=__ret__.timeframe,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_view_by_scope)
+def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
+                             view_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewByScopeResult]:
+    """
+    States and configurations of Cost Analysis.
+
+
+    :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
+    :param str view_name: View name
+    """
+    ...

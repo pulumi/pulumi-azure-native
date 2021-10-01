@@ -13,6 +13,7 @@ __all__ = [
     'GetFileServicePropertiesResult',
     'AwaitableGetFileServicePropertiesResult',
     'get_file_service_properties',
+    'get_file_service_properties_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_file_service_properties(account_name: Optional[str] = None,
         share_delete_retention_policy=__ret__.share_delete_retention_policy,
         sku=__ret__.sku,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_file_service_properties)
+def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
+                                       file_services_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
+    """
+    The properties of File services in storage account.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

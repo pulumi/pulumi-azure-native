@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceUnitResult',
     'AwaitableGetServiceUnitResult',
     'get_service_unit',
+    'get_service_unit_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,21 @@ def get_service_unit(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         target_resource_group=__ret__.target_resource_group,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service_unit)
+def get_service_unit_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            service_name: Optional[pulumi.Input[str]] = None,
+                            service_topology_name: Optional[pulumi.Input[str]] = None,
+                            service_unit_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceUnitResult]:
+    """
+    Represents the response of a service unit resource.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str service_name: The name of the service resource.
+    :param str service_topology_name: The name of the service topology .
+    :param str service_unit_name: The name of the service unit resource.
+    """
+    ...

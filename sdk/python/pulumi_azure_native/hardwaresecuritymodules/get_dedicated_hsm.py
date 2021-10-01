@@ -13,6 +13,7 @@ __all__ = [
     'GetDedicatedHsmResult',
     'AwaitableGetDedicatedHsmResult',
     'get_dedicated_hsm',
+    'get_dedicated_hsm_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,18 @@ def get_dedicated_hsm(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_dedicated_hsm)
+def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHsmResult]:
+    """
+    Resource information with extended details.
+    API Version: 2018-10-31-preview.
+
+
+    :param str name: The name of the dedicated HSM.
+    :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
+    """
+    ...

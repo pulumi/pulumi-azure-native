@@ -12,6 +12,7 @@ __all__ = [
     'GetArtifactResult',
     'AwaitableGetArtifactResult',
     'get_artifact',
+    'get_artifact_output',
 ]
 
 warnings.warn("""Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""", DeprecationWarning)
@@ -108,3 +109,20 @@ def get_artifact(artifact_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_artifact)
+def get_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                        blueprint_name: Optional[pulumi.Input[str]] = None,
+                        resource_scope: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactResult]:
+    """
+    Represents a blueprint artifact.
+
+
+    :param str artifact_name: Name of the blueprint artifact.
+    :param str blueprint_name: Name of the blueprint definition.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    """
+    pulumi.log.warn("""get_artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""")
+    ...

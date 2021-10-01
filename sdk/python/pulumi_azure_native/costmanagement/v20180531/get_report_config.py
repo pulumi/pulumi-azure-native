@@ -13,6 +13,7 @@ __all__ = [
     'GetReportConfigResult',
     'AwaitableGetReportConfigResult',
     'get_report_config',
+    'get_report_config_output',
 ]
 
 @pulumi.output_type
@@ -152,3 +153,15 @@ def get_report_config(report_config_name: Optional[str] = None,
         schedule=__ret__.schedule,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_report_config)
+def get_report_config_output(report_config_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportConfigResult]:
+    """
+    A report config resource.
+
+
+    :param str report_config_name: Report Config Name.
+    """
+    ...

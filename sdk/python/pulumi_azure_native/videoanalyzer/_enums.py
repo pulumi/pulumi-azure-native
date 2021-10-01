@@ -24,11 +24,17 @@ class AccessPolicyEccAlgo(str, Enum):
     Elliptical curve algorithm to be used: ES256, ES384 or ES512.
     """
     ES256 = "ES256"
-    """ES265"""
+    """
+    ES265
+    """
     ES384 = "ES384"
-    """ES384"""
+    """
+    ES384
+    """
     ES512 = "ES512"
-    """ES512"""
+    """
+    ES512
+    """
 
 
 class AccessPolicyRole(str, Enum):
@@ -36,7 +42,9 @@ class AccessPolicyRole(str, Enum):
     Defines the access level granted by this policy.
     """
     READER = "Reader"
-    """Reader role allows for read-only operations to be performed through the client APIs."""
+    """
+    Reader role allows for read-only operations to be performed through the client APIs.
+    """
 
 
 class AccessPolicyRsaAlgo(str, Enum):
@@ -44,11 +52,17 @@ class AccessPolicyRsaAlgo(str, Enum):
     RSA algorithm to be used: RS256, RS384 or RS512.
     """
     RS256 = "RS256"
-    """RS256"""
+    """
+    RS256
+    """
     RS384 = "RS384"
-    """RS384"""
+    """
+    RS384
+    """
     RS512 = "RS512"
-    """RS512"""
+    """
+    RS512
+    """
 
 
 class AccountEncryptionKeyType(str, Enum):
@@ -56,9 +70,13 @@ class AccountEncryptionKeyType(str, Enum):
     The type of key used to encrypt the Account Key.
     """
     SYSTEM_KEY = "SystemKey"
-    """The Account Key is encrypted with a System Key."""
+    """
+    The Account Key is encrypted with a System Key.
+    """
     CUSTOMER_KEY = "CustomerKey"
-    """The Account Key is encrypted with a Customer Key."""
+    """
+    The Account Key is encrypted with a Customer Key.
+    """
 
 
 class EncoderSystemPresetType(str, Enum):
@@ -66,13 +84,21 @@ class EncoderSystemPresetType(str, Enum):
     Name of the built-in encoding preset.
     """
     SINGLE_LAYER_540P_H264_AAC = "SingleLayer_540p_H264_AAC"
-    """Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 540 pixels, and at a maximum bitrate of 2000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 96 Kbps"""
+    """
+    Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 540 pixels, and at a maximum bitrate of 2000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 96 Kbps
+    """
     SINGLE_LAYER_720P_H264_AAC = "SingleLayer_720p_H264_AAC"
-    """Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 720 pixels, and at a maximum bitrate of 3500 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 96 Kbps"""
+    """
+    Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 720 pixels, and at a maximum bitrate of 3500 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 96 Kbps
+    """
     SINGLE_LAYER_1080P_H264_AAC = "SingleLayer_1080p_H264_AAC"
-    """Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 1080 pixels, and at a maximum bitrate of 6000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 128 Kbps"""
+    """
+    Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 1080 pixels, and at a maximum bitrate of 6000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 128 Kbps
+    """
     SINGLE_LAYER_2160P_H264_AAC = "SingleLayer_2160p_H264_AAC"
-    """Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 2160 pixels, and at a maximum bitrate of 16000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 128 Kbps"""
+    """
+    Produces an MP4 file where the video is encoded with H.264 codec at a picture height of 2160 pixels, and at a maximum bitrate of 16000 Kbps. Encoded video has the same average frame rate as the input. The aspect ratio of the input is preserved. If the input content has audio, then it is encoded with AAC-LC codec at 128 Kbps
+    """
 
 
 class Kind(str, Enum):
@@ -80,9 +106,13 @@ class Kind(str, Enum):
     Topology kind.
     """
     LIVE = "Live"
-    """Live pipeline topology resource."""
+    """
+    Live pipeline topology resource.
+    """
     BATCH = "Batch"
-    """Batch pipeline topology resource."""
+    """
+    Batch pipeline topology resource.
+    """
 
 
 class ParameterType(str, Enum):
@@ -90,15 +120,25 @@ class ParameterType(str, Enum):
     Type of the parameter.
     """
     STRING = "String"
-    """The parameter's value is a string."""
+    """
+    The parameter's value is a string.
+    """
     SECRET_STRING = "SecretString"
-    """The parameter's value is a string that holds sensitive information."""
+    """
+    The parameter's value is a string that holds sensitive information.
+    """
     INT = "Int"
-    """The parameter's value is a 32-bit signed integer."""
+    """
+    The parameter's value is a 32-bit signed integer.
+    """
     DOUBLE = "Double"
-    """The parameter's value is a 64-bit double-precision floating point."""
+    """
+    The parameter's value is a 64-bit double-precision floating point.
+    """
     BOOL = "Bool"
-    """The parameter's value is a boolean value that is either true or false."""
+    """
+    The parameter's value is a boolean value that is either true or false.
+    """
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -115,9 +155,13 @@ class RtspTransport(str, Enum):
     Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
     """
     HTTP = "Http"
-    """HTTP transport. RTSP messages are exchanged over long running HTTP requests and RTP packets are interleaved within the HTTP channel."""
+    """
+    HTTP transport. RTSP messages are exchanged over long running HTTP requests and RTP packets are interleaved within the HTTP channel.
+    """
     TCP = "Tcp"
-    """TCP transport. RTSP is used directly over TCP and RTP packets are interleaved within the TCP channel."""
+    """
+    TCP transport. RTSP is used directly over TCP and RTP packets are interleaved within the TCP channel.
+    """
 
 
 class SkuName(str, Enum):
@@ -125,9 +169,13 @@ class SkuName(str, Enum):
     The SKU name.
     """
     LIVE_S1 = "Live_S1"
-    """Represents the Live S1 SKU name. Using this SKU you can create live pipelines to capture, record, and stream live video from RTSP-capable cameras at bitrate settings from 0.5 Kbps to 3000 Kbps."""
+    """
+    Represents the Live S1 SKU name. Using this SKU you can create live pipelines to capture, record, and stream live video from RTSP-capable cameras at bitrate settings from 0.5 Kbps to 3000 Kbps.
+    """
     BATCH_S1 = "Batch_S1"
-    """Represents the Batch S1 SKU name. Using this SKU you can create pipeline jobs to process recorded content."""
+    """
+    Represents the Batch S1 SKU name. Using this SKU you can create pipeline jobs to process recorded content.
+    """
 
 
 class VideoScaleMode(str, Enum):
@@ -135,8 +183,14 @@ class VideoScaleMode(str, Enum):
     Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
     """
     PAD = "Pad"
-    """Pads the video with black horizontal stripes (letterbox) or black vertical stripes (pillar-box) so the video is resized to the specified dimensions while not altering the content aspect ratio."""
+    """
+    Pads the video with black horizontal stripes (letterbox) or black vertical stripes (pillar-box) so the video is resized to the specified dimensions while not altering the content aspect ratio.
+    """
     PRESERVE_ASPECT_RATIO = "PreserveAspectRatio"
-    """Preserves the same aspect ratio as the input video. If only one video dimension is provided, the second dimension is calculated based on the input video aspect ratio. When 2 dimensions are provided, the video is resized to fit the most constraining dimension, considering the input video size and aspect ratio."""
+    """
+    Preserves the same aspect ratio as the input video. If only one video dimension is provided, the second dimension is calculated based on the input video aspect ratio. When 2 dimensions are provided, the video is resized to fit the most constraining dimension, considering the input video size and aspect ratio.
+    """
     STRETCH = "Stretch"
-    """Stretches the original video so it resized to the specified dimensions."""
+    """
+    Stretches the original video so it resized to the specified dimensions.
+    """

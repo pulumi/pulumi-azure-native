@@ -12,6 +12,7 @@ __all__ = [
     'GetGalleryApplicationResult',
     'AwaitableGetGalleryApplicationResult',
     'get_gallery_application',
+    'get_gallery_application_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,20 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
         supported_os_type=__ret__.supported_os_type,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gallery_application)
+def get_gallery_application_output(gallery_application_name: Optional[pulumi.Input[str]] = None,
+                                   gallery_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationResult]:
+    """
+    Specifies information about the gallery Application Definition that you want to create or update.
+    API Version: 2020-09-30.
+
+
+    :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
+    :param str gallery_name: The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

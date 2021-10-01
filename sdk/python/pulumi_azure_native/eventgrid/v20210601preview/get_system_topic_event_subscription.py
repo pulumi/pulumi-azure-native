@@ -13,6 +13,7 @@ __all__ = [
     'GetSystemTopicEventSubscriptionResult',
     'AwaitableGetSystemTopicEventSubscriptionResult',
     'get_system_topic_event_subscription',
+    'get_system_topic_event_subscription_output',
 ]
 
 @pulumi.output_type
@@ -253,3 +254,19 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
         system_data=__ret__.system_data,
         topic=__ret__.topic,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_system_topic_event_subscription)
+def get_system_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               system_topic_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
+    """
+    Event Subscription
+
+
+    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str system_topic_name: Name of the system topic.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetSecurityAdminConfigurationResult',
     'AwaitableGetSecurityAdminConfigurationResult',
     'get_security_admin_configuration',
+    'get_security_admin_configuration_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
         security_type=__ret__.security_type,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_security_admin_configuration)
+def get_security_admin_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
+                                            network_manager_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityAdminConfigurationResult]:
+    """
+    Defines the security configuration
+
+
+    :param str configuration_name: The name of the network manager security Configuration.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

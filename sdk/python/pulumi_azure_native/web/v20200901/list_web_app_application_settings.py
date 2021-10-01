@@ -13,6 +13,7 @@ __all__ = [
     'ListWebAppApplicationSettingsResult',
     'AwaitableListWebAppApplicationSettingsResult',
     'list_web_app_application_settings',
+    'list_web_app_application_settings_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def list_web_app_application_settings(name: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_application_settings)
+def list_web_app_application_settings_output(name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppApplicationSettingsResult]:
+    """
+    String dictionary resource.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

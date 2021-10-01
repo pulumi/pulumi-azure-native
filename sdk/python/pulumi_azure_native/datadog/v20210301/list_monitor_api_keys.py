@@ -13,6 +13,7 @@ __all__ = [
     'ListMonitorApiKeysResult',
     'AwaitableListMonitorApiKeysResult',
     'list_monitor_api_keys',
+    'list_monitor_api_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_monitor_api_keys(monitor_name: Optional[str] = None,
     return AwaitableListMonitorApiKeysResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_monitor_api_keys)
+def list_monitor_api_keys_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorApiKeysResult]:
+    """
+    Response of a list operation.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

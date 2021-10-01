@@ -13,6 +13,7 @@ __all__ = [
     'GetApiOperationResult',
     'AwaitableGetApiOperationResult',
     'get_api_operation',
+    'get_api_operation_output',
 ]
 
 @pulumi.output_type
@@ -201,3 +202,22 @@ def get_api_operation(api_id: Optional[str] = None,
         template_parameters=__ret__.template_parameters,
         type=__ret__.type,
         url_template=__ret__.url_template)
+
+
+@_utilities.lift_output_func(get_api_operation)
+def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
+                             operation_id: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             service_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationResult]:
+    """
+    Api Operation details.
+    API Version: 2020-12-01.
+
+
+    :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageDomainResult',
     'AwaitableGetStorageDomainResult',
     'get_storage_domain',
+    'get_storage_domain_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_storage_domain(manager_name: Optional[str] = None,
         name=__ret__.name,
         storage_account_credential_ids=__ret__.storage_account_credential_ids,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_domain)
+def get_storage_domain_output(manager_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              storage_domain_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageDomainResult]:
+    """
+    The storage domain.
+
+
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    :param str storage_domain_name: The storage domain name.
+    """
+    ...

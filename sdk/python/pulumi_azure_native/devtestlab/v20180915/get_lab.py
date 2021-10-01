@@ -13,6 +13,7 @@ __all__ = [
     'GetLabResult',
     'AwaitableGetLabResult',
     'get_lab',
+    'get_lab_output',
 ]
 
 @pulumi.output_type
@@ -381,3 +382,19 @@ def get_lab(expand: Optional[str] = None,
         unique_identifier=__ret__.unique_identifier,
         vault_name=__ret__.vault_name,
         vm_creation_resource_group=__ret__.vm_creation_resource_group)
+
+
+@_utilities.lift_output_func(get_lab)
+def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                   name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+    """
+    A lab.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+    :param str name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -275,3 +276,19 @@ def get_application(application_name: Optional[str] = None,
         type_name=__ret__.type_name,
         type_version=__ret__.type_version,
         upgrade_policy=__ret__.upgrade_policy)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
+                           cluster_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    The application resource.
+
+
+    :param str application_name: The name of the application resource.
+    :param str cluster_name: The name of the cluster resource.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

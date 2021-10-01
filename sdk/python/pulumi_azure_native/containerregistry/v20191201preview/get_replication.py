@@ -13,6 +13,7 @@ __all__ = [
     'GetReplicationResult',
     'AwaitableGetReplicationResult',
     'get_replication',
+    'get_replication_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_replication(registry_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_replication)
+def get_replication_output(registry_name: Optional[pulumi.Input[str]] = None,
+                           replication_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationResult]:
+    """
+    An object that represents a replication for a container registry.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str replication_name: The name of the replication.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

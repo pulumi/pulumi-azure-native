@@ -13,6 +13,7 @@ __all__ = [
     'GetMoveCollectionResult',
     'AwaitableGetMoveCollectionResult',
     'get_move_collection',
+    'get_move_collection_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,18 @@ def get_move_collection(move_collection_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_move_collection)
+def get_move_collection_output(move_collection_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveCollectionResult]:
+    """
+    Define the move collection.
+    API Version: 2021-01-01.
+
+
+    :param str move_collection_name: The Move Collection Name.
+    :param str resource_group_name: The Resource Group Name.
+    """
+    ...

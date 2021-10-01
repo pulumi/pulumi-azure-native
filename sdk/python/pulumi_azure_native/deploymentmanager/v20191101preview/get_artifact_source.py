@@ -13,6 +13,7 @@ __all__ = [
     'GetArtifactSourceResult',
     'AwaitableGetArtifactSourceResult',
     'get_artifact_source',
+    'get_artifact_source_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_artifact_source(artifact_source_name: Optional[str] = None,
         source_type=__ret__.source_type,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_artifact_source)
+def get_artifact_source_output(artifact_source_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactSourceResult]:
+    """
+    The resource that defines the source location where the artifacts are located.
+
+
+    :param str artifact_source_name: The name of the artifact source.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

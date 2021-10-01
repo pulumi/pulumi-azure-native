@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationServiceEnvironmentResult',
     'AwaitableGetIntegrationServiceEnvironmentResult',
     'get_integration_service_environment',
+    'get_integration_service_environment_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_integration_service_environment(integration_service_environment_name: Op
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_service_environment)
+def get_integration_service_environment_output(integration_service_environment_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
+    """
+    The integration service environment.
+    API Version: 2019-05-01.
+
+
+    :param str integration_service_environment_name: The integration service environment name.
+    :param str resource_group: The resource group.
+    """
+    ...

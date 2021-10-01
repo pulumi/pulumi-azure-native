@@ -13,6 +13,7 @@ __all__ = [
     'GetFavoriteProcessResult',
     'AwaitableGetFavoriteProcessResult',
     'get_favorite_process',
+    'get_favorite_process_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,21 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_favorite_process)
+def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.Input[str]] = None,
+                                package_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                test_base_account_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteProcessResult]:
+    """
+    A favorite process identifier.
+
+
+    :param str favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+    :param str package_name: The resource name of the Test Base Package.
+    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str test_base_account_name: The resource name of the Test Base Account.
+    """
+    ...

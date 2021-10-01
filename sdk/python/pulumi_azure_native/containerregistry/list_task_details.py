@@ -13,6 +13,7 @@ __all__ = [
     'ListTaskDetailsResult',
     'AwaitableListTaskDetailsResult',
     'list_task_details',
+    'list_task_details_output',
 ]
 
 @pulumi.output_type
@@ -304,3 +305,21 @@ def list_task_details(registry_name: Optional[str] = None,
         timeout=__ret__.timeout,
         trigger=__ret__.trigger,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_task_details)
+def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             task_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTaskDetailsResult]:
+    """
+    The task that has the ARM resource and task properties.
+    The task will have all information to schedule a run against it.
+    API Version: 2019-06-01-preview.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str task_name: The name of the container registry task.
+    """
+    ...

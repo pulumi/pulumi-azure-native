@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicyDefinitionAtManagementGroupResult',
     'AwaitableGetPolicyDefinitionAtManagementGroupResult',
     'get_policy_definition_at_management_group',
+    'get_policy_definition_at_management_group_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
         policy_rule=__ret__.policy_rule,
         policy_type=__ret__.policy_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_definition_at_management_group)
+def get_policy_definition_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
+                                                     policy_definition_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionAtManagementGroupResult]:
+    """
+    The policy definition.
+    API Version: 2020-09-01.
+
+
+    :param str management_group_id: The ID of the management group.
+    :param str policy_definition_name: The name of the policy definition to get.
+    """
+    ...

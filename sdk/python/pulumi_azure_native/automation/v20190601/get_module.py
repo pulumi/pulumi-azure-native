@@ -13,6 +13,7 @@ __all__ = [
     'GetModuleResult',
     'AwaitableGetModuleResult',
     'get_module',
+    'get_module_output',
 ]
 
 @pulumi.output_type
@@ -275,3 +276,19 @@ def get_module(automation_account_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_module)
+def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                      module_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModuleResult]:
+    """
+    Definition of the module type.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str module_name: The module name.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

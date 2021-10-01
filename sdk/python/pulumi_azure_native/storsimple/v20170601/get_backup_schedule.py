@@ -13,6 +13,7 @@ __all__ = [
     'GetBackupScheduleResult',
     'AwaitableGetBackupScheduleResult',
     'get_backup_schedule',
+    'get_backup_schedule_output',
 ]
 
 @pulumi.output_type
@@ -190,3 +191,23 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
         schedule_status=__ret__.schedule_status,
         start_time=__ret__.start_time,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_backup_schedule)
+def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] = None,
+                               backup_schedule_name: Optional[pulumi.Input[str]] = None,
+                               device_name: Optional[pulumi.Input[str]] = None,
+                               manager_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupScheduleResult]:
+    """
+    The backup schedule.
+
+
+    :param str backup_policy_name: The backup policy name.
+    :param str backup_schedule_name: The name of the backup schedule to be fetched
+    :param str device_name: The device name
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicySetDefinitionResult',
     'AwaitableGetPolicySetDefinitionResult',
     'get_policy_set_definition',
+    'get_policy_set_definition_output',
 ]
 
 @pulumi.output_type
@@ -165,3 +166,15 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
         policy_definitions=__ret__.policy_definitions,
         policy_type=__ret__.policy_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_set_definition)
+def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
+    """
+    The policy set definition.
+
+
+    :param str policy_set_definition_name: The name of the policy set definition to get.
+    """
+    ...

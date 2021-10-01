@@ -13,6 +13,7 @@ __all__ = [
     'GetAddonResult',
     'AwaitableGetAddonResult',
     'get_addon',
+    'get_addon_output',
 ]
 
 warnings.warn("""Please use one of the variants: ArcAddon, IoTAddon.""", DeprecationWarning)
@@ -125,3 +126,22 @@ def get_addon(addon_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_addon)
+def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
+                     device_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     role_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
+    """
+    Role Addon
+
+
+    :param str addon_name: The addon name.
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    :param str role_name: The role name.
+    """
+    pulumi.log.warn("""get_addon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.""")
+    ...

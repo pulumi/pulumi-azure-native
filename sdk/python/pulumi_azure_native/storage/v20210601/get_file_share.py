@@ -13,6 +13,7 @@ __all__ = [
     'GetFileShareResult',
     'AwaitableGetFileShareResult',
     'get_file_share',
+    'get_file_share_output',
 ]
 
 @pulumi.output_type
@@ -343,3 +344,21 @@ def get_file_share(account_name: Optional[str] = None,
         snapshot_time=__ret__.snapshot_time,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_file_share)
+def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
+                          expand: Optional[pulumi.Input[Optional[str]]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          share_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
+    """
+    Properties of the file share, including Id, resource name, resource type, Etag.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str expand: Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+    """
+    ...

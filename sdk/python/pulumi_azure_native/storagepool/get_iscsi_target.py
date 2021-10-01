@@ -13,6 +13,7 @@ __all__ = [
     'GetIscsiTargetResult',
     'AwaitableGetIscsiTargetResult',
     'get_iscsi_target',
+    'get_iscsi_target_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
         target_iqn=__ret__.target_iqn,
         tpgs=__ret__.tpgs,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iscsi_target)
+def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
+                            iscsi_target_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiTargetResult]:
+    """
+    Response for iSCSI target requests.
+    API Version: 2020-03-15-preview.
+
+
+    :param str disk_pool_name: The name of the Disk pool.
+    :param str iscsi_target_name: The name of the iSCSI target.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

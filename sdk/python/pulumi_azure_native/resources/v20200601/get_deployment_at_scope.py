@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentAtScopeResult',
     'AwaitableGetDeploymentAtScopeResult',
     'get_deployment_at_scope',
+    'get_deployment_at_scope_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_deployment_at_scope)
+def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                                   scope: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
+    """
+    Deployment information.
+
+
+    :param str deployment_name: The name of the deployment.
+    :param str scope: The resource scope.
+    """
+    ...

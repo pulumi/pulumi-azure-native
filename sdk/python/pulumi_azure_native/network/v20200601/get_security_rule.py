@@ -13,6 +13,7 @@ __all__ = [
     'GetSecurityRuleResult',
     'AwaitableGetSecurityRuleResult',
     'get_security_rule',
+    'get_security_rule_output',
 ]
 
 @pulumi.output_type
@@ -301,3 +302,19 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
         source_application_security_groups=__ret__.source_application_security_groups,
         source_port_range=__ret__.source_port_range,
         source_port_ranges=__ret__.source_port_ranges)
+
+
+@_utilities.lift_output_func(get_security_rule)
+def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             security_rule_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityRuleResult]:
+    """
+    Network security rule.
+
+
+    :param str network_security_group_name: The name of the network security group.
+    :param str resource_group_name: The name of the resource group.
+    :param str security_rule_name: The name of the security rule.
+    """
+    ...

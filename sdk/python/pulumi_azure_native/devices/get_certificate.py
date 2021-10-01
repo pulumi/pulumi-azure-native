@@ -13,6 +13,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_certificate(certificate_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           resource_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    The X509 Certificate.
+    API Version: 2020-08-31.
+
+
+    :param str certificate_name: The name of the certificate
+    :param str resource_group_name: The name of the resource group that contains the IoT hub.
+    :param str resource_name: The name of the IoT hub.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementGroupResult',
     'AwaitableGetManagementGroupResult',
     'get_management_group',
+    'get_management_group_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,21 @@ def get_management_group(expand: Optional[str] = None,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_group)
+def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                filter: Optional[pulumi.Input[Optional[str]]] = None,
+                                group_id: Optional[pulumi.Input[str]] = None,
+                                recurse: Optional[pulumi.Input[Optional[bool]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
+    """
+    The management group details.
+
+
+    :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+    :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+    :param str group_id: Management Group ID.
+    :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+    """
+    ...

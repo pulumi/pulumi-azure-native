@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomResourceProviderResult',
     'AwaitableGetCustomResourceProviderResult',
     'get_custom_resource_provider',
+    'get_custom_resource_provider_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_custom_resource_provider(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         validations=__ret__.validations)
+
+
+@_utilities.lift_output_func(get_custom_resource_provider)
+def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        resource_provider_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomResourceProviderResult]:
+    """
+    A manifest file that defines the custom resource provider resources.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_provider_name: The name of the resource provider.
+    """
+    ...

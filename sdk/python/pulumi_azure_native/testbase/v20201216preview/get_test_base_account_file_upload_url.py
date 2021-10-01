@@ -12,6 +12,7 @@ __all__ = [
     'GetTestBaseAccountFileUploadUrlResult',
     'AwaitableGetTestBaseAccountFileUploadUrlResult',
     'get_test_base_account_file_upload_url',
+    'get_test_base_account_file_upload_url_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
     return AwaitableGetTestBaseAccountFileUploadUrlResult(
         blob_path=__ret__.blob_path,
         upload_url=__ret__.upload_url)
+
+
+@_utilities.lift_output_func(get_test_base_account_file_upload_url)
+def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 test_base_account_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
+    """
+    The URL response
+
+
+    :param str blob_name: The custom file name of the uploaded blob.
+    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str test_base_account_name: The resource name of the Test Base Account.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListDatabaseAccountKeysResult',
     'AwaitableListDatabaseAccountKeysResult',
     'list_database_account_keys',
+    'list_database_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -102,3 +103,17 @@ def list_database_account_keys(account_name: Optional[str] = None,
         primary_readonly_master_key=__ret__.primary_readonly_master_key,
         secondary_master_key=__ret__.secondary_master_key,
         secondary_readonly_master_key=__ret__.secondary_readonly_master_key)
+
+
+@_utilities.lift_output_func(list_database_account_keys)
+def list_database_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountKeysResult]:
+    """
+    The access keys for the given database account.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

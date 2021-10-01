@@ -13,6 +13,7 @@ __all__ = [
     'GetObjectReplicationPolicyResult',
     'AwaitableGetObjectReplicationPolicyResult',
     'get_object_replication_policy',
+    'get_object_replication_policy_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_object_replication_policy(account_name: Optional[str] = None,
         rules=__ret__.rules,
         source_account=__ret__.source_account,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_object_replication_policy)
+def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str]] = None,
+                                         object_replication_policy_id: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
+    """
+    The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

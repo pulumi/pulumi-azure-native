@@ -13,6 +13,7 @@ __all__ = [
     'ListBotConnectionWithSecretsResult',
     'AwaitableListBotConnectionWithSecretsResult',
     'list_bot_connection_with_secrets',
+    'list_bot_connection_with_secrets_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_bot_connection_with_secrets)
+def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            resource_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotConnectionWithSecretsResult]:
+    """
+    Bot channel resource definition
+    API Version: 2021-03-01.
+
+
+    :param str connection_name: The name of the Bot Service Connection Setting resource.
+    :param str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param str resource_name: The name of the Bot resource.
+    """
+    ...

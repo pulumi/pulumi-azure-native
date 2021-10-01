@@ -13,6 +13,7 @@ __all__ = [
     'GetControllerResult',
     'AwaitableGetControllerResult',
     'get_controller',
+    'get_controller_output',
 ]
 
 @pulumi.output_type
@@ -190,3 +191,16 @@ def get_controller(name: Optional[str] = None,
         target_container_host_api_server_fqdn=__ret__.target_container_host_api_server_fqdn,
         target_container_host_resource_id=__ret__.target_container_host_resource_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_controller)
+def get_controller_output(name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str name: Name of the resource.
+    :param str resource_group_name: Resource group to which the resource belongs.
+    """
+    ...

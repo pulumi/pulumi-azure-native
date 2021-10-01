@@ -13,6 +13,7 @@ __all__ = [
     'ListShareSubscriptionSourceShareSynchronizationSettingsResult',
     'AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult',
     'list_share_subscription_source_share_synchronization_settings',
+    'list_share_subscription_source_share_synchronization_settings_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,22 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
     return AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_share_subscription_source_share_synchronization_settings)
+def list_share_subscription_source_share_synchronization_settings_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                         share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                                                         skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSourceShareSynchronizationSettingsResult]:
+    """
+    List response for get source share Synchronization settings
+    API Version: 2020-09-01.
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    :param str skip_token: Continuation token
+    """
+    ...

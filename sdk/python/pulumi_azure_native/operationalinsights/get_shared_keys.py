@@ -12,6 +12,7 @@ __all__ = [
     'GetSharedKeysResult',
     'AwaitableGetSharedKeysResult',
     'get_shared_keys',
+    'get_shared_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def get_shared_keys(resource_group_name: Optional[str] = None,
     return AwaitableGetSharedKeysResult(
         primary_shared_key=__ret__.primary_shared_key,
         secondary_shared_key=__ret__.secondary_shared_key)
+
+
+@_utilities.lift_output_func(get_shared_keys)
+def get_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           workspace_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedKeysResult]:
+    """
+    The shared keys for a workspace.
+    API Version: 2020-08-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

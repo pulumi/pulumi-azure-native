@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlDBTableDataSetMappingResult',
     'AwaitableGetSqlDBTableDataSetMappingResult',
     'get_sql_db_table_data_set_mapping',
+    'get_sql_db_table_data_set_mapping_output',
 ]
 
 @pulumi.output_type
@@ -214,3 +215,21 @@ def get_sql_db_table_data_set_mapping(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         table_name=__ret__.table_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_db_table_data_set_mapping)
+def get_sql_db_table_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None,
+                                             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDBTableDataSetMappingResult]:
+    """
+    A SQL DB Table data set mapping.
+
+
+    :param str account_name: The name of the share account.
+    :param str data_set_mapping_name: The name of the dataSetMapping.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    """
+    ...

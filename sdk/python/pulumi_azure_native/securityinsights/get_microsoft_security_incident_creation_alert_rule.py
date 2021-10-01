@@ -12,6 +12,7 @@ __all__ = [
     'GetMicrosoftSecurityIncidentCreationAlertRuleResult',
     'AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult',
     'get_microsoft_security_incident_creation_alert_rule',
+    'get_microsoft_security_incident_creation_alert_rule_output',
 ]
 
 @pulumi.output_type
@@ -237,3 +238,20 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
         product_filter=__ret__.product_filter,
         severities_filter=__ret__.severities_filter,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_microsoft_security_incident_creation_alert_rule)
+def get_microsoft_security_incident_creation_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                               rule_id: Optional[pulumi.Input[str]] = None,
+                                                               workspace_name: Optional[pulumi.Input[str]] = None,
+                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
+    """
+    Represents MicrosoftSecurityIncidentCreation rule.
+    API Version: 2020-01-01.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str rule_id: Alert rule ID
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

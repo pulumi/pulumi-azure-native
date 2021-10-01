@@ -13,6 +13,7 @@ __all__ = [
     'GetManagedClusterResult',
     'AwaitableGetManagedClusterResult',
     'get_managed_cluster',
+    'get_managed_cluster_output',
 ]
 
 @pulumi.output_type
@@ -272,3 +273,17 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         service_principal_profile=__ret__.service_principal_profile,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_cluster)
+def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               resource_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
+    """
+    Managed cluster.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the managed cluster resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetFormulaResult',
     'AwaitableGetFormulaResult',
     'get_formula',
+    'get_formula_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,21 @@ def get_formula(expand: Optional[str] = None,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier,
         vm=__ret__.vm)
+
+
+@_utilities.lift_output_func(get_formula)
+def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                       lab_name: Optional[pulumi.Input[str]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormulaResult]:
+    """
+    A formula for creating a VM, specifying an image base and other parameters
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=description)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the formula.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

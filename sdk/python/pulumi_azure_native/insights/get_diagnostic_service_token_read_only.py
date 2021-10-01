@@ -12,6 +12,7 @@ __all__ = [
     'GetDiagnosticServiceTokenReadOnlyResult',
     'AwaitableGetDiagnosticServiceTokenReadOnlyResult',
     'get_diagnostic_service_token_read_only',
+    'get_diagnostic_service_token_read_only_output',
 ]
 
 @pulumi.output_type
@@ -61,3 +62,16 @@ def get_diagnostic_service_token_read_only(resource_uri: Optional[str] = None,
 
     return AwaitableGetDiagnosticServiceTokenReadOnlyResult(
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(get_diagnostic_service_token_read_only)
+def get_diagnostic_service_token_read_only_output(resource_uri: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadOnlyResult]:
+    """
+    The response to a diagnostic services token query.
+    API Version: 2021-03-03-preview.
+
+
+    :param str resource_uri: The identifier of the resource.
+    """
+    ...

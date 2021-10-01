@@ -13,6 +13,7 @@ __all__ = [
     'ListBitLockerKeyResult',
     'AwaitableListBitLockerKeyResult',
     'list_bit_locker_key',
+    'list_bit_locker_key_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def list_bit_locker_key(job_name: Optional[str] = None,
 
     return AwaitableListBitLockerKeyResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_bit_locker_key)
+def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBitLockerKeyResult]:
+    """
+    GetBitLockerKeys response
+    API Version: 2020-08-01.
+
+
+    :param str job_name: The name of the import/export job.
+    :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
+    """
+    ...

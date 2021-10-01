@@ -13,6 +13,7 @@ __all__ = [
     'GetPeeringServiceResult',
     'AwaitableGetPeeringServiceResult',
     'get_peering_service',
+    'get_peering_service_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,17 @@ def get_peering_service(peering_service_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_peering_service)
+def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServiceResult]:
+    """
+    Peering Service
+
+
+    :param str peering_service_name: The name of the peering.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

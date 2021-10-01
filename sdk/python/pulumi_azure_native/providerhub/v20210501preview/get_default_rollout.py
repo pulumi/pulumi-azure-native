@@ -13,6 +13,7 @@ __all__ = [
     'GetDefaultRolloutResult',
     'AwaitableGetDefaultRolloutResult',
     'get_default_rollout',
+    'get_default_rollout_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,17 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_default_rollout)
+def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] = None,
+                               rollout_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultRolloutResult]:
+    """
+    Default rollout definition.
+
+
+    :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
+    :param str rollout_name: The rollout name.
+    """
+    ...

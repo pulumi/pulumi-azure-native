@@ -12,6 +12,7 @@ __all__ = [
     'GetExposureControlFeatureValueResult',
     'AwaitableGetExposureControlFeatureValueResult',
     'get_exposure_control_feature_value',
+    'get_exposure_control_feature_value_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,20 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
     return AwaitableGetExposureControlFeatureValueResult(
         feature_name=__ret__.feature_name,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_exposure_control_feature_value)
+def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                              feature_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                              location_id: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
+    """
+    The exposure control response.
+    API Version: 2018-06-01.
+
+
+    :param str feature_name: The feature name.
+    :param str feature_type: The feature type.
+    :param str location_id: The location identifier.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetJobCredentialResult',
     'AwaitableGetJobCredentialResult',
     'get_job_credential',
+    'get_job_credential_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_job_credential(credential_name: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         username=__ret__.username)
+
+
+@_utilities.lift_output_func(get_job_credential)
+def get_job_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
+                              job_agent_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              server_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCredentialResult]:
+    """
+    A stored credential that can be used by a job to connect to target databases.
+
+
+    :param str credential_name: The name of the credential.
+    :param str job_agent_name: The name of the job agent.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetSubscriptionResult',
     'AwaitableGetSubscriptionResult',
     'get_subscription',
+    'get_subscription_output',
 ]
 
 @pulumi.output_type
@@ -317,3 +318,21 @@ def get_subscription(namespace_name: Optional[str] = None,
         status=__ret__.status,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
+
+
+@_utilities.lift_output_func(get_subscription)
+def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            subscription_name: Optional[pulumi.Input[str]] = None,
+                            topic_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+    """
+    Description of subscription resource.
+
+
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str subscription_name: The subscription name.
+    :param str topic_name: The topic name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectedRegistryResult',
     'AwaitableGetConnectedRegistryResult',
     'get_connected_registry',
+    'get_connected_registry_output',
 ]
 
 @pulumi.output_type
@@ -250,3 +251,20 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_connected_registry)
+def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input[str]] = None,
+                                  registry_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedRegistryResult]:
+    """
+    An object that represents a connected registry for a container registry.
+    API Version: 2020-11-01-preview.
+
+
+    :param str connected_registry_name: The name of the connected registry.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

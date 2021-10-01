@@ -13,6 +13,7 @@ __all__ = [
     'GetFactoryResult',
     'AwaitableGetFactoryResult',
     'get_factory',
+    'get_factory_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_factory(factory_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_factory)
+def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
+    """
+    Factory resource type.
+
+
+    :param str factory_name: The factory name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

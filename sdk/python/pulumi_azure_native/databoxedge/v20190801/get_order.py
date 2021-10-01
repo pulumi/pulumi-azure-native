@@ -13,6 +13,7 @@ __all__ = [
     'GetOrderResult',
     'AwaitableGetOrderResult',
     'get_order',
+    'get_order_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_order(device_name: Optional[str] = None,
         serial_number=__ret__.serial_number,
         shipping_address=__ret__.shipping_address,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_order)
+def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderResult]:
+    """
+    The order details.
+
+
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

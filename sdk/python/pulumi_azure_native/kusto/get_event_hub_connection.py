@@ -12,6 +12,7 @@ __all__ = [
     'GetEventHubConnectionResult',
     'AwaitableGetEventHubConnectionResult',
     'get_event_hub_connection',
+    'get_event_hub_connection_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,22 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
         name=__ret__.name,
         table_name=__ret__.table_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_event_hub_connection)
+def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                    database_name: Optional[pulumi.Input[str]] = None,
+                                    event_hub_connection_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubConnectionResult]:
+    """
+    Class representing an event hub connection.
+    API Version: 2018-09-07-preview.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str database_name: The name of the database in the Kusto cluster.
+    :param str event_hub_connection_name: The name of the event hub connection.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

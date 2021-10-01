@@ -13,6 +13,7 @@ __all__ = [
     'GetHanaInstanceResult',
     'AwaitableGetHanaInstanceResult',
     'get_hana_instance',
+    'get_hana_instance_output',
 ]
 
 @pulumi.output_type
@@ -246,3 +247,17 @@ def get_hana_instance(hana_instance_name: Optional[str] = None,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_hana_instance)
+def get_hana_instance_output(hana_instance_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHanaInstanceResult]:
+    """
+    HANA instance info on Azure (ARM properties and HANA properties)
+
+
+    :param str hana_instance_name: Name of the SAP HANA on Azure instance.
+    :param str resource_group_name: Name of the resource group.
+    """
+    ...

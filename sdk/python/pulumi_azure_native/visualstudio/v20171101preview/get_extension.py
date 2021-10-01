@@ -13,6 +13,7 @@ __all__ = [
     'GetExtensionResult',
     'AwaitableGetExtensionResult',
     'get_extension',
+    'get_extension_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def get_extension(account_resource_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_extension)
+def get_extension_output(account_resource_name: Optional[pulumi.Input[str]] = None,
+                         extension_resource_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+    """
+    The response to an extension resource GET request.
+
+
+    :param str account_resource_name: The name of the Visual Studio Team Services account resource.
+    :param str extension_resource_name: The name of the extension.
+    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    """
+    ...

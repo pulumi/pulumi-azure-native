@@ -12,6 +12,7 @@ __all__ = [
     'GetProjectKeysResult',
     'AwaitableGetProjectKeysResult',
     'get_project_keys',
+    'get_project_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def get_project_keys(project_name: Optional[str] = None,
     return AwaitableGetProjectKeysResult(
         workspace_id=__ret__.workspace_id,
         workspace_key=__ret__.workspace_key)
+
+
+@_utilities.lift_output_func(get_project_keys)
+def get_project_keys_output(project_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectKeysResult]:
+    """
+    ID and Key for Migration Project.
+    API Version: 2018-02-02.
+
+
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    """
+    ...

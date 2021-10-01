@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateCloudResult',
     'AwaitableGetPrivateCloudResult',
     'get_private_cloud',
+    'get_private_cloud_output',
 ]
 
 @pulumi.output_type
@@ -324,3 +325,17 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
         vcenter_certificate_thumbprint=__ret__.vcenter_certificate_thumbprint,
         vcenter_password=__ret__.vcenter_password,
         vmotion_network=__ret__.vmotion_network)
+
+
+@_utilities.lift_output_func(get_private_cloud)
+def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
+    """
+    A private cloud resource
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

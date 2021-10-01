@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementAssociationResult',
     'AwaitableGetManagementAssociationResult',
     'get_management_association',
+    'get_management_association_output',
 ]
 
 @pulumi.output_type
@@ -125,3 +126,23 @@ def get_management_association(management_association_name: Optional[str] = None
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_association)
+def get_management_association_output(management_association_name: Optional[pulumi.Input[str]] = None,
+                                      provider_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      resource_name: Optional[pulumi.Input[str]] = None,
+                                      resource_type: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementAssociationResult]:
+    """
+    The container for solution.
+
+
+    :param str management_association_name: User ManagementAssociation Name.
+    :param str provider_name: Provider name for the parent resource.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    :param str resource_name: Parent resource name.
+    :param str resource_type: Resource type for the parent resource
+    """
+    ...

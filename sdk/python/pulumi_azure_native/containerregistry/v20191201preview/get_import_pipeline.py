@@ -13,6 +13,7 @@ __all__ = [
     'GetImportPipelineResult',
     'AwaitableGetImportPipelineResult',
     'get_import_pipeline',
+    'get_import_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
         system_data=__ret__.system_data,
         trigger=__ret__.trigger,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_import_pipeline)
+def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]] = None,
+                               registry_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportPipelineResult]:
+    """
+    An object that represents an import pipeline for a container registry.
+
+
+    :param str import_pipeline_name: The name of the import pipeline.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

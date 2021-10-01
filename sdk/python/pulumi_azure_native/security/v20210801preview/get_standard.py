@@ -13,6 +13,7 @@ __all__ = [
     'GetStandardResult',
     'AwaitableGetStandardResult',
     'get_standard',
+    'get_standard_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_standard(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_standard)
+def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        standard_id: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
+    """
+    Security Standard on a resource
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str standard_id: The Security Standard key - unique key for the standard type
+    """
+    ...

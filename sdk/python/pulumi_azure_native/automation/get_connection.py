@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectionResult',
     'AwaitableGetConnectionResult',
     'get_connection',
+    'get_connection_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_connection(automation_account_name: Optional[str] = None,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connection)
+def get_connection_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                          connection_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+    """
+    Definition of the connection.
+    API Version: 2019-06-01.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str connection_name: The name of connection.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

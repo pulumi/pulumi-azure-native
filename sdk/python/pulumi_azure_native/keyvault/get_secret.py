@@ -13,6 +13,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_secret(resource_group_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      secret_name: Optional[pulumi.Input[str]] = None,
+                      vault_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    Resource information with extended details.
+    API Version: 2019-09-01.
+
+
+    :param str resource_group_name: The name of the Resource Group to which the vault belongs.
+    :param str secret_name: The name of the secret.
+    :param str vault_name: The name of the vault.
+    """
+    ...

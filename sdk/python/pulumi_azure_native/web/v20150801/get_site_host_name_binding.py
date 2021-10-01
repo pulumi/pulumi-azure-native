@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteHostNameBindingResult',
     'AwaitableGetSiteHostNameBindingResult',
     'get_site_host_name_binding',
+    'get_site_host_name_binding_output',
 ]
 
 @pulumi.output_type
@@ -209,3 +210,19 @@ def get_site_host_name_binding(host_name: Optional[str] = None,
         site_name=__ret__.site_name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_host_name_binding)
+def get_site_host_name_binding_output(host_name: Optional[pulumi.Input[str]] = None,
+                                      name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteHostNameBindingResult]:
+    """
+    A host name binding object
+
+
+    :param str host_name: Name of host
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

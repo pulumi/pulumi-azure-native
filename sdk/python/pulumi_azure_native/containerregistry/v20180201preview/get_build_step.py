@@ -13,6 +13,7 @@ __all__ = [
     'GetBuildStepResult',
     'AwaitableGetBuildStepResult',
     'get_build_step',
+    'get_build_step_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,21 @@ def get_build_step(build_task_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_build_step)
+def get_build_step_output(build_task_name: Optional[pulumi.Input[str]] = None,
+                          registry_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          step_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildStepResult]:
+    """
+    Build step resource properties
+
+
+    :param str build_task_name: The name of the container registry build task.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str step_name: The name of a build step for a container registry build task.
+    """
+    ...

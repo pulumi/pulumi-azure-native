@@ -13,6 +13,7 @@ __all__ = [
     'GetRemediationAtResourceGroupResult',
     'AwaitableGetRemediationAtResourceGroupResult',
     'get_remediation_at_resource_group',
+    'get_remediation_at_resource_group_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_discovery_mode=__ret__.resource_discovery_mode,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_remediation_at_resource_group)
+def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
+    """
+    The remediation definition.
+
+
+    :param str remediation_name: The name of the remediation.
+    :param str resource_group_name: Resource group name.
+    """
+    ...

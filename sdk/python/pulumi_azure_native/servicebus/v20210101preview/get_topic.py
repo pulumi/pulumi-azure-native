@@ -13,6 +13,7 @@ __all__ = [
     'GetTopicResult',
     'AwaitableGetTopicResult',
     'get_topic',
+    'get_topic_output',
 ]
 
 @pulumi.output_type
@@ -314,3 +315,19 @@ def get_topic(namespace_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
+
+
+@_utilities.lift_output_func(get_topic)
+def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     topic_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+    """
+    Description of topic resource.
+
+
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str topic_name: The topic name.
+    """
+    ...

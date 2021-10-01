@@ -12,6 +12,7 @@ __all__ = [
     'GetApiSchemaResult',
     'AwaitableGetApiSchemaResult',
     'get_api_schema',
+    'get_api_schema_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_api_schema(api_id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_api_schema)
+def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          schema_id: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiSchemaResult]:
+    """
+    Schema Contract details.
+
+
+    :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    :param str resource_group_name: The name of the resource group.
+    :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

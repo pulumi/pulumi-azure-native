@@ -13,6 +13,7 @@ __all__ = [
     'GetCacheResult',
     'AwaitableGetCacheResult',
     'get_cache',
+    'get_cache_output',
 ]
 
 @pulumi.output_type
@@ -285,3 +286,17 @@ def get_cache(cache_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         upgrade_status=__ret__.upgrade_status)
+
+
+@_utilities.lift_output_func(get_cache)
+def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
+    """
+    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+
+
+    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: Target resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListOpenShiftClusterCredentialsResult',
     'AwaitableListOpenShiftClusterCredentialsResult',
     'list_open_shift_cluster_credentials',
+    'list_open_shift_cluster_credentials_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
     return AwaitableListOpenShiftClusterCredentialsResult(
         kubeadmin_password=__ret__.kubeadmin_password,
         kubeadmin_username=__ret__.kubeadmin_username)
+
+
+@_utilities.lift_output_func(list_open_shift_cluster_credentials)
+def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               resource_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
+    """
+    OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+    API Version: 2020-04-30.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the OpenShift cluster resource.
+    """
+    ...

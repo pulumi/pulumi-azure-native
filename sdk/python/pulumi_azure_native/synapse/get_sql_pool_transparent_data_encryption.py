@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlPoolTransparentDataEncryptionResult',
     'AwaitableGetSqlPoolTransparentDataEncryptionResult',
     'get_sql_pool_transparent_data_encryption',
+    'get_sql_pool_transparent_data_encryption_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,22 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
         name=__ret__.name,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_pool_transparent_data_encryption)
+def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    sql_pool_name: Optional[pulumi.Input[str]] = None,
+                                                    transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+                                                    workspace_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolTransparentDataEncryptionResult]:
+    """
+    Represents a Sql pool transparent data encryption configuration.
+    API Version: 2021-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sql_pool_name: SQL pool name
+    :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

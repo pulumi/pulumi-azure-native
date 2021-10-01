@@ -13,6 +13,7 @@ __all__ = [
     'GetGuestConfigurationAssignmentResult',
     'AwaitableGetGuestConfigurationAssignmentResult',
     'get_guest_configuration_assignment',
+    'get_guest_configuration_assignment_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_guest_configuration_assignment)
+def get_guest_configuration_assignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              vm_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationAssignmentResult]:
+    """
+    Guest configuration assignment is an association between a VM and guest configuration.
+
+
+    :param str guest_configuration_assignment_name: The guest configuration assignment name.
+    :param str resource_group_name: The resource group name.
+    :param str vm_name: The name of the virtual machine.
+    """
+    ...

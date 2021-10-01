@@ -13,6 +13,7 @@ __all__ = [
     'GetPacketCaptureResult',
     'AwaitableGetPacketCaptureResult',
     'get_packet_capture',
+    'get_packet_capture_output',
 ]
 
 @pulumi.output_type
@@ -178,3 +179,19 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
         target=__ret__.target,
         time_limit_in_seconds=__ret__.time_limit_in_seconds,
         total_bytes_per_session=__ret__.total_bytes_per_session)
+
+
+@_utilities.lift_output_func(get_packet_capture)
+def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] = None,
+                              packet_capture_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCaptureResult]:
+    """
+    Information about packet capture session.
+
+
+    :param str network_watcher_name: The name of the network watcher.
+    :param str packet_capture_name: The name of the packet capture session.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

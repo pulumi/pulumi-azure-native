@@ -13,6 +13,7 @@ __all__ = [
     'GetAFDEndpointResult',
     'AwaitableGetAFDEndpointResult',
     'get_afd_endpoint',
+    'get_afd_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,20 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_afd_endpoint)
+def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
+                            profile_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDEndpointResult]:
+    """
+    CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+    API Version: 2020-09-01.
+
+
+    :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

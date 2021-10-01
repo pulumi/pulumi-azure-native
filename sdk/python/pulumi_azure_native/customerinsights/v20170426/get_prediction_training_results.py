@@ -13,6 +13,7 @@ __all__ = [
     'GetPredictionTrainingResultsResult',
     'AwaitableGetPredictionTrainingResultsResult',
     'get_prediction_training_results',
+    'get_prediction_training_results_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_prediction_training_results(hub_name: Optional[str] = None,
         primary_profile_instance_count=__ret__.primary_profile_instance_count,
         score_name=__ret__.score_name,
         tenant_id=__ret__.tenant_id)
+
+
+@_utilities.lift_output_func(get_prediction_training_results)
+def get_prediction_training_results_output(hub_name: Optional[pulumi.Input[str]] = None,
+                                           prediction_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionTrainingResultsResult]:
+    """
+    The training results of the prediction.
+
+
+    :param str hub_name: The name of the hub.
+    :param str prediction_name: The name of the Prediction.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

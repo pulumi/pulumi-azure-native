@@ -13,6 +13,7 @@ __all__ = [
     'GetJobTargetGroupResult',
     'AwaitableGetJobTargetGroupResult',
     'get_job_target_group',
+    'get_job_target_group_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,21 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
         members=__ret__.members,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_job_target_group)
+def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                server_name: Optional[pulumi.Input[str]] = None,
+                                target_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTargetGroupResult]:
+    """
+    A group of job targets.
+
+
+    :param str job_agent_name: The name of the job agent.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str target_group_name: The name of the target group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListDisasterRecoveryConfigKeysResult',
     'AwaitableListDisasterRecoveryConfigKeysResult',
     'list_disaster_recovery_config_keys',
+    'list_disaster_recovery_config_keys_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
         primary_key=__ret__.primary_key,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_disaster_recovery_config_keys)
+def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]] = None,
+                                              authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                                              namespace_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
+    """
+    Namespace/EventHub Connection String
+
+
+    :param str alias: The Disaster Recovery configuration name
+    :param str authorization_rule_name: The authorization rule name.
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

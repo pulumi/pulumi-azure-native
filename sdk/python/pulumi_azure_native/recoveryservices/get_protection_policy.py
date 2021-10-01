@@ -13,6 +13,7 @@ __all__ = [
     'GetProtectionPolicyResult',
     'AwaitableGetProtectionPolicyResult',
     'get_protection_policy',
+    'get_protection_policy_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_protection_policy(policy_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_protection_policy)
+def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 vault_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionPolicyResult]:
+    """
+    Base class for backup policy. Workload-specific backup policies are derived from this class.
+    API Version: 2021-02-01.
+
+
+    :param str policy_name: Backup policy information to be fetched.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str vault_name: The name of the recovery services vault.
+    """
+    ...

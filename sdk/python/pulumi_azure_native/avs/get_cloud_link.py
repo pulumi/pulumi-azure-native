@@ -12,6 +12,7 @@ __all__ = [
     'GetCloudLinkResult',
     'AwaitableGetCloudLinkResult',
     'get_cloud_link',
+    'get_cloud_link_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,20 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
         name=__ret__.name,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cloud_link)
+def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
+                          private_cloud_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudLinkResult]:
+    """
+    A cloud link resource
+    API Version: 2021-06-01.
+
+
+    :param str cloud_link_name: Name of the cloud link resource
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

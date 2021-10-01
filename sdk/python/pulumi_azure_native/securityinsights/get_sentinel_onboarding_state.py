@@ -13,6 +13,7 @@ __all__ = [
     'GetSentinelOnboardingStateResult',
     'AwaitableGetSentinelOnboardingStateResult',
     'get_sentinel_onboarding_state',
+    'get_sentinel_onboarding_state_output',
 ]
 
 @pulumi.output_type
@@ -136,3 +137,22 @@ def get_sentinel_onboarding_state(operational_insights_resource_provider: Option
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sentinel_onboarding_state)
+def get_sentinel_onboarding_state_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         sentinel_onboarding_state_name: Optional[pulumi.Input[str]] = None,
+                                         workspace_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSentinelOnboardingStateResult]:
+    """
+    Sentinel onboarding state
+    API Version: 2021-03-01-preview.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

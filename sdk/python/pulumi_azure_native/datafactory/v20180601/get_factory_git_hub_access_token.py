@@ -13,6 +13,7 @@ __all__ = [
     'GetFactoryGitHubAccessTokenResult',
     'AwaitableGetFactoryGitHubAccessTokenResult',
     'get_factory_git_hub_access_token',
+    'get_factory_git_hub_access_token_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,25 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
 
     return AwaitableGetFactoryGitHubAccessTokenResult(
         git_hub_access_token=__ret__.git_hub_access_token)
+
+
+@_utilities.lift_output_func(get_factory_git_hub_access_token)
+def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                            git_hub_access_code: Optional[pulumi.Input[str]] = None,
+                                            git_hub_access_token_base_url: Optional[pulumi.Input[str]] = None,
+                                            git_hub_client_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                            git_hub_client_secret: Optional[pulumi.Input[Optional[pulumi.InputType['GitHubClientSecret']]]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
+    """
+    Get GitHub access token response definition.
+
+
+    :param str factory_name: The factory name.
+    :param str git_hub_access_code: GitHub access code.
+    :param str git_hub_access_token_base_url: GitHub access token base URL.
+    :param str git_hub_client_id: GitHub application client ID.
+    :param pulumi.InputType['GitHubClientSecret'] git_hub_client_secret: GitHub bring your own app client secret information.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

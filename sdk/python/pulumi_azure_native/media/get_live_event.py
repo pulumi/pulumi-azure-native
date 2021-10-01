@@ -13,6 +13,7 @@ __all__ = [
     'GetLiveEventResult',
     'AwaitableGetLiveEventResult',
     'get_live_event',
+    'get_live_event_output',
 ]
 
 @pulumi.output_type
@@ -302,3 +303,20 @@ def get_live_event(account_name: Optional[str] = None,
         transcriptions=__ret__.transcriptions,
         type=__ret__.type,
         use_static_hostname=__ret__.use_static_hostname)
+
+
+@_utilities.lift_output_func(get_live_event)
+def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
+                          live_event_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventResult]:
+    """
+    The live event.
+    API Version: 2020-05-01.
+
+
+    :param str account_name: The Media Services account name.
+    :param str live_event_name: The name of the live event, maximum length is 32.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListAccountKeysResult',
     'AwaitableListAccountKeysResult',
     'list_account_keys',
+    'list_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def list_account_keys(account_name: Optional[str] = None,
     return AwaitableListAccountKeysResult(
         atlas_kafka_primary_endpoint=__ret__.atlas_kafka_primary_endpoint,
         atlas_kafka_secondary_endpoint=__ret__.atlas_kafka_secondary_endpoint)
+
+
+@_utilities.lift_output_func(list_account_keys)
+def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+    """
+    The Account access keys.
+    API Version: 2020-12-01-preview.
+
+
+    :param str account_name: The name of the account.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRouteResult',
     'AwaitableGetRouteResult',
     'get_route',
+    'get_route_output',
 ]
 
 @pulumi.output_type
@@ -288,3 +289,21 @@ def get_route(endpoint_name: Optional[str] = None,
         supported_protocols=__ret__.supported_protocols,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_route)
+def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
+                     profile_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     route_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+    """
+    Friendly Routes name mapping to the any Routes or secret related information.
+
+
+    :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str route_name: Name of the routing rule.
+    """
+    ...

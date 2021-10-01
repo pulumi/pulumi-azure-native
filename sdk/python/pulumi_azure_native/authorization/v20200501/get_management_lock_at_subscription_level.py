@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementLockAtSubscriptionLevelResult',
     'AwaitableGetManagementLockAtSubscriptionLevelResult',
     'get_management_lock_at_subscription_level',
+    'get_management_lock_at_subscription_level_output',
 ]
 
 @pulumi.output_type
@@ -139,3 +140,15 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
         owners=__ret__.owners,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_lock_at_subscription_level)
+def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtSubscriptionLevelResult]:
+    """
+    The lock information.
+
+
+    :param str lock_name: The name of the lock to get.
+    """
+    ...

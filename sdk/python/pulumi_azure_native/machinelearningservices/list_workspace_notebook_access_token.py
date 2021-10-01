@@ -12,6 +12,7 @@ __all__ = [
     'ListWorkspaceNotebookAccessTokenResult',
     'AwaitableListWorkspaceNotebookAccessTokenResult',
     'list_workspace_notebook_access_token',
+    'list_workspace_notebook_access_token_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,17 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
         refresh_token=__ret__.refresh_token,
         scope=__ret__.scope,
         token_type=__ret__.token_type)
+
+
+@_utilities.lift_output_func(list_workspace_notebook_access_token)
+def list_workspace_notebook_access_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                workspace_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
+    """
+    API Version: 2021-01-01.
+
+
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

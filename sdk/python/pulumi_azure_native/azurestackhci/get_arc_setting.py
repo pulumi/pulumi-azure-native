@@ -13,6 +13,7 @@ __all__ = [
     'GetArcSettingResult',
     'AwaitableGetArcSettingResult',
     'get_arc_setting',
+    'get_arc_setting_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,20 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
         per_node_details=__ret__.per_node_details,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_arc_setting)
+def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
+                           cluster_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
+    """
+    ArcSetting details.
+    API Version: 2021-01-01-preview.
+
+
+    :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
+    :param str cluster_name: The name of the cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

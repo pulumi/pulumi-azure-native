@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineLearningDatasetResult',
     'AwaitableGetMachineLearningDatasetResult',
     'get_machine_learning_dataset',
+    'get_machine_learning_dataset_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_machine_learning_dataset(dataset_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_machine_learning_dataset)
+def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        workspace_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
+    """
+    Machine Learning dataset object wrapped into ARM resource envelope.
+
+
+    :param str dataset_name: The Dataset name.
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

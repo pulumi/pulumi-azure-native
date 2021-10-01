@@ -13,6 +13,7 @@ __all__ = [
     'GetReportResult',
     'AwaitableGetReportResult',
     'get_report',
+    'get_report_output',
 ]
 
 @pulumi.output_type
@@ -153,3 +154,16 @@ def get_report(report_name: Optional[str] = None,
         schedule=__ret__.schedule,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_report)
+def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
+    """
+    A report resource.
+    API Version: 2018-08-01-preview.
+
+
+    :param str report_name: Report Name.
+    """
+    ...

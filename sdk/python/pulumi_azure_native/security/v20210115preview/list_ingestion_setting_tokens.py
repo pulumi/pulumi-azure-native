@@ -12,6 +12,7 @@ __all__ = [
     'ListIngestionSettingTokensResult',
     'AwaitableListIngestionSettingTokensResult',
     'list_ingestion_setting_tokens',
+    'list_ingestion_setting_tokens_output',
 ]
 
 @pulumi.output_type
@@ -60,3 +61,15 @@ def list_ingestion_setting_tokens(ingestion_setting_name: Optional[str] = None,
 
     return AwaitableListIngestionSettingTokensResult(
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(list_ingestion_setting_tokens)
+def list_ingestion_setting_tokens_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingTokensResult]:
+    """
+    Configures how to correlate scan data and logs with resources associated with the subscription.
+
+
+    :param str ingestion_setting_name: Name of the ingestion setting
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineResult',
     'AwaitableGetVirtualMachineResult',
     'get_virtual_machine',
+    'get_virtual_machine_output',
 ]
 
 @pulumi.output_type
@@ -402,3 +403,17 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         v_sphere_networks=__ret__.v_sphere_networks,
         vm_id=__ret__.vm_id,
         vmwaretools=__ret__.vmwaretools)
+
+
+@_utilities.lift_output_func(get_virtual_machine)
+def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               virtual_machine_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+    """
+    Virtual machine model
+
+
+    :param str resource_group_name: The name of the resource group
+    :param str virtual_machine_name: virtual machine name
+    """
+    ...

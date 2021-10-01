@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceFabricResult',
     'AwaitableGetServiceFabricResult',
     'get_service_fabric',
+    'get_service_fabric_output',
 ]
 
 @pulumi.output_type
@@ -191,3 +192,24 @@ def get_service_fabric(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_service_fabric)
+def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                              lab_name: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              user_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceFabricResult]:
+    """
+    A Service Fabric.
+    API Version: 2018-09-15.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the service fabric.
+    :param str resource_group_name: The name of the resource group.
+    :param str user_name: The name of the user profile.
+    """
+    ...

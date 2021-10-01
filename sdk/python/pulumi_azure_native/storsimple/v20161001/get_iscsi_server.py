@@ -12,6 +12,7 @@ __all__ = [
     'GetIscsiServerResult',
     'AwaitableGetIscsiServerResult',
     'get_iscsi_server',
+    'get_iscsi_server_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,21 @@ def get_iscsi_server(device_name: Optional[str] = None,
         reverse_chap_id=__ret__.reverse_chap_id,
         storage_domain_id=__ret__.storage_domain_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iscsi_server)
+def get_iscsi_server_output(device_name: Optional[pulumi.Input[str]] = None,
+                            iscsi_server_name: Optional[pulumi.Input[str]] = None,
+                            manager_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiServerResult]:
+    """
+    The iSCSI server.
+
+
+    :param str device_name: The device name.
+    :param str iscsi_server_name: The iSCSI server name.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

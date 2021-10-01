@@ -13,6 +13,7 @@ __all__ = [
     'GetCassandraResourceCassandraViewResult',
     'AwaitableGetCassandraResourceCassandraViewResult',
     'get_cassandra_resource_cassandra_view',
+    'get_cassandra_resource_cassandra_view_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,22 @@ def get_cassandra_resource_cassandra_view(account_name: Optional[str] = None,
         resource=__ret__.resource,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cassandra_resource_cassandra_view)
+def get_cassandra_resource_cassandra_view_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                 keyspace_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 view_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraViewResult]:
+    """
+    An Azure Cosmos DB Cassandra view.
+    API Version: 2021-07-01-preview.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str keyspace_name: Cosmos DB keyspace name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str view_name: Cosmos DB view name.
+    """
+    ...

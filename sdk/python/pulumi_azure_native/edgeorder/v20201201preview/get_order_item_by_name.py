@@ -13,6 +13,7 @@ __all__ = [
     'GetOrderItemByNameResult',
     'AwaitableGetOrderItemByNameResult',
     'get_order_item_by_name',
+    'get_order_item_by_name_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_order_item_by_name(expand: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_order_item_by_name)
+def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                  order_item_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderItemByNameResult]:
+    """
+    Represents order item contract
+
+
+    :param str expand: $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+    :param str order_item_name: The name of the order item
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListGlobalUserLabsResult',
     'AwaitableListGlobalUserLabsResult',
     'list_global_user_labs',
+    'list_global_user_labs_output',
 ]
 
 @pulumi.output_type
@@ -62,3 +63,16 @@ def list_global_user_labs(user_name: Optional[str] = None,
 
     return AwaitableListGlobalUserLabsResult(
         labs=__ret__.labs)
+
+
+@_utilities.lift_output_func(list_global_user_labs)
+def list_global_user_labs_output(user_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserLabsResult]:
+    """
+    Lists the labs owned by a user
+    API Version: 2018-10-15.
+
+
+    :param str user_name: The name of the user.
+    """
+    ...

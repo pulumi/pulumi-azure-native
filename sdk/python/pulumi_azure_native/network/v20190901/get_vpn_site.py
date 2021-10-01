@@ -13,6 +13,7 @@ __all__ = [
     'GetVpnSiteResult',
     'AwaitableGetVpnSiteResult',
     'get_vpn_site',
+    'get_vpn_site_output',
 ]
 
 @pulumi.output_type
@@ -246,3 +247,17 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
         type=__ret__.type,
         virtual_wan=__ret__.virtual_wan,
         vpn_site_links=__ret__.vpn_site_links)
+
+
+@_utilities.lift_output_func(get_vpn_site)
+def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        vpn_site_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnSiteResult]:
+    """
+    VpnSite Resource.
+
+
+    :param str resource_group_name: The resource group name of the VpnSite.
+    :param str vpn_site_name: The name of the VpnSite being retrieved.
+    """
+    ...

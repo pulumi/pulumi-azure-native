@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppPrivateEndpointConnectionSlotResult',
     'AwaitableGetWebAppPrivateEndpointConnectionSlotResult',
     'get_web_app_private_endpoint_connection_slot',
+    'get_web_app_private_endpoint_connection_slot_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,21 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[str] = None,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_private_endpoint_connection_slot)
+def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                                        private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        slot: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionSlotResult]:
+    """
+    Remote Private Endpoint Connection ARM resource.
+
+
+    :param str name: Name of the site.
+    :param str private_endpoint_connection_name: Name of the private endpoint connection.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the site deployment slot.
+    """
+    ...

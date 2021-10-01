@@ -12,6 +12,7 @@ __all__ = [
     'GetKeyResult',
     'AwaitableGetKeyResult',
     'get_key',
+    'get_key_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_key(key_name: Optional[str] = None,
         key_vault_url=__ret__.key_vault_url,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_key)
+def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   workspace_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
+    """
+    A workspace key
+
+
+    :param str key_name: The name of the workspace key
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

@@ -22,7 +22,9 @@ class ClusterSkuName(str, Enum):
     Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
     """
     DEFAULT = "Default"
-    """The default SKU."""
+    """
+    The default SKU.
+    """
 
 
 class CompatibilityLevel(str, Enum):

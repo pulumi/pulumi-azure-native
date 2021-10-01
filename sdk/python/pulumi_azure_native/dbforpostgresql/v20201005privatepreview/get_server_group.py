@@ -13,6 +13,7 @@ __all__ = [
     'GetServerGroupResult',
     'AwaitableGetServerGroupResult',
     'get_server_group',
+    'get_server_group_output',
 ]
 
 @pulumi.output_type
@@ -363,3 +364,17 @@ def get_server_group(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_group)
+def get_server_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            server_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerGroupResult]:
+    """
+    Represents a server group for create.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_group_name: The name of the server group.
+    """
+    ...

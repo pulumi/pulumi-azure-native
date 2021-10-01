@@ -12,6 +12,7 @@ __all__ = [
     'ListNotebookWorkspaceConnectionInfoResult',
     'AwaitableListNotebookWorkspaceConnectionInfoResult',
     'list_notebook_workspace_connection_info',
+    'list_notebook_workspace_connection_info_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
     return AwaitableListNotebookWorkspaceConnectionInfoResult(
         auth_token=__ret__.auth_token,
         notebook_server_endpoint=__ret__.notebook_server_endpoint)
+
+
+@_utilities.lift_output_func(list_notebook_workspace_connection_info)
+def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                   notebook_workspace_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotebookWorkspaceConnectionInfoResult]:
+    """
+    The connection info for the given notebook workspace
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str notebook_workspace_name: The name of the notebook workspace resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

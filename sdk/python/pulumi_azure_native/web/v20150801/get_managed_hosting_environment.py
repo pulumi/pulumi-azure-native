@@ -13,6 +13,7 @@ __all__ = [
     'GetManagedHostingEnvironmentResult',
     'AwaitableGetManagedHostingEnvironmentResult',
     'get_managed_hosting_environment',
+    'get_managed_hosting_environment_output',
 ]
 
 @pulumi.output_type
@@ -260,3 +261,17 @@ def get_managed_hosting_environment(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_network=__ret__.virtual_network)
+
+
+@_utilities.lift_output_func(get_managed_hosting_environment)
+def get_managed_hosting_environment_output(name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHostingEnvironmentResult]:
+    """
+    Description of an hostingEnvironment (App Service Environment)
+
+
+    :param str name: Name of managed hosting environment
+    :param str resource_group_name: Name of resource group
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetLiveTokenResult',
     'AwaitableGetLiveTokenResult',
     'get_live_token',
+    'get_live_token_output',
 ]
 
 @pulumi.output_type
@@ -60,3 +61,15 @@ def get_live_token(resource_uri: Optional[str] = None,
 
     return AwaitableGetLiveTokenResult(
         live_token=__ret__.live_token)
+
+
+@_utilities.lift_output_func(get_live_token)
+def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveTokenResult]:
+    """
+    The response to a live token query.
+
+
+    :param str resource_uri: The identifier of the resource.
+    """
+    ...

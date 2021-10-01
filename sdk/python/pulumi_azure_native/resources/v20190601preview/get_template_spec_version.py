@@ -13,6 +13,7 @@ __all__ = [
     'GetTemplateSpecVersionResult',
     'AwaitableGetTemplateSpecVersionResult',
     'get_template_spec_version',
+    'get_template_spec_version_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         template=__ret__.template,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_template_spec_version)
+def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     template_spec_name: Optional[pulumi.Input[str]] = None,
+                                     template_spec_version: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
+    """
+    Template Spec Version object.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str template_spec_name: Name of the Template Spec.
+    :param str template_spec_version: The version of the Template Spec.
+    """
+    ...

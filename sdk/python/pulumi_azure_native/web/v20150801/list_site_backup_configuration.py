@@ -13,6 +13,7 @@ __all__ = [
     'ListSiteBackupConfigurationResult',
     'AwaitableListSiteBackupConfigurationResult',
     'list_site_backup_configuration',
+    'list_site_backup_configuration_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def list_site_backup_configuration(name: Optional[str] = None,
         storage_account_url=__ret__.storage_account_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_site_backup_configuration)
+def list_site_backup_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteBackupConfigurationResult]:
+    """
+    Description of a backup which will be performed
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

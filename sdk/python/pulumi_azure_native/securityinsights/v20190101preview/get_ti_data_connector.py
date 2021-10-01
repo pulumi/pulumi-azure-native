@@ -13,6 +13,7 @@ __all__ = [
     'GetTIDataConnectorResult',
     'AwaitableGetTIDataConnectorResult',
     'get_ti_data_connector',
+    'get_ti_data_connector_output',
 ]
 
 @pulumi.output_type
@@ -162,3 +163,21 @@ def get_ti_data_connector(data_connector_id: Optional[str] = None,
         tenant_id=__ret__.tenant_id,
         tip_lookback_period=__ret__.tip_lookback_period,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ti_data_connector)
+def get_ti_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
+                                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 workspace_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTIDataConnectorResult]:
+    """
+    Data connector to pull threat intelligence data from TIP products.
+
+
+    :param str data_connector_id: Connector ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetADLSGen2FileSystemDataSetMappingResult',
     'AwaitableGetADLSGen2FileSystemDataSetMappingResult',
     'get_adls_gen2_file_system_data_set_mapping',
+    'get_adls_gen2_file_system_data_set_mapping_output',
 ]
 
 @pulumi.output_type
@@ -215,3 +216,22 @@ def get_adls_gen2_file_system_data_set_mapping(account_name: Optional[str] = Non
         subscription_id=__ret__.subscription_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_adls_gen2_file_system_data_set_mapping)
+def get_adls_gen2_file_system_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                      data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                      share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FileSystemDataSetMappingResult]:
+    """
+    An ADLS Gen2 file system data set mapping.
+    API Version: 2020-09-01.
+
+
+    :param str account_name: The name of the share account.
+    :param str data_set_mapping_name: The name of the dataSetMapping.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetServerEndpointResult',
     'AwaitableGetServerEndpointResult',
     'get_server_endpoint',
+    'get_server_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -355,3 +356,21 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         total_progress=__ret__.total_progress,
         type=__ret__.type,
         volume_free_space_percent=__ret__.volume_free_space_percent)
+
+
+@_utilities.lift_output_func(get_server_endpoint)
+def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               server_endpoint_name: Optional[pulumi.Input[str]] = None,
+                               storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                               sync_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerEndpointResult]:
+    """
+    Server Endpoint object.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str server_endpoint_name: Name of Server Endpoint object.
+    :param str storage_sync_service_name: Name of Storage Sync Service resource.
+    :param str sync_group_name: Name of Sync Group resource.
+    """
+    ...

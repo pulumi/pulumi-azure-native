@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationRuntimeStatusResult',
     'AwaitableGetIntegrationRuntimeStatusResult',
     'get_integration_runtime_status',
+    'get_integration_runtime_status_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def get_integration_runtime_status(factory_name: Optional[str] = None,
     return AwaitableGetIntegrationRuntimeStatusResult(
         name=__ret__.name,
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_integration_runtime_status)
+def get_integration_runtime_status_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                          integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
+    """
+    Integration runtime status response.
+
+
+    :param str factory_name: The factory name.
+    :param str integration_runtime_name: The integration runtime name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

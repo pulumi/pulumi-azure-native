@@ -12,6 +12,7 @@ __all__ = [
     'GetNotebookWorkspaceResult',
     'AwaitableGetNotebookWorkspaceResult',
     'get_notebook_workspace',
+    'get_notebook_workspace_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_notebook_workspace(account_name: Optional[str] = None,
         notebook_server_endpoint=__ret__.notebook_server_endpoint,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_notebook_workspace)
+def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = None,
+                                  notebook_workspace_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
+    """
+    A notebook workspace resource
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str notebook_workspace_name: The name of the notebook workspace resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetRouteResult',
     'AwaitableGetRouteResult',
     'get_route',
+    'get_route_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,19 @@ def get_route(resource_group_name: Optional[str] = None,
         next_hop_type=__ret__.next_hop_type,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_route)
+def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                     route_name: Optional[pulumi.Input[str]] = None,
+                     route_table_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+    """
+    Route resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str route_name: The name of the route.
+    :param str route_table_name: The name of the route table.
+    """
+    ...

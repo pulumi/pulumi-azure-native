@@ -13,6 +13,7 @@ __all__ = [
     'GetOnlineDeploymentResult',
     'AwaitableGetOnlineDeploymentResult',
     'get_online_deployment',
+    'get_online_deployment_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,20 @@ def get_online_deployment(deployment_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_online_deployment)
+def get_online_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                                 endpoint_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 workspace_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineDeploymentResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str deployment_name: Inference Endpoint Deployment name.
+    :param str endpoint_name: Inference endpoint name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

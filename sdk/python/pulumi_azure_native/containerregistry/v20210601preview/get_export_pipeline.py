@@ -13,6 +13,7 @@ __all__ = [
     'GetExportPipelineResult',
     'AwaitableGetExportPipelineResult',
     'get_export_pipeline',
+    'get_export_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
         system_data=__ret__.system_data,
         target=__ret__.target,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_export_pipeline)
+def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]] = None,
+                               registry_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportPipelineResult]:
+    """
+    An object that represents an export pipeline for a container registry.
+
+
+    :param str export_pipeline_name: The name of the export pipeline.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

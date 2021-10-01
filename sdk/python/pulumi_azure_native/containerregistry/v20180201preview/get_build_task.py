@@ -13,6 +13,7 @@ __all__ = [
     'GetBuildTaskResult',
     'AwaitableGetBuildTaskResult',
     'get_build_task',
+    'get_build_task_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_build_task(build_task_name: Optional[str] = None,
         tags=__ret__.tags,
         timeout=__ret__.timeout,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_build_task)
+def get_build_task_output(build_task_name: Optional[pulumi.Input[str]] = None,
+                          registry_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildTaskResult]:
+    """
+    The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+
+
+    :param str build_task_name: The name of the container registry build task.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

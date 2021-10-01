@@ -13,6 +13,7 @@ __all__ = [
     'GetRestorePointCollectionResult',
     'AwaitableGetRestorePointCollectionResult',
     'get_restore_point_collection',
+    'get_restore_point_collection_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_restore_point_collection(expand: Optional[str] = None,
         source=__ret__.source,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_restore_point_collection)
+def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        restore_point_collection_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
+    """
+    Create or update Restore Point collection parameters.
+
+
+    :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
+    :param str resource_group_name: The name of the resource group.
+    :param str restore_point_collection_name: The name of the restore point collection.
+    """
+    ...

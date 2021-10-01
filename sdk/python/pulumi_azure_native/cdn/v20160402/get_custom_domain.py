@@ -12,6 +12,7 @@ __all__ = [
     'GetCustomDomainResult',
     'AwaitableGetCustomDomainResult',
     'get_custom_domain',
+    'get_custom_domain_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,21 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_custom_domain)
+def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = None,
+                             endpoint_name: Optional[pulumi.Input[str]] = None,
+                             profile_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
+    """
+    CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
+
+
+    :param str custom_domain_name: Name of the custom domain within an endpoint.
+    :param str endpoint_name: Name of the endpoint within the CDN profile.
+    :param str profile_name: Name of the CDN profile within the resource group.
+    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    """
+    ...

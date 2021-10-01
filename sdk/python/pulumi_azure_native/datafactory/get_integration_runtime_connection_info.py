@@ -12,6 +12,7 @@ __all__ = [
     'GetIntegrationRuntimeConnectionInfoResult',
     'AwaitableGetIntegrationRuntimeConnectionInfoResult',
     'get_integration_runtime_connection_info',
+    'get_integration_runtime_connection_info_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,20 @@ def get_integration_runtime_connection_info(factory_name: Optional[str] = None,
         public_key=__ret__.public_key,
         service_token=__ret__.service_token,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_integration_runtime_connection_info)
+def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                                   integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
+    """
+    Connection information for encrypting the on-premises data source credentials.
+    API Version: 2018-06-01.
+
+
+    :param str factory_name: The factory name.
+    :param str integration_runtime_name: The integration runtime name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

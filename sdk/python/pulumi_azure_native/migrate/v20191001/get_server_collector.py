@@ -13,6 +13,7 @@ __all__ = [
     'GetServerCollectorResult',
     'AwaitableGetServerCollectorResult',
     'get_server_collector',
+    'get_server_collector_output',
 ]
 
 @pulumi.output_type
@@ -100,3 +101,18 @@ def get_server_collector(project_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_collector)
+def get_server_collector_output(project_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                server_collector_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCollectorResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    :param str server_collector_name: Unique name of a Server collector within a project.
+    """
+    ...

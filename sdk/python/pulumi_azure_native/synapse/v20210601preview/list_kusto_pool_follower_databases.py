@@ -13,6 +13,7 @@ __all__ = [
     'ListKustoPoolFollowerDatabasesResult',
     'AwaitableListKustoPoolFollowerDatabasesResult',
     'list_kusto_pool_follower_databases',
+    'list_kusto_pool_follower_databases_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,19 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[str] = None,
 
     return AwaitableListKustoPoolFollowerDatabasesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_kusto_pool_follower_databases)
+def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              workspace_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKustoPoolFollowerDatabasesResult]:
+    """
+    The list Kusto database principals operation response.
+
+
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

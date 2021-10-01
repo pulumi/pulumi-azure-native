@@ -13,6 +13,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -285,3 +286,17 @@ def get_server(resource_group_name: Optional[str] = None,
         type=__ret__.type,
         user_visible_state=__ret__.user_visible_state,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      server_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Represents a server.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

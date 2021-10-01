@@ -13,6 +13,7 @@ __all__ = [
     'GetPrefixResult',
     'AwaitableGetPrefixResult',
     'get_prefix',
+    'get_prefix_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,21 @@ def get_prefix(expand: Optional[str] = None,
         prefix_validation_state=__ret__.prefix_validation_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_prefix)
+def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                      peering_service_name: Optional[pulumi.Input[str]] = None,
+                      prefix_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixResult]:
+    """
+    The peering service prefix class.
+
+
+    :param str expand: The properties to be expanded.
+    :param str peering_service_name: The name of the peering service.
+    :param str prefix_name: The name of the prefix.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

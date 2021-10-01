@@ -12,6 +12,7 @@ __all__ = [
     'ListWCFRelayKeysResult',
     'AwaitableListWCFRelayKeysResult',
     'list_wcf_relay_keys',
+    'list_wcf_relay_keys_output',
 ]
 
 @pulumi.output_type
@@ -121,3 +122,21 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
         primary_key=__ret__.primary_key,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_wcf_relay_keys)
+def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                               namespace_name: Optional[pulumi.Input[str]] = None,
+                               relay_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWCFRelayKeysResult]:
+    """
+    Namespace/Relay Connection String
+
+
+    :param str authorization_rule_name: The authorizationRule name.
+    :param str namespace_name: The Namespace Name
+    :param str relay_name: The relay name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

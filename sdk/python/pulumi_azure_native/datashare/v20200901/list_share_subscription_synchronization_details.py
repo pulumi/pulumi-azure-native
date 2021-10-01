@@ -13,6 +13,7 @@ __all__ = [
     'ListShareSubscriptionSynchronizationDetailsResult',
     'AwaitableListShareSubscriptionSynchronizationDetailsResult',
     'list_share_subscription_synchronization_details',
+    'list_share_subscription_synchronization_details_output',
 ]
 
 @pulumi.output_type
@@ -92,3 +93,27 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
     return AwaitableListShareSubscriptionSynchronizationDetailsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_share_subscription_synchronization_details)
+def list_share_subscription_synchronization_details_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                           filter: Optional[pulumi.Input[Optional[str]]] = None,
+                                                           orderby: Optional[pulumi.Input[Optional[str]]] = None,
+                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                           share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                                           skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                           synchronization_id: Optional[pulumi.Input[str]] = None,
+                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationDetailsResult]:
+    """
+    details of synchronization
+
+
+    :param str account_name: The name of the share account.
+    :param str filter: Filters the results using OData syntax.
+    :param str orderby: Sorts the results using OData syntax.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the share subscription.
+    :param str skip_token: Continuation token
+    :param str synchronization_id: Synchronization id
+    """
+    ...

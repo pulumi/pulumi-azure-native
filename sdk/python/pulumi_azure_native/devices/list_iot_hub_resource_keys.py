@@ -13,6 +13,7 @@ __all__ = [
     'ListIotHubResourceKeysResult',
     'AwaitableListIotHubResourceKeysResult',
     'list_iot_hub_resource_keys',
+    'list_iot_hub_resource_keys_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,18 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
     return AwaitableListIotHubResourceKeysResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_iot_hub_resource_keys)
+def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      resource_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
+    """
+    The list of shared access policies with a next link.
+    API Version: 2020-08-31.
+
+
+    :param str resource_group_name: The name of the resource group that contains the IoT hub.
+    :param str resource_name: The name of the IoT hub.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectedClusterResult',
     'AwaitableGetConnectedClusterResult',
     'get_connected_cluster',
+    'get_connected_cluster_output',
 ]
 
 @pulumi.output_type
@@ -324,3 +325,17 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         total_core_count=__ret__.total_core_count,
         total_node_count=__ret__.total_node_count,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connected_cluster)
+def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedClusterResult]:
+    """
+    Represents a connected cluster.
+
+
+    :param str cluster_name: The name of the Kubernetes cluster on which get is called.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

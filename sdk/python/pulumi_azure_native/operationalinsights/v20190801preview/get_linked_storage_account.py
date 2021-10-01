@@ -12,6 +12,7 @@ __all__ = [
     'GetLinkedStorageAccountResult',
     'AwaitableGetLinkedStorageAccountResult',
     'get_linked_storage_account',
+    'get_linked_storage_account_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
         name=__ret__.name,
         storage_account_ids=__ret__.storage_account_ids,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linked_storage_account)
+def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      workspace_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
+    """
+    Linked storage accounts top level resource container.
+
+
+    :param str data_source_type: Linked storage accounts type.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    :param str workspace_name: Name of the Log Analytics Workspace that will contain the resource.
+    """
+    ...

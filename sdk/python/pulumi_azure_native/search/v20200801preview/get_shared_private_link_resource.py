@@ -13,6 +13,7 @@ __all__ = [
     'GetSharedPrivateLinkResourceResult',
     'AwaitableGetSharedPrivateLinkResourceResult',
     'get_shared_private_link_resource',
+    'get_shared_private_link_resource_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,19 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_shared_private_link_resource)
+def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            search_service_name: Optional[pulumi.Input[str]] = None,
+                                            shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
+    """
+    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+
+
+    :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+    """
+    ...

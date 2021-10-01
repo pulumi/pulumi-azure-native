@@ -12,6 +12,7 @@ __all__ = [
     'GetSynchronizationSettingResult',
     'AwaitableGetSynchronizationSettingResult',
     'get_synchronization_setting',
+    'get_synchronization_setting_output',
 ]
 
 warnings.warn("""Please use one of the variants: ScheduledSynchronizationSetting.""", DeprecationWarning)
@@ -111,3 +112,22 @@ def get_synchronization_setting(account_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_synchronization_setting)
+def get_synchronization_setting_output(account_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       share_name: Optional[pulumi.Input[str]] = None,
+                                       synchronization_setting_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSynchronizationSettingResult]:
+    """
+    A Synchronization Setting data transfer object.
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    :param str synchronization_setting_name: The name of the synchronizationSetting.
+    """
+    pulumi.log.warn("""get_synchronization_setting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.""")
+    ...

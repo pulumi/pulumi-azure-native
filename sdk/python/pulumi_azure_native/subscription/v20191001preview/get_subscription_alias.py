@@ -13,6 +13,7 @@ __all__ = [
     'GetSubscriptionAliasResult',
     'AwaitableGetSubscriptionAliasResult',
     'get_subscription_alias',
+    'get_subscription_alias_output',
 ]
 
 @pulumi.output_type
@@ -100,3 +101,15 @@ def get_subscription_alias(alias_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_subscription_alias)
+def get_subscription_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionAliasResult]:
+    """
+    Subscription Information with the alias.
+
+
+    :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+    """
+    ...

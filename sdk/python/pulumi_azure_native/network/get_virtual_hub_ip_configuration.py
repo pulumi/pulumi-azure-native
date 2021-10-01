@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualHubIpConfigurationResult',
     'AwaitableGetVirtualHubIpConfigurationResult',
     'get_virtual_hub_ip_configuration',
+    'get_virtual_hub_ip_configuration_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
         public_ip_address=__ret__.public_ip_address,
         subnet=__ret__.subnet,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_hub_ip_configuration)
+def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
+    """
+    IpConfigurations.
+    API Version: 2020-11-01.
+
+
+    :param str ip_config_name: The name of the ipconfig.
+    :param str resource_group_name: The resource group name of the VirtualHub.
+    :param str virtual_hub_name: The name of the VirtualHub.
+    """
+    ...

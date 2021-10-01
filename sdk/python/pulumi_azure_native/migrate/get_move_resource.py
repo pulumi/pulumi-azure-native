@@ -13,6 +13,7 @@ __all__ = [
     'GetMoveResourceResult',
     'AwaitableGetMoveResourceResult',
     'get_move_resource',
+    'get_move_resource_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,20 @@ def get_move_resource(move_collection_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_move_resource)
+def get_move_resource_output(move_collection_name: Optional[pulumi.Input[str]] = None,
+                             move_resource_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveResourceResult]:
+    """
+    Defines the move resource.
+    API Version: 2021-01-01.
+
+
+    :param str move_collection_name: The Move Collection Name.
+    :param str move_resource_name: The Move Resource Name.
+    :param str resource_group_name: The Resource Group Name.
+    """
+    ...

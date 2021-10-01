@@ -13,6 +13,7 @@ __all__ = [
     'GetPredictionResult',
     'AwaitableGetPredictionResult',
     'get_prediction',
+    'get_prediction_output',
 ]
 
 @pulumi.output_type
@@ -315,3 +316,20 @@ def get_prediction(hub_name: Optional[str] = None,
         system_generated_entities=__ret__.system_generated_entities,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_prediction)
+def get_prediction_output(hub_name: Optional[pulumi.Input[str]] = None,
+                          prediction_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionResult]:
+    """
+    The prediction resource format.
+    API Version: 2017-04-26.
+
+
+    :param str hub_name: The name of the hub.
+    :param str prediction_name: The name of the Prediction.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

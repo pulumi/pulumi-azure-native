@@ -12,6 +12,7 @@ __all__ = [
     'GetHybridConnectionResult',
     'AwaitableGetHybridConnectionResult',
     'get_hybrid_connection',
+    'get_hybrid_connection_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         user_metadata=__ret__.user_metadata)
+
+
+@_utilities.lift_output_func(get_hybrid_connection)
+def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[str]] = None,
+                                 namespace_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionResult]:
+    """
+    Description of HybridConnection Resource.
+
+
+    :param str hybrid_connection_name: The hybrid connection name.
+    :param str namespace_name: The Namespace Name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

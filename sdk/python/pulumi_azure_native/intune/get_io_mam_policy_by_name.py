@@ -12,6 +12,7 @@ __all__ = [
     'GetIoMAMPolicyByNameResult',
     'AwaitableGetIoMAMPolicyByNameResult',
     'get_io_mam_policy_by_name',
+    'get_io_mam_policy_by_name_output',
 ]
 
 @pulumi.output_type
@@ -319,3 +320,20 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
         tags=__ret__.tags,
         touch_id=__ret__.touch_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_io_mam_policy_by_name)
+def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = None,
+                                     policy_name: Optional[pulumi.Input[str]] = None,
+                                     select: Optional[pulumi.Input[Optional[str]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
+    """
+    iOS Policy entity for Intune MAM.
+    API Version: 2015-01-14-preview.
+
+
+    :param str host_name: Location hostName for the tenant
+    :param str policy_name: Unique name for the policy
+    :param str select: select specific fields in entity.
+    """
+    ...

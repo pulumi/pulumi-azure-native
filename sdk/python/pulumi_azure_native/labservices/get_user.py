@@ -13,6 +13,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -230,3 +231,24 @@ def get_user(expand: Optional[str] = None,
         total_usage=__ret__.total_usage,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                    lab_account_name: Optional[pulumi.Input[str]] = None,
+                    lab_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    user_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    The User registered to a lab
+    API Version: 2018-10-15.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=email)'
+    :param str lab_account_name: The name of the lab Account.
+    :param str lab_name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    :param str user_name: The name of the user.
+    """
+    ...

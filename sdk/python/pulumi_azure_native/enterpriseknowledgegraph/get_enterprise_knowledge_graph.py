@@ -13,6 +13,7 @@ __all__ = [
     'GetEnterpriseKnowledgeGraphResult',
     'AwaitableGetEnterpriseKnowledgeGraphResult',
     'get_enterprise_knowledge_graph',
+    'get_enterprise_knowledge_graph_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_enterprise_knowledge_graph)
+def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          resource_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
+    """
+    EnterpriseKnowledgeGraph resource definition
+    API Version: 2018-12-03.
+
+
+    :param str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
+    :param str resource_name: The name of the EnterpriseKnowledgeGraph resource.
+    """
+    ...

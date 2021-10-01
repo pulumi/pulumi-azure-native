@@ -12,6 +12,7 @@ __all__ = [
     'GetApiVersionSetResult',
     'AwaitableGetApiVersionSetResult',
     'get_api_version_set',
+    'get_api_version_set_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
         version_header_name=__ret__.version_header_name,
         version_query_name=__ret__.version_query_name,
         versioning_scheme=__ret__.versioning_scheme)
+
+
+@_utilities.lift_output_func(get_api_version_set)
+def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               service_name: Optional[pulumi.Input[str]] = None,
+                               version_set_id: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
+    """
+    API Version Set Contract details.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
+    """
+    ...

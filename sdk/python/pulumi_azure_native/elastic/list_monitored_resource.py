@@ -13,6 +13,7 @@ __all__ = [
     'ListMonitoredResourceResult',
     'AwaitableListMonitoredResourceResult',
     'list_monitored_resource',
+    'list_monitored_resource_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,18 @@ def list_monitored_resource(monitor_name: Optional[str] = None,
     return AwaitableListMonitoredResourceResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_monitored_resource)
+def list_monitored_resource_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitoredResourceResult]:
+    """
+    Response of a list operation.
+    API Version: 2020-07-01.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    """
+    ...

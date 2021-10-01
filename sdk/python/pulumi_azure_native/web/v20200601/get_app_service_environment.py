@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServiceEnvironmentResult',
     'AwaitableGetAppServiceEnvironmentResult',
     'get_app_service_environment',
+    'get_app_service_environment_output',
 ]
 
 @pulumi.output_type
@@ -612,3 +613,17 @@ def get_app_service_environment(name: Optional[str] = None,
         vnet_resource_group_name=__ret__.vnet_resource_group_name,
         vnet_subnet_name=__ret__.vnet_subnet_name,
         worker_pools=__ret__.worker_pools)
+
+
+@_utilities.lift_output_func(get_app_service_environment)
+def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
+    """
+    App Service Environment ARM resource.
+
+
+    :param str name: Name of the App Service Environment.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

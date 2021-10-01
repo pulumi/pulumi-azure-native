@@ -12,6 +12,7 @@ __all__ = [
     'GetLoggerResult',
     'AwaitableGetLoggerResult',
     'get_logger',
+    'get_logger_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def get_logger(loggerid: Optional[str] = None,
         logger_type=__ret__.logger_type,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_logger)
+def get_logger_output(loggerid: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      service_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggerResult]:
+    """
+    Logger details.
+
+
+    :param str loggerid: Logger identifier. Must be unique in the API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

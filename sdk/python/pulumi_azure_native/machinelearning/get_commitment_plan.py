@@ -13,6 +13,7 @@ __all__ = [
     'GetCommitmentPlanResult',
     'AwaitableGetCommitmentPlanResult',
     'get_commitment_plan',
+    'get_commitment_plan_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,18 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_commitment_plan)
+def get_commitment_plan_output(commitment_plan_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
+    """
+    An Azure ML commitment plan resource.
+    API Version: 2016-05-01-preview.
+
+
+    :param str commitment_plan_name: The Azure ML commitment plan name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

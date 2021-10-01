@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineScaleSetVMResult',
     'AwaitableGetVirtualMachineScaleSetVMResult',
     'get_virtual_machine_scale_set_vm',
+    'get_virtual_machine_scale_set_vm_output',
 ]
 
 @pulumi.output_type
@@ -327,3 +328,19 @@ def get_virtual_machine_scale_set_vm(instance_id: Optional[str] = None,
         type=__ret__.type,
         vm_id=__ret__.vm_id,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_virtual_machine_scale_set_vm)
+def get_virtual_machine_scale_set_vm_output(instance_id: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMResult]:
+    """
+    Describes a virtual machine scale set virtual machine.
+
+
+    :param str instance_id: The instance ID of the virtual machine.
+    :param str resource_group_name: The name of the resource group.
+    :param str vm_scale_set_name: The name of the VM scale set.
+    """
+    ...

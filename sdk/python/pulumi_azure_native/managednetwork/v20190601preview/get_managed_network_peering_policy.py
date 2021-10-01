@@ -13,6 +13,7 @@ __all__ = [
     'GetManagedNetworkPeeringPolicyResult',
     'AwaitableGetManagedNetworkPeeringPolicyResult',
     'get_managed_network_peering_policy',
+    'get_managed_network_peering_policy_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_network_peering_policy)
+def get_managed_network_peering_policy_output(managed_network_name: Optional[pulumi.Input[str]] = None,
+                                              managed_network_peering_policy_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
+    """
+    The Managed Network Peering Policy resource
+
+
+    :param str managed_network_name: The name of the Managed Network.
+    :param str managed_network_peering_policy_name: The name of the Managed Network Peering Policy.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

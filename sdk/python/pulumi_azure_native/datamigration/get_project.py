@@ -13,6 +13,7 @@ __all__ = [
     'GetProjectResult',
     'AwaitableGetProjectResult',
     'get_project',
+    'get_project_output',
 ]
 
 @pulumi.output_type
@@ -211,3 +212,20 @@ def get_project(group_name: Optional[str] = None,
         target_connection_info=__ret__.target_connection_info,
         target_platform=__ret__.target_platform,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_project)
+def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
+                       project_name: Optional[pulumi.Input[str]] = None,
+                       service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+    """
+    A project resource
+    API Version: 2018-04-19.
+
+
+    :param str group_name: Name of the resource group
+    :param str project_name: Name of the project
+    :param str service_name: Name of the service
+    """
+    ...

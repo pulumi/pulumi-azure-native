@@ -13,6 +13,7 @@ __all__ = [
     'GetBlobServicePropertiesResult',
     'AwaitableGetBlobServicePropertiesResult',
     'get_blob_service_properties',
+    'get_blob_service_properties_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,20 @@ def get_blob_service_properties(account_name: Optional[str] = None,
         restore_policy=__ret__.restore_policy,
         sku=__ret__.sku,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_blob_service_properties)
+def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
+                                       blob_services_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
+    """
+    The properties of a storage account’s Blob service.
+    API Version: 2021-02-01.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

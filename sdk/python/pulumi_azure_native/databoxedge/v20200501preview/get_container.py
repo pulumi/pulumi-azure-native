@@ -13,6 +13,7 @@ __all__ = [
     'GetContainerResult',
     'AwaitableGetContainerResult',
     'get_container',
+    'get_container_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,21 @@ def get_container(container_name: Optional[str] = None,
         name=__ret__.name,
         refresh_details=__ret__.refresh_details,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_container)
+def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
+                         device_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         storage_account_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerResult]:
+    """
+    Represents a container on the  Data Box Edge/Gateway device.
+
+
+    :param str container_name: The container Name
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    :param str storage_account_name: The Storage Account Name
+    """
+    ...

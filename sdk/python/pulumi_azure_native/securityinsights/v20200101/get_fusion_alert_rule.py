@@ -12,6 +12,7 @@ __all__ = [
     'GetFusionAlertRuleResult',
     'AwaitableGetFusionAlertRuleResult',
     'get_fusion_alert_rule',
+    'get_fusion_alert_rule_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
         severity=__ret__.severity,
         tactics=__ret__.tactics,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_fusion_alert_rule)
+def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 rule_id: Optional[pulumi.Input[str]] = None,
+                                 workspace_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
+    """
+    Represents Fusion alert rule.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str rule_id: Alert rule ID
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

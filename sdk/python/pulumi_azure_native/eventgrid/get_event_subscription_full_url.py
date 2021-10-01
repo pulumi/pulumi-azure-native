@@ -12,6 +12,7 @@ __all__ = [
     'GetEventSubscriptionFullUrlResult',
     'AwaitableGetEventSubscriptionFullUrlResult',
     'get_event_subscription_full_url',
+    'get_event_subscription_full_url_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
 
     return AwaitableGetEventSubscriptionFullUrlResult(
         endpoint_url=__ret__.endpoint_url)
+
+
+@_utilities.lift_output_func(get_event_subscription_full_url)
+def get_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
+                                           scope: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
+    """
+    Full endpoint url of an event subscription
+    API Version: 2020-06-01.
+
+
+    :param str event_subscription_name: Name of the event subscription.
+    :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+    """
+    ...

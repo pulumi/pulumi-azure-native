@@ -13,6 +13,7 @@ __all__ = [
     'GetGlobalUserPersonalPreferencesResult',
     'AwaitableGetGlobalUserPersonalPreferencesResult',
     'get_global_user_personal_preferences',
+    'get_global_user_personal_preferences_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,22 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
     return AwaitableGetGlobalUserPersonalPreferencesResult(
         favorite_lab_resource_ids=__ret__.favorite_lab_resource_ids,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_global_user_personal_preferences)
+def get_global_user_personal_preferences_output(add_remove: Optional[pulumi.Input[Optional[Union[str, 'AddRemove']]]] = None,
+                                                lab_account_resource_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                lab_resource_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                user_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserPersonalPreferencesResult]:
+    """
+    Represents the PersonalPreferences for the user
+    API Version: 2018-10-15.
+
+
+    :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
+    :param str lab_account_resource_id: Resource Id of the lab account
+    :param str lab_resource_id: Resource Id of the lab to add/remove from the favorites list
+    :param str user_name: The name of the user.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRegistrationDefinitionResult',
     'AwaitableGetRegistrationDefinitionResult',
     'get_registration_definition',
+    'get_registration_definition_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,17 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
         plan=__ret__.plan,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registration_definition)
+def get_registration_definition_output(registration_definition_id: Optional[pulumi.Input[str]] = None,
+                                       scope: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
+    """
+    Registration definition.
+
+
+    :param str registration_definition_id: Guid of the registration definition.
+    :param str scope: Scope of the resource.
+    """
+    ...

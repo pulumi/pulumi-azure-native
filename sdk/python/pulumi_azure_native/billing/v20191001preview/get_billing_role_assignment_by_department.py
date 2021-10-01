@@ -12,6 +12,7 @@ __all__ = [
     'GetBillingRoleAssignmentByDepartmentResult',
     'AwaitableGetBillingRoleAssignmentByDepartmentResult',
     'get_billing_role_assignment_by_department',
+    'get_billing_role_assignment_by_department_output',
 ]
 
 @pulumi.output_type
@@ -222,3 +223,19 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
         type=__ret__.type,
         user_authentication_type=__ret__.user_authentication_type,
         user_email_address=__ret__.user_email_address)
+
+
+@_utilities.lift_output_func(get_billing_role_assignment_by_department)
+def get_billing_role_assignment_by_department_output(billing_account_name: Optional[pulumi.Input[str]] = None,
+                                                     billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
+                                                     department_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
+    """
+    The role assignment
+
+
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
+    :param str department_name: The ID that uniquely identifies a department.
+    """
+    ...

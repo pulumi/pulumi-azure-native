@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppSyncFunctionTriggersSlotResult',
     'AwaitableListWebAppSyncFunctionTriggersSlotResult',
     'list_web_app_sync_function_triggers_slot',
+    'list_web_app_sync_function_triggers_slot_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
     return AwaitableListWebAppSyncFunctionTriggersSlotResult(
         key=__ret__.key,
         trigger_url=__ret__.trigger_url)
+
+
+@_utilities.lift_output_func(list_web_app_sync_function_triggers_slot)
+def list_web_app_sync_function_triggers_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    slot: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersSlotResult]:
+    """
+    Function secrets.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_certificate(certificate_id: Optional[str] = None,
         subject=__ret__.subject,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           service_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Certificate details.
+
+
+    :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

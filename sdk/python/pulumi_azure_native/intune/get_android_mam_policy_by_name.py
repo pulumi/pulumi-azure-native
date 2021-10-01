@@ -12,6 +12,7 @@ __all__ = [
     'GetAndroidMAMPolicyByNameResult',
     'AwaitableGetAndroidMAMPolicyByNameResult',
     'get_android_mam_policy_by_name',
+    'get_android_mam_policy_by_name_output',
 ]
 
 @pulumi.output_type
@@ -319,3 +320,20 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
         screen_capture=__ret__.screen_capture,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_android_mam_policy_by_name)
+def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = None,
+                                          policy_name: Optional[pulumi.Input[str]] = None,
+                                          select: Optional[pulumi.Input[Optional[str]]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
+    """
+    Android Policy entity for Intune MAM.
+    API Version: 2015-01-14-preview.
+
+
+    :param str host_name: Location hostName for the tenant
+    :param str policy_name: Unique name for the policy
+    :param str select: select specific fields in entity.
+    """
+    ...

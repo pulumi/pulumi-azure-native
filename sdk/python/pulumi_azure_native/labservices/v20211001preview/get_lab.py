@@ -13,6 +13,7 @@ __all__ = [
     'GetLabResult',
     'AwaitableGetLabResult',
     'get_lab',
+    'get_lab_output',
 ]
 
 @pulumi.output_type
@@ -272,3 +273,17 @@ def get_lab(lab_name: Optional[str] = None,
         title=__ret__.title,
         type=__ret__.type,
         virtual_machine_profile=__ret__.virtual_machine_profile)
+
+
+@_utilities.lift_output_func(get_lab)
+def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+    """
+    The lab resource.
+
+
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

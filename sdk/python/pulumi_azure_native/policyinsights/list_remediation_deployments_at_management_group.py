@@ -13,6 +13,7 @@ __all__ = [
     'ListRemediationDeploymentsAtManagementGroupResult',
     'AwaitableListRemediationDeploymentsAtManagementGroupResult',
     'list_remediation_deployments_at_management_group',
+    'list_remediation_deployments_at_management_group_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,22 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     return AwaitableListRemediationDeploymentsAtManagementGroupResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_remediation_deployments_at_management_group)
+def list_remediation_deployments_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
+                                                            management_groups_namespace: Optional[pulumi.Input[str]] = None,
+                                                            remediation_name: Optional[pulumi.Input[str]] = None,
+                                                            top: Optional[pulumi.Input[Optional[int]]] = None,
+                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
+    """
+    List of deployments for a remediation.
+    API Version: 2019-07-01.
+
+
+    :param str management_group_id: Management group ID.
+    :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+    :param str remediation_name: The name of the remediation.
+    :param int top: Maximum number of records to return.
+    """
+    ...

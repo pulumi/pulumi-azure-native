@@ -13,6 +13,7 @@ __all__ = [
     'GetDataStoreResult',
     'AwaitableGetDataStoreResult',
     'get_data_store',
+    'get_data_store_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_data_store(data_manager_name: Optional[str] = None,
         repository_id=__ret__.repository_id,
         state=__ret__.state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_store)
+def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
+                          data_store_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataStoreResult]:
+    """
+    Data store.
+
+
+    :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+    :param str data_store_name: The data store/repository name queried.
+    :param str resource_group_name: The Resource Group Name
+    """
+    ...

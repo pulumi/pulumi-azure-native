@@ -15,6 +15,7 @@ __all__ = [
     'ListConnectionConsentLinksResult',
     'AwaitableListConnectionConsentLinksResult',
     'list_connection_consent_links',
+    'list_connection_consent_links_output',
 ]
 
 @pulumi.output_type
@@ -87,3 +88,31 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
     return AwaitableListConnectionConsentLinksResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_connection_consent_links)
+def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                         id: Optional[pulumi.Input[Optional[str]]] = None,
+                                         kind: Optional[pulumi.Input[Optional[str]]] = None,
+                                         location: Optional[pulumi.Input[Optional[str]]] = None,
+                                         name: Optional[pulumi.Input[Optional[str]]] = None,
+                                         parameters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['ConsentLinkInputParameter']]]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                         type: Optional[pulumi.Input[Optional[str]]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
+    """
+    Collection of consent links
+
+
+    :param str connection_name: The connection name.
+    :param str id: Resource Id
+    :param str kind: Kind of resource
+    :param str location: Resource Location
+    :param str name: Resource Name
+    :param Sequence[pulumi.InputType['ConsentLinkInputParameter']] parameters: Array of links
+    :param str resource_group_name: The resource group name.
+    :param Mapping[str, str] tags: Resource tags
+    :param str type: Resource type
+    """
+    ...

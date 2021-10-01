@@ -13,6 +13,7 @@ __all__ = [
     'GetImportCollectorResult',
     'AwaitableGetImportCollectorResult',
     'get_import_collector',
+    'get_import_collector_output',
 ]
 
 @pulumi.output_type
@@ -101,3 +102,19 @@ def get_import_collector(import_collector_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_import_collector)
+def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str]] = None,
+                                project_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportCollectorResult]:
+    """
+    API Version: 2019-10-01.
+
+
+    :param str import_collector_name: Unique name of a Import collector within a project.
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    """
+    ...

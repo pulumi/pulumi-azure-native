@@ -13,6 +13,7 @@ __all__ = [
     'GetAvailabilitySetResult',
     'AwaitableGetAvailabilitySetResult',
     'get_availability_set',
+    'get_availability_set_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_availability_set(availability_set_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_machines=__ret__.virtual_machines)
+
+
+@_utilities.lift_output_func(get_availability_set)
+def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
+    """
+    Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+
+
+    :param str availability_set_name: The name of the availability set.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

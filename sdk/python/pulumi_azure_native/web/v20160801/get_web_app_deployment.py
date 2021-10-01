@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppDeploymentResult',
     'AwaitableGetWebAppDeploymentResult',
     'get_web_app_deployment',
+    'get_web_app_deployment_output',
 ]
 
 @pulumi.output_type
@@ -222,3 +223,19 @@ def get_web_app_deployment(id: Optional[str] = None,
         start_time=__ret__.start_time,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_deployment)
+def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
+    """
+    User credentials used for publishing activity.
+
+
+    :param str id: Deployment ID.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

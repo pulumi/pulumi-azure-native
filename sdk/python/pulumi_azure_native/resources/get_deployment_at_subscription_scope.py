@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentAtSubscriptionScopeResult',
     'AwaitableGetDeploymentAtSubscriptionScopeResult',
     'get_deployment_at_subscription_scope',
+    'get_deployment_at_subscription_scope_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,16 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_deployment_at_subscription_scope)
+def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
+    """
+    Deployment information.
+    API Version: 2021-01-01.
+
+
+    :param str deployment_name: The name of the deployment.
+    """
+    ...

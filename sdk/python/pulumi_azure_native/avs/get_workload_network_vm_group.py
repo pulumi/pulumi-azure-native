@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadNetworkVMGroupResult',
     'AwaitableGetWorkloadNetworkVMGroupResult',
     'get_workload_network_vm_group',
+    'get_workload_network_vm_group_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,20 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
         revision=__ret__.revision,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_vm_group)
+def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         vm_group_id: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkVMGroupResult]:
+    """
+    NSX VM Group
+    API Version: 2020-07-17-preview.
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
+    """
+    ...

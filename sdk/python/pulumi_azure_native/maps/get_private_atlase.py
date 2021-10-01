@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateAtlaseResult',
     'AwaitableGetPrivateAtlaseResult',
     'get_private_atlase',
+    'get_private_atlase_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_private_atlase(account_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_atlase)
+def get_private_atlase_output(account_name: Optional[pulumi.Input[str]] = None,
+                              private_atlas_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateAtlaseResult]:
+    """
+    An Azure resource which represents which will provision the ability to create private location data.
+    API Version: 2020-02-01-preview.
+
+
+    :param str account_name: The name of the Maps Account.
+    :param str private_atlas_name: The name of the Private Atlas instance.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

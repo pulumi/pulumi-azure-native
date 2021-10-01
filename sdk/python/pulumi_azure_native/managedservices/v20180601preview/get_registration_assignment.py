@@ -13,6 +13,7 @@ __all__ = [
     'GetRegistrationAssignmentResult',
     'AwaitableGetRegistrationAssignmentResult',
     'get_registration_assignment',
+    'get_registration_assignment_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,19 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_registration_assignment)
+def get_registration_assignment_output(expand_registration_definition: Optional[pulumi.Input[Optional[bool]]] = None,
+                                       registration_assignment_id: Optional[pulumi.Input[str]] = None,
+                                       scope: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
+    """
+    Registration assignment.
+
+
+    :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
+    :param str registration_assignment_id: Guid of the registration assignment.
+    :param str scope: Scope of the resource.
+    """
+    ...

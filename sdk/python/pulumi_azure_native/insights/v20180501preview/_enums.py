@@ -44,9 +44,13 @@ class PublicNetworkAccessType(str, Enum):
     The network access type for accessing Application Insights query.
     """
     ENABLED = "Enabled"
-    """Enables connectivity to Application Insights through public DNS."""
+    """
+    Enables connectivity to Application Insights through public DNS.
+    """
     DISABLED = "Disabled"
-    """Disables public connectivity to Application Insights through public DNS."""
+    """
+    Disables public connectivity to Application Insights through public DNS.
+    """
 
 
 class RequestSource(str, Enum):

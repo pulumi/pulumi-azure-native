@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateRecordSetResult',
     'AwaitableGetPrivateRecordSetResult',
     'get_private_record_set',
+    'get_private_record_set_output',
 ]
 
 @pulumi.output_type
@@ -266,3 +267,22 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
         ttl=__ret__.ttl,
         txt_records=__ret__.txt_records,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_record_set)
+def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]] = None,
+                                  record_type: Optional[pulumi.Input[str]] = None,
+                                  relative_record_set_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateRecordSetResult]:
+    """
+    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    API Version: 2020-06-01.
+
+
+    :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
+    :param str record_type: The type of DNS record in this record set.
+    :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

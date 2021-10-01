@@ -12,6 +12,7 @@ __all__ = [
     'ListDomainSharedAccessKeysResult',
     'AwaitableListDomainSharedAccessKeysResult',
     'list_domain_shared_access_keys',
+    'list_domain_shared_access_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
     return AwaitableListDomainSharedAccessKeysResult(
         key1=__ret__.key1,
         key2=__ret__.key2)
+
+
+@_utilities.lift_output_func(list_domain_shared_access_keys)
+def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainSharedAccessKeysResult]:
+    """
+    Shared access keys of the Domain.
+
+
+    :param str domain_name: Name of the domain.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomDomainResult',
     'AwaitableGetCustomDomainResult',
     'get_custom_domain',
+    'get_custom_domain_output',
 ]
 
 @pulumi.output_type
@@ -188,3 +189,22 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         validation_data=__ret__.validation_data)
+
+
+@_utilities.lift_output_func(get_custom_domain)
+def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = None,
+                             endpoint_name: Optional[pulumi.Input[str]] = None,
+                             profile_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
+    """
+    Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+    API Version: 2020-09-01.
+
+
+    :param str custom_domain_name: Name of the custom domain within an endpoint.
+    :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSourceControlResult',
     'AwaitableGetSourceControlResult',
     'get_source_control',
+    'get_source_control_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,20 @@ def get_source_control(automation_account_name: Optional[str] = None,
         repo_url=__ret__.repo_url,
         source_type=__ret__.source_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_source_control)
+def get_source_control_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              source_control_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
+    """
+    Definition of the source control.
+    API Version: 2019-06-01.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str source_control_name: The name of source control.
+    """
+    ...

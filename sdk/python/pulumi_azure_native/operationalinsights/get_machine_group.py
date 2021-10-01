@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineGroupResult',
     'AwaitableGetMachineGroupResult',
     'get_machine_group',
+    'get_machine_group_output',
 ]
 
 @pulumi.output_type
@@ -179,3 +180,24 @@ def get_machine_group(end_time: Optional[str] = None,
         machines=__ret__.machines,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_machine_group)
+def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = None,
+                             machine_group_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             start_time: Optional[pulumi.Input[Optional[str]]] = None,
+                             workspace_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineGroupResult]:
+    """
+    A user-defined logical grouping of machines.
+    API Version: 2015-11-01-preview.
+
+
+    :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
+    :param str machine_group_name: Machine Group resource name.
+    :param str resource_group_name: Resource group name within the specified subscriptionId.
+    :param str start_time: UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
+    :param str workspace_name: OMS workspace containing the resources of interest.
+    """
+    ...

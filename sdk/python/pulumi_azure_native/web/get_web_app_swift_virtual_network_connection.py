@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppSwiftVirtualNetworkConnectionResult',
     'AwaitableGetWebAppSwiftVirtualNetworkConnectionResult',
     'get_web_app_swift_virtual_network_connection',
+    'get_web_app_swift_virtual_network_connection_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
         swift_supported=__ret__.swift_supported,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_swift_virtual_network_connection)
+def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionResult]:
+    """
+    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    API Version: 2020-10-01.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

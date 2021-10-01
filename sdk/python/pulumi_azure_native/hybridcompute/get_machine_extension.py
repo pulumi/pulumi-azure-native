@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineExtensionResult',
     'AwaitableGetMachineExtensionResult',
     'get_machine_extension',
+    'get_machine_extension_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,20 @@ def get_machine_extension(extension_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
+
+
+@_utilities.lift_output_func(get_machine_extension)
+def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = None,
+                                 name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineExtensionResult]:
+    """
+    Describes a Machine Extension.
+    API Version: 2020-08-02.
+
+
+    :param str extension_name: The name of the machine extension.
+    :param str name: The name of the machine containing the extension.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

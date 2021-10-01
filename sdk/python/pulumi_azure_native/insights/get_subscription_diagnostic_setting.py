@@ -13,6 +13,7 @@ __all__ = [
     'GetSubscriptionDiagnosticSettingResult',
     'AwaitableGetSubscriptionDiagnosticSettingResult',
     'get_subscription_diagnostic_setting',
+    'get_subscription_diagnostic_setting_output',
 ]
 
 @pulumi.output_type
@@ -179,3 +180,16 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
         storage_account_id=__ret__.storage_account_id,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
+
+
+@_utilities.lift_output_func(get_subscription_diagnostic_setting)
+def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
+    """
+    The subscription diagnostic setting resource.
+    API Version: 2017-05-01-preview.
+
+
+    :param str name: The name of the diagnostic setting.
+    """
+    ...

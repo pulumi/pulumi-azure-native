@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualNetworkRuleResult',
     'AwaitableGetVirtualNetworkRuleResult',
     'get_virtual_network_rule',
+    'get_virtual_network_rule_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
         state=__ret__.state,
         type=__ret__.type,
         virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+
+
+@_utilities.lift_output_func(get_virtual_network_rule)
+def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    server_name: Optional[pulumi.Input[str]] = None,
+                                    virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
+    """
+    A virtual network rule.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str virtual_network_rule_name: The name of the virtual network rule.
+    """
+    ...

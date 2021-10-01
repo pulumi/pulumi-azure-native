@@ -12,6 +12,7 @@ __all__ = [
     'GetExportConfigurationResult',
     'AwaitableGetExportConfigurationResult',
     'get_export_configuration',
+    'get_export_configuration_output',
 ]
 
 @pulumi.output_type
@@ -300,3 +301,19 @@ def get_export_configuration(export_id: Optional[str] = None,
         resource_group=__ret__.resource_group,
         storage_name=__ret__.storage_name,
         subscription_id=__ret__.subscription_id)
+
+
+@_utilities.lift_output_func(get_export_configuration)
+def get_export_configuration_output(export_id: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    resource_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportConfigurationResult]:
+    """
+    Properties that define a Continuous Export configuration.
+
+
+    :param str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

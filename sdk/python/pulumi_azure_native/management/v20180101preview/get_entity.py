@@ -13,6 +13,7 @@ __all__ = [
     'GetEntityResult',
     'AwaitableGetEntityResult',
     'get_entity',
+    'get_entity_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,18 @@ def get_entity(group_name: Optional[str] = None,
     return AwaitableGetEntityResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_entity)
+def get_entity_output(group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                      skiptoken: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
+    """
+    Describes the result of the request to view entities.
+
+
+    :param str group_name: A filter which allows the call to be filtered for a specific group.
+    :param str skiptoken: Page continuation token is only used if a previous operation returned a partial result. 
+           If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
+    """
+    ...

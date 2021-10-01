@@ -13,6 +13,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_image(expand: Optional[str] = None,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                     image_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str image_name: The name of the image.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

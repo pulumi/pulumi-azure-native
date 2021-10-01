@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkspaceAadAdminResult',
     'AwaitableGetWorkspaceAadAdminResult',
     'get_workspace_aad_admin',
+    'get_workspace_aad_admin_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,17 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
         sid=__ret__.sid,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workspace_aad_admin)
+def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   workspace_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceAadAdminResult]:
+    """
+    Workspace active directory administrator
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

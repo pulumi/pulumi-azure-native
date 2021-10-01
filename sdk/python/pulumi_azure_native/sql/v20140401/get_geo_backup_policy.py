@@ -12,6 +12,7 @@ __all__ = [
     'GetGeoBackupPolicyResult',
     'AwaitableGetGeoBackupPolicyResult',
     'get_geo_backup_policy',
+    'get_geo_backup_policy_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
         state=__ret__.state,
         storage_type=__ret__.storage_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_geo_backup_policy)
+def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[str]] = None,
+                                 geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 server_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
+    """
+    A database geo backup policy.
+
+
+    :param str database_name: The name of the database.
+    :param str geo_backup_policy_name: The name of the geo backup policy.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

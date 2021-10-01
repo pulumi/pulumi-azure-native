@@ -12,6 +12,7 @@ __all__ = [
     'GetGuestDiagnosticsSettingsAssociationResult',
     'AwaitableGetGuestDiagnosticsSettingsAssociationResult',
     'get_guest_diagnostics_settings_association',
+    'get_guest_diagnostics_settings_association_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,18 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_guest_diagnostics_settings_association)
+def get_guest_diagnostics_settings_association_output(association_name: Optional[pulumi.Input[str]] = None,
+                                                      resource_uri: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
+    """
+    Virtual machine guest diagnostic settings resource.
+    API Version: 2018-06-01-preview.
+
+
+    :param str association_name: The name of the diagnostic settings association.
+    :param str resource_uri: The fully qualified ID of the resource, including the resource name and resource type.
+    """
+    ...

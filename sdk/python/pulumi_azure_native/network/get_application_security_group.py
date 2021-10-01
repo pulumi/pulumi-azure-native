@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationSecurityGroupResult',
     'AwaitableGetApplicationSecurityGroupResult',
     'get_application_security_group',
+    'get_application_security_group_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,18 @@ def get_application_security_group(application_security_group_name: Optional[str
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_application_security_group)
+def get_application_security_group_output(application_security_group_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
+    """
+    An application security group in a resource group.
+    API Version: 2020-11-01.
+
+
+    :param str application_security_group_name: The name of the application security group.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

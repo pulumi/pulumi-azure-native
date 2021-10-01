@@ -13,6 +13,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -187,3 +188,21 @@ def get_user(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                    lab_name: Optional[pulumi.Input[str]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Profile of a lab user.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=identity)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the user profile.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

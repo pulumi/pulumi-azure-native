@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppVnetConnectionSlotResult',
     'AwaitableGetWebAppVnetConnectionSlotResult',
     'get_web_app_vnet_connection_slot',
+    'get_web_app_vnet_connection_slot_output',
 ]
 
 @pulumi.output_type
@@ -214,3 +215,21 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         vnet_resource_id=__ret__.vnet_resource_id)
+
+
+@_utilities.lift_output_func(get_web_app_vnet_connection_slot)
+def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            slot: Optional[pulumi.Input[str]] = None,
+                                            vnet_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionSlotResult]:
+    """
+    Virtual Network information contract.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
+    :param str vnet_name: Name of the virtual network.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetProductPolicyResult',
     'AwaitableGetProductPolicyResult',
     'get_product_policy',
+    'get_product_policy_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_product_policy(policy_id: Optional[str] = None,
         name=__ret__.name,
         policy_content=__ret__.policy_content,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_product_policy)
+def get_product_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
+                              product_id: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              service_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductPolicyResult]:
+    """
+    Policy Contract details.
+
+
+    :param str policy_id: The identifier of the Policy.
+    :param str product_id: Product identifier. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

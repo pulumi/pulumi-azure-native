@@ -13,6 +13,7 @@ __all__ = [
     'ListLocationConsortiumsResult',
     'AwaitableListLocationConsortiumsResult',
     'list_location_consortiums',
+    'list_location_consortiums_output',
 ]
 
 @pulumi.output_type
@@ -62,3 +63,16 @@ def list_location_consortiums(location_name: Optional[str] = None,
 
     return AwaitableListLocationConsortiumsResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_location_consortiums)
+def list_location_consortiums_output(location_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocationConsortiumsResult]:
+    """
+    Collection of the consortium payload.
+    API Version: 2018-06-01-preview.
+
+
+    :param str location_name: Location Name.
+    """
+    ...

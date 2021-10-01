@@ -13,6 +13,7 @@ __all__ = [
     'ListDeviceFailoverSetsResult',
     'AwaitableListDeviceFailoverSetsResult',
     'list_device_failover_sets',
+    'list_device_failover_sets_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,19 @@ def list_device_failover_sets(device_name: Optional[str] = None,
 
     return AwaitableListDeviceFailoverSetsResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_device_failover_sets)
+def list_device_failover_sets_output(device_name: Optional[pulumi.Input[str]] = None,
+                                     manager_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverSetsResult]:
+    """
+    The list of failover sets.
+
+
+    :param str device_name: The device name
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

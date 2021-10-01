@@ -12,6 +12,7 @@ __all__ = [
     'GetGlobalReachConnectionResult',
     'AwaitableGetGlobalReachConnectionResult',
     'get_global_reach_connection',
+    'get_global_reach_connection_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,20 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
         peer_express_route_circuit=__ret__.peer_express_route_circuit,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_global_reach_connection)
+def get_global_reach_connection_output(global_reach_connection_name: Optional[pulumi.Input[str]] = None,
+                                       private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
+    """
+    A global reach connection resource
+    API Version: 2020-07-17-preview.
+
+
+    :param str global_reach_connection_name: Name of the global reach connection in the private cloud
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

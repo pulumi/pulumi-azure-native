@@ -13,6 +13,7 @@ __all__ = [
     'GetVendorSkuPreviewResult',
     'AwaitableGetVendorSkuPreviewResult',
     'get_vendor_sku_preview',
+    'get_vendor_sku_preview_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_vendor_sku_preview)
+def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[str]] = None,
+                                  sku_name: Optional[pulumi.Input[str]] = None,
+                                  vendor_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
+    """
+    Customer subscription which can use a sku.
+
+
+    :param str preview_subscription: Preview subscription ID.
+    :param str sku_name: The name of the vendor sku.
+    :param str vendor_name: The name of the vendor.
+    """
+    ...

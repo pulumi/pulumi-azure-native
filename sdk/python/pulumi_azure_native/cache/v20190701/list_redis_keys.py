@@ -12,6 +12,7 @@ __all__ = [
     'ListRedisKeysResult',
     'AwaitableListRedisKeysResult',
     'list_redis_keys',
+    'list_redis_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_redis_keys(name: Optional[str] = None,
     return AwaitableListRedisKeysResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_redis_keys)
+def list_redis_keys_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRedisKeysResult]:
+    """
+    Redis cache access keys.
+
+
+    :param str name: The name of the Redis cache.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

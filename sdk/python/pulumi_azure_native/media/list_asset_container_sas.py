@@ -13,6 +13,7 @@ __all__ = [
     'ListAssetContainerSasResult',
     'AwaitableListAssetContainerSasResult',
     'list_asset_container_sas',
+    'list_asset_container_sas_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,24 @@ def list_asset_container_sas(account_name: Optional[str] = None,
 
     return AwaitableListAssetContainerSasResult(
         asset_container_sas_urls=__ret__.asset_container_sas_urls)
+
+
+@_utilities.lift_output_func(list_asset_container_sas)
+def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = None,
+                                    asset_name: Optional[pulumi.Input[str]] = None,
+                                    expiry_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                    permissions: Optional[pulumi.Input[Optional[Union[str, 'AssetContainerPermission']]]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAssetContainerSasResult]:
+    """
+    The Asset Storage container SAS URLs.
+    API Version: 2020-05-01.
+
+
+    :param str account_name: The Media Services account name.
+    :param str asset_name: The Asset name.
+    :param str expiry_time: The SAS URL expiration time.  This must be less than 24 hours from the current time.
+    :param Union[str, 'AssetContainerPermission'] permissions: The permissions to set on the SAS URL.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    """
+    ...

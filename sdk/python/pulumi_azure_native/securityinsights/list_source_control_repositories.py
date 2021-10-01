@@ -13,6 +13,7 @@ __all__ = [
     'ListSourceControlRepositoriesResult',
     'AwaitableListSourceControlRepositoriesResult',
     'list_source_control_repositories',
+    'list_source_control_repositories_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def list_source_control_repositories(operational_insights_resource_provider: Opt
     return AwaitableListSourceControlRepositoriesResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_source_control_repositories)
+def list_source_control_repositories_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            workspace_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
+    """
+    List all the source controls.
+    API Version: 2021-03-01-preview.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

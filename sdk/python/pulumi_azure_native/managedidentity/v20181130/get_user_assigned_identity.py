@@ -12,6 +12,7 @@ __all__ = [
     'GetUserAssignedIdentityResult',
     'AwaitableGetUserAssignedIdentityResult',
     'get_user_assigned_identity',
+    'get_user_assigned_identity_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,17 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_user_assigned_identity)
+def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      resource_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
+    """
+    Describes an identity resource.
+
+
+    :param str resource_group_name: The name of the Resource Group to which the identity belongs.
+    :param str resource_name: The name of the identity resource.
+    """
+    ...

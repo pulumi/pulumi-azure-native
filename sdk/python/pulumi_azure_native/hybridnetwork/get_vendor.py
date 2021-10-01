@@ -13,6 +13,7 @@ __all__ = [
     'GetVendorResult',
     'AwaitableGetVendorResult',
     'get_vendor',
+    'get_vendor_output',
 ]
 
 @pulumi.output_type
@@ -114,3 +115,16 @@ def get_vendor(vendor_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         skus=__ret__.skus,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_vendor)
+def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
+    """
+    Vendor resource.
+    API Version: 2020-01-01-preview.
+
+
+    :param str vendor_name: The name of the vendor.
+    """
+    ...

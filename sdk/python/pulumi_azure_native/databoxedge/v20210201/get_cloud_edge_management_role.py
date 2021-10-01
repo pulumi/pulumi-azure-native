@@ -13,6 +13,7 @@ __all__ = [
     'GetCloudEdgeManagementRoleResult',
     'AwaitableGetCloudEdgeManagementRoleResult',
     'get_cloud_edge_management_role',
+    'get_cloud_edge_management_role_output',
 ]
 
 @pulumi.output_type
@@ -163,3 +164,21 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
         role_status=__ret__.role_status,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cloud_edge_management_role)
+def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str]] = None,
+                                          name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
+    """
+    The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
+    For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
+    By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
+
+
+    :param str device_name: The device name.
+    :param str name: The role name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

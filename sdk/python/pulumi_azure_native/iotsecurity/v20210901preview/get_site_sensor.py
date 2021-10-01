@@ -13,6 +13,7 @@ __all__ = [
     'GetSiteSensorResult',
     'AwaitableGetSiteSensorResult',
     'get_site_sensor',
+    'get_site_sensor_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_site_sensor(iot_defender_location: Optional[str] = None,
         ti_version=__ret__.ti_version,
         type=__ret__.type,
         zone=__ret__.zone)
+
+
+@_utilities.lift_output_func(get_site_sensor)
+def get_site_sensor_output(iot_defender_location: Optional[pulumi.Input[str]] = None,
+                           sensor_name: Optional[pulumi.Input[str]] = None,
+                           site_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteSensorResult]:
+    """
+    IoT sensor model
+
+
+    :param str iot_defender_location: Defender for IoT location
+    :param str sensor_name: Name of the IoT sensor
+    :param str site_name: Site Name
+    """
+    ...

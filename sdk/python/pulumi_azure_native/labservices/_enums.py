@@ -22,9 +22,13 @@ class AddRemove(str, Enum):
     Enum indicating if user is adding or removing a favorite lab
     """
     ADD = "Add"
-    """Indicates that a user is adding a favorite lab"""
+    """
+    Indicates that a user is adding a favorite lab
+    """
     REMOVE = "Remove"
-    """Indicates that a user is removing a favorite lab"""
+    """
+    Indicates that a user is removing a favorite lab
+    """
 
 
 class ConfigurationState(str, Enum):
@@ -32,10 +36,14 @@ class ConfigurationState(str, Enum):
     Describes the user's progress in configuring their environment setting
     """
     NOT_APPLICABLE = "NotApplicable"
-    """User either hasn't started configuring their template
-or they haven't started the configuration process."""
+    """
+    User either hasn't started configuring their template
+    or they haven't started the configuration process.
+    """
     COMPLETED = "Completed"
-    """User is finished modifying the template."""
+    """
+    User is finished modifying the template.
+    """
 
 
 class ConnectionType(str, Enum):
@@ -60,9 +68,13 @@ class LabUserAccessMode(str, Enum):
     Lab user access mode (open to all vs. restricted to those listed on the lab).
     """
     RESTRICTED = "Restricted"
-    """Only users registered with the lab can access VMs."""
+    """
+    Only users registered with the lab can access VMs.
+    """
     OPEN = "Open"
-    """Any user can register with the lab and access its VMs."""
+    """
+    Any user can register with the lab and access its VMs.
+    """
 
 
 class ManagedLabVmSize(str, Enum):
@@ -70,11 +82,17 @@ class ManagedLabVmSize(str, Enum):
     The size of the virtual machine
     """
     BASIC = "Basic"
-    """The base VM size"""
+    """
+    The base VM size
+    """
     STANDARD = "Standard"
-    """The standard or default VM size"""
+    """
+    The standard or default VM size
+    """
     PERFORMANCE = "Performance"
-    """The most performant VM size"""
+    """
+    The most performant VM size
+    """
 
 
 class RecurrenceFrequency(str, Enum):
@@ -82,9 +100,13 @@ class RecurrenceFrequency(str, Enum):
     The frequency of the recurrence.
     """
     DAILY = "Daily"
-    """Schedule will run every days."""
+    """
+    Schedule will run every days.
+    """
     WEEKLY = "Weekly"
-    """Schedule will run every week on days specified in weekDays."""
+    """
+    Schedule will run every week on days specified in weekDays.
+    """
 
 
 class ShutdownOnIdleMode(str, Enum):
@@ -92,11 +114,17 @@ class ShutdownOnIdleMode(str, Enum):
     Whether a VM will get shutdown when it has idled for a period of time.
     """
     NONE = "None"
-    """The VM won't be shut down when it is idle."""
+    """
+    The VM won't be shut down when it is idle.
+    """
     USER_ABSENCE = "UserAbsence"
-    """The VM will be considered as idle when there is no keyboard or mouse input."""
+    """
+    The VM will be considered as idle when there is no keyboard or mouse input.
+    """
     LOW_USAGE = "LowUsage"
-    """The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low."""
+    """
+    The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
+    """
 
 
 class WeekDay(str, Enum):
@@ -104,16 +132,30 @@ class WeekDay(str, Enum):
     Days of the week.
     """
     SUNDAY = "Sunday"
-    """Schedule will run on Sunday"""
+    """
+    Schedule will run on Sunday
+    """
     MONDAY = "Monday"
-    """Schedule will run on Monday"""
+    """
+    Schedule will run on Monday
+    """
     TUESDAY = "Tuesday"
-    """Schedule will run on Tuesday"""
+    """
+    Schedule will run on Tuesday
+    """
     WEDNESDAY = "Wednesday"
-    """Schedule will run on Wednesday"""
+    """
+    Schedule will run on Wednesday
+    """
     THURSDAY = "Thursday"
-    """Schedule will run on Thursday"""
+    """
+    Schedule will run on Thursday
+    """
     FRIDAY = "Friday"
-    """Schedule will run on Friday"""
+    """
+    Schedule will run on Friday
+    """
     SATURDAY = "Saturday"
-    """Schedule will run on Saturday"""
+    """
+    Schedule will run on Saturday
+    """

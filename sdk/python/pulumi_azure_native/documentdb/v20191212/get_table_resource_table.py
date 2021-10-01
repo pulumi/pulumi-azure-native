@@ -13,6 +13,7 @@ __all__ = [
     'GetTableResourceTableResult',
     'AwaitableGetTableResourceTableResult',
     'get_table_resource_table',
+    'get_table_resource_table_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,19 @@ def get_table_resource_table(account_name: Optional[str] = None,
         resource=__ret__.resource,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_table_resource_table)
+def get_table_resource_table_output(account_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    table_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResourceTableResult]:
+    """
+    An Azure Cosmos DB Table.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str resource_group_name: Name of an Azure resource group.
+    :param str table_name: Cosmos DB table name.
+    """
+    ...

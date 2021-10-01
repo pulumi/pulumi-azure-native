@@ -13,6 +13,7 @@ __all__ = [
     'GetBlobStorageAccountDataSetResult',
     'AwaitableGetBlobStorageAccountDataSetResult',
     'get_blob_storage_account_data_set',
+    'get_blob_storage_account_data_set_output',
 ]
 
 @pulumi.output_type
@@ -175,3 +176,21 @@ def get_blob_storage_account_data_set(account_name: Optional[str] = None,
         storage_account_resource_id=__ret__.storage_account_resource_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_blob_storage_account_data_set)
+def get_blob_storage_account_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
+                                             data_set_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             share_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobStorageAccountDataSetResult]:
+    """
+    An Azure blob storage account data set.
+
+
+    :param str account_name: The name of the share account.
+    :param str data_set_name: The name of the dataSet.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    """
+    ...

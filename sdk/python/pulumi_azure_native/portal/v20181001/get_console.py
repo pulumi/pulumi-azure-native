@@ -13,6 +13,7 @@ __all__ = [
     'GetConsoleResult',
     'AwaitableGetConsoleResult',
     'get_console',
+    'get_console_output',
 ]
 
 @pulumi.output_type
@@ -61,3 +62,15 @@ def get_console(console_name: Optional[str] = None,
 
     return AwaitableGetConsoleResult(
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_console)
+def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
+    """
+    Cloud shell console
+
+
+    :param str console_name: The name of the console
+    """
+    ...

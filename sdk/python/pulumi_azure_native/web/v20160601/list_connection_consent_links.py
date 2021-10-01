@@ -14,6 +14,7 @@ __all__ = [
     'ListConnectionConsentLinksResult',
     'AwaitableListConnectionConsentLinksResult',
     'list_connection_consent_links',
+    'list_connection_consent_links_output',
 ]
 
 @pulumi.output_type
@@ -71,3 +72,21 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
     return AwaitableListConnectionConsentLinksResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_connection_consent_links)
+def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                         parameters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinition']]]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
+    """
+    Collection of consent links
+
+
+    :param str connection_name: Connection name
+    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinition']] parameters: Collection of resources
+    :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
+    """
+    ...

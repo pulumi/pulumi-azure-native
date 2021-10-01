@@ -12,6 +12,7 @@ __all__ = [
     'GetExposureControlFeatureValueByFactoryResult',
     'AwaitableGetExposureControlFeatureValueByFactoryResult',
     'get_exposure_control_feature_value_by_factory',
+    'get_exposure_control_feature_value_by_factory_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,22 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
     return AwaitableGetExposureControlFeatureValueByFactoryResult(
         feature_name=__ret__.feature_name,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_exposure_control_feature_value_by_factory)
+def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                                         feature_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                                         feature_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
+    """
+    The exposure control response.
+    API Version: 2018-06-01.
+
+
+    :param str factory_name: The factory name.
+    :param str feature_name: The feature name.
+    :param str feature_type: The feature type.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

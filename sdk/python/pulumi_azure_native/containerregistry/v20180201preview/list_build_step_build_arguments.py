@@ -13,6 +13,7 @@ __all__ = [
     'ListBuildStepBuildArgumentsResult',
     'AwaitableListBuildStepBuildArgumentsResult',
     'list_build_step_build_arguments',
+    'list_build_step_build_arguments_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,21 @@ def list_build_step_build_arguments(build_task_name: Optional[str] = None,
     return AwaitableListBuildStepBuildArgumentsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_build_step_build_arguments)
+def list_build_step_build_arguments_output(build_task_name: Optional[pulumi.Input[str]] = None,
+                                           registry_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           step_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildStepBuildArgumentsResult]:
+    """
+    The list of build arguments for a build step.
+
+
+    :param str build_task_name: The name of the container registry build task.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str step_name: The name of a build step for a container registry build task.
+    """
+    ...

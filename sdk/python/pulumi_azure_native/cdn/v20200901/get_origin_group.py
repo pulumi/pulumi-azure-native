@@ -13,6 +13,7 @@ __all__ = [
     'GetOriginGroupResult',
     'AwaitableGetOriginGroupResult',
     'get_origin_group',
+    'get_origin_group_output',
 ]
 
 @pulumi.output_type
@@ -187,3 +188,21 @@ def get_origin_group(endpoint_name: Optional[str] = None,
         system_data=__ret__.system_data,
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_origin_group)
+def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
+                            origin_group_name: Optional[pulumi.Input[str]] = None,
+                            profile_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginGroupResult]:
+    """
+    Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+
+
+    :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
+    :param str origin_group_name: Name of the origin group which is unique within the endpoint.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

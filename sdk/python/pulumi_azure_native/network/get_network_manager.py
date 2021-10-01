@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkManagerResult',
     'AwaitableGetNetworkManagerResult',
     'get_network_manager',
+    'get_network_manager_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,18 @@ def get_network_manager(network_manager_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network_manager)
+def get_network_manager_output(network_manager_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
+    """
+    The Managed Network resource
+    API Version: 2021-02-01-preview.
+
+
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

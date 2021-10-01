@@ -13,6 +13,7 @@ __all__ = [
     'GetExportResult',
     'AwaitableGetExportResult',
     'get_export',
+    'get_export_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_export(expand: Optional[str] = None,
         run_history=__ret__.run_history,
         schedule=__ret__.schedule,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_export)
+def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                      export_name: Optional[pulumi.Input[str]] = None,
+                      scope: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
+    """
+    An export resource.
+
+
+    :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+    :param str export_name: Export Name.
+    :param str scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
+    """
+    ...

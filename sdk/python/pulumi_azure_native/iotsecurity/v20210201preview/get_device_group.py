@@ -13,6 +13,7 @@ __all__ = [
     'GetDeviceGroupResult',
     'AwaitableGetDeviceGroupResult',
     'get_device_group',
+    'get_device_group_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,17 @@ def get_device_group(device_group_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_device_group)
+def get_device_group_output(device_group_name: Optional[pulumi.Input[str]] = None,
+                            iot_defender_location: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceGroupResult]:
+    """
+    Device group
+
+
+    :param str device_group_name: Device group name
+    :param str iot_defender_location: Defender for IoT location
+    """
+    ...

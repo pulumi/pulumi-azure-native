@@ -12,6 +12,7 @@ __all__ = [
     'GetWatcherResult',
     'AwaitableGetWatcherResult',
     'get_watcher',
+    'get_watcher_output',
 ]
 
 @pulumi.output_type
@@ -248,3 +249,19 @@ def get_watcher(automation_account_name: Optional[str] = None,
         status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_watcher)
+def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       watcher_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatcherResult]:
+    """
+    Definition of the watcher type.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str watcher_name: The watcher name.
+    """
+    ...

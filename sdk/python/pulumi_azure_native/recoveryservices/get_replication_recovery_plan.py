@@ -13,6 +13,7 @@ __all__ = [
     'GetReplicationRecoveryPlanResult',
     'AwaitableGetReplicationRecoveryPlanResult',
     'get_replication_recovery_plan',
+    'get_replication_recovery_plan_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_replication_recovery_plan)
+def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         resource_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
+    """
+    Recovery plan details.
+    API Version: 2018-07-10.
+
+
+    :param str recovery_plan_name: Name of the recovery plan.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_name: The name of the recovery services vault.
+    """
+    ...

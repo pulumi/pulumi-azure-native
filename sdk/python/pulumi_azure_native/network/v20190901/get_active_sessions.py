@@ -13,6 +13,7 @@ __all__ = [
     'GetActiveSessionsResult',
     'AwaitableGetActiveSessionsResult',
     'get_active_sessions',
+    'get_active_sessions_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
     return AwaitableGetActiveSessionsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_active_sessions)
+def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveSessionsResult]:
+    """
+    Response for GetActiveSessions.
+
+
+    :param str bastion_host_name: The name of the Bastion Host.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

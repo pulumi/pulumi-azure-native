@@ -13,6 +13,7 @@ __all__ = [
     'GetPeerAsnResult',
     'AwaitableGetPeerAsnResult',
     'get_peer_asn',
+    'get_peer_asn_output',
 ]
 
 @pulumi.output_type
@@ -153,3 +154,16 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
         peer_name=__ret__.peer_name,
         type=__ret__.type,
         validation_state=__ret__.validation_state)
+
+
+@_utilities.lift_output_func(get_peer_asn)
+def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeerAsnResult]:
+    """
+    The essential information related to the peer's ASN.
+    API Version: 2021-01-01.
+
+
+    :param str peer_asn_name: The peer ASN name.
+    """
+    ...

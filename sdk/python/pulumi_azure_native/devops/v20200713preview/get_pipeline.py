@@ -13,6 +13,7 @@ __all__ = [
     'GetPipelineResult',
     'AwaitableGetPipelineResult',
     'get_pipeline',
+    'get_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_pipeline(pipeline_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_pipeline)
+def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+    """
+    Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+
+
+    :param str pipeline_name: The name of the Pipeline resource in ARM.
+    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    """
+    ...

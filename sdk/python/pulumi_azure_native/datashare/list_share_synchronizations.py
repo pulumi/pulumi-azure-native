@@ -13,6 +13,7 @@ __all__ = [
     'ListShareSynchronizationsResult',
     'AwaitableListShareSynchronizationsResult',
     'list_share_synchronizations',
+    'list_share_synchronizations_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,26 @@ def list_share_synchronizations(account_name: Optional[str] = None,
     return AwaitableListShareSynchronizationsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_share_synchronizations)
+def list_share_synchronizations_output(account_name: Optional[pulumi.Input[str]] = None,
+                                       filter: Optional[pulumi.Input[Optional[str]]] = None,
+                                       orderby: Optional[pulumi.Input[Optional[str]]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       share_name: Optional[pulumi.Input[str]] = None,
+                                       skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationsResult]:
+    """
+    List response for get ShareSynchronization.
+    API Version: 2020-09-01.
+
+
+    :param str account_name: The name of the share account.
+    :param str filter: Filters the results using OData syntax.
+    :param str orderby: Sorts the results using OData syntax.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    :param str skip_token: Continuation token
+    """
+    ...

@@ -14,6 +14,7 @@ __all__ = [
     'ListNetworkManagerDeploymentStatusResult',
     'AwaitableListNetworkManagerDeploymentStatusResult',
     'list_network_manager_deployment_status',
+    'list_network_manager_deployment_status_output',
 ]
 
 @pulumi.output_type
@@ -87,3 +88,23 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
     return AwaitableListNetworkManagerDeploymentStatusResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_network_manager_deployment_status)
+def list_network_manager_deployment_status_output(deployment_types: Optional[pulumi.Input[Optional[Sequence[Union[str, 'ConfigurationType']]]]] = None,
+                                                  network_manager_name: Optional[pulumi.Input[str]] = None,
+                                                  regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
+    """
+    A list of Network Manager Deployment Status
+
+
+    :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.
+    :param str network_manager_name: The name of the network manager.
+    :param Sequence[str] regions: List of locations.
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+    """
+    ...

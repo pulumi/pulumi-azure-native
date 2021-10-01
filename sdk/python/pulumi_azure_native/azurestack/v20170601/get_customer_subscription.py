@@ -12,6 +12,7 @@ __all__ = [
     'GetCustomerSubscriptionResult',
     'AwaitableGetCustomerSubscriptionResult',
     'get_customer_subscription',
+    'get_customer_subscription_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_customer_subscription)
+def get_customer_subscription_output(customer_subscription_name: Optional[pulumi.Input[str]] = None,
+                                     registration_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
+    """
+    Customer subscription.
+
+
+    :param str customer_subscription_name: Name of the product.
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListStorageAccountServiceSASResult',
     'AwaitableListStorageAccountServiceSASResult',
     'list_storage_account_service_sas',
+    'list_storage_account_service_sas_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,54 @@ def list_storage_account_service_sas(account_name: Optional[str] = None,
 
     return AwaitableListStorageAccountServiceSASResult(
         service_sas_token=__ret__.service_sas_token)
+
+
+@_utilities.lift_output_func(list_storage_account_service_sas)
+def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[str]] = None,
+                                            cache_control: Optional[pulumi.Input[Optional[str]]] = None,
+                                            canonicalized_resource: Optional[pulumi.Input[str]] = None,
+                                            content_disposition: Optional[pulumi.Input[Optional[str]]] = None,
+                                            content_encoding: Optional[pulumi.Input[Optional[str]]] = None,
+                                            content_language: Optional[pulumi.Input[Optional[str]]] = None,
+                                            content_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                            i_p_address_or_range: Optional[pulumi.Input[Optional[str]]] = None,
+                                            identifier: Optional[pulumi.Input[Optional[str]]] = None,
+                                            key_to_sign: Optional[pulumi.Input[Optional[str]]] = None,
+                                            partition_key_end: Optional[pulumi.Input[Optional[str]]] = None,
+                                            partition_key_start: Optional[pulumi.Input[Optional[str]]] = None,
+                                            permissions: Optional[pulumi.Input[Optional[Union[str, 'Permissions']]]] = None,
+                                            protocols: Optional[pulumi.Input[Optional['HttpProtocol']]] = None,
+                                            resource: Optional[pulumi.Input[Optional[Union[str, 'SignedResource']]]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            row_key_end: Optional[pulumi.Input[Optional[str]]] = None,
+                                            row_key_start: Optional[pulumi.Input[Optional[str]]] = None,
+                                            shared_access_expiry_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                            shared_access_start_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountServiceSASResult]:
+    """
+    The List service SAS credentials operation response.
+    API Version: 2021-02-01.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str cache_control: The response header override for cache control.
+    :param str canonicalized_resource: The canonical path to the signed resource.
+    :param str content_disposition: The response header override for content disposition.
+    :param str content_encoding: The response header override for content encoding.
+    :param str content_language: The response header override for content language.
+    :param str content_type: The response header override for content type.
+    :param str i_p_address_or_range: An IP address or a range of IP addresses from which to accept requests.
+    :param str identifier: A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.
+    :param str key_to_sign: The key to sign the account SAS token with.
+    :param str partition_key_end: The end of partition key.
+    :param str partition_key_start: The start of partition key.
+    :param Union[str, 'Permissions'] permissions: The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+    :param 'HttpProtocol' protocols: The protocol permitted for a request made with the account SAS.
+    :param Union[str, 'SignedResource'] resource: The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str row_key_end: The end of row key.
+    :param str row_key_start: The start of row key.
+    :param str shared_access_expiry_time: The time at which the shared access signature becomes invalid.
+    :param str shared_access_start_time: The time at which the SAS becomes valid.
+    """
+    ...

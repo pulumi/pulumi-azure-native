@@ -12,6 +12,7 @@ __all__ = [
     'GetTableResult',
     'AwaitableGetTableResult',
     'get_table',
+    'get_table_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_table(account_name: Optional[str] = None,
         name=__ret__.name,
         table_name=__ret__.table_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_table)
+def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     table_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
+    """
+    Properties of the table, including Id, resource name, resource type.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+    """
+    ...

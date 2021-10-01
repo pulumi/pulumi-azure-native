@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationAccountCertificateResult',
     'AwaitableGetIntegrationAccountCertificateResult',
     'get_integration_account_certificate',
+    'get_integration_account_certificate_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
         public_certificate=__ret__.public_certificate,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_certificate)
+def get_integration_account_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
+                                               integration_account_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountCertificateResult]:
+    """
+    The integration account certificate.
+    API Version: 2019-05-01.
+
+
+    :param str certificate_name: The integration account certificate name.
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

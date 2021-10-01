@@ -13,6 +13,7 @@ __all__ = [
     'GetUserSettingsWithLocationResult',
     'AwaitableGetUserSettingsWithLocationResult',
     'get_user_settings_with_location',
+    'get_user_settings_with_location_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def get_user_settings_with_location(location: Optional[str] = None,
 
     return AwaitableGetUserSettingsWithLocationResult(
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_user_settings_with_location)
+def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]] = None,
+                                           user_settings_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsWithLocationResult]:
+    """
+    Response to get user settings
+    API Version: 2018-10-01.
+
+
+    :param str location: The provider location
+    :param str user_settings_name: The name of the user settings
+    """
+    ...

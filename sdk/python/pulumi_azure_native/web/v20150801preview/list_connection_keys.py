@@ -12,6 +12,7 @@ __all__ = [
     'ListConnectionKeysResult',
     'AwaitableListConnectionKeysResult',
     'list_connection_keys',
+    'list_connection_keys_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,30 @@ def list_connection_keys(connection_name: Optional[str] = None,
     return AwaitableListConnectionKeysResult(
         connection_key=__ret__.connection_key,
         parameter_values=__ret__.parameter_values)
+
+
+@_utilities.lift_output_func(list_connection_keys)
+def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                id: Optional[pulumi.Input[Optional[str]]] = None,
+                                kind: Optional[pulumi.Input[Optional[str]]] = None,
+                                location: Optional[pulumi.Input[Optional[str]]] = None,
+                                name: Optional[pulumi.Input[Optional[str]]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                type: Optional[pulumi.Input[Optional[str]]] = None,
+                                validity_time_span: Optional[pulumi.Input[Optional[str]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionKeysResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str connection_name: The connection name.
+    :param str id: Resource Id
+    :param str kind: Kind of resource
+    :param str location: Resource Location
+    :param str name: Resource Name
+    :param str resource_group_name: The resource group name.
+    :param Mapping[str, str] tags: Resource tags
+    :param str type: Resource type
+    :param str validity_time_span: time span for how long the keys will be valid
+    """
+    ...

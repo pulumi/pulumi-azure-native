@@ -12,6 +12,7 @@ __all__ = [
     'GetShareSubscriptionResult',
     'AwaitableGetShareSubscriptionResult',
     'get_share_subscription',
+    'get_share_subscription_output',
 ]
 
 @pulumi.output_type
@@ -261,3 +262,19 @@ def get_share_subscription(account_name: Optional[str] = None,
         type=__ret__.type,
         user_email=__ret__.user_email,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_share_subscription)
+def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareSubscriptionResult]:
+    """
+    A share subscription data transfer object.
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    """
+    ...

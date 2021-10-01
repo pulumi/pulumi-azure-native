@@ -13,6 +13,7 @@ __all__ = [
     'GetLabAccountResult',
     'AwaitableGetLabAccountResult',
     'get_lab_account',
+    'get_lab_account_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_lab_account(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_lab_account)
+def get_lab_account_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                           lab_account_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountResult]:
+    """
+    Represents a lab account.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
+    :param str lab_account_name: The name of the lab Account.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

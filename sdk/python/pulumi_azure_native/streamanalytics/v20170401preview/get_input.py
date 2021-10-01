@@ -13,6 +13,7 @@ __all__ = [
     'GetInputResult',
     'AwaitableGetInputResult',
     'get_input',
+    'get_input_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,19 @@ def get_input(input_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_input)
+def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
+                     job_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
+    """
+    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+
+
+    :param str input_name: The name of the input.
+    :param str job_name: The name of the streaming job.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

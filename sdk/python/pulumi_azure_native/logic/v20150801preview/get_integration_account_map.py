@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationAccountMapResult',
     'AwaitableGetIntegrationAccountMapResult',
     'get_integration_account_map',
+    'get_integration_account_map_output',
 ]
 
 @pulumi.output_type
@@ -206,3 +207,18 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_map)
+def get_integration_account_map_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                                       map_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountMapResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str integration_account_name: The integration account name.
+    :param str map_name: The integration account map name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

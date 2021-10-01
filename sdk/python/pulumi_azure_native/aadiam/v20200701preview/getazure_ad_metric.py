@@ -13,6 +13,7 @@ __all__ = [
     'GetazureADMetricResult',
     'AwaitableGetazureADMetricResult',
     'getazure_ad_metric',
+    'getazure_ad_metric_output',
 ]
 
 @pulumi.output_type
@@ -126,3 +127,17 @@ def getazure_ad_metric(azure_ad_metrics_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(getazure_ad_metric)
+def getazure_ad_metric_output(azure_ad_metrics_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetazureADMetricResult]:
+    """
+    AzureADMetrics resource.
+
+
+    :param str azure_ad_metrics_name: Name of the azureADMetrics instance.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

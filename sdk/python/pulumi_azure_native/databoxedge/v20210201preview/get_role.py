@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleResult',
     'AwaitableGetRoleResult',
     'get_role',
+    'get_role_output',
 ]
 
 warnings.warn("""Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""", DeprecationWarning)
@@ -122,3 +123,20 @@ def get_role(device_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role)
+def get_role_output(device_name: Optional[pulumi.Input[str]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+    """
+    Compute role.
+
+
+    :param str device_name: The device name.
+    :param str name: The role name.
+    :param str resource_group_name: The resource group name.
+    """
+    pulumi.log.warn("""get_role is deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""")
+    ...

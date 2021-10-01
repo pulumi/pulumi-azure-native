@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentResult',
     'AwaitableGetDeploymentResult',
     'get_deployment',
+    'get_deployment_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,17 @@ def get_deployment(deployment_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_deployment)
+def get_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
+    """
+    Deployment information.
+
+
+    :param str deployment_name: The name of the deployment.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    """
+    ...

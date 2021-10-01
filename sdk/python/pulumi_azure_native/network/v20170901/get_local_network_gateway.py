@@ -13,6 +13,7 @@ __all__ = [
     'GetLocalNetworkGatewayResult',
     'AwaitableGetLocalNetworkGatewayResult',
     'get_local_network_gateway',
+    'get_local_network_gateway_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_local_network_gateway)
+def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
+    """
+    A common class for general resource information
+
+
+    :param str local_network_gateway_name: The name of the local network gateway.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

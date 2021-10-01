@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlDatabaseResult',
     'AwaitableGetSqlDatabaseResult',
     'get_sql_database',
+    'get_sql_database_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_sql_database(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_database)
+def get_sql_database_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            sql_database_name: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDatabaseResult]:
+    """
+    A sql database resource.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sql_database_name: The name of the sql database.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

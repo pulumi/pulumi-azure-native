@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseResult',
     'AwaitableGetDatabaseResult',
     'get_database',
+    'get_database_output',
 ]
 
 warnings.warn("""Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.""", DeprecationWarning)
@@ -121,3 +122,20 @@ def get_database(cluster_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_database)
+def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                        database_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+    """
+    Class representing a Kusto database.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str database_name: The name of the database in the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    pulumi.log.warn("""get_database is deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.""")
+    ...

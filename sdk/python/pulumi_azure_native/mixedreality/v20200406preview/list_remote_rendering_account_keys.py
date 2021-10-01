@@ -12,6 +12,7 @@ __all__ = [
     'ListRemoteRenderingAccountKeysResult',
     'AwaitableListRemoteRenderingAccountKeysResult',
     'list_remote_rendering_account_keys',
+    'list_remote_rendering_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
     return AwaitableListRemoteRenderingAccountKeysResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_remote_rendering_account_keys)
+def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
+    """
+    Developer Keys of account
+
+
+    :param str account_name: Name of an Mixed Reality Account.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

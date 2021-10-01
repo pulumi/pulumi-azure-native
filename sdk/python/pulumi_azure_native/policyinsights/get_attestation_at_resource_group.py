@@ -13,6 +13,7 @@ __all__ = [
     'GetAttestationAtResourceGroupResult',
     'AwaitableGetAttestationAtResourceGroupResult',
     'get_attestation_at_resource_group',
+    'get_attestation_at_resource_group_output',
 ]
 
 @pulumi.output_type
@@ -221,3 +222,18 @@ def get_attestation_at_resource_group(attestation_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_attestation_at_resource_group)
+def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtResourceGroupResult]:
+    """
+    An attestation resource.
+    API Version: 2021-01-01.
+
+
+    :param str attestation_name: The name of the attestation.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

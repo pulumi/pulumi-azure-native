@@ -13,6 +13,7 @@ __all__ = [
     'GetProductsResult',
     'AwaitableGetProductsResult',
     'get_products',
+    'get_products_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def get_products(product_name: Optional[str] = None,
     return AwaitableGetProductsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_products)
+def get_products_output(product_name: Optional[pulumi.Input[str]] = None,
+                        registration_name: Optional[pulumi.Input[str]] = None,
+                        resource_group: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductsResult]:
+    """
+    Pageable list of products.
+
+
+    :param str product_name: Name of the product.
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

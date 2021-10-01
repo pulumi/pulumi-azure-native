@@ -13,6 +13,7 @@ __all__ = [
     'GetDatabasePrincipalAssignmentResult',
     'AwaitableGetDatabasePrincipalAssignmentResult',
     'get_database_principal_assignment',
+    'get_database_principal_assignment_output',
 ]
 
 @pulumi.output_type
@@ -203,3 +204,23 @@ def get_database_principal_assignment(database_name: Optional[str] = None,
         tenant_id=__ret__.tenant_id,
         tenant_name=__ret__.tenant_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_database_principal_assignment)
+def get_database_principal_assignment_output(database_name: Optional[pulumi.Input[str]] = None,
+                                             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                             principal_assignment_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             workspace_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
+    """
+    Class representing a database principal assignment.
+
+
+    :param str database_name: The name of the database in the Kusto pool.
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str principal_assignment_name: The name of the Kusto principalAssignment.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

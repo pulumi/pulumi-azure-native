@@ -13,6 +13,7 @@ __all__ = [
     'GetReadWriteDatabaseResult',
     'AwaitableGetReadWriteDatabaseResult',
     'get_read_write_database',
+    'get_read_write_database_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,22 @@ def get_read_write_database(database_name: Optional[str] = None,
         statistics=__ret__.statistics,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_read_write_database)
+def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = None,
+                                   kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   workspace_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
+    """
+    Class representing a read write database.
+    API Version: 2021-04-01-preview.
+
+
+    :param str database_name: The name of the database in the Kusto pool.
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

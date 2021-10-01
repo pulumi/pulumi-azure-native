@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlPoolWorkloadClassifierResult',
     'AwaitableGetSqlPoolWorkloadClassifierResult',
     'get_sql_pool_workload_classifier',
+    'get_sql_pool_workload_classifier_output',
 ]
 
 @pulumi.output_type
@@ -176,3 +177,23 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         start_time=__ret__.start_time,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_pool_workload_classifier)
+def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            sql_pool_name: Optional[pulumi.Input[str]] = None,
+                                            workload_classifier_name: Optional[pulumi.Input[str]] = None,
+                                            workload_group_name: Optional[pulumi.Input[str]] = None,
+                                            workspace_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:
+    """
+    Workload classifier operations for a data warehouse
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sql_pool_name: SQL pool name
+    :param str workload_classifier_name: The name of the workload classifier.
+    :param str workload_group_name: The name of the workload group.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

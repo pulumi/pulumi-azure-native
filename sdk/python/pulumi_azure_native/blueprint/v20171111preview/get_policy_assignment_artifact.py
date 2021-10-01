@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicyAssignmentArtifactResult',
     'AwaitableGetPolicyAssignmentArtifactResult',
     'get_policy_assignment_artifact',
+    'get_policy_assignment_artifact_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,19 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
         policy_definition_id=__ret__.policy_definition_id,
         resource_group=__ret__.resource_group,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_assignment_artifact)
+def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                                          blueprint_name: Optional[pulumi.Input[str]] = None,
+                                          management_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
+    """
+    Blueprint artifact applies Policy assignments.
+
+
+    :param str artifact_name: name of the artifact.
+    :param str blueprint_name: name of the blueprint.
+    :param str management_group_name: ManagementGroup where blueprint stores.
+    """
+    ...

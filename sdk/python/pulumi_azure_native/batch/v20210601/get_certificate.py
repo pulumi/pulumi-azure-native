@@ -13,6 +13,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -214,3 +215,19 @@ def get_certificate(account_name: Optional[str] = None,
         thumbprint=__ret__.thumbprint,
         thumbprint_algorithm=__ret__.thumbprint_algorithm,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
+                           certificate_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Contains information about a certificate.
+
+
+    :param str account_name: The name of the Batch account.
+    :param str certificate_name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+    :param str resource_group_name: The name of the resource group that contains the Batch account.
+    """
+    ...

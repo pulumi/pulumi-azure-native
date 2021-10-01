@@ -13,6 +13,7 @@ __all__ = [
     'GetSignalRSharedPrivateLinkResourceResult',
     'AwaitableGetSignalRSharedPrivateLinkResourceResult',
     'get_signal_r_shared_private_link_resource',
+    'get_signal_r_shared_private_link_resource_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
         status=__ret__.status,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_signal_r_shared_private_link_resource)
+def get_signal_r_shared_private_link_resource_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     resource_name: Optional[pulumi.Input[str]] = None,
+                                                     shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRSharedPrivateLinkResourceResult]:
+    """
+    Describes a Shared Private Link Resource
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_name: The name of the resource.
+    :param str shared_private_link_resource_name: The name of the shared private link resource
+    """
+    ...

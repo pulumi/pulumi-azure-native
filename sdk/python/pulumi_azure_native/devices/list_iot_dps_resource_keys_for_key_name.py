@@ -12,6 +12,7 @@ __all__ = [
     'ListIotDpsResourceKeysForKeyNameResult',
     'AwaitableListIotDpsResourceKeysForKeyNameResult',
     'list_iot_dps_resource_keys_for_key_name',
+    'list_iot_dps_resource_keys_for_key_name_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,20 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
         primary_key=__ret__.primary_key,
         rights=__ret__.rights,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_iot_dps_resource_keys_for_key_name)
+def list_iot_dps_resource_keys_for_key_name_output(key_name: Optional[pulumi.Input[str]] = None,
+                                                   provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysForKeyNameResult]:
+    """
+    Description of the shared access key.
+    API Version: 2020-03-01.
+
+
+    :param str key_name: Logical key name to get key-values for.
+    :param str provisioning_service_name: Name of the provisioning service.
+    :param str resource_group_name: The name of the resource group that contains the provisioning service.
+    """
+    ...

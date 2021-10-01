@@ -12,6 +12,7 @@ __all__ = [
     'GetLabResourceResult',
     'AwaitableGetLabResourceResult',
     'get_lab_resource',
+    'get_lab_resource_output',
 ]
 
 @pulumi.output_type
@@ -219,3 +220,17 @@ def get_lab_resource(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         vault_name=__ret__.vault_name)
+
+
+@_utilities.lift_output_func(get_lab_resource)
+def get_lab_resource_output(name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResourceResult]:
+    """
+    A lab.
+
+
+    :param str name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

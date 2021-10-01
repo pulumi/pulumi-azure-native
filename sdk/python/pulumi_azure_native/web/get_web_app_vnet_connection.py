@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppVnetConnectionResult',
     'AwaitableGetWebAppVnetConnectionResult',
     'get_web_app_vnet_connection',
+    'get_web_app_vnet_connection_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,20 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
         routes=__ret__.routes,
         type=__ret__.type,
         vnet_resource_id=__ret__.vnet_resource_id)
+
+
+@_utilities.lift_output_func(get_web_app_vnet_connection)
+def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       vnet_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
+    """
+    Virtual Network information contract.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str vnet_name: Name of the virtual network.
+    """
+    ...

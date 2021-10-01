@@ -13,6 +13,7 @@ __all__ = [
     'GetInstanceDetailsResult',
     'AwaitableGetInstanceDetailsResult',
     'get_instance_details',
+    'get_instance_details_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_instance_details(instance_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_instance_details)
+def get_instance_details_output(instance_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceDetailsResult]:
+    """
+    Represents an instance of a DFP instance resource.
+
+
+    :param str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
+    :param str resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
+    """
+    ...

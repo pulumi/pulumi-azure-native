@@ -12,6 +12,7 @@ __all__ = [
     'GetHierarchySettingResult',
     'AwaitableGetHierarchySettingResult',
     'get_hierarchy_setting',
+    'get_hierarchy_setting_output',
 ]
 
 @pulumi.output_type
@@ -126,3 +127,16 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
         require_authorization_for_group_creation=__ret__.require_authorization_for_group_creation,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_hierarchy_setting)
+def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHierarchySettingResult]:
+    """
+    Settings defined at the Management Group scope.
+    API Version: 2020-05-01.
+
+
+    :param str group_id: Management Group ID.
+    """
+    ...

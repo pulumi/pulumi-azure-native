@@ -13,6 +13,7 @@ __all__ = [
     'GetChapSettingResult',
     'AwaitableGetChapSettingResult',
     'get_chap_setting',
+    'get_chap_setting_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,21 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
         name=__ret__.name,
         password=__ret__.password,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_chap_setting)
+def get_chap_setting_output(chap_user_name: Optional[pulumi.Input[str]] = None,
+                            device_name: Optional[pulumi.Input[str]] = None,
+                            manager_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChapSettingResult]:
+    """
+    Challenge-Handshake Authentication Protocol (CHAP) setting
+
+
+    :param str chap_user_name: The user name of chap to be fetched.
+    :param str device_name: The device name.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

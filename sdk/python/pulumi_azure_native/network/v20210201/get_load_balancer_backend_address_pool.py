@@ -13,6 +13,7 @@ __all__ = [
     'GetLoadBalancerBackendAddressPoolResult',
     'AwaitableGetLoadBalancerBackendAddressPoolResult',
     'get_load_balancer_backend_address_pool',
+    'get_load_balancer_backend_address_pool_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         provisioning_state=__ret__.provisioning_state,
         tunnel_interfaces=__ret__.tunnel_interfaces,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_load_balancer_backend_address_pool)
+def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Optional[pulumi.Input[str]] = None,
+                                                  load_balancer_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
+    """
+    Pool of backend IP addresses.
+
+
+    :param str backend_address_pool_name: The name of the backend address pool.
+    :param str load_balancer_name: The name of the load balancer.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

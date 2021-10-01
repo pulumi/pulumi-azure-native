@@ -13,6 +13,7 @@ __all__ = [
     'GetgetbotResult',
     'AwaitableGetgetbotResult',
     'getgetbot',
+    'getgetbot_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def getgetbot(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(getgetbot)
+def getgetbot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                     resource_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetgetbotResult]:
+    """
+    HealthBot resource definition
+
+
+    :param str resource_group_name: The name of the Bot resource group in the user subscription.
+    :param str resource_name: The name of the Bot resource.
+    """
+    ...

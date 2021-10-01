@@ -13,6 +13,7 @@ __all__ = [
     'GetContentKeyPolicyPropertiesWithSecretsResult',
     'AwaitableGetContentKeyPolicyPropertiesWithSecretsResult',
     'get_content_key_policy_properties_with_secrets',
+    'get_content_key_policy_properties_with_secrets_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
         last_modified=__ret__.last_modified,
         options=__ret__.options,
         policy_id=__ret__.policy_id)
+
+
+@_utilities.lift_output_func(get_content_key_policy_properties_with_secrets)
+def get_content_key_policy_properties_with_secrets_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                          content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentKeyPolicyPropertiesWithSecretsResult]:
+    """
+    The properties of the Content Key Policy.
+
+
+    :param str account_name: The Media Services account name.
+    :param str content_key_policy_name: The Content Key Policy name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    """
+    ...

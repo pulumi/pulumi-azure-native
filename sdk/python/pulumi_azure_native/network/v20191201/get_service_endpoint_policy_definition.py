@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceEndpointPolicyDefinitionResult',
     'AwaitableGetServiceEndpointPolicyDefinitionResult',
     'get_service_endpoint_policy_definition',
+    'get_service_endpoint_policy_definition_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,19 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
         provisioning_state=__ret__.provisioning_state,
         service=__ret__.service,
         service_resources=__ret__.service_resources)
+
+
+@_utilities.lift_output_func(get_service_endpoint_policy_definition)
+def get_service_endpoint_policy_definition_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  service_endpoint_policy_definition_name: Optional[pulumi.Input[str]] = None,
+                                                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyDefinitionResult]:
+    """
+    Service Endpoint policy definitions.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
+    :param str service_endpoint_policy_name: The name of the service endpoint policy name.
+    """
+    ...

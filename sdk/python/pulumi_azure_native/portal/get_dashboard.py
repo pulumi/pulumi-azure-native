@@ -13,6 +13,7 @@ __all__ = [
     'GetDashboardResult',
     'AwaitableGetDashboardResult',
     'get_dashboard',
+    'get_dashboard_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_dashboard(dashboard_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dashboard)
+def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
+    """
+    The shared dashboard resource definition.
+    API Version: 2020-09-01-preview.
+
+
+    :param str dashboard_name: The name of the dashboard.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...
