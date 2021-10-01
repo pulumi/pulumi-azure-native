@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2"
+	hcl2 "github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
