@@ -13,6 +13,7 @@ __all__ = [
     'GetWebApplicationFirewallPolicyResult',
     'AwaitableGetWebApplicationFirewallPolicyResult',
     'get_web_application_firewall_policy',
+    'get_web_application_firewall_policy_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
         resource_state=__ret__.resource_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_application_firewall_policy)
+def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
+    """
+    Defines web application firewall policy.
+
+
+    :param str policy_name: The name of the policy.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

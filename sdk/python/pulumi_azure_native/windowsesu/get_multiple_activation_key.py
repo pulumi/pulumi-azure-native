@@ -12,6 +12,7 @@ __all__ = [
     'GetMultipleActivationKeyResult',
     'AwaitableGetMultipleActivationKeyResult',
     'get_multiple_activation_key',
+    'get_multiple_activation_key_output',
 ]
 
 @pulumi.output_type
@@ -217,3 +218,18 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
         support_type=__ret__.support_type,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_multiple_activation_key)
+def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
+    """
+    MAK key details.
+    API Version: 2019-09-16-preview.
+
+
+    :param str multiple_activation_key_name: The name of the MAK key.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

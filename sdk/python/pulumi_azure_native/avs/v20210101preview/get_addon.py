@@ -12,6 +12,7 @@ __all__ = [
     'GetAddonResult',
     'AwaitableGetAddonResult',
     'get_addon',
+    'get_addon_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_addon(addon_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_addon)
+def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
+                     private_cloud_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
+    """
+    An addon resource
+
+
+    :param str addon_name: Name of the addon for the private cloud
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

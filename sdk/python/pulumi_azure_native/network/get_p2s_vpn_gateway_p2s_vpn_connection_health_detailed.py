@@ -12,6 +12,7 @@ __all__ = [
     'GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult',
     'AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult',
     'get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed',
+    'get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output',
 ]
 
 @pulumi.output_type
@@ -70,3 +71,22 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
 
     return AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult(
         sas_url=__ret__.sas_url)
+
+
+@_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed)
+def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output(gateway_name: Optional[pulumi.Input[str]] = None,
+                                                                  output_blob_sas_url: Optional[pulumi.Input[Optional[str]]] = None,
+                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                  vpn_user_names_filter: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult]:
+    """
+    P2S Vpn connection detailed health written to sas url.
+    API Version: 2020-11-01.
+
+
+    :param str gateway_name: The name of the P2SVpnGateway.
+    :param str output_blob_sas_url: The sas-url to download the P2S Vpn connection health detail.
+    :param str resource_group_name: The name of the resource group.
+    :param Sequence[str] vpn_user_names_filter: The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
+    """
+    ...

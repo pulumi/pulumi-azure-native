@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppHostKeysResult',
     'AwaitableListWebAppHostKeysResult',
     'list_web_app_host_keys',
+    'list_web_app_host_keys_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,18 @@ def list_web_app_host_keys(name: Optional[str] = None,
         function_keys=__ret__.function_keys,
         master_key=__ret__.master_key,
         system_keys=__ret__.system_keys)
+
+
+@_utilities.lift_output_func(list_web_app_host_keys)
+def list_web_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
+    """
+    Functions host level keys.
+    API Version: 2020-12-01.
+
+
+    :param str name: Site name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

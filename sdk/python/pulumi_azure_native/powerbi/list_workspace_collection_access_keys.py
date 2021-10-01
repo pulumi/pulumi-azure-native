@@ -12,6 +12,7 @@ __all__ = [
     'ListWorkspaceCollectionAccessKeysResult',
     'AwaitableListWorkspaceCollectionAccessKeysResult',
     'list_workspace_collection_access_keys',
+    'list_workspace_collection_access_keys_output',
 ]
 
 @pulumi.output_type
@@ -73,3 +74,17 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
     return AwaitableListWorkspaceCollectionAccessKeysResult(
         key1=__ret__.key1,
         key2=__ret__.key2)
+
+
+@_utilities.lift_output_func(list_workspace_collection_access_keys)
+def list_workspace_collection_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 workspace_collection_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
+    """
+    API Version: 2016-01-29.
+
+
+    :param str resource_group_name: Azure resource group
+    :param str workspace_collection_name: Power BI Embedded Workspace Collection name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetInboundNatRuleResult',
     'AwaitableGetInboundNatRuleResult',
     'get_inbound_nat_rule',
+    'get_inbound_nat_rule_output',
 ]
 
 @pulumi.output_type
@@ -213,3 +214,21 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
         name=__ret__.name,
         protocol=__ret__.protocol,
         provisioning_state=__ret__.provisioning_state)
+
+
+@_utilities.lift_output_func(get_inbound_nat_rule)
+def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
+                                load_balancer_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundNatRuleResult]:
+    """
+    Inbound NAT rule of the load balancer.
+
+
+    :param str expand: Expands referenced resources.
+    :param str inbound_nat_rule_name: The name of the inbound nat rule.
+    :param str load_balancer_name: The name of the load balancer.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

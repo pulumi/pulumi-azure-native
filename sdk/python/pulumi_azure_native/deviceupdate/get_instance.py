@@ -13,6 +13,7 @@ __all__ = [
     'GetInstanceResult',
     'AwaitableGetInstanceResult',
     'get_instance',
+    'get_instance_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_instance(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_instance)
+def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
+                        instance_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+    """
+    Device Update instance details.
+    API Version: 2020-03-01-preview.
+
+
+    :param str account_name: Account name.
+    :param str instance_name: Instance name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

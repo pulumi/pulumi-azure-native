@@ -257,7 +257,9 @@ class SnapshotType(str, Enum):
     The type of a snapshot. The default is NodePool.
     """
     NODE_POOL = "NodePool"
-    """The snapshot is a snapshot of a node pool."""
+    """
+    The snapshot is a snapshot of a node pool.
+    """
 
 
 class UpgradeChannel(str, Enum):

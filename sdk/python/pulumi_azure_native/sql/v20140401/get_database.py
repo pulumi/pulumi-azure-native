@@ -13,6 +13,7 @@ __all__ = [
     'GetDatabaseResult',
     'AwaitableGetDatabaseResult',
     'get_database',
+    'get_database_output',
 ]
 
 @pulumi.output_type
@@ -417,3 +418,21 @@ def get_database(database_name: Optional[str] = None,
         transparent_data_encryption=__ret__.transparent_data_encryption,
         type=__ret__.type,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_database)
+def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
+                        expand: Optional[pulumi.Input[Optional[str]]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        server_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+    """
+    Represents a database.
+
+
+    :param str database_name: The name of the database to be retrieved.
+    :param str expand: A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

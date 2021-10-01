@@ -13,6 +13,7 @@ __all__ = [
     'GetAvailabilityGroupListenerResult',
     'AwaitableGetAvailabilityGroupListenerResult',
     'get_availability_group_listener',
+    'get_availability_group_listener_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
         port=__ret__.port,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_availability_group_listener)
+def get_availability_group_listener_output(availability_group_listener_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
+    """
+    A SQL Server availability group listener.
+    API Version: 2017-03-01-preview.
+
+
+    :param str availability_group_listener_name: Name of the availability group listener.
+    :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
+    """
+    ...

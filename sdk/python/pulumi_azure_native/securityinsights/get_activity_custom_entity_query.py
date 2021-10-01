@@ -13,6 +13,7 @@ __all__ = [
     'GetActivityCustomEntityQueryResult',
     'AwaitableGetActivityCustomEntityQueryResult',
     'get_activity_custom_entity_query',
+    'get_activity_custom_entity_query_output',
 ]
 
 @pulumi.output_type
@@ -280,3 +281,22 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
         template_name=__ret__.template_name,
         title=__ret__.title,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_activity_custom_entity_query)
+def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Input[str]] = None,
+                                            operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            workspace_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
+    """
+    Represents Activity entity query.
+    API Version: 2021-03-01-preview.
+
+
+    :param str entity_query_id: entity query ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

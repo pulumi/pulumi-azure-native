@@ -13,6 +13,7 @@ __all__ = [
     'GetVpnConnectionResult',
     'AwaitableGetVpnConnectionResult',
     'get_vpn_connection',
+    'get_vpn_connection_output',
 ]
 
 @pulumi.output_type
@@ -262,3 +263,19 @@ def get_vpn_connection(connection_name: Optional[str] = None,
         routing_weight=__ret__.routing_weight,
         shared_key=__ret__.shared_key,
         vpn_connection_protocol_type=__ret__.vpn_connection_protocol_type)
+
+
+@_utilities.lift_output_func(get_vpn_connection)
+def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
+                              gateway_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
+    """
+    VpnConnection Resource.
+
+
+    :param str connection_name: The name of the vpn connection.
+    :param str gateway_name: The name of the gateway.
+    :param str resource_group_name: The resource group name of the VpnGateway.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetBackupResult',
     'AwaitableGetBackupResult',
     'get_backup',
+    'get_backup_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,23 @@ def get_backup(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         size=__ret__.size,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_backup)
+def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
+                      backup_name: Optional[pulumi.Input[str]] = None,
+                      pool_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      volume_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
+    """
+    Backup of a Volume
+
+
+    :param str account_name: The name of the NetApp account
+    :param str backup_name: The name of the backup
+    :param str pool_name: The name of the capacity pool
+    :param str resource_group_name: The name of the resource group.
+    :param str volume_name: The name of the volume
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListControllerConnectionDetailsResult',
     'AwaitableListControllerConnectionDetailsResult',
     'list_controller_connection_details',
+    'list_controller_connection_details_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,19 @@ def list_controller_connection_details(name: Optional[str] = None,
 
     return AwaitableListControllerConnectionDetailsResult(
         connection_details_list=__ret__.connection_details_list)
+
+
+@_utilities.lift_output_func(list_controller_connection_details)
+def list_controller_connection_details_output(name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListControllerConnectionDetailsResult]:
+    """
+    API Version: 2019-04-01.
+
+
+    :param str name: Name of the resource.
+    :param str resource_group_name: Resource group to which the resource belongs.
+    :param str target_container_host_resource_id: Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
+    """
+    ...

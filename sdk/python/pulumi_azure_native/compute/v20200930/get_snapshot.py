@@ -13,6 +13,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -350,3 +351,17 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         time_created=__ret__.time_created,
         type=__ret__.type,
         unique_id=__ret__.unique_id)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        snapshot_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Snapshot resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+    """
+    ...

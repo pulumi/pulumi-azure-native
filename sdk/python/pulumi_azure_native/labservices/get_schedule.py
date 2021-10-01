@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduleResult',
     'AwaitableGetScheduleResult',
     'get_schedule',
+    'get_schedule_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_schedule(lab_name: Optional[str] = None,
         system_data=__ret__.system_data,
         time_zone_id=__ret__.time_zone_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_schedule)
+def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        schedule_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+    """
+    Schedule for automatically turning virtual machines in a lab on and off at specified times.
+    API Version: 2021-10-01-preview.
+
+
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
+    """
+    ...

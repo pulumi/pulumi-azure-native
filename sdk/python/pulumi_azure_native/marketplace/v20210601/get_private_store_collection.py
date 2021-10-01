@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateStoreCollectionResult',
     'AwaitableGetPrivateStoreCollectionResult',
     'get_private_store_collection',
+    'get_private_store_collection_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_private_store_collection(collection_id: Optional[str] = None,
         subscriptions_list=__ret__.subscriptions_list,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_store_collection)
+def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
+                                        private_store_id: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
+    """
+    The Collection data structure.
+
+
+    :param str collection_id: The collection ID
+    :param str private_store_id: The store ID - must use the tenant ID
+    """
+    ...

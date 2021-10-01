@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationRuntimeObjectMetadatumResult',
     'AwaitableGetIntegrationRuntimeObjectMetadatumResult',
     'get_integration_runtime_object_metadatum',
+    'get_integration_runtime_object_metadatum_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,22 @@ def get_integration_runtime_object_metadatum(integration_runtime_name: Optional[
     return AwaitableGetIntegrationRuntimeObjectMetadatumResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_integration_runtime_object_metadatum)
+def get_integration_runtime_object_metadatum_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                                                    metadata_path: Optional[pulumi.Input[Optional[str]]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    workspace_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
+    """
+    A list of SSIS object metadata.
+    API Version: 2021-03-01.
+
+
+    :param str integration_runtime_name: Integration runtime name
+    :param str metadata_path: Metadata path.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

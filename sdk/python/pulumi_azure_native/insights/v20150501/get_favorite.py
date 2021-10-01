@@ -12,6 +12,7 @@ __all__ = [
     'GetFavoriteResult',
     'AwaitableGetFavoriteResult',
     'get_favorite',
+    'get_favorite_output',
 ]
 
 @pulumi.output_type
@@ -196,3 +197,19 @@ def get_favorite(favorite_id: Optional[str] = None,
         time_modified=__ret__.time_modified,
         user_id=__ret__.user_id,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_favorite)
+def get_favorite_output(favorite_id: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        resource_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteResult]:
+    """
+    Properties that define a favorite that is associated to an Application Insights component.
+
+
+    :param str favorite_id: The Id of a specific favorite defined in the Application Insights component
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

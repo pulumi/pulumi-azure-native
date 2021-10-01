@@ -13,6 +13,7 @@ __all__ = [
     'GetPublishedBlueprintResult',
     'AwaitableGetPublishedBlueprintResult',
     'get_published_blueprint',
+    'get_published_blueprint_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
         status=__ret__.status,
         target_scope=__ret__.target_scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_published_blueprint)
+def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
+                                   resource_scope: Optional[pulumi.Input[str]] = None,
+                                   version_id: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
+    """
+    Represents a published blueprint.
+    API Version: 2018-11-01-preview.
+
+
+    :param str blueprint_name: Name of the blueprint definition.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    :param str version_id: Version of the published blueprint definition.
+    """
+    ...

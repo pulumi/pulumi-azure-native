@@ -12,6 +12,7 @@ __all__ = [
     'ListAdminKeyResult',
     'AwaitableListAdminKeyResult',
     'list_admin_key',
+    'list_admin_key_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_admin_key(resource_group_name: Optional[str] = None,
     return AwaitableListAdminKeyResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_admin_key)
+def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAdminKeyResult]:
+    """
+    Response containing the primary and secondary API keys for a given Azure Search service.
+
+
+    :param str resource_group_name: The name of the resource group within the current subscription.
+    :param str service_name: The name of the Search service for which to list admin keys.
+    """
+    ...

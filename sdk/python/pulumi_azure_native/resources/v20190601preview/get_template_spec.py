@@ -13,6 +13,7 @@ __all__ = [
     'GetTemplateSpecResult',
     'AwaitableGetTemplateSpecResult',
     'get_template_spec',
+    'get_template_spec_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_template_spec(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         versions=__ret__.versions)
+
+
+@_utilities.lift_output_func(get_template_spec)
+def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             template_spec_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecResult]:
+    """
+    Template Spec object.
+
+
+    :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str template_spec_name: Name of the Template Spec.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListAppServicePlanHybridConnectionKeysResult',
     'AwaitableListAppServicePlanHybridConnectionKeysResult',
     'list_app_service_plan_hybrid_connection_keys',
+    'list_app_service_plan_hybrid_connection_keys_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,22 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
         send_key_name=__ret__.send_key_name,
         send_key_value=__ret__.send_key_value,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_app_service_plan_hybrid_connection_keys)
+def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.Input[str]] = None,
+                                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                                        relay_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppServicePlanHybridConnectionKeysResult]:
+    """
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the App Service plan.
+    :param str namespace_name: The name of the Service Bus namespace.
+    :param str relay_name: The name of the Service Bus relay.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

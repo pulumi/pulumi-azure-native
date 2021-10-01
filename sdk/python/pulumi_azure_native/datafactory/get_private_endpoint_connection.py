@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_private_endpoint_connection(factory_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    Private Endpoint Connection ARM resource.
+    API Version: 2018-06-01.
+
+
+    :param str factory_name: The factory name.
+    :param str private_endpoint_connection_name: The private endpoint connection name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

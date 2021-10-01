@@ -13,6 +13,7 @@ __all__ = [
     'GetApplianceDefinitionResult',
     'AwaitableGetApplianceDefinitionResult',
     'get_appliance_definition',
+    'get_appliance_definition_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_appliance_definition(appliance_definition_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_appliance_definition)
+def get_appliance_definition_output(appliance_definition_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceDefinitionResult]:
+    """
+    Information about appliance definition.
+
+
+    :param str appliance_definition_name: The name of the appliance definition.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

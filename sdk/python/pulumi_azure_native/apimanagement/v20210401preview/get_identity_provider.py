@@ -12,6 +12,7 @@ __all__ = [
     'GetIdentityProviderResult',
     'AwaitableGetIdentityProviderResult',
     'get_identity_provider',
+    'get_identity_provider_output',
 ]
 
 @pulumi.output_type
@@ -209,3 +210,19 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
         signin_tenant=__ret__.signin_tenant,
         signup_policy_name=__ret__.signup_policy_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_identity_provider)
+def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 service_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
+    """
+    Identity Provider details.
+
+
+    :param str identity_provider_name: Identity Provider Type identifier.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

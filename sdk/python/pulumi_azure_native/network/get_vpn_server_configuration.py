@@ -13,6 +13,7 @@ __all__ = [
     'GetVpnServerConfigurationResult',
     'AwaitableGetVpnServerConfigurationResult',
     'get_vpn_server_configuration',
+    'get_vpn_server_configuration_output',
 ]
 
 @pulumi.output_type
@@ -299,3 +300,18 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
         vpn_client_revoked_certificates=__ret__.vpn_client_revoked_certificates,
         vpn_client_root_certificates=__ret__.vpn_client_root_certificates,
         vpn_protocols=__ret__.vpn_protocols)
+
+
+@_utilities.lift_output_func(get_vpn_server_configuration)
+def get_vpn_server_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
+    """
+    VpnServerConfiguration Resource.
+    API Version: 2020-11-01.
+
+
+    :param str resource_group_name: The resource group name of the VpnServerConfiguration.
+    :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetEmailTemplateResult',
     'AwaitableGetEmailTemplateResult',
     'get_email_template',
+    'get_email_template_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_email_template(resource_group_name: Optional[str] = None,
         subject=__ret__.subject,
         title=__ret__.title,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_email_template)
+def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              service_name: Optional[pulumi.Input[str]] = None,
+                              template_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailTemplateResult]:
+    """
+    Email Template details.
+    API Version: 2020-12-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str template_name: Email Template Name Identifier.
+    """
+    ...

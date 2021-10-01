@@ -13,6 +13,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_account(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Definition of the account.
+    API Version: 2020-10-30-preview.
+
+
+    :param str account_name: Name of the account.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

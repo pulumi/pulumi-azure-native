@@ -12,6 +12,7 @@ __all__ = [
     'ListIntegrationRuntimeAuthKeysResult',
     'AwaitableListIntegrationRuntimeAuthKeysResult',
     'list_integration_runtime_auth_keys',
+    'list_integration_runtime_auth_keys_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,20 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
     return AwaitableListIntegrationRuntimeAuthKeysResult(
         auth_key1=__ret__.auth_key1,
         auth_key2=__ret__.auth_key2)
+
+
+@_utilities.lift_output_func(list_integration_runtime_auth_keys)
+def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                              integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeysResult]:
+    """
+    The integration runtime authentication keys.
+    API Version: 2018-06-01.
+
+
+    :param str factory_name: The factory name.
+    :param str integration_runtime_name: The integration runtime name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

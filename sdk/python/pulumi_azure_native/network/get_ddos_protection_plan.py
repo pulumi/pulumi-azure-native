@@ -13,6 +13,7 @@ __all__ = [
     'GetDdosProtectionPlanResult',
     'AwaitableGetDdosProtectionPlanResult',
     'get_ddos_protection_plan',
+    'get_ddos_protection_plan_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,18 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_networks=__ret__.virtual_networks)
+
+
+@_utilities.lift_output_func(get_ddos_protection_plan)
+def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
+    """
+    A DDoS protection plan in a resource group.
+    API Version: 2020-11-01.
+
+
+    :param str ddos_protection_plan_name: The name of the DDoS protection plan.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

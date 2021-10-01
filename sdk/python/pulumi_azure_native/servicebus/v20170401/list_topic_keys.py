@@ -12,6 +12,7 @@ __all__ = [
     'ListTopicKeysResult',
     'AwaitableListTopicKeysResult',
     'list_topic_keys',
+    'list_topic_keys_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
         primary_key=__ret__.primary_key,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_topic_keys)
+def list_topic_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                           namespace_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           topic_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicKeysResult]:
+    """
+    Namespace/ServiceBus Connection String
+
+
+    :param str authorization_rule_name: The authorization rule name.
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str topic_name: The topic name.
+    """
+    ...

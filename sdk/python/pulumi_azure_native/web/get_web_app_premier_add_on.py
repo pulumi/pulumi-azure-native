@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppPremierAddOnResult',
     'AwaitableGetWebAppPremierAddOnResult',
     'get_web_app_premier_add_on',
+    'get_web_app_premier_add_on_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,20 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         vendor=__ret__.vendor)
+
+
+@_utilities.lift_output_func(get_web_app_premier_add_on)
+def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
+                                      premier_add_on_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnResult]:
+    """
+    Premier add-on.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the app.
+    :param str premier_add_on_name: Add-on name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

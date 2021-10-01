@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionByHostPoolResult',
     'AwaitableGetPrivateEndpointConnectionByHostPoolResult',
     'get_private_endpoint_connection_by_host_pool',
+    'get_private_endpoint_connection_by_host_pool_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection_by_host_pool)
+def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
+                                                        private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
+    """
+    The Private Endpoint Connection resource.
+    API Version: 2021-04-01-preview.
+
+
+    :param str host_pool_name: The name of the host pool within the specified resource group
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

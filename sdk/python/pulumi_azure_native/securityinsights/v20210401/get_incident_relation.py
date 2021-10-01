@@ -13,6 +13,7 @@ __all__ = [
     'GetIncidentRelationResult',
     'AwaitableGetIncidentRelationResult',
     'get_incident_relation',
+    'get_incident_relation_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,21 @@ def get_incident_relation(incident_id: Optional[str] = None,
         related_resource_type=__ret__.related_resource_type,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_incident_relation)
+def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None,
+                                 relation_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 workspace_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentRelationResult]:
+    """
+    Represents a relation between two resources
+
+
+    :param str incident_id: Incident ID
+    :param str relation_name: Relation Name
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

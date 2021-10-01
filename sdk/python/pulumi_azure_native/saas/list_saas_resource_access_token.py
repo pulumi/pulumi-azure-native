@@ -12,6 +12,7 @@ __all__ = [
     'ListSaasResourceAccessTokenResult',
     'AwaitableListSaasResourceAccessTokenResult',
     'list_saas_resource_access_token',
+    'list_saas_resource_access_token_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,16 @@ def list_saas_resource_access_token(resource_id: Optional[str] = None,
     return AwaitableListSaasResourceAccessTokenResult(
         publisher_offer_base_uri=__ret__.publisher_offer_base_uri,
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(list_saas_resource_access_token)
+def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
+    """
+    the ISV access token result response.
+    API Version: 2018-03-01-beta.
+
+
+    :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+    """
+    ...

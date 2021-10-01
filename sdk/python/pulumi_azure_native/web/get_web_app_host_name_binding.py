@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppHostNameBindingResult',
     'AwaitableGetWebAppHostNameBindingResult',
     'get_web_app_host_name_binding',
+    'get_web_app_host_name_binding_output',
 ]
 
 @pulumi.output_type
@@ -223,3 +224,20 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type,
         virtual_ip=__ret__.virtual_ip)
+
+
+@_utilities.lift_output_func(get_web_app_host_name_binding)
+def get_web_app_host_name_binding_output(host_name: Optional[pulumi.Input[str]] = None,
+                                         name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHostNameBindingResult]:
+    """
+    A hostname binding object.
+    API Version: 2020-12-01.
+
+
+    :param str host_name: Hostname in the hostname binding.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

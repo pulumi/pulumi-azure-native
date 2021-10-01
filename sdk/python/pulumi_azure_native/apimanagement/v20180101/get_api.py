@@ -13,6 +13,7 @@ __all__ = [
     'GetApiResult',
     'AwaitableGetApiResult',
     'get_api',
+    'get_api_output',
 ]
 
 @pulumi.output_type
@@ -301,3 +302,19 @@ def get_api(api_id: Optional[str] = None,
         service_url=__ret__.service_url,
         subscription_key_parameter_names=__ret__.subscription_key_parameter_names,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_api)
+def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   service_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
+    """
+    API details.
+
+
+    :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

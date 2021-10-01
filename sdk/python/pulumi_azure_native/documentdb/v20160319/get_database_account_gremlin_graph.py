@@ -13,6 +13,7 @@ __all__ = [
     'GetDatabaseAccountGremlinGraphResult',
     'AwaitableGetDatabaseAccountGremlinGraphResult',
     'get_database_account_gremlin_graph',
+    'get_database_account_gremlin_graph_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,21 @@ def get_database_account_gremlin_graph(account_name: Optional[str] = None,
         ts=__ret__.ts,
         type=__ret__.type,
         unique_key_policy=__ret__.unique_key_policy)
+
+
+@_utilities.lift_output_func(get_database_account_gremlin_graph)
+def get_database_account_gremlin_graph_output(account_name: Optional[pulumi.Input[str]] = None,
+                                              database_name: Optional[pulumi.Input[str]] = None,
+                                              graph_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountGremlinGraphResult]:
+    """
+    An Azure Cosmos DB Gremlin graph.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str database_name: Cosmos DB database name.
+    :param str graph_name: Cosmos DB graph name.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

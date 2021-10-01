@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceVirtualNetworkRuleResult',
     'AwaitableGetNamespaceVirtualNetworkRuleResult',
     'get_namespace_virtual_network_rule',
+    'get_namespace_virtual_network_rule_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+
+
+@_utilities.lift_output_func(get_namespace_virtual_network_rule)
+def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceVirtualNetworkRuleResult]:
+    """
+    Single item in a List or Get VirtualNetworkRules operation
+
+
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    :param str virtual_network_rule_name: The Virtual Network Rule name.
+    """
+    ...

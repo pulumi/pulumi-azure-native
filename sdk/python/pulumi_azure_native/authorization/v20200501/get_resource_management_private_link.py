@@ -13,6 +13,7 @@ __all__ = [
     'GetResourceManagementPrivateLinkResult',
     'AwaitableGetResourceManagementPrivateLinkResult',
     'get_resource_management_private_link',
+    'get_resource_management_private_link_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,16 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_resource_management_private_link)
+def get_resource_management_private_link_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                rmpl_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str resource_group_name: The name of the resource group the template will be deployed to. The name is case insensitive.
+    :param str rmpl_name: The name of the resource management private link.
+    """
+    ...

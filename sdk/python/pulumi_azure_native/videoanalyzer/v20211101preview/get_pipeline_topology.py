@@ -13,6 +13,7 @@ __all__ = [
     'GetPipelineTopologyResult',
     'AwaitableGetPipelineTopologyResult',
     'get_pipeline_topology',
+    'get_pipeline_topology_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,24 @@ def get_pipeline_topology(account_name: Optional[str] = None,
         sources=__ret__.sources,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_pipeline_topology)
+def get_pipeline_topology_output(account_name: Optional[pulumi.Input[str]] = None,
+                                 pipeline_topology_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineTopologyResult]:
+    """
+    Pipeline topology describes the processing steps to be applied when processing content for a particular outcome. The topology should be defined according to the scenario to be achieved and can be reused across many pipeline instances which share the same processing characteristics. For instance, a pipeline topology which captures content from a RTSP camera and archives the content can be reused across many different cameras, as long as the same processing is to be applied across all the cameras. Individual instance properties can be defined through the use of user-defined parameters, which allow for a topology to be parameterized. This allows  individual pipelines refer to different values, such as individual cameras' RTSP endpoints and credentials. Overall a topology is composed of the following:
+
+      - Parameters: list of user defined parameters that can be references across the topology nodes.
+      - Sources: list of one or more data sources nodes such as an RTSP source which allows for content to be ingested from cameras.
+      - Processors: list of nodes which perform data analysis or transformations.
+      - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
+
+
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str pipeline_topology_name: Pipeline topology unique identifier.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetProductResult',
     'AwaitableGetProductResult',
     'get_product',
+    'get_product_output',
 ]
 
 @pulumi.output_type
@@ -353,3 +354,19 @@ def get_product(product_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         vm_extension_type=__ret__.vm_extension_type)
+
+
+@_utilities.lift_output_func(get_product)
+def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
+                       registration_name: Optional[pulumi.Input[str]] = None,
+                       resource_group: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+    """
+    Product information.
+
+
+    :param str product_name: Name of the product.
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

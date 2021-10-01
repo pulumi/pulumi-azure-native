@@ -13,6 +13,7 @@ __all__ = [
     'GetExtensionResult',
     'AwaitableGetExtensionResult',
     'get_extension',
+    'get_extension_output',
 ]
 
 @pulumi.output_type
@@ -294,3 +295,23 @@ def get_extension(cluster_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_extension)
+def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                         cluster_resource_name: Optional[pulumi.Input[str]] = None,
+                         cluster_rp: Optional[pulumi.Input[str]] = None,
+                         extension_instance_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+    """
+    The Extension Instance object.
+
+
+    :param str cluster_name: The name of the kubernetes cluster.
+    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    :param str extension_instance_name: Name of an instance of the Extension.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

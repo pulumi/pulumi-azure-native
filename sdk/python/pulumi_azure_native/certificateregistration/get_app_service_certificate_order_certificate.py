@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServiceCertificateOrderCertificateResult',
     'AwaitableGetAppServiceCertificateOrderCertificateResult',
     'get_app_service_certificate_order_certificate',
+    'get_app_service_certificate_order_certificate_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_app_service_certificate_order_certificate)
+def get_app_service_certificate_order_certificate_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
+                                                         name: Optional[pulumi.Input[str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
+    """
+    Key Vault container ARM resource for a certificate that is purchased through Azure.
+    API Version: 2020-10-01.
+
+
+    :param str certificate_order_name: Name of the certificate order.
+    :param str name: Name of the certificate.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

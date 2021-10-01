@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduleResult',
     'AwaitableGetScheduleResult',
     'get_schedule',
+    'get_schedule_output',
 ]
 
 @pulumi.output_type
@@ -275,3 +276,19 @@ def get_schedule(automation_account_name: Optional[str] = None,
         start_time_offset_minutes=__ret__.start_time_offset_minutes,
         time_zone=__ret__.time_zone,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_schedule)
+def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        schedule_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+    """
+    Definition of the schedule.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str schedule_name: The schedule name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListIntegrationAccountAssemblyContentCallbackUrlResult',
     'AwaitableListIntegrationAccountAssemblyContentCallbackUrlResult',
     'list_integration_account_assembly_content_callback_url',
+    'list_integration_account_assembly_content_callback_url_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
         relative_path=__ret__.relative_path,
         relative_path_parameters=__ret__.relative_path_parameters,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_integration_account_assembly_content_callback_url)
+def list_integration_account_assembly_content_callback_url_output(assembly_artifact_name: Optional[pulumi.Input[str]] = None,
+                                                                  integration_account_name: Optional[pulumi.Input[str]] = None,
+                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
+    """
+    The workflow trigger callback URL.
+    API Version: 2019-05-01.
+
+
+    :param str assembly_artifact_name: The assembly artifact name.
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

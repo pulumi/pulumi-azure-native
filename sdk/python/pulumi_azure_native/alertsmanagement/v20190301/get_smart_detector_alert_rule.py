@@ -13,6 +13,7 @@ __all__ = [
     'GetSmartDetectorAlertRuleResult',
     'AwaitableGetSmartDetectorAlertRuleResult',
     'get_smart_detector_alert_rule',
+    'get_smart_detector_alert_rule_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
         state=__ret__.state,
         throttling=__ret__.throttling,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_smart_detector_alert_rule)
+def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[str]] = None,
+                                         expand_detector: Optional[pulumi.Input[Optional[bool]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSmartDetectorAlertRuleResult]:
+    """
+    The alert rule information
+
+
+    :param str alert_rule_name: The name of the alert rule.
+    :param bool expand_detector: Indicates if Smart Detector should be expanded.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

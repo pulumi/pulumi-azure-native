@@ -13,6 +13,7 @@ __all__ = [
     'GetEnvironmentSettingResult',
     'AwaitableGetEnvironmentSettingResult',
     'get_environment_setting',
+    'get_environment_setting_output',
 ]
 
 @pulumi.output_type
@@ -255,3 +256,23 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
         title=__ret__.title,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)
+
+
+@_utilities.lift_output_func(get_environment_setting)
+def get_environment_setting_output(environment_setting_name: Optional[pulumi.Input[str]] = None,
+                                   expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                   lab_account_name: Optional[pulumi.Input[str]] = None,
+                                   lab_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentSettingResult]:
+    """
+    Represents settings of an environment, from which environment instances would be created
+
+
+    :param str environment_setting_name: The name of the environment Setting.
+    :param str expand: Specify the $expand query. Example: 'properties($select=publishingState)'
+    :param str lab_account_name: The name of the lab Account.
+    :param str lab_name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

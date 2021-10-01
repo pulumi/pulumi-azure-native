@@ -13,6 +13,7 @@ __all__ = [
     'GetDatastoreResult',
     'AwaitableGetDatastoreResult',
     'get_datastore',
+    'get_datastore_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,21 @@ def get_datastore(cluster_name: Optional[str] = None,
         net_app_volume=__ret__.net_app_volume,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_datastore)
+def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                         datastore_name: Optional[pulumi.Input[str]] = None,
+                         private_cloud_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
+    """
+    A datastore resource
+
+
+    :param str cluster_name: Name of the cluster in the private cloud
+    :param str datastore_name: Name of the datastore in the private cloud cluster
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

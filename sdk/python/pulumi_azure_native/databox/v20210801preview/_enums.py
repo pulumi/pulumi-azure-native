@@ -26,11 +26,17 @@ class AddressType(str, Enum):
     Type of address.
     """
     NONE = "None"
-    """Address type not known."""
+    """
+    Address type not known.
+    """
     RESIDENTIAL = "Residential"
-    """Residential Address."""
+    """
+    Residential Address.
+    """
     COMMERCIAL = "Commercial"
-    """Commercial Address."""
+    """
+    Commercial Address.
+    """
 
 
 class ClassDiscriminator(str, Enum):
@@ -38,13 +44,21 @@ class ClassDiscriminator(str, Enum):
     Indicates the type of job details.
     """
     DATA_BOX = "DataBox"
-    """Data Box orders."""
+    """
+    Data Box orders.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """Data Box Disk orders."""
+    """
+    Data Box Disk orders.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """Data Box Heavy orders."""
+    """
+    Data Box Heavy orders.
+    """
     DATA_BOX_CUSTOMER_DISK = "DataBoxCustomerDisk"
-    """Data Box Customer Disk orders."""
+    """
+    Data Box Customer Disk orders.
+    """
 
 
 class DataAccountType(str, Enum):
@@ -52,9 +66,13 @@ class DataAccountType(str, Enum):
     Type of the account of data.
     """
     STORAGE_ACCOUNT = "StorageAccount"
-    """Storage Accounts ."""
+    """
+    Storage Accounts .
+    """
     MANAGED_DISK = "ManagedDisk"
-    """Azure Managed disk storage."""
+    """
+    Azure Managed disk storage.
+    """
 
 
 class DoubleEncryption(str, Enum):
@@ -62,9 +80,13 @@ class DoubleEncryption(str, Enum):
     Defines secondary layer of software-based encryption enablement.
     """
     ENABLED = "Enabled"
-    """Software-based encryption is enabled."""
+    """
+    Software-based encryption is enabled.
+    """
     DISABLED = "Disabled"
-    """Software-based encryption is disabled."""
+    """
+    Software-based encryption is disabled.
+    """
 
 
 class FilterFileType(str, Enum):
@@ -72,9 +94,13 @@ class FilterFileType(str, Enum):
     Type of the filter file.
     """
     AZURE_BLOB = "AzureBlob"
-    """Filter file is of the type AzureBlob."""
+    """
+    Filter file is of the type AzureBlob.
+    """
     AZURE_FILE = "AzureFile"
-    """Filter file is of the type AzureFiles."""
+    """
+    Filter file is of the type AzureFiles.
+    """
 
 
 class JobDeliveryType(str, Enum):
@@ -82,9 +108,13 @@ class JobDeliveryType(str, Enum):
     Delivery type of Job.
     """
     NON_SCHEDULED = "NonScheduled"
-    """Non Scheduled job."""
+    """
+    Non Scheduled job.
+    """
     SCHEDULED = "Scheduled"
-    """Scheduled job."""
+    """
+    Scheduled job.
+    """
 
 
 class KekType(str, Enum):
@@ -92,9 +122,13 @@ class KekType(str, Enum):
     Type of encryption key used for key encryption.
     """
     MICROSOFT_MANAGED = "MicrosoftManaged"
-    """Key encryption key is managed by Microsoft."""
+    """
+    Key encryption key is managed by Microsoft.
+    """
     CUSTOMER_MANAGED = "CustomerManaged"
-    """Key encryption key is managed by the Customer."""
+    """
+    Key encryption key is managed by the Customer.
+    """
 
 
 class LogCollectionLevel(str, Enum):
@@ -102,9 +136,13 @@ class LogCollectionLevel(str, Enum):
     Level of the logs to be collected.
     """
     ERROR = "Error"
-    """Only Errors will be collected in the logs."""
+    """
+    Only Errors will be collected in the logs.
+    """
     VERBOSE = "Verbose"
-    """Verbose logging (includes Errors, CRC, size information and others)."""
+    """
+    Verbose logging (includes Errors, CRC, size information and others).
+    """
 
 
 class NotificationStageName(str, Enum):
@@ -112,21 +150,37 @@ class NotificationStageName(str, Enum):
     Name of the stage.
     """
     DEVICE_PREPARED = "DevicePrepared"
-    """Notification at device prepared stage."""
+    """
+    Notification at device prepared stage.
+    """
     DISPATCHED = "Dispatched"
-    """Notification at device dispatched stage."""
+    """
+    Notification at device dispatched stage.
+    """
     DELIVERED = "Delivered"
-    """Notification at device delivered stage."""
+    """
+    Notification at device delivered stage.
+    """
     PICKED_UP = "PickedUp"
-    """Notification at device picked up from user stage."""
+    """
+    Notification at device picked up from user stage.
+    """
     AT_AZURE_DC = "AtAzureDC"
-    """Notification at device received at Azure datacenter stage."""
+    """
+    Notification at device received at Azure datacenter stage.
+    """
     DATA_COPY = "DataCopy"
-    """Notification at data copy started stage."""
+    """
+    Notification at data copy started stage.
+    """
     CREATED = "Created"
-    """Notification at job created stage."""
+    """
+    Notification at job created stage.
+    """
     SHIPPED_TO_CUSTOMER = "ShippedToCustomer"
-    """Notification at shipped devices to customer stage."""
+    """
+    Notification at shipped devices to customer stage.
+    """
 
 
 class SkuName(str, Enum):
@@ -134,13 +188,21 @@ class SkuName(str, Enum):
     The sku name.
     """
     DATA_BOX = "DataBox"
-    """Data Box."""
+    """
+    Data Box.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """Data Box Disk."""
+    """
+    Data Box Disk.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """Data Box Heavy."""
+    """
+    Data Box Heavy.
+    """
     DATA_BOX_CUSTOMER_DISK = "DataBoxCustomerDisk"
-    """Data Box Customer Disk."""
+    """
+    Data Box Customer Disk.
+    """
 
 
 class TransferConfigurationType(str, Enum):
@@ -148,9 +210,13 @@ class TransferConfigurationType(str, Enum):
     Type of the configuration for transfer.
     """
     TRANSFER_ALL = "TransferAll"
-    """Transfer all the data."""
+    """
+    Transfer all the data.
+    """
     TRANSFER_USING_FILTER = "TransferUsingFilter"
-    """Transfer using filter."""
+    """
+    Transfer using filter.
+    """
 
 
 class TransferType(str, Enum):
@@ -158,9 +224,13 @@ class TransferType(str, Enum):
     Type of the data transfer.
     """
     IMPORT_TO_AZURE = "ImportToAzure"
-    """Import data to azure."""
+    """
+    Import data to azure.
+    """
     EXPORT_FROM_AZURE = "ExportFromAzure"
-    """Export data from azure."""
+    """
+    Export data from azure.
+    """
 
 
 class TransportShipmentTypes(str, Enum):
@@ -168,6 +238,10 @@ class TransportShipmentTypes(str, Enum):
     Indicates Shipment Logistics type that the customer preferred.
     """
     CUSTOMER_MANAGED = "CustomerManaged"
-    """Shipment Logistics is handled by the customer."""
+    """
+    Shipment Logistics is handled by the customer.
+    """
     MICROSOFT_MANAGED = "MicrosoftManaged"
-    """Shipment Logistics is handled by Microsoft."""
+    """
+    Shipment Logistics is handled by Microsoft.
+    """

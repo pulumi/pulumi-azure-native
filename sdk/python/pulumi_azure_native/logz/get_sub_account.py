@@ -13,6 +13,7 @@ __all__ = [
     'GetSubAccountResult',
     'AwaitableGetSubAccountResult',
     'get_sub_account',
+    'get_sub_account_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,19 @@ def get_sub_account(monitor_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sub_account)
+def get_sub_account_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           sub_account_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubAccountResult]:
+    """
+    API Version: 2020-10-01.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sub_account_name: Sub Account resource name
+    """
+    ...

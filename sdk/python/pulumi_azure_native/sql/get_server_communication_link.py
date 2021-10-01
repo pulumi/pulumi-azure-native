@@ -12,6 +12,7 @@ __all__ = [
     'GetServerCommunicationLinkResult',
     'AwaitableGetServerCommunicationLinkResult',
     'get_server_communication_link',
+    'get_server_communication_link_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
         partner_server=__ret__.partner_server,
         state=__ret__.state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_communication_link)
+def get_server_communication_link_output(communication_link_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         server_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCommunicationLinkResult]:
+    """
+    Server communication link.
+    API Version: 2014-04-01.
+
+
+    :param str communication_link_name: The name of the server communication link.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

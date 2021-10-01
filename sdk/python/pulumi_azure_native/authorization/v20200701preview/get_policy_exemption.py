@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicyExemptionResult',
     'AwaitableGetPolicyExemptionResult',
     'get_policy_exemption',
+    'get_policy_exemption_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
         policy_definition_reference_ids=__ret__.policy_definition_reference_ids,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_exemption)
+def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str]] = None,
+                                scope: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyExemptionResult]:
+    """
+    The policy exemption.
+
+
+    :param str policy_exemption_name: The name of the policy exemption to delete.
+    :param str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    """
+    ...

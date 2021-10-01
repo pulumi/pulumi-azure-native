@@ -12,6 +12,7 @@ __all__ = [
     'GetApiPolicyResult',
     'AwaitableGetApiPolicyResult',
     'get_api_policy',
+    'get_api_policy_output',
 ]
 
 @pulumi.output_type
@@ -124,3 +125,23 @@ def get_api_policy(api_id: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_api_policy)
+def get_api_policy_output(api_id: Optional[pulumi.Input[str]] = None,
+                          format: Optional[pulumi.Input[Optional[str]]] = None,
+                          policy_id: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPolicyResult]:
+    """
+    Policy Contract details.
+
+
+    :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    :param str format: Policy Export Format.
+    :param str policy_id: The identifier of the Policy.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

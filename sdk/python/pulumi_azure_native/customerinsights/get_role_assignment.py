@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleAssignmentResult',
     'AwaitableGetRoleAssignmentResult',
     'get_role_assignment',
+    'get_role_assignment_output',
 ]
 
 @pulumi.output_type
@@ -354,3 +355,20 @@ def get_role_assignment(assignment_name: Optional[str] = None,
         type=__ret__.type,
         views=__ret__.views,
         widget_types=__ret__.widget_types)
+
+
+@_utilities.lift_output_func(get_role_assignment)
+def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
+                               hub_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
+    """
+    The Role Assignment resource format.
+    API Version: 2017-04-26.
+
+
+    :param str assignment_name: The name of the role assignment.
+    :param str hub_name: The name of the hub.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

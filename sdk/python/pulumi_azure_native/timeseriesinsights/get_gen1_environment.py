@@ -13,6 +13,7 @@ __all__ = [
     'GetGen1EnvironmentResult',
     'AwaitableGetGen1EnvironmentResult',
     'get_gen1_environment',
+    'get_gen1_environment_output',
 ]
 
 @pulumi.output_type
@@ -251,3 +252,20 @@ def get_gen1_environment(environment_name: Optional[str] = None,
         storage_limit_exceeded_behavior=__ret__.storage_limit_exceeded_behavior,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gen1_environment)
+def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGen1EnvironmentResult]:
+    """
+    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+    API Version: 2020-05-15.
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

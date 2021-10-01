@@ -12,6 +12,7 @@ __all__ = [
     'GetOpenIdConnectProviderResult',
     'AwaitableGetOpenIdConnectProviderResult',
     'get_open_id_connect_provider',
+    'get_open_id_connect_provider_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,20 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
         metadata_endpoint=__ret__.metadata_endpoint,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_open_id_connect_provider)
+def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        service_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
+    """
+    OpenId Connect Provider details.
+    API Version: 2020-12-01.
+
+
+    :param str opid: Identifier of the OpenID Connect Provider.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

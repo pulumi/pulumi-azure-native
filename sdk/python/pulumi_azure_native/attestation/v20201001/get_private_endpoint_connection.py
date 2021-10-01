@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           provider_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    The Private Endpoint Connection resource.
+
+
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
+    :param str provider_name: The name of the attestation provider.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetEndpointResult',
     'AwaitableGetEndpointResult',
     'get_endpoint',
+    'get_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -239,3 +240,21 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         target_resource_id=__ret__.target_resource_id,
         type=__ret__.type,
         weight=__ret__.weight)
+
+
+@_utilities.lift_output_func(get_endpoint)
+def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
+                        endpoint_type: Optional[pulumi.Input[str]] = None,
+                        profile_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+    """
+    Class representing a Traffic Manager endpoint.
+
+
+    :param str endpoint_name: The name of the Traffic Manager endpoint.
+    :param str endpoint_type: The type of the Traffic Manager endpoint.
+    :param str profile_name: The name of the Traffic Manager profile.
+    :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
+    """
+    ...

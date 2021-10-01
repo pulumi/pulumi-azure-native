@@ -13,6 +13,7 @@ __all__ = [
     'GetProtectionIntentResult',
     'AwaitableGetProtectionIntentResult',
     'get_protection_intent',
+    'get_protection_intent_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,22 @@ def get_protection_intent(fabric_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_protection_intent)
+def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None,
+                                 intent_object_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 vault_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionIntentResult]:
+    """
+    Base class for backup ProtectionIntent.
+    API Version: 2021-02-01.
+
+
+    :param str fabric_name: Fabric name associated with the backed up item.
+    :param str intent_object_name: Backed up item name whose details are to be fetched.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str vault_name: The name of the recovery services vault.
+    """
+    ...

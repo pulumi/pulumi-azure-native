@@ -13,6 +13,7 @@ __all__ = [
     'GetvNetPeeringResult',
     'AwaitableGetvNetPeeringResult',
     'getv_net_peering',
+    'getv_net_peering_output',
 ]
 
 @pulumi.output_type
@@ -223,3 +224,19 @@ def getv_net_peering(peering_name: Optional[str] = None,
         remote_virtual_network=__ret__.remote_virtual_network,
         type=__ret__.type,
         use_remote_gateways=__ret__.use_remote_gateways)
+
+
+@_utilities.lift_output_func(getv_net_peering)
+def getv_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetvNetPeeringResult]:
+    """
+    Peerings in a VirtualNetwork resource
+
+
+    :param str peering_name: The name of the workspace vNet peering.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

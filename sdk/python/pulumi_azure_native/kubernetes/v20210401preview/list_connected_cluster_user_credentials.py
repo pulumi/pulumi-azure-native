@@ -14,6 +14,7 @@ __all__ = [
     'ListConnectedClusterUserCredentialsResult',
     'AwaitableListConnectedClusterUserCredentialsResult',
     'list_connected_cluster_user_credentials',
+    'list_connected_cluster_user_credentials_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,21 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
     return AwaitableListConnectedClusterUserCredentialsResult(
         hybrid_connection_config=__ret__.hybrid_connection_config,
         kubeconfigs=__ret__.kubeconfigs)
+
+
+@_utilities.lift_output_func(list_connected_cluster_user_credentials)
+def list_connected_cluster_user_credentials_output(authentication_method: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]] = None,
+                                                   client_proxy: Optional[pulumi.Input[bool]] = None,
+                                                   cluster_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
+    """
+    The list of credential result response.
+
+
+    :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
+    :param bool client_proxy: Boolean value to indicate whether the request is for client side proxy or not
+    :param str cluster_name: The name of the Kubernetes cluster on which get is called.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

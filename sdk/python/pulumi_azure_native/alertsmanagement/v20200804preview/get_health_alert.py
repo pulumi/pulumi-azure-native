@@ -13,6 +13,7 @@ __all__ = [
     'GetHealthAlertResult',
     'AwaitableGetHealthAlertResult',
     'get_health_alert',
+    'get_health_alert_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_health_alert(resource_group_name: Optional[str] = None,
         scopes=__ret__.scopes,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_health_alert)
+def get_health_alert_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            rule_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHealthAlertResult]:
+    """
+    The health alert resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_name: The name of the rule.
+    """
+    ...

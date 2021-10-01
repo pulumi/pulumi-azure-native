@@ -13,6 +13,7 @@ __all__ = [
     'GetPeriodicTimerEventTriggerResult',
     'AwaitableGetPeriodicTimerEventTriggerResult',
     'get_periodic_timer_event_trigger',
+    'get_periodic_timer_event_trigger_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,19 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
         sink_info=__ret__.sink_info,
         source_info=__ret__.source_info,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_periodic_timer_event_trigger)
+def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
+                                            name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
+    """
+    Trigger details.
+
+
+    :param str device_name: The device name.
+    :param str name: The trigger name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

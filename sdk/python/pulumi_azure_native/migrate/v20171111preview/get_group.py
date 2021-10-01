@@ -12,6 +12,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_group(group_name: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         updated_timestamp=__ret__.updated_timestamp)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
+                     project_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    A group created in a Migration project.
+
+
+    :param str group_name: Unique name of a group within a project.
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteSlotConfigNamesResult',
     'AwaitableGetSiteSlotConfigNamesResult',
     'get_site_slot_config_names',
+    'get_site_slot_config_names_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,17 @@ def get_site_slot_config_names(name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_slot_config_names)
+def get_site_slot_config_names_output(name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteSlotConfigNamesResult]:
+    """
+    Slot Config names azure resource
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

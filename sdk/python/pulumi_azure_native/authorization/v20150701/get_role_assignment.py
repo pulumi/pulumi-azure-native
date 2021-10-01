@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleAssignmentResult',
     'AwaitableGetRoleAssignmentResult',
     'get_role_assignment',
+    'get_role_assignment_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,17 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_assignment)
+def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]] = None,
+                               scope: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
+    """
+    Role Assignments
+
+
+    :param str role_assignment_name: The name of the role assignment to get.
+    :param str scope: The scope of the role assignment.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetProfileSupportedOptimizationTypesResult',
     'AwaitableGetProfileSupportedOptimizationTypesResult',
     'get_profile_supported_optimization_types',
+    'get_profile_supported_optimization_types_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
 
     return AwaitableGetProfileSupportedOptimizationTypesResult(
         supported_optimization_types=__ret__.supported_optimization_types)
+
+
+@_utilities.lift_output_func(get_profile_supported_optimization_types)
+def get_profile_supported_optimization_types_output(profile_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
+    """
+    The result of the GetSupportedOptimizationTypes API
+    API Version: 2020-09-01.
+
+
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

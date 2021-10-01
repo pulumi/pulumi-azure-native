@@ -12,6 +12,7 @@ __all__ = [
     'GetprivateLinkForAzureAdResult',
     'AwaitableGetprivateLinkForAzureAdResult',
     'getprivate_link_for_azure_ad',
+    'getprivate_link_for_azure_ad_output',
 ]
 
 @pulumi.output_type
@@ -180,3 +181,17 @@ def getprivate_link_for_azure_ad(policy_name: Optional[str] = None,
         tags=__ret__.tags,
         tenants=__ret__.tenants,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(getprivate_link_for_azure_ad)
+def getprivate_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkForAzureAdResult]:
+    """
+    PrivateLink Policy configuration object.
+
+
+    :param str policy_name: The name of the private link policy in Azure AD.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

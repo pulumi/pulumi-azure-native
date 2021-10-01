@@ -13,6 +13,7 @@ __all__ = [
     'GetMapResult',
     'AwaitableGetMapResult',
     'get_map',
+    'get_map_output',
 ]
 
 @pulumi.output_type
@@ -223,3 +224,19 @@ def get_map(integration_account_name: Optional[str] = None,
         parameters_schema=__ret__.parameters_schema,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_map)
+def get_map_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                   map_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
+    """
+    The integration account map.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str map_name: The integration account map name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

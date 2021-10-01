@@ -13,6 +13,7 @@ __all__ = [
     'GetSecurityContactResult',
     'AwaitableGetSecurityContactResult',
     'get_security_contact',
+    'get_security_contact_output',
 ]
 
 @pulumi.output_type
@@ -139,3 +140,15 @@ def get_security_contact(security_contact_name: Optional[str] = None,
         notifications_by_role=__ret__.notifications_by_role,
         phone=__ret__.phone,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_security_contact)
+def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
+    """
+    Contact details and configurations for notifications coming from Azure Security Center.
+
+
+    :param str security_contact_name: Name of the security contact object
+    """
+    ...

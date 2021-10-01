@@ -13,6 +13,7 @@ __all__ = [
     'GetNamespaceNetworkRuleSetResult',
     'AwaitableGetNamespaceNetworkRuleSetResult',
     'get_namespace_network_rule_set',
+    'get_namespace_network_rule_set_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
         trusted_service_access_enabled=__ret__.trusted_service_access_enabled,
         type=__ret__.type,
         virtual_network_rules=__ret__.virtual_network_rules)
+
+
+@_utilities.lift_output_func(get_namespace_network_rule_set)
+def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
+    """
+    Description of NetworkRuleSet resource.
+
+
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

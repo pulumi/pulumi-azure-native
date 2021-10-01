@@ -13,6 +13,7 @@ __all__ = [
     'GetKustoPoolDataConnectionResult',
     'AwaitableGetKustoPoolDataConnectionResult',
     'get_kusto_pool_data_connection',
+    'get_kusto_pool_data_connection_output',
 ]
 
 warnings.warn("""Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.""", DeprecationWarning)
@@ -141,3 +142,24 @@ def get_kusto_pool_data_connection(data_connection_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_kusto_pool_data_connection)
+def get_kusto_pool_data_connection_output(data_connection_name: Optional[pulumi.Input[str]] = None,
+                                          database_name: Optional[pulumi.Input[str]] = None,
+                                          kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          workspace_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolDataConnectionResult]:
+    """
+    Class representing a data connection.
+
+
+    :param str data_connection_name: The name of the data connection.
+    :param str database_name: The name of the database in the Kusto pool.
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    pulumi.log.warn("""get_kusto_pool_data_connection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.""")
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSolutionConfigResult',
     'AwaitableGetSolutionConfigResult',
     'get_solution_config',
+    'get_solution_config_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,20 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
 
     return AwaitableGetSolutionConfigResult(
         publisher_sas_uri=__ret__.publisher_sas_uri)
+
+
+@_utilities.lift_output_func(get_solution_config)
+def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               solution_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionConfigResult]:
+    """
+    Class representing the config for the solution in the migrate project.
+    API Version: 2018-09-01-preview.
+
+
+    :param str migrate_project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.
+    :param str solution_name: Unique name of a migration solution within a migrate project.
+    """
+    ...

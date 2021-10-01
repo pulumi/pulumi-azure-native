@@ -12,6 +12,7 @@ __all__ = [
     'GetProviderInstanceResult',
     'AwaitableGetProviderInstanceResult',
     'get_provider_instance',
+    'get_provider_instance_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,20 @@ def get_provider_instance(provider_instance_name: Optional[str] = None,
         properties=__ret__.properties,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_provider_instance)
+def get_provider_instance_output(provider_instance_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 sap_monitor_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderInstanceResult]:
+    """
+    A provider instance associated with a SAP monitor.
+    API Version: 2020-02-07-preview.
+
+
+    :param str provider_instance_name: Name of the provider instance.
+    :param str resource_group_name: Name of the resource group.
+    :param str sap_monitor_name: Name of the SAP monitor resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetLogProfileResult',
     'AwaitableGetLogProfileResult',
     'get_log_profile',
+    'get_log_profile_output',
 ]
 
 @pulumi.output_type
@@ -179,3 +180,16 @@ def get_log_profile(log_profile_name: Optional[str] = None,
         storage_account_id=__ret__.storage_account_id,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_log_profile)
+def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
+    """
+    The log profile resource.
+    API Version: 2016-03-01.
+
+
+    :param str log_profile_name: The name of the log profile.
+    """
+    ...

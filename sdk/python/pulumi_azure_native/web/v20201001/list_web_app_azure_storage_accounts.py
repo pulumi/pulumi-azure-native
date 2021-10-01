@@ -13,6 +13,7 @@ __all__ = [
     'ListWebAppAzureStorageAccountsResult',
     'AwaitableListWebAppAzureStorageAccountsResult',
     'list_web_app_azure_storage_accounts',
+    'list_web_app_azure_storage_accounts_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def list_web_app_azure_storage_accounts(name: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_azure_storage_accounts)
+def list_web_app_azure_storage_accounts_output(name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsResult]:
+    """
+    AzureStorageInfo dictionary resource.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

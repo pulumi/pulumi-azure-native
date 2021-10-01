@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -247,3 +248,18 @@ def get_application(application_resource_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         unhealthy_evaluation=__ret__.unhealthy_evaluation)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(application_resource_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    This type describes an application resource.
+    API Version: 2018-09-01-preview.
+
+
+    :param str application_resource_name: The identity of the application.
+    :param str resource_group_name: Azure resource group name
+    """
+    ...

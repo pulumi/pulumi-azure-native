@@ -13,6 +13,7 @@ __all__ = [
     'GetScalingPlanResult',
     'AwaitableGetScalingPlanResult',
     'get_scaling_plan',
+    'get_scaling_plan_output',
 ]
 
 @pulumi.output_type
@@ -289,3 +290,17 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         time_zone=__ret__.time_zone,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_scaling_plan)
+def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            scaling_plan_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanResult]:
+    """
+    Represents a scaling plan definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str scaling_plan_name: The name of the scaling plan.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetManagedNetworkGroupResult',
     'AwaitableGetManagedNetworkGroupResult',
     'get_managed_network_group',
+    'get_managed_network_group_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
         subscriptions=__ret__.subscriptions,
         type=__ret__.type,
         virtual_networks=__ret__.virtual_networks)
+
+
+@_utilities.lift_output_func(get_managed_network_group)
+def get_managed_network_group_output(managed_network_group_name: Optional[pulumi.Input[str]] = None,
+                                     managed_network_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
+    """
+    The Managed Network Group resource
+
+
+    :param str managed_network_group_name: The name of the Managed Network Group.
+    :param str managed_network_name: The name of the Managed Network.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

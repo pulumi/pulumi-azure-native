@@ -13,6 +13,7 @@ __all__ = [
     'GetProximityPlacementGroupResult',
     'AwaitableGetProximityPlacementGroupResult',
     'get_proximity_placement_group',
+    'get_proximity_placement_group_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
         type=__ret__.type,
         virtual_machine_scale_sets=__ret__.virtual_machine_scale_sets,
         virtual_machines=__ret__.virtual_machines)
+
+
+@_utilities.lift_output_func(get_proximity_placement_group)
+def get_proximity_placement_group_output(include_colocation_status: Optional[pulumi.Input[Optional[str]]] = None,
+                                         proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
+    """
+    Specifies information about the proximity placement group.
+
+
+    :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
+    :param str proximity_placement_group_name: The name of the proximity placement group.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

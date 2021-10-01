@@ -13,6 +13,7 @@ __all__ = [
     'ListManagedClusterUserCredentialsResult',
     'AwaitableListManagedClusterUserCredentialsResult',
     'list_managed_cluster_user_credentials',
+    'list_managed_cluster_user_credentials_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
 
     return AwaitableListManagedClusterUserCredentialsResult(
         kubeconfigs=__ret__.kubeconfigs)
+
+
+@_utilities.lift_output_func(list_managed_cluster_user_credentials)
+def list_managed_cluster_user_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterUserCredentialsResult]:
+    """
+    The list of credential result response.
+    API Version: 2021-03-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the managed cluster resource.
+    """
+    ...

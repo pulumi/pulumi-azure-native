@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineResult',
     'AwaitableGetVirtualMachineResult',
     'get_virtual_machine',
+    'get_virtual_machine_output',
 ]
 
 @pulumi.output_type
@@ -525,3 +526,21 @@ def get_virtual_machine(expand: Optional[str] = None,
         unique_identifier=__ret__.unique_identifier,
         user_name=__ret__.user_name,
         virtual_machine_creation_source=__ret__.virtual_machine_creation_source)
+
+
+@_utilities.lift_output_func(get_virtual_machine)
+def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               lab_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+    """
+    A virtual machine.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the virtual machine.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

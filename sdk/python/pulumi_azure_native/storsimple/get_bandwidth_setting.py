@@ -13,6 +13,7 @@ __all__ = [
     'GetBandwidthSettingResult',
     'AwaitableGetBandwidthSettingResult',
     'get_bandwidth_setting',
+    'get_bandwidth_setting_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
         schedules=__ret__.schedules,
         type=__ret__.type,
         volume_count=__ret__.volume_count)
+
+
+@_utilities.lift_output_func(get_bandwidth_setting)
+def get_bandwidth_setting_output(bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
+                                 manager_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBandwidthSettingResult]:
+    """
+    The bandwidth setting.
+    API Version: 2017-06-01.
+
+
+    :param str bandwidth_setting_name: The name of bandwidth setting to be fetched.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

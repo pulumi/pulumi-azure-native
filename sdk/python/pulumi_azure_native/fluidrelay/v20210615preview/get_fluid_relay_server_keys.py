@@ -12,6 +12,7 @@ __all__ = [
     'GetFluidRelayServerKeysResult',
     'AwaitableGetFluidRelayServerKeysResult',
     'get_fluid_relay_server_keys',
+    'get_fluid_relay_server_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def get_fluid_relay_server_keys(name: Optional[str] = None,
     return AwaitableGetFluidRelayServerKeysResult(
         key1=__ret__.key1,
         key2=__ret__.key2)
+
+
+@_utilities.lift_output_func(get_fluid_relay_server_keys)
+def get_fluid_relay_server_keys_output(name: Optional[pulumi.Input[str]] = None,
+                                       resource_group: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerKeysResult]:
+    """
+    The set of available keys for this server.
+
+
+    :param str name: The resource name.
+    :param str resource_group: The resource group containing the resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetLinkedSubscriptionResult',
     'AwaitableGetLinkedSubscriptionResult',
     'get_linked_subscription',
+    'get_linked_subscription_output',
 ]
 
 @pulumi.output_type
@@ -246,3 +247,17 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linked_subscription)
+def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
+    """
+    Linked Subscription information.
+
+
+    :param str linked_subscription_name: Name of the Linked Subscription resource.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

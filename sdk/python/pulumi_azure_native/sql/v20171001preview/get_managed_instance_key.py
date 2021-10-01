@@ -12,6 +12,7 @@ __all__ = [
     'GetManagedInstanceKeyResult',
     'AwaitableGetManagedInstanceKeyResult',
     'get_managed_instance_key',
+    'get_managed_instance_key_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_managed_instance_key(key_name: Optional[str] = None,
         name=__ret__.name,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_instance_key)
+def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None,
+                                    managed_instance_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceKeyResult]:
+    """
+    A managed instance key.
+
+
+    :param str key_name: The name of the managed instance key to be retrieved.
+    :param str managed_instance_name: The name of the managed instance.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    """
+    ...

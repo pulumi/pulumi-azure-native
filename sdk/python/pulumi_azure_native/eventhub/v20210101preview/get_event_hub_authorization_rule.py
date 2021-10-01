@@ -13,6 +13,7 @@ __all__ = [
     'GetEventHubAuthorizationRuleResult',
     'AwaitableGetEventHubAuthorizationRuleResult',
     'get_event_hub_authorization_rule',
+    'get_event_hub_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,21 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
         rights=__ret__.rights,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_event_hub_authorization_rule)
+def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                                            event_hub_name: Optional[pulumi.Input[str]] = None,
+                                            namespace_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubAuthorizationRuleResult]:
+    """
+    Single item in a List or Get AuthorizationRule operation
+
+
+    :param str authorization_rule_name: The authorization rule name.
+    :param str event_hub_name: The Event Hub name
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

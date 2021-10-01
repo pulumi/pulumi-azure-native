@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkspaceSharedKeysResult',
     'AwaitableGetWorkspaceSharedKeysResult',
     'get_workspace_shared_keys',
+    'get_workspace_shared_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def get_workspace_shared_keys(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceSharedKeysResult(
         primary_shared_key=__ret__.primary_shared_key,
         secondary_shared_key=__ret__.secondary_shared_key)
+
+
+@_utilities.lift_output_func(get_workspace_shared_keys)
+def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     workspace_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSharedKeysResult]:
+    """
+    The shared keys for a workspace.
+
+
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    :param str workspace_name: Name of the Log Analytics Workspace.
+    """
+    ...

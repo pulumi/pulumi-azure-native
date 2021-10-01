@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkFunctionResult',
     'AwaitableGetNetworkFunctionResult',
     'get_network_function',
+    'get_network_function_output',
 ]
 
 @pulumi.output_type
@@ -260,3 +261,18 @@ def get_network_function(network_function_name: Optional[str] = None,
         type=__ret__.type,
         vendor_name=__ret__.vendor_name,
         vendor_provisioning_state=__ret__.vendor_provisioning_state)
+
+
+@_utilities.lift_output_func(get_network_function)
+def get_network_function_output(network_function_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFunctionResult]:
+    """
+    Network function resource response.
+    API Version: 2020-01-01-preview.
+
+
+    :param str network_function_name: The name of the network function resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

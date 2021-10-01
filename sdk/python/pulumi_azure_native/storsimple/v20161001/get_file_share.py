@@ -12,6 +12,7 @@ __all__ = [
     'GetFileShareResult',
     'AwaitableGetFileShareResult',
     'get_file_share',
+    'get_file_share_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,23 @@ def get_file_share(device_name: Optional[str] = None,
         share_status=__ret__.share_status,
         type=__ret__.type,
         used_capacity_in_bytes=__ret__.used_capacity_in_bytes)
+
+
+@_utilities.lift_output_func(get_file_share)
+def get_file_share_output(device_name: Optional[pulumi.Input[str]] = None,
+                          file_server_name: Optional[pulumi.Input[str]] = None,
+                          manager_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          share_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
+    """
+    The File Share.
+
+
+    :param str device_name: The device name.
+    :param str file_server_name: The file server name.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    :param str share_name: The file share name.
+    """
+    ...

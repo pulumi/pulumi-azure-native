@@ -13,6 +13,7 @@ __all__ = [
     'GetReplicationMigrationItemResult',
     'AwaitableGetReplicationMigrationItemResult',
     'get_replication_migration_item',
+    'get_replication_migration_item_output',
 ]
 
 @pulumi.output_type
@@ -125,3 +126,23 @@ def get_replication_migration_item(fabric_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_replication_migration_item)
+def get_replication_migration_item_output(fabric_name: Optional[pulumi.Input[str]] = None,
+                                          migration_item_name: Optional[pulumi.Input[str]] = None,
+                                          protection_container_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          resource_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationMigrationItemResult]:
+    """
+    Migration item.
+
+
+    :param str fabric_name: Fabric unique name.
+    :param str migration_item_name: Migration item name.
+    :param str protection_container_name: Protection container name.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_name: The name of the recovery services vault.
+    """
+    ...

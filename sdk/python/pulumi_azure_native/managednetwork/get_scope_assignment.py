@@ -12,6 +12,7 @@ __all__ = [
     'GetScopeAssignmentResult',
     'AwaitableGetScopeAssignmentResult',
     'get_scope_assignment',
+    'get_scope_assignment_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,18 @@ def get_scope_assignment(scope: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_scope_assignment)
+def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
+                                scope_assignment_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAssignmentResult]:
+    """
+    The Managed Network resource
+    API Version: 2019-06-01-preview.
+
+
+    :param str scope: The base resource of the scope assignment.
+    :param str scope_assignment_name: The name of the scope assignment to get.
+    """
+    ...

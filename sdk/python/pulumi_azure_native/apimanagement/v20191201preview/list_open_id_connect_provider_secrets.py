@@ -12,6 +12,7 @@ __all__ = [
     'ListOpenIdConnectProviderSecretsResult',
     'AwaitableListOpenIdConnectProviderSecretsResult',
     'list_open_id_connect_provider_secrets',
+    'list_open_id_connect_provider_secrets_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,19 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
 
     return AwaitableListOpenIdConnectProviderSecretsResult(
         client_secret=__ret__.client_secret)
+
+
+@_utilities.lift_output_func(list_open_id_connect_provider_secrets)
+def list_open_id_connect_provider_secrets_output(opid: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 service_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenIdConnectProviderSecretsResult]:
+    """
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+
+
+    :param str opid: Identifier of the OpenID Connect Provider.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

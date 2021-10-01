@@ -13,6 +13,7 @@ __all__ = [
     'GetHostPoolResult',
     'AwaitableGetHostPoolResult',
     'get_host_pool',
+    'get_host_pool_output',
 ]
 
 @pulumi.output_type
@@ -363,3 +364,17 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         type=__ret__.type,
         validation_environment=__ret__.validation_environment,
         vm_template=__ret__.vm_template)
+
+
+@_utilities.lift_output_func(get_host_pool)
+def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
+    """
+    Represents a HostPool definition.
+
+
+    :param str host_pool_name: The name of the host pool within the specified resource group
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetCommunicationServiceResult',
     'AwaitableGetCommunicationServiceResult',
     'get_communication_service',
+    'get_communication_service_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,18 @@ def get_communication_service(communication_service_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_communication_service)
+def get_communication_service_output(communication_service_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationServiceResult]:
+    """
+    A class representing a CommunicationService resource.
+    API Version: 2020-08-20.
+
+
+    :param str communication_service_name: The name of the CommunicationService resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetGraphQueryResult',
     'AwaitableGetGraphQueryResult',
     'get_graph_query',
+    'get_graph_query_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,18 @@ def get_graph_query(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_graph_query)
+def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           resource_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQueryResult]:
+    """
+    Graph Query entity definition.
+    API Version: 2018-09-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the Graph Query resource.
+    """
+    ...

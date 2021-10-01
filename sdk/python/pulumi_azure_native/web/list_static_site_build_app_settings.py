@@ -12,6 +12,7 @@ __all__ = [
     'ListStaticSiteBuildAppSettingsResult',
     'AwaitableListStaticSiteBuildAppSettingsResult',
     'list_static_site_build_app_settings',
+    'list_static_site_build_app_settings_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,20 @@ def list_static_site_build_app_settings(environment_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_static_site_build_app_settings)
+def list_static_site_build_app_settings_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                               name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildAppSettingsResult]:
+    """
+    String dictionary resource.
+    API Version: 2020-12-01.
+
+
+    :param str environment_name: The stage site identifier.
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

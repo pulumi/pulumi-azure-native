@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkResult',
     'AwaitableGetVirtualNetworkResult',
     'get_virtual_network',
+    'get_virtual_network_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_virtual_network(expand: Optional[str] = None,
         subnets=__ret__.subnets,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_network)
+def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               virtual_network_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
+    """
+    Virtual Network resource.
+
+
+    :param str expand: Expands referenced resources.
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_name: The name of the virtual network.
+    """
+    ...

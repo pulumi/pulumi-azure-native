@@ -13,6 +13,7 @@ __all__ = [
     'GetIotConnectorFhirDestinationResult',
     'AwaitableGetIotConnectorFhirDestinationResult',
     'get_iot_connector_fhir_destination',
+    'get_iot_connector_fhir_destination_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,21 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
         resource_identity_resolution_type=__ret__.resource_identity_resolution_type,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iot_connector_fhir_destination)
+def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pulumi.Input[str]] = None,
+                                              iot_connector_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              workspace_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
+    """
+    IoT Connector FHIR destination definition.
+
+
+    :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.
+    :param str iot_connector_name: The name of IoT Connector resource.
+    :param str resource_group_name: The name of the resource group that contains the service instance.
+    :param str workspace_name: The name of workspace resource.
+    """
+    ...

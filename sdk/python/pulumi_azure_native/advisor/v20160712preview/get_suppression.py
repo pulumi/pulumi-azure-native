@@ -12,6 +12,7 @@ __all__ = [
     'GetSuppressionResult',
     'AwaitableGetSuppressionResult',
     'get_suppression',
+    'get_suppression_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,19 @@ def get_suppression(name: Optional[str] = None,
         tags=__ret__.tags,
         ttl=__ret__.ttl,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_suppression)
+def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
+                           recommendation_id: Optional[pulumi.Input[str]] = None,
+                           resource_uri: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuppressionResult]:
+    """
+    The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+
+
+    :param str name: The name of the suppression.
+    :param str recommendation_id: The recommendation ID.
+    :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+    """
+    ...

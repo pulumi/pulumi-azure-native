@@ -13,6 +13,7 @@ __all__ = [
     'ListAccountKeysResult',
     'AwaitableListAccountKeysResult',
     'list_account_keys',
+    'list_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def list_account_keys(account_name: Optional[str] = None,
 
     return AwaitableListAccountKeysResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_account_keys)
+def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+    """
+    The list of the EngagementFabric account keys
+
+
+    :param str account_name: Account Name
+    :param str resource_group_name: Resource Group Name
+    """
+    ...

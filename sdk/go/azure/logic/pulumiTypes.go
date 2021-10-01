@@ -24957,6 +24957,47 @@ func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerList
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
 }
 
+func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return i.ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponseOutput).ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx)
+}
+
+// WorkflowTriggerListCallbackUrlQueriesResponsePtrInput is an input type that accepts WorkflowTriggerListCallbackUrlQueriesResponseArgs, WorkflowTriggerListCallbackUrlQueriesResponsePtr and WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput values.
+// You can construct a concrete instance of `WorkflowTriggerListCallbackUrlQueriesResponsePtrInput` via:
+//
+//          WorkflowTriggerListCallbackUrlQueriesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowTriggerListCallbackUrlQueriesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput
+	ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput
+}
+
+type workflowTriggerListCallbackUrlQueriesResponsePtrType WorkflowTriggerListCallbackUrlQueriesResponseArgs
+
+func WorkflowTriggerListCallbackUrlQueriesResponsePtr(v *WorkflowTriggerListCallbackUrlQueriesResponseArgs) WorkflowTriggerListCallbackUrlQueriesResponsePtrInput {
+	return (*workflowTriggerListCallbackUrlQueriesResponsePtrType)(v)
+}
+
+func (*workflowTriggerListCallbackUrlQueriesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (i *workflowTriggerListCallbackUrlQueriesResponsePtrType) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return i.ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowTriggerListCallbackUrlQueriesResponsePtrType) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
+}
+
 type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
@@ -24969,6 +25010,16 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerLi
 
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
 	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTriggerListCallbackUrlQueriesResponse) *WorkflowTriggerListCallbackUrlQueriesResponse {
+		return &v
+	}).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
 }
 
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
@@ -24989,6 +25040,75 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sp() pulumi.StringP
 
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Elem() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) WorkflowTriggerListCallbackUrlQueriesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerListCallbackUrlQueriesResponse
+		return ret
+	}).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Se
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sig
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sv
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkflowTriggerRecurrence struct {
@@ -31973,6 +32093,7 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceResponseOutput{})

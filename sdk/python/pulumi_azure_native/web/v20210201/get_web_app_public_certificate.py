@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppPublicCertificateResult',
     'AwaitableGetWebAppPublicCertificateResult',
     'get_web_app_public_certificate',
+    'get_web_app_public_certificate_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,19 @@ def get_web_app_public_certificate(name: Optional[str] = None,
         public_certificate_location=__ret__.public_certificate_location,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_public_certificate)
+def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = None,
+                                          public_certificate_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
+    """
+    Public certificate object
+
+
+    :param str name: Name of the app.
+    :param str public_certificate_name: Public certificate name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

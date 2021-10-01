@@ -12,6 +12,7 @@ __all__ = [
     'GetVariableResult',
     'AwaitableGetVariableResult',
     'get_variable',
+    'get_variable_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_variable(automation_account_name: Optional[str] = None,
         name=__ret__.name,
         type=__ret__.type,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_variable)
+def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        variable_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
+    """
+    Definition of the variable.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str variable_name: The name of variable.
+    """
+    ...

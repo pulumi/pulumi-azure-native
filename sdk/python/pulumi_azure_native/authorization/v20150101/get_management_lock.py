@@ -12,6 +12,7 @@ __all__ = [
     'GetManagementLockResult',
     'AwaitableGetManagementLockResult',
     'get_management_lock',
+    'get_management_lock_output',
 ]
 
 @pulumi.output_type
@@ -112,3 +113,15 @@ def get_management_lock(lock_name: Optional[str] = None,
         name=__ret__.name,
         notes=__ret__.notes,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_lock)
+def get_management_lock_output(lock_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockResult]:
+    """
+    Management lock information.
+
+
+    :param str lock_name: Name of the management lock.
+    """
+    ...

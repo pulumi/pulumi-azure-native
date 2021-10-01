@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkspaceResult',
     'AwaitableGetWorkspaceResult',
     'get_workspace',
+    'get_workspace_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,18 @@ def get_workspace(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         usable=__ret__.usable)
+
+
+@_utilities.lift_output_func(get_workspace)
+def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                         workspace_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+    """
+    The resource proxy definition object for quantum workspace.
+    API Version: 2019-11-04-preview.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str workspace_name: The name of the quantum workspace resource.
+    """
+    ...

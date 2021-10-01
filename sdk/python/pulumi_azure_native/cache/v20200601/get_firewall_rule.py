@@ -12,6 +12,7 @@ __all__ = [
     'GetFirewallRuleResult',
     'AwaitableGetFirewallRuleResult',
     'get_firewall_rule',
+    'get_firewall_rule_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_firewall_rule(cache_name: Optional[str] = None,
         name=__ret__.name,
         start_ip=__ret__.start_ip,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_firewall_rule)
+def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             rule_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
+    """
+    A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+
+
+    :param str cache_name: The name of the Redis cache.
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_name: The name of the firewall rule.
+    """
+    ...

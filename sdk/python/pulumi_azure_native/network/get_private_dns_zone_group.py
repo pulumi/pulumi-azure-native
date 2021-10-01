@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateDnsZoneGroupResult',
     'AwaitableGetPrivateDnsZoneGroupResult',
     'get_private_dns_zone_group',
+    'get_private_dns_zone_group_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
         name=__ret__.name,
         private_dns_zone_configs=__ret__.private_dns_zone_configs,
         provisioning_state=__ret__.provisioning_state)
+
+
+@_utilities.lift_output_func(get_private_dns_zone_group)
+def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
+                                      private_endpoint_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateDnsZoneGroupResult]:
+    """
+    Private dns zone group resource.
+    API Version: 2020-11-01.
+
+
+    :param str private_dns_zone_group_name: The name of the private dns zone group.
+    :param str private_endpoint_name: The name of the private endpoint.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

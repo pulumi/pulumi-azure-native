@@ -12,6 +12,7 @@ __all__ = [
     'GetConfigurationResult',
     'AwaitableGetConfigurationResult',
     'get_configuration',
+    'get_configuration_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,20 @@ def get_configuration(configuration_name: Optional[str] = None,
         source=__ret__.source,
         type=__ret__.type,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_configuration)
+def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             server_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+    """
+    Represents a Configuration.
+    API Version: 2017-12-01.
+
+
+    :param str configuration_name: The name of the server configuration.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_name: The name of the server.
+    """
+    ...

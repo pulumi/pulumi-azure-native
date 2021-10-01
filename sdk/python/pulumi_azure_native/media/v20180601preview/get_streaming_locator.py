@@ -13,6 +13,7 @@ __all__ = [
     'GetStreamingLocatorResult',
     'AwaitableGetStreamingLocatorResult',
     'get_streaming_locator',
+    'get_streaming_locator_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_streaming_locator(account_name: Optional[str] = None,
         streaming_locator_id=__ret__.streaming_locator_id,
         streaming_policy_name=__ret__.streaming_policy_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_streaming_locator)
+def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 streaming_locator_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingLocatorResult]:
+    """
+    A Streaming Locator resource
+
+
+    :param str account_name: The Media Services account name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    :param str streaming_locator_name: The Streaming Locator name.
+    """
+    ...

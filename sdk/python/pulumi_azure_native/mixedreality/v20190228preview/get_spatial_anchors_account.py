@@ -13,6 +13,7 @@ __all__ = [
     'GetSpatialAnchorsAccountResult',
     'AwaitableGetSpatialAnchorsAccountResult',
     'get_spatial_anchors_account',
+    'get_spatial_anchors_account_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_spatial_anchors_account(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_spatial_anchors_account)
+def get_spatial_anchors_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       spatial_anchors_account_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
+    """
+    SpatialAnchorsAccount Response.
+
+
+    :param str resource_group_name: Name of an Azure resource group.
+    :param str spatial_anchors_account_name: Name of an Mixed Reality Spatial Anchors Account.
+    """
+    ...

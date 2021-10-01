@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateStoreOfferResult',
     'AwaitableGetPrivateStoreOfferResult',
     'get_private_store_offer',
+    'get_private_store_offer_output',
 ]
 
 @pulumi.output_type
@@ -234,3 +235,18 @@ def get_private_store_offer(offer_id: Optional[str] = None,
         type=__ret__.type,
         unique_offer_id=__ret__.unique_offer_id,
         update_suppressed_due_idempotence=__ret__.update_suppressed_due_idempotence)
+
+
+@_utilities.lift_output_func(get_private_store_offer)
+def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
+                                   private_store_id: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreOfferResult]:
+    """
+    The privateStore offer data structure.
+    API Version: 2020-01-01.
+
+
+    :param str offer_id: The offer ID to update or delete
+    :param str private_store_id: The store ID - must use the tenant ID
+    """
+    ...

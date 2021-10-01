@@ -13,6 +13,7 @@ __all__ = [
     'GetSignalRPrivateEndpointConnectionResult',
     'AwaitableGetSignalRPrivateEndpointConnectionResult',
     'get_signal_r_private_endpoint_connection',
+    'get_signal_r_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_signal_r_private_endpoint_connection)
+def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRPrivateEndpointConnectionResult]:
+    """
+    A private endpoint connection to an azure resource
+
+
+    :param str private_endpoint_connection_name: The name of the private endpoint connection
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_name: The name of the resource.
+    """
+    ...

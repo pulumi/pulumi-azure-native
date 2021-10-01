@@ -13,6 +13,7 @@ __all__ = [
     'GetExpressRouteCrossConnectionPeeringResult',
     'AwaitableGetExpressRouteCrossConnectionPeeringResult',
     'get_express_route_cross_connection_peering',
+    'get_express_route_cross_connection_peering_output',
 ]
 
 @pulumi.output_type
@@ -288,3 +289,19 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
         shared_key=__ret__.shared_key,
         state=__ret__.state,
         vlan_id=__ret__.vlan_id)
+
+
+@_utilities.lift_output_func(get_express_route_cross_connection_peering)
+def get_express_route_cross_connection_peering_output(cross_connection_name: Optional[pulumi.Input[str]] = None,
+                                                      peering_name: Optional[pulumi.Input[str]] = None,
+                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
+    """
+    Peering in an ExpressRoute Cross Connection resource.
+
+
+    :param str cross_connection_name: The name of the ExpressRouteCrossConnection.
+    :param str peering_name: The name of the peering.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

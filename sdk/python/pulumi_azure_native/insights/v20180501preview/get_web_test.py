@@ -13,6 +13,7 @@ __all__ = [
     'GetWebTestResult',
     'AwaitableGetWebTestResult',
     'get_web_test',
+    'get_web_test_output',
 ]
 
 @pulumi.output_type
@@ -298,3 +299,17 @@ def get_web_test(resource_group_name: Optional[str] = None,
         validation_rules=__ret__.validation_rules,
         web_test_kind=__ret__.web_test_kind,
         web_test_name=__ret__.web_test_name)
+
+
+@_utilities.lift_output_func(get_web_test)
+def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        web_test_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebTestResult]:
+    """
+    An Application Insights WebTest definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str web_test_name: The name of the Application Insights WebTest resource.
+    """
+    ...

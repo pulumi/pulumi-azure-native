@@ -13,6 +13,7 @@ __all__ = [
     'GetTransactionNodeResult',
     'AwaitableGetTransactionNodeResult',
     'get_transaction_node',
+    'get_transaction_node_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
         public_key=__ret__.public_key,
         type=__ret__.type,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_transaction_node)
+def get_transaction_node_output(blockchain_member_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                transaction_node_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransactionNodeResult]:
+    """
+    Payload of the transaction node which is the request/response of the resource provider.
+    API Version: 2018-06-01-preview.
+
+
+    :param str blockchain_member_name: Blockchain member name.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str transaction_node_name: Transaction node name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetBlueprintResult',
     'AwaitableGetBlueprintResult',
     'get_blueprint',
+    'get_blueprint_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_blueprint(blueprint_name: Optional[str] = None,
         target_scope=__ret__.target_scope,
         type=__ret__.type,
         versions=__ret__.versions)
+
+
+@_utilities.lift_output_func(get_blueprint)
+def get_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
+                         resource_scope: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlueprintResult]:
+    """
+    Represents a Blueprint definition.
+
+
+    :param str blueprint_name: Name of the blueprint definition.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    """
+    ...

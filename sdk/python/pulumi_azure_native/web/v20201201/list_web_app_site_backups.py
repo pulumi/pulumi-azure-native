@@ -13,6 +13,7 @@ __all__ = [
     'ListWebAppSiteBackupsResult',
     'AwaitableListWebAppSiteBackupsResult',
     'list_web_app_site_backups',
+    'list_web_app_site_backups_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_web_app_site_backups(name: Optional[str] = None,
     return AwaitableListWebAppSiteBackupsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_web_app_site_backups)
+def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
+    """
+    Collection of backup items.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

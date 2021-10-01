@@ -13,6 +13,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_user(device_name: Optional[str] = None,
         name=__ret__.name,
         share_access_rights=__ret__.share_access_rights,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+
+
+    :param str device_name: The device name.
+    :param str name: The user name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

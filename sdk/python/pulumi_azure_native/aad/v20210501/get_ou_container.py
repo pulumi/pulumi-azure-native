@@ -13,6 +13,7 @@ __all__ = [
     'GetOuContainerResult',
     'AwaitableGetOuContainerResult',
     'get_ou_container',
+    'get_ou_container_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,19 @@ def get_ou_container(domain_service_name: Optional[str] = None,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ou_container)
+def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = None,
+                            ou_container_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOuContainerResult]:
+    """
+    Resource for OuContainer.
+
+
+    :param str domain_service_name: The name of the domain service.
+    :param str ou_container_name: The name of the OuContainer.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

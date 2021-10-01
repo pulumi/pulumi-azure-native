@@ -12,6 +12,7 @@ __all__ = [
     'ListObjectAnchorsAccountKeysResult',
     'AwaitableListObjectAnchorsAccountKeysResult',
     'list_object_anchors_account_keys',
+    'list_object_anchors_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
     return AwaitableListObjectAnchorsAccountKeysResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_object_anchors_account_keys)
+def list_object_anchors_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListObjectAnchorsAccountKeysResult]:
+    """
+    Developer Keys of account
+
+
+    :param str account_name: Name of an Mixed Reality Account.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

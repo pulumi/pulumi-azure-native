@@ -12,6 +12,7 @@ __all__ = [
     'GetTriggerResult',
     'AwaitableGetTriggerResult',
     'get_trigger',
+    'get_trigger_output',
 ]
 
 warnings.warn("""Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""", DeprecationWarning)
@@ -108,3 +109,20 @@ def get_trigger(device_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_trigger)
+def get_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
+    """
+    Trigger details.
+
+
+    :param str device_name: The device name.
+    :param str name: The trigger name.
+    :param str resource_group_name: The resource group name.
+    """
+    pulumi.log.warn("""get_trigger is deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""")
+    ...

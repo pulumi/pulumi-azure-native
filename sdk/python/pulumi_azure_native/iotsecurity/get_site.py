@@ -13,6 +13,7 @@ __all__ = [
     'GetSiteResult',
     'AwaitableGetSiteResult',
     'get_site',
+    'get_site_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,16 @@ def get_site(scope: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site)
+def get_site_output(scope: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
+    """
+    IoT site model
+    API Version: 2021-02-01-preview.
+
+
+    :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+    """
+    ...

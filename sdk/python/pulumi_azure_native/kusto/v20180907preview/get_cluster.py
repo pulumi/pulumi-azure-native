@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -207,3 +208,17 @@ def get_cluster(cluster_name: Optional[str] = None,
         trusted_external_tenants=__ret__.trusted_external_tenants,
         type=__ret__.type,
         uri=__ret__.uri)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Class representing a Kusto cluster.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

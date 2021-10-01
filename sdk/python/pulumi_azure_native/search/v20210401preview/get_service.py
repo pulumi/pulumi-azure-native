@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -350,3 +351,17 @@ def get_service(resource_group_name: Optional[str] = None,
         status_details=__ret__.status_details,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                       search_service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Describes an Azure Cognitive Search service and its current state.
+
+
+    :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    """
+    ...

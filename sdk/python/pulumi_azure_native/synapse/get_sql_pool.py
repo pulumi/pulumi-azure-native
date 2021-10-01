@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlPoolResult',
     'AwaitableGetSqlPoolResult',
     'get_sql_pool',
+    'get_sql_pool_output',
 ]
 
 @pulumi.output_type
@@ -263,3 +264,20 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
         storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_pool)
+def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        sql_pool_name: Optional[pulumi.Input[str]] = None,
+                        workspace_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolResult]:
+    """
+    A SQL Analytics pool
+    API Version: 2021-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sql_pool_name: SQL pool name
+    :param str workspace_name: The name of the workspace
+    """
+    ...

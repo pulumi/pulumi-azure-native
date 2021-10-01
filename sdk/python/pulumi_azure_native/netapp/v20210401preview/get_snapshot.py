@@ -12,6 +12,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -150,3 +151,23 @@ def get_snapshot(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         snapshot_id=__ret__.snapshot_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
+                        pool_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        snapshot_name: Optional[pulumi.Input[str]] = None,
+                        volume_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Snapshot of a Volume
+
+
+    :param str account_name: The name of the NetApp account
+    :param str pool_name: The name of the capacity pool
+    :param str resource_group_name: The name of the resource group.
+    :param str snapshot_name: The name of the mount target
+    :param str volume_name: The name of the volume
+    """
+    ...

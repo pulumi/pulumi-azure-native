@@ -13,6 +13,7 @@ __all__ = [
     'GetMSIXPackageResult',
     'AwaitableGetMSIXPackageResult',
     'get_msix_package',
+    'get_msix_package_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_msix_package(host_pool_name: Optional[str] = None,
         package_relative_path=__ret__.package_relative_path,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_msix_package)
+def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
+                            msix_package_full_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSIXPackageResult]:
+    """
+    Schema for MSIX Package properties.
+
+
+    :param str host_pool_name: The name of the host pool within the specified resource group
+    :param str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

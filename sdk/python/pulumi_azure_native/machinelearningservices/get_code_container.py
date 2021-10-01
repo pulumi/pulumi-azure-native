@@ -13,6 +13,7 @@ __all__ = [
     'GetCodeContainerResult',
     'AwaitableGetCodeContainerResult',
     'get_code_container',
+    'get_code_container_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_code_container(name: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_code_container)
+def get_code_container_output(name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              workspace_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeContainerResult]:
+    """
+    Azure Resource Manager resource envelope.
+    API Version: 2021-03-01-preview.
+
+
+    :param str name: Container name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

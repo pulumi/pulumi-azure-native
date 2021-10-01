@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomApiResult',
     'AwaitableGetCustomApiResult',
     'get_custom_api',
+    'get_custom_api_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_custom_api(api_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_custom_api)
+def get_custom_api_output(api_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomApiResult]:
+    """
+    A custom API
+    API Version: 2016-06-01.
+
+
+    :param str api_name: API name
+    :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
+    """
+    ...

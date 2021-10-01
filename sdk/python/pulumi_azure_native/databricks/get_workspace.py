@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkspaceResult',
     'AwaitableGetWorkspaceResult',
     'get_workspace',
+    'get_workspace_output',
 ]
 
 @pulumi.output_type
@@ -273,3 +274,18 @@ def get_workspace(resource_group_name: Optional[str] = None,
         updated_by=__ret__.updated_by,
         workspace_id=__ret__.workspace_id,
         workspace_url=__ret__.workspace_url)
+
+
+@_utilities.lift_output_func(get_workspace)
+def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                         workspace_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+    """
+    Information about workspace.
+    API Version: 2018-04-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

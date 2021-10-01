@@ -13,6 +13,7 @@ __all__ = [
     'ListSubAccountVMHostsResult',
     'AwaitableListSubAccountVMHostsResult',
     'list_sub_account_vm_hosts',
+    'list_sub_account_vm_hosts_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def list_sub_account_vm_hosts(monitor_name: Optional[str] = None,
     return AwaitableListSubAccountVMHostsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_sub_account_vm_hosts)
+def list_sub_account_vm_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     sub_account_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubAccountVMHostsResult]:
+    """
+    Response of a list VM Host Update Operation.
+    API Version: 2020-10-01.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str sub_account_name: Sub Account resource name
+    """
+    ...

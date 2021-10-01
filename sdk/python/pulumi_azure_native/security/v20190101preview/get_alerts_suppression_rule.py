@@ -13,6 +13,7 @@ __all__ = [
     'GetAlertsSuppressionRuleResult',
     'AwaitableGetAlertsSuppressionRuleResult',
     'get_alerts_suppression_rule',
+    'get_alerts_suppression_rule_output',
 ]
 
 @pulumi.output_type
@@ -178,3 +179,15 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
         state=__ret__.state,
         suppression_alerts_scope=__ret__.suppression_alerts_scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_alerts_suppression_rule)
+def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
+    """
+    Describes the suppression rule
+
+
+    :param str alerts_suppression_rule_name: The unique name of the suppression alert rule
+    """
+    ...

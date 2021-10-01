@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkspaceSettingResult',
     'AwaitableGetWorkspaceSettingResult',
     'get_workspace_setting',
+    'get_workspace_setting_output',
 ]
 
 @pulumi.output_type
@@ -113,3 +114,16 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
         scope=__ret__.scope,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
+
+
+@_utilities.lift_output_func(get_workspace_setting)
+def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
+    """
+    Configures where to store the OMS agent data for workspaces under a scope
+    API Version: 2017-08-01-preview.
+
+
+    :param str workspace_setting_name: Name of the security setting
+    """
+    ...

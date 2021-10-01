@@ -13,6 +13,7 @@ __all__ = [
     'GetNatRuleResult',
     'AwaitableGetNatRuleResult',
     'get_nat_rule',
+    'get_nat_rule_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_nat_rule(gateway_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_nat_rule)
+def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
+                        nat_rule_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatRuleResult]:
+    """
+    VpnGatewayNatRule Resource.
+
+
+    :param str gateway_name: The name of the gateway.
+    :param str nat_rule_name: The name of the nat rule.
+    :param str resource_group_name: The resource group name of the VpnGateway.
+    """
+    ...

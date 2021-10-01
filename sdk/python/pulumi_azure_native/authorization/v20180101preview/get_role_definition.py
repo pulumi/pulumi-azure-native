@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleDefinitionResult',
     'AwaitableGetRoleDefinitionResult',
     'get_role_definition',
+    'get_role_definition_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_role_definition(role_definition_id: Optional[str] = None,
         role_name=__ret__.role_name,
         role_type=__ret__.role_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_definition)
+def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] = None,
+                               scope: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
+    """
+    Role definition.
+
+
+    :param str role_definition_id: The ID of the role definition.
+    :param str scope: The scope of the role definition.
+    """
+    ...

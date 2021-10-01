@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    A private endpoint connection
+    API Version: 2021-08-27.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetDeviceResult',
     'AwaitableGetDeviceResult',
     'get_device',
+    'get_device_output',
 ]
 
 @pulumi.output_type
@@ -324,3 +325,17 @@ def get_device(device_name: Optional[str] = None,
         tags=__ret__.tags,
         time_zone=__ret__.time_zone,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_device)
+def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
+    """
+    The Data Box Edge/Gateway device.
+
+
+    :param str device_name: The device name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetJobResult',
     'AwaitableGetJobResult',
     'get_job',
+    'get_job_output',
 ]
 
 @pulumi.output_type
@@ -328,3 +329,20 @@ def get_job(expand: Optional[str] = None,
         tags=__ret__.tags,
         transfer_type=__ret__.transfer_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_job)
+def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                   job_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
+    """
+    Job Resource.
+    API Version: 2020-11-01.
+
+
+    :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
+    :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+    :param str resource_group_name: The Resource Group Name
+    """
+    ...

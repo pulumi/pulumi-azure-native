@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementGroupSubscriptionResult',
     'AwaitableGetManagementGroupSubscriptionResult',
     'get_management_group_subscription',
+    'get_management_group_subscription_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,17 @@ def get_management_group_subscription(group_id: Optional[str] = None,
         state=__ret__.state,
         tenant=__ret__.tenant,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_group_subscription)
+def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str]] = None,
+                                             subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
+    """
+    The details of subscription under management group.
+
+
+    :param str group_id: Management Group ID.
+    :param str subscription_id: Subscription ID.
+    """
+    ...

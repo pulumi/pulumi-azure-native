@@ -13,6 +13,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def get_secret(resource_group_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      secret_resource_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    This type describes a secret resource.
+
+
+    :param str resource_group_name: Azure resource group name
+    :param str secret_resource_name: The name of the secret resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult',
     'get_private_endpoint_connection_controller_private_endpoint_connection',
+    'get_private_endpoint_connection_controller_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection_controller_private_endpoint_connection)
+def get_private_endpoint_connection_controller_private_endpoint_connection_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
+                                                                                  pe_connection_name: Optional[pulumi.Input[str]] = None,
+                                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult]:
+    """
+    REST model used to encapsulate the user visible state of a PrivateEndpoint.
+
+
+    :param str migrate_project_name: Migrate project name.
+    :param str pe_connection_name: Private endpoint connection name.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    """
+    ...

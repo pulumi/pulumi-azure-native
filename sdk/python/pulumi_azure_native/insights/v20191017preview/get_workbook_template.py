@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkbookTemplateResult',
     'AwaitableGetWorkbookTemplateResult',
     'get_workbook_template',
+    'get_workbook_template_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         template_data=__ret__.template_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workbook_template)
+def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 resource_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
+    """
+    An Application Insights workbook template definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

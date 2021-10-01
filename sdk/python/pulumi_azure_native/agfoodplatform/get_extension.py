@@ -13,6 +13,7 @@ __all__ = [
     'GetExtensionResult',
     'AwaitableGetExtensionResult',
     'get_extension',
+    'get_extension_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,20 @@ def get_extension(extension_id: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_extension)
+def get_extension_output(extension_id: Optional[pulumi.Input[str]] = None,
+                         farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+    """
+    Extension resource.
+    API Version: 2020-05-12-preview.
+
+
+    :param str extension_id: Id of extension resource.
+    :param str farm_beats_resource_name: FarmBeats resource name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

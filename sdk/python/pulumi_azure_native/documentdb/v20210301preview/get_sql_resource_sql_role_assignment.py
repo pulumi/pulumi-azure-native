@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlResourceSqlRoleAssignmentResult',
     'AwaitableGetSqlResourceSqlRoleAssignmentResult',
     'get_sql_resource_sql_role_assignment',
+    'get_sql_resource_sql_role_assignment_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_resource_sql_role_assignment)
+def get_sql_resource_sql_role_assignment_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                role_assignment_id: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlRoleAssignmentResult]:
+    """
+    An Azure Cosmos DB Role Assignment
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str role_assignment_id: The GUID for the Role Assignment.
+    """
+    ...

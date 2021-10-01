@@ -13,6 +13,7 @@ __all__ = [
     'GetGalleryResult',
     'AwaitableGetGalleryResult',
     'get_gallery',
+    'get_gallery_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_gallery(gallery_name: Optional[str] = None,
         sharing_profile=__ret__.sharing_profile,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gallery)
+def get_gallery_output(gallery_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       select: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
+    """
+    Specifies information about the Shared Image Gallery that you want to create or update.
+    API Version: 2020-09-30.
+
+
+    :param str gallery_name: The name of the Shared Image Gallery.
+    :param str resource_group_name: The name of the resource group.
+    :param str select: The select expression to apply on the operation.
+    """
+    ...

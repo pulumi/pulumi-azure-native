@@ -13,6 +13,7 @@ __all__ = [
     'GetAnalyticsItemResult',
     'AwaitableGetAnalyticsItemResult',
     'get_analytics_item',
+    'get_analytics_item_output',
 ]
 
 @pulumi.output_type
@@ -177,3 +178,23 @@ def get_analytics_item(id: Optional[str] = None,
         time_modified=__ret__.time_modified,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_analytics_item)
+def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                              name: Optional[pulumi.Input[Optional[str]]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              resource_name: Optional[pulumi.Input[str]] = None,
+                              scope_path: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsItemResult]:
+    """
+    Properties that define an Analytics item that is associated to an Application Insights component.
+
+
+    :param str id: The Id of a specific item defined in the Application Insights component
+    :param str name: The name of a specific item defined in the Application Insights component
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    :param str scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+    """
+    ...

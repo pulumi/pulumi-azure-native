@@ -13,6 +13,7 @@ __all__ = [
     'GetVMwareCollectorResult',
     'AwaitableGetVMwareCollectorResult',
     'get_v_mware_collector',
+    'get_v_mware_collector_output',
 ]
 
 @pulumi.output_type
@@ -101,3 +102,19 @@ def get_v_mware_collector(project_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_v_mware_collector)
+def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMwareCollectorResult]:
+    """
+    API Version: 2019-10-01.
+
+
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    :param str vm_ware_collector_name: Unique name of a VMware collector within a project.
+    """
+    ...

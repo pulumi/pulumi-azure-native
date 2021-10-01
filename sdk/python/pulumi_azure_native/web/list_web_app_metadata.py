@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppMetadataResult',
     'AwaitableListWebAppMetadataResult',
     'list_web_app_metadata',
+    'list_web_app_metadata_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,18 @@ def list_web_app_metadata(name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_metadata)
+def list_web_app_metadata_output(name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppMetadataResult]:
+    """
+    String dictionary resource.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

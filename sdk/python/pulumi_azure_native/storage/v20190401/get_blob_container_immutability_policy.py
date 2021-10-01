@@ -12,6 +12,7 @@ __all__ = [
     'GetBlobContainerImmutabilityPolicyResult',
     'AwaitableGetBlobContainerImmutabilityPolicyResult',
     'get_blob_container_immutability_policy',
+    'get_blob_container_immutability_policy_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,21 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
         name=__ret__.name,
         state=__ret__.state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_blob_container_immutability_policy)
+def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                  container_name: Optional[pulumi.Input[str]] = None,
+                                                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
+    """
+    The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+
+
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+    :param str immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetApiManagementServiceSsoTokenResult',
     'AwaitableGetApiManagementServiceSsoTokenResult',
     'get_api_management_service_sso_token',
+    'get_api_management_service_sso_token_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
 
     return AwaitableGetApiManagementServiceSsoTokenResult(
         redirect_uri=__ret__.redirect_uri)
+
+
+@_utilities.lift_output_func(get_api_management_service_sso_token)
+def get_api_management_service_sso_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                service_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
+    """
+    The response of the GetSsoToken operation.
+    API Version: 2020-12-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

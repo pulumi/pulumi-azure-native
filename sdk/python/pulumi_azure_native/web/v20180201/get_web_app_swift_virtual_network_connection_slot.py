@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppSwiftVirtualNetworkConnectionSlotResult',
     'AwaitableGetWebAppSwiftVirtualNetworkConnectionSlotResult',
     'get_web_app_swift_virtual_network_connection_slot',
+    'get_web_app_swift_virtual_network_connection_slot_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
         subnet_resource_id=__ret__.subnet_resource_id,
         swift_supported=__ret__.swift_supported,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_swift_virtual_network_connection_slot)
+def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                             slot: Optional[pulumi.Input[str]] = None,
+                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionSlotResult]:
+    """
+    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+    """
+    ...

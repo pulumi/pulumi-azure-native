@@ -27,9 +27,13 @@ class NetworkFeatures(str, Enum):
     Basic network, or Standard features available to the volume.
     """
     BASIC = "Basic"
-    """Basic network feature."""
+    """
+    Basic network feature.
+    """
     STANDARD = "Standard"
-    """Standard network feature."""
+    """
+    Standard network feature.
+    """
 
 
 class QosType(str, Enum):
@@ -37,9 +41,13 @@ class QosType(str, Enum):
     The qos type of the pool
     """
     AUTO = "Auto"
-    """qos type Auto"""
+    """
+    qos type Auto
+    """
     MANUAL = "Manual"
-    """qos type Manual"""
+    """
+    qos type Manual
+    """
 
 
 class ReplicationSchedule(str, Enum):
@@ -64,8 +72,14 @@ class ServiceLevel(str, Enum):
     The service level of the file system
     """
     STANDARD = "Standard"
-    """Standard service level"""
+    """
+    Standard service level
+    """
     PREMIUM = "Premium"
-    """Premium service level"""
+    """
+    Premium service level
+    """
     ULTRA = "Ultra"
-    """Ultra service level"""
+    """
+    Ultra service level
+    """

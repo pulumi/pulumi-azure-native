@@ -12,6 +12,7 @@ __all__ = [
     'GetWCFRelayAuthorizationRuleResult',
     'AwaitableGetWCFRelayAuthorizationRuleResult',
     'get_wcf_relay_authorization_rule',
+    'get_wcf_relay_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
         name=__ret__.name,
         rights=__ret__.rights,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_wcf_relay_authorization_rule)
+def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                                            namespace_name: Optional[pulumi.Input[str]] = None,
+                                            relay_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
+    """
+    Description of a Namespace AuthorizationRules.
+
+
+    :param str authorization_rule_name: The authorizationRule name.
+    :param str namespace_name: The Namespace Name
+    :param str relay_name: The relay name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

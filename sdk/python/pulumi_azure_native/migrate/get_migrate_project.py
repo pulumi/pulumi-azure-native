@@ -13,6 +13,7 @@ __all__ = [
     'GetMigrateProjectResult',
     'AwaitableGetMigrateProjectResult',
     'get_migrate_project',
+    'get_migrate_project_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_migrate_project(migrate_project_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_migrate_project)
+def get_migrate_project_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateProjectResult]:
+    """
+    Migrate Project REST Resource.
+    API Version: 2018-09-01-preview.
+
+
+    :param str migrate_project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.
+    """
+    ...

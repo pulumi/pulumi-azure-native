@@ -13,6 +13,7 @@ __all__ = [
     'GetRoleManagementPolicyAssignmentResult',
     'AwaitableGetRoleManagementPolicyAssignmentResult',
     'get_role_management_policy_assignment',
+    'get_role_management_policy_assignment_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,18 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_management_policy_assignment)
+def get_role_management_policy_assignment_output(role_management_policy_assignment_name: Optional[pulumi.Input[str]] = None,
+                                                 scope: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
+    """
+    Role management policy
+    API Version: 2020-10-01-preview.
+
+
+    :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
+    :param str scope: The scope of the role management policy.
+    """
+    ...

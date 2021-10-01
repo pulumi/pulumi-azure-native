@@ -12,6 +12,7 @@ __all__ = [
     'ListWebAppAuthSettingsResult',
     'AwaitableListWebAppAuthSettingsResult',
     'list_web_app_auth_settings',
+    'list_web_app_auth_settings_output',
 ]
 
 @pulumi.output_type
@@ -469,3 +470,17 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         type=__ret__.type,
         unauthenticated_client_action=__ret__.unauthenticated_client_action,
         validate_issuer=__ret__.validate_issuer)
+
+
+@_utilities.lift_output_func(list_web_app_auth_settings)
+def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
+    """
+    Configuration settings for the Azure App Service Authentication / Authorization feature.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPipelineRunResult',
     'AwaitableGetPipelineRunResult',
     'get_pipeline_run',
+    'get_pipeline_run_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
         response=__ret__.response,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_pipeline_run)
+def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = None,
+                            registry_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineRunResult]:
+    """
+    An object that represents a pipeline run for a container registry.
+    API Version: 2020-11-01-preview.
+
+
+    :param str pipeline_run_name: The name of the pipeline run.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

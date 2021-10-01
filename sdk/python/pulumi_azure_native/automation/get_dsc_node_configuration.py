@@ -13,6 +13,7 @@ __all__ = [
     'GetDscNodeConfigurationResult',
     'AwaitableGetDscNodeConfigurationResult',
     'get_dsc_node_configuration',
+    'get_dsc_node_configuration_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
         node_count=__ret__.node_count,
         source=__ret__.source,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dsc_node_configuration)
+def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                      node_configuration_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
+    """
+    Definition of the dsc node configuration.
+    API Version: 2019-06-01.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str node_configuration_name: The Dsc node configuration name.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListSiteAuthSettingsResult',
     'AwaitableListSiteAuthSettingsResult',
     'list_site_auth_settings',
+    'list_site_auth_settings_output',
 ]
 
 @pulumi.output_type
@@ -411,3 +412,17 @@ def list_site_auth_settings(name: Optional[str] = None,
         twitter_consumer_key=__ret__.twitter_consumer_key,
         twitter_consumer_secret=__ret__.twitter_consumer_secret,
         unauthenticated_client_action=__ret__.unauthenticated_client_action)
+
+
+@_utilities.lift_output_func(list_site_auth_settings)
+def list_site_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteAuthSettingsResult]:
+    """
+    Configuration settings for the Azure App Service Authentication / Authorization feature.
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

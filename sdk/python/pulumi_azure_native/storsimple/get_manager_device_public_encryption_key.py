@@ -12,6 +12,7 @@ __all__ = [
     'GetManagerDevicePublicEncryptionKeyResult',
     'AwaitableGetManagerDevicePublicEncryptionKeyResult',
     'get_manager_device_public_encryption_key',
+    'get_manager_device_public_encryption_key_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,20 @@ def get_manager_device_public_encryption_key(device_name: Optional[str] = None,
 
     return AwaitableGetManagerDevicePublicEncryptionKeyResult(
         key=__ret__.key)
+
+
+@_utilities.lift_output_func(get_manager_device_public_encryption_key)
+def get_manager_device_public_encryption_key_output(device_name: Optional[pulumi.Input[str]] = None,
+                                                    manager_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerDevicePublicEncryptionKeyResult]:
+    """
+    The public key.
+    API Version: 2017-06-01.
+
+
+    :param str device_name: The device name
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

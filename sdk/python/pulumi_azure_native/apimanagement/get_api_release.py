@@ -12,6 +12,7 @@ __all__ = [
     'GetApiReleaseResult',
     'AwaitableGetApiReleaseResult',
     'get_api_release',
+    'get_api_release_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,22 @@ def get_api_release(api_id: Optional[str] = None,
         notes=__ret__.notes,
         type=__ret__.type,
         updated_date_time=__ret__.updated_date_time)
+
+
+@_utilities.lift_output_func(get_api_release)
+def get_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
+                           release_id: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           service_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiReleaseResult]:
+    """
+    ApiRelease details.
+    API Version: 2020-12-01.
+
+
+    :param str api_id: API identifier. Must be unique in the current API Management service instance.
+    :param str release_id: Release identifier within an API. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

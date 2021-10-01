@@ -13,6 +13,7 @@ __all__ = [
     'GetReplicationvCenterResult',
     'AwaitableGetReplicationvCenterResult',
     'get_replicationv_center',
+    'get_replicationv_center_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,21 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_replicationv_center)
+def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   resource_name: Optional[pulumi.Input[str]] = None,
+                                   v_center_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationvCenterResult]:
+    """
+    vCenter definition.
+
+
+    :param str fabric_name: Fabric name.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_name: The name of the recovery services vault.
+    :param str v_center_name: vCenter name.
+    """
+    ...

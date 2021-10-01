@@ -12,6 +12,7 @@ __all__ = [
     'GetDataSetResult',
     'AwaitableGetDataSetResult',
     'get_data_set',
+    'get_data_set_output',
 ]
 
 warnings.warn("""Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet.""", DeprecationWarning)
@@ -111,3 +112,22 @@ def get_data_set(account_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_set)
+def get_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
+                        data_set_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        share_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
+    """
+    A DataSet data transfer object.
+
+
+    :param str account_name: The name of the share account.
+    :param str data_set_name: The name of the dataSet.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    """
+    pulumi.log.warn("""get_data_set is deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet.""")
+    ...

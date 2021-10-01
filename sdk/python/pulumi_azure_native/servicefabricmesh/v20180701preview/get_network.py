@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkResult',
     'AwaitableGetNetworkResult',
     'get_network',
+    'get_network_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_network(network_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network)
+def get_network_output(network_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
+    """
+    This type describes a network resource.
+
+
+    :param str network_name: The identity of the network.
+    :param str resource_group_name: Azure resource group name
+    """
+    ...

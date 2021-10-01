@@ -13,6 +13,7 @@ __all__ = [
     'GetTemplateArtifactResult',
     'AwaitableGetTemplateArtifactResult',
     'get_template_artifact',
+    'get_template_artifact_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,20 @@ def get_template_artifact(artifact_name: Optional[str] = None,
         resource_group=__ret__.resource_group,
         template=__ret__.template,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_template_artifact)
+def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                                 blueprint_name: Optional[pulumi.Input[str]] = None,
+                                 resource_scope: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateArtifactResult]:
+    """
+    Blueprint artifact that deploys a Resource Manager template.
+    API Version: 2018-11-01-preview.
+
+
+    :param str artifact_name: Name of the blueprint artifact.
+    :param str blueprint_name: Name of the blueprint definition.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkbookResult',
     'AwaitableGetWorkbookResult',
     'get_workbook',
+    'get_workbook_output',
 ]
 
 @pulumi.output_type
@@ -260,3 +261,18 @@ def get_workbook(resource_group_name: Optional[str] = None,
         type=__ret__.type,
         user_id=__ret__.user_id,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_workbook)
+def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        resource_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
+    """
+    An Application Insights workbook definition.
+    API Version: 2020-10-20.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetIotHubDataConnectionResult',
     'AwaitableGetIotHubDataConnectionResult',
     'get_iot_hub_data_connection',
+    'get_iot_hub_data_connection_output',
 ]
 
 @pulumi.output_type
@@ -244,3 +245,24 @@ def get_iot_hub_data_connection(data_connection_name: Optional[str] = None,
         system_data=__ret__.system_data,
         table_name=__ret__.table_name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iot_hub_data_connection)
+def get_iot_hub_data_connection_output(data_connection_name: Optional[pulumi.Input[str]] = None,
+                                       database_name: Optional[pulumi.Input[str]] = None,
+                                       kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       workspace_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
+    """
+    Class representing an iot hub data connection.
+    API Version: 2021-04-01-preview.
+
+
+    :param str data_connection_name: The name of the data connection.
+    :param str database_name: The name of the database in the Kusto pool.
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

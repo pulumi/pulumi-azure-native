@@ -13,6 +13,7 @@ __all__ = [
     'GetResourceGuardResult',
     'AwaitableGetResourceGuardResult',
     'get_resource_guard',
+    'get_resource_guard_output',
 ]
 
 @pulumi.output_type
@@ -165,3 +166,17 @@ def get_resource_guard(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_resource_guard)
+def get_resource_guard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              resource_guards_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGuardResult]:
+    """
+    API Version: 2021-10-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group where the backup vault is present.
+    :param str resource_guards_name: The name of ResourceGuard
+    """
+    ...

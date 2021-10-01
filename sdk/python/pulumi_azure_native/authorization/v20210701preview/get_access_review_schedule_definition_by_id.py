@@ -13,6 +13,7 @@ __all__ = [
     'GetAccessReviewScheduleDefinitionByIdResult',
     'AwaitableGetAccessReviewScheduleDefinitionByIdResult',
     'get_access_review_schedule_definition_by_id',
+    'get_access_review_schedule_definition_by_id_output',
 ]
 
 @pulumi.output_type
@@ -477,3 +478,15 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         status=__ret__.status,
         type=__ret__.type,
         user_principal_name=__ret__.user_principal_name)
+
+
+@_utilities.lift_output_func(get_access_review_schedule_definition_by_id)
+def get_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[str]] = None,
+                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
+    """
+    Access Review Schedule Definition.
+
+
+    :param str schedule_definition_id: The id of the access review schedule definition.
+    """
+    ...

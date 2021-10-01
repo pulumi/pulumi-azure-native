@@ -12,6 +12,7 @@ __all__ = [
     'GetPoolResult',
     'AwaitableGetPoolResult',
     'get_pool',
+    'get_pool_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,20 @@ def get_pool(account_name: Optional[str] = None,
         total_throughput_mibps=__ret__.total_throughput_mibps,
         type=__ret__.type,
         utilized_throughput_mibps=__ret__.utilized_throughput_mibps)
+
+
+@_utilities.lift_output_func(get_pool)
+def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
+                    pool_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+    """
+    Capacity pool resource
+    API Version: 2020-12-01.
+
+
+    :param str account_name: The name of the NetApp account
+    :param str pool_name: The name of the capacity pool
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetApiIssueCommentResult',
     'AwaitableGetApiIssueCommentResult',
     'get_api_issue_comment',
+    'get_api_issue_comment_output',
 ]
 
 @pulumi.output_type
@@ -137,3 +138,23 @@ def get_api_issue_comment(api_id: Optional[str] = None,
         text=__ret__.text,
         type=__ret__.type,
         user_id=__ret__.user_id)
+
+
+@_utilities.lift_output_func(get_api_issue_comment)
+def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
+                                 comment_id: Optional[pulumi.Input[str]] = None,
+                                 issue_id: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 service_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiIssueCommentResult]:
+    """
+    Issue Comment Contract details.
+
+
+    :param str api_id: API identifier. Must be unique in the current API Management service instance.
+    :param str comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
+    :param str issue_id: Issue identifier. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetNodeTypeResult',
     'AwaitableGetNodeTypeResult',
     'get_node_type',
+    'get_node_type_output',
 ]
 
 @pulumi.output_type
@@ -301,3 +302,19 @@ def get_node_type(cluster_name: Optional[str] = None,
         vm_instance_count=__ret__.vm_instance_count,
         vm_secrets=__ret__.vm_secrets,
         vm_size=__ret__.vm_size)
+
+
+@_utilities.lift_output_func(get_node_type)
+def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                         node_type_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeTypeResult]:
+    """
+    Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+
+
+    :param str cluster_name: The name of the cluster resource.
+    :param str node_type_name: The name of the node type.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

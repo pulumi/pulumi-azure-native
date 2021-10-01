@@ -13,6 +13,7 @@ __all__ = [
     'GetWebAppHybridConnectionSlotResult',
     'AwaitableGetWebAppHybridConnectionSlotResult',
     'get_web_app_hybrid_connection_slot',
+    'get_web_app_hybrid_connection_slot_output',
 ]
 
 @pulumi.output_type
@@ -230,3 +231,23 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
         service_bus_suffix=__ret__.service_bus_suffix,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_hybrid_connection_slot)
+def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                              namespace_name: Optional[pulumi.Input[str]] = None,
+                                              relay_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              slot: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionSlotResult]:
+    """
+    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+
+
+    :param str name: The name of the web app.
+    :param str namespace_name: The namespace for this hybrid connection.
+    :param str relay_name: The relay name for this hybrid connection.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: The name of the slot for the web app.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetGuestUsageResult',
     'AwaitableGetGuestUsageResult',
     'get_guest_usage',
+    'get_guest_usage_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,18 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_guest_usage)
+def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           resource_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestUsageResult]:
+    """
+    Guest Usages Resource
+    API Version: 2020-05-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The initial domain name of the AAD tenant.
+    """
+    ...

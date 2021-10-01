@@ -13,6 +13,7 @@ __all__ = [
     'ListBuildTaskSourceRepositoryPropertiesResult',
     'AwaitableListBuildTaskSourceRepositoryPropertiesResult',
     'list_build_task_source_repository_properties',
+    'list_build_task_source_repository_properties_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,20 @@ def list_build_task_source_repository_properties(build_task_name: Optional[str] 
         repository_url=__ret__.repository_url,
         source_control_auth_properties=__ret__.source_control_auth_properties,
         source_control_type=__ret__.source_control_type)
+
+
+@_utilities.lift_output_func(list_build_task_source_repository_properties)
+def list_build_task_source_repository_properties_output(build_task_name: Optional[pulumi.Input[str]] = None,
+                                                        registry_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildTaskSourceRepositoryPropertiesResult]:
+    """
+    The properties of the source code repository.
+    API Version: 2018-02-01-preview.
+
+
+    :param str build_task_name: The name of the container registry build task.
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

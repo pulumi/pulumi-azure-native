@@ -13,6 +13,7 @@ __all__ = [
     'GetAFDOriginResult',
     'AwaitableGetAFDOriginResult',
     'get_afd_origin',
+    'get_afd_origin_output',
 ]
 
 @pulumi.output_type
@@ -250,3 +251,22 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         weight=__ret__.weight)
+
+
+@_utilities.lift_output_func(get_afd_origin)
+def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
+                          origin_name: Optional[pulumi.Input[str]] = None,
+                          profile_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginResult]:
+    """
+    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    API Version: 2020-09-01.
+
+
+    :param str origin_group_name: Name of the origin group which is unique within the profile.
+    :param str origin_name: Name of the origin which is unique within the profile.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

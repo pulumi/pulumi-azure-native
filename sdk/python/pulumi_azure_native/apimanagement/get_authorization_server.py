@@ -13,6 +13,7 @@ __all__ = [
     'GetAuthorizationServerResult',
     'AwaitableGetAuthorizationServerResult',
     'get_authorization_server',
+    'get_authorization_server_output',
 ]
 
 @pulumi.output_type
@@ -302,3 +303,20 @@ def get_authorization_server(authsid: Optional[str] = None,
         token_body_parameters=__ret__.token_body_parameters,
         token_endpoint=__ret__.token_endpoint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_authorization_server)
+def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    service_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationServerResult]:
+    """
+    External OAuth authorization server settings.
+    API Version: 2020-12-01.
+
+
+    :param str authsid: Identifier of the authorization server.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListComputeKeysResult',
     'AwaitableListComputeKeysResult',
     'list_compute_keys',
+    'list_compute_keys_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,19 @@ def list_compute_keys(compute_name: Optional[str] = None,
 
     return AwaitableListComputeKeysResult(
         compute_type=__ret__.compute_type)
+
+
+@_utilities.lift_output_func(list_compute_keys)
+def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             workspace_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeKeysResult]:
+    """
+    Secrets related to a Machine Learning compute. Might differ for every type of compute.
+
+
+    :param str compute_name: Name of the Azure Machine Learning compute.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

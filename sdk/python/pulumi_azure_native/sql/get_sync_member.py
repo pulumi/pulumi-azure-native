@@ -12,6 +12,7 @@ __all__ = [
     'GetSyncMemberResult',
     'AwaitableGetSyncMemberResult',
     'get_sync_member',
+    'get_sync_member_output',
 ]
 
 @pulumi.output_type
@@ -242,3 +243,24 @@ def get_sync_member(database_name: Optional[str] = None,
         type=__ret__.type,
         use_private_link_connection=__ret__.use_private_link_connection,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_sync_member)
+def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           server_name: Optional[pulumi.Input[str]] = None,
+                           sync_group_name: Optional[pulumi.Input[str]] = None,
+                           sync_member_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncMemberResult]:
+    """
+    An Azure SQL Database sync member.
+    API Version: 2020-11-01-preview.
+
+
+    :param str database_name: The name of the database on which the sync group is hosted.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str sync_group_name: The name of the sync group on which the sync member is hosted.
+    :param str sync_member_name: The name of the sync member.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRemediationAtManagementGroupResult',
     'AwaitableGetRemediationAtManagementGroupResult',
     'get_remediation_at_management_group',
+    'get_remediation_at_management_group_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
         provisioning_state=__ret__.provisioning_state,
         resource_discovery_mode=__ret__.resource_discovery_mode,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_remediation_at_management_group)
+def get_remediation_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
+                                               management_groups_namespace: Optional[pulumi.Input[str]] = None,
+                                               remediation_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
+    """
+    The remediation definition.
+    API Version: 2019-07-01.
+
+
+    :param str management_group_id: Management group ID.
+    :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+    :param str remediation_name: The name of the remediation.
+    """
+    ...

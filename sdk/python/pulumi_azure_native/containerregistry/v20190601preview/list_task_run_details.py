@@ -13,6 +13,7 @@ __all__ = [
     'ListTaskRunDetailsResult',
     'AwaitableListTaskRunDetailsResult',
     'list_task_run_details',
+    'list_task_run_details_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,20 @@ def list_task_run_details(registry_name: Optional[str] = None,
         run_result=__ret__.run_result,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_task_run_details)
+def list_task_run_details_output(registry_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 task_run_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTaskRunDetailsResult]:
+    """
+    The task run that has the ARM resource and properties.
+    The task run will have the information of request and result of a run.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str task_run_name: The name of the task run.
+    """
+    ...

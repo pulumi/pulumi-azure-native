@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlManagedInstanceResult',
     'AwaitableGetSqlManagedInstanceResult',
     'get_sql_managed_instance',
+    'get_sql_managed_instance_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_sql_managed_instance(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_managed_instance)
+def get_sql_managed_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    sql_managed_instance_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlManagedInstanceResult]:
+    """
+    A SqlManagedInstance.
+
+
+    :param str resource_group_name: The name of the Azure resource group
+    :param str sql_managed_instance_name: Name of SQL Managed Instance
+    """
+    ...

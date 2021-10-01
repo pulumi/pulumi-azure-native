@@ -13,6 +13,7 @@ __all__ = [
     'GetFormulaResourceResult',
     'AwaitableGetFormulaResourceResult',
     'get_formula_resource',
+    'get_formula_resource_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_formula_resource(lab_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         vm=__ret__.vm)
+
+
+@_utilities.lift_output_func(get_formula_resource)
+def get_formula_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormulaResourceResult]:
+    """
+    A formula.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the formula.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRouteFilterResult',
     'AwaitableGetRouteFilterResult',
     'get_route_filter',
+    'get_route_filter_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_route_filter(expand: Optional[str] = None,
         rules=__ret__.rules,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_route_filter)
+def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            route_filter_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterResult]:
+    """
+    Route Filter Resource.
+
+
+    :param str expand: Expands referenced express route bgp peering resources.
+    :param str resource_group_name: The name of the resource group.
+    :param str route_filter_name: The name of the route filter.
+    """
+    ...

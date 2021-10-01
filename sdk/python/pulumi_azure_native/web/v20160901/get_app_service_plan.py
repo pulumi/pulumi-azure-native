@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServicePlanResult',
     'AwaitableGetAppServicePlanResult',
     'get_app_service_plan',
+    'get_app_service_plan_output',
 ]
 
 @pulumi.output_type
@@ -351,3 +352,17 @@ def get_app_service_plan(name: Optional[str] = None,
         target_worker_size_id=__ret__.target_worker_size_id,
         type=__ret__.type,
         worker_tier_name=__ret__.worker_tier_name)
+
+
+@_utilities.lift_output_func(get_app_service_plan)
+def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
+    """
+    App Service plan.
+
+
+    :param str name: Name of the App Service plan.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

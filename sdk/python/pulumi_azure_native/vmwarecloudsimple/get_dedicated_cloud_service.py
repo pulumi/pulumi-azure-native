@@ -12,6 +12,7 @@ __all__ = [
     'GetDedicatedCloudServiceResult',
     'AwaitableGetDedicatedCloudServiceResult',
     'get_dedicated_cloud_service',
+    'get_dedicated_cloud_service_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,18 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
         service_url=__ret__.service_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dedicated_cloud_service)
+def get_dedicated_cloud_service_output(dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudServiceResult]:
+    """
+    Dedicated cloud service model
+    API Version: 2019-04-01.
+
+
+    :param str dedicated_cloud_service_name: dedicated cloud Service name
+    :param str resource_group_name: The name of the resource group
+    """
+    ...

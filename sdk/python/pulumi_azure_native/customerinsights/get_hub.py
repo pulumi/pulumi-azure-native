@@ -13,6 +13,7 @@ __all__ = [
     'GetHubResult',
     'AwaitableGetHubResult',
     'get_hub',
+    'get_hub_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_hub(hub_name: Optional[str] = None,
         tenant_features=__ret__.tenant_features,
         type=__ret__.type,
         web_endpoint=__ret__.web_endpoint)
+
+
+@_utilities.lift_output_func(get_hub)
+def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
+    """
+    Hub resource.
+    API Version: 2017-04-26.
+
+
+    :param str hub_name: The name of the hub.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

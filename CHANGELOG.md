@@ -3,6 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Enhancements:
+
+- Update to `pulumi/pulumi` 3.13.2 with input/output based functions API in Python
+
 #### New resources:
 
 - `videoanalyzer.LivePipeline`

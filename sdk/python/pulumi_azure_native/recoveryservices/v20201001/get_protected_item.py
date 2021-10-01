@@ -13,6 +13,7 @@ __all__ = [
     'GetProtectedItemResult',
     'AwaitableGetProtectedItemResult',
     'get_protected_item',
+    'get_protected_item_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,25 @@ def get_protected_item(container_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_protected_item)
+def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None,
+                              fabric_name: Optional[pulumi.Input[str]] = None,
+                              filter: Optional[pulumi.Input[Optional[str]]] = None,
+                              protected_item_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              vault_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectedItemResult]:
+    """
+    Base class for backup items.
+
+
+    :param str container_name: Container name associated with the backed up item.
+    :param str fabric_name: Fabric name associated with the backed up item.
+    :param str filter: OData filter options.
+    :param str protected_item_name: Backed up item name whose details are to be fetched.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str vault_name: The name of the recovery services vault.
+    """
+    ...

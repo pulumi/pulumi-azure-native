@@ -12,6 +12,7 @@ __all__ = [
     'GetWCFRelayResult',
     'AwaitableGetWCFRelayResult',
     'get_wcf_relay',
+    'get_wcf_relay_output',
 ]
 
 @pulumi.output_type
@@ -196,3 +197,19 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         user_metadata=__ret__.user_metadata)
+
+
+@_utilities.lift_output_func(get_wcf_relay)
+def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                         relay_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWCFRelayResult]:
+    """
+    Description of WcfRelays Resource.
+
+
+    :param str namespace_name: The Namespace Name
+    :param str relay_name: The relay name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

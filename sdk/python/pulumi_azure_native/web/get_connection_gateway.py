@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectionGatewayResult',
     'AwaitableGetConnectionGatewayResult',
     'get_connection_gateway',
+    'get_connection_gateway_output',
 ]
 
 @pulumi.output_type
@@ -143,3 +144,20 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connection_gateway)
+def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionGatewayResult]:
+    """
+    The gateway definition
+    API Version: 2016-06-01.
+
+
+    :param str connection_gateway_name: The connection gateway name
+    :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
+    """
+    ...

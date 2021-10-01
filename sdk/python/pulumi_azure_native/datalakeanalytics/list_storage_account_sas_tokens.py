@@ -13,6 +13,7 @@ __all__ = [
     'ListStorageAccountSasTokensResult',
     'AwaitableListStorageAccountSasTokensResult',
     'list_storage_account_sas_tokens',
+    'list_storage_account_sas_tokens_output',
 ]
 
 @pulumi.output_type
@@ -84,3 +85,22 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
     return AwaitableListStorageAccountSasTokensResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_storage_account_sas_tokens)
+def list_storage_account_sas_tokens_output(account_name: Optional[pulumi.Input[str]] = None,
+                                           container_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           storage_account_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountSasTokensResult]:
+    """
+    The SAS response that contains the storage account, container and associated SAS token for connection use.
+    API Version: 2016-11-01.
+
+
+    :param str account_name: The name of the Data Lake Analytics account.
+    :param str container_name: The name of the Azure storage container for which the SAS token is being requested.
+    :param str resource_group_name: The name of the Azure resource group.
+    :param str storage_account_name: The name of the Azure storage account for which the SAS token is being requested.
+    """
+    ...

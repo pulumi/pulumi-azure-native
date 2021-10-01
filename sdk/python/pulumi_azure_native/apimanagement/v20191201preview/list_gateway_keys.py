@@ -12,6 +12,7 @@ __all__ = [
     'ListGatewayKeysResult',
     'AwaitableListGatewayKeysResult',
     'list_gateway_keys',
+    'list_gateway_keys_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,19 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
     return AwaitableListGatewayKeysResult(
         primary=__ret__.primary,
         secondary=__ret__.secondary)
+
+
+@_utilities.lift_output_func(list_gateway_keys)
+def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             service_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGatewayKeysResult]:
+    """
+    Gateway authentication keys.
+
+
+    :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

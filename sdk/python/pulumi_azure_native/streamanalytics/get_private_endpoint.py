@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointResult',
     'AwaitableGetPrivateEndpointResult',
     'get_private_endpoint',
+    'get_private_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint)
+def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                private_endpoint_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
+    """
+    Complete information about the private endpoint.
+    API Version: 2020-03-01-preview.
+
+
+    :param str cluster_name: The name of the cluster.
+    :param str private_endpoint_name: The name of the private endpoint.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

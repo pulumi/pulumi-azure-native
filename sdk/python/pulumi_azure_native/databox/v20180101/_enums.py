@@ -18,11 +18,17 @@ class AddressType(str, Enum):
     Type of address.
     """
     NONE = "None"
-    """Address type not known."""
+    """
+    Address type not known.
+    """
     RESIDENTIAL = "Residential"
-    """Residential Address."""
+    """
+    Residential Address.
+    """
     COMMERCIAL = "Commercial"
-    """Commercial Address."""
+    """
+    Commercial Address.
+    """
 
 
 class ClassDiscriminator(str, Enum):
@@ -30,11 +36,17 @@ class ClassDiscriminator(str, Enum):
     Indicates the type of job details.
     """
     DATA_BOX = "DataBox"
-    """DataBox orders."""
+    """
+    DataBox orders.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """DataBoxDisk orders."""
+    """
+    DataBoxDisk orders.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """DataBoxHeavy orders."""
+    """
+    DataBoxHeavy orders.
+    """
 
 
 class DataDestinationType(str, Enum):
@@ -42,11 +54,17 @@ class DataDestinationType(str, Enum):
     Data Destination Type.
     """
     UNKNOWN_TYPE = "UnknownType"
-    """Unknown type."""
+    """
+    Unknown type.
+    """
     STORAGE_ACCOUNT = "StorageAccount"
-    """Storage Accounts ."""
+    """
+    Storage Accounts .
+    """
     MANAGED_DISK = "ManagedDisk"
-    """Azure Managed disk storage."""
+    """
+    Azure Managed disk storage.
+    """
 
 
 class NotificationStageName(str, Enum):
@@ -54,17 +72,29 @@ class NotificationStageName(str, Enum):
     Name of the stage.
     """
     DEVICE_PREPARED = "DevicePrepared"
-    """Notification at device prepared stage."""
+    """
+    Notification at device prepared stage.
+    """
     DISPATCHED = "Dispatched"
-    """Notification at device dispatched stage."""
+    """
+    Notification at device dispatched stage.
+    """
     DELIVERED = "Delivered"
-    """Notification at device delivered stage."""
+    """
+    Notification at device delivered stage.
+    """
     PICKED_UP = "PickedUp"
-    """Notification at device picked up from user stage."""
+    """
+    Notification at device picked up from user stage.
+    """
     AT_AZURE_DC = "AtAzureDC"
-    """Notification at device received at azure datacenter stage."""
+    """
+    Notification at device received at azure datacenter stage.
+    """
     DATA_COPY = "DataCopy"
-    """Notification at data copy started stage."""
+    """
+    Notification at data copy started stage.
+    """
 
 
 class SkuName(str, Enum):
@@ -72,8 +102,14 @@ class SkuName(str, Enum):
     The sku name.
     """
     DATA_BOX = "DataBox"
-    """DataBox."""
+    """
+    DataBox.
+    """
     DATA_BOX_DISK = "DataBoxDisk"
-    """DataBoxDisk."""
+    """
+    DataBoxDisk.
+    """
     DATA_BOX_HEAVY = "DataBoxHeavy"
-    """DataBoxHeavy."""
+    """
+    DataBoxHeavy.
+    """

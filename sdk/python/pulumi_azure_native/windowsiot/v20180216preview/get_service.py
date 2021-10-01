@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -193,3 +194,17 @@ def get_service(device_name: Optional[str] = None,
         start_date=__ret__.start_date,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    The description of the Windows IoT Device Service.
+
+
+    :param str device_name: The name of the Windows IoT Device Service.
+    :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
+    """
+    ...

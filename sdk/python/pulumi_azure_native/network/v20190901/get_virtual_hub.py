@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualHubResult',
     'AwaitableGetVirtualHubResult',
     'get_virtual_hub',
+    'get_virtual_hub_output',
 ]
 
 @pulumi.output_type
@@ -285,3 +286,17 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         virtual_network_connections=__ret__.virtual_network_connections,
         virtual_wan=__ret__.virtual_wan,
         vpn_gateway=__ret__.vpn_gateway)
+
+
+@_utilities.lift_output_func(get_virtual_hub)
+def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                           virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
+    """
+    VirtualHub Resource.
+
+
+    :param str resource_group_name: The resource group name of the VirtualHub.
+    :param str virtual_hub_name: The name of the VirtualHub.
+    """
+    ...

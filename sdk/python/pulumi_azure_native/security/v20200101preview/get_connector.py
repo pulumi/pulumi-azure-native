@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectorResult',
     'AwaitableGetConnectorResult',
     'get_connector',
+    'get_connector_output',
 ]
 
 @pulumi.output_type
@@ -113,3 +114,15 @@ def get_connector(connector_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connector)
+def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
+    """
+    The connector setting
+
+
+    :param str connector_name: Name of the cloud account connector
+    """
+    ...

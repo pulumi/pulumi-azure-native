@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualHubBgpConnectionResult',
     'AwaitableGetVirtualHubBgpConnectionResult',
     'get_virtual_hub_bgp_connection',
+    'get_virtual_hub_bgp_connection_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
         peer_ip=__ret__.peer_ip,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_hub_bgp_connection)
+def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
+    """
+    Virtual Appliance Site resource.
+
+
+    :param str connection_name: The name of the connection.
+    :param str resource_group_name: The resource group name of the VirtualHub.
+    :param str virtual_hub_name: The name of the VirtualHub.
+    """
+    ...

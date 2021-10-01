@@ -13,6 +13,7 @@ __all__ = [
     'GetPipelineResult',
     'AwaitableGetPipelineResult',
     'get_pipeline',
+    'get_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_pipeline(factory_name: Optional[str] = None,
         name=__ret__.name,
         parameters=__ret__.parameters,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_pipeline)
+def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
+                        pipeline_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+    """
+    Pipeline resource type.
+
+
+    :param str factory_name: The factory name.
+    :param str pipeline_name: The pipeline name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

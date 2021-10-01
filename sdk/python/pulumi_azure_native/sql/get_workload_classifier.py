@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadClassifierResult',
     'AwaitableGetWorkloadClassifierResult',
     'get_workload_classifier',
+    'get_workload_classifier_output',
 ]
 
 @pulumi.output_type
@@ -177,3 +178,24 @@ def get_workload_classifier(database_name: Optional[str] = None,
         name=__ret__.name,
         start_time=__ret__.start_time,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_classifier)
+def get_workload_classifier_output(database_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   server_name: Optional[pulumi.Input[str]] = None,
+                                   workload_classifier_name: Optional[pulumi.Input[str]] = None,
+                                   workload_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadClassifierResult]:
+    """
+    Workload classifier operations for a data warehouse
+    API Version: 2020-11-01-preview.
+
+
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str workload_classifier_name: The name of the workload classifier.
+    :param str workload_group_name: The name of the workload group from which to receive the classifier from.
+    """
+    ...

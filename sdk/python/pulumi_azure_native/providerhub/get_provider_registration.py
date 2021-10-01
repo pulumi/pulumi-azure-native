@@ -13,6 +13,7 @@ __all__ = [
     'GetProviderRegistrationResult',
     'AwaitableGetProviderRegistrationResult',
     'get_provider_registration',
+    'get_provider_registration_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,15 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_provider_registration)
+def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderRegistrationResult]:
+    """
+    API Version: 2020-11-20.
+
+
+    :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
+    """
+    ...

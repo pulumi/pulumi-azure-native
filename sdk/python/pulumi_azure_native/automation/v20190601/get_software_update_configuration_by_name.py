@@ -13,6 +13,7 @@ __all__ = [
     'GetSoftwareUpdateConfigurationByNameResult',
     'AwaitableGetSoftwareUpdateConfigurationByNameResult',
     'get_software_update_configuration_by_name',
+    'get_software_update_configuration_by_name_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         tasks=__ret__.tasks,
         type=__ret__.type,
         update_configuration=__ret__.update_configuration)
+
+
+@_utilities.lift_output_func(get_software_update_configuration_by_name)
+def get_software_update_configuration_by_name_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     software_update_configuration_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
+    """
+    Software update configuration properties.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str software_update_configuration_name: The name of the software update configuration to be created.
+    """
+    ...

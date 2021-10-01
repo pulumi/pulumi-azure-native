@@ -13,6 +13,7 @@ __all__ = [
     'GetReadWriteDatabaseResult',
     'AwaitableGetReadWriteDatabaseResult',
     'get_read_write_database',
+    'get_read_write_database_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,19 @@ def get_read_write_database(cluster_name: Optional[str] = None,
         soft_delete_period=__ret__.soft_delete_period,
         statistics=__ret__.statistics,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_read_write_database)
+def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                   database_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
+    """
+    Class representing a read write database.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str database_name: The name of the database in the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetJobResult',
     'AwaitableGetJobResult',
     'get_job',
+    'get_job_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,21 @@ def get_job(job_agent_name: Optional[str] = None,
         schedule=__ret__.schedule,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_job)
+def get_job_output(job_agent_name: Optional[pulumi.Input[str]] = None,
+                   job_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   server_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
+    """
+    A job.
+
+
+    :param str job_agent_name: The name of the job agent.
+    :param str job_name: The name of the job to get.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

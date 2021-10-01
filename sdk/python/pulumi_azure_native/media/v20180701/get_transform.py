@@ -13,6 +13,7 @@ __all__ = [
     'GetTransformResult',
     'AwaitableGetTransformResult',
     'get_transform',
+    'get_transform_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def get_transform(account_name: Optional[str] = None,
         name=__ret__.name,
         outputs=__ret__.outputs,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_transform)
+def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         transform_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformResult]:
+    """
+    A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+
+
+    :param str account_name: The Media Services account name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    :param str transform_name: The Transform name.
+    """
+    ...

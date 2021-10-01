@@ -12,6 +12,7 @@ __all__ = [
     'GetBackupShortTermRetentionPolicyResult',
     'AwaitableGetBackupShortTermRetentionPolicyResult',
     'get_backup_short_term_retention_policy',
+    'get_backup_short_term_retention_policy_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,22 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
         name=__ret__.name,
         retention_days=__ret__.retention_days,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_backup_short_term_retention_policy)
+def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi.Input[str]] = None,
+                                                  policy_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  server_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupShortTermRetentionPolicyResult]:
+    """
+    A short term retention policy.
+    API Version: 2020-11-01-preview.
+
+
+    :param str database_name: The name of the database.
+    :param str policy_name: The policy name. Should always be "default".
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

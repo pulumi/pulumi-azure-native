@@ -12,6 +12,7 @@ __all__ = [
     'GetTopicResult',
     'AwaitableGetTopicResult',
     'get_topic',
+    'get_topic_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,17 @@ def get_topic(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_topic)
+def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                     topic_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+    """
+    EventGrid Topic
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str topic_name: Name of the topic
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualNetworkGatewayVpnclientIpsecParametersResult',
     'AwaitableGetVirtualNetworkGatewayVpnclientIpsecParametersResult',
     'get_virtual_network_gateway_vpnclient_ipsec_parameters',
+    'get_virtual_network_gateway_vpnclient_ipsec_parameters_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,18 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
         pfs_group=__ret__.pfs_group,
         sa_data_size_kilobytes=__ret__.sa_data_size_kilobytes,
         sa_life_time_seconds=__ret__.sa_life_time_seconds)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_vpnclient_ipsec_parameters)
+def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
+    """
+    An IPSec parameters for a virtual network gateway P2S connection.
+    API Version: 2020-11-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_gateway_name: The virtual network gateway name.
+    """
+    ...

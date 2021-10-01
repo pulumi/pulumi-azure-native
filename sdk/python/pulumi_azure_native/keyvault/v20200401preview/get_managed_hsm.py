@@ -13,6 +13,7 @@ __all__ = [
     'GetManagedHsmResult',
     'AwaitableGetManagedHsmResult',
     'get_managed_hsm',
+    'get_managed_hsm_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,17 @@ def get_managed_hsm(name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_hsm)
+def get_managed_hsm_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHsmResult]:
+    """
+    Resource information with extended details.
+
+
+    :param str name: The name of the managed HSM Pool.
+    :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
+    """
+    ...

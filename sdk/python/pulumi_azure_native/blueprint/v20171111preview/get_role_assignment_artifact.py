@@ -12,6 +12,7 @@ __all__ = [
     'GetRoleAssignmentArtifactResult',
     'AwaitableGetRoleAssignmentArtifactResult',
     'get_role_assignment_artifact',
+    'get_role_assignment_artifact_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_role_assignment_artifact(artifact_name: Optional[str] = None,
         resource_group=__ret__.resource_group,
         role_definition_id=__ret__.role_definition_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_role_assignment_artifact)
+def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                                        blueprint_name: Optional[pulumi.Input[str]] = None,
+                                        management_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentArtifactResult]:
+    """
+    Blueprint artifact applies Azure role assignment.
+
+
+    :param str artifact_name: name of the artifact.
+    :param str blueprint_name: name of the blueprint.
+    :param str management_group_name: ManagementGroup where blueprint stores.
+    """
+    ...

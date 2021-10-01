@@ -13,6 +13,7 @@ __all__ = [
     'GetHybridUseBenefitResult',
     'AwaitableGetHybridUseBenefitResult',
     'get_hybrid_use_benefit',
+    'get_hybrid_use_benefit_output',
 ]
 
 @pulumi.output_type
@@ -155,3 +156,17 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_hybrid_use_benefit)
+def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
+                                  scope: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
+    """
+    Response on GET of a hybrid use benefit
+
+
+    :param str plan_id: This is a unique identifier for a plan. Should be a guid.
+    :param str scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetFirewallPolicyRuleGroupResult',
     'AwaitableGetFirewallPolicyRuleGroupResult',
     'get_firewall_policy_rule_group',
+    'get_firewall_policy_rule_group_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,19 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         rules=__ret__.rules,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_firewall_policy_rule_group)
+def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          rule_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyRuleGroupResult]:
+    """
+    Rule Group resource.
+
+
+    :param str firewall_policy_name: The name of the Firewall Policy.
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_group_name: The name of the FirewallPolicyRuleGroup.
+    """
+    ...

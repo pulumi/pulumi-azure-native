@@ -12,6 +12,7 @@ __all__ = [
     'GetServerSecurityAlertPolicyResult',
     'AwaitableGetServerSecurityAlertPolicyResult',
     'get_server_security_alert_policy',
+    'get_server_security_alert_policy_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,19 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
         storage_account_access_key=__ret__.storage_account_access_key,
         storage_endpoint=__ret__.storage_endpoint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_security_alert_policy)
+def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            security_alert_policy_name: Optional[pulumi.Input[str]] = None,
+                                            server_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerSecurityAlertPolicyResult]:
+    """
+    A server security alert policy.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str security_alert_policy_name: The name of the security alert policy.
+    :param str server_name: The name of the server.
+    """
+    ...

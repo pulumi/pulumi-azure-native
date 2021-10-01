@@ -13,6 +13,7 @@ __all__ = [
     'GetRuleResult',
     'AwaitableGetRuleResult',
     'get_rule',
+    'get_rule_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,22 @@ def get_rule(profile_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_rule)
+def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    rule_name: Optional[pulumi.Input[str]] = None,
+                    rule_set_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+    """
+    Friendly Rules name mapping to the any Rules or secret related information.
+    API Version: 2020-09-01.
+
+
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str rule_name: Name of the delivery rule which is unique within the endpoint.
+    :param str rule_set_name: Name of the rule set under the profile.
+    """
+    ...

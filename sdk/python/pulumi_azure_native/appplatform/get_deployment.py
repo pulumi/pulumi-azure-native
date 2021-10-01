@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentResult',
     'AwaitableGetDeploymentResult',
     'get_deployment',
+    'get_deployment_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,22 @@ def get_deployment(app_name: Optional[str] = None,
         properties=__ret__.properties,
         sku=__ret__.sku,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_deployment)
+def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
+                          deployment_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
+    """
+    Deployment resource payload
+    API Version: 2020-07-01.
+
+
+    :param str app_name: The name of the App resource.
+    :param str deployment_name: The name of the Deployment resource.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str service_name: The name of the Service resource.
+    """
+    ...

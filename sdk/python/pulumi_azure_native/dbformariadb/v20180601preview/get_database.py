@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseResult',
     'AwaitableGetDatabaseResult',
     'get_database',
+    'get_database_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_database(database_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_database)
+def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        server_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+    """
+    Represents a Database.
+
+
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

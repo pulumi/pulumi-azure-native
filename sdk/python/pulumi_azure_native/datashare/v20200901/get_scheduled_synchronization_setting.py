@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduledSynchronizationSettingResult',
     'AwaitableGetScheduledSynchronizationSettingResult',
     'get_scheduled_synchronization_setting',
+    'get_scheduled_synchronization_setting_output',
 ]
 
 @pulumi.output_type
@@ -188,3 +189,21 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_scheduled_synchronization_setting)
+def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 share_name: Optional[pulumi.Input[str]] = None,
+                                                 synchronization_setting_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
+    """
+    A type of synchronization setting based on schedule
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    :param str synchronization_setting_name: The name of the synchronizationSetting.
+    """
+    ...

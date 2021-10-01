@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,18 @@ def get_account(resource_group_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                       resource_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    The response to an account resource GET request.
+    API Version: 2014-04-01-preview.
+
+
+    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_name: Name of the resource.
+    """
+    ...

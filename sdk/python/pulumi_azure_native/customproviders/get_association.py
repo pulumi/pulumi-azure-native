@@ -12,6 +12,7 @@ __all__ = [
     'GetAssociationResult',
     'AwaitableGetAssociationResult',
     'get_association',
+    'get_association_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,18 @@ def get_association(association_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         target_resource_id=__ret__.target_resource_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_association)
+def get_association_output(association_name: Optional[pulumi.Input[str]] = None,
+                           scope: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
+    """
+    The resource definition of this association.
+    API Version: 2018-09-01-preview.
+
+
+    :param str association_name: The name of the association.
+    :param str scope: The scope of the association.
+    """
+    ...

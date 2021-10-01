@@ -13,6 +13,7 @@ __all__ = [
     'ListActiveSecurityUserRuleResult',
     'AwaitableListActiveSecurityUserRuleResult',
     'list_active_security_user_rule',
+    'list_active_security_user_rule_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,21 @@ def list_active_security_user_rule(network_manager_name: Optional[str] = None,
     return AwaitableListActiveSecurityUserRuleResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_active_security_user_rule)
+def list_active_security_user_rule_output(network_manager_name: Optional[pulumi.Input[str]] = None,
+                                          regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveSecurityUserRuleResult]:
+    """
+    Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
+
+
+    :param str network_manager_name: The name of the network manager.
+    :param Sequence[str] regions: List of regions.
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    """
+    ...

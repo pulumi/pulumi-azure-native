@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualHubRouteTableV2Result',
     'AwaitableGetVirtualHubRouteTableV2Result',
     'get_virtual_hub_route_table_v2',
+    'get_virtual_hub_route_table_v2_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         routes=__ret__.routes)
+
+
+@_utilities.lift_output_func(get_virtual_hub_route_table_v2)
+def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          route_table_name: Optional[pulumi.Input[str]] = None,
+                                          virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
+    """
+    VirtualHubRouteTableV2 Resource.
+
+
+    :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
+    :param str route_table_name: The name of the VirtualHubRouteTableV2.
+    :param str virtual_hub_name: The name of the VirtualHub.
+    """
+    ...

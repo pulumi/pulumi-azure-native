@@ -13,6 +13,7 @@ __all__ = [
     'GetAdaptiveApplicationControlResult',
     'AwaitableGetAdaptiveApplicationControlResult',
     'get_adaptive_application_control',
+    'get_adaptive_application_control_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,17 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
         source_system=__ret__.source_system,
         type=__ret__.type,
         vm_recommendations=__ret__.vm_recommendations)
+
+
+@_utilities.lift_output_func(get_adaptive_application_control)
+def get_adaptive_application_control_output(asc_location: Optional[pulumi.Input[str]] = None,
+                                            group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdaptiveApplicationControlResult]:
+    """
+    API Version: 2020-01-01.
+
+
+    :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+    :param str group_name: Name of an application control machine group
+    """
+    ...

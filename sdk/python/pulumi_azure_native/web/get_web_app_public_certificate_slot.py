@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppPublicCertificateSlotResult',
     'AwaitableGetWebAppPublicCertificateSlotResult',
     'get_web_app_public_certificate_slot',
+    'get_web_app_public_certificate_slot_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,22 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
         public_certificate_location=__ret__.public_certificate_location,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_public_certificate_slot)
+def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                               public_certificate_name: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               slot: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateSlotResult]:
+    """
+    Public certificate object
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the app.
+    :param str public_certificate_name: Public certificate name.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
+    """
+    ...

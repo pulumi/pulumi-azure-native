@@ -12,6 +12,7 @@ __all__ = [
     'GetPrivateZoneResult',
     'AwaitableGetPrivateZoneResult',
     'get_private_zone',
+    'get_private_zone_output',
 ]
 
 @pulumi.output_type
@@ -219,3 +220,17 @@ def get_private_zone(private_zone_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_zone)
+def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateZoneResult]:
+    """
+    Describes a Private DNS zone.
+
+
+    :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetIotDpsResourceResult',
     'AwaitableGetIotDpsResourceResult',
     'get_iot_dps_resource',
+    'get_iot_dps_resource_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,18 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iot_dps_resource)
+def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourceResult]:
+    """
+    The description of the provisioning service.
+    API Version: 2020-03-01.
+
+
+    :param str provisioning_service_name: Name of the provisioning service to retrieve.
+    :param str resource_group_name: Resource group name.
+    """
+    ...

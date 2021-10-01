@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayVpnclientConnectionHealthResult',
     'AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult',
     'get_virtual_network_gateway_vpnclient_connection_health',
+    'get_virtual_network_gateway_vpnclient_connection_health_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
 
     return AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_vpnclient_connection_health)
+def get_virtual_network_gateway_vpnclient_connection_health_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                   virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientConnectionHealthResult]:
+    """
+    List of virtual network gateway vpn client connection health.
+    API Version: 2020-11-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_gateway_name: The name of the virtual network gateway.
+    """
+    ...

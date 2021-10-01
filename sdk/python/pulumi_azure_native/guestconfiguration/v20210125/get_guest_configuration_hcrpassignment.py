@@ -13,6 +13,7 @@ __all__ = [
     'GetGuestConfigurationHCRPAssignmentResult',
     'AwaitableGetGuestConfigurationHCRPAssignmentResult',
     'get_guest_configuration_hcrpassignment',
+    'get_guest_configuration_hcrpassignment_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_guest_configuration_hcrpassignment)
+def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+                                                  machine_name: Optional[pulumi.Input[str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationHCRPAssignmentResult]:
+    """
+    Guest configuration assignment is an association between a machine and guest configuration.
+
+
+    :param str guest_configuration_assignment_name: The guest configuration assignment name.
+    :param str machine_name: The name of the ARC machine.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

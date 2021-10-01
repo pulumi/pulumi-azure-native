@@ -12,6 +12,7 @@ __all__ = [
     'GetChannelResult',
     'AwaitableGetChannelResult',
     'get_channel',
+    'get_channel_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_channel(account_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_channel)
+def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
+                       channel_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
+    """
+    The EngagementFabric channel
+
+
+    :param str account_name: Account Name
+    :param str channel_name: Channel Name
+    :param str resource_group_name: Resource Group Name
+    """
+    ...

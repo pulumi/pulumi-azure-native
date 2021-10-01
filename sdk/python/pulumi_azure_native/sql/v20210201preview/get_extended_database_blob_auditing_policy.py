@@ -12,6 +12,7 @@ __all__ = [
     'GetExtendedDatabaseBlobAuditingPolicyResult',
     'AwaitableGetExtendedDatabaseBlobAuditingPolicyResult',
     'get_extended_database_blob_auditing_policy',
+    'get_extended_database_blob_auditing_policy_output',
 ]
 
 @pulumi.output_type
@@ -283,3 +284,21 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
         storage_account_subscription_id=__ret__.storage_account_subscription_id,
         storage_endpoint=__ret__.storage_endpoint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_extended_database_blob_auditing_policy)
+def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
+                                                      database_name: Optional[pulumi.Input[str]] = None,
+                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                      server_name: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedDatabaseBlobAuditingPolicyResult]:
+    """
+    An extended database blob auditing policy.
+
+
+    :param str blob_auditing_policy_name: The name of the blob auditing policy.
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

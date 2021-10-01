@@ -12,6 +12,7 @@ __all__ = [
     'GetManagedInstanceAzureADOnlyAuthenticationResult',
     'AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult',
     'get_managed_instance_azure_ad_only_authentication',
+    'get_managed_instance_azure_ad_only_authentication_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_managed_instance_azure_ad_only_authentication)
+def get_managed_instance_azure_ad_only_authentication_output(authentication_name: Optional[pulumi.Input[str]] = None,
+                                                             managed_instance_name: Optional[pulumi.Input[str]] = None,
+                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceAzureADOnlyAuthenticationResult]:
+    """
+    Azure Active Directory only authentication.
+
+
+    :param str authentication_name: The name of server azure active directory only authentication.
+    :param str managed_instance_name: The name of the managed instance.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    """
+    ...

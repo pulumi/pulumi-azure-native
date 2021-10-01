@@ -13,6 +13,7 @@ __all__ = [
     'ListDomainRecommendationsResult',
     'AwaitableListDomainRecommendationsResult',
     'list_domain_recommendations',
+    'list_domain_recommendations_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_domain_recommendations(keywords: Optional[str] = None,
     return AwaitableListDomainRecommendationsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_domain_recommendations)
+def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[str]]] = None,
+                                       max_domain_recommendations: Optional[pulumi.Input[Optional[int]]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
+    """
+    Collection of domain name identifiers.
+
+
+    :param str keywords: Keywords to be used for generating domain recommendations.
+    :param int max_domain_recommendations: Maximum number of recommendations.
+    """
+    ...

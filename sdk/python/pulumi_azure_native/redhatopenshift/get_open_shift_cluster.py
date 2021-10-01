@@ -13,6 +13,7 @@ __all__ = [
     'GetOpenShiftClusterResult',
     'AwaitableGetOpenShiftClusterResult',
     'get_open_shift_cluster',
+    'get_open_shift_cluster_output',
 ]
 
 @pulumi.output_type
@@ -234,3 +235,18 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         worker_profiles=__ret__.worker_profiles)
+
+
+@_utilities.lift_output_func(get_open_shift_cluster)
+def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  resource_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
+    """
+    OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    API Version: 2020-04-30.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the OpenShift cluster resource.
+    """
+    ...

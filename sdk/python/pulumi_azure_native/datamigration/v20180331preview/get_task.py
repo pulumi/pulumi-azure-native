@@ -13,6 +13,7 @@ __all__ = [
     'GetTaskResult',
     'AwaitableGetTaskResult',
     'get_task',
+    'get_task_output',
 ]
 
 @pulumi.output_type
@@ -125,3 +126,23 @@ def get_task(expand: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_task)
+def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                    group_name: Optional[pulumi.Input[str]] = None,
+                    project_name: Optional[pulumi.Input[str]] = None,
+                    service_name: Optional[pulumi.Input[str]] = None,
+                    task_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
+    """
+    A task resource
+
+
+    :param str expand: Expand the response
+    :param str group_name: Name of the resource group
+    :param str project_name: Name of the project
+    :param str service_name: Name of the service
+    :param str task_name: Name of the Task
+    """
+    ...

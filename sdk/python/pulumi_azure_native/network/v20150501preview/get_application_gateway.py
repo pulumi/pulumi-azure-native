@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationGatewayResult',
     'AwaitableGetApplicationGatewayResult',
     'get_application_gateway',
+    'get_application_gateway_output',
 ]
 
 @pulumi.output_type
@@ -285,3 +286,17 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         ssl_certificates=__ret__.ssl_certificates,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_application_gateway)
+def get_application_gateway_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
+    """
+    ApplicationGateways resource
+
+
+    :param str application_gateway_name: The name of the application gateway.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

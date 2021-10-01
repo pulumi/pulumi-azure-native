@@ -13,6 +13,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -435,3 +436,17 @@ def get_server(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      server_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Represents a server.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_name: The name of the server.
+    """
+    ...

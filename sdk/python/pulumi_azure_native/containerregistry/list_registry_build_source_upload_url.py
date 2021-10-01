@@ -12,6 +12,7 @@ __all__ = [
     'ListRegistryBuildSourceUploadUrlResult',
     'AwaitableListRegistryBuildSourceUploadUrlResult',
     'list_registry_build_source_upload_url',
+    'list_registry_build_source_upload_url_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
     return AwaitableListRegistryBuildSourceUploadUrlResult(
         relative_path=__ret__.relative_path,
         upload_url=__ret__.upload_url)
+
+
+@_utilities.lift_output_func(list_registry_build_source_upload_url)
+def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
+    """
+    The properties of a response to source upload request.
+    API Version: 2019-06-01-preview.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

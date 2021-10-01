@@ -12,6 +12,7 @@ __all__ = [
     'GetClientTokenResult',
     'AwaitableGetClientTokenResult',
     'get_client_token',
+    'get_client_token_output',
 ]
 
 @pulumi.output_type
@@ -60,3 +61,15 @@ def get_client_token(endpoint: Optional[str] = None,
 
     return AwaitableGetClientTokenResult(
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(get_client_token)
+def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientTokenResult]:
+    """
+    Use this function to get an Azure authentication token for the current login context.
+
+
+    :param str endpoint: Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
+    """
+    ...

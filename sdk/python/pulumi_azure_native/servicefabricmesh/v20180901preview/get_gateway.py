@@ -13,6 +13,7 @@ __all__ = [
     'GetGatewayResult',
     'AwaitableGetGatewayResult',
     'get_gateway',
+    'get_gateway_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
         tags=__ret__.tags,
         tcp=__ret__.tcp,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gateway)
+def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
+    """
+    This type describes a gateway resource.
+
+
+    :param str gateway_resource_name: The identity of the gateway.
+    :param str resource_group_name: Azure resource group name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListMonitorUserRolesResult',
     'AwaitableListMonitorUserRolesResult',
     'list_monitor_user_roles',
+    'list_monitor_user_roles_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_monitor_user_roles(email_address: Optional[str] = None,
     return AwaitableListMonitorUserRolesResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_monitor_user_roles)
+def list_monitor_user_roles_output(email_address: Optional[pulumi.Input[Optional[str]]] = None,
+                                   monitor_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorUserRolesResult]:
+    """
+    Response for list of user's role for Logz.io account.
+
+
+    :param str email_address: Email of the user used by Logz for contacting them if needed
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

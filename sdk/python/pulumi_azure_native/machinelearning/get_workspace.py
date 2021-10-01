@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkspaceResult',
     'AwaitableGetWorkspaceResult',
     'get_workspace',
+    'get_workspace_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,18 @@ def get_workspace(resource_group_name: Optional[str] = None,
         workspace_id=__ret__.workspace_id,
         workspace_state=__ret__.workspace_state,
         workspace_type=__ret__.workspace_type)
+
+
+@_utilities.lift_output_func(get_workspace)
+def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                         workspace_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+    """
+    An object that represents a machine learning workspace.
+    API Version: 2016-04-01.
+
+
+    :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
+    :param str workspace_name: The name of the machine learning workspace.
+    """
+    ...

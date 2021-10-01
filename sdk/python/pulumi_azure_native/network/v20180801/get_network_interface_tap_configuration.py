@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkInterfaceTapConfigurationResult',
     'AwaitableGetNetworkInterfaceTapConfigurationResult',
     'get_network_interface_tap_configuration',
+    'get_network_interface_tap_configuration_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type,
         virtual_network_tap=__ret__.virtual_network_tap)
+
+
+@_utilities.lift_output_func(get_network_interface_tap_configuration)
+def get_network_interface_tap_configuration_output(network_interface_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   tap_configuration_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceTapConfigurationResult]:
+    """
+    Tap configuration in a Network Interface
+
+
+    :param str network_interface_name: The name of the network interface.
+    :param str resource_group_name: The name of the resource group.
+    :param str tap_configuration_name: The name of the tap configuration.
+    """
+    ...

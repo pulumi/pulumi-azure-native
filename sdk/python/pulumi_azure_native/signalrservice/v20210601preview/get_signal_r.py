@@ -13,6 +13,7 @@ __all__ = [
     'GetSignalRResult',
     'AwaitableGetSignalRResult',
     'get_signal_r',
+    'get_signal_r_output',
 ]
 
 @pulumi.output_type
@@ -387,3 +388,17 @@ def get_signal_r(resource_group_name: Optional[str] = None,
         type=__ret__.type,
         upstream=__ret__.upstream,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_signal_r)
+def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                        resource_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRResult]:
+    """
+    A class represent a resource.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_name: The name of the resource.
+    """
+    ...

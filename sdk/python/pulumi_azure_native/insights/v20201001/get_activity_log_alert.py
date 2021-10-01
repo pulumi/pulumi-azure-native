@@ -13,6 +13,7 @@ __all__ = [
     'GetActivityLogAlertResult',
     'AwaitableGetActivityLogAlertResult',
     'get_activity_log_alert',
+    'get_activity_log_alert_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
         scopes=__ret__.scopes,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_activity_log_alert)
+def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
+    """
+    An Activity Log Alert rule resource.
+
+
+    :param str activity_log_alert_name: The name of the Activity Log Alert rule.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

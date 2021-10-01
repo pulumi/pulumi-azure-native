@@ -13,6 +13,7 @@ __all__ = [
     'GetIotDpsResourcePrivateEndpointConnectionResult',
     'AwaitableGetIotDpsResourcePrivateEndpointConnectionResult',
     'get_iot_dps_resource_private_endpoint_connection',
+    'get_iot_dps_resource_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,19 @@ def get_iot_dps_resource_private_endpoint_connection(private_endpoint_connection
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iot_dps_resource_private_endpoint_connection)
+def get_iot_dps_resource_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                            resource_name: Optional[pulumi.Input[str]] = None,
+                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourcePrivateEndpointConnectionResult]:
+    """
+    The private endpoint connection of a provisioning service
+
+
+    :param str private_endpoint_connection_name: The name of the private endpoint connection
+    :param str resource_group_name: The name of the resource group that contains the provisioning service.
+    :param str resource_name: The name of the provisioning service.
+    """
+    ...

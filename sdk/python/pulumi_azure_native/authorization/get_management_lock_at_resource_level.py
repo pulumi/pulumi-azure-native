@@ -13,6 +13,7 @@ __all__ = [
     'GetManagementLockAtResourceLevelResult',
     'AwaitableGetManagementLockAtResourceLevelResult',
     'get_management_lock_at_resource_level',
+    'get_management_lock_at_resource_level_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,26 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
         notes=__ret__.notes,
         owners=__ret__.owners,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_management_lock_at_resource_level)
+def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Input[str]] = None,
+                                                 parent_resource_path: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+                                                 resource_type: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
+    """
+    The lock information.
+    API Version: 2017-04-01.
+
+
+    :param str lock_name: The name of lock.
+    :param str parent_resource_path: An extra path parameter needed in some services, like SQL Databases.
+    :param str resource_group_name: The name of the resource group. 
+    :param str resource_name: The name of the resource.
+    :param str resource_provider_namespace: The namespace of the resource provider.
+    :param str resource_type: The type of the resource.
+    """
+    ...

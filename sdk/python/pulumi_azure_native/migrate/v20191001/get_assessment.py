@@ -13,6 +13,7 @@ __all__ = [
     'GetAssessmentResult',
     'AwaitableGetAssessmentResult',
     'get_assessment',
+    'get_assessment_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,21 @@ def get_assessment(assessment_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_assessment)
+def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
+                          group_name: Optional[pulumi.Input[str]] = None,
+                          project_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
+    """
+    An assessment created for a group in the Migration project.
+
+
+    :param str assessment_name: Unique name of an assessment within a project.
+    :param str group_name: Unique name of a group within a project.
+    :param str project_name: Name of the Azure Migrate project.
+    :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    """
+    ...

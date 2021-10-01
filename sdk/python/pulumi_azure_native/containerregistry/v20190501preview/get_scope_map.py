@@ -13,6 +13,7 @@ __all__ = [
     'GetScopeMapResult',
     'AwaitableGetScopeMapResult',
     'get_scope_map',
+    'get_scope_map_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,19 @@ def get_scope_map(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_scope_map)
+def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         scope_map_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeMapResult]:
+    """
+    An object that represents a scope map for a container registry.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str scope_map_name: The name of the scope map.
+    """
+    ...

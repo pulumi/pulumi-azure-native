@@ -13,6 +13,7 @@ __all__ = [
     'GetIncidentResult',
     'AwaitableGetIncidentResult',
     'get_incident',
+    'get_incident_output',
 ]
 
 @pulumi.output_type
@@ -328,3 +329,20 @@ def get_incident(incident_id: Optional[str] = None,
         status=__ret__.status,
         title=__ret__.title,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_incident)
+def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        workspace_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentResult]:
+    """
+    Represents an incident in Azure Security Insights.
+    API Version: 2020-01-01.
+
+
+    :param str incident_id: Incident ID
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

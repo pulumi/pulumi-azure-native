@@ -13,6 +13,7 @@ __all__ = [
     'GetNotificationHubResult',
     'AwaitableGetNotificationHubResult',
     'get_notification_hub',
+    'get_notification_hub_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_notification_hub(namespace_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_notification_hub)
+def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                                notification_hub_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubResult]:
+    """
+    Description of a NotificationHub Resource.
+
+
+    :param str namespace_name: The namespace name.
+    :param str notification_hub_name: The notification hub name.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

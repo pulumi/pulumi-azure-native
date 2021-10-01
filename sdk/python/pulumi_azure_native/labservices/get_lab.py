@@ -13,6 +13,7 @@ __all__ = [
     'GetLabResult',
     'AwaitableGetLabResult',
     'get_lab',
+    'get_lab_output',
 ]
 
 @pulumi.output_type
@@ -266,3 +267,22 @@ def get_lab(expand: Optional[str] = None,
         usage_quota=__ret__.usage_quota,
         user_access_mode=__ret__.user_access_mode,
         user_quota=__ret__.user_quota)
+
+
+@_utilities.lift_output_func(get_lab)
+def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                   lab_account_name: Optional[pulumi.Input[str]] = None,
+                   lab_name: Optional[pulumi.Input[str]] = None,
+                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+    """
+    Represents a lab.
+    API Version: 2018-10-15.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
+    :param str lab_account_name: The name of the lab Account.
+    :param str lab_name: The name of the lab.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

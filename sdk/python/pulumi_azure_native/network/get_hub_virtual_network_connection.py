@@ -13,6 +13,7 @@ __all__ = [
     'GetHubVirtualNetworkConnectionResult',
     'AwaitableGetHubVirtualNetworkConnectionResult',
     'get_hub_virtual_network_connection',
+    'get_hub_virtual_network_connection_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         remote_virtual_network=__ret__.remote_virtual_network,
         routing_configuration=__ret__.routing_configuration)
+
+
+@_utilities.lift_output_func(get_hub_virtual_network_connection)
+def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              virtual_hub_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubVirtualNetworkConnectionResult]:
+    """
+    HubVirtualNetworkConnection Resource.
+    API Version: 2020-11-01.
+
+
+    :param str connection_name: The name of the vpn connection.
+    :param str resource_group_name: The resource group name of the VirtualHub.
+    :param str virtual_hub_name: The name of the VirtualHub.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetImageUploadUrlForEntityTypeResult',
     'AwaitableGetImageUploadUrlForEntityTypeResult',
     'get_image_upload_url_for_entity_type',
+    'get_image_upload_url_for_entity_type_output',
 ]
 
 @pulumi.output_type
@@ -99,3 +100,24 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
         content_url=__ret__.content_url,
         image_exists=__ret__.image_exists,
         relative_path=__ret__.relative_path)
+
+
+@_utilities.lift_output_func(get_image_upload_url_for_entity_type)
+def get_image_upload_url_for_entity_type_output(entity_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                                entity_type_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                                hub_name: Optional[pulumi.Input[str]] = None,
+                                                relative_path: Optional[pulumi.Input[Optional[str]]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageUploadUrlForEntityTypeResult]:
+    """
+    The image definition.
+    API Version: 2017-04-26.
+
+
+    :param str entity_type: Type of entity. Can be Profile or Interaction.
+    :param str entity_type_name: Name of the entity type.
+    :param str hub_name: The name of the hub.
+    :param str relative_path: Relative path of the image.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

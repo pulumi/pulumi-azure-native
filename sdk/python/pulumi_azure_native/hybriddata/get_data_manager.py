@@ -13,6 +13,7 @@ __all__ = [
     'GetDataManagerResult',
     'AwaitableGetDataManagerResult',
     'get_data_manager',
+    'get_data_manager_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,18 @@ def get_data_manager(data_manager_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_manager)
+def get_data_manager_output(data_manager_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataManagerResult]:
+    """
+    The DataManager resource.
+    API Version: 2019-06-01.
+
+
+    :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+    :param str resource_group_name: The Resource Group Name
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetReplicationProtectionContainerMappingResult',
     'AwaitableGetReplicationProtectionContainerMappingResult',
     'get_replication_protection_container_mapping',
+    'get_replication_protection_container_mapping_output',
 ]
 
 @pulumi.output_type
@@ -126,3 +127,24 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_replication_protection_container_mapping)
+def get_replication_protection_container_mapping_output(fabric_name: Optional[pulumi.Input[str]] = None,
+                                                        mapping_name: Optional[pulumi.Input[str]] = None,
+                                                        protection_container_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
+    """
+    Protection container mapping object.
+    API Version: 2018-07-10.
+
+
+    :param str fabric_name: Fabric name.
+    :param str mapping_name: Protection Container mapping name.
+    :param str protection_container_name: Protection container name.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_name: The name of the recovery services vault.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetRecordSetResult',
     'AwaitableGetRecordSetResult',
     'get_record_set',
+    'get_record_set_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,21 @@ def get_record_set(record_type: Optional[str] = None,
         ttl=__ret__.ttl,
         txt_records=__ret__.txt_records,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_record_set)
+def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
+                          relative_record_set_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          zone_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
+    """
+    Describes a DNS record set (a collection of DNS records with the same name and type).
+
+
+    :param str record_type: The type of DNS record in this record set.
+    :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str zone_name: The name of the DNS zone (without a terminating dot).
+    """
+    ...

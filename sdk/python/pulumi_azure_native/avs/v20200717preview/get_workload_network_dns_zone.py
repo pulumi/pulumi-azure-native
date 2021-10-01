@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadNetworkDnsZoneResult',
     'AwaitableGetWorkloadNetworkDnsZoneResult',
     'get_workload_network_dns_zone',
+    'get_workload_network_dns_zone_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,19 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
         revision=__ret__.revision,
         source_ip=__ret__.source_ip,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_dns_zone)
+def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]] = None,
+                                         private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
+    """
+    NSX DNS Zone
+
+
+    :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

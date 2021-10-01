@@ -12,6 +12,7 @@ __all__ = [
     'ListEdgeModuleProvisioningTokenResult',
     'AwaitableListEdgeModuleProvisioningTokenResult',
     'list_edge_module_provisioning_token',
+    'list_edge_module_provisioning_token_output',
 ]
 
 @pulumi.output_type
@@ -82,3 +83,21 @@ def list_edge_module_provisioning_token(account_name: Optional[str] = None,
     return AwaitableListEdgeModuleProvisioningTokenResult(
         expiration_date=__ret__.expiration_date,
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(list_edge_module_provisioning_token)
+def list_edge_module_provisioning_token_output(account_name: Optional[pulumi.Input[str]] = None,
+                                               edge_module_name: Optional[pulumi.Input[str]] = None,
+                                               expiration_date: Optional[pulumi.Input[str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEdgeModuleProvisioningTokenResult]:
+    """
+    Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
+
+
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str edge_module_name: The Edge Module name.
+    :param str expiration_date: The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

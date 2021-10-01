@@ -13,6 +13,7 @@ __all__ = [
     'GetMachineResult',
     'AwaitableGetMachineResult',
     'get_machine',
+    'get_machine_output',
 ]
 
 @pulumi.output_type
@@ -376,3 +377,19 @@ def get_machine(expand: Optional[str] = None,
         type=__ret__.type,
         vm_id=__ret__.vm_id,
         vm_uuid=__ret__.vm_uuid)
+
+
+@_utilities.lift_output_func(get_machine)
+def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineResult]:
+    """
+    Describes a hybrid machine.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str name: The name of the hybrid machine.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

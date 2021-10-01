@@ -18,11 +18,17 @@ class AuthenticationType(str, Enum):
     Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
     """
     AWS_CREDS = "awsCreds"
-    """AWS cloud account connector user credentials authentication"""
+    """
+    AWS cloud account connector user credentials authentication
+    """
     AWS_ASSUME_ROLE = "awsAssumeRole"
-    """AWS account connector assume role authentication"""
+    """
+    AWS account connector assume role authentication
+    """
     GCP_CREDENTIALS = "gcpCredentials"
-    """GCP account connector service to service authentication"""
+    """
+    GCP account connector service to service authentication
+    """
 
 
 class AutoProvision(str, Enum):
@@ -30,9 +36,13 @@ class AutoProvision(str, Enum):
     Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
     """
     ON = "On"
-    """Install missing Azure Arc agents on machines automatically"""
+    """
+    Install missing Azure Arc agents on machines automatically
+    """
     OFF = "Off"
-    """Do not install Azure Arc agent on the machines automatically"""
+    """
+    Do not install Azure Arc agent on the machines automatically
+    """
 
 
 class MinimalSeverity(str, Enum):
@@ -40,11 +50,17 @@ class MinimalSeverity(str, Enum):
     Defines the minimal alert severity which will be sent as email notifications
     """
     HIGH = "High"
-    """Get notifications on new alerts with High severity"""
+    """
+    Get notifications on new alerts with High severity
+    """
     MEDIUM = "Medium"
-    """Get notifications on new alerts with medium or high severity"""
+    """
+    Get notifications on new alerts with medium or high severity
+    """
     LOW = "Low"
-    """Don't get notifications on new alerts with low, medium or high severity"""
+    """
+    Don't get notifications on new alerts with low, medium or high severity
+    """
 
 
 class Roles(str, Enum):
@@ -52,13 +68,21 @@ class Roles(str, Enum):
     A possible role to configure sending security notification alerts to
     """
     ACCOUNT_ADMIN = "AccountAdmin"
-    """If enabled, send notification on new alerts to the account admins"""
+    """
+    If enabled, send notification on new alerts to the account admins
+    """
     SERVICE_ADMIN = "ServiceAdmin"
-    """If enabled, send notification on new alerts to the service admins"""
+    """
+    If enabled, send notification on new alerts to the service admins
+    """
     OWNER = "Owner"
-    """If enabled, send notification on new alerts to the subscription owners"""
+    """
+    If enabled, send notification on new alerts to the subscription owners
+    """
     CONTRIBUTOR = "Contributor"
-    """If enabled, send notification on new alerts to the subscription contributors"""
+    """
+    If enabled, send notification on new alerts to the subscription contributors
+    """
 
 
 class State(str, Enum):
@@ -66,6 +90,10 @@ class State(str, Enum):
     Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
     """
     ON = "On"
-    """Send notification on new alerts to the subscription's admins"""
+    """
+    Send notification on new alerts to the subscription's admins
+    """
     OFF = "Off"
-    """Don't send notification on new alerts to the subscription's admins"""
+    """
+    Don't send notification on new alerts to the subscription's admins
+    """

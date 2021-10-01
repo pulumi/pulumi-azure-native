@@ -13,6 +13,7 @@ __all__ = [
     'GetLogAnalyticExportThrottledRequestsResult',
     'AwaitableGetLogAnalyticExportThrottledRequestsResult',
     'get_log_analytic_export_throttled_requests',
+    'get_log_analytic_export_throttled_requests_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,27 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
 
     return AwaitableGetLogAnalyticExportThrottledRequestsResult(
         properties=__ret__.properties)
+
+
+@_utilities.lift_output_func(get_log_analytic_export_throttled_requests)
+def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Optional[pulumi.Input[str]] = None,
+                                                      from_time: Optional[pulumi.Input[str]] = None,
+                                                      group_by_operation_name: Optional[pulumi.Input[Optional[bool]]] = None,
+                                                      group_by_resource_name: Optional[pulumi.Input[Optional[bool]]] = None,
+                                                      group_by_throttle_policy: Optional[pulumi.Input[Optional[bool]]] = None,
+                                                      location: Optional[pulumi.Input[str]] = None,
+                                                      to_time: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnalyticExportThrottledRequestsResult]:
+    """
+    LogAnalytics operation status response
+
+
+    :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+    :param str from_time: From time of the query
+    :param bool group_by_operation_name: Group query result by Operation Name.
+    :param bool group_by_resource_name: Group query result by Resource Name.
+    :param bool group_by_throttle_policy: Group query result by Throttle Policy applied.
+    :param str location: The location upon which virtual-machine-sizes is queried.
+    :param str to_time: To time of the query
+    """
+    ...

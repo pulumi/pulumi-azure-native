@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_cluster(cluster_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Single Event Hubs Cluster resource in List or Get operations.
+
+
+    :param str cluster_name: The name of the Event Hubs Cluster.
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

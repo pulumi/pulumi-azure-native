@@ -13,6 +13,7 @@ __all__ = [
     'GetNamespaceResult',
     'AwaitableGetNamespaceResult',
     'get_namespace',
+    'get_namespace_output',
 ]
 
 @pulumi.output_type
@@ -337,3 +338,17 @@ def get_namespace(namespace_name: Optional[str] = None,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         zone_redundant=__ret__.zone_redundant)
+
+
+@_utilities.lift_output_func(get_namespace)
+def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
+    """
+    Single Namespace item in List or Get Operation
+
+
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

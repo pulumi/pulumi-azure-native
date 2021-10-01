@@ -13,6 +13,7 @@ __all__ = [
     'ListEffectiveVirtualNetworkByNetworkManagerResult',
     'AwaitableListEffectiveVirtualNetworkByNetworkManagerResult',
     'list_effective_virtual_network_by_network_manager',
+    'list_effective_virtual_network_by_network_manager_output',
 ]
 
 @pulumi.output_type
@@ -87,3 +88,24 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
     return AwaitableListEffectiveVirtualNetworkByNetworkManagerResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_effective_virtual_network_by_network_manager)
+def list_effective_virtual_network_by_network_manager_output(conditional_members: Optional[pulumi.Input[Optional[str]]] = None,
+                                                             network_manager_name: Optional[pulumi.Input[str]] = None,
+                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                             top: Optional[pulumi.Input[Optional[int]]] = None,
+                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkManagerResult]:
+    """
+    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+    API Version: 2021-02-01-preview.
+
+
+    :param str conditional_members: Conditional Members.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+    :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
+    """
+    ...

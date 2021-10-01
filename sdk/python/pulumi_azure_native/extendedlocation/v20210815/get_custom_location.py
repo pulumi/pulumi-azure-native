@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomLocationResult',
     'AwaitableGetCustomLocationResult',
     'get_custom_location',
+    'get_custom_location_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_custom_location(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_custom_location)
+def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               resource_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomLocationResult]:
+    """
+    Custom Locations definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: Custom Locations name.
+    """
+    ...

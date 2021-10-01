@@ -13,6 +13,7 @@ __all__ = [
     'GetPolicyAssignmentArtifactResult',
     'AwaitableGetPolicyAssignmentArtifactResult',
     'get_policy_assignment_artifact',
+    'get_policy_assignment_artifact_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,20 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
         policy_definition_id=__ret__.policy_definition_id,
         resource_group=__ret__.resource_group,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_assignment_artifact)
+def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
+                                          blueprint_name: Optional[pulumi.Input[str]] = None,
+                                          resource_scope: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
+    """
+    Blueprint artifact that applies a Policy assignment.
+    API Version: 2018-11-01-preview.
+
+
+    :param str artifact_name: Name of the blueprint artifact.
+    :param str blueprint_name: Name of the blueprint definition.
+    :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+    """
+    ...

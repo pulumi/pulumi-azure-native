@@ -12,6 +12,7 @@ __all__ = [
     'GetDomainOwnershipIdentifierResult',
     'AwaitableGetDomainOwnershipIdentifierResult',
     'get_domain_ownership_identifier',
+    'get_domain_ownership_identifier_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
         name=__ret__.name,
         ownership_id=__ret__.ownership_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_domain_ownership_identifier)
+def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[str]] = None,
+                                           name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainOwnershipIdentifierResult]:
+    """
+    Domain ownership Identifier.
+
+
+    :param str domain_name: Name of domain.
+    :param str name: Name of identifier.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSystemTopicEventSubscriptionFullUrlResult',
     'AwaitableGetSystemTopicEventSubscriptionFullUrlResult',
     'get_system_topic_event_subscription_full_url',
+    'get_system_topic_event_subscription_full_url_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,20 @@ def get_system_topic_event_subscription_full_url(event_subscription_name: Option
 
     return AwaitableGetSystemTopicEventSubscriptionFullUrlResult(
         endpoint_url=__ret__.endpoint_url)
+
+
+@_utilities.lift_output_func(get_system_topic_event_subscription_full_url)
+def get_system_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        system_topic_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionFullUrlResult]:
+    """
+    Full endpoint url of an event subscription
+    API Version: 2021-06-01-preview.
+
+
+    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    :param str system_topic_name: Name of the system topic.
+    """
+    ...

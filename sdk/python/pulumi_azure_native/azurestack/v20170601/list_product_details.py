@@ -13,6 +13,7 @@ __all__ = [
     'ListProductDetailsResult',
     'AwaitableListProductDetailsResult',
     'list_product_details',
+    'list_product_details_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def list_product_details(product_name: Optional[str] = None,
         version=__ret__.version,
         vm_os_type=__ret__.vm_os_type,
         vm_scale_set_enabled=__ret__.vm_scale_set_enabled)
+
+
+@_utilities.lift_output_func(list_product_details)
+def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None,
+                                registration_name: Optional[pulumi.Input[str]] = None,
+                                resource_group: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductDetailsResult]:
+    """
+    Extended description about the product required for installing it into Azure Stack.
+
+
+    :param str product_name: Name of the product.
+    :param str registration_name: Name of the Azure Stack registration.
+    :param str resource_group: Name of the resource group.
+    """
+    ...

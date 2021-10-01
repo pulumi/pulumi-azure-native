@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_service(resource_group_name: Optional[str] = None,
         target_location=__ret__.target_location,
         target_subscription_id=__ret__.target_subscription_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                       service_name: Optional[pulumi.Input[str]] = None,
+                       service_topology_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    The resource representation of a service in a service topology.
+    API Version: 2019-11-01-preview.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str service_name: The name of the service resource.
+    :param str service_topology_name: The name of the service topology .
+    """
+    ...

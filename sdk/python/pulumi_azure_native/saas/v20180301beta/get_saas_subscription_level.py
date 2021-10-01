@@ -13,6 +13,7 @@ __all__ = [
     'GetSaasSubscriptionLevelResult',
     'AwaitableGetSaasSubscriptionLevelResult',
     'get_saas_subscription_level',
+    'get_saas_subscription_level_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,17 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_saas_subscription_level)
+def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       resource_name: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
+    """
+    SaaS REST API resource definition.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the resource.
+    """
+    ...

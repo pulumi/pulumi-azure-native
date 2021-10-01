@@ -13,6 +13,7 @@ __all__ = [
     'GetAzurePowerShellScriptResult',
     'AwaitableGetAzurePowerShellScriptResult',
     'get_azure_power_shell_script',
+    'get_azure_power_shell_script_output',
 ]
 
 @pulumi.output_type
@@ -352,3 +353,18 @@ def get_azure_power_shell_script(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         timeout=__ret__.timeout,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_azure_power_shell_script)
+def get_azure_power_shell_script_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        script_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
+    """
+    Object model for the Azure PowerShell script.
+    API Version: 2020-10-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str script_name: Name of the deployment script.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetEntityQueryResult',
     'AwaitableGetEntityQueryResult',
     'get_entity_query',
+    'get_entity_query_output',
 ]
 
 warnings.warn("""Please use one of the variants: ActivityCustomEntityQuery.""", DeprecationWarning)
@@ -138,3 +139,22 @@ def get_entity_query(entity_query_id: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_entity_query)
+def get_entity_query_output(entity_query_id: Optional[pulumi.Input[str]] = None,
+                            operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityQueryResult]:
+    """
+    Specific entity query.
+
+
+    :param str entity_query_id: entity query ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    pulumi.log.warn("""get_entity_query is deprecated: Please use one of the variants: ActivityCustomEntityQuery.""")
+    ...

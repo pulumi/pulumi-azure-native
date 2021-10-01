@@ -13,6 +13,7 @@ __all__ = [
     'GetPublishedBlueprintResult',
     'AwaitableGetPublishedBlueprintResult',
     'get_published_blueprint',
+    'get_published_blueprint_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
         status=__ret__.status,
         target_scope=__ret__.target_scope,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_published_blueprint)
+def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
+                                   management_group_name: Optional[pulumi.Input[str]] = None,
+                                   version_id: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
+    """
+    Represents a published Blueprint.
+
+
+    :param str blueprint_name: name of the blueprint.
+    :param str management_group_name: ManagementGroup where blueprint stores.
+    :param str version_id: version of the published blueprint.
+    """
+    ...

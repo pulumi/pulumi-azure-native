@@ -12,6 +12,7 @@ __all__ = [
     'GetHybridConnectionAuthorizationRuleResult',
     'AwaitableGetHybridConnectionAuthorizationRuleResult',
     'get_hybrid_connection_authorization_rule',
+    'get_hybrid_connection_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,21 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
         name=__ret__.name,
         rights=__ret__.rights,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_hybrid_connection_authorization_rule)
+def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                                                    hybrid_connection_name: Optional[pulumi.Input[str]] = None,
+                                                    namespace_name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionAuthorizationRuleResult]:
+    """
+    Description of a namespace authorization rule.
+
+
+    :param str authorization_rule_name: The authorization rule name.
+    :param str hybrid_connection_name: The hybrid connection name.
+    :param str namespace_name: The namespace name
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

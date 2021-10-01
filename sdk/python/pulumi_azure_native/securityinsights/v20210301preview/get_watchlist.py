@@ -13,6 +13,7 @@ __all__ = [
     'GetWatchlistResult',
     'AwaitableGetWatchlistResult',
     'get_watchlist',
+    'get_watchlist_output',
 ]
 
 @pulumi.output_type
@@ -395,3 +396,21 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         watchlist_id=__ret__.watchlist_id,
         watchlist_items_count=__ret__.watchlist_items_count,
         watchlist_type=__ret__.watchlist_type)
+
+
+@_utilities.lift_output_func(get_watchlist)
+def get_watchlist_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         watchlist_alias: Optional[pulumi.Input[str]] = None,
+                         workspace_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistResult]:
+    """
+    Represents a Watchlist in Azure Security Insights.
+
+
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str watchlist_alias: Watchlist Alias
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

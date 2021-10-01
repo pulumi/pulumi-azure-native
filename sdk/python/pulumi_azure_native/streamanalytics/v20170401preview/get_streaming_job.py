@@ -13,6 +13,7 @@ __all__ = [
     'GetStreamingJobResult',
     'AwaitableGetStreamingJobResult',
     'get_streaming_job',
+    'get_streaming_job_output',
 ]
 
 @pulumi.output_type
@@ -444,3 +445,19 @@ def get_streaming_job(expand: Optional[str] = None,
         tags=__ret__.tags,
         transformation=__ret__.transformation,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_streaming_job)
+def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                             job_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingJobResult]:
+    """
+    A streaming job object, containing all information associated with the named streaming job.
+
+
+    :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
+    :param str job_name: The name of the streaming job.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

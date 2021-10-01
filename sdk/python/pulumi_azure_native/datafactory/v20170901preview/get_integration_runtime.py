@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationRuntimeResult',
     'AwaitableGetIntegrationRuntimeResult',
     'get_integration_runtime',
+    'get_integration_runtime_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_integration_runtime(factory_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_runtime)
+def get_integration_runtime_output(factory_name: Optional[pulumi.Input[str]] = None,
+                                   integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
+    """
+    Integration runtime resource type.
+
+
+    :param str factory_name: The factory name.
+    :param str integration_runtime_name: The integration runtime name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

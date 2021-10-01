@@ -13,6 +13,7 @@ __all__ = [
     'GetLongTermEnvironmentResult',
     'AwaitableGetLongTermEnvironmentResult',
     'get_long_term_environment',
+    'get_long_term_environment_output',
 ]
 
 @pulumi.output_type
@@ -250,3 +251,19 @@ def get_long_term_environment(environment_name: Optional[str] = None,
         time_series_id_properties=__ret__.time_series_id_properties,
         type=__ret__.type,
         warm_store_configuration=__ret__.warm_store_configuration)
+
+
+@_utilities.lift_output_func(get_long_term_environment)
+def get_long_term_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                     expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLongTermEnvironmentResult]:
+    """
+    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+
+
+    :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+    :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

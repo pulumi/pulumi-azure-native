@@ -13,6 +13,7 @@ __all__ = [
     'GetModelVersionResult',
     'AwaitableGetModelVersionResult',
     'get_model_version',
+    'get_model_version_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,22 @@ def get_model_version(name: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_model_version)
+def get_model_version_output(name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             version: Optional[pulumi.Input[str]] = None,
+                             workspace_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelVersionResult]:
+    """
+    Azure Resource Manager resource envelope.
+    API Version: 2021-03-01-preview.
+
+
+    :param str name: Container name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str version: Version identifier.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

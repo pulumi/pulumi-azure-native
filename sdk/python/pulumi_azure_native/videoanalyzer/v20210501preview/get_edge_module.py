@@ -13,6 +13,7 @@ __all__ = [
     'GetEdgeModuleResult',
     'AwaitableGetEdgeModuleResult',
     'get_edge_module',
+    'get_edge_module_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_edge_module(account_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_edge_module)
+def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
+                           edge_module_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEdgeModuleResult]:
+    """
+    The representation of an edge module.
+
+
+    :param str account_name: The Azure Video Analyzer account name.
+    :param str edge_module_name: The name of the edge module to retrieve.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

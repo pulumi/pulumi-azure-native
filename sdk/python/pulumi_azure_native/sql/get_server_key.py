@@ -12,6 +12,7 @@ __all__ = [
     'GetServerKeyResult',
     'AwaitableGetServerKeyResult',
     'get_server_key',
+    'get_server_key_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,20 @@ def get_server_key(key_name: Optional[str] = None,
         subregion=__ret__.subregion,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_key)
+def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          server_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerKeyResult]:
+    """
+    A server key.
+    API Version: 2020-11-01-preview.
+
+
+    :param str key_name: The name of the server key to be retrieved.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

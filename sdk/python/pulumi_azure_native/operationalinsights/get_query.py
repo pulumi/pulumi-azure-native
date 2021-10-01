@@ -13,6 +13,7 @@ __all__ = [
     'GetQueryResult',
     'AwaitableGetQueryResult',
     'get_query',
+    'get_query_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,20 @@ def get_query(id: Optional[str] = None,
         time_created=__ret__.time_created,
         time_modified=__ret__.time_modified,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_query)
+def get_query_output(id: Optional[pulumi.Input[str]] = None,
+                     query_pack_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryResult]:
+    """
+    A Log Analytics QueryPack-Query definition.
+    API Version: 2019-09-01-preview.
+
+
+    :param str id: The id of a specific query defined in the Log Analytics QueryPack
+    :param str query_pack_name: The name of the Log Analytics QueryPack resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

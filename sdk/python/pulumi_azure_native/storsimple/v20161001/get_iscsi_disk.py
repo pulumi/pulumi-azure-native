@@ -12,6 +12,7 @@ __all__ = [
     'GetIscsiDiskResult',
     'AwaitableGetIscsiDiskResult',
     'get_iscsi_disk',
+    'get_iscsi_disk_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,23 @@ def get_iscsi_disk(device_name: Optional[str] = None,
         provisioned_capacity_in_bytes=__ret__.provisioned_capacity_in_bytes,
         type=__ret__.type,
         used_capacity_in_bytes=__ret__.used_capacity_in_bytes)
+
+
+@_utilities.lift_output_func(get_iscsi_disk)
+def get_iscsi_disk_output(device_name: Optional[pulumi.Input[str]] = None,
+                          disk_name: Optional[pulumi.Input[str]] = None,
+                          iscsi_server_name: Optional[pulumi.Input[str]] = None,
+                          manager_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiDiskResult]:
+    """
+    The iSCSI disk.
+
+
+    :param str device_name: The device name.
+    :param str disk_name: The disk name.
+    :param str iscsi_server_name: The iSCSI server name.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

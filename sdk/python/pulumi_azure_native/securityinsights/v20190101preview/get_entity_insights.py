@@ -13,6 +13,7 @@ __all__ = [
     'GetEntityInsightsResult',
     'AwaitableGetEntityInsightsResult',
     'get_entity_insights',
+    'get_entity_insights_output',
 ]
 
 @pulumi.output_type
@@ -95,3 +96,29 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
     return AwaitableGetEntityInsightsResult(
         meta_data=__ret__.meta_data,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_entity_insights)
+def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.Input[Optional[bool]]] = None,
+                               end_time: Optional[pulumi.Input[str]] = None,
+                               entity_id: Optional[pulumi.Input[str]] = None,
+                               insight_query_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                               operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               start_time: Optional[pulumi.Input[str]] = None,
+                               workspace_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityInsightsResult]:
+    """
+    The Get Insights result operation response.
+
+
+    :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
+    :param str end_time: The end timeline date, so the results returned are before this date.
+    :param str entity_id: entity ID
+    :param Sequence[str] insight_query_ids: List of Insights Query Id. If empty, default value is all insights of this entity
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str start_time: The start timeline date, so the results returned are after this date.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

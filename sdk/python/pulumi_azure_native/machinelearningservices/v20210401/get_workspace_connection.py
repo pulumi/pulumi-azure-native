@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkspaceConnectionResult',
     'AwaitableGetWorkspaceConnectionResult',
     'get_workspace_connection',
+    'get_workspace_connection_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_workspace_connection(connection_name: Optional[str] = None,
         type=__ret__.type,
         value=__ret__.value,
         value_format=__ret__.value_format)
+
+
+@_utilities.lift_output_func(get_workspace_connection)
+def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    workspace_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceConnectionResult]:
+    """
+    Workspace connection.
+
+
+    :param str connection_name: Friendly name of the workspace connection
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

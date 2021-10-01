@@ -12,6 +12,7 @@ __all__ = [
     'GetDomainTopicResult',
     'AwaitableGetDomainTopicResult',
     'get_domain_topic',
+    'get_domain_topic_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_domain_topic(domain_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_domain_topic)
+def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
+                            domain_topic_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicResult]:
+    """
+    Domain Topic.
+
+
+    :param str domain_name: Name of the domain.
+    :param str domain_topic_name: Name of the topic.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationAccountAgreementResult',
     'AwaitableGetIntegrationAccountAgreementResult',
     'get_integration_account_agreement',
+    'get_integration_account_agreement_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_agreement)
+def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Input[str]] = None,
+                                             integration_account_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountAgreementResult]:
+    """
+    The integration account agreement.
+
+
+    :param str agreement_name: The integration account agreement name.
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

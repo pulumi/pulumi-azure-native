@@ -13,6 +13,7 @@ __all__ = [
     'ListVMHostResult',
     'AwaitableListVMHostResult',
     'list_vm_host',
+    'list_vm_host_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,18 @@ def list_vm_host(monitor_name: Optional[str] = None,
     return AwaitableListVMHostResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_vm_host)
+def list_vm_host_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVMHostResult]:
+    """
+    Response of a list operation.
+    API Version: 2020-07-01.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    """
+    ...

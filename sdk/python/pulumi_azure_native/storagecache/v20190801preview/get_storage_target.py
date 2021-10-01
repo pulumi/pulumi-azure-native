@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageTargetResult',
     'AwaitableGetStorageTargetResult',
     'get_storage_target',
+    'get_storage_target_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_storage_target(cache_name: Optional[str] = None,
         target_type=__ret__.target_type,
         type=__ret__.type,
         unknown=__ret__.unknown)
+
+
+@_utilities.lift_output_func(get_storage_target)
+def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              storage_target_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTargetResult]:
+    """
+    A storage system being cached by a Cache.
+
+
+    :param str cache_name: Name of cache.
+    :param str resource_group_name: Target resource group.
+    :param str storage_target_name: Name of storage target.
+    """
+    ...

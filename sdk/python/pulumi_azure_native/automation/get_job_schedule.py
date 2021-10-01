@@ -13,6 +13,7 @@ __all__ = [
     'GetJobScheduleResult',
     'AwaitableGetJobScheduleResult',
     'get_job_schedule',
+    'get_job_schedule_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,20 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
         runbook=__ret__.runbook,
         schedule=__ret__.schedule,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_job_schedule)
+def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                            job_schedule_id: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobScheduleResult]:
+    """
+    Definition of the job schedule.
+    API Version: 2019-06-01.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str job_schedule_id: The job schedule name.
+    :param str resource_group_name: Name of an Azure Resource group.
+    """
+    ...

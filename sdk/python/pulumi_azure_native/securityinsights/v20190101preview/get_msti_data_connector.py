@@ -13,6 +13,7 @@ __all__ = [
     'GetMSTIDataConnectorResult',
     'AwaitableGetMSTIDataConnectorResult',
     'get_msti_data_connector',
+    'get_msti_data_connector_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,21 @@ def get_msti_data_connector(data_connector_id: Optional[str] = None,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_msti_data_connector)
+def get_msti_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
+                                   operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   workspace_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSTIDataConnectorResult]:
+    """
+    Represents Microsoft Threat Intelligence data connector.
+
+
+    :param str data_connector_id: Connector ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

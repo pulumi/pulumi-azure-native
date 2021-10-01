@@ -12,6 +12,7 @@ __all__ = [
     'ListSiteAppSettingsResult',
     'AwaitableListSiteAppSettingsResult',
     'list_site_app_settings',
+    'list_site_app_settings_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,17 @@ def list_site_app_settings(name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_site_app_settings)
+def list_site_app_settings_output(name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteAppSettingsResult]:
+    """
+    String dictionary resource
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

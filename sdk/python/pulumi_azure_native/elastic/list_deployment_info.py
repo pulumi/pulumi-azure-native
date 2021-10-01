@@ -12,6 +12,7 @@ __all__ = [
     'ListDeploymentInfoResult',
     'AwaitableListDeploymentInfoResult',
     'list_deployment_info',
+    'list_deployment_info_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,18 @@ def list_deployment_info(monitor_name: Optional[str] = None,
         memory_capacity=__ret__.memory_capacity,
         status=__ret__.status,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(list_deployment_info)
+def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeploymentInfoResult]:
+    """
+    The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
+    API Version: 2020-07-01.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    """
+    ...

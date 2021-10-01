@@ -12,6 +12,7 @@ __all__ = [
     'GetGlobalUserOperationStatusResult',
     'AwaitableGetGlobalUserOperationStatusResult',
     'get_global_user_operation_status',
+    'get_global_user_operation_status_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,18 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
 
     return AwaitableGetGlobalUserOperationStatusResult(
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_global_user_operation_status)
+def get_global_user_operation_status_output(operation_url: Optional[pulumi.Input[str]] = None,
+                                            user_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationStatusResult]:
+    """
+    Status Details of the long running operation for an environment
+    API Version: 2018-10-15.
+
+
+    :param str operation_url: The operation url of long running operation
+    :param str user_name: The name of the user.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListStaticSiteUsersResult',
     'AwaitableListStaticSiteUsersResult',
     'list_static_site_users',
+    'list_static_site_users_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_static_site_users(authprovider: Optional[str] = None,
     return AwaitableListStaticSiteUsersResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_static_site_users)
+def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteUsersResult]:
+    """
+    Collection of static site custom users.
+
+
+    :param str authprovider: The auth provider for the users.
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

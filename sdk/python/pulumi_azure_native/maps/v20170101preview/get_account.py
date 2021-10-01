@@ -13,6 +13,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,17 @@ def get_account(account_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    An Azure resource which represents access to a suite of Maps REST APIs.
+
+
+    :param str account_name: The name of the Maps Account.
+    :param str resource_group_name: The name of the Azure Resource Group.
+    """
+    ...

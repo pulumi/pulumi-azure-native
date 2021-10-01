@@ -13,6 +13,7 @@ __all__ = [
     'GetDedicatedHostResult',
     'AwaitableGetDedicatedHostResult',
     'get_dedicated_host',
+    'get_dedicated_host_output',
 ]
 
 @pulumi.output_type
@@ -240,3 +241,22 @@ def get_dedicated_host(expand: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_machines=__ret__.virtual_machines)
+
+
+@_utilities.lift_output_func(get_dedicated_host)
+def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                              host_group_name: Optional[pulumi.Input[str]] = None,
+                              host_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
+    """
+    Specifies information about the Dedicated host.
+    API Version: 2020-12-01.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str host_group_name: The name of the dedicated host group.
+    :param str host_name: The name of the dedicated host.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

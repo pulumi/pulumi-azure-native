@@ -12,6 +12,7 @@ __all__ = [
     'ListTenantAccessGitSecretsResult',
     'AwaitableListTenantAccessGitSecretsResult',
     'list_tenant_access_git_secrets',
+    'list_tenant_access_git_secrets_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def list_tenant_access_git_secrets(access_name: Optional[str] = None,
         id=__ret__.id,
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)
+
+
+@_utilities.lift_output_func(list_tenant_access_git_secrets)
+def list_tenant_access_git_secrets_output(access_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          service_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTenantAccessGitSecretsResult]:
+    """
+    Tenant access information contract of the API Management service.
+
+
+    :param str access_name: The identifier of the Access configuration.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

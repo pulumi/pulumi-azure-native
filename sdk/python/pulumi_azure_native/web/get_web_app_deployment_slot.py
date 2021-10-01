@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppDeploymentSlotResult',
     'AwaitableGetWebAppDeploymentSlotResult',
     'get_web_app_deployment_slot',
+    'get_web_app_deployment_slot_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,22 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
         start_time=__ret__.start_time,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_deployment_slot)
+def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
+                                       name: Optional[pulumi.Input[str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                       slot: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentSlotResult]:
+    """
+    User credentials used for publishing activity.
+    API Version: 2020-12-01.
+
+
+    :param str id: Deployment ID.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
+    """
+    ...

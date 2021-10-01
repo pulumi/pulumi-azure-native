@@ -13,6 +13,7 @@ __all__ = [
     'GetKustoPoolAttachedDatabaseConfigurationResult',
     'AwaitableGetKustoPoolAttachedDatabaseConfigurationResult',
     'get_kusto_pool_attached_database_configuration',
+    'get_kusto_pool_attached_database_configuration_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,21 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
         system_data=__ret__.system_data,
         table_level_sharing_properties=__ret__.table_level_sharing_properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_kusto_pool_attached_database_configuration)
+def get_kusto_pool_attached_database_configuration_output(attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+                                                          kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                          workspace_name: Optional[pulumi.Input[str]] = None,
+                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
+    """
+    Class representing an attached database configuration.
+
+
+    :param str attached_database_configuration_name: The name of the attached database configuration.
+    :param str kusto_pool_name: The name of the Kusto pool.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace
+    """
+    ...

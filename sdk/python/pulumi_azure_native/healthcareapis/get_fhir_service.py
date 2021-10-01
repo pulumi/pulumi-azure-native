@@ -13,6 +13,7 @@ __all__ = [
     'GetFhirServiceResult',
     'AwaitableGetFhirServiceResult',
     'get_fhir_service',
+    'get_fhir_service_output',
 ]
 
 @pulumi.output_type
@@ -250,3 +251,20 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_fhir_service)
+def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
+    """
+    The description of Fhir Service
+    API Version: 2021-06-01-preview.
+
+
+    :param str fhir_service_name: The name of FHIR Service resource.
+    :param str resource_group_name: The name of the resource group that contains the service instance.
+    :param str workspace_name: The name of workspace resource.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetMHSMPrivateEndpointConnectionResult',
     'AwaitableGetMHSMPrivateEndpointConnectionResult',
     'get_mhsm_private_endpoint_connection',
+    'get_mhsm_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,19 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_mhsm_private_endpoint_connection)
+def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                                private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMHSMPrivateEndpointConnectionResult]:
+    """
+    Private endpoint connection resource.
+
+
+    :param str name: Name of the managed HSM Pool
+    :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
+    :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
+    """
+    ...

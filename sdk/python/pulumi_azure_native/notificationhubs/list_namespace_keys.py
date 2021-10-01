@@ -13,6 +13,7 @@ __all__ = [
     'ListNamespaceKeysResult',
     'AwaitableListNamespaceKeysResult',
     'list_namespace_keys',
+    'list_namespace_keys_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
     return AwaitableListNamespaceKeysResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_namespace_keys)
+def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                               namespace_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamespaceKeysResult]:
+    """
+    The response of the List Namespace operation.
+    API Version: 2017-04-01.
+
+
+    :param str authorization_rule_name: The connection string of the namespace for the specified authorizationRule.
+    :param str namespace_name: The namespace name.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

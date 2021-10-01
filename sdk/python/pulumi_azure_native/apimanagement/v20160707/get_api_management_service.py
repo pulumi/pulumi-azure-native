@@ -13,6 +13,7 @@ __all__ = [
     'GetApiManagementServiceResult',
     'AwaitableGetApiManagementServiceResult',
     'get_api_management_service',
+    'get_api_management_service_output',
 ]
 
 @pulumi.output_type
@@ -350,3 +351,17 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         type=__ret__.type,
         vpn_type=__ret__.vpn_type,
         vpnconfiguration=__ret__.vpnconfiguration)
+
+
+@_utilities.lift_output_func(get_api_management_service)
+def get_api_management_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      service_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
+    """
+    Description of an API Management service resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

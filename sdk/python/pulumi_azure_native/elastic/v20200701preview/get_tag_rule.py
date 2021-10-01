@@ -13,6 +13,7 @@ __all__ = [
     'GetTagRuleResult',
     'AwaitableGetTagRuleResult',
     'get_tag_rule',
+    'get_tag_rule_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_tag_rule(monitor_name: Optional[str] = None,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_tag_rule)
+def get_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        rule_set_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagRuleResult]:
+    """
+    Capture logs and metrics of Azure resources based on ARM tags.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str rule_set_name: Tag Rule Set resource name
+    """
+    ...

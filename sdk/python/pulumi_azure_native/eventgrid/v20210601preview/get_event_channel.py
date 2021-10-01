@@ -13,6 +13,7 @@ __all__ = [
     'GetEventChannelResult',
     'AwaitableGetEventChannelResult',
     'get_event_channel',
+    'get_event_channel_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,19 @@ def get_event_channel(event_channel_name: Optional[str] = None,
         source=__ret__.source,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_event_channel)
+def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = None,
+                             partner_namespace_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventChannelResult]:
+    """
+    Event Channel.
+
+
+    :param str event_channel_name: Name of the event channel.
+    :param str partner_namespace_name: Name of the partner namespace.
+    :param str resource_group_name: The name of the resource group within the user's subscription.
+    """
+    ...

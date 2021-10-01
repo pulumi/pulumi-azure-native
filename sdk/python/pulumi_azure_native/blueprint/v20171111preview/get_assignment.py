@@ -13,6 +13,7 @@ __all__ = [
     'GetAssignmentResult',
     'AwaitableGetAssignmentResult',
     'get_assignment',
+    'get_assignment_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_assignment(assignment_name: Optional[str] = None,
         resource_groups=__ret__.resource_groups,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_assignment)
+def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
+                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
+    """
+    Represents a Blueprint assignment.
+
+
+    :param str assignment_name: name of the assignment.
+    :param str subscription_id: azure subscriptionId, which we assign the blueprint to.
+    """
+    ...

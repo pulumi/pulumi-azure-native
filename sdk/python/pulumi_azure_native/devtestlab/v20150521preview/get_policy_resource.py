@@ -12,6 +12,7 @@ __all__ = [
     'GetPolicyResourceResult',
     'AwaitableGetPolicyResourceResult',
     'get_policy_resource',
+    'get_policy_resource_output',
 ]
 
 @pulumi.output_type
@@ -212,3 +213,21 @@ def get_policy_resource(lab_name: Optional[str] = None,
         tags=__ret__.tags,
         threshold=__ret__.threshold,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_policy_resource)
+def get_policy_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               policy_set_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResourceResult]:
+    """
+    A Policy.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the policy.
+    :param str policy_set_name: The name of the policy set.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

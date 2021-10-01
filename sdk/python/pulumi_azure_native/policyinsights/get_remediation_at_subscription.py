@@ -13,6 +13,7 @@ __all__ = [
     'GetRemediationAtSubscriptionResult',
     'AwaitableGetRemediationAtSubscriptionResult',
     'get_remediation_at_subscription',
+    'get_remediation_at_subscription_output',
 ]
 
 @pulumi.output_type
@@ -192,3 +193,16 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_discovery_mode=__ret__.resource_discovery_mode,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_remediation_at_subscription)
+def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
+    """
+    The remediation definition.
+    API Version: 2019-07-01.
+
+
+    :param str remediation_name: The name of the remediation.
+    """
+    ...

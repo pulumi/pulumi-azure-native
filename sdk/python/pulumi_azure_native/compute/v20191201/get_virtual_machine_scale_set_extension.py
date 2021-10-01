@@ -12,6 +12,7 @@ __all__ = [
     'GetVirtualMachineScaleSetExtensionResult',
     'AwaitableGetVirtualMachineScaleSetExtensionResult',
     'get_virtual_machine_scale_set_extension',
+    'get_virtual_machine_scale_set_extension_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,21 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
         settings=__ret__.settings,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
+
+
+@_utilities.lift_output_func(get_virtual_machine_scale_set_extension)
+def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                                                   vmss_extension_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetExtensionResult]:
+    """
+    Describes a Virtual Machine Scale Set Extension.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str resource_group_name: The name of the resource group.
+    :param str vm_scale_set_name: The name of the VM scale set containing the extension.
+    :param str vmss_extension_name: The name of the VM scale set extension.
+    """
+    ...

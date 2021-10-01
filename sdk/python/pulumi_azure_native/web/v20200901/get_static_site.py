@@ -13,6 +13,7 @@ __all__ = [
     'GetStaticSiteResult',
     'AwaitableGetStaticSiteResult',
     'get_static_site',
+    'get_static_site_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_static_site(name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_static_site)
+def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteResult]:
+    """
+    Static Site ARM resource.
+
+
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetSshPublicKeyResult',
     'AwaitableGetSshPublicKeyResult',
     'get_ssh_public_key',
+    'get_ssh_public_key_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,18 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
         public_key=__ret__.public_key,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ssh_public_key)
+def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              ssh_public_key_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshPublicKeyResult]:
+    """
+    Specifies information about the SSH public key.
+    API Version: 2020-12-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str ssh_public_key_name: The name of the SSH public key.
+    """
+    ...

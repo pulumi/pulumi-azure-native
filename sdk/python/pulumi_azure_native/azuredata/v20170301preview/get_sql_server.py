@@ -12,6 +12,7 @@ __all__ = [
     'GetSqlServerResult',
     'AwaitableGetSqlServerResult',
     'get_sql_server',
+    'get_sql_server_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def get_sql_server(expand: Optional[str] = None,
         registration_id=__ret__.registration_id,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_sql_server)
+def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          sql_server_name: Optional[pulumi.Input[str]] = None,
+                          sql_server_registration_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerResult]:
+    """
+    A SQL server.
+
+
+    :param str expand: The child resources to include in the response.
+    :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str sql_server_name: Name of the SQL Server.
+    :param str sql_server_registration_name: Name of the SQL Server registration.
+    """
+    ...

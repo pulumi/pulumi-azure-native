@@ -13,6 +13,7 @@ __all__ = [
     'GetSourceControlConfigurationResult',
     'AwaitableGetSourceControlConfigurationResult',
     'get_source_control_configuration',
+    'get_source_control_configuration_output',
 ]
 
 @pulumi.output_type
@@ -281,3 +282,23 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
         ssh_known_hosts_contents=__ret__.ssh_known_hosts_contents,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_source_control_configuration)
+def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                            cluster_resource_name: Optional[pulumi.Input[str]] = None,
+                                            cluster_rp: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            source_control_configuration_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
+    """
+    The SourceControl Configuration object returned in Get & Put response.
+
+
+    :param str cluster_name: The name of the kubernetes cluster.
+    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    :param str resource_group_name: The name of the resource group.
+    :param str source_control_configuration_name: Name of the Source Control Configuration.
+    """
+    ...

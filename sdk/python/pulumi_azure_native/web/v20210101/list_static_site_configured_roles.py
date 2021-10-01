@@ -12,6 +12,7 @@ __all__ = [
     'ListStaticSiteConfiguredRolesResult',
     'AwaitableListStaticSiteConfiguredRolesResult',
     'list_static_site_configured_roles',
+    'list_static_site_configured_roles_output',
 ]
 
 @pulumi.output_type
@@ -115,3 +116,17 @@ def list_static_site_configured_roles(name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_static_site_configured_roles)
+def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteConfiguredRolesResult]:
+    """
+    String list resource.
+
+
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

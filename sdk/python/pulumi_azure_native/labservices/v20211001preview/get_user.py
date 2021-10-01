@@ -13,6 +13,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_user(lab_name: Optional[str] = None,
         system_data=__ret__.system_data,
         total_usage=__ret__.total_usage,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    user_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    User of a lab that can register for and use virtual machines within the lab.
+
+
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
+    """
+    ...

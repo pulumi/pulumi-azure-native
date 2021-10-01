@@ -12,6 +12,7 @@ __all__ = [
     'ListClusterUpgradableVersionsResult',
     'AwaitableListClusterUpgradableVersionsResult',
     'list_cluster_upgradable_versions',
+    'list_cluster_upgradable_versions_output',
 ]
 
 @pulumi.output_type
@@ -63,3 +64,19 @@ def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
 
     return AwaitableListClusterUpgradableVersionsResult(
         supported_path=__ret__.supported_path)
+
+
+@_utilities.lift_output_func(list_cluster_upgradable_versions)
+def list_cluster_upgradable_versions_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            target_version: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterUpgradableVersionsResult]:
+    """
+    The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+
+
+    :param str cluster_name: The name of the cluster resource.
+    :param str resource_group_name: The name of the resource group.
+    :param str target_version: The target code version.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetJitNetworkAccessPolicyResult',
     'AwaitableGetJitNetworkAccessPolicyResult',
     'get_jit_network_access_policy',
+    'get_jit_network_access_policy_output',
 ]
 
 @pulumi.output_type
@@ -151,3 +152,18 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
         requests=__ret__.requests,
         type=__ret__.type,
         virtual_machines=__ret__.virtual_machines)
+
+
+@_utilities.lift_output_func(get_jit_network_access_policy)
+def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str]] = None,
+                                         jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitNetworkAccessPolicyResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+    :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

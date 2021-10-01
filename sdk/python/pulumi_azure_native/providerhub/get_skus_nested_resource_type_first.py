@@ -13,6 +13,7 @@ __all__ = [
     'GetSkusNestedResourceTypeFirstResult',
     'AwaitableGetSkusNestedResourceTypeFirstResult',
     'get_skus_nested_resource_type_first',
+    'get_skus_nested_resource_type_first_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,21 @@ def get_skus_nested_resource_type_first(nested_resource_type_first: Optional[str
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_skus_nested_resource_type_first)
+def get_skus_nested_resource_type_first_output(nested_resource_type_first: Optional[pulumi.Input[str]] = None,
+                                               provider_namespace: Optional[pulumi.Input[str]] = None,
+                                               resource_type: Optional[pulumi.Input[str]] = None,
+                                               sku: Optional[pulumi.Input[str]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeFirstResult]:
+    """
+    API Version: 2020-11-20.
+
+
+    :param str nested_resource_type_first: The first child resource type.
+    :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
+    :param str resource_type: The resource type.
+    :param str sku: The SKU.
+    """
+    ...

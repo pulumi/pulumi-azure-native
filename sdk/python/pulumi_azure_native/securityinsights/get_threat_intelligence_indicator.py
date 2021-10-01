@@ -12,6 +12,7 @@ __all__ = [
     'GetThreatIntelligenceIndicatorResult',
     'AwaitableGetThreatIntelligenceIndicatorResult',
     'get_threat_intelligence_indicator',
+    'get_threat_intelligence_indicator_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,22 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_threat_intelligence_indicator)
+def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] = None,
+                                             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             workspace_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceIndicatorResult]:
+    """
+    Threat intelligence information object.
+    API Version: 2019-01-01-preview.
+
+
+    :param str name: Threat intelligence indicator name field.
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

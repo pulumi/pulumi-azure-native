@@ -13,6 +13,7 @@ __all__ = [
     'ListMonitorVMHostsResult',
     'AwaitableListMonitorVMHostsResult',
     'list_monitor_vm_hosts',
+    'list_monitor_vm_hosts_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_monitor_vm_hosts(monitor_name: Optional[str] = None,
     return AwaitableListMonitorVMHostsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_monitor_vm_hosts)
+def list_monitor_vm_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorVMHostsResult]:
+    """
+    Response of a list VM Host Update Operation.
+
+
+    :param str monitor_name: Monitor resource name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

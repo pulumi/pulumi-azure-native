@@ -13,6 +13,7 @@ __all__ = [
     'ListScheduleApplicableResult',
     'AwaitableListScheduleApplicableResult',
     'list_schedule_applicable',
+    'list_schedule_applicable_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
     return AwaitableListScheduleApplicableResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_schedule_applicable)
+def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                    name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListScheduleApplicableResult]:
+    """
+    The response of a list operation.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the schedule.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

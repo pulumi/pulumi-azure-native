@@ -13,6 +13,7 @@ __all__ = [
     'ListWorkflowRunActionExpressionTracesResult',
     'AwaitableListWorkflowRunActionExpressionTracesResult',
     'list_workflow_run_action_expression_traces',
+    'list_workflow_run_action_expression_traces_output',
 ]
 
 @pulumi.output_type
@@ -63,3 +64,20 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
 
     return AwaitableListWorkflowRunActionExpressionTracesResult(
         inputs=__ret__.inputs)
+
+
+@_utilities.lift_output_func(list_workflow_run_action_expression_traces)
+def list_workflow_run_action_expression_traces_output(action_name: Optional[pulumi.Input[str]] = None,
+                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                      run_name: Optional[pulumi.Input[str]] = None,
+                                                      workflow_name: Optional[pulumi.Input[str]] = None,
+                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowRunActionExpressionTracesResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str action_name: The workflow action name.
+    :param str resource_group_name: The resource group name.
+    :param str run_name: The workflow run name.
+    :param str workflow_name: The workflow name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListAccountChannelTypesResult',
     'AwaitableListAccountChannelTypesResult',
     'list_account_channel_types',
+    'list_account_channel_types_output',
 ]
 
 @pulumi.output_type
@@ -64,3 +65,17 @@ def list_account_channel_types(account_name: Optional[str] = None,
 
     return AwaitableListAccountChannelTypesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_account_channel_types)
+def list_account_channel_types_output(account_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountChannelTypesResult]:
+    """
+    List of the EngagementFabric channel descriptions
+
+
+    :param str account_name: Account Name
+    :param str resource_group_name: Resource Group Name
+    """
+    ...

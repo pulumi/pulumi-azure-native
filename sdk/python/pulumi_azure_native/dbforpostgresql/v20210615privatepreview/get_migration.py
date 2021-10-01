@@ -13,6 +13,7 @@ __all__ = [
     'GetMigrationResult',
     'AwaitableGetMigrationResult',
     'get_migration',
+    'get_migration_output',
 ]
 
 @pulumi.output_type
@@ -323,3 +324,21 @@ def get_migration(migration_name: Optional[str] = None,
         trigger_cutover=__ret__.trigger_cutover,
         type=__ret__.type,
         user_assigned_identity_resource_id=__ret__.user_assigned_identity_resource_id)
+
+
+@_utilities.lift_output_func(get_migration)
+def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
+                         target_db_server_name: Optional[pulumi.Input[str]] = None,
+                         target_db_server_resource_group_name: Optional[pulumi.Input[str]] = None,
+                         target_db_server_subscription_id: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationResult]:
+    """
+    Represents a migration resource.
+
+
+    :param str migration_name: The name of the migration.
+    :param str target_db_server_name: The name of the target database server.
+    :param str target_db_server_resource_group_name: The resource group name of the target database server.
+    :param str target_db_server_subscription_id: The subscription ID of the target database server.
+    """
+    ...

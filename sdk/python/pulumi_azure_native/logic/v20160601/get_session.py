@@ -12,6 +12,7 @@ __all__ = [
     'GetSessionResult',
     'AwaitableGetSessionResult',
     'get_session',
+    'get_session_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_session(integration_account_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_session)
+def get_session_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       session_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionResult]:
+    """
+    The integration account session.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    :param str session_name: The integration account session name.
+    """
+    ...

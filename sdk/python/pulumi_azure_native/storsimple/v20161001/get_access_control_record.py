@@ -12,6 +12,7 @@ __all__ = [
     'GetAccessControlRecordResult',
     'AwaitableGetAccessControlRecordResult',
     'get_access_control_record',
+    'get_access_control_record_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
         initiator_name=__ret__.initiator_name,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_access_control_record)
+def get_access_control_record_output(access_control_record_name: Optional[pulumi.Input[str]] = None,
+                                     manager_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessControlRecordResult]:
+    """
+    The access control record
+
+
+    :param str access_control_record_name: Name of access control record to be fetched.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

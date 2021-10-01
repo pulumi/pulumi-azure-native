@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationGroupResult',
     'AwaitableGetApplicationGroupResult',
     'get_application_group',
+    'get_application_group_output',
 ]
 
 @pulumi.output_type
@@ -289,3 +290,17 @@ def get_application_group(application_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         workspace_arm_path=__ret__.workspace_arm_path)
+
+
+@_utilities.lift_output_func(get_application_group)
+def get_application_group_output(application_group_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
+    """
+    Represents a ApplicationGroup definition.
+
+
+    :param str application_group_name: The name of the application group
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

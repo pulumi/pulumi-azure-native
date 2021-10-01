@@ -13,6 +13,7 @@ __all__ = [
     'GetWebhookResult',
     'AwaitableGetWebhookResult',
     'get_webhook',
+    'get_webhook_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_webhook(automation_account_name: Optional[str] = None,
         runbook=__ret__.runbook,
         type=__ret__.type,
         uri=__ret__.uri)
+
+
+@_utilities.lift_output_func(get_webhook)
+def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       webhook_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
+    """
+    Definition of the webhook type.
+
+
+    :param str automation_account_name: The name of the automation account.
+    :param str resource_group_name: Name of an Azure Resource group.
+    :param str webhook_name: The webhook name.
+    """
+    ...

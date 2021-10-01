@@ -131,9 +131,13 @@ class OperatingSystemStateTypes(str, Enum):
     The OS State.
     """
     GENERALIZED = "Generalized"
-    """Generalized image. Needs to be provisioned during deployment time."""
+    """
+    Generalized image. Needs to be provisioned during deployment time.
+    """
     SPECIALIZED = "Specialized"
-    """Specialized image. Contains already provisioned OS Disk."""
+    """
+    Specialized image. Contains already provisioned OS Disk.
+    """
 
 
 class OperatingSystemTypes(str, Enum):

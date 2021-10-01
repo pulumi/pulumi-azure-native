@@ -13,6 +13,7 @@ __all__ = [
     'GetResourceGroupResult',
     'AwaitableGetResourceGroupResult',
     'get_resource_group',
+    'get_resource_group_output',
 ]
 
 @pulumi.output_type
@@ -113,3 +114,15 @@ def get_resource_group(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_resource_group)
+def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
+    """
+    Resource group information.
+
+
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    """
+    ...

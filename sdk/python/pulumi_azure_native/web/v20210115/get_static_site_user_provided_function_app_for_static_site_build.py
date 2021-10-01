@@ -12,6 +12,7 @@ __all__ = [
     'GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult',
     'AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult',
     'get_static_site_user_provided_function_app_for_static_site_build',
+    'get_static_site_user_provided_function_app_for_static_site_build_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_static_site_user_provided_function_app_for_static_site_build)
+def get_static_site_user_provided_function_app_for_static_site_build_output(environment_name: Optional[pulumi.Input[str]] = None,
+                                                                            function_app_name: Optional[pulumi.Input[str]] = None,
+                                                                            name: Optional[pulumi.Input[str]] = None,
+                                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:
+    """
+    Static Site User Provided Function App ARM resource.
+
+
+    :param str environment_name: The stage site identifier.
+    :param str function_app_name: Name of the function app registered with the static site build.
+    :param str name: Name of the static site.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

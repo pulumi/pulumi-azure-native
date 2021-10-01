@@ -13,6 +13,7 @@ __all__ = [
     'GetSensorResult',
     'AwaitableGetSensorResult',
     'get_sensor',
+    'get_sensor_output',
 ]
 
 @pulumi.output_type
@@ -234,3 +235,18 @@ def get_sensor(scope: Optional[str] = None,
         ti_version=__ret__.ti_version,
         type=__ret__.type,
         zone=__ret__.zone)
+
+
+@_utilities.lift_output_func(get_sensor)
+def get_sensor_output(scope: Optional[pulumi.Input[str]] = None,
+                      sensor_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensorResult]:
+    """
+    IoT sensor model
+    API Version: 2021-02-01-preview.
+
+
+    :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+    :param str sensor_name: Name of the IoT sensor
+    """
+    ...

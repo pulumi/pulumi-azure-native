@@ -12,6 +12,7 @@ __all__ = [
     'GetServerAdministratorResult',
     'AwaitableGetServerAdministratorResult',
     'get_server_administrator',
+    'get_server_administrator_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,17 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
         sid=__ret__.sid,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_administrator)
+def get_server_administrator_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    server_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAdministratorResult]:
+    """
+    Represents a and external administrator to be created.
+
+
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    """
+    ...

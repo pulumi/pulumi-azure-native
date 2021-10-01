@@ -12,6 +12,7 @@ __all__ = [
     'GetDiagnosticResult',
     'AwaitableGetDiagnosticResult',
     'get_diagnostic',
+    'get_diagnostic_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,19 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_diagnostic)
+def get_diagnostic_output(diagnostic_id: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          service_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticResult]:
+    """
+    Diagnostic details.
+
+
+    :param str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

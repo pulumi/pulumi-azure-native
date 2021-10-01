@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineImageTemplateResult',
     'AwaitableGetVirtualMachineImageTemplateResult',
     'get_virtual_machine_image_template',
+    'get_virtual_machine_image_template_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,17 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
         tags=__ret__.tags,
         type=__ret__.type,
         vm_profile=__ret__.vm_profile)
+
+
+@_utilities.lift_output_func(get_virtual_machine_image_template)
+def get_virtual_machine_image_template_output(image_template_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
+    """
+    Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+
+
+    :param str image_template_name: The name of the image Template
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

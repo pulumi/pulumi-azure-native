@@ -13,6 +13,7 @@ __all__ = [
     'GetPostgresInstanceResult',
     'AwaitableGetPostgresInstanceResult',
     'get_postgres_instance',
+    'get_postgres_instance_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,18 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_postgres_instance)
+def get_postgres_instance_output(postgres_instance_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostgresInstanceResult]:
+    """
+    A Postgres Instance.
+    API Version: 2021-06-01-preview.
+
+
+    :param str postgres_instance_name: Name of Postgres Instance
+    :param str resource_group_name: The name of the Azure resource group
+    """
+    ...

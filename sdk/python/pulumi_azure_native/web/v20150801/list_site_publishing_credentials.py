@@ -12,6 +12,7 @@ __all__ = [
     'ListSitePublishingCredentialsResult',
     'AwaitableListSitePublishingCredentialsResult',
     'list_site_publishing_credentials',
+    'list_site_publishing_credentials_output',
 ]
 
 @pulumi.output_type
@@ -167,3 +168,17 @@ def list_site_publishing_credentials(name: Optional[str] = None,
         scm_uri=__ret__.scm_uri,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_site_publishing_credentials)
+def list_site_publishing_credentials_output(name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSitePublishingCredentialsResult]:
+    """
+    Represents user credentials used for publishing activity
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    """
+    ...

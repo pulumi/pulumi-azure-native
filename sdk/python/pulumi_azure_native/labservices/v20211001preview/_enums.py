@@ -29,9 +29,13 @@ class CreateOption(str, Enum):
     Indicates what lab virtual machines are created from.
     """
     IMAGE = "Image"
-    """An image is used to create all lab user virtual machines. When this option is set, no template VM will be created."""
+    """
+    An image is used to create all lab user virtual machines. When this option is set, no template VM will be created.
+    """
     TEMPLATE_VM = "TemplateVM"
-    """A template VM will be used to create all lab user virtual machines."""
+    """
+    A template VM will be used to create all lab user virtual machines.
+    """
 
 
 class EnableState(str, Enum):
@@ -47,9 +51,13 @@ class RecurrenceFrequency(str, Enum):
     The frequency of the recurrence.
     """
     DAILY = "Daily"
-    """Schedule will run every days."""
+    """
+    Schedule will run every days.
+    """
     WEEKLY = "Weekly"
-    """Schedule will run every week on days specified in weekDays."""
+    """
+    Schedule will run every week on days specified in weekDays.
+    """
 
 
 class ShutdownOnIdleMode(str, Enum):
@@ -57,11 +65,17 @@ class ShutdownOnIdleMode(str, Enum):
     Whether a VM will get shutdown when it has idled for a period of time.
     """
     NONE = "None"
-    """The VM won't be shut down when it is idle."""
+    """
+    The VM won't be shut down when it is idle.
+    """
     USER_ABSENCE = "UserAbsence"
-    """The VM will be considered as idle when there is no keyboard or mouse input."""
+    """
+    The VM will be considered as idle when there is no keyboard or mouse input.
+    """
     LOW_USAGE = "LowUsage"
-    """The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low."""
+    """
+    The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
+    """
 
 
 class SkuTier(str, Enum):
@@ -79,16 +93,30 @@ class WeekDay(str, Enum):
     Days of the week.
     """
     SUNDAY = "Sunday"
-    """Schedule will run on Sunday"""
+    """
+    Schedule will run on Sunday
+    """
     MONDAY = "Monday"
-    """Schedule will run on Monday"""
+    """
+    Schedule will run on Monday
+    """
     TUESDAY = "Tuesday"
-    """Schedule will run on Tuesday"""
+    """
+    Schedule will run on Tuesday
+    """
     WEDNESDAY = "Wednesday"
-    """Schedule will run on Wednesday"""
+    """
+    Schedule will run on Wednesday
+    """
     THURSDAY = "Thursday"
-    """Schedule will run on Thursday"""
+    """
+    Schedule will run on Thursday
+    """
     FRIDAY = "Friday"
-    """Schedule will run on Friday"""
+    """
+    Schedule will run on Friday
+    """
     SATURDAY = "Saturday"
-    """Schedule will run on Saturday"""
+    """
+    Schedule will run on Saturday
+    """

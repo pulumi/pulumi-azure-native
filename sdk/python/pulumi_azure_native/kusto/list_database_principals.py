@@ -13,6 +13,7 @@ __all__ = [
     'ListDatabasePrincipalsResult',
     'AwaitableListDatabasePrincipalsResult',
     'list_database_principals',
+    'list_database_principals_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,20 @@ def list_database_principals(cluster_name: Optional[str] = None,
 
     return AwaitableListDatabasePrincipalsResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_database_principals)
+def list_database_principals_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                    database_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasePrincipalsResult]:
+    """
+    The list Kusto database principals operation response.
+    API Version: 2021-01-01.
+
+
+    :param str cluster_name: The name of the Kusto cluster.
+    :param str database_name: The name of the database in the Kusto cluster.
+    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    """
+    ...

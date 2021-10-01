@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateLinkScopeResult',
     'AwaitableGetPrivateLinkScopeResult',
     'get_private_link_scope',
+    'get_private_link_scope_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,17 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_link_scope)
+def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  scope_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
+    """
+    An Azure Arc PrivateLinkScope definition.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str scope_name: The name of the Azure Arc PrivateLinkScope resource.
+    """
+    ...

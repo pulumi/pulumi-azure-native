@@ -13,6 +13,7 @@ __all__ = [
     'GetDeviceSecurityGroupResult',
     'AwaitableGetDeviceSecurityGroupResult',
     'get_device_security_group',
+    'get_device_security_group_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,17 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
         threshold_rules=__ret__.threshold_rules,
         time_window_rules=__ret__.time_window_rules,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_device_security_group)
+def get_device_security_group_output(device_security_group_name: Optional[pulumi.Input[str]] = None,
+                                     resource_id: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
+    """
+    The device security group resource
+
+
+    :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
+    :param str resource_id: The identifier of the resource.
+    """
+    ...

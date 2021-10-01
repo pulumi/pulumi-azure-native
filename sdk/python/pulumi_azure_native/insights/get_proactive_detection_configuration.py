@@ -13,6 +13,7 @@ __all__ = [
     'GetProactiveDetectionConfigurationResult',
     'AwaitableGetProactiveDetectionConfigurationResult',
     'get_proactive_detection_configuration',
+    'get_proactive_detection_configuration_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
         name=__ret__.name,
         rule_definitions=__ret__.rule_definitions,
         send_emails_to_subscription_owners=__ret__.send_emails_to_subscription_owners)
+
+
+@_utilities.lift_output_func(get_proactive_detection_configuration)
+def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
+    """
+    Properties that define a ProactiveDetection configuration.
+    API Version: 2015-05-01.
+
+
+    :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

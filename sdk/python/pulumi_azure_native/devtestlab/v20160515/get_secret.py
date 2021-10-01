@@ -12,6 +12,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -163,3 +164,23 @@ def get_secret(expand: Optional[str] = None,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                      lab_name: Optional[pulumi.Input[str]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      user_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    A secret.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=value)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the secret.
+    :param str resource_group_name: The name of the resource group.
+    :param str user_name: The name of the user profile.
+    """
+    ...

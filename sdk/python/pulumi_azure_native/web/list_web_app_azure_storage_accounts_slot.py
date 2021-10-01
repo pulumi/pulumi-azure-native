@@ -13,6 +13,7 @@ __all__ = [
     'ListWebAppAzureStorageAccountsSlotResult',
     'AwaitableListWebAppAzureStorageAccountsSlotResult',
     'list_web_app_azure_storage_accounts_slot',
+    'list_web_app_azure_storage_accounts_slot_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def list_web_app_azure_storage_accounts_slot(name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_web_app_azure_storage_accounts_slot)
+def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    slot: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsSlotResult]:
+    """
+    AzureStorageInfo dictionary resource.
+    API Version: 2020-12-01.
+
+
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
+    """
+    ...

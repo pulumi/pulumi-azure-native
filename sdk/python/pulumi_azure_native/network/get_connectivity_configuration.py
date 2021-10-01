@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectivityConfigurationResult',
     'AwaitableGetConnectivityConfigurationResult',
     'get_connectivity_configuration',
+    'get_connectivity_configuration_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,20 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connectivity_configuration)
+def get_connectivity_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
+                                          network_manager_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
+    """
+    The network manager connectivity configuration resource
+    API Version: 2021-02-01-preview.
+
+
+    :param str configuration_name: The name of the network manager connectivity configuration.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

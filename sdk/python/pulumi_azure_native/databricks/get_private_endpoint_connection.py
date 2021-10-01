@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateEndpointConnectionResult',
     'AwaitableGetPrivateEndpointConnectionResult',
     'get_private_endpoint_connection',
+    'get_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,20 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
+def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           workspace_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+    """
+    The private endpoint connection of a workspace
+    API Version: 2021-04-01-preview.
+
+
+    :param str private_endpoint_connection_name: The name of the private endpoint connection
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

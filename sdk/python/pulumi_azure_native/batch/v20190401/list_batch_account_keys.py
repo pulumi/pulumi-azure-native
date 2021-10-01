@@ -12,6 +12,7 @@ __all__ = [
     'ListBatchAccountKeysResult',
     'AwaitableListBatchAccountKeysResult',
     'list_batch_account_keys',
+    'list_batch_account_keys_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,17 @@ def list_batch_account_keys(account_name: Optional[str] = None,
         account_name=__ret__.account_name,
         primary=__ret__.primary,
         secondary=__ret__.secondary)
+
+
+@_utilities.lift_output_func(list_batch_account_keys)
+def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
+    """
+    A set of Azure Batch account keys.
+
+
+    :param str account_name: The name of the Batch account.
+    :param str resource_group_name: The name of the resource group that contains the Batch account.
+    """
+    ...

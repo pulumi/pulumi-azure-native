@@ -13,6 +13,7 @@ __all__ = [
     'ListTopLevelDomainAgreementsResult',
     'AwaitableListTopLevelDomainAgreementsResult',
     'list_top_level_domain_agreements',
+    'list_top_level_domain_agreements_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
     return AwaitableListTopLevelDomainAgreementsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_top_level_domain_agreements)
+def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[Optional[bool]]] = None,
+                                            include_privacy: Optional[pulumi.Input[Optional[bool]]] = None,
+                                            name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
+    """
+    Collection of top-level domain legal agreements.
+
+
+    :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
+    :param bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
+    :param str name: Name of the top-level domain.
+    """
+    ...

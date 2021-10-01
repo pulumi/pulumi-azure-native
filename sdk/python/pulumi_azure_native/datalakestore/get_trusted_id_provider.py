@@ -12,6 +12,7 @@ __all__ = [
     'GetTrustedIdProviderResult',
     'AwaitableGetTrustedIdProviderResult',
     'get_trusted_id_provider',
+    'get_trusted_id_provider_output',
 ]
 
 @pulumi.output_type
@@ -106,3 +107,20 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
         id_provider=__ret__.id_provider,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_trusted_id_provider)
+def get_trusted_id_provider_output(account_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
+    """
+    Data Lake Store trusted identity provider information.
+    API Version: 2016-11-01.
+
+
+    :param str account_name: The name of the Data Lake Store account.
+    :param str resource_group_name: The name of the Azure resource group.
+    :param str trusted_id_provider_name: The name of the trusted identity provider to retrieve.
+    """
+    ...

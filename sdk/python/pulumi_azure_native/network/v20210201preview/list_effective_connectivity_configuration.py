@@ -13,6 +13,7 @@ __all__ = [
     'ListEffectiveConnectivityConfigurationResult',
     'AwaitableListEffectiveConnectivityConfigurationResult',
     'list_effective_connectivity_configuration',
+    'list_effective_connectivity_configuration_output',
 ]
 
 @pulumi.output_type
@@ -80,3 +81,19 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[str]
     return AwaitableListEffectiveConnectivityConfigurationResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_effective_connectivity_configuration)
+def list_effective_connectivity_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                     virtual_network_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
+    """
+    Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    :param str virtual_network_name: The name of the virtual network.
+    """
+    ...

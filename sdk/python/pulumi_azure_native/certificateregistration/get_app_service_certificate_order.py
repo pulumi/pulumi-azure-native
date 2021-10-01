@@ -13,6 +13,7 @@ __all__ = [
     'GetAppServiceCertificateOrderResult',
     'AwaitableGetAppServiceCertificateOrderResult',
     'get_app_service_certificate_order',
+    'get_app_service_certificate_order_output',
 ]
 
 @pulumi.output_type
@@ -390,3 +391,18 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
         tags=__ret__.tags,
         type=__ret__.type,
         validity_in_years=__ret__.validity_in_years)
+
+
+@_utilities.lift_output_func(get_app_service_certificate_order)
+def get_app_service_certificate_order_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
+    """
+    SSL certificate purchase order.
+    API Version: 2020-10-01.
+
+
+    :param str certificate_order_name: Name of the certificate order..
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

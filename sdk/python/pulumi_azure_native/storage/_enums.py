@@ -61,11 +61,17 @@ class BlobAccessTier(str, Enum):
     The access tier of a storage blob.
     """
     HOT = "Hot"
-    """Optimized for storing data that is accessed frequently."""
+    """
+    Optimized for storing data that is accessed frequently.
+    """
     COOL = "Cool"
-    """Optimized for storing data that is infrequently accessed and stored for at least 30 days."""
+    """
+    Optimized for storing data that is infrequently accessed and stored for at least 30 days.
+    """
     ARCHIVE = "Archive"
-    """Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours."""
+    """
+    Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.
+    """
 
 
 class BlobType(str, Enum):
@@ -73,9 +79,13 @@ class BlobType(str, Enum):
     The type of a storage blob to be created.
     """
     BLOCK = "Block"
-    """Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually."""
+    """
+    Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.
+    """
     APPEND = "Append"
-    """Append blobs are made up of blocks like block blobs, but are optimized for append operations."""
+    """
+    Append blobs are made up of blocks like block blobs, but are optimized for append operations.
+    """
 
 
 class Bypass(str, Enum):

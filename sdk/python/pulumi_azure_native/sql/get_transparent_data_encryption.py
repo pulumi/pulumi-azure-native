@@ -12,6 +12,7 @@ __all__ = [
     'GetTransparentDataEncryptionResult',
     'AwaitableGetTransparentDataEncryptionResult',
     'get_transparent_data_encryption',
+    'get_transparent_data_encryption_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,22 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
         name=__ret__.name,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_transparent_data_encryption)
+def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           server_name: Optional[pulumi.Input[str]] = None,
+                                           transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
+    """
+    Represents a database transparent data encryption configuration.
+    API Version: 2014-04-01.
+
+
+    :param str database_name: The name of the database for which the transparent data encryption applies.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
+    """
+    ...

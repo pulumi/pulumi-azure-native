@@ -13,6 +13,7 @@ __all__ = [
     'GetDataCollectionRuleResult',
     'AwaitableGetDataCollectionRuleResult',
     'get_data_collection_rule',
+    'get_data_collection_rule_output',
 ]
 
 @pulumi.output_type
@@ -221,3 +222,17 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_collection_rule)
+def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
+    """
+    Definition of ARM tracked top level resource.
+
+
+    :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

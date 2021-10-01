@@ -12,6 +12,7 @@ __all__ = [
     'GetNamespaceIpFilterRuleResult',
     'AwaitableGetNamespaceIpFilterRuleResult',
     'get_namespace_ip_filter_rule',
+    'get_namespace_ip_filter_rule_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,19 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
         ip_mask=__ret__.ip_mask,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_namespace_ip_filter_rule)
+def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceIpFilterRuleResult]:
+    """
+    Single item in a List or Get IpFilterRules operation
+
+
+    :param str ip_filter_rule_name: The IP Filter Rule name.
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

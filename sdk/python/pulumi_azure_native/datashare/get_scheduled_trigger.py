@@ -13,6 +13,7 @@ __all__ = [
     'GetScheduledTriggerResult',
     'AwaitableGetScheduledTriggerResult',
     'get_scheduled_trigger',
+    'get_scheduled_trigger_output',
 ]
 
 @pulumi.output_type
@@ -215,3 +216,22 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
         trigger_status=__ret__.trigger_status,
         type=__ret__.type,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_scheduled_trigger)
+def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 share_subscription_name: Optional[pulumi.Input[str]] = None,
+                                 trigger_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledTriggerResult]:
+    """
+    A type of trigger based on schedule
+    API Version: 2020-09-01.
+
+
+    :param str account_name: The name of the share account.
+    :param str resource_group_name: The resource group name.
+    :param str share_subscription_name: The name of the shareSubscription.
+    :param str trigger_name: The name of the trigger.
+    """
+    ...

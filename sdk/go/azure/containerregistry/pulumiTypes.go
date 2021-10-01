@@ -12942,6 +12942,47 @@ func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponseOutput)
 }
 
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return i.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponseOutput).ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx)
+}
+
+// SourceControlAuthInfoResponsePtrInput is an input type that accepts SourceControlAuthInfoResponseArgs, SourceControlAuthInfoResponsePtr and SourceControlAuthInfoResponsePtrOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoResponsePtrInput` via:
+//
+//          SourceControlAuthInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceControlAuthInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput
+	ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Context) SourceControlAuthInfoResponsePtrOutput
+}
+
+type sourceControlAuthInfoResponsePtrType SourceControlAuthInfoResponseArgs
+
+func SourceControlAuthInfoResponsePtr(v *SourceControlAuthInfoResponseArgs) SourceControlAuthInfoResponsePtrInput {
+	return (*sourceControlAuthInfoResponsePtrType)(v)
+}
+
+func (*sourceControlAuthInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (i *sourceControlAuthInfoResponsePtrType) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return i.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceControlAuthInfoResponsePtrType) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponsePtrOutput)
+}
+
 type SourceControlAuthInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceControlAuthInfoResponseOutput) ElementType() reflect.Type {
@@ -12954,6 +12995,16 @@ func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponseOutp
 
 func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponseOutputWithContext(ctx context.Context) SourceControlAuthInfoResponseOutput {
 	return o
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return o.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
+		return &v
+	}).(SourceControlAuthInfoResponsePtrOutput)
 }
 
 func (o SourceControlAuthInfoResponseOutput) ExpiresIn() pulumi.IntPtrOutput {
@@ -12974,6 +13025,75 @@ func (o SourceControlAuthInfoResponseOutput) Token() pulumi.StringOutput {
 
 func (o SourceControlAuthInfoResponseOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type SourceControlAuthInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) Elem() SourceControlAuthInfoResponseOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceControlAuthInfoResponse
+		return ret
+	}).(SourceControlAuthInfoResponseOutput)
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresIn
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenType
+	}).(pulumi.StringPtrOutput)
 }
 
 type SourceProperties struct {
@@ -18104,6 +18224,7 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlAuthInfoResponseOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsOutput{})

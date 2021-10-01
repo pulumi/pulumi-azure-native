@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageSyncServiceResult',
     'AwaitableGetStorageSyncServiceResult',
     'get_storage_sync_service',
+    'get_storage_sync_service_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,18 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
         storage_sync_service_uid=__ret__.storage_sync_service_uid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_sync_service)
+def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
+    """
+    Storage Sync Service object.
+    API Version: 2020-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str storage_sync_service_name: Name of Storage Sync Service resource.
+    """
+    ...

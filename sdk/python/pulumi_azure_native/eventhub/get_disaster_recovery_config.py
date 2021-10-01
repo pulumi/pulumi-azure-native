@@ -12,6 +12,7 @@ __all__ = [
     'GetDisasterRecoveryConfigResult',
     'AwaitableGetDisasterRecoveryConfigResult',
     'get_disaster_recovery_config',
+    'get_disaster_recovery_config_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,20 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         role=__ret__.role,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_disaster_recovery_config)
+def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
+    """
+    Single item in List or Get Alias(Disaster Recovery configuration) operation
+    API Version: 2017-04-01.
+
+
+    :param str alias: The Disaster Recovery configuration name
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
+    """
+    ...

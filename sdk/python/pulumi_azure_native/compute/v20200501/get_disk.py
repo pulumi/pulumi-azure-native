@@ -13,6 +13,7 @@ __all__ = [
     'GetDiskResult',
     'AwaitableGetDiskResult',
     'get_disk',
+    'get_disk_output',
 ]
 
 @pulumi.output_type
@@ -415,3 +416,17 @@ def get_disk(disk_name: Optional[str] = None,
         type=__ret__.type,
         unique_id=__ret__.unique_id,
         zones=__ret__.zones)
+
+
+@_utilities.lift_output_func(get_disk)
+def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
+    """
+    Disk resource.
+
+
+    :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

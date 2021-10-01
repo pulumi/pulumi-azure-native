@@ -12,6 +12,7 @@ __all__ = [
     'ListDelegationSettingSecretsResult',
     'AwaitableListDelegationSettingSecretsResult',
     'list_delegation_setting_secrets',
+    'list_delegation_setting_secrets_output',
 ]
 
 @pulumi.output_type
@@ -63,3 +64,17 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
 
     return AwaitableListDelegationSettingSecretsResult(
         validation_key=__ret__.validation_key)
+
+
+@_utilities.lift_output_func(list_delegation_setting_secrets)
+def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           service_name: Optional[pulumi.Input[str]] = None,
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
+    """
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

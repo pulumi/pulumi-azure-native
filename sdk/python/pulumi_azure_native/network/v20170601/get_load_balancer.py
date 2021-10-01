@@ -13,6 +13,7 @@ __all__ = [
     'GetLoadBalancerResult',
     'AwaitableGetLoadBalancerResult',
     'get_load_balancer',
+    'get_load_balancer_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,19 @@ def get_load_balancer(expand: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_load_balancer)
+def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                             load_balancer_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+    """
+    LoadBalancer resource
+
+
+    :param str expand: Expands referenced resources.
+    :param str load_balancer_name: The name of the load balancer.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

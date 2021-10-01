@@ -13,6 +13,7 @@ __all__ = [
     'GetInstancePoolResult',
     'AwaitableGetInstancePoolResult',
     'get_instance_pool',
+    'get_instance_pool_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,18 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         v_cores=__ret__.v_cores)
+
+
+@_utilities.lift_output_func(get_instance_pool)
+def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancePoolResult]:
+    """
+    An Azure SQL instance pool.
+    API Version: 2020-11-01-preview.
+
+
+    :param str instance_pool_name: The name of the instance pool to be retrieved.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    """
+    ...

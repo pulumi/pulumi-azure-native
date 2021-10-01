@@ -12,6 +12,7 @@ __all__ = [
     'GetRegistryCredentialsResult',
     'AwaitableGetRegistryCredentialsResult',
     'get_registry_credentials',
+    'get_registry_credentials_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,17 @@ def get_registry_credentials(registry_name: Optional[str] = None,
     return AwaitableGetRegistryCredentialsResult(
         password=__ret__.password,
         username=__ret__.username)
+
+
+@_utilities.lift_output_func(get_registry_credentials)
+def get_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCredentialsResult]:
+    """
+    The result of a request to get the administrator login credentials for a container registry.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    """
+    ...

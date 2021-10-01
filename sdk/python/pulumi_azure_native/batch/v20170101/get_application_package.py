@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationPackageResult',
     'AwaitableGetApplicationPackageResult',
     'get_application_package',
+    'get_application_package_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def get_application_package(account_name: Optional[str] = None,
         storage_url=__ret__.storage_url,
         storage_url_expiry=__ret__.storage_url_expiry,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_application_package)
+def get_application_package_output(account_name: Optional[pulumi.Input[str]] = None,
+                                   application_id: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   version: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationPackageResult]:
+    """
+    An application package which represents a particular version of an application.
+
+
+    :param str account_name: The name of the Batch account.
+    :param str application_id: The ID of the application.
+    :param str resource_group_name: The name of the resource group that contains the Batch account.
+    :param str version: The version of the application.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetWebhookResult',
     'AwaitableGetWebhookResult',
     'get_webhook',
+    'get_webhook_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,19 @@ def get_webhook(registry_name: Optional[str] = None,
         status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_webhook)
+def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       webhook_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
+    """
+    An object that represents a webhook for a container registry.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str webhook_name: The name of the webhook.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetViewResult',
     'AwaitableGetViewResult',
     'get_view',
+    'get_view_output',
 ]
 
 @pulumi.output_type
@@ -186,3 +187,21 @@ def get_view(hub_name: Optional[str] = None,
         type=__ret__.type,
         user_id=__ret__.user_id,
         view_name=__ret__.view_name)
+
+
+@_utilities.lift_output_func(get_view)
+def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
+                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                    user_id: Optional[pulumi.Input[str]] = None,
+                    view_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
+    """
+    The view resource format.
+
+
+    :param str hub_name: The name of the hub.
+    :param str resource_group_name: The name of the resource group.
+    :param str user_id: The user ID. Use * to retrieve hub level view.
+    :param str view_name: The name of the view.
+    """
+    ...

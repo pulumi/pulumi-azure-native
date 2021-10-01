@@ -13,6 +13,7 @@ __all__ = [
     'GetBudgetResult',
     'AwaitableGetBudgetResult',
     'get_budget',
+    'get_budget_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_budget(budget_name: Optional[str] = None,
         time_grain=__ret__.time_grain,
         time_period=__ret__.time_period,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_budget)
+def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
+                      scope: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
+    """
+    A budget resource.
+
+
+    :param str budget_name: Budget Name.
+    :param str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+    """
+    ...

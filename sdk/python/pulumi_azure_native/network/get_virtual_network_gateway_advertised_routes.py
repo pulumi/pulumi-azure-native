@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayAdvertisedRoutesResult',
     'AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult',
     'get_virtual_network_gateway_advertised_routes',
+    'get_virtual_network_gateway_advertised_routes_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,20 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_advertised_routes)
+def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.Input[str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                         virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
+    """
+    List of virtual network gateway routes.
+    API Version: 2020-11-01.
+
+
+    :param str peer: The IP address of the peer.
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_network_gateway_name: The name of the virtual network gateway.
+    """
+    ...

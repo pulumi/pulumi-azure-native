@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadNetworkDnsServiceResult',
     'AwaitableGetWorkloadNetworkDnsServiceResult',
     'get_workload_network_dns_service',
+    'get_workload_network_dns_service_output',
 ]
 
 @pulumi.output_type
@@ -197,3 +198,20 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
         revision=__ret__.revision,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_dns_service)
+def get_workload_network_dns_service_output(dns_service_id: Optional[pulumi.Input[str]] = None,
+                                            private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDnsServiceResult]:
+    """
+    NSX DNS Service
+    API Version: 2020-07-17-preview.
+
+
+    :param str dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
+    :param str private_cloud_name: Name of the private cloud
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

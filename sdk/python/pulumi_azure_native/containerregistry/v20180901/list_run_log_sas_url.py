@@ -12,6 +12,7 @@ __all__ = [
     'ListRunLogSasUrlResult',
     'AwaitableListRunLogSasUrlResult',
     'list_run_log_sas_url',
+    'list_run_log_sas_url_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,19 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
 
     return AwaitableListRunLogSasUrlResult(
         log_link=__ret__.log_link)
+
+
+@_utilities.lift_output_func(list_run_log_sas_url)
+def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                run_id: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRunLogSasUrlResult]:
+    """
+    The result of get log link operation.
+
+
+    :param str registry_name: The name of the container registry.
+    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str run_id: The run ID.
+    """
+    ...

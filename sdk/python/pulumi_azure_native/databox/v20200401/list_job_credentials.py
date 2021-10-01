@@ -13,6 +13,7 @@ __all__ = [
     'ListJobCredentialsResult',
     'AwaitableListJobCredentialsResult',
     'list_job_credentials',
+    'list_job_credentials_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def list_job_credentials(job_name: Optional[str] = None,
     return AwaitableListJobCredentialsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_job_credentials)
+def list_job_credentials_output(job_name: Optional[pulumi.Input[str]] = None,
+                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListJobCredentialsResult]:
+    """
+    List of unencrypted credentials for accessing device.
+
+
+    :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+    :param str resource_group_name: The Resource Group Name
+    """
+    ...

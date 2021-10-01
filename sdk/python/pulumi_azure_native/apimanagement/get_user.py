@@ -13,6 +13,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_user(resource_group_name: Optional[str] = None,
         registration_date=__ret__.registration_date,
         state=__ret__.state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                    service_name: Optional[pulumi.Input[str]] = None,
+                    user_id: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    User details.
+    API Version: 2020-12-01.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str user_id: User identifier. Must be unique in the current API Management service instance.
+    """
+    ...

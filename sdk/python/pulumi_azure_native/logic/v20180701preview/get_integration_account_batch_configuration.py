@@ -13,6 +13,7 @@ __all__ = [
     'GetIntegrationAccountBatchConfigurationResult',
     'AwaitableGetIntegrationAccountBatchConfigurationResult',
     'get_integration_account_batch_configuration',
+    'get_integration_account_batch_configuration_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,19 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_integration_account_batch_configuration)
+def get_integration_account_batch_configuration_output(batch_configuration_name: Optional[pulumi.Input[str]] = None,
+                                                       integration_account_name: Optional[pulumi.Input[str]] = None,
+                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
+    """
+    The batch configuration resource definition.
+
+
+    :param str batch_configuration_name: The batch configuration name.
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetNotebookProxyResult',
     'AwaitableGetNotebookProxyResult',
     'get_notebook_proxy',
+    'get_notebook_proxy_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_notebook_proxy(resource_group_name: Optional[str] = None,
         secondary_app_id=__ret__.secondary_app_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_notebook_proxy)
+def get_notebook_proxy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                              resource_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookProxyResult]:
+    """
+    A NotebookProxy resource.
+    API Version: 2019-10-11-preview.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the resource.
+    """
+    ...

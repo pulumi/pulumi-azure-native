@@ -12,6 +12,7 @@ __all__ = [
     'GetCustomEntityStoreAssignmentResult',
     'AwaitableGetCustomEntityStoreAssignmentResult',
     'get_custom_entity_store_assignment',
+    'get_custom_entity_store_assignment_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,18 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
         name=__ret__.name,
         principal=__ret__.principal,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_custom_entity_store_assignment)
+def get_custom_entity_store_assignment_output(custom_entity_store_assignment_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomEntityStoreAssignmentResult]:
+    """
+    Custom entity store assignment
+    API Version: 2021-07-01-preview.
+
+
+    :param str custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPartnerResult',
     'AwaitableGetPartnerResult',
     'get_partner',
+    'get_partner_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_partner(integration_account_name: Optional[str] = None,
         partner_type=__ret__.partner_type,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_partner)
+def get_partner_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                       partner_name: Optional[pulumi.Input[str]] = None,
+                       resource_group_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerResult]:
+    """
+    The integration account partner.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str partner_name: The integration account partner name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

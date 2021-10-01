@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualRouterResult',
     'AwaitableGetVirtualRouterResult',
     'get_virtual_router',
+    'get_virtual_router_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_virtual_router(expand: Optional[str] = None,
         type=__ret__.type,
         virtual_router_asn=__ret__.virtual_router_asn,
         virtual_router_ips=__ret__.virtual_router_ips)
+
+
+@_utilities.lift_output_func(get_virtual_router)
+def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              virtual_router_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
+    """
+    VirtualRouter Resource.
+
+
+    :param str expand: Expands referenced resources.
+    :param str resource_group_name: The name of the resource group.
+    :param str virtual_router_name: The name of the Virtual Router.
+    """
+    ...

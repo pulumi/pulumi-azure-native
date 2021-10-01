@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualMachineScaleSetVMRunCommandResult',
     'AwaitableGetVirtualMachineScaleSetVMRunCommandResult',
     'get_virtual_machine_scale_set_vm_run_command',
+    'get_virtual_machine_scale_set_vm_run_command_output',
 ]
 
 @pulumi.output_type
@@ -269,3 +270,24 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
         tags=__ret__.tags,
         timeout_in_seconds=__ret__.timeout_in_seconds,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_machine_scale_set_vm_run_command)
+def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                        instance_id: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        run_command_name: Optional[pulumi.Input[str]] = None,
+                                                        vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
+    """
+    Describes a Virtual Machine run command.
+    API Version: 2021-03-01.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str instance_id: The instance ID of the virtual machine.
+    :param str resource_group_name: The name of the resource group.
+    :param str run_command_name: The name of the virtual machine run command.
+    :param str vm_scale_set_name: The name of the VM scale set.
+    """
+    ...

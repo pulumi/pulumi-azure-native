@@ -12,6 +12,7 @@ __all__ = [
     'ListSiteAuthSettingsSlotResult',
     'AwaitableListSiteAuthSettingsSlotResult',
     'list_site_auth_settings_slot',
+    'list_site_auth_settings_slot_output',
 ]
 
 @pulumi.output_type
@@ -414,3 +415,19 @@ def list_site_auth_settings_slot(name: Optional[str] = None,
         twitter_consumer_key=__ret__.twitter_consumer_key,
         twitter_consumer_secret=__ret__.twitter_consumer_secret,
         unauthenticated_client_action=__ret__.unauthenticated_client_action)
+
+
+@_utilities.lift_output_func(list_site_auth_settings_slot)
+def list_site_auth_settings_slot_output(name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        slot: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteAuthSettingsSlotResult]:
+    """
+    Configuration settings for the Azure App Service Authentication / Authorization feature.
+
+
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
+    """
+    ...

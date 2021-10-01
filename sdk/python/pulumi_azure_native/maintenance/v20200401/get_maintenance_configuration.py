@@ -12,6 +12,7 @@ __all__ = [
     'GetMaintenanceConfigurationResult',
     'AwaitableGetMaintenanceConfigurationResult',
     'get_maintenance_configuration',
+    'get_maintenance_configuration_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,17 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
         namespace=__ret__.namespace,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_maintenance_configuration)
+def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         resource_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
+    """
+    Maintenance configuration record type
+
+
+    :param str resource_group_name: Resource Group Name
+    :param str resource_name: Resource Identifier
+    """
+    ...

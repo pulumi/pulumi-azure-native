@@ -12,6 +12,7 @@ __all__ = [
     'ListAuthorizationServerSecretsResult',
     'AwaitableListAuthorizationServerSecretsResult',
     'list_authorization_server_secrets',
+    'list_authorization_server_secrets_output',
 ]
 
 @pulumi.output_type
@@ -92,3 +93,19 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
         client_secret=__ret__.client_secret,
         resource_owner_password=__ret__.resource_owner_password,
         resource_owner_username=__ret__.resource_owner_username)
+
+
+@_utilities.lift_output_func(list_authorization_server_secrets)
+def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             service_name: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
+    """
+    OAuth Server Secrets Contract.
+
+
+    :param str authsid: Identifier of the authorization server.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

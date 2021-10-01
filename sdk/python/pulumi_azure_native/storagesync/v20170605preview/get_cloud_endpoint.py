@@ -12,6 +12,7 @@ __all__ = [
     'GetCloudEndpointResult',
     'AwaitableGetCloudEndpointResult',
     'get_cloud_endpoint',
+    'get_cloud_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -225,3 +226,21 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
         storage_account_share_name=__ret__.storage_account_share_name,
         storage_account_tenant_id=__ret__.storage_account_tenant_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_cloud_endpoint)
+def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                              sync_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEndpointResult]:
+    """
+    Cloud Endpoint object.
+
+
+    :param str cloud_endpoint_name: Name of Cloud Endpoint object.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str storage_sync_service_name: Name of Storage Sync Service resource.
+    :param str sync_group_name: Name of Sync Group resource.
+    """
+    ...

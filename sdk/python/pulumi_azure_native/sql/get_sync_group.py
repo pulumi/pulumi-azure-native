@@ -13,6 +13,7 @@ __all__ = [
     'GetSyncGroupResult',
     'AwaitableGetSyncGroupResult',
     'get_sync_group',
+    'get_sync_group_output',
 ]
 
 @pulumi.output_type
@@ -253,3 +254,22 @@ def get_sync_group(database_name: Optional[str] = None,
         sync_state=__ret__.sync_state,
         type=__ret__.type,
         use_private_link_connection=__ret__.use_private_link_connection)
+
+
+@_utilities.lift_output_func(get_sync_group)
+def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          server_name: Optional[pulumi.Input[str]] = None,
+                          sync_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
+    """
+    An Azure SQL Database sync group.
+    API Version: 2020-11-01-preview.
+
+
+    :param str database_name: The name of the database on which the sync group is hosted.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str sync_group_name: The name of the sync group.
+    """
+    ...

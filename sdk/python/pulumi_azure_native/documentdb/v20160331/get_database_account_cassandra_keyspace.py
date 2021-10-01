@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseAccountCassandraKeyspaceResult',
     'AwaitableGetDatabaseAccountCassandraKeyspaceResult',
     'get_database_account_cassandra_keyspace',
+    'get_database_account_cassandra_keyspace_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_database_account_cassandra_keyspace(account_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_database_account_cassandra_keyspace)
+def get_database_account_cassandra_keyspace_output(account_name: Optional[pulumi.Input[str]] = None,
+                                                   keyspace_name: Optional[pulumi.Input[str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountCassandraKeyspaceResult]:
+    """
+    An Azure Cosmos DB Cassandra keyspace.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str keyspace_name: Cosmos DB keyspace name.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

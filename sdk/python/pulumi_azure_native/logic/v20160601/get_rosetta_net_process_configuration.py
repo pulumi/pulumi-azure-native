@@ -13,6 +13,7 @@ __all__ = [
     'GetRosettaNetProcessConfigurationResult',
     'AwaitableGetRosettaNetProcessConfigurationResult',
     'get_rosetta_net_process_configuration',
+    'get_rosetta_net_process_configuration_output',
 ]
 
 @pulumi.output_type
@@ -249,3 +250,19 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
         responder_role_settings=__ret__.responder_role_settings,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_rosetta_net_process_configuration)
+def get_rosetta_net_process_configuration_output(integration_account_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
+    """
+    The integration account RosettaNet process configuration.
+
+
+    :param str integration_account_name: The integration account name.
+    :param str resource_group_name: The resource group name.
+    :param str rosetta_net_process_configuration_name: The integration account RosettaNetProcessConfiguration name.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'ListStaticSiteBuildFunctionAppSettingsResult',
     'AwaitableListStaticSiteBuildFunctionAppSettingsResult',
     'list_static_site_build_function_app_settings',
+    'list_static_site_build_function_app_settings_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def list_static_site_build_function_app_settings(name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_static_site_build_function_app_settings)
+def list_static_site_build_function_app_settings_output(name: Optional[pulumi.Input[str]] = None,
+                                                        pr_id: Optional[pulumi.Input[str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildFunctionAppSettingsResult]:
+    """
+    String dictionary resource.
+
+
+    :param str name: Name of the static site.
+    :param str pr_id: The stage site identifier.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    """
+    ...

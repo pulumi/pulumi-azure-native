@@ -13,6 +13,7 @@ __all__ = [
     'GetAutomationResult',
     'AwaitableGetAutomationResult',
     'get_automation',
+    'get_automation_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,18 @@ def get_automation(automation_name: Optional[str] = None,
         sources=__ret__.sources,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_automation)
+def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationResult]:
+    """
+    The security automation resource.
+    API Version: 2019-01-01-preview.
+
+
+    :param str automation_name: The security automation name.
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    """
+    ...

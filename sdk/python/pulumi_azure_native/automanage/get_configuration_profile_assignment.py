@@ -13,6 +13,7 @@ __all__ = [
     'GetConfigurationProfileAssignmentResult',
     'AwaitableGetConfigurationProfileAssignmentResult',
     'get_configuration_profile_assignment',
+    'get_configuration_profile_assignment_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,20 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_configuration_profile_assignment)
+def get_configuration_profile_assignment_output(configuration_profile_assignment_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                vm_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileAssignmentResult]:
+    """
+    Configuration profile assignment is an association between a VM and automanage profile configuration.
+    API Version: 2020-06-30-preview.
+
+
+    :param str configuration_profile_assignment_name: The configuration profile assignment name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str vm_name: The name of the virtual machine.
+    """
+    ...

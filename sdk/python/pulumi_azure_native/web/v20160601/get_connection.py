@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectionResult',
     'AwaitableGetConnectionResult',
     'get_connection',
+    'get_connection_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,19 @@ def get_connection(connection_name: Optional[str] = None,
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_connection)
+def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+    """
+    API connection
+
+
+    :param str connection_name: Connection name
+    :param str resource_group_name: The resource group
+    :param str subscription_id: Subscription Id
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetZoneResult',
     'AwaitableGetZoneResult',
     'get_zone',
+    'get_zone_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_zone(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         zone_type=__ret__.zone_type)
+
+
+@_utilities.lift_output_func(get_zone)
+def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                    zone_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
+    """
+    Describes a DNS zone.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str zone_name: The name of the DNS zone (without a terminating dot).
+    """
+    ...

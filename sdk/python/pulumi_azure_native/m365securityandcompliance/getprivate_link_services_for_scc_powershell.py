@@ -13,6 +13,7 @@ __all__ = [
     'GetprivateLinkServicesForSCCPowershellResult',
     'AwaitableGetprivateLinkServicesForSCCPowershellResult',
     'getprivate_link_services_for_scc_powershell',
+    'getprivate_link_services_for_scc_powershell_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def getprivate_link_services_for_scc_powershell(resource_group_name: Optional[st
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(getprivate_link_services_for_scc_powershell)
+def getprivate_link_services_for_scc_powershell_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                       resource_name: Optional[pulumi.Input[str]] = None,
+                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForSCCPowershellResult]:
+    """
+    The description of the service.
+    API Version: 2021-03-25-preview.
+
+
+    :param str resource_group_name: The name of the resource group that contains the service instance.
+    :param str resource_name: The name of the service instance.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetNetworkWatcherResult',
     'AwaitableGetNetworkWatcherResult',
     'get_network_watcher',
+    'get_network_watcher_output',
 ]
 
 @pulumi.output_type
@@ -142,3 +143,18 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network_watcher)
+def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkWatcherResult]:
+    """
+    Network watcher in a resource group.
+    API Version: 2020-11-01.
+
+
+    :param str network_watcher_name: The name of the network watcher.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

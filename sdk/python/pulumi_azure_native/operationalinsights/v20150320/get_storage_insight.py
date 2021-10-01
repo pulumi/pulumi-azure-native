@@ -13,6 +13,7 @@ __all__ = [
     'GetStorageInsightResult',
     'AwaitableGetStorageInsightResult',
     'get_storage_insight',
+    'get_storage_insight_output',
 ]
 
 @pulumi.output_type
@@ -171,3 +172,19 @@ def get_storage_insight(resource_group_name: Optional[str] = None,
         tables=__ret__.tables,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_storage_insight)
+def get_storage_insight_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                               storage_insight_name: Optional[pulumi.Input[str]] = None,
+                               workspace_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageInsightResult]:
+    """
+    The top level storage insight resource container.
+
+
+    :param str resource_group_name: The Resource Group name.
+    :param str storage_insight_name: Name of the storageInsightsConfigs resource
+    :param str workspace_name: The Log Analytics Workspace name.
+    """
+    ...

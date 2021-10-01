@@ -1130,6 +1130,47 @@ func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentials
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput)
 }
 
+func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
+	return i.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput).ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerRegistryCredentialsResponsePtrInput is an input type that accepts ContainerRegistryCredentialsResponseArgs, ContainerRegistryCredentialsResponsePtr and ContainerRegistryCredentialsResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerRegistryCredentialsResponsePtrInput` via:
+//
+//          ContainerRegistryCredentialsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRegistryCredentialsResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput
+	ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Context) ContainerRegistryCredentialsResponsePtrOutput
+}
+
+type containerRegistryCredentialsResponsePtrType ContainerRegistryCredentialsResponseArgs
+
+func ContainerRegistryCredentialsResponsePtr(v *ContainerRegistryCredentialsResponseArgs) ContainerRegistryCredentialsResponsePtrInput {
+	return (*containerRegistryCredentialsResponsePtrType)(v)
+}
+
+func (*containerRegistryCredentialsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (i *containerRegistryCredentialsResponsePtrType) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
+	return i.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerRegistryCredentialsResponsePtrType) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponsePtrOutput)
+}
+
 type ContainerRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -1144,6 +1185,16 @@ func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentia
 	return o
 }
 
+func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
+	return o.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryCredentialsResponse) *ContainerRegistryCredentialsResponse {
+		return &v
+	}).(ContainerRegistryCredentialsResponsePtrOutput)
+}
+
 func (o ContainerRegistryCredentialsResponseOutput) LoginServer() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.LoginServer }).(pulumi.StringOutput)
 }
@@ -1154,6 +1205,57 @@ func (o ContainerRegistryCredentialsResponseOutput) Password() pulumi.StringOutp
 
 func (o ContainerRegistryCredentialsResponseOutput) Password2() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password2 }).(pulumi.StringOutput)
+}
+
+type ContainerRegistryCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRegistryCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) Elem() ContainerRegistryCredentialsResponseOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) ContainerRegistryCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistryCredentialsResponse
+		return ret
+	}).(ContainerRegistryCredentialsResponseOutput)
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) LoginServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginServer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) Password2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password2
+	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerRegistryProperties struct {
@@ -1457,6 +1559,47 @@ func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput)
 }
 
+func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
+	return i.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput).ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerServiceCredentialsResponsePtrInput is an input type that accepts ContainerServiceCredentialsResponseArgs, ContainerServiceCredentialsResponsePtr and ContainerServiceCredentialsResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerServiceCredentialsResponsePtrInput` via:
+//
+//          ContainerServiceCredentialsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerServiceCredentialsResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput
+	ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Context) ContainerServiceCredentialsResponsePtrOutput
+}
+
+type containerServiceCredentialsResponsePtrType ContainerServiceCredentialsResponseArgs
+
+func ContainerServiceCredentialsResponsePtr(v *ContainerServiceCredentialsResponseArgs) ContainerServiceCredentialsResponsePtrInput {
+	return (*containerServiceCredentialsResponsePtrType)(v)
+}
+
+func (*containerServiceCredentialsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceCredentialsResponse)(nil)).Elem()
+}
+
+func (i *containerServiceCredentialsResponsePtrType) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
+	return i.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerServiceCredentialsResponsePtrType) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponsePtrOutput)
+}
+
 type ContainerServiceCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceCredentialsResponseOutput) ElementType() reflect.Type {
@@ -1471,6 +1614,16 @@ func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentials
 	return o
 }
 
+func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
+	return o.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceCredentialsResponse) *ContainerServiceCredentialsResponse {
+		return &v
+	}).(ContainerServiceCredentialsResponsePtrOutput)
+}
+
 func (o ContainerServiceCredentialsResponseOutput) AcsKubeConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.AcsKubeConfig }).(pulumi.StringOutput)
 }
@@ -1483,6 +1636,57 @@ func (o ContainerServiceCredentialsResponseOutput) ServicePrincipalConfiguration
 	return o.ApplyT(func(v ContainerServiceCredentialsResponse) ServicePrincipalPropertiesResponse {
 		return v.ServicePrincipalConfiguration
 	}).(ServicePrincipalPropertiesResponseOutput)
+}
+
+type ContainerServiceCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) Elem() ContainerServiceCredentialsResponseOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) ContainerServiceCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceCredentialsResponse
+		return ret
+	}).(ContainerServiceCredentialsResponseOutput)
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) AcsKubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AcsKubeConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ImagePullSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImagePullSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *ServicePrincipalPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ServicePrincipalConfiguration
+	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
 type GlobalServiceConfiguration struct {
@@ -3062,6 +3266,47 @@ func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput)
 }
 
+func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
+	return i.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput).ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx)
+}
+
+// StorageAccountCredentialsResponsePtrInput is an input type that accepts StorageAccountCredentialsResponseArgs, StorageAccountCredentialsResponsePtr and StorageAccountCredentialsResponsePtrOutput values.
+// You can construct a concrete instance of `StorageAccountCredentialsResponsePtrInput` via:
+//
+//          StorageAccountCredentialsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageAccountCredentialsResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput
+	ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Context) StorageAccountCredentialsResponsePtrOutput
+}
+
+type storageAccountCredentialsResponsePtrType StorageAccountCredentialsResponseArgs
+
+func StorageAccountCredentialsResponsePtr(v *StorageAccountCredentialsResponseArgs) StorageAccountCredentialsResponsePtrInput {
+	return (*storageAccountCredentialsResponsePtrType)(v)
+}
+
+func (*storageAccountCredentialsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountCredentialsResponse)(nil)).Elem()
+}
+
+func (i *storageAccountCredentialsResponsePtrType) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
+	return i.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountCredentialsResponsePtrType) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponsePtrOutput)
+}
+
 type StorageAccountCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountCredentialsResponseOutput) ElementType() reflect.Type {
@@ -3076,6 +3321,16 @@ func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResp
 	return o
 }
 
+func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
+	return o.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountCredentialsResponse) *StorageAccountCredentialsResponse {
+		return &v
+	}).(StorageAccountCredentialsResponsePtrOutput)
+}
+
 func (o StorageAccountCredentialsResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
@@ -3086,6 +3341,57 @@ func (o StorageAccountCredentialsResponseOutput) ResourceId() pulumi.StringOutpu
 
 func (o StorageAccountCredentialsResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+type StorageAccountCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountCredentialsResponse)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) Elem() StorageAccountCredentialsResponseOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) StorageAccountCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountCredentialsResponse
+		return ret
+	}).(StorageAccountCredentialsResponseOutput)
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type StorageAccountProperties struct {
@@ -3368,11 +3674,13 @@ func init() {
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationResponseOutput{})
@@ -3394,6 +3702,7 @@ func init() {
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})

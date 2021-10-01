@@ -13,6 +13,7 @@ __all__ = [
     'GetSqlResourceSqlTriggerResult',
     'AwaitableGetSqlResourceSqlTriggerResult',
     'get_sql_resource_sql_trigger',
+    'get_sql_resource_sql_trigger_output',
 ]
 
 @pulumi.output_type
@@ -148,3 +149,23 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
         resource=__ret__.resource,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_sql_resource_sql_trigger)
+def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
+                                        container_name: Optional[pulumi.Input[str]] = None,
+                                        database_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        trigger_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
+    """
+    An Azure Cosmos DB trigger.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str container_name: Cosmos DB container name.
+    :param str database_name: Cosmos DB database name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str trigger_name: Cosmos DB trigger name.
+    """
+    ...

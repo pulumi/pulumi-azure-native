@@ -13,6 +13,7 @@ __all__ = [
     'ListStreamingLocatorPathsResult',
     'AwaitableListStreamingLocatorPathsResult',
     'list_streaming_locator_paths',
+    'list_streaming_locator_paths_output',
 ]
 
 @pulumi.output_type
@@ -81,3 +82,20 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
     return AwaitableListStreamingLocatorPathsResult(
         download_paths=__ret__.download_paths,
         streaming_paths=__ret__.streaming_paths)
+
+
+@_utilities.lift_output_func(list_streaming_locator_paths)
+def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        streaming_locator_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorPathsResult]:
+    """
+    Class of response for listPaths action
+    API Version: 2020-05-01.
+
+
+    :param str account_name: The Media Services account name.
+    :param str resource_group_name: The name of the resource group within the Azure subscription.
+    :param str streaming_locator_name: The Streaming Locator name.
+    """
+    ...

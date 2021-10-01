@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualNetworkGatewayNatRuleResult',
     'AwaitableGetVirtualNetworkGatewayNatRuleResult',
     'get_virtual_network_gateway_nat_rule',
+    'get_virtual_network_gateway_nat_rule_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,20 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_nat_rule)
+def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayNatRuleResult]:
+    """
+    VirtualNetworkGatewayNatRule Resource.
+    API Version: 2021-03-01.
+
+
+    :param str nat_rule_name: The name of the nat rule.
+    :param str resource_group_name: The resource group name of the Virtual Network Gateway.
+    :param str virtual_network_gateway_name: The name of the gateway.
+    """
+    ...

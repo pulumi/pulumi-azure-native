@@ -13,6 +13,7 @@ __all__ = [
     'GetDataFlowResult',
     'AwaitableGetDataFlowResult',
     'get_data_flow',
+    'get_data_flow_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_data_flow(data_flow_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_flow)
+def get_data_flow_output(data_flow_name: Optional[pulumi.Input[str]] = None,
+                         factory_name: Optional[pulumi.Input[str]] = None,
+                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataFlowResult]:
+    """
+    Data flow resource type.
+
+
+    :param str data_flow_name: The data flow name.
+    :param str factory_name: The factory name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetPartnerResult',
     'AwaitableGetPartnerResult',
     'get_partner',
+    'get_partner_output',
 ]
 
 @pulumi.output_type
@@ -191,3 +192,16 @@ def get_partner(partner_id: Optional[str] = None,
         type=__ret__.type,
         updated_time=__ret__.updated_time,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_partner)
+def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerResult]:
+    """
+    this is the management partner operations response
+    API Version: 2018-02-01.
+
+
+    :param str partner_id: Id of the Partner
+    """
+    ...

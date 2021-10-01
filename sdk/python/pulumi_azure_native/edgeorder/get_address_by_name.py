@@ -13,6 +13,7 @@ __all__ = [
     'GetAddressByNameResult',
     'AwaitableGetAddressByNameResult',
     'get_address_by_name',
+    'get_address_by_name_output',
 ]
 
 @pulumi.output_type
@@ -156,3 +157,18 @@ def get_address_by_name(address_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_address_by_name)
+def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressByNameResult]:
+    """
+    Address Resource.
+    API Version: 2020-12-01-preview.
+
+
+    :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetMetricAlertResult',
     'AwaitableGetMetricAlertResult',
     'get_metric_alert',
+    'get_metric_alert_output',
 ]
 
 @pulumi.output_type
@@ -285,3 +286,17 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
         target_resource_type=__ret__.target_resource_type,
         type=__ret__.type,
         window_size=__ret__.window_size)
+
+
+@_utilities.lift_output_func(get_metric_alert)
+def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            rule_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricAlertResult]:
+    """
+    The metric alert resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str rule_name: The name of the rule.
+    """
+    ...

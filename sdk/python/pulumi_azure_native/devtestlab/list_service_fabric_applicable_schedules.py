@@ -13,6 +13,7 @@ __all__ = [
     'ListServiceFabricApplicableSchedulesResult',
     'AwaitableListServiceFabricApplicableSchedulesResult',
     'list_service_fabric_applicable_schedules',
+    'list_service_fabric_applicable_schedules_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,22 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(list_service_fabric_applicable_schedules)
+def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                                    name: Optional[pulumi.Input[str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                    user_name: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceFabricApplicableSchedulesResult]:
+    """
+    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    API Version: 2018-09-15.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the service fabric.
+    :param str resource_group_name: The name of the resource group.
+    :param str user_name: The name of the user profile.
+    """
+    ...

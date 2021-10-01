@@ -13,6 +13,7 @@ __all__ = [
     'GetFrontDoorResult',
     'AwaitableGetFrontDoorResult',
     'get_front_door',
+    'get_front_door_output',
 ]
 
 @pulumi.output_type
@@ -286,3 +287,18 @@ def get_front_door(front_door_name: Optional[str] = None,
         rules_engines=__ret__.rules_engines,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_front_door)
+def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontDoorResult]:
+    """
+    Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    API Version: 2020-05-01.
+
+
+    :param str front_door_name: Name of the Front Door which is globally unique.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

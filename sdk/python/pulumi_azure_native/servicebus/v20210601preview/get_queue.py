@@ -13,6 +13,7 @@ __all__ = [
     'GetQueueResult',
     'AwaitableGetQueueResult',
     'get_queue',
+    'get_queue_output',
 ]
 
 @pulumi.output_type
@@ -392,3 +393,19 @@ def get_queue(namespace_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
+
+
+@_utilities.lift_output_func(get_queue)
+def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
+                     queue_name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+    """
+    Description of queue Resource.
+
+
+    :param str namespace_name: The namespace name
+    :param str queue_name: The queue name.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

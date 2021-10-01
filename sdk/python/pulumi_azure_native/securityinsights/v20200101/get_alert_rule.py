@@ -12,6 +12,7 @@ __all__ = [
     'GetAlertRuleResult',
     'AwaitableGetAlertRuleResult',
     'get_alert_rule',
+    'get_alert_rule_output',
 ]
 
 warnings.warn("""Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.""", DeprecationWarning)
@@ -121,3 +122,20 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_alert_rule)
+def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                          rule_id: Optional[pulumi.Input[str]] = None,
+                          workspace_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
+    """
+    Alert rule.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str rule_id: Alert rule ID
+    :param str workspace_name: The name of the workspace.
+    """
+    pulumi.log.warn("""get_alert_rule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.""")
+    ...

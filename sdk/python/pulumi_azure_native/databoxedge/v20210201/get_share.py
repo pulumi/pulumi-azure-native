@@ -13,6 +13,7 @@ __all__ = [
     'GetShareResult',
     'AwaitableGetShareResult',
     'get_share',
+    'get_share_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_share(device_name: Optional[str] = None,
         system_data=__ret__.system_data,
         type=__ret__.type,
         user_access_rights=__ret__.user_access_rights)
+
+
+@_utilities.lift_output_func(get_share)
+def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
+                     name: Optional[pulumi.Input[str]] = None,
+                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
+    """
+    Represents a share on the  Data Box Edge/Gateway device.
+
+
+    :param str device_name: The device name.
+    :param str name: The share name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

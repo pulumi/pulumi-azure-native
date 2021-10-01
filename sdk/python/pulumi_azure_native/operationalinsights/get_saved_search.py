@@ -13,6 +13,7 @@ __all__ = [
     'GetSavedSearchResult',
     'AwaitableGetSavedSearchResult',
     'get_saved_search',
+    'get_saved_search_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,20 @@ def get_saved_search(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_saved_search)
+def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            saved_search_id: Optional[pulumi.Input[str]] = None,
+                            workspace_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSavedSearchResult]:
+    """
+    Value object for saved search results.
+    API Version: 2020-08-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str saved_search_id: The id of the saved search.
+    :param str workspace_name: The name of the workspace.
+    """
+    ...

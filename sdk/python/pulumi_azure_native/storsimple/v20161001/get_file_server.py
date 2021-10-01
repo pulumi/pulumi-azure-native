@@ -12,6 +12,7 @@ __all__ = [
     'GetFileServerResult',
     'AwaitableGetFileServerResult',
     'get_file_server',
+    'get_file_server_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,21 @@ def get_file_server(device_name: Optional[str] = None,
         name=__ret__.name,
         storage_domain_id=__ret__.storage_domain_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_file_server)
+def get_file_server_output(device_name: Optional[pulumi.Input[str]] = None,
+                           file_server_name: Optional[pulumi.Input[str]] = None,
+                           manager_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileServerResult]:
+    """
+    The file server.
+
+
+    :param str device_name: The device name.
+    :param str file_server_name: The file server name.
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

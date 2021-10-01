@@ -13,6 +13,7 @@ __all__ = [
     'GetAttestationProviderResult',
     'AwaitableGetAttestationProviderResult',
     'get_attestation_provider',
+    'get_attestation_provider_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_attestation_provider(provider_name: Optional[str] = None,
         tags=__ret__.tags,
         trust_model=__ret__.trust_model,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_attestation_provider)
+def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationProviderResult]:
+    """
+    Attestation service response message.
+    API Version: 2020-10-01.
+
+
+    :param str provider_name: Name of the attestation provider.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetDpsCertificateResult',
     'AwaitableGetDpsCertificateResult',
     'get_dps_certificate',
+    'get_dps_certificate_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dps_certificate)
+def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
+                               provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDpsCertificateResult]:
+    """
+    The X509 Certificate.
+    API Version: 2020-03-01.
+
+
+    :param str certificate_name: Name of the certificate to retrieve.
+    :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
+    :param str resource_group_name: Resource group identifier.
+    """
+    ...

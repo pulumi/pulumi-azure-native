@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadNetworkPublicIPResult',
     'AwaitableGetWorkloadNetworkPublicIPResult',
     'get_workload_network_public_ip',
+    'get_workload_network_public_ip_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_workload_network_public_ip(private_cloud_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_ip_block=__ret__.public_ip_block,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_network_public_ip)
+def get_workload_network_public_ip_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
+                                          public_ip_id: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkPublicIPResult]:
+    """
+    NSX Public IP Block
+    API Version: 2021-06-01.
+
+
+    :param str private_cloud_name: Name of the private cloud
+    :param str public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

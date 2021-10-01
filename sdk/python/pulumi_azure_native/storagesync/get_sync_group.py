@@ -12,6 +12,7 @@ __all__ = [
     'GetSyncGroupResult',
     'AwaitableGetSyncGroupResult',
     'get_sync_group',
+    'get_sync_group_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,20 @@ def get_sync_group(resource_group_name: Optional[str] = None,
         sync_group_status=__ret__.sync_group_status,
         type=__ret__.type,
         unique_id=__ret__.unique_id)
+
+
+@_utilities.lift_output_func(get_sync_group)
+def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                          storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+                          sync_group_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
+    """
+    Sync Group object.
+    API Version: 2020-03-01.
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str storage_sync_service_name: Name of Storage Sync Service resource.
+    :param str sync_group_name: Name of Sync Group resource.
+    """
+    ...

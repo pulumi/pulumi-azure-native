@@ -12,6 +12,7 @@ __all__ = [
     'ListSaasSubscriptionLevelAccessTokenResult',
     'AwaitableListSaasSubscriptionLevelAccessTokenResult',
     'list_saas_subscription_level_access_token',
+    'list_saas_subscription_level_access_token_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,18 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
     return AwaitableListSaasSubscriptionLevelAccessTokenResult(
         publisher_offer_base_uri=__ret__.publisher_offer_base_uri,
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(list_saas_subscription_level_access_token)
+def list_saas_subscription_level_access_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     resource_name: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
+    """
+    the ISV access token result response.
+    API Version: 2018-03-01-beta.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str resource_name: The name of the resource.
+    """
+    ...

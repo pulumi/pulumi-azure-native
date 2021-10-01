@@ -13,6 +13,7 @@ __all__ = [
     'GetGalleryImageVersionResult',
     'AwaitableGetGalleryImageVersionResult',
     'get_gallery_image_version',
+    'get_gallery_image_version_output',
 ]
 
 @pulumi.output_type
@@ -178,3 +179,24 @@ def get_gallery_image_version(expand: Optional[str] = None,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_gallery_image_version)
+def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                     gallery_image_name: Optional[pulumi.Input[str]] = None,
+                                     gallery_image_version_name: Optional[pulumi.Input[str]] = None,
+                                     gallery_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
+    """
+    Specifies information about the gallery image version that you want to create or update.
+    API Version: 2020-09-30.
+
+
+    :param str expand: The expand expression to apply on the operation.
+    :param str gallery_image_name: The name of the gallery image definition in which the Image Version resides.
+    :param str gallery_image_version_name: The name of the gallery image version to be retrieved.
+    :param str gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

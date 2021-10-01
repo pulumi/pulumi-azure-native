@@ -13,6 +13,7 @@ __all__ = [
     'GetServerTrustGroupResult',
     'AwaitableGetServerTrustGroupResult',
     'get_server_trust_group',
+    'get_server_trust_group_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_server_trust_group(location_name: Optional[str] = None,
         name=__ret__.name,
         trust_scopes=__ret__.trust_scopes,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_server_trust_group)
+def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustGroupResult]:
+    """
+    A server trust group.
+    API Version: 2020-11-01-preview.
+
+
+    :param str location_name: The name of the region where the resource is located.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_trust_group_name: The name of the server trust group.
+    """
+    ...

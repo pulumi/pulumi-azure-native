@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkProfileResult',
     'AwaitableGetNetworkProfileResult',
     'get_network_profile',
+    'get_network_profile_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,19 @@ def get_network_profile(expand: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network_profile)
+def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                               network_profile_name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
+    """
+    Network profile resource.
+
+
+    :param str expand: Expands referenced resources.
+    :param str network_profile_name: The name of the PublicIPPrefix.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

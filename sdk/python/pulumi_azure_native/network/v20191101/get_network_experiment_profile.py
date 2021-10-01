@@ -12,6 +12,7 @@ __all__ = [
     'GetNetworkExperimentProfileResult',
     'AwaitableGetNetworkExperimentProfileResult',
     'get_network_experiment_profile',
+    'get_network_experiment_profile_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,17 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
         resource_state=__ret__.resource_state,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_network_experiment_profile)
+def get_network_experiment_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkExperimentProfileResult]:
+    """
+    Defines an Network Experiment Profile and lists of Experiments
+
+
+    :param str profile_name: The Profile identifier associated with the Tenant and Partner
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

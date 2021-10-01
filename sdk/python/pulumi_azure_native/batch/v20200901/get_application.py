@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,19 @@ def get_application(account_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
+                           application_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    Contains information about an application in a Batch account.
+
+
+    :param str account_name: The name of the Batch account.
+    :param str application_name: The name of the application. This must be unique within the account.
+    :param str resource_group_name: The name of the resource group that contains the Batch account.
+    """
+    ...

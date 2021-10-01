@@ -13,6 +13,7 @@ __all__ = [
     'GetLinkedServiceResult',
     'AwaitableGetLinkedServiceResult',
     'get_linked_service',
+    'get_linked_service_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,20 @@ def get_linked_service(link_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linked_service)
+def get_linked_service_output(link_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              workspace_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
+    """
+    Linked service.
+    API Version: 2020-09-01-preview.
+
+
+    :param str link_name: Friendly name of the linked workspace
+    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetLinkedServiceResult',
     'AwaitableGetLinkedServiceResult',
     'get_linked_service',
+    'get_linked_service_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,19 @@ def get_linked_service(linked_service_name: Optional[str] = None,
         resource_id=__ret__.resource_id,
         type=__ret__.type,
         write_access_resource_id=__ret__.write_access_resource_id)
+
+
+@_utilities.lift_output_func(get_linked_service)
+def get_linked_service_output(linked_service_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              workspace_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
+    """
+    The top level Linked service resource container.
+
+
+    :param str linked_service_name: Name of the linked service.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
+    :param str workspace_name: Name of the Log Analytics Workspace that contains the linkedServices resource
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPublicIpAddressResult',
     'AwaitableGetPublicIpAddressResult',
     'get_public_ip_address',
+    'get_public_ip_address_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_public_ip_address(public_ip_address_name: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_public_ip_address)
+def get_public_ip_address_output(public_ip_address_name: Optional[pulumi.Input[str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpAddressResult]:
+    """
+    PublicIPAddress resource
+
+
+    :param str public_ip_address_name: The name of the subnet.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetLinkedServerResult',
     'AwaitableGetLinkedServerResult',
     'get_linked_server',
+    'get_linked_server_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,20 @@ def get_linked_server(linked_server_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         server_role=__ret__.server_role,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linked_server)
+def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = None,
+                             name: Optional[pulumi.Input[str]] = None,
+                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServerResult]:
+    """
+    Response to put/get linked server (with properties) for Redis cache.
+    API Version: 2020-06-01.
+
+
+    :param str linked_server_name: The name of the linked server.
+    :param str name: The name of the redis cache.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

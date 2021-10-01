@@ -13,6 +13,7 @@ __all__ = [
     'ListEffectiveVirtualNetworkByNetworkGroupResult',
     'AwaitableListEffectiveVirtualNetworkByNetworkGroupResult',
     'list_effective_virtual_network_by_network_group',
+    'list_effective_virtual_network_by_network_group_output',
 ]
 
 @pulumi.output_type
@@ -83,3 +84,21 @@ def list_effective_virtual_network_by_network_group(network_group_name: Optional
     return AwaitableListEffectiveVirtualNetworkByNetworkGroupResult(
         skip_token=__ret__.skip_token,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_effective_virtual_network_by_network_group)
+def list_effective_virtual_network_by_network_group_output(network_group_name: Optional[pulumi.Input[str]] = None,
+                                                           network_manager_name: Optional[pulumi.Input[str]] = None,
+                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                           skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkGroupResult]:
+    """
+    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+
+
+    :param str network_group_name: The name of the network group to get.
+    :param str network_manager_name: The name of the network manager.
+    :param str resource_group_name: The name of the resource group.
+    :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    """
+    ...

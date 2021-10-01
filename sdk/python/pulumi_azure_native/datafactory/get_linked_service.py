@@ -13,6 +13,7 @@ __all__ = [
     'GetLinkedServiceResult',
     'AwaitableGetLinkedServiceResult',
     'get_linked_service',
+    'get_linked_service_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,20 @@ def get_linked_service(factory_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_linked_service)
+def get_linked_service_output(factory_name: Optional[pulumi.Input[str]] = None,
+                              linked_service_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
+    """
+    Linked service resource type.
+    API Version: 2018-06-01.
+
+
+    :param str factory_name: The factory name.
+    :param str linked_service_name: The linked service name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

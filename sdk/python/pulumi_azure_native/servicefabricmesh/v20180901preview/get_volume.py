@@ -13,6 +13,7 @@ __all__ = [
     'GetVolumeResult',
     'AwaitableGetVolumeResult',
     'get_volume',
+    'get_volume_output',
 ]
 
 @pulumi.output_type
@@ -194,3 +195,17 @@ def get_volume(resource_group_name: Optional[str] = None,
         status_details=__ret__.status_details,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_volume)
+def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                      volume_resource_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+    """
+    This type describes a volume resource.
+
+
+    :param str resource_group_name: Azure resource group name
+    :param str volume_resource_name: The identity of the volume.
+    """
+    ...

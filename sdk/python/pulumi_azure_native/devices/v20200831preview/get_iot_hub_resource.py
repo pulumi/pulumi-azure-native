@@ -13,6 +13,7 @@ __all__ = [
     'GetIotHubResourceResult',
     'AwaitableGetIotHubResourceResult',
     'get_iot_hub_resource',
+    'get_iot_hub_resource_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,17 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_iot_hub_resource)
+def get_iot_hub_resource_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                resource_name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResourceResult]:
+    """
+    The description of the IoT hub.
+
+
+    :param str resource_group_name: The name of the resource group that contains the IoT hub.
+    :param str resource_name: The name of the IoT hub.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'ListOperationalizationClusterKeysResult',
     'AwaitableListOperationalizationClusterKeysResult',
     'list_operationalization_cluster_keys',
+    'list_operationalization_cluster_keys_output',
 ]
 
 @pulumi.output_type
@@ -129,3 +130,17 @@ def list_operationalization_cluster_keys(cluster_name: Optional[str] = None,
         service_auth_configuration=__ret__.service_auth_configuration,
         ssl_configuration=__ret__.ssl_configuration,
         storage_account=__ret__.storage_account)
+
+
+@_utilities.lift_output_func(list_operationalization_cluster_keys)
+def list_operationalization_cluster_keys_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOperationalizationClusterKeysResult]:
+    """
+    Credentials to resources in the cluster.
+
+
+    :param str cluster_name: The name of the cluster.
+    :param str resource_group_name: Name of the resource group in which the cluster is located.
+    """
+    ...

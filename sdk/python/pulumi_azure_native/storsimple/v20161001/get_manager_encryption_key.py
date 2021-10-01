@@ -12,6 +12,7 @@ __all__ = [
     'GetManagerEncryptionKeyResult',
     'AwaitableGetManagerEncryptionKeyResult',
     'get_manager_encryption_key',
+    'get_manager_encryption_key_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,17 @@ def get_manager_encryption_key(manager_name: Optional[str] = None,
         encryption_algorithm=__ret__.encryption_algorithm,
         value=__ret__.value,
         value_certificate_thumbprint=__ret__.value_certificate_thumbprint)
+
+
+@_utilities.lift_output_func(get_manager_encryption_key)
+def get_manager_encryption_key_output(manager_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerEncryptionKeyResult]:
+    """
+    This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+
+
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

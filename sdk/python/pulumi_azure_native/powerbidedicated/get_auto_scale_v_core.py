@@ -13,6 +13,7 @@ __all__ = [
     'GetAutoScaleVCoreResult',
     'AwaitableGetAutoScaleVCoreResult',
     'get_auto_scale_v_core',
+    'get_auto_scale_v_core_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_auto_scale_v_core(resource_group_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_auto_scale_v_core)
+def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 vcore_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
+    """
+    Represents an instance of an auto scale v-core resource.
+    API Version: 2021-01-01.
+
+
+    :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+    :param str vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+    """
+    ...

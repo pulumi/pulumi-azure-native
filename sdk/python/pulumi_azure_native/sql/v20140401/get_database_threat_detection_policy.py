@@ -12,6 +12,7 @@ __all__ = [
     'GetDatabaseThreatDetectionPolicyResult',
     'AwaitableGetDatabaseThreatDetectionPolicyResult',
     'get_database_threat_detection_policy',
+    'get_database_threat_detection_policy_output',
 ]
 
 @pulumi.output_type
@@ -212,3 +213,21 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
         storage_endpoint=__ret__.storage_endpoint,
         type=__ret__.type,
         use_server_default=__ret__.use_server_default)
+
+
+@_utilities.lift_output_func(get_database_threat_detection_policy)
+def get_database_threat_detection_policy_output(database_name: Optional[pulumi.Input[str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                security_alert_policy_name: Optional[pulumi.Input[str]] = None,
+                                                server_name: Optional[pulumi.Input[str]] = None,
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
+    """
+    Contains information about a database Threat Detection policy.
+
+
+    :param str database_name: The name of the database for which database Threat Detection policy is defined.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str security_alert_policy_name: The name of the security alert policy.
+    :param str server_name: The name of the server.
+    """
+    ...

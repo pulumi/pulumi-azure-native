@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkspaceCollectionResult',
     'AwaitableGetWorkspaceCollectionResult',
     'get_workspace_collection',
+    'get_workspace_collection_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,17 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workspace_collection)
+def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    workspace_collection_name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
+    """
+    API Version: 2016-01-29.
+
+
+    :param str resource_group_name: Azure resource group
+    :param str workspace_collection_name: Power BI Embedded Workspace Collection name
+    """
+    ...

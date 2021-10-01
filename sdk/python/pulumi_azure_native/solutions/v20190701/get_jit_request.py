@@ -13,6 +13,7 @@ __all__ = [
     'GetJitRequestResult',
     'AwaitableGetJitRequestResult',
     'get_jit_request',
+    'get_jit_request_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,17 @@ def get_jit_request(jit_request_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_by=__ret__.updated_by)
+
+
+@_utilities.lift_output_func(get_jit_request)
+def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
+    """
+    Information about JIT request definition.
+
+
+    :param str jit_request_name: The name of the JIT request.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

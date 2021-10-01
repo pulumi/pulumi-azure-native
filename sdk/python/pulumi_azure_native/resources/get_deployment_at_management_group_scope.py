@@ -13,6 +13,7 @@ __all__ = [
     'GetDeploymentAtManagementGroupScopeResult',
     'AwaitableGetDeploymentAtManagementGroupScopeResult',
     'get_deployment_at_management_group_scope',
+    'get_deployment_at_management_group_scope_output',
 ]
 
 @pulumi.output_type
@@ -130,3 +131,18 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
         properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_deployment_at_management_group_scope)
+def get_deployment_at_management_group_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
+                                                    group_id: Optional[pulumi.Input[str]] = None,
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtManagementGroupScopeResult]:
+    """
+    Deployment information.
+    API Version: 2021-01-01.
+
+
+    :param str deployment_name: The name of the deployment.
+    :param str group_id: The management group ID.
+    """
+    ...

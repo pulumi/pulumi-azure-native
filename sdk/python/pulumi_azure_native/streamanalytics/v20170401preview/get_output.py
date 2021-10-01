@@ -13,6 +13,7 @@ __all__ = [
     'GetOutputResult',
     'AwaitableGetOutputResult',
     'get_output',
+    'get_output_output',
 ]
 
 @pulumi.output_type
@@ -165,3 +166,19 @@ def get_output(job_name: Optional[str] = None,
         size_window=__ret__.size_window,
         time_window=__ret__.time_window,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_output)
+def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
+                      output_name: Optional[pulumi.Input[str]] = None,
+                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutputResult]:
+    """
+    An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+
+
+    :param str job_name: The name of the streaming job.
+    :param str output_name: The name of the output.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    """
+    ...

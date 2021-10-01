@@ -13,6 +13,7 @@ __all__ = [
     'ListLinkerConfigurationsResult',
     'AwaitableListLinkerConfigurationsResult',
     'list_linker_configurations',
+    'list_linker_configurations_output',
 ]
 
 @pulumi.output_type
@@ -65,3 +66,18 @@ def list_linker_configurations(linker_name: Optional[str] = None,
 
     return AwaitableListLinkerConfigurationsResult(
         configurations=__ret__.configurations)
+
+
+@_utilities.lift_output_func(list_linker_configurations)
+def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] = None,
+                                      resource_uri: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
+    """
+    Configurations for source resource, include appSettings, connectionString and serviceBindings
+    API Version: 2021-11-01-preview.
+
+
+    :param str linker_name: The name Linker resource.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    """
+    ...

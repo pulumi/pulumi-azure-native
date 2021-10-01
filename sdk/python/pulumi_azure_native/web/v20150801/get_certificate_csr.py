@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateCsrResult',
     'AwaitableGetCertificateCsrResult',
     'get_certificate_csr',
+    'get_certificate_csr_output',
 ]
 
 @pulumi.output_type
@@ -206,3 +207,17 @@ def get_certificate_csr(name: Optional[str] = None,
         public_key_hash=__ret__.public_key_hash,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_certificate_csr)
+def get_certificate_csr_output(name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateCsrResult]:
+    """
+    Certificate signing request object
+
+
+    :param str name: Name of the certificate.
+    :param str resource_group_name: Name of the resource group
+    """
+    ...

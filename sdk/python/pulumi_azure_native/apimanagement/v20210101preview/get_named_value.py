@@ -13,6 +13,7 @@ __all__ = [
     'GetNamedValueResult',
     'AwaitableGetNamedValueResult',
     'get_named_value',
+    'get_named_value_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,19 @@ def get_named_value(named_value_id: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_named_value)
+def get_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
+                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                           service_name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedValueResult]:
+    """
+    NamedValue details.
+
+
+    :param str named_value_id: Identifier of the NamedValue.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    """
+    ...

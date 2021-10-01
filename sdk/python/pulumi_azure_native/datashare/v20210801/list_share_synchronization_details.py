@@ -13,6 +13,7 @@ __all__ = [
     'ListShareSynchronizationDetailsResult',
     'AwaitableListShareSynchronizationDetailsResult',
     'list_share_synchronization_details',
+    'list_share_synchronization_details_output',
 ]
 
 @pulumi.output_type
@@ -116,3 +117,43 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
     return AwaitableListShareSynchronizationDetailsResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_share_synchronization_details)
+def list_share_synchronization_details_output(account_name: Optional[pulumi.Input[str]] = None,
+                                              consumer_email: Optional[pulumi.Input[Optional[str]]] = None,
+                                              consumer_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                              consumer_tenant_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                              duration_ms: Optional[pulumi.Input[Optional[int]]] = None,
+                                              end_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                              filter: Optional[pulumi.Input[Optional[str]]] = None,
+                                              message: Optional[pulumi.Input[Optional[str]]] = None,
+                                              orderby: Optional[pulumi.Input[Optional[str]]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              share_name: Optional[pulumi.Input[str]] = None,
+                                              skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                              start_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                              status: Optional[pulumi.Input[Optional[str]]] = None,
+                                              synchronization_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
+    """
+    details of synchronization
+
+
+    :param str account_name: The name of the share account.
+    :param str consumer_email: Email of the user who created the synchronization
+    :param str consumer_name: Name of the user who created the synchronization
+    :param str consumer_tenant_name: Tenant name of the consumer who created the synchronization
+    :param int duration_ms: synchronization duration
+    :param str end_time: End time of synchronization
+    :param str filter: Filters the results using OData syntax.
+    :param str message: message of synchronization
+    :param str orderby: Sorts the results using OData syntax.
+    :param str resource_group_name: The resource group name.
+    :param str share_name: The name of the share.
+    :param str skip_token: Continuation token
+    :param str start_time: start time of synchronization
+    :param str status: Raw Status
+    :param str synchronization_id: Synchronization id
+    """
+    ...

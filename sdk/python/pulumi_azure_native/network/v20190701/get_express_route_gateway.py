@@ -13,6 +13,7 @@ __all__ = [
     'GetExpressRouteGatewayResult',
     'AwaitableGetExpressRouteGatewayResult',
     'get_express_route_gateway',
+    'get_express_route_gateway_output',
 ]
 
 @pulumi.output_type
@@ -181,3 +182,17 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_hub=__ret__.virtual_hub)
+
+
+@_utilities.lift_output_func(get_express_route_gateway)
+def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
+    """
+    ExpressRoute gateway resource.
+
+
+    :param str express_route_gateway_name: The name of the ExpressRoute gateway.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

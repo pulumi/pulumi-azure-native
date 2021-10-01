@@ -13,6 +13,7 @@ __all__ = [
     'GetPrivateLinkServicePrivateEndpointConnectionResult',
     'AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult',
     'get_private_link_service_private_endpoint_connection',
+    'get_private_link_service_private_endpoint_connection_output',
 ]
 
 @pulumi.output_type
@@ -162,3 +163,22 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_private_link_service_private_endpoint_connection)
+def get_private_link_service_private_endpoint_connection_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                                pe_connection_name: Optional[pulumi.Input[str]] = None,
+                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                                service_name: Optional[pulumi.Input[str]] = None,
+                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
+    """
+    PrivateEndpointConnection resource.
+    API Version: 2020-11-01.
+
+
+    :param str expand: Expands referenced resources.
+    :param str pe_connection_name: The name of the private end point connection.
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the private link service.
+    """
+    ...

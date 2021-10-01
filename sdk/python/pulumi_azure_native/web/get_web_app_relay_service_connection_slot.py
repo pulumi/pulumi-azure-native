@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAppRelayServiceConnectionSlotResult',
     'AwaitableGetWebAppRelayServiceConnectionSlotResult',
     'get_web_app_relay_service_connection_slot',
+    'get_web_app_relay_service_connection_slot_output',
 ]
 
 @pulumi.output_type
@@ -179,3 +180,22 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[str] = None,
         resource_connection_string=__ret__.resource_connection_string,
         resource_type=__ret__.resource_type,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_web_app_relay_service_connection_slot)
+def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulumi.Input[str]] = None,
+                                                     name: Optional[pulumi.Input[str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                     slot: Optional[pulumi.Input[str]] = None,
+                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionSlotResult]:
+    """
+    Hybrid Connection for an App Service app.
+    API Version: 2020-12-01.
+
+
+    :param str entity_name: Name of the hybrid connection.
+    :param str name: Name of the app.
+    :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
+    """
+    ...

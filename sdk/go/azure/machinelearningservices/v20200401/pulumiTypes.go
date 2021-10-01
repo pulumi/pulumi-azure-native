@@ -4877,6 +4877,47 @@ func (i NotebookListCredentialsResultResponseArgs) ToNotebookListCredentialsResu
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookListCredentialsResultResponseOutput)
 }
 
+func (i NotebookListCredentialsResultResponseArgs) ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput {
+	return i.ToNotebookListCredentialsResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NotebookListCredentialsResultResponseArgs) ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookListCredentialsResultResponseOutput).ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx)
+}
+
+// NotebookListCredentialsResultResponsePtrInput is an input type that accepts NotebookListCredentialsResultResponseArgs, NotebookListCredentialsResultResponsePtr and NotebookListCredentialsResultResponsePtrOutput values.
+// You can construct a concrete instance of `NotebookListCredentialsResultResponsePtrInput` via:
+//
+//          NotebookListCredentialsResultResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NotebookListCredentialsResultResponsePtrInput interface {
+	pulumi.Input
+
+	ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput
+	ToNotebookListCredentialsResultResponsePtrOutputWithContext(context.Context) NotebookListCredentialsResultResponsePtrOutput
+}
+
+type notebookListCredentialsResultResponsePtrType NotebookListCredentialsResultResponseArgs
+
+func NotebookListCredentialsResultResponsePtr(v *NotebookListCredentialsResultResponseArgs) NotebookListCredentialsResultResponsePtrInput {
+	return (*notebookListCredentialsResultResponsePtrType)(v)
+}
+
+func (*notebookListCredentialsResultResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (i *notebookListCredentialsResultResponsePtrType) ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput {
+	return i.ToNotebookListCredentialsResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *notebookListCredentialsResultResponsePtrType) ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookListCredentialsResultResponsePtrOutput)
+}
+
 type NotebookListCredentialsResultResponseOutput struct{ *pulumi.OutputState }
 
 func (NotebookListCredentialsResultResponseOutput) ElementType() reflect.Type {
@@ -4891,12 +4932,64 @@ func (o NotebookListCredentialsResultResponseOutput) ToNotebookListCredentialsRe
 	return o
 }
 
+func (o NotebookListCredentialsResultResponseOutput) ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput {
+	return o.ToNotebookListCredentialsResultResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NotebookListCredentialsResultResponseOutput) ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookListCredentialsResultResponse) *NotebookListCredentialsResultResponse {
+		return &v
+	}).(NotebookListCredentialsResultResponsePtrOutput)
+}
+
 func (o NotebookListCredentialsResultResponseOutput) PrimaryAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotebookListCredentialsResultResponse) *string { return v.PrimaryAccessKey }).(pulumi.StringPtrOutput)
 }
 
 func (o NotebookListCredentialsResultResponseOutput) SecondaryAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotebookListCredentialsResultResponse) *string { return v.SecondaryAccessKey }).(pulumi.StringPtrOutput)
+}
+
+type NotebookListCredentialsResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NotebookListCredentialsResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponsePtrOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) Elem() NotebookListCredentialsResultResponseOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) NotebookListCredentialsResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookListCredentialsResultResponse
+		return ret
+	}).(NotebookListCredentialsResultResponseOutput)
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) PrimaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) SecondaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryAccessKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type NotebookPreparationErrorResponse struct {
@@ -8905,6 +8998,7 @@ func init() {
 	pulumi.RegisterOutputType(NodeStateCountsResponseOutput{})
 	pulumi.RegisterOutputType(NodeStateCountsResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookListCredentialsResultResponseOutput{})
+	pulumi.RegisterOutputType(NotebookListCredentialsResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookResourceInfoResponseOutput{})

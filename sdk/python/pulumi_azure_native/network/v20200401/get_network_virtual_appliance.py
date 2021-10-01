@@ -13,6 +13,7 @@ __all__ = [
     'GetNetworkVirtualApplianceResult',
     'AwaitableGetNetworkVirtualApplianceResult',
     'get_network_virtual_appliance',
+    'get_network_virtual_appliance_output',
 ]
 
 @pulumi.output_type
@@ -236,3 +237,19 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         virtual_appliance_asn=__ret__.virtual_appliance_asn,
         virtual_appliance_nics=__ret__.virtual_appliance_nics,
         virtual_hub=__ret__.virtual_hub)
+
+
+@_utilities.lift_output_func(get_network_virtual_appliance)
+def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                         network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[str]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
+    """
+    NetworkVirtualAppliance Resource.
+
+
+    :param str expand: Expands referenced resources.
+    :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

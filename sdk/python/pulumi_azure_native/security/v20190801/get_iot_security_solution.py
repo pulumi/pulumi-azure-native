@@ -13,6 +13,7 @@ __all__ = [
     'GetIotSecuritySolutionResult',
     'AwaitableGetIotSecuritySolutionResult',
     'get_iot_security_solution',
+    'get_iot_security_solution_output',
 ]
 
 @pulumi.output_type
@@ -272,3 +273,17 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
         unmasked_ip_logging_status=__ret__.unmasked_ip_logging_status,
         user_defined_resources=__ret__.user_defined_resources,
         workspace=__ret__.workspace)
+
+
+@_utilities.lift_output_func(get_iot_security_solution)
+def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     solution_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
+    """
+    IoT Security solution configuration and resource information.
+
+
+    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str solution_name: The name of the IoT Security solution.
+    """
+    ...

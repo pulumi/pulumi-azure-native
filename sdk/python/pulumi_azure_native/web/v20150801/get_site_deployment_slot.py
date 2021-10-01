@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteDeploymentSlotResult',
     'AwaitableGetSiteDeploymentSlotResult',
     'get_site_deployment_slot',
+    'get_site_deployment_slot_output',
 ]
 
 @pulumi.output_type
@@ -251,3 +252,21 @@ def get_site_deployment_slot(id: Optional[str] = None,
         status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_site_deployment_slot)
+def get_site_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
+                                    name: Optional[pulumi.Input[str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    slot: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteDeploymentSlotResult]:
+    """
+    Represents user credentials used for publishing activity
+
+
+    :param str id: Id of the deployment
+    :param str name: Name of web app
+    :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
+    """
+    ...

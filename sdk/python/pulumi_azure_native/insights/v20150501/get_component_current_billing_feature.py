@@ -13,6 +13,7 @@ __all__ = [
     'GetComponentCurrentBillingFeatureResult',
     'AwaitableGetComponentCurrentBillingFeatureResult',
     'get_component_current_billing_feature',
+    'get_component_current_billing_feature_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,17 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
     return AwaitableGetComponentCurrentBillingFeatureResult(
         current_billing_features=__ret__.current_billing_features,
         data_volume_cap=__ret__.data_volume_cap)
+
+
+@_utilities.lift_output_func(get_component_current_billing_feature)
+def get_component_current_billing_feature_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                 resource_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
+    """
+    An Application Insights component billing features
+
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: The name of the Application Insights component resource.
+    """
+    ...

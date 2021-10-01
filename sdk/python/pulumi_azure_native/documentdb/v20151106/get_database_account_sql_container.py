@@ -13,6 +13,7 @@ __all__ = [
     'GetDatabaseAccountSqlContainerResult',
     'AwaitableGetDatabaseAccountSqlContainerResult',
     'get_database_account_sql_container',
+    'get_database_account_sql_container_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,21 @@ def get_database_account_sql_container(account_name: Optional[str] = None,
         ts=__ret__.ts,
         type=__ret__.type,
         unique_key_policy=__ret__.unique_key_policy)
+
+
+@_utilities.lift_output_func(get_database_account_sql_container)
+def get_database_account_sql_container_output(account_name: Optional[pulumi.Input[str]] = None,
+                                              container_name: Optional[pulumi.Input[str]] = None,
+                                              database_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountSqlContainerResult]:
+    """
+    An Azure Cosmos DB container.
+
+
+    :param str account_name: Cosmos DB database account name.
+    :param str container_name: Cosmos DB container name.
+    :param str database_name: Cosmos DB database name.
+    :param str resource_group_name: Name of an Azure resource group.
+    """
+    ...

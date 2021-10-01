@@ -12,6 +12,7 @@ __all__ = [
     'ListWorkspaceNotebookKeysResult',
     'AwaitableListWorkspaceNotebookKeysResult',
     'list_workspace_notebook_keys',
+    'list_workspace_notebook_keys_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,16 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceNotebookKeysResult(
         primary_access_key=__ret__.primary_access_key,
         secondary_access_key=__ret__.secondary_access_key)
+
+
+@_utilities.lift_output_func(list_workspace_notebook_keys)
+def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        workspace_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: Name of Azure Machine Learning workspace.
+    """
+    ...

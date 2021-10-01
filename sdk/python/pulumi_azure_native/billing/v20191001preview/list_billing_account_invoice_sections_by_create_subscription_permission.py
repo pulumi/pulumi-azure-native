@@ -13,6 +13,7 @@ __all__ = [
     'ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult',
     'AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult',
     'list_billing_account_invoice_sections_by_create_subscription_permission',
+    'list_billing_account_invoice_sections_by_create_subscription_permission_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,15 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
     return AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
         next_link=__ret__.next_link,
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(list_billing_account_invoice_sections_by_create_subscription_permission)
+def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: Optional[pulumi.Input[str]] = None,
+                                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
+    """
+    The list of invoice section properties with create subscription permission.
+
+
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    """
+    ...

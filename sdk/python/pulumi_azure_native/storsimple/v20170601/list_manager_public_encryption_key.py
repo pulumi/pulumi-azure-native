@@ -12,6 +12,7 @@ __all__ = [
     'ListManagerPublicEncryptionKeyResult',
     'AwaitableListManagerPublicEncryptionKeyResult',
     'list_manager_public_encryption_key',
+    'list_manager_public_encryption_key_output',
 ]
 
 @pulumi.output_type
@@ -89,3 +90,17 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
         encryption_algorithm=__ret__.encryption_algorithm,
         value=__ret__.value,
         value_certificate_thumbprint=__ret__.value_certificate_thumbprint)
+
+
+@_utilities.lift_output_func(list_manager_public_encryption_key)
+def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Input[str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
+    """
+    Represents the secrets encrypted using Symmetric Encryption Key.
+
+
+    :param str manager_name: The manager name
+    :param str resource_group_name: The resource group name
+    """
+    ...

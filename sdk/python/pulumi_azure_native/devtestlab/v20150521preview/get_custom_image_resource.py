@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomImageResourceResult',
     'AwaitableGetCustomImageResourceResult',
     'get_custom_image_resource',
+    'get_custom_image_resource_output',
 ]
 
 @pulumi.output_type
@@ -210,3 +211,19 @@ def get_custom_image_resource(lab_name: Optional[str] = None,
         type=__ret__.type,
         vhd=__ret__.vhd,
         vm=__ret__.vm)
+
+
+@_utilities.lift_output_func(get_custom_image_resource)
+def get_custom_image_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
+                                     name: Optional[pulumi.Input[str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomImageResourceResult]:
+    """
+    A custom image.
+
+
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the custom image.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

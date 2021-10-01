@@ -13,6 +13,7 @@ __all__ = [
     'GetVirtualApplianceSiteResult',
     'AwaitableGetVirtualApplianceSiteResult',
     'get_virtual_appliance_site',
+    'get_virtual_appliance_site_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,20 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
         o365_policy=__ret__.o365_policy,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_virtual_appliance_site)
+def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[str]] = None,
+                                      site_name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
+    """
+    Virtual Appliance Site resource.
+    API Version: 2020-11-01.
+
+
+    :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.
+    :param str resource_group_name: The name of the resource group.
+    :param str site_name: The name of the site.
+    """
+    ...

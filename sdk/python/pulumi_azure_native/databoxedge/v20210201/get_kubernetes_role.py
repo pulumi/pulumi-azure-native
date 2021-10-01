@@ -13,6 +13,7 @@ __all__ = [
     'GetKubernetesRoleResult',
     'AwaitableGetKubernetesRoleResult',
     'get_kubernetes_role',
+    'get_kubernetes_role_output',
 ]
 
 @pulumi.output_type
@@ -212,3 +213,26 @@ def get_kubernetes_role(device_name: Optional[str] = None,
         role_status=__ret__.role_status,
         system_data=__ret__.system_data,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_kubernetes_role)
+def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
+                               resource_group_name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesRoleResult]:
+    """
+    The limited preview of Kubernetes Cluster Management from the Azure supports:
+    1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+    2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+        Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+    3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+        For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+        Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+        By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+
+
+    :param str device_name: The device name.
+    :param str name: The role name.
+    :param str resource_group_name: The resource group name.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetFileResult',
     'AwaitableGetFileResult',
     'get_file',
+    'get_file_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,22 @@ def get_file(file_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_file)
+def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
+                    group_name: Optional[pulumi.Input[str]] = None,
+                    project_name: Optional[pulumi.Input[str]] = None,
+                    service_name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
+    """
+    A file resource
+    API Version: 2018-07-15-preview.
+
+
+    :param str file_name: Name of the File
+    :param str group_name: Name of the resource group
+    :param str project_name: Name of the project
+    :param str service_name: Name of the service
+    """
+    ...

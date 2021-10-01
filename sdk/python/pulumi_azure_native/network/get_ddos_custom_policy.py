@@ -13,6 +13,7 @@ __all__ = [
     'GetDdosCustomPolicyResult',
     'AwaitableGetDdosCustomPolicyResult',
     'get_ddos_custom_policy',
+    'get_ddos_custom_policy_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,18 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_ddos_custom_policy)
+def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
+    """
+    A DDoS custom policy in a resource group.
+    API Version: 2020-11-01.
+
+
+    :param str ddos_custom_policy_name: The name of the DDoS custom policy.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

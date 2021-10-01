@@ -12,6 +12,7 @@ __all__ = [
     'GetQueueAuthorizationRuleResult',
     'AwaitableGetQueueAuthorizationRuleResult',
     'get_queue_authorization_rule',
+    'get_queue_authorization_rule_output',
 ]
 
 @pulumi.output_type
@@ -121,3 +122,21 @@ def get_queue_authorization_rule(authorization_rule_name: Optional[str] = None,
         name=__ret__.name,
         rights=__ret__.rights,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_queue_authorization_rule)
+def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[str]] = None,
+                                        queue_name: Optional[pulumi.Input[str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
+    """
+    Description of a namespace authorization rule.
+
+
+    :param str authorization_rule_name: The authorization rule name.
+    :param str namespace_name: The namespace name
+    :param str queue_name: The queue name.
+    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    """
+    ...

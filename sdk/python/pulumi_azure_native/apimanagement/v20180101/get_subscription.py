@@ -12,6 +12,7 @@ __all__ = [
     'GetSubscriptionResult',
     'AwaitableGetSubscriptionResult',
     'get_subscription',
+    'get_subscription_output',
 ]
 
 @pulumi.output_type
@@ -248,3 +249,19 @@ def get_subscription(resource_group_name: Optional[str] = None,
         state_comment=__ret__.state_comment,
         type=__ret__.type,
         user_id=__ret__.user_id)
+
+
+@_utilities.lift_output_func(get_subscription)
+def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                            service_name: Optional[pulumi.Input[str]] = None,
+                            sid: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+    """
+    Subscription details.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the API Management service.
+    :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+    """
+    ...

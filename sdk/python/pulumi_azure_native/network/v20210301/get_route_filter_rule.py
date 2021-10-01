@@ -12,6 +12,7 @@ __all__ = [
     'GetRouteFilterRuleResult',
     'AwaitableGetRouteFilterRuleResult',
     'get_route_filter_rule',
+    'get_route_filter_rule_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,19 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         route_filter_rule_type=__ret__.route_filter_rule_type)
+
+
+@_utilities.lift_output_func(get_route_filter_rule)
+def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 route_filter_name: Optional[pulumi.Input[str]] = None,
+                                 rule_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterRuleResult]:
+    """
+    Route Filter Rule Resource.
+
+
+    :param str resource_group_name: The name of the resource group.
+    :param str route_filter_name: The name of the route filter.
+    :param str rule_name: The name of the rule.
+    """
+    ...

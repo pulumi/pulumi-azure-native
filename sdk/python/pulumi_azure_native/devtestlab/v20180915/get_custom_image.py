@@ -13,6 +13,7 @@ __all__ = [
     'GetCustomImageResult',
     'AwaitableGetCustomImageResult',
     'get_custom_image',
+    'get_custom_image_output',
 ]
 
 @pulumi.output_type
@@ -278,3 +279,21 @@ def get_custom_image(expand: Optional[str] = None,
         unique_identifier=__ret__.unique_identifier,
         vhd=__ret__.vhd,
         vm=__ret__.vm)
+
+
+@_utilities.lift_output_func(get_custom_image)
+def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                            lab_name: Optional[pulumi.Input[str]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomImageResult]:
+    """
+    A custom image.
+
+
+    :param str expand: Specify the $expand query. Example: 'properties($select=vm)'
+    :param str lab_name: The name of the lab.
+    :param str name: The name of the custom image.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetFlowLogResult',
     'AwaitableGetFlowLogResult',
     'get_flow_log',
+    'get_flow_log_output',
 ]
 
 @pulumi.output_type
@@ -237,3 +238,20 @@ def get_flow_log(flow_log_name: Optional[str] = None,
         target_resource_guid=__ret__.target_resource_guid,
         target_resource_id=__ret__.target_resource_id,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_flow_log)
+def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
+                        network_watcher_name: Optional[pulumi.Input[str]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowLogResult]:
+    """
+    A flow log resource.
+    API Version: 2020-11-01.
+
+
+    :param str flow_log_name: The name of the flow log resource.
+    :param str network_watcher_name: The name of the network watcher.
+    :param str resource_group_name: The name of the resource group.
+    """
+    ...

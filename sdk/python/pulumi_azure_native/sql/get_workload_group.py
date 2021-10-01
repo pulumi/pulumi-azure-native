@@ -12,6 +12,7 @@ __all__ = [
     'GetWorkloadGroupResult',
     'AwaitableGetWorkloadGroupResult',
     'get_workload_group',
+    'get_workload_group_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,22 @@ def get_workload_group(database_name: Optional[str] = None,
         name=__ret__.name,
         query_execution_timeout=__ret__.query_execution_timeout,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_workload_group)
+def get_workload_group_output(database_name: Optional[pulumi.Input[str]] = None,
+                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                              server_name: Optional[pulumi.Input[str]] = None,
+                              workload_group_name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadGroupResult]:
+    """
+    Workload group operations for a data warehouse
+    API Version: 2020-11-01-preview.
+
+
+    :param str database_name: The name of the database.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str server_name: The name of the server.
+    :param str workload_group_name: The name of the workload group.
+    """
+    ...
