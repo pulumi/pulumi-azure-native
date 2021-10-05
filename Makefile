@@ -79,7 +79,7 @@ build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 	yarn install && \
-	NODE_OPTIONS='--max-old-space-size=13312' yarn run tsc --diagnostics && \
+	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
