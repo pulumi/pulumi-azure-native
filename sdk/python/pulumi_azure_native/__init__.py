@@ -81,6 +81,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_azure_native.confluent as __confluent
     confluent = __confluent
+    import pulumi_azure_native.connectedvmwarevsphere as __connectedvmwarevsphere
+    connectedvmwarevsphere = __connectedvmwarevsphere
     import pulumi_azure_native.consumption as __consumption
     consumption = __consumption
     import pulumi_azure_native.containerinstance as __containerinstance
@@ -386,6 +388,7 @@ else:
     confidentialledger = _utilities.lazy_import('pulumi_azure_native.confidentialledger')
     config = _utilities.lazy_import('pulumi_azure_native.config')
     confluent = _utilities.lazy_import('pulumi_azure_native.confluent')
+    connectedvmwarevsphere = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere')
     consumption = _utilities.lazy_import('pulumi_azure_native.consumption')
     containerinstance = _utilities.lazy_import('pulumi_azure_native.containerinstance')
     containerregistry = _utilities.lazy_import('pulumi_azure_native.containerregistry')
@@ -1551,6 +1554,7 @@ _utilities.register(
    "azure-native:authorization:PolicyDefinition": "PolicyDefinition",
    "azure-native:authorization:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization:PolicyExemption": "PolicyExemption",
+   "azure-native:authorization:PolicyPricing": "PolicyPricing",
    "azure-native:authorization:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
    "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
@@ -1825,6 +1829,15 @@ _utilities.register(
    "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization/v20210601:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20210701",
+  "fqn": "pulumi_azure_native.authorization.v20210701",
+  "classes": {
+   "azure-native:authorization/v20210701:PolicyExemption": "PolicyExemption",
+   "azure-native:authorization/v20210701:PolicyPricing": "PolicyPricing"
   }
  },
  {
@@ -3540,6 +3553,44 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "connectedvmwarevsphere",
+  "fqn": "pulumi_azure_native.connectedvmwarevsphere",
+  "classes": {
+   "azure-native:connectedvmwarevsphere:Cluster": "Cluster",
+   "azure-native:connectedvmwarevsphere:Datastore": "Datastore",
+   "azure-native:connectedvmwarevsphere:GuestAgent": "GuestAgent",
+   "azure-native:connectedvmwarevsphere:Host": "Host",
+   "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:connectedvmwarevsphere:InventoryItem": "InventoryItem",
+   "azure-native:connectedvmwarevsphere:MachineExtension": "MachineExtension",
+   "azure-native:connectedvmwarevsphere:ResourcePool": "ResourcePool",
+   "azure-native:connectedvmwarevsphere:VCenter": "VCenter",
+   "azure-native:connectedvmwarevsphere:VirtualMachine": "VirtualMachine",
+   "azure-native:connectedvmwarevsphere:VirtualMachineTemplate": "VirtualMachineTemplate",
+   "azure-native:connectedvmwarevsphere:VirtualNetwork": "VirtualNetwork"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "connectedvmwarevsphere/v20201001preview",
+  "fqn": "pulumi_azure_native.connectedvmwarevsphere.v20201001preview",
+  "classes": {
+   "azure-native:connectedvmwarevsphere/v20201001preview:Cluster": "Cluster",
+   "azure-native:connectedvmwarevsphere/v20201001preview:Datastore": "Datastore",
+   "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent": "GuestAgent",
+   "azure-native:connectedvmwarevsphere/v20201001preview:Host": "Host",
+   "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem": "InventoryItem",
+   "azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension": "MachineExtension",
+   "azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool": "ResourcePool",
+   "azure-native:connectedvmwarevsphere/v20201001preview:VCenter": "VCenter",
+   "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine": "VirtualMachine",
+   "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate": "VirtualMachineTemplate",
+   "azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork": "VirtualNetwork"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "consumption",
   "fqn": "pulumi_azure_native.consumption",
   "classes": {
@@ -3661,6 +3712,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.consumption.v20210501",
   "classes": {
    "azure-native:consumption/v20210501:Budget": "Budget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "consumption/v20211001",
+  "fqn": "pulumi_azure_native.consumption.v20211001",
+  "classes": {
+   "azure-native:consumption/v20211001:Budget": "Budget"
   }
  },
  {
@@ -4346,6 +4405,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.costmanagement.v20210101",
   "classes": {
    "azure-native:costmanagement/v20210101:Export": "Export"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "costmanagement/v20211001",
+  "fqn": "pulumi_azure_native.costmanagement.v20211001",
+  "classes": {
+   "azure-native:costmanagement/v20211001:Export": "Export",
+   "azure-native:costmanagement/v20211001:View": "View",
+   "azure-native:costmanagement/v20211001:ViewByScope": "ViewByScope"
   }
  },
  {

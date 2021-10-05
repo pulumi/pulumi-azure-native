@@ -108,7 +108,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly sslPort!: pulumi.Output<number>;
     /**
-     * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     * Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
      */
     public readonly staticIP!: pulumi.Output<string | undefined>;
     /**
@@ -149,11 +149,11 @@ export class Redis extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
+            inputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
             inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -254,7 +254,7 @@ export interface RedisArgs {
      */
     sku: pulumi.Input<inputs.cache.v20200601.SkuArgs>;
     /**
-     * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     * Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
      */
     staticIP?: pulumi.Input<string>;
     /**

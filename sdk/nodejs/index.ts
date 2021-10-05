@@ -44,6 +44,7 @@ import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
 import * as confluent from "./confluent";
+import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
 import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
@@ -217,6 +218,7 @@ export {
     confidentialledger,
     config,
     confluent,
+    connectedvmwarevsphere,
     consumption,
     containerinstance,
     containerregistry,

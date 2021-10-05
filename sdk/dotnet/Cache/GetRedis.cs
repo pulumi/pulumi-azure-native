@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly int SslPort;
         /// <summary>
-        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         /// </summary>
         public readonly string? StaticIP;
         /// <summary>

@@ -1336,6 +1336,172 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
 }
 
+type PricingTier string
+
+const (
+	// The pricing tier gives the user ability to use policy exemption feature.
+	PricingTierAdvanced = PricingTier("Advanced")
+	// The pricing tier gives the user ability to use policy exemption feature. This pricing tier is managed by Azure Security Center.
+	PricingTierDefender = PricingTier("Defender")
+)
+
+func (PricingTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingTier)(nil)).Elem()
+}
+
+func (e PricingTier) ToPricingTierOutput() PricingTierOutput {
+	return pulumi.ToOutput(e).(PricingTierOutput)
+}
+
+func (e PricingTier) ToPricingTierOutputWithContext(ctx context.Context) PricingTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PricingTierOutput)
+}
+
+func (e PricingTier) ToPricingTierPtrOutput() PricingTierPtrOutput {
+	return e.ToPricingTierPtrOutputWithContext(context.Background())
+}
+
+func (e PricingTier) ToPricingTierPtrOutputWithContext(ctx context.Context) PricingTierPtrOutput {
+	return PricingTier(e).ToPricingTierOutputWithContext(ctx).ToPricingTierPtrOutputWithContext(ctx)
+}
+
+func (e PricingTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PricingTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PricingTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PricingTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PricingTierOutput struct{ *pulumi.OutputState }
+
+func (PricingTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingTier)(nil)).Elem()
+}
+
+func (o PricingTierOutput) ToPricingTierOutput() PricingTierOutput {
+	return o
+}
+
+func (o PricingTierOutput) ToPricingTierOutputWithContext(ctx context.Context) PricingTierOutput {
+	return o
+}
+
+func (o PricingTierOutput) ToPricingTierPtrOutput() PricingTierPtrOutput {
+	return o.ToPricingTierPtrOutputWithContext(context.Background())
+}
+
+func (o PricingTierOutput) ToPricingTierPtrOutputWithContext(ctx context.Context) PricingTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PricingTier) *PricingTier {
+		return &v
+	}).(PricingTierPtrOutput)
+}
+
+func (o PricingTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PricingTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PricingTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PricingTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PricingTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PricingTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PricingTierPtrOutput struct{ *pulumi.OutputState }
+
+func (PricingTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PricingTier)(nil)).Elem()
+}
+
+func (o PricingTierPtrOutput) ToPricingTierPtrOutput() PricingTierPtrOutput {
+	return o
+}
+
+func (o PricingTierPtrOutput) ToPricingTierPtrOutputWithContext(ctx context.Context) PricingTierPtrOutput {
+	return o
+}
+
+func (o PricingTierPtrOutput) Elem() PricingTierOutput {
+	return o.ApplyT(func(v *PricingTier) PricingTier {
+		if v != nil {
+			return *v
+		}
+		var ret PricingTier
+		return ret
+	}).(PricingTierOutput)
+}
+
+func (o PricingTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PricingTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PricingTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PricingTierInput is an input type that accepts PricingTierArgs and PricingTierOutput values.
+// You can construct a concrete instance of `PricingTierInput` via:
+//
+//          PricingTierArgs{...}
+type PricingTierInput interface {
+	pulumi.Input
+
+	ToPricingTierOutput() PricingTierOutput
+	ToPricingTierOutputWithContext(context.Context) PricingTierOutput
+}
+
+var pricingTierPtrType = reflect.TypeOf((**PricingTier)(nil)).Elem()
+
+type PricingTierPtrInput interface {
+	pulumi.Input
+
+	ToPricingTierPtrOutput() PricingTierPtrOutput
+	ToPricingTierPtrOutputWithContext(context.Context) PricingTierPtrOutput
+}
+
+type pricingTierPtr string
+
+func PricingTierPtr(v string) PricingTierPtrInput {
+	return (*pricingTierPtr)(&v)
+}
+
+func (*pricingTierPtr) ElementType() reflect.Type {
+	return pricingTierPtrType
+}
+
+func (in *pricingTierPtr) ToPricingTierPtrOutput() PricingTierPtrOutput {
+	return pulumi.ToOutput(in).(PricingTierPtrOutput)
+}
+
+func (in *pricingTierPtr) ToPricingTierPtrOutputWithContext(ctx context.Context) PricingTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PricingTierPtrOutput)
+}
+
 type PrincipalType string
 
 const (
@@ -1685,6 +1851,8 @@ func init() {
 	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(PricingTierOutput{})
+	pulumi.RegisterOutputType(PricingTierPtrOutput{})
 	pulumi.RegisterOutputType(PrincipalTypeOutput{})
 	pulumi.RegisterOutputType(PrincipalTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

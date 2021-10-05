@@ -118,7 +118,7 @@ export interface GetRedisResult {
      */
     readonly sslPort: number;
     /**
-     * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     * Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
      */
     readonly staticIP?: string;
     /**

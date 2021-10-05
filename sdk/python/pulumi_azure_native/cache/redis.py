@@ -43,7 +43,7 @@ class RedisArgs:
         :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per master.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
-        :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[str] static_ip: Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
@@ -51,6 +51,8 @@ class RedisArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if enable_non_ssl_port is None:
+            enable_non_ssl_port = False
         if enable_non_ssl_port is not None:
             pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if location is not None:
@@ -59,6 +61,8 @@ class RedisArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_configuration is not None:
@@ -202,7 +206,7 @@ class RedisArgs:
     @pulumi.getter(name="staticIP")
     def static_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         """
         return pulumi.get(self, "static_ip")
 
@@ -296,7 +300,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Redis cache to deploy.
-        :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[str] static_ip: Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
@@ -354,10 +358,14 @@ class Redis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RedisArgs.__new__(RedisArgs)
 
+            if enable_non_ssl_port is None:
+                enable_non_ssl_port = False
             __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redis_configuration"] = redis_configuration
             __props__.__dict__["replicas_per_master"] = replicas_per_master
@@ -581,7 +589,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="staticIP")
     def static_ip(self) -> pulumi.Output[Optional[str]]:
         """
-        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         """
         return pulumi.get(self, "static_ip")
 

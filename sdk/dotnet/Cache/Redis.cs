@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<int> SslPort { get; private set; } = null!;
 
         /// <summary>
-        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         /// </summary>
         [Output("staticIP")]
         public Output<string?> StaticIP { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.AzureNative.Cache
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         /// </summary>
         [Input("staticIP")]
         public Input<string>? StaticIP { get; set; }
@@ -335,6 +335,8 @@ namespace Pulumi.AzureNative.Cache
 
         public RedisArgs()
         {
+            EnableNonSslPort = false;
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

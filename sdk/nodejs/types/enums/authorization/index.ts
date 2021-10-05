@@ -26,6 +26,7 @@ import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
+import * as v20210701 from "./v20210701";
 import * as v20210701preview from "./v20210701preview";
 
 export {
@@ -53,6 +54,7 @@ export {
     v20201001preview,
     v20210301preview,
     v20210601,
+    v20210701,
     v20210701preview,
 };
 
@@ -157,6 +159,22 @@ export const PolicyType = {
  * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+export const PricingTier = {
+    /**
+     * The pricing tier gives the user ability to use policy exemption feature.
+     */
+    Advanced: "Advanced",
+    /**
+     * The pricing tier gives the user ability to use policy exemption feature. This pricing tier is managed by Azure Security Center.
+     */
+    Defender: "Defender",
+} as const;
+
+/**
+ * The policy pricing tier. Possible values are Advanced and Defender.
+ */
+export type PricingTier = (typeof PricingTier)[keyof typeof PricingTier];
 
 export const PrincipalType = {
     User: "User",

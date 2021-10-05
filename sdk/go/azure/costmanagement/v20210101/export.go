@@ -88,6 +88,12 @@ func NewExport(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20201201preview:Export"),
 		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20211001:Export"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20211001:Export"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Export

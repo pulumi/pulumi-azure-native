@@ -254,7 +254,7 @@ class GetRedisResult:
     @pulumi.getter(name="staticIP")
     def static_ip(self) -> Optional[str]:
         """
-        Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         """
         return pulumi.get(self, "static_ip")
 
