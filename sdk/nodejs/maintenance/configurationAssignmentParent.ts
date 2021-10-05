@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration Assignment
- * API Version: 2021-09-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**

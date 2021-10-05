@@ -126,7 +126,7 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentParentResult:
     """
     Configuration Assignment
-    API Version: 2021-09-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -172,7 +172,7 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
     """
     Configuration Assignment
-    API Version: 2021-09-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name

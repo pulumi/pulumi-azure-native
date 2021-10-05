@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance
     {
         /// <summary>
         /// Configuration Assignment
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithVersion());

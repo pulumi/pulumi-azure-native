@@ -17,7 +17,6 @@ type Application struct {
 	Etag       pulumi.StringPtrOutput              `pulumi:"etag"`
 	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties ApplicationPropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
 	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
 	Type       pulumi.StringOutput                 `pulumi:"type"`
 }

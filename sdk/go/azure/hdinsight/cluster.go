@@ -16,13 +16,11 @@ type Cluster struct {
 
 	Etag       pulumi.StringPtrOutput             `pulumi:"etag"`
 	Identity   ClusterIdentityResponsePtrOutput   `pulumi:"identity"`
-	Location   pulumi.StringOutput                `pulumi:"location"`
+	Location   pulumi.StringPtrOutput             `pulumi:"location"`
 	Name       pulumi.StringOutput                `pulumi:"name"`
 	Properties ClusterGetPropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput           `pulumi:"systemData"`
 	Tags       pulumi.StringMapOutput             `pulumi:"tags"`
 	Type       pulumi.StringOutput                `pulumi:"type"`
-	Zones      pulumi.StringArrayOutput           `pulumi:"zones"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +95,6 @@ type clusterArgs struct {
 	Properties        *ClusterCreateProperties `pulumi:"properties"`
 	ResourceGroupName string                   `pulumi:"resourceGroupName"`
 	Tags              map[string]string        `pulumi:"tags"`
-	Zones             []string                 `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -108,7 +105,6 @@ type ClusterArgs struct {
 	Properties        ClusterCreatePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
-	Zones             pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

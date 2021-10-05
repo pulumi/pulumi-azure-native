@@ -134,37 +134,6 @@ namespace Pulumi.AzureNative.HDInsight
     }
 
     /// <summary>
-    /// The method that private IP address is allocated.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateIPAllocationMethod : IEquatable<PrivateIPAllocationMethod>
-    {
-        private readonly string _value;
-
-        private PrivateIPAllocationMethod(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateIPAllocationMethod @Dynamic { get; } = new PrivateIPAllocationMethod("dynamic");
-        public static PrivateIPAllocationMethod @Static { get; } = new PrivateIPAllocationMethod("static");
-
-        public static bool operator ==(PrivateIPAllocationMethod left, PrivateIPAllocationMethod right) => left.Equals(right);
-        public static bool operator !=(PrivateIPAllocationMethod left, PrivateIPAllocationMethod right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateIPAllocationMethod value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateIPAllocationMethod other && Equals(other);
-        public bool Equals(PrivateIPAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether or not private link is enabled.
     /// </summary>
     [EnumType]

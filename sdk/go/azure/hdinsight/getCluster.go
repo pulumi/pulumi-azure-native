@@ -26,11 +26,9 @@ type LookupClusterResult struct {
 	Etag       *string                      `pulumi:"etag"`
 	Id         string                       `pulumi:"id"`
 	Identity   *ClusterIdentityResponse     `pulumi:"identity"`
-	Location   string                       `pulumi:"location"`
+	Location   *string                      `pulumi:"location"`
 	Name       string                       `pulumi:"name"`
 	Properties ClusterGetPropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse           `pulumi:"systemData"`
 	Tags       map[string]string            `pulumi:"tags"`
 	Type       string                       `pulumi:"type"`
-	Zones      []string                     `pulumi:"zones"`
 }

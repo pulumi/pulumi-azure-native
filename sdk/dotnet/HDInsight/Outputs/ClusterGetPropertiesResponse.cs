@@ -85,14 +85,6 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// </summary>
         public readonly string? OsType;
         /// <summary>
-        /// The list of private endpoint connections.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// The private link configurations.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkConfigurationResponse> PrivateLinkConfigurations;
-        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string? ProvisioningState;
@@ -149,10 +141,6 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
 
             string? osType,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            ImmutableArray<Outputs.PrivateLinkConfigurationResponse> privateLinkConfigurations,
-
             string? provisioningState,
 
             Outputs.QuotaInfoResponse? quotaInfo,
@@ -180,8 +168,6 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
             MinSupportedTlsVersion = minSupportedTlsVersion;
             NetworkProperties = networkProperties;
             OsType = osType;
-            PrivateEndpointConnections = privateEndpointConnections;
-            PrivateLinkConfigurations = privateLinkConfigurations;
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;
             SecurityProfile = securityProfile;

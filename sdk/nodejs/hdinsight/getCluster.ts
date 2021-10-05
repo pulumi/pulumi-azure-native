@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster.
- * API Version: 2021-06-01.
+ * API Version: 2018-06-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -43,7 +43,7 @@ export interface GetClusterResult {
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource Id for the resource.
      */
     readonly id: string;
     /**
@@ -51,9 +51,9 @@ export interface GetClusterResult {
      */
     readonly identity?: outputs.hdinsight.ClusterIdentityResponse;
     /**
-     * The geo-location where the resource lives
+     * The Azure Region where the resource lives
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * The name of the resource
      */
@@ -63,19 +63,11 @@ export interface GetClusterResult {
      */
     readonly properties: outputs.hdinsight.ClusterGetPropertiesResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.hdinsight.SystemDataResponse;
-    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource.
      */
     readonly type: string;
-    /**
-     * The availability zones.
-     */
-    readonly zones?: string[];
 }

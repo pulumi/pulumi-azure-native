@@ -73,19 +73,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         /// The type of operating system.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNative.HDInsight.OSType>? OsType { get; set; }
-
-        [Input("privateLinkConfigurations")]
-        private InputList<Inputs.PrivateLinkConfigurationArgs>? _privateLinkConfigurations;
-
-        /// <summary>
-        /// The private link configurations.
-        /// </summary>
-        public InputList<Inputs.PrivateLinkConfigurationArgs> PrivateLinkConfigurations
-        {
-            get => _privateLinkConfigurations ?? (_privateLinkConfigurations = new InputList<Inputs.PrivateLinkConfigurationArgs>());
-            set => _privateLinkConfigurations = value;
-        }
+        public Input<Pulumi.AzureNative.HDInsight.OSType>? OsType { get; set; }
 
         /// <summary>
         /// The security profile.
@@ -103,11 +91,11 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         /// The cluster tier.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.HDInsight.Tier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.HDInsight.Tier>? Tier { get; set; }
 
         public ClusterCreatePropertiesArgs()
         {
-            Tier = "Standard";
+            Tier = Pulumi.AzureNative.HDInsight.Tier.Standard;
         }
     }
 }

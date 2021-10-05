@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Maintenance
 {
     /// <summary>
     /// Configuration Assignment
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignmentParent")]
     public partial class ConfigurationAssignmentParent : Pulumi.CustomResource

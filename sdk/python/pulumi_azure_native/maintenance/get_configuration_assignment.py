@@ -124,7 +124,7 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentResult:
     """
     Configuration Assignment
-    API Version: 2021-09-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -164,7 +164,7 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
     Configuration Assignment
-    API Version: 2021-09-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name

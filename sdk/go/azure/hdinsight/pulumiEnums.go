@@ -179,6 +179,51 @@ func (in *daysOfWeekPtr) ToDaysOfWeekPtrOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, in).(DaysOfWeekPtrOutput)
 }
 
+// DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
+// You can construct a concrete instance of `DaysOfWeekArrayInput` via:
+//
+//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+type DaysOfWeekArrayInput interface {
+	pulumi.Input
+
+	ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput
+	ToDaysOfWeekArrayOutputWithContext(context.Context) DaysOfWeekArrayOutput
+}
+
+type DaysOfWeekArray []DaysOfWeek
+
+func (DaysOfWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return i.ToDaysOfWeekArrayOutputWithContext(context.Background())
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaysOfWeekArrayOutput)
+}
+
+type DaysOfWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (DaysOfWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) DaysOfWeekOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaysOfWeek {
+		return vs[0].([]DaysOfWeek)[vs[1].(int)]
+	}).(DaysOfWeekOutput)
+}
+
 type DirectoryType string
 
 const (
@@ -669,170 +714,6 @@ func (in *ostypePtr) ToOSTypePtrOutput() OSTypePtrOutput {
 
 func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
-}
-
-type PrivateIPAllocationMethod string
-
-const (
-	PrivateIPAllocationMethodDynamic = PrivateIPAllocationMethod("dynamic")
-	PrivateIPAllocationMethodStatic  = PrivateIPAllocationMethod("static")
-)
-
-func (PrivateIPAllocationMethod) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateIPAllocationMethod)(nil)).Elem()
-}
-
-func (e PrivateIPAllocationMethod) ToPrivateIPAllocationMethodOutput() PrivateIPAllocationMethodOutput {
-	return pulumi.ToOutput(e).(PrivateIPAllocationMethodOutput)
-}
-
-func (e PrivateIPAllocationMethod) ToPrivateIPAllocationMethodOutputWithContext(ctx context.Context) PrivateIPAllocationMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PrivateIPAllocationMethodOutput)
-}
-
-func (e PrivateIPAllocationMethod) ToPrivateIPAllocationMethodPtrOutput() PrivateIPAllocationMethodPtrOutput {
-	return e.ToPrivateIPAllocationMethodPtrOutputWithContext(context.Background())
-}
-
-func (e PrivateIPAllocationMethod) ToPrivateIPAllocationMethodPtrOutputWithContext(ctx context.Context) PrivateIPAllocationMethodPtrOutput {
-	return PrivateIPAllocationMethod(e).ToPrivateIPAllocationMethodOutputWithContext(ctx).ToPrivateIPAllocationMethodPtrOutputWithContext(ctx)
-}
-
-func (e PrivateIPAllocationMethod) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PrivateIPAllocationMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PrivateIPAllocationMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PrivateIPAllocationMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PrivateIPAllocationMethodOutput struct{ *pulumi.OutputState }
-
-func (PrivateIPAllocationMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateIPAllocationMethod)(nil)).Elem()
-}
-
-func (o PrivateIPAllocationMethodOutput) ToPrivateIPAllocationMethodOutput() PrivateIPAllocationMethodOutput {
-	return o
-}
-
-func (o PrivateIPAllocationMethodOutput) ToPrivateIPAllocationMethodOutputWithContext(ctx context.Context) PrivateIPAllocationMethodOutput {
-	return o
-}
-
-func (o PrivateIPAllocationMethodOutput) ToPrivateIPAllocationMethodPtrOutput() PrivateIPAllocationMethodPtrOutput {
-	return o.ToPrivateIPAllocationMethodPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateIPAllocationMethodOutput) ToPrivateIPAllocationMethodPtrOutputWithContext(ctx context.Context) PrivateIPAllocationMethodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateIPAllocationMethod) *PrivateIPAllocationMethod {
-		return &v
-	}).(PrivateIPAllocationMethodPtrOutput)
-}
-
-func (o PrivateIPAllocationMethodOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PrivateIPAllocationMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateIPAllocationMethod) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PrivateIPAllocationMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateIPAllocationMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateIPAllocationMethod) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PrivateIPAllocationMethodPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateIPAllocationMethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateIPAllocationMethod)(nil)).Elem()
-}
-
-func (o PrivateIPAllocationMethodPtrOutput) ToPrivateIPAllocationMethodPtrOutput() PrivateIPAllocationMethodPtrOutput {
-	return o
-}
-
-func (o PrivateIPAllocationMethodPtrOutput) ToPrivateIPAllocationMethodPtrOutputWithContext(ctx context.Context) PrivateIPAllocationMethodPtrOutput {
-	return o
-}
-
-func (o PrivateIPAllocationMethodPtrOutput) Elem() PrivateIPAllocationMethodOutput {
-	return o.ApplyT(func(v *PrivateIPAllocationMethod) PrivateIPAllocationMethod {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateIPAllocationMethod
-		return ret
-	}).(PrivateIPAllocationMethodOutput)
-}
-
-func (o PrivateIPAllocationMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateIPAllocationMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateIPAllocationMethod) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PrivateIPAllocationMethodInput is an input type that accepts PrivateIPAllocationMethodArgs and PrivateIPAllocationMethodOutput values.
-// You can construct a concrete instance of `PrivateIPAllocationMethodInput` via:
-//
-//          PrivateIPAllocationMethodArgs{...}
-type PrivateIPAllocationMethodInput interface {
-	pulumi.Input
-
-	ToPrivateIPAllocationMethodOutput() PrivateIPAllocationMethodOutput
-	ToPrivateIPAllocationMethodOutputWithContext(context.Context) PrivateIPAllocationMethodOutput
-}
-
-var privateIPAllocationMethodPtrType = reflect.TypeOf((**PrivateIPAllocationMethod)(nil)).Elem()
-
-type PrivateIPAllocationMethodPtrInput interface {
-	pulumi.Input
-
-	ToPrivateIPAllocationMethodPtrOutput() PrivateIPAllocationMethodPtrOutput
-	ToPrivateIPAllocationMethodPtrOutputWithContext(context.Context) PrivateIPAllocationMethodPtrOutput
-}
-
-type privateIPAllocationMethodPtr string
-
-func PrivateIPAllocationMethodPtr(v string) PrivateIPAllocationMethodPtrInput {
-	return (*privateIPAllocationMethodPtr)(&v)
-}
-
-func (*privateIPAllocationMethodPtr) ElementType() reflect.Type {
-	return privateIPAllocationMethodPtrType
-}
-
-func (in *privateIPAllocationMethodPtr) ToPrivateIPAllocationMethodPtrOutput() PrivateIPAllocationMethodPtrOutput {
-	return pulumi.ToOutput(in).(PrivateIPAllocationMethodPtrOutput)
-}
-
-func (in *privateIPAllocationMethodPtr) ToPrivateIPAllocationMethodPtrOutputWithContext(ctx context.Context) PrivateIPAllocationMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PrivateIPAllocationMethodPtrOutput)
 }
 
 type PrivateLink string
@@ -1662,14 +1543,13 @@ func (in *tierPtr) ToTierPtrOutputWithContext(ctx context.Context) TierPtrOutput
 func init() {
 	pulumi.RegisterOutputType(DaysOfWeekOutput{})
 	pulumi.RegisterOutputType(DaysOfWeekPtrOutput{})
+	pulumi.RegisterOutputType(DaysOfWeekArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryTypeOutput{})
 	pulumi.RegisterOutputType(DirectoryTypePtrOutput{})
 	pulumi.RegisterOutputType(JsonWebKeyEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(JsonWebKeyEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(OSTypeOutput{})
 	pulumi.RegisterOutputType(OSTypePtrOutput{})
-	pulumi.RegisterOutputType(PrivateIPAllocationMethodOutput{})
-	pulumi.RegisterOutputType(PrivateIPAllocationMethodPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatusOutput{})

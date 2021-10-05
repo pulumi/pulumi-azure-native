@@ -28,7 +28,6 @@ type LookupApplicationResult struct {
 	Id         string                        `pulumi:"id"`
 	Name       string                        `pulumi:"name"`
 	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse            `pulumi:"systemData"`
 	Tags       map[string]string             `pulumi:"tags"`
 	Type       string                        `pulumi:"type"`
 }

@@ -129,7 +129,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         The HDInsight cluster application
-        API Version: 2021-06-01.
+        API Version: 2018-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The HDInsight cluster application
-        API Version: 2021-06-01.
+        API Version: 2018-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -194,7 +194,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hdinsight:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20210601:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -223,7 +222,6 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
@@ -253,14 +251,6 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -272,7 +262,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource.
         """
         return pulumi.get(self, "type")
 

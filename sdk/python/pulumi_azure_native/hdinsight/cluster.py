@@ -21,8 +21,7 @@ class ClusterArgs:
                  identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ClusterCreatePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -31,7 +30,6 @@ class ClusterArgs:
         :param pulumi.Input[str] location: The location of the cluster.
         :param pulumi.Input['ClusterCreatePropertiesArgs'] properties: The cluster create parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cluster_name is not None:
@@ -44,8 +42,6 @@ class ClusterArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -119,18 +115,6 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The availability zones.
-        """
-        return pulumi.get(self, "zones")
-
-    @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "zones", value)
-
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -143,11 +127,10 @@ class Cluster(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['ClusterCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The HDInsight cluster.
-        API Version: 2021-06-01.
+        API Version: 2018-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +140,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterCreatePropertiesArgs']] properties: The cluster create parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -167,7 +149,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The HDInsight cluster.
-        API Version: 2021-06-01.
+        API Version: 2018-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -190,7 +172,6 @@ class Cluster(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['ClusterCreatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -211,10 +192,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["zones"] = zones
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hdinsight:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Cluster"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20210601:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -245,10 +224,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["zones"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -269,9 +246,9 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The geo-location where the resource lives
+        The Azure Region where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -292,14 +269,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -311,15 +280,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The availability zones.
-        """
-        return pulumi.get(self, "zones")
 

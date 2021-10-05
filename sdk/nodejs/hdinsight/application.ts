@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster application
- * API Version: 2021-06-01.
+ * API Version: 2018-06-01-preview.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -49,15 +49,11 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.hdinsight.ApplicationPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hdinsight.SystemDataResponse>;
-    /**
      * The tags for the application.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -85,13 +81,11 @@ export class Application extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight
     {
         /// <summary>
         /// Gateway settings.
-        /// API Version: 2021-06-01.
+        /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithVersion());

@@ -10,11 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The User Assigned Identity
-    /// </summary>
     [OutputType]
-    public sealed class UserAssignedIdentityResponse
+    public sealed class ClusterIdentityResponseUserAssignedIdentities
     {
         /// <summary>
         /// The client id of user assigned identity.
@@ -30,7 +27,7 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         public readonly string? TenantId;
 
         [OutputConstructor]
-        private UserAssignedIdentityResponse(
+        private ClusterIdentityResponseUserAssignedIdentities(
             string clientId,
 
             string principalId,

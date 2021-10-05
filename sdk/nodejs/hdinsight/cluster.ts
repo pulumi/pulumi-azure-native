@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster.
- * API Version: 2021-06-01.
+ * API Version: 2018-06-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -45,9 +45,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.hdinsight.ClusterIdentityResponse | undefined>;
     /**
-     * The geo-location where the resource lives
+     * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -57,21 +57,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.hdinsight.ClusterGetPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hdinsight.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The availability zones.
-     */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -93,10 +85,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -104,10 +94,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -146,8 +134,4 @@ export interface ClusterArgs {
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The availability zones.
-     */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

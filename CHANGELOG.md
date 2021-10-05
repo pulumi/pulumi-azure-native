@@ -9,6 +9,19 @@ CHANGELOG
 
 #### New resources:
 
+- `authorization.PolicyPricing`
+- `connectedvmwarevsphere.Cluster`
+- `connectedvmwarevsphere.Datastore`
+- `connectedvmwarevsphere.GuestAgent`
+- `connectedvmwarevsphere.Host`
+- `connectedvmwarevsphere.HybridIdentityMetadatum`
+- `connectedvmwarevsphere.InventoryItem`
+- `connectedvmwarevsphere.MachineExtension`
+- `connectedvmwarevsphere.ResourcePool`
+- `connectedvmwarevsphere.VCenter`
+- `connectedvmwarevsphere.VirtualMachine`
+- `connectedvmwarevsphere.VirtualMachineTemplate`
+- `connectedvmwarevsphere.VirtualNetwork`
 - `videoanalyzer.LivePipeline`
 - `videoanalyzer.PipelineJob`
 - `videoanalyzer.PipelineTopology`
@@ -16,6 +29,19 @@ CHANGELOG
 
 #### New functions:
 
+- `authorization.getPolicyPricing`
+- `connectedvmwarevsphere.getCluster`
+- `connectedvmwarevsphere.getDatastore`
+- `connectedvmwarevsphere.getGuestAgent`
+- `connectedvmwarevsphere.getHost`
+- `connectedvmwarevsphere.getHybridIdentityMetadatum`
+- `connectedvmwarevsphere.getInventoryItem`
+- `connectedvmwarevsphere.getMachineExtension`
+- `connectedvmwarevsphere.getResourcePool`
+- `connectedvmwarevsphere.getVCenter`
+- `connectedvmwarevsphere.getVirtualMachine`
+- `connectedvmwarevsphere.getVirtualMachineTemplate`
+- `connectedvmwarevsphere.getVirtualNetwork`
 - `videoanalyzer.getLivePipeline`
 - `videoanalyzer.getPipelineJob`
 - `videoanalyzer.getPipelineTopology`

@@ -9,7 +9,6 @@ __all__ = [
     'DirectoryType',
     'JsonWebKeyEncryptionAlgorithm',
     'OSType',
-    'PrivateIPAllocationMethod',
     'PrivateLink',
     'PrivateLinkServiceConnectionStatus',
     'ResourceIdentityType',
@@ -50,14 +49,6 @@ class OSType(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
-
-
-class PrivateIPAllocationMethod(str, Enum):
-    """
-    The method that private IP address is allocated.
-    """
-    DYNAMIC = "dynamic"
-    STATIC = "static"
 
 
 class PrivateLink(str, Enum):

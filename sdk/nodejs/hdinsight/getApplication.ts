@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster application
- * API Version: 2021-06-01.
+ * API Version: 2018-06-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -48,7 +48,7 @@ export interface GetApplicationResult {
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource Id for the resource.
      */
     readonly id: string;
     /**
@@ -60,15 +60,11 @@ export interface GetApplicationResult {
      */
     readonly properties: outputs.hdinsight.ApplicationPropertiesResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.hdinsight.SystemDataResponse;
-    /**
      * The tags for the application.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource.
      */
     readonly type: string;
 }
