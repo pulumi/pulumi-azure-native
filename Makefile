@@ -33,6 +33,7 @@ ensure:: init_submodules
 
 local_generate_code:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
+	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
 	rm Pulumi.AzureNative.csproj.bak
@@ -40,6 +41,7 @@ local_generate_code:: clean
 
 local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go ${VERSION}
+	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
 	rm Pulumi.AzureNative.csproj.bak
@@ -110,11 +112,12 @@ build_dotnet::
 
 generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
+	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
-		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
+	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
