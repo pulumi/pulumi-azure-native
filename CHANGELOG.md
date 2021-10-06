@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.35.0 (2021-10-06)
+
 #### Enhancements:
 
 - Update to `pulumi/pulumi` 3.13.2 with input/output based functions API in Python
@@ -47,8 +53,6 @@ CHANGELOG
 - `videoanalyzer.getPipelineTopology`
 - `videoanalyzer.getPrivateEndpointConnection`
 - `videoanalyzer.listVideoContentToken`
-
----
 
 ## 1.34.0 (2021-09-30)
 
