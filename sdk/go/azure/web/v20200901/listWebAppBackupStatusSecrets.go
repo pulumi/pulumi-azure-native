@@ -1,0 +1,51 @@
+
+
+
+package v20200901
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
+	var rv ListWebAppBackupStatusSecretsResult
+	err := ctx.Invoke("azure-native:web/v20200901:listWebAppBackupStatusSecrets", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListWebAppBackupStatusSecretsArgs struct {
+	BackupId          string                  `pulumi:"backupId"`
+	BackupName        *string                 `pulumi:"backupName"`
+	BackupSchedule    *BackupSchedule         `pulumi:"backupSchedule"`
+	Databases         []DatabaseBackupSetting `pulumi:"databases"`
+	Enabled           *bool                   `pulumi:"enabled"`
+	Kind              *string                 `pulumi:"kind"`
+	Name              string                  `pulumi:"name"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	StorageAccountUrl string                  `pulumi:"storageAccountUrl"`
+}
+
+
+type ListWebAppBackupStatusSecretsResult struct {
+	BackupId             int                             `pulumi:"backupId"`
+	BlobName             string                          `pulumi:"blobName"`
+	CorrelationId        string                          `pulumi:"correlationId"`
+	Created              string                          `pulumi:"created"`
+	Databases            []DatabaseBackupSettingResponse `pulumi:"databases"`
+	FinishedTimeStamp    string                          `pulumi:"finishedTimeStamp"`
+	Id                   string                          `pulumi:"id"`
+	Kind                 *string                         `pulumi:"kind"`
+	LastRestoreTimeStamp string                          `pulumi:"lastRestoreTimeStamp"`
+	Log                  string                          `pulumi:"log"`
+	Name                 string                          `pulumi:"name"`
+	Scheduled            bool                            `pulumi:"scheduled"`
+	SizeInBytes          float64                         `pulumi:"sizeInBytes"`
+	Status               string                          `pulumi:"status"`
+	StorageAccountUrl    string                          `pulumi:"storageAccountUrl"`
+	SystemData           SystemDataResponse              `pulumi:"systemData"`
+	Type                 string                          `pulumi:"type"`
+	WebsiteSizeInBytes   float64                         `pulumi:"websiteSizeInBytes"`
+}

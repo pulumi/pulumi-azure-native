@@ -1,0 +1,46 @@
+
+
+
+package v20210501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	var rv LookupServerResult
+	err := ctx.Invoke("azure-native:dbformysql/v20210501:getServer", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupServerArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName        string `pulumi:"serverName"`
+}
+
+
+type LookupServerResult struct {
+	AdministratorLogin       *string                    `pulumi:"administratorLogin"`
+	AvailabilityZone         *string                    `pulumi:"availabilityZone"`
+	Backup                   *BackupResponse            `pulumi:"backup"`
+	FullyQualifiedDomainName string                     `pulumi:"fullyQualifiedDomainName"`
+	HighAvailability         *HighAvailabilityResponse  `pulumi:"highAvailability"`
+	Id                       string                     `pulumi:"id"`
+	Location                 string                     `pulumi:"location"`
+	MaintenanceWindow        *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	Name                     string                     `pulumi:"name"`
+	Network                  *NetworkResponse           `pulumi:"network"`
+	ReplicaCapacity          int                        `pulumi:"replicaCapacity"`
+	ReplicationRole          *string                    `pulumi:"replicationRole"`
+	Sku                      *SkuResponse               `pulumi:"sku"`
+	SourceServerResourceId   *string                    `pulumi:"sourceServerResourceId"`
+	State                    string                     `pulumi:"state"`
+	Storage                  *StorageResponse           `pulumi:"storage"`
+	SystemData               SystemDataResponse         `pulumi:"systemData"`
+	Tags                     map[string]string          `pulumi:"tags"`
+	Type                     string                     `pulumi:"type"`
+	Version                  *string                    `pulumi:"version"`
+}
