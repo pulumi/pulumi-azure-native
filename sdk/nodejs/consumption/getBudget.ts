@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * API Version: 2021-10-01.
+ * API Version: 2019-10-01.
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
     if (!opts) {

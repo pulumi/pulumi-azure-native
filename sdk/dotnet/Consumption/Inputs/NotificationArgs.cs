@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.Consumption.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
+        /// Language in which the recipient will receive the notification
+        /// </summary>
+        [Input("locale")]
+        public InputUnion<string, Pulumi.AzureNative.Consumption.CultureCode>? Locale { get; set; }
+
+        /// <summary>
         /// The comparison operator.
         /// </summary>
         [Input("operator", required: true)]

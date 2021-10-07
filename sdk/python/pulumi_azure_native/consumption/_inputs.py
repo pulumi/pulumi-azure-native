@@ -230,6 +230,7 @@ class NotificationArgs:
                  threshold: pulumi.Input[float],
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locale: Optional[pulumi.Input[Union[str, 'CultureCode']]] = None,
                  threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None):
         """
         The notification associated with a budget.
@@ -239,6 +240,7 @@ class NotificationArgs:
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param pulumi.Input[Union[str, 'CultureCode']] locale: Language in which the recipient will receive the notification
         :param pulumi.Input[Union[str, 'ThresholdType']] threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
@@ -249,6 +251,8 @@ class NotificationArgs:
             pulumi.set(__self__, "contact_groups", contact_groups)
         if contact_roles is not None:
             pulumi.set(__self__, "contact_roles", contact_roles)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
         if threshold_type is None:
             threshold_type = 'Actual'
         if threshold_type is not None:
@@ -325,6 +329,18 @@ class NotificationArgs:
     @contact_roles.setter
     def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contact_roles", value)
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[Union[str, 'CultureCode']]]:
+        """
+        Language in which the recipient will receive the notification
+        """
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[Union[str, 'CultureCode']]]):
+        pulumi.set(self, "locale", value)
 
     @property
     @pulumi.getter(name="thresholdType")

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Consumption
     {
         /// <summary>
         /// A budget resource.
-        /// API Version: 2021-10-01.
+        /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());

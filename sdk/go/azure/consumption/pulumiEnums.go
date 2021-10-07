@@ -336,6 +336,189 @@ func (in *categoryTypePtr) ToCategoryTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(CategoryTypePtrOutput)
 }
 
+type CultureCode string
+
+const (
+	CultureCode_En_us = CultureCode("en-us")
+	CultureCode_Ja_jp = CultureCode("ja-jp")
+	CultureCode_Zh_cn = CultureCode("zh-cn")
+	CultureCode_De_de = CultureCode("de-de")
+	CultureCode_Es_es = CultureCode("es-es")
+	CultureCode_Fr_fr = CultureCode("fr-fr")
+	CultureCode_It_it = CultureCode("it-it")
+	CultureCode_Ko_kr = CultureCode("ko-kr")
+	CultureCode_Pt_br = CultureCode("pt-br")
+	CultureCode_Ru_ru = CultureCode("ru-ru")
+	CultureCode_Zh_tw = CultureCode("zh-tw")
+	CultureCode_Cs_cz = CultureCode("cs-cz")
+	CultureCode_Pl_pl = CultureCode("pl-pl")
+	CultureCode_Tr_tr = CultureCode("tr-tr")
+	CultureCode_Da_dk = CultureCode("da-dk")
+	CultureCode_En_gb = CultureCode("en-gb")
+	CultureCode_Hu_hu = CultureCode("hu-hu")
+	CultureCode_Nb_no = CultureCode("nb-no")
+	CultureCode_Nl_nl = CultureCode("nl-nl")
+	CultureCode_Pt_pt = CultureCode("pt-pt")
+	CultureCode_Sv_se = CultureCode("sv-se")
+)
+
+func (CultureCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CultureCode)(nil)).Elem()
+}
+
+func (e CultureCode) ToCultureCodeOutput() CultureCodeOutput {
+	return pulumi.ToOutput(e).(CultureCodeOutput)
+}
+
+func (e CultureCode) ToCultureCodeOutputWithContext(ctx context.Context) CultureCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CultureCodeOutput)
+}
+
+func (e CultureCode) ToCultureCodePtrOutput() CultureCodePtrOutput {
+	return e.ToCultureCodePtrOutputWithContext(context.Background())
+}
+
+func (e CultureCode) ToCultureCodePtrOutputWithContext(ctx context.Context) CultureCodePtrOutput {
+	return CultureCode(e).ToCultureCodeOutputWithContext(ctx).ToCultureCodePtrOutputWithContext(ctx)
+}
+
+func (e CultureCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CultureCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CultureCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CultureCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CultureCodeOutput struct{ *pulumi.OutputState }
+
+func (CultureCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CultureCode)(nil)).Elem()
+}
+
+func (o CultureCodeOutput) ToCultureCodeOutput() CultureCodeOutput {
+	return o
+}
+
+func (o CultureCodeOutput) ToCultureCodeOutputWithContext(ctx context.Context) CultureCodeOutput {
+	return o
+}
+
+func (o CultureCodeOutput) ToCultureCodePtrOutput() CultureCodePtrOutput {
+	return o.ToCultureCodePtrOutputWithContext(context.Background())
+}
+
+func (o CultureCodeOutput) ToCultureCodePtrOutputWithContext(ctx context.Context) CultureCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CultureCode) *CultureCode {
+		return &v
+	}).(CultureCodePtrOutput)
+}
+
+func (o CultureCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CultureCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CultureCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CultureCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CultureCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CultureCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CultureCodePtrOutput struct{ *pulumi.OutputState }
+
+func (CultureCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CultureCode)(nil)).Elem()
+}
+
+func (o CultureCodePtrOutput) ToCultureCodePtrOutput() CultureCodePtrOutput {
+	return o
+}
+
+func (o CultureCodePtrOutput) ToCultureCodePtrOutputWithContext(ctx context.Context) CultureCodePtrOutput {
+	return o
+}
+
+func (o CultureCodePtrOutput) Elem() CultureCodeOutput {
+	return o.ApplyT(func(v *CultureCode) CultureCode {
+		if v != nil {
+			return *v
+		}
+		var ret CultureCode
+		return ret
+	}).(CultureCodeOutput)
+}
+
+func (o CultureCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CultureCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CultureCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type CultureCodeInput interface {
+	pulumi.Input
+
+	ToCultureCodeOutput() CultureCodeOutput
+	ToCultureCodeOutputWithContext(context.Context) CultureCodeOutput
+}
+
+var cultureCodePtrType = reflect.TypeOf((**CultureCode)(nil)).Elem()
+
+type CultureCodePtrInput interface {
+	pulumi.Input
+
+	ToCultureCodePtrOutput() CultureCodePtrOutput
+	ToCultureCodePtrOutputWithContext(context.Context) CultureCodePtrOutput
+}
+
+type cultureCodePtr string
+
+func CultureCodePtr(v string) CultureCodePtrInput {
+	return (*cultureCodePtr)(&v)
+}
+
+func (*cultureCodePtr) ElementType() reflect.Type {
+	return cultureCodePtrType
+}
+
+func (in *cultureCodePtr) ToCultureCodePtrOutput() CultureCodePtrOutput {
+	return pulumi.ToOutput(in).(CultureCodePtrOutput)
+}
+
+func (in *cultureCodePtr) ToCultureCodePtrOutputWithContext(ctx context.Context) CultureCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CultureCodePtrOutput)
+}
+
 type OperatorType string
 
 const (
@@ -837,6 +1020,8 @@ func init() {
 	pulumi.RegisterOutputType(BudgetOperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(CategoryTypeOutput{})
 	pulumi.RegisterOutputType(CategoryTypePtrOutput{})
+	pulumi.RegisterOutputType(CultureCodeOutput{})
+	pulumi.RegisterOutputType(CultureCodePtrOutput{})
 	pulumi.RegisterOutputType(OperatorTypeOutput{})
 	pulumi.RegisterOutputType(OperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(ThresholdTypeOutput{})

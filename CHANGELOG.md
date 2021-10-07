@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `sql.DistributedAvailabilityGroup`
+- `sql.ServerTrustCertificate`
+
+#### New functions:
+
+- `sql.getDistributedAvailabilityGroup`
+- `sql.getServerTrustCertificate`
 
 ---
 

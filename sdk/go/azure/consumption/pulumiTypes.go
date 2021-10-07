@@ -1675,6 +1675,7 @@ type Notification struct {
 	ContactGroups []string `pulumi:"contactGroups"`
 	ContactRoles  []string `pulumi:"contactRoles"`
 	Enabled       bool     `pulumi:"enabled"`
+	Locale        *string  `pulumi:"locale"`
 	Operator      string   `pulumi:"operator"`
 	Threshold     float64  `pulumi:"threshold"`
 	ThresholdType *string  `pulumi:"thresholdType"`
@@ -1696,6 +1697,7 @@ type NotificationArgs struct {
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	ContactRoles  pulumi.StringArrayInput `pulumi:"contactRoles"`
 	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
+	Locale        pulumi.StringPtrInput   `pulumi:"locale"`
 	Operator      pulumi.StringInput      `pulumi:"operator"`
 	Threshold     pulumi.Float64Input     `pulumi:"threshold"`
 	ThresholdType pulumi.StringPtrInput   `pulumi:"thresholdType"`
@@ -1768,6 +1770,10 @@ func (o NotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v Notification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+func (o NotificationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Notification) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
 func (o NotificationOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Notification) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -1805,6 +1811,7 @@ type NotificationResponse struct {
 	ContactGroups []string `pulumi:"contactGroups"`
 	ContactRoles  []string `pulumi:"contactRoles"`
 	Enabled       bool     `pulumi:"enabled"`
+	Locale        *string  `pulumi:"locale"`
 	Operator      string   `pulumi:"operator"`
 	Threshold     float64  `pulumi:"threshold"`
 	ThresholdType *string  `pulumi:"thresholdType"`
@@ -1826,6 +1833,7 @@ type NotificationResponseArgs struct {
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	ContactRoles  pulumi.StringArrayInput `pulumi:"contactRoles"`
 	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
+	Locale        pulumi.StringPtrInput   `pulumi:"locale"`
 	Operator      pulumi.StringInput      `pulumi:"operator"`
 	Threshold     pulumi.Float64Input     `pulumi:"threshold"`
 	ThresholdType pulumi.StringPtrInput   `pulumi:"thresholdType"`
@@ -1896,6 +1904,10 @@ func (o NotificationResponseOutput) ContactRoles() pulumi.StringArrayOutput {
 
 func (o NotificationResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v NotificationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o NotificationResponseOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationResponse) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 func (o NotificationResponseOutput) Operator() pulumi.StringOutput {
