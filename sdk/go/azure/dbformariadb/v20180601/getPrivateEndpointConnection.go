@@ -1,0 +1,33 @@
+
+
+
+package v20180601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
+	var rv LookupPrivateEndpointConnectionResult
+	err := ctx.Invoke("azure-native:dbformariadb/v20180601:getPrivateEndpointConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupPrivateEndpointConnectionArgs struct {
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ServerName                    string `pulumi:"serverName"`
+}
+
+
+type LookupPrivateEndpointConnectionResult struct {
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
+	Type                              string                                             `pulumi:"type"`
+}
