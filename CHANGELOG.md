@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.36.0 (2021-10-07)
+
 #### New resources:
 
 - `sql.DistributedAvailabilityGroup`
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `sql.getDistributedAvailabilityGroup`
 - `sql.getServerTrustCertificate`
-
----
 
 ## 1.35.0 (2021-10-06)
 
