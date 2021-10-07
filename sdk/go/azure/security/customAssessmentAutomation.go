@@ -16,11 +16,13 @@ type CustomAssessmentAutomation struct {
 
 	CompressedQuery        pulumi.StringPtrOutput `pulumi:"compressedQuery"`
 	Description            pulumi.StringPtrOutput `pulumi:"description"`
+	ImplementationEffort   pulumi.StringPtrOutput `pulumi:"implementationEffort"`
 	Name                   pulumi.StringOutput    `pulumi:"name"`
 	RemediationDescription pulumi.StringPtrOutput `pulumi:"remediationDescription"`
 	Severity               pulumi.StringPtrOutput `pulumi:"severity"`
 	SupportedCloud         pulumi.StringPtrOutput `pulumi:"supportedCloud"`
 	Type                   pulumi.StringOutput    `pulumi:"type"`
+	UserImpact             pulumi.StringPtrOutput `pulumi:"userImpact"`
 }
 
 
@@ -80,10 +82,12 @@ type customAssessmentAutomationArgs struct {
 	CompressedQuery                *string `pulumi:"compressedQuery"`
 	CustomAssessmentAutomationName *string `pulumi:"customAssessmentAutomationName"`
 	Description                    *string `pulumi:"description"`
+	ImplementationEffort           *string `pulumi:"implementationEffort"`
 	RemediationDescription         *string `pulumi:"remediationDescription"`
 	ResourceGroupName              string  `pulumi:"resourceGroupName"`
 	Severity                       *string `pulumi:"severity"`
 	SupportedCloud                 *string `pulumi:"supportedCloud"`
+	UserImpact                     *string `pulumi:"userImpact"`
 }
 
 
@@ -91,10 +95,12 @@ type CustomAssessmentAutomationArgs struct {
 	CompressedQuery                pulumi.StringPtrInput
 	CustomAssessmentAutomationName pulumi.StringPtrInput
 	Description                    pulumi.StringPtrInput
+	ImplementationEffort           pulumi.StringPtrInput
 	RemediationDescription         pulumi.StringPtrInput
 	ResourceGroupName              pulumi.StringInput
 	Severity                       pulumi.StringPtrInput
 	SupportedCloud                 pulumi.StringPtrInput
+	UserImpact                     pulumi.StringPtrInput
 }
 
 func (CustomAssessmentAutomationArgs) ElementType() reflect.Type {

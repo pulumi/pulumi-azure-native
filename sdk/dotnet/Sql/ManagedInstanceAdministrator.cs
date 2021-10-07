@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ManagedInstanceAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ManagedInstanceAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

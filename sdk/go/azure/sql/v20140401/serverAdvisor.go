@@ -80,6 +80,12 @@ func NewServerAdvisor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerAdvisor"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210501preview:ServerAdvisor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerAdvisor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerAdvisor

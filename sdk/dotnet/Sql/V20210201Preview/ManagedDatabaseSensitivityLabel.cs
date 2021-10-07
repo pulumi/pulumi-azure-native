@@ -120,6 +120,8 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ManagedDatabaseSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedDatabaseSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ManagedDatabaseSensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

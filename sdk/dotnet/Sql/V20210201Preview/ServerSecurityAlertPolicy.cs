@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

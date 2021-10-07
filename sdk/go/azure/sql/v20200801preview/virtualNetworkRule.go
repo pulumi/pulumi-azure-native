@@ -71,6 +71,12 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20210201preview:VirtualNetworkRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210501preview:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210501preview:VirtualNetworkRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule

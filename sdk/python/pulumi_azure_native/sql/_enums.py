@@ -32,6 +32,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
+    'ReplicationMode',
     'RequestedBackupStorageRedundancy',
     'SampleName',
     'SecondaryType',
@@ -297,6 +298,14 @@ class ReadWriteEndpointFailoverPolicy(str, Enum):
     """
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
+
+
+class ReplicationMode(str, Enum):
+    """
+    The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+    """
+    ASYNC_ = "Async"
+    SYNC = "Sync"
 
 
 class RequestedBackupStorageRedundancy(str, Enum):

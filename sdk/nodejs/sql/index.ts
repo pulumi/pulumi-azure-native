@@ -14,6 +14,7 @@ export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./disasterRecoveryConfiguration";
+export * from "./distributedAvailabilityGroup";
 export * from "./elasticPool";
 export * from "./encryptionProtector";
 export * from "./extendedDatabaseBlobAuditingPolicy";
@@ -30,6 +31,7 @@ export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getDisasterRecoveryConfiguration";
+export * from "./getDistributedAvailabilityGroup";
 export * from "./getElasticPool";
 export * from "./getEncryptionProtector";
 export * from "./getExtendedDatabaseBlobAuditingPolicy";
@@ -67,6 +69,7 @@ export * from "./getServerCommunicationLink";
 export * from "./getServerDnsAlias";
 export * from "./getServerKey";
 export * from "./getServerSecurityAlertPolicy";
+export * from "./getServerTrustCertificate";
 export * from "./getServerTrustGroup";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSyncAgent";
@@ -106,6 +109,7 @@ export * from "./serverCommunicationLink";
 export * from "./serverDnsAlias";
 export * from "./serverKey";
 export * from "./serverSecurityAlertPolicy";
+export * from "./serverTrustCertificate";
 export * from "./serverTrustGroup";
 export * from "./serverVulnerabilityAssessment";
 export * from "./syncAgent";
@@ -130,6 +134,7 @@ import * as v20200202preview from "./v20200202preview";
 import * as v20200801preview from "./v20200801preview";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210501preview from "./v20210501preview";
 
 export {
     v20140401,
@@ -142,6 +147,7 @@ export {
     v20200801preview,
     v20201101preview,
     v20210201preview,
+    v20210501preview,
 };
 
 // Import resources to register:
@@ -154,6 +160,7 @@ import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
+import { DistributedAvailabilityGroup } from "./distributedAvailabilityGroup";
 import { ElasticPool } from "./elasticPool";
 import { EncryptionProtector } from "./encryptionProtector";
 import { ExtendedDatabaseBlobAuditingPolicy } from "./extendedDatabaseBlobAuditingPolicy";
@@ -191,6 +198,7 @@ import { ServerCommunicationLink } from "./serverCommunicationLink";
 import { ServerDnsAlias } from "./serverDnsAlias";
 import { ServerKey } from "./serverKey";
 import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
+import { ServerTrustCertificate } from "./serverTrustCertificate";
 import { ServerTrustGroup } from "./serverTrustGroup";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SyncAgent } from "./syncAgent";
@@ -223,6 +231,8 @@ const _module = {
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure-native:sql:DisasterRecoveryConfiguration":
                 return new DisasterRecoveryConfiguration(name, <any>undefined, { urn })
+            case "azure-native:sql:DistributedAvailabilityGroup":
+                return new DistributedAvailabilityGroup(name, <any>undefined, { urn })
             case "azure-native:sql:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azure-native:sql:EncryptionProtector":
@@ -297,6 +307,8 @@ const _module = {
                 return new ServerKey(name, <any>undefined, { urn })
             case "azure-native:sql:ServerSecurityAlertPolicy":
                 return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql:ServerTrustCertificate":
+                return new ServerTrustCertificate(name, <any>undefined, { urn })
             case "azure-native:sql:ServerTrustGroup":
                 return new ServerTrustGroup(name, <any>undefined, { urn })
             case "azure-native:sql:ServerVulnerabilityAssessment":

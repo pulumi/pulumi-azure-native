@@ -70,6 +70,8 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:BackupShortTermRetentionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:BackupShortTermRetentionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:BackupShortTermRetentionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

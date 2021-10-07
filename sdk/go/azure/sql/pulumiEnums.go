@@ -4454,6 +4454,170 @@ func (in *readWriteEndpointFailoverPolicyPtr) ToReadWriteEndpointFailoverPolicyP
 	return pulumi.ToOutputWithContext(ctx, in).(ReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
+type ReplicationMode string
+
+const (
+	ReplicationModeAsync = ReplicationMode("Async")
+	ReplicationModeSync  = ReplicationMode("Sync")
+)
+
+func (ReplicationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMode)(nil)).Elem()
+}
+
+func (e ReplicationMode) ToReplicationModeOutput() ReplicationModeOutput {
+	return pulumi.ToOutput(e).(ReplicationModeOutput)
+}
+
+func (e ReplicationMode) ToReplicationModeOutputWithContext(ctx context.Context) ReplicationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationModeOutput)
+}
+
+func (e ReplicationMode) ToReplicationModePtrOutput() ReplicationModePtrOutput {
+	return e.ToReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationMode) ToReplicationModePtrOutputWithContext(ctx context.Context) ReplicationModePtrOutput {
+	return ReplicationMode(e).ToReplicationModeOutputWithContext(ctx).ToReplicationModePtrOutputWithContext(ctx)
+}
+
+func (e ReplicationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationModeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMode)(nil)).Elem()
+}
+
+func (o ReplicationModeOutput) ToReplicationModeOutput() ReplicationModeOutput {
+	return o
+}
+
+func (o ReplicationModeOutput) ToReplicationModeOutputWithContext(ctx context.Context) ReplicationModeOutput {
+	return o
+}
+
+func (o ReplicationModeOutput) ToReplicationModePtrOutput() ReplicationModePtrOutput {
+	return o.ToReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationModeOutput) ToReplicationModePtrOutputWithContext(ctx context.Context) ReplicationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationMode) *ReplicationMode {
+		return &v
+	}).(ReplicationModePtrOutput)
+}
+
+func (o ReplicationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationModePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationMode)(nil)).Elem()
+}
+
+func (o ReplicationModePtrOutput) ToReplicationModePtrOutput() ReplicationModePtrOutput {
+	return o
+}
+
+func (o ReplicationModePtrOutput) ToReplicationModePtrOutputWithContext(ctx context.Context) ReplicationModePtrOutput {
+	return o
+}
+
+func (o ReplicationModePtrOutput) Elem() ReplicationModeOutput {
+	return o.ApplyT(func(v *ReplicationMode) ReplicationMode {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationMode
+		return ret
+	}).(ReplicationModeOutput)
+}
+
+func (o ReplicationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ReplicationModeInput interface {
+	pulumi.Input
+
+	ToReplicationModeOutput() ReplicationModeOutput
+	ToReplicationModeOutputWithContext(context.Context) ReplicationModeOutput
+}
+
+var replicationModePtrType = reflect.TypeOf((**ReplicationMode)(nil)).Elem()
+
+type ReplicationModePtrInput interface {
+	pulumi.Input
+
+	ToReplicationModePtrOutput() ReplicationModePtrOutput
+	ToReplicationModePtrOutputWithContext(context.Context) ReplicationModePtrOutput
+}
+
+type replicationModePtr string
+
+func ReplicationModePtr(v string) ReplicationModePtrInput {
+	return (*replicationModePtr)(&v)
+}
+
+func (*replicationModePtr) ElementType() reflect.Type {
+	return replicationModePtrType
+}
+
+func (in *replicationModePtr) ToReplicationModePtrOutput() ReplicationModePtrOutput {
+	return pulumi.ToOutput(in).(ReplicationModePtrOutput)
+}
+
+func (in *replicationModePtr) ToReplicationModePtrOutputWithContext(ctx context.Context) ReplicationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationModePtrOutput)
+}
+
 type RequestedBackupStorageRedundancy string
 
 const (
@@ -6484,6 +6648,8 @@ func init() {
 	pulumi.RegisterOutputType(ReadOnlyEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(ReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationModeOutput{})
+	pulumi.RegisterOutputType(ReplicationModePtrOutput{})
 	pulumi.RegisterOutputType(RequestedBackupStorageRedundancyOutput{})
 	pulumi.RegisterOutputType(RequestedBackupStorageRedundancyPtrOutput{})
 	pulumi.RegisterOutputType(SampleNameOutput{})

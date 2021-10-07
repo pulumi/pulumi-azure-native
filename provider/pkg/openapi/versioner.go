@@ -103,6 +103,7 @@ var cutoffProviderVersions = map[string]string{
 	"cognitiveservices":       "v20170418",
 	"compute":                 "v20210301",
 	"confidentialledger":      "v20201201preview",
+	"consumption":             "v20191001",
 	"containerinstance":       "v20210301",
 	"containerregistry":       "v20201101preview",
 	"containerservice":        "v20210301",

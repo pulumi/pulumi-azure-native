@@ -12,6 +12,7 @@ import * as v20200202preview from "./v20200202preview";
 import * as v20200801preview from "./v20200801preview";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210501preview from "./v20210501preview";
 
 export {
     v20140401,
@@ -24,6 +25,7 @@ export {
     v20200801preview,
     v20201101preview,
     v20210201preview,
+    v20210501preview,
 };
 
 export const AdministratorType = {
@@ -331,6 +333,16 @@ export const ReadWriteEndpointFailoverPolicy = {
  * Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
  */
 export type ReadWriteEndpointFailoverPolicy = (typeof ReadWriteEndpointFailoverPolicy)[keyof typeof ReadWriteEndpointFailoverPolicy];
+
+export const ReplicationMode = {
+    Async: "Async",
+    Sync: "Sync",
+} as const;
+
+/**
+ * The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+ */
+export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
 
 export const RequestedBackupStorageRedundancy = {
     Geo: "Geo",

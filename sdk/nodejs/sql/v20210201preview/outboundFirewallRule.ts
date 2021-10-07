@@ -78,7 +78,7 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20210201preview:OutboundFirewallRule" }, { type: "azure-native:sql:OutboundFirewallRule" }, { type: "azure-nextgen:sql:OutboundFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20210201preview:OutboundFirewallRule" }, { type: "azure-native:sql:OutboundFirewallRule" }, { type: "azure-nextgen:sql:OutboundFirewallRule" }, { type: "azure-native:sql/v20210501preview:OutboundFirewallRule" }, { type: "azure-nextgen:sql/v20210501preview:OutboundFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OutboundFirewallRule.__pulumiType, name, inputs, opts);
     }

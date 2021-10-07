@@ -223,6 +223,8 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

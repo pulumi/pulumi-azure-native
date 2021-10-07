@@ -69,6 +69,8 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:JobTargetGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobTargetGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:JobTargetGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

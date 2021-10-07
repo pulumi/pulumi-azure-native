@@ -15,6 +15,7 @@ from .database_security_alert_policy import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .disaster_recovery_configuration import *
+from .distributed_availability_group import *
 from .elastic_pool import *
 from .encryption_protector import *
 from .extended_database_blob_auditing_policy import *
@@ -31,6 +32,7 @@ from .get_database_security_alert_policy import *
 from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
 from .get_disaster_recovery_configuration import *
+from .get_distributed_availability_group import *
 from .get_elastic_pool import *
 from .get_encryption_protector import *
 from .get_extended_database_blob_auditing_policy import *
@@ -68,6 +70,7 @@ from .get_server_communication_link import *
 from .get_server_dns_alias import *
 from .get_server_key import *
 from .get_server_security_alert_policy import *
+from .get_server_trust_certificate import *
 from .get_server_trust_group import *
 from .get_server_vulnerability_assessment import *
 from .get_sync_agent import *
@@ -107,6 +110,7 @@ from .server_communication_link import *
 from .server_dns_alias import *
 from .server_key import *
 from .server_security_alert_policy import *
+from .server_trust_certificate import *
 from .server_trust_group import *
 from .server_vulnerability_assessment import *
 from .sync_agent import *
@@ -141,6 +145,8 @@ if typing.TYPE_CHECKING:
     v20201101preview = __v20201101preview
     import pulumi_azure_native.sql.v20210201preview as __v20210201preview
     v20210201preview = __v20210201preview
+    import pulumi_azure_native.sql.v20210501preview as __v20210501preview
+    v20210501preview = __v20210501preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
@@ -152,4 +158,5 @@ else:
     v20200801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20200801preview')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20201101preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210201preview')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210501preview')
 

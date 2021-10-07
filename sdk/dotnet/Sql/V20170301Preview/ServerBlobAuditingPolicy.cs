@@ -181,6 +181,8 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerBlobAuditingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

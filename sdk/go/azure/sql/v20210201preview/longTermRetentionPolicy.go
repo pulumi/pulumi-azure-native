@@ -72,6 +72,12 @@ func NewLongTermRetentionPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:LongTermRetentionPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210501preview:LongTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210501preview:LongTermRetentionPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LongTermRetentionPolicy
