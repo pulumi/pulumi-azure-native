@@ -1,0 +1,37 @@
+
+
+
+package v20200801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
+	var rv LookupClusterResult
+	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getCluster", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupClusterArgs struct {
+	ClusterName       string `pulumi:"clusterName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupClusterResult struct {
+	ClusterId          string                      `pulumi:"clusterId"`
+	Id                 string                      `pulumi:"id"`
+	Identity           *IdentityResponse           `pulumi:"identity"`
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	Location           string                      `pulumi:"location"`
+	Name               string                      `pulumi:"name"`
+	NextLink           *string                     `pulumi:"nextLink"`
+	ProvisioningState  string                      `pulumi:"provisioningState"`
+	Sku                *ClusterSkuResponse         `pulumi:"sku"`
+	Tags               map[string]string           `pulumi:"tags"`
+	Type               string                      `pulumi:"type"`
+}
