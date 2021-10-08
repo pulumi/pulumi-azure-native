@@ -59,3 +59,18 @@ export interface GetJobCollectionResult {
      */
     readonly type: string;
 }
+
+export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
+    return pulumi.output(args).apply(a => getJobCollection(a, opts))
+}
+
+export interface GetJobCollectionOutputArgs {
+    /**
+     * The job collection name.
+     */
+    jobCollectionName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

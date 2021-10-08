@@ -72,3 +72,22 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppSwiftVirtualNetworkConnectionSlotOutput(args: GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppSwiftVirtualNetworkConnectionSlot(a, opts))
+}
+
+export interface GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+     */
+    slot: pulumi.Input<string>;
+}

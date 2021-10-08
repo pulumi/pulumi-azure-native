@@ -73,3 +73,22 @@ export interface GetEnvironmentResult {
      */
     readonly type: string;
 }
+
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+    return pulumi.output(args).apply(a => getEnvironment(a, opts))
+}
+
+export interface GetEnvironmentOutputArgs {
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

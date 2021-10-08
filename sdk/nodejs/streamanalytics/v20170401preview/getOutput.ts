@@ -73,3 +73,22 @@ export interface GetOutputResult {
      */
     readonly type: string;
 }
+
+export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {
+    return pulumi.output(args).apply(a => getOutput(a, opts))
+}
+
+export interface GetOutputOutputArgs {
+    /**
+     * The name of the streaming job.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the output.
+     */
+    outputName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

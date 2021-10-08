@@ -66,3 +66,22 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
      */
     readonly version: string;
 }
+
+export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntimeConnectionInfo(a, opts))
+}
+
+export interface GetIntegrationRuntimeConnectionInfoOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The integration runtime name.
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -75,3 +75,22 @@ export interface GetContentKeyPolicyResult {
      */
     readonly type: string;
 }
+
+export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
+    return pulumi.output(args).apply(a => getContentKeyPolicy(a, opts))
+}
+
+export interface GetContentKeyPolicyOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Content Key Policy name.
+     */
+    contentKeyPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

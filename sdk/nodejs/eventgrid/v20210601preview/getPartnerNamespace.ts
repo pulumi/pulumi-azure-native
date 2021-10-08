@@ -89,3 +89,18 @@ export interface GetPartnerNamespaceResult {
      */
     readonly type: string;
 }
+
+export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
+    return pulumi.output(args).apply(a => getPartnerNamespace(a, opts))
+}
+
+export interface GetPartnerNamespaceOutputArgs {
+    /**
+     * Name of the partner namespace.
+     */
+    partnerNamespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

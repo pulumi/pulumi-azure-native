@@ -75,3 +75,22 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkDhcp(a, opts))
+}
+
+export interface GetWorkloadNetworkDhcpOutputArgs {
+    /**
+     * NSX DHCP identifier. Generally the same as the DHCP display name
+     */
+    dhcpId: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

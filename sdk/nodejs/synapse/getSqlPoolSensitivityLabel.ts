@@ -112,3 +112,38 @@ export interface GetSqlPoolSensitivityLabelResult {
      */
     readonly type: string;
 }
+
+export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
+    return pulumi.output(args).apply(a => getSqlPoolSensitivityLabel(a, opts))
+}
+
+export interface GetSqlPoolSensitivityLabelOutputArgs {
+    /**
+     * The name of the column.
+     */
+    columnName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the schema.
+     */
+    schemaName: pulumi.Input<string>;
+    /**
+     * The source of the sensitivity label.
+     */
+    sensitivityLabelSource: pulumi.Input<string>;
+    /**
+     * SQL pool name
+     */
+    sqlPoolName: pulumi.Input<string>;
+    /**
+     * The name of the table.
+     */
+    tableName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -66,3 +66,23 @@ export interface GetSubAccountTagRuleResult {
      */
     readonly type: string;
 }
+
+export function getSubAccountTagRuleOutput(args: GetSubAccountTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountTagRuleResult> {
+    return pulumi.output(args).apply(a => getSubAccountTagRule(a, opts))
+}
+
+export interface GetSubAccountTagRuleOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    ruleSetName: pulumi.Input<string>;
+    /**
+     * Sub Account resource name
+     */
+    subAccountName: pulumi.Input<string>;
+}

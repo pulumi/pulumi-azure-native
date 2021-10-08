@@ -79,3 +79,22 @@ export interface GetExportPipelineResult {
      */
     readonly type: string;
 }
+
+export function getExportPipelineOutput(args: GetExportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportPipelineResult> {
+    return pulumi.output(args).apply(a => getExportPipeline(a, opts))
+}
+
+export interface GetExportPipelineOutputArgs {
+    /**
+     * The name of the export pipeline.
+     */
+    exportPipelineName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

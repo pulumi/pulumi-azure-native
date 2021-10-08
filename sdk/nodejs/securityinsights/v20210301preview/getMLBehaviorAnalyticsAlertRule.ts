@@ -101,3 +101,26 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
      */
     readonly type: string;
 }
+
+export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
+    return pulumi.output(args).apply(a => getMLBehaviorAnalyticsAlertRule(a, opts))
+}
+
+export interface GetMLBehaviorAnalyticsAlertRuleOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    ruleId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

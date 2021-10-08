@@ -45,3 +45,18 @@ export interface ListStorageAccountKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
+    return pulumi.output(args).apply(a => listStorageAccountKeys(a, opts))
+}
+
+export interface ListStorageAccountKeysOutputArgs {
+    /**
+     * The name of the storage account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

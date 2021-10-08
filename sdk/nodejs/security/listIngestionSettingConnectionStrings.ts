@@ -38,3 +38,14 @@ export interface ListIngestionSettingConnectionStringsResult {
      */
     readonly value: outputs.security.IngestionConnectionStringResponse[];
 }
+
+export function listIngestionSettingConnectionStringsOutput(args: ListIngestionSettingConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingConnectionStringsResult> {
+    return pulumi.output(args).apply(a => listIngestionSettingConnectionStrings(a, opts))
+}
+
+export interface ListIngestionSettingConnectionStringsOutputArgs {
+    /**
+     * Name of the ingestion setting
+     */
+    ingestionSettingName: pulumi.Input<string>;
+}

@@ -98,3 +98,18 @@ export interface GetApplicationResult {
      */
     readonly unhealthyEvaluation: string;
 }
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+export interface GetApplicationOutputArgs {
+    /**
+     * The identity of the application.
+     */
+    applicationResourceName: pulumi.Input<string>;
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

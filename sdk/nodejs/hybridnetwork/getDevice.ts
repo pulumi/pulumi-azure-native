@@ -79,3 +79,18 @@ export interface GetDeviceResult {
      */
     readonly type: string;
 }
+
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+    return pulumi.output(args).apply(a => getDevice(a, opts))
+}
+
+export interface GetDeviceOutputArgs {
+    /**
+     * The name of the device resource.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

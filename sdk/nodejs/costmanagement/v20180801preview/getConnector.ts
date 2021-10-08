@@ -94,3 +94,18 @@ export interface GetConnectorResult {
      */
     readonly type: string;
 }
+
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+    return pulumi.output(args).apply(a => getConnector(a, opts))
+}
+
+export interface GetConnectorOutputArgs {
+    /**
+     * Connector Name.
+     */
+    connectorName: pulumi.Input<string>;
+    /**
+     * Azure Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

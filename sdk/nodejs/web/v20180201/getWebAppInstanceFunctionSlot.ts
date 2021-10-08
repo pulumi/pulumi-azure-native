@@ -115,3 +115,26 @@ export interface GetWebAppInstanceFunctionSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppInstanceFunctionSlot(a, opts))
+}
+
+export interface GetWebAppInstanceFunctionSlotOutputArgs {
+    /**
+     * Function name.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot.
+     */
+    slot: pulumi.Input<string>;
+}

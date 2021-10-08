@@ -90,3 +90,18 @@ export interface GetAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
+    return pulumi.output(args).apply(a => getAssignment(a, opts))
+}
+
+export interface GetAssignmentOutputArgs {
+    /**
+     * name of the assignment.
+     */
+    assignmentName: pulumi.Input<string>;
+    /**
+     * azure subscriptionId, which we assign the blueprint to.
+     */
+    subscriptionId?: pulumi.Input<string>;
+}

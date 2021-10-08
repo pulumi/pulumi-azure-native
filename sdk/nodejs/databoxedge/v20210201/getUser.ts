@@ -71,3 +71,22 @@ export interface GetUserResult {
      */
     readonly userType: string;
 }
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+export interface GetUserOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The user name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

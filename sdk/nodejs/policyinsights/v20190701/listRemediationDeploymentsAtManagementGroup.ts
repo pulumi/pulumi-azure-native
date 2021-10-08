@@ -56,3 +56,26 @@ export interface ListRemediationDeploymentsAtManagementGroupResult {
      */
     readonly value: outputs.policyinsights.v20190701.RemediationDeploymentResponse[];
 }
+
+export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
+    return pulumi.output(args).apply(a => listRemediationDeploymentsAtManagementGroup(a, opts))
+}
+
+export interface ListRemediationDeploymentsAtManagementGroupOutputArgs {
+    /**
+     * Management group ID.
+     */
+    managementGroupId: pulumi.Input<string>;
+    /**
+     * The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+     */
+    managementGroupsNamespace: pulumi.Input<string>;
+    /**
+     * The name of the remediation.
+     */
+    remediationName: pulumi.Input<string>;
+    /**
+     * Maximum number of records to return.
+     */
+    top?: pulumi.Input<number>;
+}

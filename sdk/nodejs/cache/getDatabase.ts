@@ -88,3 +88,22 @@ export interface GetDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+    return pulumi.output(args).apply(a => getDatabase(a, opts))
+}
+
+export interface GetDatabaseOutputArgs {
+    /**
+     * The name of the RedisEnterprise cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

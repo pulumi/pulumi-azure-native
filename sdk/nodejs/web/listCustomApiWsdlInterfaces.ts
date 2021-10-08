@@ -63,3 +63,34 @@ export interface ListCustomApiWsdlInterfacesResult {
      */
     readonly value?: outputs.web.WsdlServiceResponse[];
 }
+
+export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {
+    return pulumi.output(args).apply(a => listCustomApiWsdlInterfaces(a, opts))
+}
+
+export interface ListCustomApiWsdlInterfacesOutputArgs {
+    /**
+     * The WSDL content
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * The WSDL import method
+     */
+    importMethod?: pulumi.Input<string | enums.web.WsdlImportMethod>;
+    /**
+     * The location
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The service with name and endpoint names
+     */
+    service?: pulumi.Input<inputs.web.WsdlServiceArgs>;
+    /**
+     * Subscription Id
+     */
+    subscriptionId?: pulumi.Input<string>;
+    /**
+     * The WSDL URL
+     */
+    url?: pulumi.Input<string>;
+}

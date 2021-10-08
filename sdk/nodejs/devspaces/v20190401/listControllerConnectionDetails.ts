@@ -41,3 +41,22 @@ export interface ListControllerConnectionDetailsResult {
      */
     readonly connectionDetailsList?: outputs.devspaces.v20190401.ControllerConnectionDetailsResponse[];
 }
+
+export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
+    return pulumi.output(args).apply(a => listControllerConnectionDetails(a, opts))
+}
+
+export interface ListControllerConnectionDetailsOutputArgs {
+    /**
+     * Name of the resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
+     */
+    targetContainerHostResourceId: pulumi.Input<string>;
+}

@@ -45,3 +45,18 @@ export interface ListAdminKeyResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
+    return pulumi.output(args).apply(a => listAdminKey(a, opts))
+}
+
+export interface ListAdminKeyOutputArgs {
+    /**
+     * The name of the resource group within the current subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Search service for which to list admin keys.
+     */
+    serviceName: pulumi.Input<string>;
+}

@@ -77,3 +77,46 @@ export interface ListConnectionKeysResult {
      */
     readonly parameterValues?: {[key: string]: any};
 }
+
+export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {
+    return pulumi.output(args).apply(a => listConnectionKeys(a, opts))
+}
+
+export interface ListConnectionKeysOutputArgs {
+    /**
+     * The connection name.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * Resource Id
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Kind of resource
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Resource Location
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Resource Name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * time span for how long the keys will be valid
+     */
+    validityTimeSpan?: pulumi.Input<string>;
+}

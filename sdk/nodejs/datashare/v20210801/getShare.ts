@@ -87,3 +87,22 @@ export interface GetShareResult {
      */
     readonly userName: string;
 }
+
+export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
+    return pulumi.output(args).apply(a => getShare(a, opts))
+}
+
+export interface GetShareOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share to retrieve.
+     */
+    shareName: pulumi.Input<string>;
+}

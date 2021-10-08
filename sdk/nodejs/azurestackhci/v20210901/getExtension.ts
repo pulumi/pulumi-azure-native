@@ -120,3 +120,26 @@ export interface GetExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
+
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+    return pulumi.output(args).apply(a => getExtension(a, opts))
+}
+
+export interface GetExtensionOutputArgs {
+    /**
+     * The name of the proxy resource holding details of HCI ArcSetting information.
+     */
+    arcSettingName: pulumi.Input<string>;
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the machine extension.
+     */
+    extensionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

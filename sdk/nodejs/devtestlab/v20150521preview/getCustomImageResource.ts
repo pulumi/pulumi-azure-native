@@ -91,3 +91,22 @@ export interface GetCustomImageResourceResult {
      */
     readonly vm?: outputs.devtestlab.v20150521preview.CustomImagePropertiesFromVmResponse;
 }
+
+export function getCustomImageResourceOutput(args: GetCustomImageResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResourceResult> {
+    return pulumi.output(args).apply(a => getCustomImageResource(a, opts))
+}
+
+export interface GetCustomImageResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the custom image.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

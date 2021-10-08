@@ -46,5 +46,24 @@ export interface GetSystemTopicEventSubscriptionDeliveryAttributesResult {
     /**
      * A collection of DeliveryAttributeMapping
      */
-    readonly value?: outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse[];
+    readonly value?: (outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse)[];
+}
+
+export function getSystemTopicEventSubscriptionDeliveryAttributesOutput(args: GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
+    return pulumi.output(args).apply(a => getSystemTopicEventSubscriptionDeliveryAttributes(a, opts))
+}
+
+export interface GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs {
+    /**
+     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     */
+    eventSubscriptionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the system topic.
+     */
+    systemTopicName: pulumi.Input<string>;
 }

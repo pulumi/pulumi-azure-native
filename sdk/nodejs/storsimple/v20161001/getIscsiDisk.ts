@@ -96,3 +96,30 @@ export interface GetIscsiDiskResult {
      */
     readonly usedCapacityInBytes: number;
 }
+
+export function getIscsiDiskOutput(args: GetIscsiDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiDiskResult> {
+    return pulumi.output(args).apply(a => getIscsiDisk(a, opts))
+}
+
+export interface GetIscsiDiskOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The disk name.
+     */
+    diskName: pulumi.Input<string>;
+    /**
+     * The iSCSI server name.
+     */
+    iscsiServerName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

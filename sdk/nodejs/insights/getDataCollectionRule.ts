@@ -92,3 +92,18 @@ export interface GetDataCollectionRuleResult {
      */
     readonly type: string;
 }
+
+export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
+    return pulumi.output(args).apply(a => getDataCollectionRule(a, opts))
+}
+
+export interface GetDataCollectionRuleOutputArgs {
+    /**
+     * The name of the data collection rule. The name is case insensitive.
+     */
+    dataCollectionRuleName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

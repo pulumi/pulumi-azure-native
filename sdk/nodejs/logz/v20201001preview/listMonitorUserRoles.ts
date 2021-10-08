@@ -51,3 +51,22 @@ export interface ListMonitorUserRolesResult {
      */
     readonly value?: outputs.logz.v20201001preview.UserRoleResponseResponse[];
 }
+
+export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorUserRolesResult> {
+    return pulumi.output(args).apply(a => listMonitorUserRoles(a, opts))
+}
+
+export interface ListMonitorUserRolesOutputArgs {
+    /**
+     * Email of the user used by Logz for contacting them if needed
+     */
+    emailAddress?: pulumi.Input<string>;
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

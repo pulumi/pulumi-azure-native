@@ -64,3 +64,26 @@ export interface GetWCFRelayAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getWCFRelayAuthorizationRule(a, opts))
+}
+
+export interface GetWCFRelayAuthorizationRuleOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name.
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

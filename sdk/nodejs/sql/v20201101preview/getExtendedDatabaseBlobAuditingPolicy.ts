@@ -162,3 +162,26 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
      */
     readonly type: string;
 }
+
+export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
+    return pulumi.output(args).apply(a => getExtendedDatabaseBlobAuditingPolicy(a, opts))
+}
+
+export interface GetExtendedDatabaseBlobAuditingPolicyOutputArgs {
+    /**
+     * The name of the blob auditing policy.
+     */
+    blobAuditingPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

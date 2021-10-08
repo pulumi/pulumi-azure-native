@@ -63,3 +63,26 @@ export interface GetTransparentDataEncryptionResult {
      */
     readonly type: string;
 }
+
+export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
+    return pulumi.output(args).apply(a => getTransparentDataEncryption(a, opts))
+}
+
+export interface GetTransparentDataEncryptionOutputArgs {
+    /**
+     * The name of the logical database for which the transparent data encryption is defined.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the transparent data encryption configuration.
+     */
+    tdeName: pulumi.Input<string>;
+}

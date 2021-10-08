@@ -63,3 +63,26 @@ export interface GetJobCredentialResult {
      */
     readonly username: string;
 }
+
+export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
+    return pulumi.output(args).apply(a => getJobCredential(a, opts))
+}
+
+export interface GetJobCredentialOutputArgs {
+    /**
+     * The name of the credential.
+     */
+    credentialName: pulumi.Input<string>;
+    /**
+     * The name of the job agent.
+     */
+    jobAgentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

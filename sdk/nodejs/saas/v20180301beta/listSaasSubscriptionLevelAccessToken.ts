@@ -45,3 +45,18 @@ export interface ListSaasSubscriptionLevelAccessTokenResult {
      */
     readonly token?: string;
 }
+
+export function listSaasSubscriptionLevelAccessTokenOutput(args: ListSaasSubscriptionLevelAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasSubscriptionLevelAccessTokenResult> {
+    return pulumi.output(args).apply(a => listSaasSubscriptionLevelAccessToken(a, opts))
+}
+
+export interface ListSaasSubscriptionLevelAccessTokenOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

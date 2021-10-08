@@ -86,3 +86,22 @@ export interface GetAssetResult {
      */
     readonly type: string;
 }
+
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+    return pulumi.output(args).apply(a => getAsset(a, opts))
+}
+
+export interface GetAssetOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Asset name.
+     */
+    assetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

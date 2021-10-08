@@ -64,3 +64,22 @@ export interface GetServerTrustGroupResult {
      */
     readonly type: string;
 }
+
+export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
+    return pulumi.output(args).apply(a => getServerTrustGroup(a, opts))
+}
+
+export interface GetServerTrustGroupOutputArgs {
+    /**
+     * The name of the region where the resource is located.
+     */
+    locationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server trust group.
+     */
+    serverTrustGroupName: pulumi.Input<string>;
+}

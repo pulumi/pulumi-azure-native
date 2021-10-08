@@ -75,3 +75,26 @@ export interface ListDisasterRecoveryConfigKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
+    return pulumi.output(args).apply(a => listDisasterRecoveryConfigKeys(a, opts))
+}
+
+export interface ListDisasterRecoveryConfigKeysOutputArgs {
+    /**
+     * The Disaster Recovery configuration name
+     */
+    alias: pulumi.Input<string>;
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

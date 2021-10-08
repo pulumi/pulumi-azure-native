@@ -67,3 +67,22 @@ export interface GetRegisteredAsnResult {
      */
     readonly type: string;
 }
+
+export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
+    return pulumi.output(args).apply(a => getRegisteredAsn(a, opts))
+}
+
+export interface GetRegisteredAsnOutputArgs {
+    /**
+     * The name of the peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the registered ASN.
+     */
+    registeredAsnName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

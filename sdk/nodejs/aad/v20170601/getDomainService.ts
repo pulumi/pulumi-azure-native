@@ -142,3 +142,18 @@ export interface GetDomainServiceResult {
      */
     readonly vnetSiteId: string;
 }
+
+export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
+    return pulumi.output(args).apply(a => getDomainService(a, opts))
+}
+
+export interface GetDomainServiceOutputArgs {
+    /**
+     * The name of the domain service.
+     */
+    domainServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

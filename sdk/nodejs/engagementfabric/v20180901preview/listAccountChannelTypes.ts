@@ -42,3 +42,18 @@ export interface ListAccountChannelTypesResult {
      */
     readonly value?: outputs.engagementfabric.v20180901preview.ChannelTypeDescriptionResponse[];
 }
+
+export function listAccountChannelTypesOutput(args: ListAccountChannelTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountChannelTypesResult> {
+    return pulumi.output(args).apply(a => listAccountChannelTypes(a, opts))
+}
+
+export interface ListAccountChannelTypesOutputArgs {
+    /**
+     * Account Name
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

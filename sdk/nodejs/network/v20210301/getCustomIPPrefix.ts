@@ -115,3 +115,22 @@ export interface GetCustomIPPrefixResult {
      */
     readonly zones?: string[];
 }
+
+export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {
+    return pulumi.output(args).apply(a => getCustomIPPrefix(a, opts))
+}
+
+export interface GetCustomIPPrefixOutputArgs {
+    /**
+     * The name of the custom IP prefix.
+     */
+    customIpPrefixName: pulumi.Input<string>;
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,18 @@ export interface GetEnterprisePolicyResult {
      */
     readonly type: string;
 }
+
+export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
+    return pulumi.output(args).apply(a => getEnterprisePolicy(a, opts))
+}
+
+export interface GetEnterprisePolicyOutputArgs {
+    /**
+     * The EnterprisePolicy name.
+     */
+    enterprisePolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

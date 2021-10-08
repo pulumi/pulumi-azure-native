@@ -106,3 +106,18 @@ export interface GetCacheResult {
      */
     readonly upgradeStatus?: outputs.storagecache.v20200301.CacheUpgradeStatusResponse;
 }
+
+export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
+    return pulumi.output(args).apply(a => getCache(a, opts))
+}
+
+export interface GetCacheOutputArgs {
+    /**
+     * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+     */
+    cacheName: pulumi.Input<string>;
+    /**
+     * Target resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

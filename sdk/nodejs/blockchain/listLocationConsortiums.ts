@@ -38,3 +38,14 @@ export interface ListLocationConsortiumsResult {
      */
     readonly value?: outputs.blockchain.ConsortiumResponse[];
 }
+
+export function listLocationConsortiumsOutput(args: ListLocationConsortiumsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocationConsortiumsResult> {
+    return pulumi.output(args).apply(a => listLocationConsortiums(a, opts))
+}
+
+export interface ListLocationConsortiumsOutputArgs {
+    /**
+     * Location Name.
+     */
+    locationName: pulumi.Input<string>;
+}

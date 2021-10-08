@@ -51,3 +51,22 @@ export interface GetAssetEncryptionKeyResult {
      */
     readonly key?: string;
 }
+
+export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
+    return pulumi.output(args).apply(a => getAssetEncryptionKey(a, opts))
+}
+
+export interface GetAssetEncryptionKeyOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Asset name.
+     */
+    assetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

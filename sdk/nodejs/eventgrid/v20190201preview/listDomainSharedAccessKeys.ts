@@ -45,3 +45,18 @@ export interface ListDomainSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
+    return pulumi.output(args).apply(a => listDomainSharedAccessKeys(a, opts))
+}
+
+export interface ListDomainSharedAccessKeysOutputArgs {
+    /**
+     * Name of the domain
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

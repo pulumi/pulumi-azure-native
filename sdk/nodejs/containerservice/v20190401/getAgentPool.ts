@@ -102,3 +102,22 @@ export interface GetAgentPoolResult {
      */
     readonly vnetSubnetID?: string;
 }
+
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+    return pulumi.output(args).apply(a => getAgentPool(a, opts))
+}
+
+export interface GetAgentPoolOutputArgs {
+    /**
+     * The name of the agent pool.
+     */
+    agentPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -79,3 +79,22 @@ export interface ListBotConnectionWithSecretsResult {
      */
     readonly type: string;
 }
+
+export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
+    return pulumi.output(args).apply(a => listBotConnectionWithSecrets(a, opts))
+}
+
+export interface ListBotConnectionWithSecretsOutputArgs {
+    /**
+     * The name of the Bot Service Connection Setting resource
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

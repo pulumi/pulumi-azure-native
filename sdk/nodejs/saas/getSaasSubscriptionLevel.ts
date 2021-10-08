@@ -59,3 +59,18 @@ export interface GetSaasSubscriptionLevelResult {
      */
     readonly type: string;
 }
+
+export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
+    return pulumi.output(args).apply(a => getSaasSubscriptionLevel(a, opts))
+}
+
+export interface GetSaasSubscriptionLevelOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

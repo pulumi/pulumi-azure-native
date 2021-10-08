@@ -66,3 +66,22 @@ export interface GetAddonResult {
      */
     readonly type: string;
 }
+
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+    return pulumi.output(args).apply(a => getAddon(a, opts))
+}
+
+export interface GetAddonOutputArgs {
+    /**
+     * Name of the addon for the private cloud
+     */
+    addonName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

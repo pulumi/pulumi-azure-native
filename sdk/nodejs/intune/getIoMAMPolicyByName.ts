@@ -83,3 +83,22 @@ export interface GetIoMAMPolicyByNameResult {
      */
     readonly type: string;
 }
+
+export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
+    return pulumi.output(args).apply(a => getIoMAMPolicyByName(a, opts))
+}
+
+export interface GetIoMAMPolicyByNameOutputArgs {
+    /**
+     * Location hostName for the tenant
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Unique name for the policy
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * select specific fields in entity.
+     */
+    select?: pulumi.Input<string>;
+}

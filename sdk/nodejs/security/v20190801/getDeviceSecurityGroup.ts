@@ -66,3 +66,18 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly type: string;
 }
+
+export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
+    return pulumi.output(args).apply(a => getDeviceSecurityGroup(a, opts))
+}
+
+export interface GetDeviceSecurityGroupOutputArgs {
+    /**
+     * The name of the device security group. Note that the name of the device security group is case insensitive.
+     */
+    deviceSecurityGroupName: pulumi.Input<string>;
+    /**
+     * The identifier of the resource.
+     */
+    resourceId: pulumi.Input<string>;
+}

@@ -60,3 +60,22 @@ export interface GetCassandraDataCenterResult {
      */
     readonly type: string;
 }
+
+export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {
+    return pulumi.output(args).apply(a => getCassandraDataCenter(a, opts))
+}
+
+export interface GetCassandraDataCenterOutputArgs {
+    /**
+     * Managed Cassandra cluster name.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Data center name in a managed Cassandra cluster.
+     */
+    dataCenterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

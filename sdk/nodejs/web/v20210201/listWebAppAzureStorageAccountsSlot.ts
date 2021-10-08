@@ -63,3 +63,22 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppAzureStorageAccountsSlotOutput(args: ListWebAppAzureStorageAccountsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppAzureStorageAccountsSlot(a, opts))
+}
+
+export interface ListWebAppAzureStorageAccountsSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

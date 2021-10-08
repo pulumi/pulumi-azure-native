@@ -84,3 +84,22 @@ export interface GetPipelineJobResult {
      */
     readonly type: string;
 }
+
+export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineJobResult> {
+    return pulumi.output(args).apply(a => getPipelineJob(a, opts))
+}
+
+export interface GetPipelineJobOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The pipeline job name.
+     */
+    pipelineJobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

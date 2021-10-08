@@ -59,3 +59,22 @@ export interface GetServerDnsAliasResult {
      */
     readonly type: string;
 }
+
+export function getServerDnsAliasOutput(args: GetServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDnsAliasResult> {
+    return pulumi.output(args).apply(a => getServerDnsAlias(a, opts))
+}
+
+export interface GetServerDnsAliasOutputArgs {
+    /**
+     * The name of the server dns alias.
+     */
+    dnsAliasName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server that the alias is pointing to.
+     */
+    serverName: pulumi.Input<string>;
+}

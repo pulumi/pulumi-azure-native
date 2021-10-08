@@ -112,3 +112,22 @@ export interface GetApplicationResult {
      */
     readonly upgradePolicy?: outputs.servicefabric.ApplicationUpgradePolicyResponse;
 }
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+export interface GetApplicationOutputArgs {
+    /**
+     * The name of the application resource.
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

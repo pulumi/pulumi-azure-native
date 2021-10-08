@@ -175,3 +175,18 @@ export interface GetAccountResult {
      */
     readonly virtualNetworkRules: outputs.datalakeanalytics.VirtualNetworkRuleResponse[];
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+export interface GetAccountOutputArgs {
+    /**
+     * The name of the Data Lake Analytics account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

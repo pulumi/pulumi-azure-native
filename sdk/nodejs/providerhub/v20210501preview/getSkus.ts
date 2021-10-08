@@ -50,3 +50,22 @@ export interface GetSkusResult {
      */
     readonly type: string;
 }
+
+export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
+    return pulumi.output(args).apply(a => getSkus(a, opts))
+}
+
+export interface GetSkusOutputArgs {
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+    /**
+     * The resource type.
+     */
+    resourceType: pulumi.Input<string>;
+    /**
+     * The SKU.
+     */
+    sku: pulumi.Input<string>;
+}

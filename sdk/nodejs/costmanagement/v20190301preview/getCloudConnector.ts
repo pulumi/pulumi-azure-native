@@ -110,3 +110,18 @@ export interface GetCloudConnectorResult {
      */
     readonly type: string;
 }
+
+export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
+    return pulumi.output(args).apply(a => getCloudConnector(a, opts))
+}
+
+export interface GetCloudConnectorOutputArgs {
+    /**
+     * Connector Name.
+     */
+    connectorName: pulumi.Input<string>;
+    /**
+     * May be used to expand the collectionInfo property. By default, collectionInfo is not included.
+     */
+    expand?: pulumi.Input<string>;
+}

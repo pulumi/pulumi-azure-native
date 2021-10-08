@@ -75,3 +75,26 @@ export interface GetTagDescriptionResult {
      */
     readonly type: string;
 }
+
+export function getTagDescriptionOutput(args: GetTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagDescriptionResult> {
+    return pulumi.output(args).apply(a => getTagDescription(a, opts))
+}
+
+export interface GetTagDescriptionOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    tagId: pulumi.Input<string>;
+}

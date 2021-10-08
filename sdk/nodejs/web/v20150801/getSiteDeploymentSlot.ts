@@ -107,3 +107,26 @@ export interface GetSiteDeploymentSlotResult {
      */
     readonly type?: string;
 }
+
+export function getSiteDeploymentSlotOutput(args: GetSiteDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteDeploymentSlotResult> {
+    return pulumi.output(args).apply(a => getSiteDeploymentSlot(a, opts))
+}
+
+export interface GetSiteDeploymentSlotOutputArgs {
+    /**
+     * Id of the deployment
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

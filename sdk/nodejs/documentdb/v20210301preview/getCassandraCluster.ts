@@ -66,3 +66,18 @@ export interface GetCassandraClusterResult {
      */
     readonly type: string;
 }
+
+export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
+    return pulumi.output(args).apply(a => getCassandraCluster(a, opts))
+}
+
+export interface GetCassandraClusterOutputArgs {
+    /**
+     * Managed Cassandra cluster name.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

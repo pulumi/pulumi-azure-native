@@ -101,3 +101,26 @@ export interface GetADLSGen2StorageAccountDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getADLSGen2StorageAccountDataSetMappingOutput(args: GetADLSGen2StorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getADLSGen2StorageAccountDataSetMapping(a, opts))
+}
+
+export interface GetADLSGen2StorageAccountDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

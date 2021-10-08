@@ -87,3 +87,18 @@ export interface GetStorageSyncServiceResult {
      */
     readonly type: string;
 }
+
+export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
+    return pulumi.output(args).apply(a => getStorageSyncService(a, opts))
+}
+
+export interface GetStorageSyncServiceOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    storageSyncServiceName: pulumi.Input<string>;
+}

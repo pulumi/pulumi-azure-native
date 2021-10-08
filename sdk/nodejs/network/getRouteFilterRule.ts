@@ -75,3 +75,22 @@ export interface GetRouteFilterRuleResult {
      */
     readonly routeFilterRuleType: string;
 }
+
+export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
+    return pulumi.output(args).apply(a => getRouteFilterRule(a, opts))
+}
+
+export interface GetRouteFilterRuleOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the route filter.
+     */
+    routeFilterName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    ruleName: pulumi.Input<string>;
+}

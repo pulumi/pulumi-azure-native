@@ -119,3 +119,22 @@ export interface GetVirtualMachineResult {
      */
     readonly zones?: string[];
 }
+
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+}
+
+export interface GetVirtualMachineOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    vmName: pulumi.Input<string>;
+}

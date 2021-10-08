@@ -70,3 +70,18 @@ export interface GetHybridUseBenefitResult {
      */
     readonly type: string;
 }
+
+export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
+    return pulumi.output(args).apply(a => getHybridUseBenefit(a, opts))
+}
+
+export interface GetHybridUseBenefitOutputArgs {
+    /**
+     * This is a unique identifier for a plan. Should be a guid.
+     */
+    planId: pulumi.Input<string>;
+    /**
+     * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+     */
+    scope: pulumi.Input<string>;
+}

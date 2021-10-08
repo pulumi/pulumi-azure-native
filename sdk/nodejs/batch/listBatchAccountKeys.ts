@@ -50,3 +50,18 @@ export interface ListBatchAccountKeysResult {
      */
     readonly secondary: string;
 }
+
+export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchAccountKeysResult> {
+    return pulumi.output(args).apply(a => listBatchAccountKeys(a, opts))
+}
+
+export interface ListBatchAccountKeysOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the Batch account.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

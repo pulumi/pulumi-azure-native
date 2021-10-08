@@ -83,3 +83,18 @@ export interface GetDigitalTwinResult {
      */
     readonly type: string;
 }
+
+export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
+    return pulumi.output(args).apply(a => getDigitalTwin(a, opts))
+}
+
+export interface GetDigitalTwinOutputArgs {
+    /**
+     * The name of the resource group that contains the DigitalTwinsInstance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the DigitalTwinsInstance.
+     */
+    resourceName: pulumi.Input<string>;
+}

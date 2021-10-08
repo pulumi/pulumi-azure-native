@@ -77,3 +77,22 @@ export interface GetIntegrationAccountCertificateResult {
      */
     readonly type?: string;
 }
+
+export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
+    return pulumi.output(args).apply(a => getIntegrationAccountCertificate(a, opts))
+}
+
+export interface GetIntegrationAccountCertificateOutputArgs {
+    /**
+     * The integration account certificate name.
+     */
+    certificateName: pulumi.Input<string>;
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

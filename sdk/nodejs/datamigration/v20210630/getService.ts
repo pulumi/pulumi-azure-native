@@ -90,3 +90,18 @@ export interface GetServiceResult {
      */
     readonly virtualSubnetId: string;
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+export interface GetServiceOutputArgs {
+    /**
+     * Name of the resource group
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Name of the service
+     */
+    serviceName: pulumi.Input<string>;
+}

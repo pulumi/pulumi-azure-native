@@ -78,3 +78,18 @@ export interface GetExpressRouteGatewayResult {
      */
     readonly virtualHub: outputs.network.v20180801.VirtualHubIdResponse;
 }
+
+export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteGatewayResult> {
+    return pulumi.output(args).apply(a => getExpressRouteGateway(a, opts))
+}
+
+export interface GetExpressRouteGatewayOutputArgs {
+    /**
+     * The name of the ExpressRoute gateway.
+     */
+    expressRouteGatewayName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

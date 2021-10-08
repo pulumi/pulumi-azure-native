@@ -162,3 +162,18 @@ export interface GetComponentResult {
      */
     readonly workspaceResourceId?: string;
 }
+
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
+    return pulumi.output(args).apply(a => getComponent(a, opts))
+}
+
+export interface GetComponentOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

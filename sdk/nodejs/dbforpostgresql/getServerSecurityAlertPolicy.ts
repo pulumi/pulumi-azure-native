@@ -83,3 +83,22 @@ export interface GetServerSecurityAlertPolicyResult {
      */
     readonly type: string;
 }
+
+export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
+    return pulumi.output(args).apply(a => getServerSecurityAlertPolicy(a, opts))
+}
+
+export interface GetServerSecurityAlertPolicyOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the security alert policy.
+     */
+    securityAlertPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

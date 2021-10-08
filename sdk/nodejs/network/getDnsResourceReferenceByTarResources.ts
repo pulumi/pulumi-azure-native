@@ -39,3 +39,14 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
      */
     readonly dnsResourceReferences?: outputs.network.DnsResourceReferenceResponse[];
 }
+
+export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
+    return pulumi.output(args).apply(a => getDnsResourceReferenceByTarResources(a, opts))
+}
+
+export interface GetDnsResourceReferenceByTarResourcesOutputArgs {
+    /**
+     * A list of references to azure resources for which referencing dns records need to be queried.
+     */
+    targetResources?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+}

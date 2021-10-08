@@ -62,3 +62,18 @@ export interface GetDeploymentResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+    return pulumi.output(args).apply(a => getDeployment(a, opts))
+}
+
+export interface GetDeploymentOutputArgs {
+    /**
+     * The name of the deployment.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

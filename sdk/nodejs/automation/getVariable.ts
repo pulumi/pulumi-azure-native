@@ -75,3 +75,22 @@ export interface GetVariableResult {
      */
     readonly value?: string;
 }
+
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+    return pulumi.output(args).apply(a => getVariable(a, opts))
+}
+
+export interface GetVariableOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of variable.
+     */
+    variableName: pulumi.Input<string>;
+}

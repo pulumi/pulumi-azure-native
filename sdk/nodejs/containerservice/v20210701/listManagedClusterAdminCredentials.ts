@@ -47,3 +47,22 @@ export interface ListManagedClusterAdminCredentialsResult {
      */
     readonly kubeconfigs: outputs.containerservice.v20210701.CredentialResultResponse[];
 }
+
+export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {
+    return pulumi.output(args).apply(a => listManagedClusterAdminCredentials(a, opts))
+}
+
+export interface ListManagedClusterAdminCredentialsOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: pulumi.Input<string>;
+}

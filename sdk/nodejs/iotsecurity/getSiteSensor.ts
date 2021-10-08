@@ -100,3 +100,22 @@ export interface GetSiteSensorResult {
      */
     readonly zone?: string;
 }
+
+export function getSiteSensorOutput(args: GetSiteSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSensorResult> {
+    return pulumi.output(args).apply(a => getSiteSensor(a, opts))
+}
+
+export interface GetSiteSensorOutputArgs {
+    /**
+     * Defender for IoT location
+     */
+    iotDefenderLocation: pulumi.Input<string>;
+    /**
+     * Name of the IoT sensor
+     */
+    sensorName: pulumi.Input<string>;
+    /**
+     * Site Name
+     */
+    siteName: pulumi.Input<string>;
+}

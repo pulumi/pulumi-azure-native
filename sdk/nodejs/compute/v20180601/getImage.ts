@@ -75,3 +75,22 @@ export interface GetImageResult {
      */
     readonly type: string;
 }
+
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+    return pulumi.output(args).apply(a => getImage(a, opts))
+}
+
+export interface GetImageOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the image.
+     */
+    imageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

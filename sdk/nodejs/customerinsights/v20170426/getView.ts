@@ -87,3 +87,26 @@ export interface GetViewResult {
      */
     readonly viewName: string;
 }
+
+export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
+    return pulumi.output(args).apply(a => getView(a, opts))
+}
+
+export interface GetViewOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The user ID. Use * to retrieve hub level view.
+     */
+    userId: pulumi.Input<string>;
+    /**
+     * The name of the view.
+     */
+    viewName: pulumi.Input<string>;
+}

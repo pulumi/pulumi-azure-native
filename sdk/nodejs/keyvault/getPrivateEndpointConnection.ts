@@ -80,3 +80,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * Name of the private endpoint connection associated with the key vault.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the key vault.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the key vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

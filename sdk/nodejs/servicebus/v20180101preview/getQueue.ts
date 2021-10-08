@@ -139,3 +139,22 @@ export interface GetQueueResult {
      */
     readonly updatedAt: string;
 }
+
+export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
+    return pulumi.output(args).apply(a => getQueue(a, opts))
+}
+
+export interface GetQueueOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The queue name.
+     */
+    queueName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

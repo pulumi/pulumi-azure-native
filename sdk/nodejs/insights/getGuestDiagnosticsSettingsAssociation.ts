@@ -62,3 +62,18 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
      */
     readonly type: string;
 }
+
+export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
+    return pulumi.output(args).apply(a => getGuestDiagnosticsSettingsAssociation(a, opts))
+}
+
+export interface GetGuestDiagnosticsSettingsAssociationOutputArgs {
+    /**
+     * The name of the diagnostic settings association.
+     */
+    associationName: pulumi.Input<string>;
+    /**
+     * The fully qualified ID of the resource, including the resource name and resource type.
+     */
+    resourceUri: pulumi.Input<string>;
+}

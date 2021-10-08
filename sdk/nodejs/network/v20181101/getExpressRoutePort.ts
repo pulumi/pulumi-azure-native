@@ -106,3 +106,18 @@ export interface GetExpressRoutePortResult {
      */
     readonly type: string;
 }
+
+export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {
+    return pulumi.output(args).apply(a => getExpressRoutePort(a, opts))
+}
+
+export interface GetExpressRoutePortOutputArgs {
+    /**
+     * The name of ExpressRoutePort.
+     */
+    expressRoutePortName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

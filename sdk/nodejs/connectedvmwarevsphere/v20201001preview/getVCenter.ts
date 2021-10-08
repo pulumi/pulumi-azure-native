@@ -110,3 +110,18 @@ export interface GetVCenterResult {
      */
     readonly version: string;
 }
+
+export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
+    return pulumi.output(args).apply(a => getVCenter(a, opts))
+}
+
+export interface GetVCenterOutputArgs {
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the vCenter.
+     */
+    vcenterName: pulumi.Input<string>;
+}

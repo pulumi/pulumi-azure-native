@@ -59,3 +59,22 @@ export interface GetPatchScheduleResult {
      */
     readonly type: string;
 }
+
+export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
+    return pulumi.output(args).apply(a => getPatchSchedule(a, opts))
+}
+
+export interface GetPatchScheduleOutputArgs {
+    /**
+     * Default string modeled as parameter for auto generation to work correctly.
+     */
+    default: pulumi.Input<string>;
+    /**
+     * The name of the redis cache.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

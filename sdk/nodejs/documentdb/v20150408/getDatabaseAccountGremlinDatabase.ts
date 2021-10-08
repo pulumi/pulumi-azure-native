@@ -74,3 +74,22 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseAccountGremlinDatabaseOutput(args: GetDatabaseAccountGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinDatabaseResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccountGremlinDatabase(a, opts))
+}
+
+export interface GetDatabaseAccountGremlinDatabaseOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

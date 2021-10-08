@@ -83,3 +83,22 @@ export interface GetConnectionMonitorTestResult {
      */
     readonly type: string;
 }
+
+export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
+    return pulumi.output(args).apply(a => getConnectionMonitorTest(a, opts))
+}
+
+export interface GetConnectionMonitorTestOutputArgs {
+    /**
+     * The name of the connection monitor test
+     */
+    connectionMonitorTestName: pulumi.Input<string>;
+    /**
+     * The name of the peering service.
+     */
+    peeringServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

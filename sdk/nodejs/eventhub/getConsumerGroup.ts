@@ -72,3 +72,26 @@ export interface GetConsumerGroupResult {
      */
     readonly userMetadata?: string;
 }
+
+export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
+    return pulumi.output(args).apply(a => getConsumerGroup(a, opts))
+}
+
+export interface GetConsumerGroupOutputArgs {
+    /**
+     * The consumer group name
+     */
+    consumerGroupName: pulumi.Input<string>;
+    /**
+     * The Event Hub name
+     */
+    eventHubName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

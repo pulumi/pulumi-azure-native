@@ -149,3 +149,18 @@ export interface GetVirtualMachineTemplateResult {
      */
     readonly vCenterId?: string;
 }
+
+export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineTemplate(a, opts))
+}
+
+export interface GetVirtualMachineTemplateOutputArgs {
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the virtual machine template resource.
+     */
+    virtualMachineTemplateName: pulumi.Input<string>;
+}

@@ -72,3 +72,26 @@ export interface GetServiceTaskResult {
      */
     readonly type: string;
 }
+
+export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTaskResult> {
+    return pulumi.output(args).apply(a => getServiceTask(a, opts))
+}
+
+export interface GetServiceTaskOutputArgs {
+    /**
+     * Expand the response
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Name of the resource group
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Name of the service
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Name of the Task
+     */
+    taskName: pulumi.Input<string>;
+}

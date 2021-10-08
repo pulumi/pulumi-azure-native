@@ -106,3 +106,26 @@ export interface GetInvitationResult {
      */
     readonly userName: string;
 }
+
+export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
+    return pulumi.output(args).apply(a => getInvitation(a, opts))
+}
+
+export interface GetInvitationOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the invitation.
+     */
+    invitationName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+}

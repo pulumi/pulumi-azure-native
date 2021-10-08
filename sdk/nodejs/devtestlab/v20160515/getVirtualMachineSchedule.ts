@@ -117,3 +117,30 @@ export interface GetVirtualMachineScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20160515.WeekDetailsResponse;
 }
+
+export function getVirtualMachineScheduleOutput(args: GetVirtualMachineScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScheduleResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineSchedule(a, opts))
+}
+
+export interface GetVirtualMachineScheduleOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    virtualMachineName: pulumi.Input<string>;
+}

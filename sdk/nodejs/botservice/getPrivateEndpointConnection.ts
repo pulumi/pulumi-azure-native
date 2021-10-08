@@ -68,3 +68,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

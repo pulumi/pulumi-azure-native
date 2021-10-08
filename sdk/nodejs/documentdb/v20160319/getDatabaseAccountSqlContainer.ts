@@ -100,3 +100,26 @@ export interface GetDatabaseAccountSqlContainerResult {
      */
     readonly uniqueKeyPolicy?: outputs.documentdb.v20160319.UniqueKeyPolicyResponse;
 }
+
+export function getDatabaseAccountSqlContainerOutput(args: GetDatabaseAccountSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlContainerResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccountSqlContainer(a, opts))
+}
+
+export interface GetDatabaseAccountSqlContainerOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB container name.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -95,3 +95,38 @@ export interface GetSensitivityLabelResult {
      */
     readonly type: string;
 }
+
+export function getSensitivityLabelOutput(args: GetSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitivityLabelResult> {
+    return pulumi.output(args).apply(a => getSensitivityLabel(a, opts))
+}
+
+export interface GetSensitivityLabelOutputArgs {
+    /**
+     * The name of the column.
+     */
+    columnName: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the schema.
+     */
+    schemaName: pulumi.Input<string>;
+    /**
+     * The source of the sensitivity label.
+     */
+    sensitivityLabelSource: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the table.
+     */
+    tableName: pulumi.Input<string>;
+}

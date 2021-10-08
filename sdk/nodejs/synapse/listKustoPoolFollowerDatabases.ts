@@ -48,3 +48,22 @@ export interface ListKustoPoolFollowerDatabasesResult {
      */
     readonly value?: outputs.synapse.FollowerDatabaseDefinitionResponse[];
 }
+
+export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
+    return pulumi.output(args).apply(a => listKustoPoolFollowerDatabases(a, opts))
+}
+
+export interface ListKustoPoolFollowerDatabasesOutputArgs {
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

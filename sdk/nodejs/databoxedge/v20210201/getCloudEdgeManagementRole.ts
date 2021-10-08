@@ -80,3 +80,22 @@ export interface GetCloudEdgeManagementRoleResult {
      */
     readonly type: string;
 }
+
+export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
+    return pulumi.output(args).apply(a => getCloudEdgeManagementRole(a, opts))
+}
+
+export interface GetCloudEdgeManagementRoleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

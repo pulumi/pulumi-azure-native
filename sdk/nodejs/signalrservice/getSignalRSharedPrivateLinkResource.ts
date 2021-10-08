@@ -80,3 +80,22 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
      */
     readonly type: string;
 }
+
+export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
+    return pulumi.output(args).apply(a => getSignalRSharedPrivateLinkResource(a, opts))
+}
+
+export interface GetSignalRSharedPrivateLinkResourceOutputArgs {
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * The name of the shared private link resource
+     */
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
+}

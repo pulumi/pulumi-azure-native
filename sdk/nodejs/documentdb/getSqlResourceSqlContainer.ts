@@ -71,3 +71,26 @@ export interface GetSqlResourceSqlContainerResult {
      */
     readonly type: string;
 }
+
+export function getSqlResourceSqlContainerOutput(args: GetSqlResourceSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlContainerResult> {
+    return pulumi.output(args).apply(a => getSqlResourceSqlContainer(a, opts))
+}
+
+export interface GetSqlResourceSqlContainerOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB container name.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

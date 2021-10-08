@@ -90,3 +90,18 @@ export interface GetSpatialAnchorsAccountResult {
      */
     readonly type: string;
 }
+
+export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
+    return pulumi.output(args).apply(a => getSpatialAnchorsAccount(a, opts))
+}
+
+export interface GetSpatialAnchorsAccountOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

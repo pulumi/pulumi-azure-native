@@ -75,3 +75,26 @@ export interface ListTopicKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {
+    return pulumi.output(args).apply(a => listTopicKeys(a, opts))
+}
+
+export interface ListTopicKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The topic name.
+     */
+    topicName: pulumi.Input<string>;
+}

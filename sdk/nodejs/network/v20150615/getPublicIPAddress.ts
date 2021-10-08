@@ -92,3 +92,22 @@ export interface GetPublicIPAddressResult {
      */
     readonly type: string;
 }
+
+export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
+    return pulumi.output(args).apply(a => getPublicIPAddress(a, opts))
+}
+
+export interface GetPublicIPAddressOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the subnet.
+     */
+    publicIpAddressName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

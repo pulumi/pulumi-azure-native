@@ -108,3 +108,30 @@ export interface GetPolicyResult {
      */
     readonly uniqueIdentifier: string;
 }
+
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+    return pulumi.output(args).apply(a => getPolicy(a, opts))
+}
+
+export interface GetPolicyOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=description)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the policy set.
+     */
+    policySetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

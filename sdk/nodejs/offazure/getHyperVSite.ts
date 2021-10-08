@@ -64,3 +64,18 @@ export interface GetHyperVSiteResult {
      */
     readonly type: string;
 }
+
+export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
+    return pulumi.output(args).apply(a => getHyperVSite(a, opts))
+}
+
+export interface GetHyperVSiteOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    siteName: pulumi.Input<string>;
+}

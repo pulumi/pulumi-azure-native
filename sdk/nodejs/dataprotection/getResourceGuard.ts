@@ -71,3 +71,18 @@ export interface GetResourceGuardResult {
      */
     readonly type: string;
 }
+
+export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
+    return pulumi.output(args).apply(a => getResourceGuard(a, opts))
+}
+
+export interface GetResourceGuardOutputArgs {
+    /**
+     * The name of the resource group where the backup vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of ResourceGuard
+     */
+    resourceGuardsName: pulumi.Input<string>;
+}

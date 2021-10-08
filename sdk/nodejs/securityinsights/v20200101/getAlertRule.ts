@@ -64,3 +64,22 @@ export interface GetAlertRuleResult {
      */
     readonly type: string;
 }
+
+export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
+    return pulumi.output(args).apply(a => getAlertRule(a, opts))
+}
+
+export interface GetAlertRuleOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    ruleId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -93,3 +93,26 @@ export interface GetBlobDataSetResult {
      */
     readonly type: string;
 }
+
+export function getBlobDataSetOutput(args: GetBlobDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetResult> {
+    return pulumi.output(args).apply(a => getBlobDataSet(a, opts))
+}
+
+export interface GetBlobDataSetOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSet.
+     */
+    dataSetName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+}

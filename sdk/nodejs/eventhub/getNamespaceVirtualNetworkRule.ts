@@ -59,3 +59,22 @@ export interface GetNamespaceVirtualNetworkRuleResult {
      */
     readonly virtualNetworkSubnetId?: string;
 }
+
+export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceVirtualNetworkRule(a, opts))
+}
+
+export interface GetNamespaceVirtualNetworkRuleOutputArgs {
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Virtual Network Rule name.
+     */
+    virtualNetworkRuleName: pulumi.Input<string>;
+}

@@ -87,3 +87,22 @@ export interface GetEncryptionProtectorResult {
      */
     readonly uri: string;
 }
+
+export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
+    return pulumi.output(args).apply(a => getEncryptionProtector(a, opts))
+}
+
+export interface GetEncryptionProtectorOutputArgs {
+    /**
+     * The name of the encryption protector to be retrieved.
+     */
+    encryptionProtectorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

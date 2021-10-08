@@ -89,3 +89,22 @@ export interface GetEventChannelResult {
      */
     readonly type: string;
 }
+
+export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {
+    return pulumi.output(args).apply(a => getEventChannel(a, opts))
+}
+
+export interface GetEventChannelOutputArgs {
+    /**
+     * Name of the event channel.
+     */
+    eventChannelName: pulumi.Input<string>;
+    /**
+     * Name of the partner namespace.
+     */
+    partnerNamespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

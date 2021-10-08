@@ -71,3 +71,18 @@ export interface GetInstanceDetailsResult {
      */
     readonly type: string;
 }
+
+export function getInstanceDetailsOutput(args: GetInstanceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceDetailsResult> {
+    return pulumi.output(args).apply(a => getInstanceDetails(a, opts))
+}
+
+export interface GetInstanceDetailsOutputArgs {
+    /**
+     * The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    instanceName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

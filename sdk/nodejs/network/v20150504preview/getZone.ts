@@ -66,3 +66,18 @@ export interface GetZoneResult {
      */
     readonly type: string;
 }
+
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+    return pulumi.output(args).apply(a => getZone(a, opts))
+}
+
+export interface GetZoneOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the zone without a terminating dot.
+     */
+    zoneName: pulumi.Input<string>;
+}

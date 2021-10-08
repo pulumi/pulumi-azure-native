@@ -112,3 +112,18 @@ export interface GetTopicResult {
      */
     readonly type: string;
 }
+
+export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
+    return pulumi.output(args).apply(a => getTopic(a, opts))
+}
+
+export interface GetTopicOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the topic.
+     */
+    topicName: pulumi.Input<string>;
+}

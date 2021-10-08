@@ -68,3 +68,22 @@ export interface GetProactiveDetectionConfigurationResult {
      */
     readonly sendEmailsToSubscriptionOwners?: boolean;
 }
+
+export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
+    return pulumi.output(args).apply(a => getProactiveDetectionConfiguration(a, opts))
+}
+
+export interface GetProactiveDetectionConfigurationOutputArgs {
+    /**
+     * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
+     */
+    configurationId: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

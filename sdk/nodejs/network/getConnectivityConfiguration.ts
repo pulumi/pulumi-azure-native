@@ -96,3 +96,22 @@ export interface GetConnectivityConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
+    return pulumi.output(args).apply(a => getConnectivityConfiguration(a, opts))
+}
+
+export interface GetConnectivityConfigurationOutputArgs {
+    /**
+     * The name of the network manager connectivity configuration.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

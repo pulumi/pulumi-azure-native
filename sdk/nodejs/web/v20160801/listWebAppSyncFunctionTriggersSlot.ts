@@ -66,3 +66,22 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppSyncFunctionTriggersSlotOutput(args: ListWebAppSyncFunctionTriggersSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppSyncFunctionTriggersSlot(a, opts))
+}
+
+export interface ListWebAppSyncFunctionTriggersSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will restore a backup of the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

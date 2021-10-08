@@ -79,3 +79,22 @@ export interface ListChannelWithKeysResult {
      */
     readonly type: string;
 }
+
+export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
+    return pulumi.output(args).apply(a => listChannelWithKeys(a, opts))
+}
+
+export interface ListChannelWithKeysOutputArgs {
+    /**
+     * The name of the Channel resource.
+     */
+    channelName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

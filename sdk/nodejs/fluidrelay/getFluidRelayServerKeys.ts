@@ -46,3 +46,18 @@ export interface GetFluidRelayServerKeysResult {
      */
     readonly key2: string;
 }
+
+export function getFluidRelayServerKeysOutput(args: GetFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerKeysResult> {
+    return pulumi.output(args).apply(a => getFluidRelayServerKeys(a, opts))
+}
+
+export interface GetFluidRelayServerKeysOutputArgs {
+    /**
+     * The resource name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group containing the resource.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

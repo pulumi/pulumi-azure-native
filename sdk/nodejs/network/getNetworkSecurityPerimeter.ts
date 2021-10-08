@@ -74,3 +74,18 @@ export interface GetNetworkSecurityPerimeterResult {
      */
     readonly type: string;
 }
+
+export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
+    return pulumi.output(args).apply(a => getNetworkSecurityPerimeter(a, opts))
+}
+
+export interface GetNetworkSecurityPerimeterOutputArgs {
+    /**
+     * The name of the network security perimeter.
+     */
+    networkSecurityPerimeterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

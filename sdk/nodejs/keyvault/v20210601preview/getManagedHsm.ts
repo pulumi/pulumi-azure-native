@@ -70,3 +70,18 @@ export interface GetManagedHsmResult {
      */
     readonly type: string;
 }
+
+export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
+    return pulumi.output(args).apply(a => getManagedHsm(a, opts))
+}
+
+export interface GetManagedHsmOutputArgs {
+    /**
+     * The name of the managed HSM Pool.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the managed HSM pool.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

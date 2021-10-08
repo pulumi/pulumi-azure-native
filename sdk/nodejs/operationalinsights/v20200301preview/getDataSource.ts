@@ -70,3 +70,22 @@ export interface GetDataSourceResult {
      */
     readonly type: string;
 }
+
+export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
+    return pulumi.output(args).apply(a => getDataSource(a, opts))
+}
+
+export interface GetDataSourceOutputArgs {
+    /**
+     * Name of the datasource
+     */
+    dataSourceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

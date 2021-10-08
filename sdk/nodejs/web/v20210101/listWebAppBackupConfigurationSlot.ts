@@ -79,3 +79,22 @@ export interface ListWebAppBackupConfigurationSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppBackupConfigurationSlotOutput(args: ListWebAppBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppBackupConfigurationSlot(a, opts))
+}
+
+export interface ListWebAppBackupConfigurationSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the backup configuration for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

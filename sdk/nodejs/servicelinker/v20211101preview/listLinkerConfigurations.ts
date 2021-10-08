@@ -42,3 +42,18 @@ export interface ListLinkerConfigurationsResult {
      */
     readonly configurations?: outputs.servicelinker.v20211101preview.SourceConfigurationResponse[];
 }
+
+export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
+    return pulumi.output(args).apply(a => listLinkerConfigurations(a, opts))
+}
+
+export interface ListLinkerConfigurationsOutputArgs {
+    /**
+     * The name Linker resource.
+     */
+    linkerName: pulumi.Input<string>;
+    /**
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     */
+    resourceUri: pulumi.Input<string>;
+}

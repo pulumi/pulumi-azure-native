@@ -76,3 +76,22 @@ export interface GetDataStoreResult {
      */
     readonly type: string;
 }
+
+export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
+    return pulumi.output(args).apply(a => getDataStore(a, opts))
+}
+
+export interface GetDataStoreOutputArgs {
+    /**
+     * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+     */
+    dataManagerName: pulumi.Input<string>;
+    /**
+     * The data store/repository name queried.
+     */
+    dataStoreName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

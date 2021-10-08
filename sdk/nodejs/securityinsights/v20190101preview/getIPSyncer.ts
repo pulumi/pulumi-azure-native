@@ -72,3 +72,26 @@ export interface GetIPSyncerResult {
      */
     readonly type: string;
 }
+
+export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSyncerResult> {
+    return pulumi.output(args).apply(a => getIPSyncer(a, opts))
+}
+
+export interface GetIPSyncerOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+     */
+    settingsName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

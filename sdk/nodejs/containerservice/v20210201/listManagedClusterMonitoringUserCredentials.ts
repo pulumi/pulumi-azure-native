@@ -42,3 +42,18 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
      */
     readonly kubeconfigs: outputs.containerservice.v20210201.CredentialResultResponse[];
 }
+
+export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {
+    return pulumi.output(args).apply(a => listManagedClusterMonitoringUserCredentials(a, opts))
+}
+
+export interface ListManagedClusterMonitoringUserCredentialsOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

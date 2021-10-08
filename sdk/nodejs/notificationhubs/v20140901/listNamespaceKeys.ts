@@ -50,3 +50,22 @@ export interface ListNamespaceKeysResult {
      */
     readonly secondaryConnectionString?: string;
 }
+
+export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
+    return pulumi.output(args).apply(a => listNamespaceKeys(a, opts))
+}
+
+export interface ListNamespaceKeysOutputArgs {
+    /**
+     * The connection string of the namespace for the specified authorizationRule.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

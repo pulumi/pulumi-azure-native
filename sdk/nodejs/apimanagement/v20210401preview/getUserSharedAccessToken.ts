@@ -57,3 +57,30 @@ export interface GetUserSharedAccessTokenResult {
      */
     readonly value?: string;
 }
+
+export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
+    return pulumi.output(args).apply(a => getUserSharedAccessToken(a, opts))
+}
+
+export interface GetUserSharedAccessTokenOutputArgs {
+    /**
+     * The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    expiry: pulumi.Input<string>;
+    /**
+     * The Key to be used to generate token for user.
+     */
+    keyType: pulumi.Input<enums.apimanagement.v20210401preview.KeyType>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * User identifier. Must be unique in the current API Management service instance.
+     */
+    userId: pulumi.Input<string>;
+}

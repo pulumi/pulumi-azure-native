@@ -103,3 +103,18 @@ export interface GetNetworkFunctionResult {
      */
     readonly vendorProvisioningState: string;
 }
+
+export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
+    return pulumi.output(args).apply(a => getNetworkFunction(a, opts))
+}
+
+export interface GetNetworkFunctionOutputArgs {
+    /**
+     * The name of the network function resource.
+     */
+    networkFunctionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

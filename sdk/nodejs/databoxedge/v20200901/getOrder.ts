@@ -82,3 +82,18 @@ export interface GetOrderResult {
      */
     readonly type: string;
 }
+
+export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
+    return pulumi.output(args).apply(a => getOrder(a, opts))
+}
+
+export interface GetOrderOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -94,3 +94,22 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountResult {
      */
     readonly userEmailAddress?: string;
 }
+
+export function getBillingRoleAssignmentByEnrollmentAccountOutput(args: GetBillingRoleAssignmentByEnrollmentAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByEnrollmentAccountResult> {
+    return pulumi.output(args).apply(a => getBillingRoleAssignmentByEnrollmentAccount(a, opts))
+}
+
+export interface GetBillingRoleAssignmentByEnrollmentAccountOutputArgs {
+    /**
+     * The ID that uniquely identifies a billing account.
+     */
+    billingAccountName: pulumi.Input<string>;
+    /**
+     * The ID that uniquely identifies a role assignment.
+     */
+    billingRoleAssignmentName: pulumi.Input<string>;
+    /**
+     * The ID that uniquely identifies an enrollment account.
+     */
+    enrollmentAccountName: pulumi.Input<string>;
+}

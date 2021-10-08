@@ -50,3 +50,18 @@ export interface ListAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+}
+
+export interface ListAccountKeysOutputArgs {
+    /**
+     * The name of the Maps Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Resource Group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

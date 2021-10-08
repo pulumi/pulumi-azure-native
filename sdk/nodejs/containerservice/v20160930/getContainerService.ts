@@ -94,3 +94,18 @@ export interface GetContainerServiceResult {
      */
     readonly windowsProfile?: outputs.containerservice.v20160930.ContainerServiceWindowsProfileResponse;
 }
+
+export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {
+    return pulumi.output(args).apply(a => getContainerService(a, opts))
+}
+
+export interface GetContainerServiceOutputArgs {
+    /**
+     * The name of the container service in the specified subscription and resource group.
+     */
+    containerServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

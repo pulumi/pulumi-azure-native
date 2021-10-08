@@ -63,3 +63,22 @@ export interface GetEdgeModuleResult {
      */
     readonly type: string;
 }
+
+export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
+    return pulumi.output(args).apply(a => getEdgeModule(a, opts))
+}
+
+export interface GetEdgeModuleOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Edge Module name.
+     */
+    edgeModuleName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

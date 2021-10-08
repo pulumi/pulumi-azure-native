@@ -66,3 +66,18 @@ export interface ListSiteConnectionStringsResult {
      */
     readonly type?: string;
 }
+
+export function listSiteConnectionStringsOutput(args: ListSiteConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteConnectionStringsResult> {
+    return pulumi.output(args).apply(a => listSiteConnectionStrings(a, opts))
+}
+
+export interface ListSiteConnectionStringsOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

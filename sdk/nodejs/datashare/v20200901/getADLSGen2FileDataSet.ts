@@ -93,3 +93,26 @@ export interface GetADLSGen2FileDataSetResult {
      */
     readonly type: string;
 }
+
+export function getADLSGen2FileDataSetOutput(args: GetADLSGen2FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileDataSetResult> {
+    return pulumi.output(args).apply(a => getADLSGen2FileDataSet(a, opts))
+}
+
+export interface GetADLSGen2FileDataSetOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSet.
+     */
+    dataSetName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+}

@@ -79,3 +79,18 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
      */
     readonly type: string;
 }
+
+export function getprivateLinkServicesForO365ManagementActivityAPIOutput(args: GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
+    return pulumi.output(args).apply(a => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))
+}
+
+export interface GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs {
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

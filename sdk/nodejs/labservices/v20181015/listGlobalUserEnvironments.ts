@@ -42,3 +42,18 @@ export interface ListGlobalUserEnvironmentsResult {
      */
     readonly environments?: outputs.labservices.v20181015.EnvironmentDetailsResponse[];
 }
+
+export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {
+    return pulumi.output(args).apply(a => listGlobalUserEnvironments(a, opts))
+}
+
+export interface ListGlobalUserEnvironmentsOutputArgs {
+    /**
+     * The resource Id of the lab
+     */
+    labId?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

@@ -56,3 +56,26 @@ export interface GetTestResultVideoDownloadURLResult {
      */
     readonly expirationTime: string;
 }
+
+export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
+    return pulumi.output(args).apply(a => getTestResultVideoDownloadURL(a, opts))
+}
+
+export interface GetTestResultVideoDownloadURLOutputArgs {
+    /**
+     * The resource name of the Test Base Package.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+    /**
+     * The Test Result Name. It equals to {osName}-{TestResultId} string.
+     */
+    testResultName: pulumi.Input<string>;
+}

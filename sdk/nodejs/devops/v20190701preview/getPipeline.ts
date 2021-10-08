@@ -74,3 +74,18 @@ export interface GetPipelineResult {
      */
     readonly type: string;
 }
+
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+    return pulumi.output(args).apply(a => getPipeline(a, opts))
+}
+
+export interface GetPipelineOutputArgs {
+    /**
+     * The name of the Azure Pipeline resource in ARM.
+     */
+    pipelineName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -95,3 +95,26 @@ export interface GetServerEndpointResult {
      */
     readonly volumeFreeSpacePercent?: number;
 }
+
+export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {
+    return pulumi.output(args).apply(a => getServerEndpoint(a, opts))
+}
+
+export interface GetServerEndpointOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Server Endpoint object.
+     */
+    serverEndpointName: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    storageSyncServiceName: pulumi.Input<string>;
+    /**
+     * Name of Sync Group resource.
+     */
+    syncGroupName: pulumi.Input<string>;
+}

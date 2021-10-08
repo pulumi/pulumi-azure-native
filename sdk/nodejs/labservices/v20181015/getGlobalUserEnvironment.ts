@@ -47,3 +47,22 @@ export interface GetGlobalUserEnvironmentResult {
      */
     readonly environment: outputs.labservices.v20181015.EnvironmentDetailsResponse;
 }
+
+export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
+    return pulumi.output(args).apply(a => getGlobalUserEnvironment(a, opts))
+}
+
+export interface GetGlobalUserEnvironmentOutputArgs {
+    /**
+     * The resourceId of the environment
+     */
+    environmentId: pulumi.Input<string>;
+    /**
+     * Specify the $expand query. Example: 'properties($expand=environment)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

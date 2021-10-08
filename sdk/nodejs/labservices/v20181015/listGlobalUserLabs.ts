@@ -37,3 +37,14 @@ export interface ListGlobalUserLabsResult {
      */
     readonly labs?: outputs.labservices.v20181015.LabDetailsResponse[];
 }
+
+export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
+    return pulumi.output(args).apply(a => listGlobalUserLabs(a, opts))
+}
+
+export interface ListGlobalUserLabsOutputArgs {
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

@@ -66,3 +66,22 @@ export interface GetAuthorizationResult {
      */
     readonly type: string;
 }
+
+export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
+    return pulumi.output(args).apply(a => getAuthorization(a, opts))
+}
+
+export interface GetAuthorizationOutputArgs {
+    /**
+     * Name of the ExpressRoute Circuit Authorization in the private cloud
+     */
+    authorizationName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

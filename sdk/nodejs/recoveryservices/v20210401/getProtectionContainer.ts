@@ -76,3 +76,26 @@ export interface GetProtectionContainerResult {
      */
     readonly type: string;
 }
+
+export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
+    return pulumi.output(args).apply(a => getProtectionContainer(a, opts))
+}
+
+export interface GetProtectionContainerOutputArgs {
+    /**
+     * Name of the container whose details need to be fetched.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Name of the fabric where the container belongs.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

@@ -80,3 +80,22 @@ export interface GetLivePipelineResult {
      */
     readonly type: string;
 }
+
+export function getLivePipelineOutput(args: GetLivePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLivePipelineResult> {
+    return pulumi.output(args).apply(a => getLivePipeline(a, opts))
+}
+
+export interface GetLivePipelineOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Live pipeline unique identifier.
+     */
+    livePipelineName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

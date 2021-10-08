@@ -42,3 +42,18 @@ export interface GetUserSettingsWithLocationResult {
      */
     readonly properties: outputs.portal.v20181001.UserPropertiesResponse;
 }
+
+export function getUserSettingsWithLocationOutput(args: GetUserSettingsWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsWithLocationResult> {
+    return pulumi.output(args).apply(a => getUserSettingsWithLocation(a, opts))
+}
+
+export interface GetUserSettingsWithLocationOutputArgs {
+    /**
+     * The provider location
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The name of the user settings
+     */
+    userSettingsName: pulumi.Input<string>;
+}

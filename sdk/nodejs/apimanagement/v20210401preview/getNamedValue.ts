@@ -75,3 +75,22 @@ export interface GetNamedValueResult {
      */
     readonly value?: string;
 }
+
+export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
+    return pulumi.output(args).apply(a => getNamedValue(a, opts))
+}
+
+export interface GetNamedValueOutputArgs {
+    /**
+     * Identifier of the NamedValue.
+     */
+    namedValueId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

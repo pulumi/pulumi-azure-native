@@ -50,3 +50,22 @@ export interface GetExposureControlFeatureValueResult {
      */
     readonly value: string;
 }
+
+export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
+    return pulumi.output(args).apply(a => getExposureControlFeatureValue(a, opts))
+}
+
+export interface GetExposureControlFeatureValueOutputArgs {
+    /**
+     * The feature name.
+     */
+    featureName?: pulumi.Input<string>;
+    /**
+     * The feature type.
+     */
+    featureType?: pulumi.Input<string>;
+    /**
+     * The location identifier.
+     */
+    locationId: pulumi.Input<string>;
+}

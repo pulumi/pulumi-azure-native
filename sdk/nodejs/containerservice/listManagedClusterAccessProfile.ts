@@ -67,3 +67,22 @@ export interface ListManagedClusterAccessProfileResult {
      */
     readonly type: string;
 }
+
+export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
+    return pulumi.output(args).apply(a => listManagedClusterAccessProfile(a, opts))
+}
+
+export interface ListManagedClusterAccessProfileOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * The name of the role for managed cluster accessProfile resource.
+     */
+    roleName: pulumi.Input<string>;
+}

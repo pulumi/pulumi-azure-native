@@ -54,3 +54,18 @@ export interface GetCostAllocationRuleResult {
      */
     readonly type: string;
 }
+
+export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {
+    return pulumi.output(args).apply(a => getCostAllocationRule(a, opts))
+}
+
+export interface GetCostAllocationRuleOutputArgs {
+    /**
+     * BillingAccount ID
+     */
+    billingAccountId: pulumi.Input<string>;
+    /**
+     * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
+     */
+    ruleName: pulumi.Input<string>;
+}

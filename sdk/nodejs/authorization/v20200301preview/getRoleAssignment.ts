@@ -97,3 +97,18 @@ export interface GetRoleAssignmentResult {
      */
     readonly updatedOn: string;
 }
+
+export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
+    return pulumi.output(args).apply(a => getRoleAssignment(a, opts))
+}
+
+export interface GetRoleAssignmentOutputArgs {
+    /**
+     * The name of the role assignment. It can be any valid GUID.
+     */
+    roleAssignmentName: pulumi.Input<string>;
+    /**
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+     */
+    scope: pulumi.Input<string>;
+}

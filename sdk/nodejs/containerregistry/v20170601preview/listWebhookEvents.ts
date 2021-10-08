@@ -51,3 +51,22 @@ export interface ListWebhookEventsResult {
      */
     readonly value?: outputs.containerregistry.v20170601preview.EventResponse[];
 }
+
+export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
+    return pulumi.output(args).apply(a => listWebhookEvents(a, opts))
+}
+
+export interface ListWebhookEventsOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the webhook.
+     */
+    webhookName: pulumi.Input<string>;
+}

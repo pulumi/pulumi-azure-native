@@ -72,3 +72,22 @@ export interface GetPrivateEndpointConnectionsForEDMResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionsForEDMOutput(args: GetPrivateEndpointConnectionsForEDMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForEDMResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsForEDM(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionsForEDMOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

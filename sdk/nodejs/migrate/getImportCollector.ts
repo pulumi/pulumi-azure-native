@@ -45,3 +45,22 @@ export interface GetImportCollectorResult {
     readonly properties: outputs.migrate.ImportCollectorPropertiesResponse;
     readonly type: string;
 }
+
+export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
+    return pulumi.output(args).apply(a => getImportCollector(a, opts))
+}
+
+export interface GetImportCollectorOutputArgs {
+    /**
+     * Unique name of a Import collector within a project.
+     */
+    importCollectorName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

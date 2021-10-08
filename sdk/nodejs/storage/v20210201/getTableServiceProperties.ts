@@ -59,3 +59,22 @@ export interface GetTableServicePropertiesResult {
      */
     readonly type: string;
 }
+
+export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
+    return pulumi.output(args).apply(a => getTableServiceProperties(a, opts))
+}
+
+export interface GetTableServicePropertiesOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
+     */
+    tableServiceName: pulumi.Input<string>;
+}

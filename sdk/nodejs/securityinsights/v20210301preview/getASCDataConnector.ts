@@ -81,3 +81,26 @@ export interface GetASCDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {
+    return pulumi.output(args).apply(a => getASCDataConnector(a, opts))
+}
+
+export interface GetASCDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

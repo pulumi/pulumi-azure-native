@@ -104,3 +104,22 @@ export interface GetLabResult {
      */
     readonly vaultName: string;
 }
+
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+    return pulumi.output(args).apply(a => getLab(a, opts))
+}
+
+export interface GetLabOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

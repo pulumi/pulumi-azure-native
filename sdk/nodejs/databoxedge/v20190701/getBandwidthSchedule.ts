@@ -70,3 +70,22 @@ export interface GetBandwidthScheduleResult {
      */
     readonly type: string;
 }
+
+export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
+    return pulumi.output(args).apply(a => getBandwidthSchedule(a, opts))
+}
+
+export interface GetBandwidthScheduleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The bandwidth schedule name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

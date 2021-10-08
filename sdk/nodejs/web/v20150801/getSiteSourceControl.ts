@@ -81,3 +81,18 @@ export interface GetSiteSourceControlResult {
      */
     readonly type?: string;
 }
+
+export function getSiteSourceControlOutput(args: GetSiteSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSourceControlResult> {
+    return pulumi.output(args).apply(a => getSiteSourceControl(a, opts))
+}
+
+export interface GetSiteSourceControlOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

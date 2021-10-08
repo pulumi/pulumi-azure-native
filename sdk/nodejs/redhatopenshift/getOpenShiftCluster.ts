@@ -95,3 +95,18 @@ export interface GetOpenShiftClusterResult {
      */
     readonly workerProfiles?: outputs.redhatopenshift.WorkerProfileResponse[];
 }
+
+export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
+    return pulumi.output(args).apply(a => getOpenShiftCluster(a, opts))
+}
+
+export interface GetOpenShiftClusterOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the OpenShift cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

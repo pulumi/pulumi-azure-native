@@ -64,3 +64,22 @@ export interface GetReplicationRecoveryPlanResult {
      */
     readonly type: string;
 }
+
+export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
+    return pulumi.output(args).apply(a => getReplicationRecoveryPlan(a, opts))
+}
+
+export interface GetReplicationRecoveryPlanOutputArgs {
+    /**
+     * Name of the recovery plan.
+     */
+    recoveryPlanName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

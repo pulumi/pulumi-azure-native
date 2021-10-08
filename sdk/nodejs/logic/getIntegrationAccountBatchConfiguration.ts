@@ -68,3 +68,22 @@ export interface GetIntegrationAccountBatchConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
+    return pulumi.output(args).apply(a => getIntegrationAccountBatchConfiguration(a, opts))
+}
+
+export interface GetIntegrationAccountBatchConfigurationOutputArgs {
+    /**
+     * The batch configuration name.
+     */
+    batchConfigurationName: pulumi.Input<string>;
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

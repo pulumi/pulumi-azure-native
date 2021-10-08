@@ -71,3 +71,22 @@ export interface GetLinkedServiceResult {
      */
     readonly writeAccessResourceId?: string;
 }
+
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+    return pulumi.output(args).apply(a => getLinkedService(a, opts))
+}
+
+export interface GetLinkedServiceOutputArgs {
+    /**
+     * Name of the linked service.
+     */
+    linkedServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -61,3 +61,14 @@ export interface GetSettingResult {
      */
     readonly type: string;
 }
+
+export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingResult> {
+    return pulumi.output(args).apply(a => getSetting(a, opts))
+}
+
+export interface GetSettingOutputArgs {
+    /**
+     * Name of the setting. Allowed values: myscope
+     */
+    settingName: pulumi.Input<string>;
+}

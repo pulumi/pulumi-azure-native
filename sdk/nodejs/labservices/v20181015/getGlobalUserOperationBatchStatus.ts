@@ -42,3 +42,18 @@ export interface GetGlobalUserOperationBatchStatusResult {
      */
     readonly items: outputs.labservices.v20181015.OperationBatchStatusResponseItemResponse[];
 }
+
+export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
+    return pulumi.output(args).apply(a => getGlobalUserOperationBatchStatus(a, opts))
+}
+
+export interface GetGlobalUserOperationBatchStatusOutputArgs {
+    /**
+     * The operation url of long running operation
+     */
+    urls: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

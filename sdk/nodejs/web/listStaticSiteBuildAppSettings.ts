@@ -63,3 +63,22 @@ export interface ListStaticSiteBuildAppSettingsResult {
      */
     readonly type: string;
 }
+
+export function listStaticSiteBuildAppSettingsOutput(args: ListStaticSiteBuildAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildAppSettingsResult> {
+    return pulumi.output(args).apply(a => listStaticSiteBuildAppSettings(a, opts))
+}
+
+export interface ListStaticSiteBuildAppSettingsOutputArgs {
+    /**
+     * The stage site identifier.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

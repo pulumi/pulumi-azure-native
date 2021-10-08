@@ -91,3 +91,26 @@ export interface GetBackupPolicyResult {
      */
     readonly volumeIds: string[];
 }
+
+export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
+    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
+}
+
+export interface GetBackupPolicyOutputArgs {
+    /**
+     * The name of backup policy to be fetched.
+     */
+    backupPolicyName: pulumi.Input<string>;
+    /**
+     * The device name
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

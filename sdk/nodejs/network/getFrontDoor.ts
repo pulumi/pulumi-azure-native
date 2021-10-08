@@ -111,3 +111,18 @@ export interface GetFrontDoorResult {
      */
     readonly type: string;
 }
+
+export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
+    return pulumi.output(args).apply(a => getFrontDoor(a, opts))
+}
+
+export interface GetFrontDoorOutputArgs {
+    /**
+     * Name of the Front Door which is globally unique.
+     */
+    frontDoorName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

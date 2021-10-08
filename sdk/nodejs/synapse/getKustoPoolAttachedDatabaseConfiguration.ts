@@ -93,3 +93,26 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getKustoPoolAttachedDatabaseConfigurationOutput(args: GetKustoPoolAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolAttachedDatabaseConfigurationResult> {
+    return pulumi.output(args).apply(a => getKustoPoolAttachedDatabaseConfiguration(a, opts))
+}
+
+export interface GetKustoPoolAttachedDatabaseConfigurationOutputArgs {
+    /**
+     * The name of the attached database configuration.
+     */
+    attachedDatabaseConfigurationName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

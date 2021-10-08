@@ -209,3 +209,26 @@ export interface GetVirtualMachineResult {
      */
     readonly virtualMachineCreationSource: string;
 }
+
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+}
+
+export interface GetVirtualMachineOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

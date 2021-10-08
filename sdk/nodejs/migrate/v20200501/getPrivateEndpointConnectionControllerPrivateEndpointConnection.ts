@@ -67,3 +67,22 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionControllerPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs {
+    /**
+     * Migrate project name.
+     */
+    migrateProjectName: pulumi.Input<string>;
+    /**
+     * Private endpoint connection name.
+     */
+    peConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

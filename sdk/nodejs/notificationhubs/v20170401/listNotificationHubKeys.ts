@@ -67,3 +67,26 @@ export interface ListNotificationHubKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
+    return pulumi.output(args).apply(a => listNotificationHubKeys(a, opts))
+}
+
+export interface ListNotificationHubKeysOutputArgs {
+    /**
+     * The connection string of the NotificationHub for the specified authorizationRule.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The notification hub name.
+     */
+    notificationHubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

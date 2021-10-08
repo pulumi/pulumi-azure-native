@@ -99,3 +99,22 @@ export interface GetAgreementResult {
      */
     readonly type: string;
 }
+
+export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
+    return pulumi.output(args).apply(a => getAgreement(a, opts))
+}
+
+export interface GetAgreementOutputArgs {
+    /**
+     * The integration account agreement name.
+     */
+    agreementName: pulumi.Input<string>;
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

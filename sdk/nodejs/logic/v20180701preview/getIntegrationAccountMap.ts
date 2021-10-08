@@ -95,3 +95,22 @@ export interface GetIntegrationAccountMapResult {
      */
     readonly type: string;
 }
+
+export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
+    return pulumi.output(args).apply(a => getIntegrationAccountMap(a, opts))
+}
+
+export interface GetIntegrationAccountMapOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The integration account map name.
+     */
+    mapName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

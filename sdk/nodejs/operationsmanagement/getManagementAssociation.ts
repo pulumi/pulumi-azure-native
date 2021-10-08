@@ -74,3 +74,30 @@ export interface GetManagementAssociationResult {
      */
     readonly type: string;
 }
+
+export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
+    return pulumi.output(args).apply(a => getManagementAssociation(a, opts))
+}
+
+export interface GetManagementAssociationOutputArgs {
+    /**
+     * User ManagementAssociation Name.
+     */
+    managementAssociationName: pulumi.Input<string>;
+    /**
+     * Provider name for the parent resource.
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parent resource name.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Resource type for the parent resource
+     */
+    resourceType: pulumi.Input<string>;
+}

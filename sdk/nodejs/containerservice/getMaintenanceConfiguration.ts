@@ -68,3 +68,22 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+    return pulumi.output(args).apply(a => getMaintenanceConfiguration(a, opts))
+}
+
+export interface GetMaintenanceConfigurationOutputArgs {
+    /**
+     * The name of the maintenance configuration.
+     */
+    configName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

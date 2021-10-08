@@ -52,3 +52,18 @@ export interface GetResourceManagementPrivateLinkResult {
      */
     readonly type: string;
 }
+
+export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
+    return pulumi.output(args).apply(a => getResourceManagementPrivateLink(a, opts))
+}
+
+export interface GetResourceManagementPrivateLinkOutputArgs {
+    /**
+     * The name of the resource group the template will be deployed to. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource management private link.
+     */
+    rmplName: pulumi.Input<string>;
+}

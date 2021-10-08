@@ -76,3 +76,22 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly vmId?: string;
 }
+
+export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
+    return pulumi.output(args).apply(a => getHybridIdentityMetadatum(a, opts))
+}
+
+export interface GetHybridIdentityMetadatumOutputArgs {
+    /**
+     * Name of the HybridIdentityMetadata.
+     */
+    metadataName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the vm.
+     */
+    virtualMachineName: pulumi.Input<string>;
+}

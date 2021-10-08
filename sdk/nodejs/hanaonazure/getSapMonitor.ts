@@ -90,3 +90,18 @@ export interface GetSapMonitorResult {
      */
     readonly type: string;
 }
+
+export function getSapMonitorOutput(args: GetSapMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapMonitorResult> {
+    return pulumi.output(args).apply(a => getSapMonitor(a, opts))
+}
+
+export interface GetSapMonitorOutputArgs {
+    /**
+     * Name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SAP monitor resource.
+     */
+    sapMonitorName: pulumi.Input<string>;
+}

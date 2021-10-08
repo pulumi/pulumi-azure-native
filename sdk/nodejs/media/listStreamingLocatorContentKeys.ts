@@ -48,3 +48,22 @@ export interface ListStreamingLocatorContentKeysResult {
      */
     readonly contentKeys?: outputs.media.StreamingLocatorContentKeyResponse[];
 }
+
+export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
+    return pulumi.output(args).apply(a => listStreamingLocatorContentKeys(a, opts))
+}
+
+export interface ListStreamingLocatorContentKeysOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Streaming Locator name.
+     */
+    streamingLocatorName: pulumi.Input<string>;
+}

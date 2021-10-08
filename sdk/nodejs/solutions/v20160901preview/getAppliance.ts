@@ -102,3 +102,18 @@ export interface GetApplianceResult {
      */
     readonly uiDefinitionUri?: string;
 }
+
+export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
+    return pulumi.output(args).apply(a => getAppliance(a, opts))
+}
+
+export interface GetApplianceOutputArgs {
+    /**
+     * The name of the appliance.
+     */
+    applianceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

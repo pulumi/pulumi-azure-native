@@ -51,3 +51,22 @@ export interface ListSourceControlRepositoriesResult {
      */
     readonly value: outputs.securityinsights.v20210301preview.RepoResponse[];
 }
+
+export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
+    return pulumi.output(args).apply(a => listSourceControlRepositories(a, opts))
+}
+
+export interface ListSourceControlRepositoriesOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

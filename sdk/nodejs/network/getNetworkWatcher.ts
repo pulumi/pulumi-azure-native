@@ -66,3 +66,18 @@ export interface GetNetworkWatcherResult {
      */
     readonly type: string;
 }
+
+export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
+    return pulumi.output(args).apply(a => getNetworkWatcher(a, opts))
+}
+
+export interface GetNetworkWatcherOutputArgs {
+    /**
+     * The name of the network watcher.
+     */
+    networkWatcherName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

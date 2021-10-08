@@ -74,3 +74,22 @@ export interface GetSessionResult {
      */
     readonly type: string;
 }
+
+export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionResult> {
+    return pulumi.output(args).apply(a => getSession(a, opts))
+}
+
+export interface GetSessionOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account session name.
+     */
+    sessionName: pulumi.Input<string>;
+}

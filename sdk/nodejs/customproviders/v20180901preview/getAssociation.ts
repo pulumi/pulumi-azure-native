@@ -57,3 +57,18 @@ export interface GetAssociationResult {
      */
     readonly type: string;
 }
+
+export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
+    return pulumi.output(args).apply(a => getAssociation(a, opts))
+}
+
+export interface GetAssociationOutputArgs {
+    /**
+     * The name of the association.
+     */
+    associationName: pulumi.Input<string>;
+    /**
+     * The scope of the association.
+     */
+    scope: pulumi.Input<string>;
+}

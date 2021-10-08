@@ -95,3 +95,22 @@ export interface GetArcSettingResult {
      */
     readonly type: string;
 }
+
+export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
+    return pulumi.output(args).apply(a => getArcSetting(a, opts))
+}
+
+export interface GetArcSettingOutputArgs {
+    /**
+     * The name of the proxy resource holding details of HCI ArcSetting information.
+     */
+    arcSettingName: pulumi.Input<string>;
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -91,3 +91,22 @@ export interface GetGuestAgentResult {
      */
     readonly uuid: string;
 }
+
+export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
+    return pulumi.output(args).apply(a => getGuestAgent(a, opts))
+}
+
+export interface GetGuestAgentOutputArgs {
+    /**
+     * Name of the GuestAgent.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the vm.
+     */
+    virtualMachineName: pulumi.Input<string>;
+}

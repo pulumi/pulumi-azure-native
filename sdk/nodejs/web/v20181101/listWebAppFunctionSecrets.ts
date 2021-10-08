@@ -66,3 +66,22 @@ export interface ListWebAppFunctionSecretsResult {
      */
     readonly type: string;
 }
+
+export function listWebAppFunctionSecretsOutput(args: ListWebAppFunctionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsResult> {
+    return pulumi.output(args).apply(a => listWebAppFunctionSecrets(a, opts))
+}
+
+export interface ListWebAppFunctionSecretsOutputArgs {
+    /**
+     * Function name.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -54,3 +54,22 @@ export interface ListWebAppHostKeysSlotResult {
      */
     readonly systemKeys?: {[key: string]: string};
 }
+
+export function listWebAppHostKeysSlotOutput(args: ListWebAppHostKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppHostKeysSlot(a, opts))
+}
+
+export interface ListWebAppHostKeysSlotOutputArgs {
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot.
+     */
+    slot: pulumi.Input<string>;
+}

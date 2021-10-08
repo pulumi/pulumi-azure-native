@@ -60,3 +60,22 @@ export interface GetQueueServicePropertiesResult {
      */
     readonly type: string;
 }
+
+export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
+    return pulumi.output(args).apply(a => getQueueServiceProperties(a, opts))
+}
+
+export interface GetQueueServicePropertiesOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
+     */
+    queueServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

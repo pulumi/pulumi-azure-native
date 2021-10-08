@@ -157,3 +157,18 @@ export interface GetHostPoolResult {
      */
     readonly vmTemplate?: string;
 }
+
+export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
+    return pulumi.output(args).apply(a => getHostPool(a, opts))
+}
+
+export interface GetHostPoolOutputArgs {
+    /**
+     * The name of the host pool within the specified resource group
+     */
+    hostPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

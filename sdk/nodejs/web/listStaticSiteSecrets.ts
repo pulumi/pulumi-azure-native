@@ -58,3 +58,18 @@ export interface ListStaticSiteSecretsResult {
      */
     readonly type: string;
 }
+
+export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
+    return pulumi.output(args).apply(a => listStaticSiteSecrets(a, opts))
+}
+
+export interface ListStaticSiteSecretsOutputArgs {
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -179,3 +179,22 @@ export interface GetSiteResult {
      */
     readonly usageState: string;
 }
+
+export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+    return pulumi.output(args).apply(a => getSite(a, opts))
+}
+
+export interface GetSiteOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Additional web app properties included in the response
+     */
+    propertiesToInclude?: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

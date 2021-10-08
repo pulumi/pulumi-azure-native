@@ -58,3 +58,22 @@ export interface ListIotHubResourceKeysForKeyNameResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listIotHubResourceKeysForKeyNameOutput(args: ListIotHubResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysForKeyNameResult> {
+    return pulumi.output(args).apply(a => listIotHubResourceKeysForKeyName(a, opts))
+}
+
+export interface ListIotHubResourceKeysForKeyNameOutputArgs {
+    /**
+     * The name of the shared access policy.
+     */
+    keyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the IoT hub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -57,3 +57,14 @@ export interface GetDeploymentAtSubscriptionScopeResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
+    return pulumi.output(args).apply(a => getDeploymentAtSubscriptionScope(a, opts))
+}
+
+export interface GetDeploymentAtSubscriptionScopeOutputArgs {
+    /**
+     * The name of the deployment.
+     */
+    deploymentName: pulumi.Input<string>;
+}

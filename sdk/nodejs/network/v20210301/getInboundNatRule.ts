@@ -112,3 +112,26 @@ export interface GetInboundNatRuleResult {
      */
     readonly type: string;
 }
+
+export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {
+    return pulumi.output(args).apply(a => getInboundNatRule(a, opts))
+}
+
+export interface GetInboundNatRuleOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the inbound nat rule.
+     */
+    inboundNatRuleName: pulumi.Input<string>;
+    /**
+     * The name of the load balancer.
+     */
+    loadBalancerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

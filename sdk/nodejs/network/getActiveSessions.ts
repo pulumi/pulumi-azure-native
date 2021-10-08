@@ -47,3 +47,18 @@ export interface GetActiveSessionsResult {
      */
     readonly value?: outputs.network.BastionActiveSessionResponse[];
 }
+
+export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
+    return pulumi.output(args).apply(a => getActiveSessions(a, opts))
+}
+
+export interface GetActiveSessionsOutputArgs {
+    /**
+     * The name of the Bastion Host.
+     */
+    bastionHostName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

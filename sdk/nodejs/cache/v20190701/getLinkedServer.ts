@@ -70,3 +70,22 @@ export interface GetLinkedServerResult {
      */
     readonly type: string;
 }
+
+export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
+    return pulumi.output(args).apply(a => getLinkedServer(a, opts))
+}
+
+export interface GetLinkedServerOutputArgs {
+    /**
+     * The name of the linked server.
+     */
+    linkedServerName: pulumi.Input<string>;
+    /**
+     * The name of the redis cache.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

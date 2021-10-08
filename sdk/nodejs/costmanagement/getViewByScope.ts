@@ -115,3 +115,18 @@ export interface GetViewByScopeResult {
      */
     readonly type: string;
 }
+
+export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
+    return pulumi.output(args).apply(a => getViewByScope(a, opts))
+}
+
+export interface GetViewByScopeOutputArgs {
+    /**
+     * The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
+     */
+    scope: pulumi.Input<string>;
+    /**
+     * View name
+     */
+    viewName: pulumi.Input<string>;
+}

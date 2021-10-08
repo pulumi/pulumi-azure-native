@@ -67,3 +67,22 @@ export interface GetServiceRunnerResult {
      */
     readonly type: string;
 }
+
+export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
+    return pulumi.output(args).apply(a => getServiceRunner(a, opts))
+}
+
+export interface GetServiceRunnerOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the service runner.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

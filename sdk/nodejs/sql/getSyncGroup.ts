@@ -109,3 +109,26 @@ export interface GetSyncGroupResult {
      */
     readonly usePrivateLinkConnection?: boolean;
 }
+
+export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
+    return pulumi.output(args).apply(a => getSyncGroup(a, opts))
+}
+
+export interface GetSyncGroupOutputArgs {
+    /**
+     * The name of the database on which the sync group is hosted.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the sync group.
+     */
+    syncGroupName: pulumi.Input<string>;
+}

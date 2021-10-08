@@ -62,3 +62,22 @@ export interface GetSyncGroupResult {
      */
     readonly uniqueId?: string;
 }
+
+export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
+    return pulumi.output(args).apply(a => getSyncGroup(a, opts))
+}
+
+export interface GetSyncGroupOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    storageSyncServiceName: pulumi.Input<string>;
+    /**
+     * Name of Sync Group resource.
+     */
+    syncGroupName: pulumi.Input<string>;
+}

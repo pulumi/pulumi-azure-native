@@ -91,3 +91,22 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly useRemoteGateways?: boolean;
 }
+
+export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkPeering(a, opts))
+}
+
+export interface GetVirtualNetworkPeeringOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network.
+     */
+    virtualNetworkName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network peering.
+     */
+    virtualNetworkPeeringName: pulumi.Input<string>;
+}

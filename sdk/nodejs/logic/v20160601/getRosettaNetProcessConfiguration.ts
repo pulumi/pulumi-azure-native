@@ -103,3 +103,22 @@ export interface GetRosettaNetProcessConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
+    return pulumi.output(args).apply(a => getRosettaNetProcessConfiguration(a, opts))
+}
+
+export interface GetRosettaNetProcessConfigurationOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account RosettaNetProcessConfiguration name.
+     */
+    rosettaNetProcessConfigurationName: pulumi.Input<string>;
+}

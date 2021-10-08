@@ -80,3 +80,22 @@ export interface GetTokenResult {
      */
     readonly type: string;
 }
+
+export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
+    return pulumi.output(args).apply(a => getToken(a, opts))
+}
+
+export interface GetTokenOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the token.
+     */
+    tokenName: pulumi.Input<string>;
+}

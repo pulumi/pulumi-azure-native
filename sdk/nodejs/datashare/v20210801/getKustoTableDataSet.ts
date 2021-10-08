@@ -89,3 +89,26 @@ export interface GetKustoTableDataSetResult {
      */
     readonly type: string;
 }
+
+export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetResult> {
+    return pulumi.output(args).apply(a => getKustoTableDataSet(a, opts))
+}
+
+export interface GetKustoTableDataSetOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSet.
+     */
+    dataSetName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+}

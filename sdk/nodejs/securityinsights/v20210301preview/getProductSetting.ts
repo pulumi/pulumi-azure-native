@@ -74,3 +74,26 @@ export interface GetProductSettingResult {
      */
     readonly type: string;
 }
+
+export function getProductSettingOutput(args: GetProductSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductSettingResult> {
+    return pulumi.output(args).apply(a => getProductSetting(a, opts))
+}
+
+export interface GetProductSettingOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+     */
+    settingsName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -104,3 +104,22 @@ export interface GetIoTHubEventSourceResult {
      */
     readonly type: string;
 }
+
+export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
+    return pulumi.output(args).apply(a => getIoTHubEventSource(a, opts))
+}
+
+export interface GetIoTHubEventSourceOutputArgs {
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * The name of the Time Series Insights event source associated with the specified environment.
+     */
+    eventSourceName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

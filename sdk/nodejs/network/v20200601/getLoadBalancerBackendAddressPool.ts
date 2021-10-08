@@ -83,3 +83,22 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly type: string;
 }
+
+export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
+    return pulumi.output(args).apply(a => getLoadBalancerBackendAddressPool(a, opts))
+}
+
+export interface GetLoadBalancerBackendAddressPoolOutputArgs {
+    /**
+     * The name of the backend address pool.
+     */
+    backendAddressPoolName: pulumi.Input<string>;
+    /**
+     * The name of the load balancer.
+     */
+    loadBalancerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

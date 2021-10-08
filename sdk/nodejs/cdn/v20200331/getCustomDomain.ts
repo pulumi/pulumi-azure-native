@@ -83,3 +83,26 @@ export interface GetCustomDomainResult {
      */
     readonly validationData?: string;
 }
+
+export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
+    return pulumi.output(args).apply(a => getCustomDomain(a, opts))
+}
+
+export interface GetCustomDomainOutputArgs {
+    /**
+     * Name of the custom domain within an endpoint.
+     */
+    customDomainName: pulumi.Input<string>;
+    /**
+     * Name of the endpoint under the profile which is unique globally.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

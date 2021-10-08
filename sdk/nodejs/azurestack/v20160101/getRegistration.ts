@@ -73,3 +73,18 @@ export interface GetRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
+    return pulumi.output(args).apply(a => getRegistration(a, opts))
+}
+
+export interface GetRegistrationOutputArgs {
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

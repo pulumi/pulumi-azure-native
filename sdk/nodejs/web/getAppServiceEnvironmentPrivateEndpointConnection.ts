@@ -73,3 +73,22 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getAppServiceEnvironmentPrivateEndpointConnectionOutput(args: GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getAppServiceEnvironmentPrivateEndpointConnection(a, opts))
+}
+
+export interface GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs {
+    /**
+     * Name of the App Service Environment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the private endpoint connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

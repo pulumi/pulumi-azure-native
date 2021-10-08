@@ -68,3 +68,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * Private link resource name.
+     */
+    peConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    siteName: pulumi.Input<string>;
+}

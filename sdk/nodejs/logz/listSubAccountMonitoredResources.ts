@@ -52,3 +52,22 @@ export interface ListSubAccountMonitoredResourcesResult {
      */
     readonly value?: outputs.logz.MonitoredResourceResponse[];
 }
+
+export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
+    return pulumi.output(args).apply(a => listSubAccountMonitoredResources(a, opts))
+}
+
+export interface ListSubAccountMonitoredResourcesOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sub Account resource name
+     */
+    subAccountName: pulumi.Input<string>;
+}

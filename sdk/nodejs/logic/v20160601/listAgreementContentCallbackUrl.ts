@@ -77,3 +77,30 @@ export interface ListAgreementContentCallbackUrlResult {
      */
     readonly value: string;
 }
+
+export function listAgreementContentCallbackUrlOutput(args: ListAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgreementContentCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listAgreementContentCallbackUrl(a, opts))
+}
+
+export interface ListAgreementContentCallbackUrlOutputArgs {
+    /**
+     * The integration account agreement name.
+     */
+    agreementName: pulumi.Input<string>;
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The key type.
+     */
+    keyType?: pulumi.Input<enums.logic.v20160601.KeyType>;
+    /**
+     * The expiry time.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

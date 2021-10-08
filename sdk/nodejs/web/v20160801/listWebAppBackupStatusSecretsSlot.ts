@@ -151,3 +151,54 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
      */
     readonly websiteSizeInBytes: number;
 }
+
+export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupStatusSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppBackupStatusSecretsSlot(a, opts))
+}
+
+export interface ListWebAppBackupStatusSecretsSlotOutputArgs {
+    /**
+     * ID of backup.
+     */
+    backupId: pulumi.Input<string>;
+    /**
+     * Name of the backup.
+     */
+    backupRequestName: pulumi.Input<string>;
+    /**
+     * Schedule for the backup if it is executed periodically.
+     */
+    backupSchedule?: pulumi.Input<inputs.web.v20160801.BackupScheduleArgs>;
+    /**
+     * Databases included in the backup.
+     */
+    databases?: pulumi.Input<pulumi.Input<inputs.web.v20160801.DatabaseBackupSettingArgs>[]>;
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Kind of resource.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Name of web app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+    /**
+     * SAS URL to the container.
+     */
+    storageAccountUrl: pulumi.Input<string>;
+    /**
+     * Type of the backup.
+     */
+    type?: pulumi.Input<enums.web.v20160801.BackupRestoreOperationType>;
+}

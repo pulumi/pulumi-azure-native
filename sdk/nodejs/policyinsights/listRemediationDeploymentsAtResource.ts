@@ -52,3 +52,22 @@ export interface ListRemediationDeploymentsAtResourceResult {
      */
     readonly value: outputs.policyinsights.RemediationDeploymentResponse[];
 }
+
+export function listRemediationDeploymentsAtResourceOutput(args: ListRemediationDeploymentsAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtResourceResult> {
+    return pulumi.output(args).apply(a => listRemediationDeploymentsAtResource(a, opts))
+}
+
+export interface ListRemediationDeploymentsAtResourceOutputArgs {
+    /**
+     * The name of the remediation.
+     */
+    remediationName: pulumi.Input<string>;
+    /**
+     * Resource ID.
+     */
+    resourceId: pulumi.Input<string>;
+    /**
+     * Maximum number of records to return.
+     */
+    top?: pulumi.Input<number>;
+}

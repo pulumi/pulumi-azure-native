@@ -123,3 +123,22 @@ export interface GetMachineResult {
      */
     readonly vmId: string;
 }
+
+export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
+    return pulumi.output(args).apply(a => getMachine(a, opts))
+}
+
+export interface GetMachineOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the hybrid machine.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

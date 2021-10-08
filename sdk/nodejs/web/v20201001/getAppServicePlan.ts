@@ -147,3 +147,18 @@ export interface GetAppServicePlanResult {
      */
     readonly workerTierName?: string;
 }
+
+export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
+    return pulumi.output(args).apply(a => getAppServicePlan(a, opts))
+}
+
+export interface GetAppServicePlanOutputArgs {
+    /**
+     * Name of the App Service plan.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

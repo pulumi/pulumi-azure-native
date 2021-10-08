@@ -63,3 +63,22 @@ export interface GetJobResult {
      */
     readonly type: string;
 }
+
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+    return pulumi.output(args).apply(a => getJob(a, opts))
+}
+
+export interface GetJobOutputArgs {
+    /**
+     * The name and identifier for the Job.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

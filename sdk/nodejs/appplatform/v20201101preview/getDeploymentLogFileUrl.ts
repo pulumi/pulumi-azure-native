@@ -51,3 +51,26 @@ export interface GetDeploymentLogFileUrlResult {
      */
     readonly url: string;
 }
+
+export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
+    return pulumi.output(args).apply(a => getDeploymentLogFileUrl(a, opts))
+}
+
+export interface GetDeploymentLogFileUrlOutputArgs {
+    /**
+     * The name of the App resource.
+     */
+    appName: pulumi.Input<string>;
+    /**
+     * The name of the Deployment resource.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    serviceName: pulumi.Input<string>;
+}

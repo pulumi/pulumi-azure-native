@@ -70,3 +70,18 @@ export interface GetGalleryResult {
      */
     readonly type: string;
 }
+
+export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
+    return pulumi.output(args).apply(a => getGallery(a, opts))
+}
+
+export interface GetGalleryOutputArgs {
+    /**
+     * The name of the Shared Image Gallery.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

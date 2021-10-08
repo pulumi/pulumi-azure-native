@@ -63,3 +63,26 @@ export interface GetTagByApiResult {
      */
     readonly type: string;
 }
+
+export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
+    return pulumi.output(args).apply(a => getTagByApi(a, opts))
+}
+
+export interface GetTagByApiOutputArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    tagId: pulumi.Input<string>;
+}

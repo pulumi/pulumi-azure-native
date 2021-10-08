@@ -93,3 +93,26 @@ export interface GetIoTAddonResult {
      */
     readonly version: string;
 }
+
+export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
+    return pulumi.output(args).apply(a => getIoTAddon(a, opts))
+}
+
+export interface GetIoTAddonOutputArgs {
+    /**
+     * The addon name.
+     */
+    addonName: pulumi.Input<string>;
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    roleName: pulumi.Input<string>;
+}

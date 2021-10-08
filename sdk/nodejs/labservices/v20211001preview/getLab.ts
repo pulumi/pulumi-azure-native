@@ -106,3 +106,18 @@ export interface GetLabResult {
      */
     readonly virtualMachineProfile: outputs.labservices.v20211001preview.VirtualMachineProfileResponse;
 }
+
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+    return pulumi.output(args).apply(a => getLab(a, opts))
+}
+
+export interface GetLabOutputArgs {
+    /**
+     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

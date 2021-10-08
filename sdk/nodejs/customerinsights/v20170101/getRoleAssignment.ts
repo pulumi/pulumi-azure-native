@@ -135,3 +135,22 @@ export interface GetRoleAssignmentResult {
      */
     readonly widgetTypes?: outputs.customerinsights.v20170101.ResourceSetDescriptionResponse;
 }
+
+export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
+    return pulumi.output(args).apply(a => getRoleAssignment(a, opts))
+}
+
+export interface GetRoleAssignmentOutputArgs {
+    /**
+     * The name of the role assignment.
+     */
+    assignmentName: pulumi.Input<string>;
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

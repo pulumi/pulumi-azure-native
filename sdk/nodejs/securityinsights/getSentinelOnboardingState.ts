@@ -73,3 +73,26 @@ export interface GetSentinelOnboardingStateResult {
      */
     readonly type: string;
 }
+
+export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
+    return pulumi.output(args).apply(a => getSentinelOnboardingState(a, opts))
+}
+
+export interface GetSentinelOnboardingStateOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Sentinel onboarding state name. Supports - default
+     */
+    sentinelOnboardingStateName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

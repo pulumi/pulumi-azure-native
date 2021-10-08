@@ -91,3 +91,18 @@ export interface GetConfigurationStoreResult {
      */
     readonly type: string;
 }
+
+export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
+    return pulumi.output(args).apply(a => getConfigurationStore(a, opts))
+}
+
+export interface GetConfigurationStoreOutputArgs {
+    /**
+     * The name of the configuration store.
+     */
+    configStoreName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

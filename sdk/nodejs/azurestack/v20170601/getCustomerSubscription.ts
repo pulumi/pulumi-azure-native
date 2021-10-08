@@ -62,3 +62,22 @@ export interface GetCustomerSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
+    return pulumi.output(args).apply(a => getCustomerSubscription(a, opts))
+}
+
+export interface GetCustomerSubscriptionOutputArgs {
+    /**
+     * Name of the product.
+     */
+    customerSubscriptionName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

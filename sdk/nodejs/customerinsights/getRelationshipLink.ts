@@ -100,3 +100,22 @@ export interface GetRelationshipLinkResult {
      */
     readonly type: string;
 }
+
+export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipLinkResult> {
+    return pulumi.output(args).apply(a => getRelationshipLink(a, opts))
+}
+
+export interface GetRelationshipLinkOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the relationship link.
+     */
+    relationshipLinkName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

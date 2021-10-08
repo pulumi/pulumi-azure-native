@@ -58,3 +58,22 @@ export interface ListTenantAccessSecretsResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
+    return pulumi.output(args).apply(a => listTenantAccessSecrets(a, opts))
+}
+
+export interface ListTenantAccessSecretsOutputArgs {
+    /**
+     * The identifier of the Access configuration.
+     */
+    accessName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

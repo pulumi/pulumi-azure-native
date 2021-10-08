@@ -58,3 +58,22 @@ export interface GetOnlineEndpointTokenResult {
      */
     readonly tokenType?: string;
 }
+
+export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
+    return pulumi.output(args).apply(a => getOnlineEndpointToken(a, opts))
+}
+
+export interface GetOnlineEndpointTokenOutputArgs {
+    /**
+     * Online Endpoint name.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

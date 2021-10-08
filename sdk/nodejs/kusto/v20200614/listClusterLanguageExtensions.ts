@@ -42,3 +42,18 @@ export interface ListClusterLanguageExtensionsResult {
      */
     readonly value?: outputs.kusto.v20200614.LanguageExtensionResponse[];
 }
+
+export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
+    return pulumi.output(args).apply(a => listClusterLanguageExtensions(a, opts))
+}
+
+export interface ListClusterLanguageExtensionsOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

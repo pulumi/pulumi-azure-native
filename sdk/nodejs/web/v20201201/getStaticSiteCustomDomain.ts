@@ -75,3 +75,22 @@ export interface GetStaticSiteCustomDomainResult {
      */
     readonly validationToken: string;
 }
+
+export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
+    return pulumi.output(args).apply(a => getStaticSiteCustomDomain(a, opts))
+}
+
+export interface GetStaticSiteCustomDomainOutputArgs {
+    /**
+     * The custom domain name.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * Name of the static site resource to search in.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

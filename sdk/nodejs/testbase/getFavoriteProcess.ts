@@ -69,3 +69,26 @@ export interface GetFavoriteProcessResult {
      */
     readonly type: string;
 }
+
+export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
+    return pulumi.output(args).apply(a => getFavoriteProcess(a, opts))
+}
+
+export interface GetFavoriteProcessOutputArgs {
+    /**
+     * The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+     */
+    favoriteProcessResourceName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Package.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

@@ -70,3 +70,22 @@ export interface GetApplicationResult {
      */
     readonly type: string;
 }
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+export interface GetApplicationOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the application. This must be unique within the account.
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the Batch account.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

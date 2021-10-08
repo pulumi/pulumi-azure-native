@@ -91,3 +91,18 @@ export interface GetJitRequestResult {
      */
     readonly updatedBy: outputs.solutions.ApplicationClientDetailsResponse;
 }
+
+export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
+    return pulumi.output(args).apply(a => getJitRequest(a, opts))
+}
+
+export interface GetJitRequestOutputArgs {
+    /**
+     * The name of the JIT request.
+     */
+    jitRequestName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

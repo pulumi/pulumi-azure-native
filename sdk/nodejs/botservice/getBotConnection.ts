@@ -80,3 +80,22 @@ export interface GetBotConnectionResult {
      */
     readonly type: string;
 }
+
+export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
+    return pulumi.output(args).apply(a => getBotConnection(a, opts))
+}
+
+export interface GetBotConnectionOutputArgs {
+    /**
+     * The name of the Bot Service Connection Setting resource.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

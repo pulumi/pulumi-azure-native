@@ -47,3 +47,18 @@ export interface GetMonitorDefaultKeyResult {
      */
     readonly name?: string;
 }
+
+export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
+    return pulumi.output(args).apply(a => getMonitorDefaultKey(a, opts))
+}
+
+export interface GetMonitorDefaultKeyOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Datadog resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

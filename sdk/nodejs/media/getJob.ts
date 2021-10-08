@@ -105,3 +105,26 @@ export interface GetJobResult {
      */
     readonly type: string;
 }
+
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+    return pulumi.output(args).apply(a => getJob(a, opts))
+}
+
+export interface GetJobOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Job name.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Transform name.
+     */
+    transformName: pulumi.Input<string>;
+}

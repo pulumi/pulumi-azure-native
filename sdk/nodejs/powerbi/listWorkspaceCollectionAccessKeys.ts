@@ -42,3 +42,18 @@ export interface ListWorkspaceCollectionAccessKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listWorkspaceCollectionAccessKeysOutput(args: ListWorkspaceCollectionAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceCollectionAccessKeysResult> {
+    return pulumi.output(args).apply(a => listWorkspaceCollectionAccessKeys(a, opts))
+}
+
+export interface ListWorkspaceCollectionAccessKeysOutputArgs {
+    /**
+     * Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Power BI Embedded Workspace Collection name
+     */
+    workspaceCollectionName: pulumi.Input<string>;
+}

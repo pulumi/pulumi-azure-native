@@ -47,3 +47,22 @@ export interface ListDatabasePrincipalsResult {
      */
     readonly value?: outputs.kusto.v20190515.DatabasePrincipalResponse[];
 }
+
+export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
+    return pulumi.output(args).apply(a => listDatabasePrincipals(a, opts))
+}
+
+export interface ListDatabasePrincipalsOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

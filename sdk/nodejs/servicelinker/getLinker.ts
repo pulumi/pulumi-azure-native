@@ -71,3 +71,18 @@ export interface GetLinkerResult {
      */
     readonly type: string;
 }
+
+export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
+    return pulumi.output(args).apply(a => getLinker(a, opts))
+}
+
+export interface GetLinkerOutputArgs {
+    /**
+     * The name Linker resource.
+     */
+    linkerName: pulumi.Input<string>;
+    /**
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     */
+    resourceUri: pulumi.Input<string>;
+}

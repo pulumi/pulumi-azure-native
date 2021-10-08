@@ -66,3 +66,22 @@ export interface GetRoleResult {
      */
     readonly type: string;
 }
+
+export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
+    return pulumi.output(args).apply(a => getRole(a, opts))
+}
+
+export interface GetRoleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

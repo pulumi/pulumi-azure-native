@@ -67,3 +67,22 @@ export interface GetCreatorResult {
      */
     readonly type: string;
 }
+
+export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
+    return pulumi.output(args).apply(a => getCreator(a, opts))
+}
+
+export interface GetCreatorOutputArgs {
+    /**
+     * The name of the Maps Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Maps Creator instance.
+     */
+    creatorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

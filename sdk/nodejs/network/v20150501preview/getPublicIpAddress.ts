@@ -90,3 +90,18 @@ export interface GetPublicIpAddressResult {
      */
     readonly type: string;
 }
+
+export function getPublicIpAddressOutput(args: GetPublicIpAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpAddressResult> {
+    return pulumi.output(args).apply(a => getPublicIpAddress(a, opts))
+}
+
+export interface GetPublicIpAddressOutputArgs {
+    /**
+     * The name of the subnet.
+     */
+    publicIpAddressName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

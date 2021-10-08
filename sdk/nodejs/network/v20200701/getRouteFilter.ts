@@ -83,3 +83,22 @@ export interface GetRouteFilterResult {
      */
     readonly type: string;
 }
+
+export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
+    return pulumi.output(args).apply(a => getRouteFilter(a, opts))
+}
+
+export interface GetRouteFilterOutputArgs {
+    /**
+     * Expands referenced express route bgp peering resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the route filter.
+     */
+    routeFilterName: pulumi.Input<string>;
+}

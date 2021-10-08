@@ -73,3 +73,22 @@ export interface GetAADDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
+    return pulumi.output(args).apply(a => getAADDataConnector(a, opts))
+}
+
+export interface GetAADDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

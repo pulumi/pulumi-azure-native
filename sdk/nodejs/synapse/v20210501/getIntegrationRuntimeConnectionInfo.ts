@@ -66,3 +66,22 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
      */
     readonly version: string;
 }
+
+export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntimeConnectionInfo(a, opts))
+}
+
+export interface GetIntegrationRuntimeConnectionInfoOutputArgs {
+    /**
+     * Integration runtime name
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

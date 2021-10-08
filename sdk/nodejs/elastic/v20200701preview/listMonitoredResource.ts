@@ -46,3 +46,18 @@ export interface ListMonitoredResourceResult {
      */
     readonly value?: outputs.elastic.v20200701preview.MonitoredResourceResponse[];
 }
+
+export function listMonitoredResourceOutput(args: ListMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitoredResourceResult> {
+    return pulumi.output(args).apply(a => listMonitoredResource(a, opts))
+}
+
+export interface ListMonitoredResourceOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Elastic resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

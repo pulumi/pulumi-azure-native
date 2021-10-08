@@ -51,3 +51,22 @@ export interface GetBastionShareableLinkResult {
      */
     readonly value?: outputs.network.v20191101.BastionShareableLinkResponse[];
 }
+
+export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
+    return pulumi.output(args).apply(a => getBastionShareableLink(a, opts))
+}
+
+export interface GetBastionShareableLinkOutputArgs {
+    /**
+     * The name of the Bastion Host.
+     */
+    bastionHostName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of VM references.
+     */
+    vms?: pulumi.Input<pulumi.Input<inputs.network.v20191101.BastionShareableLinkArgs>[]>;
+}

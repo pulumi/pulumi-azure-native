@@ -78,3 +78,18 @@ export interface GetAutoscaleSettingResult {
      */
     readonly type: string;
 }
+
+export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
+    return pulumi.output(args).apply(a => getAutoscaleSetting(a, opts))
+}
+
+export interface GetAutoscaleSettingOutputArgs {
+    /**
+     * The autoscale setting name.
+     */
+    autoscaleSettingName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

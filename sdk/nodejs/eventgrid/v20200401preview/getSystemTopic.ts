@@ -78,3 +78,18 @@ export interface GetSystemTopicResult {
      */
     readonly type: string;
 }
+
+export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
+    return pulumi.output(args).apply(a => getSystemTopic(a, opts))
+}
+
+export interface GetSystemTopicOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the system topic.
+     */
+    systemTopicName: pulumi.Input<string>;
+}

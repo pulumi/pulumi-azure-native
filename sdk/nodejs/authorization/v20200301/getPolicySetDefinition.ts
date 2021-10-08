@@ -73,3 +73,14 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
+    return pulumi.output(args).apply(a => getPolicySetDefinition(a, opts))
+}
+
+export interface GetPolicySetDefinitionOutputArgs {
+    /**
+     * The name of the policy set definition to get.
+     */
+    policySetDefinitionName: pulumi.Input<string>;
+}

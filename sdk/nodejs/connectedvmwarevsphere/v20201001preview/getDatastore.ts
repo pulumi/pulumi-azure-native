@@ -102,3 +102,18 @@ export interface GetDatastoreResult {
      */
     readonly vCenterId?: string;
 }
+
+export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
+    return pulumi.output(args).apply(a => getDatastore(a, opts))
+}
+
+export interface GetDatastoreOutputArgs {
+    /**
+     * Name of the datastore.
+     */
+    datastoreName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

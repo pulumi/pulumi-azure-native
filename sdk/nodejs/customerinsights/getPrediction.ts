@@ -124,3 +124,22 @@ export interface GetPredictionResult {
      */
     readonly type: string;
 }
+
+export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
+    return pulumi.output(args).apply(a => getPrediction(a, opts))
+}
+
+export interface GetPredictionOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the Prediction.
+     */
+    predictionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

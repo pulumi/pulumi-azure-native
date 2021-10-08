@@ -78,3 +78,18 @@ export interface GetCustomAssessmentAutomationResult {
      */
     readonly userImpact?: string;
 }
+
+export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
+    return pulumi.output(args).apply(a => getCustomAssessmentAutomation(a, opts))
+}
+
+export interface GetCustomAssessmentAutomationOutputArgs {
+    /**
+     * Name of the Custom Assessment Automation.
+     */
+    customAssessmentAutomationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

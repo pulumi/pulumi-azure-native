@@ -63,3 +63,26 @@ export interface GetGatewayCertificateAuthorityResult {
      */
     readonly type: string;
 }
+
+export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
+    return pulumi.output(args).apply(a => getGatewayCertificateAuthority(a, opts))
+}
+
+export interface GetGatewayCertificateAuthorityOutputArgs {
+    /**
+     * Identifier of the certificate entity. Must be unique in the current API Management service instance.
+     */
+    certificateId: pulumi.Input<string>;
+    /**
+     * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+     */
+    gatewayId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

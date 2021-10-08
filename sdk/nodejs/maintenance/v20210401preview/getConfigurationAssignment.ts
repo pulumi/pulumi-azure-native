@@ -81,3 +81,30 @@ export interface GetConfigurationAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getConfigurationAssignmentOutput(args: GetConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentResult> {
+    return pulumi.output(args).apply(a => getConfigurationAssignment(a, opts))
+}
+
+export interface GetConfigurationAssignmentOutputArgs {
+    /**
+     * Configuration assignment name
+     */
+    configurationAssignmentName: pulumi.Input<string>;
+    /**
+     * Resource provider name
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * Resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource identifier
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Resource type
+     */
+    resourceType: pulumi.Input<string>;
+}

@@ -84,3 +84,26 @@ export interface ListConfigurationStoreKeyValueResult {
      */
     readonly value: string;
 }
+
+export function listConfigurationStoreKeyValueOutput(args: ListConfigurationStoreKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeyValueResult> {
+    return pulumi.output(args).apply(a => listConfigurationStoreKeyValue(a, opts))
+}
+
+export interface ListConfigurationStoreKeyValueOutputArgs {
+    /**
+     * The name of the configuration store.
+     */
+    configStoreName: pulumi.Input<string>;
+    /**
+     * The key to retrieve.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The label of the key.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

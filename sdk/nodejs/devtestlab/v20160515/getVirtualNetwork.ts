@@ -100,3 +100,26 @@ export interface GetVirtualNetworkResult {
      */
     readonly uniqueIdentifier?: string;
 }
+
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+}
+
+export interface GetVirtualNetworkOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=externalSubnets)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

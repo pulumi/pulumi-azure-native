@@ -73,3 +73,26 @@ export interface GetAppResult {
      */
     readonly type: string;
 }
+
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+    return pulumi.output(args).apply(a => getApp(a, opts))
+}
+
+export interface GetAppOutputArgs {
+    /**
+     * The name of the App resource.
+     */
+    appName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Indicates whether sync status
+     */
+    syncStatus?: pulumi.Input<string>;
+}

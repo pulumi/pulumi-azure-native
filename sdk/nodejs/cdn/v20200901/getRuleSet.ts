@@ -64,3 +64,22 @@ export interface GetRuleSetResult {
      */
     readonly type: string;
 }
+
+export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
+    return pulumi.output(args).apply(a => getRuleSet(a, opts))
+}
+
+export interface GetRuleSetOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the rule set under the profile which is unique globally.
+     */
+    ruleSetName: pulumi.Input<string>;
+}

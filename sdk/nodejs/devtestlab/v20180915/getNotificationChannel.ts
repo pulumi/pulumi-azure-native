@@ -100,3 +100,26 @@ export interface GetNotificationChannelResult {
      */
     readonly webHookUrl?: string;
 }
+
+export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
+    return pulumi.output(args).apply(a => getNotificationChannel(a, opts))
+}
+
+export interface GetNotificationChannelOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=webHookUrl)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the notification channel.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

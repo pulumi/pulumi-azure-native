@@ -160,3 +160,58 @@ export interface ListSiteBackupStatusSecretsResult {
      */
     readonly websiteSizeInBytes?: number;
 }
+
+export function listSiteBackupStatusSecretsOutput(args: ListSiteBackupStatusSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupStatusSecretsResult> {
+    return pulumi.output(args).apply(a => listSiteBackupStatusSecrets(a, opts))
+}
+
+export interface ListSiteBackupStatusSecretsOutputArgs {
+    /**
+     * Id of backup
+     */
+    backupId: pulumi.Input<string>;
+    /**
+     * Schedule for the backup if it is executed periodically
+     */
+    backupSchedule?: pulumi.Input<inputs.web.v20150801.BackupScheduleArgs>;
+    /**
+     * Databases included in the backup
+     */
+    databases?: pulumi.Input<pulumi.Input<inputs.web.v20150801.DatabaseBackupSettingArgs>[]>;
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Resource Id
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Kind of resource
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Resource Location
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Resource Name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * SAS URL to the container
+     */
+    storageAccountUrl?: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    type: pulumi.Input<string>;
+}

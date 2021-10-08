@@ -82,3 +82,18 @@ export interface GetDedicatedHsmResult {
      */
     readonly zones?: string[];
 }
+
+export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {
+    return pulumi.output(args).apply(a => getDedicatedHsm(a, opts))
+}
+
+export interface GetDedicatedHsmOutputArgs {
+    /**
+     * The name of the dedicated HSM.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group to which the dedicated hsm belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

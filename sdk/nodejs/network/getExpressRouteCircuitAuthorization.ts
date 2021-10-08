@@ -71,3 +71,22 @@ export interface GetExpressRouteCircuitAuthorizationResult {
      */
     readonly type: string;
 }
+
+export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
+    return pulumi.output(args).apply(a => getExpressRouteCircuitAuthorization(a, opts))
+}
+
+export interface GetExpressRouteCircuitAuthorizationOutputArgs {
+    /**
+     * The name of the authorization.
+     */
+    authorizationName: pulumi.Input<string>;
+    /**
+     * The name of the express route circuit.
+     */
+    circuitName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

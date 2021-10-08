@@ -70,3 +70,18 @@ export interface GetgetbotResult {
      */
     readonly type: string;
 }
+
+export function getgetbotOutput(args: GetgetbotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgetbotResult> {
+    return pulumi.output(args).apply(a => getgetbot(a, opts))
+}
+
+export interface GetgetbotOutputArgs {
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -79,3 +79,22 @@ export interface GetEmailTemplateResult {
      */
     readonly type: string;
 }
+
+export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
+    return pulumi.output(args).apply(a => getEmailTemplate(a, opts))
+}
+
+export interface GetEmailTemplateOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Email Template Name Identifier.
+     */
+    templateName: pulumi.Input<string>;
+}

@@ -67,3 +67,26 @@ export interface GetThreatIntelligenceIndicatorResult {
      */
     readonly type: string;
 }
+
+export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
+    return pulumi.output(args).apply(a => getThreatIntelligenceIndicator(a, opts))
+}
+
+export interface GetThreatIntelligenceIndicatorOutputArgs {
+    /**
+     * Threat intelligence indicator name field.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

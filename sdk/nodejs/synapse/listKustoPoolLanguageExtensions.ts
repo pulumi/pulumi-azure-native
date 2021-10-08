@@ -48,3 +48,22 @@ export interface ListKustoPoolLanguageExtensionsResult {
      */
     readonly value?: outputs.synapse.LanguageExtensionResponse[];
 }
+
+export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
+    return pulumi.output(args).apply(a => listKustoPoolLanguageExtensions(a, opts))
+}
+
+export interface ListKustoPoolLanguageExtensionsOutputArgs {
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

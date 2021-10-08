@@ -57,3 +57,18 @@ export interface ListStaticSiteConfiguredRolesResult {
      */
     readonly type: string;
 }
+
+export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
+    return pulumi.output(args).apply(a => listStaticSiteConfiguredRoles(a, opts))
+}
+
+export interface ListStaticSiteConfiguredRolesOutputArgs {
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

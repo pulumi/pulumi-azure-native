@@ -84,3 +84,22 @@ export interface GetScheduleResult {
      */
     readonly type: string;
 }
+
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
+}
+
+export interface GetScheduleOutputArgs {
+    /**
+     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
+     */
+    scheduleName: pulumi.Input<string>;
+}

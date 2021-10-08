@@ -56,3 +56,14 @@ export interface GetHierarchySettingResult {
      */
     readonly type: string;
 }
+
+export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
+    return pulumi.output(args).apply(a => getHierarchySetting(a, opts))
+}
+
+export interface GetHierarchySettingOutputArgs {
+    /**
+     * Management Group ID.
+     */
+    groupId: pulumi.Input<string>;
+}

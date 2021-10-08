@@ -66,3 +66,22 @@ export interface GetServerTrustCertificateResult {
      */
     readonly type: string;
 }
+
+export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {
+    return pulumi.output(args).apply(a => getServerTrustCertificate(a, opts))
+}
+
+export interface GetServerTrustCertificateOutputArgs {
+    /**
+     * Name of of the certificate to get.
+     */
+    certificateName: pulumi.Input<string>;
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

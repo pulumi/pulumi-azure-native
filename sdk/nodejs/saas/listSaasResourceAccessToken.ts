@@ -41,3 +41,14 @@ export interface ListSaasResourceAccessTokenResult {
      */
     readonly token?: string;
 }
+
+export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
+    return pulumi.output(args).apply(a => listSaasResourceAccessToken(a, opts))
+}
+
+export interface ListSaasResourceAccessTokenOutputArgs {
+    /**
+     * The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+     */
+    resourceId: pulumi.Input<string>;
+}

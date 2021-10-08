@@ -64,3 +64,26 @@ export interface GetBuildStepResult {
      */
     readonly type: string;
 }
+
+export function getBuildStepOutput(args: GetBuildStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildStepResult> {
+    return pulumi.output(args).apply(a => getBuildStep(a, opts))
+}
+
+export interface GetBuildStepOutputArgs {
+    /**
+     * The name of the container registry build task.
+     */
+    buildTaskName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of a build step for a container registry build task.
+     */
+    stepName: pulumi.Input<string>;
+}

@@ -102,3 +102,18 @@ export interface GetHostResult {
      */
     readonly vCenterId?: string;
 }
+
+export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
+    return pulumi.output(args).apply(a => getHost(a, opts))
+}
+
+export interface GetHostOutputArgs {
+    /**
+     * Name of the host.
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

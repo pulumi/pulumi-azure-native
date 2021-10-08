@@ -68,3 +68,22 @@ export interface GetLinkedServiceResult {
      */
     readonly type: string;
 }
+
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+    return pulumi.output(args).apply(a => getLinkedService(a, opts))
+}
+
+export interface GetLinkedServiceOutputArgs {
+    /**
+     * Friendly name of the linked workspace
+     */
+    linkName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

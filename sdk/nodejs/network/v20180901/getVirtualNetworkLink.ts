@@ -83,3 +83,22 @@ export interface GetVirtualNetworkLinkResult {
      */
     readonly virtualNetworkLinkState: string;
 }
+
+export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkLink(a, opts))
+}
+
+export interface GetVirtualNetworkLinkOutputArgs {
+    /**
+     * The name of the Private DNS zone (without a terminating dot).
+     */
+    privateZoneName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network link.
+     */
+    virtualNetworkLinkName: pulumi.Input<string>;
+}

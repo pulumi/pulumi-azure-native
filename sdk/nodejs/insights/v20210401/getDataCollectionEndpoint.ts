@@ -94,3 +94,18 @@ export interface GetDataCollectionEndpointResult {
      */
     readonly type: string;
 }
+
+export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
+    return pulumi.output(args).apply(a => getDataCollectionEndpoint(a, opts))
+}
+
+export interface GetDataCollectionEndpointOutputArgs {
+    /**
+     * The name of the data collection endpoint. The name is case insensitive.
+     */
+    dataCollectionEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -101,3 +101,26 @@ export interface GetFusionAlertRuleResult {
      */
     readonly type: string;
 }
+
+export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
+    return pulumi.output(args).apply(a => getFusionAlertRule(a, opts))
+}
+
+export interface GetFusionAlertRuleOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    ruleId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -103,3 +103,50 @@ export interface GetRecoveryPointAccessTokenResult {
      */
     readonly type: string;
 }
+
+export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
+    return pulumi.output(args).apply(a => getRecoveryPointAccessToken(a, opts))
+}
+
+export interface GetRecoveryPointAccessTokenOutputArgs {
+    /**
+     * Name of the container.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Optional ETag.
+     */
+    eTag?: pulumi.Input<string>;
+    /**
+     * Fabric name associated with the container.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Resource location.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * AADPropertiesResource properties
+     */
+    properties?: pulumi.Input<inputs.recoveryservices.AADPropertiesArgs>;
+    /**
+     * Name of the Protected Item.
+     */
+    protectedItemName: pulumi.Input<string>;
+    /**
+     * Recovery Point Id
+     */
+    recoveryPointId: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the recovery services vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

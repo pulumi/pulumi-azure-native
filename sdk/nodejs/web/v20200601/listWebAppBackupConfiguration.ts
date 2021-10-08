@@ -74,3 +74,18 @@ export interface ListWebAppBackupConfigurationResult {
      */
     readonly type: string;
 }
+
+export function listWebAppBackupConfigurationOutput(args: ListWebAppBackupConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationResult> {
+    return pulumi.output(args).apply(a => listWebAppBackupConfiguration(a, opts))
+}
+
+export interface ListWebAppBackupConfigurationOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

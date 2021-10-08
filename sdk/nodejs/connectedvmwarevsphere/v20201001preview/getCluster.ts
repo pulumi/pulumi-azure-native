@@ -110,3 +110,18 @@ export interface GetClusterResult {
      */
     readonly vCenterId?: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+export interface GetClusterOutputArgs {
+    /**
+     * Name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

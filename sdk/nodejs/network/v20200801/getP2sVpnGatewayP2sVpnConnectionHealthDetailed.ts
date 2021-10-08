@@ -51,3 +51,26 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult {
      */
     readonly sasUrl?: string;
 }
+
+export function getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
+    return pulumi.output(args).apply(a => getP2sVpnGatewayP2sVpnConnectionHealthDetailed(a, opts))
+}
+
+export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs {
+    /**
+     * The name of the P2SVpnGateway.
+     */
+    gatewayName: pulumi.Input<string>;
+    /**
+     * The sas-url to download the P2S Vpn connection health detail.
+     */
+    outputBlobSasUrl?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
+     */
+    vpnUserNamesFilter?: pulumi.Input<pulumi.Input<string>[]>;
+}

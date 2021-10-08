@@ -105,3 +105,30 @@ export interface GetVolumeResult {
      */
     readonly volumeType: string;
 }
+
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+    return pulumi.output(args).apply(a => getVolume(a, opts))
+}
+
+export interface GetVolumeOutputArgs {
+    /**
+     * The device name
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The volume container name.
+     */
+    volumeContainerName: pulumi.Input<string>;
+    /**
+     * The volume name.
+     */
+    volumeName: pulumi.Input<string>;
+}

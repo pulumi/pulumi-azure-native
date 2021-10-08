@@ -99,3 +99,22 @@ export interface GetShareResult {
      */
     readonly userAccessRights?: outputs.databoxedge.v20210201preview.UserAccessRightResponse[];
 }
+
+export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
+    return pulumi.output(args).apply(a => getShare(a, opts))
+}
+
+export interface GetShareOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The share name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

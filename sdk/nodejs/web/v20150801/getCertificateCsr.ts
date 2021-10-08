@@ -85,3 +85,18 @@ export interface GetCertificateCsrResult {
      */
     readonly type?: string;
 }
+
+export function getCertificateCsrOutput(args: GetCertificateCsrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateCsrResult> {
+    return pulumi.output(args).apply(a => getCertificateCsr(a, opts))
+}
+
+export interface GetCertificateCsrOutputArgs {
+    /**
+     * Name of the certificate.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

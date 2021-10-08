@@ -118,3 +118,30 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly type: string;
 }
+
+export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineScaleSetVMRunCommand(a, opts))
+}
+
+export interface GetVirtualMachineScaleSetVMRunCommandOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The instance ID of the virtual machine.
+     */
+    instanceId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine run command.
+     */
+    runCommandName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set.
+     */
+    vmScaleSetName: pulumi.Input<string>;
+}

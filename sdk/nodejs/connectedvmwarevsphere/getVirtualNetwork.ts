@@ -103,3 +103,18 @@ export interface GetVirtualNetworkResult {
      */
     readonly vCenterId?: string;
 }
+
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+}
+
+export interface GetVirtualNetworkOutputArgs {
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the virtual network resource.
+     */
+    virtualNetworkName: pulumi.Input<string>;
+}

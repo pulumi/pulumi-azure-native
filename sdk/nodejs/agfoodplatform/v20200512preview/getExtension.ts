@@ -83,3 +83,22 @@ export interface GetExtensionResult {
      */
     readonly type: string;
 }
+
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+    return pulumi.output(args).apply(a => getExtension(a, opts))
+}
+
+export interface GetExtensionOutputArgs {
+    /**
+     * Id of extension resource.
+     */
+    extensionId: pulumi.Input<string>;
+    /**
+     * FarmBeats resource name.
+     */
+    farmBeatsResourceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

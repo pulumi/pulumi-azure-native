@@ -79,3 +79,22 @@ export interface GetSyncAgentResult {
      */
     readonly version: string;
 }
+
+export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
+    return pulumi.output(args).apply(a => getSyncAgent(a, opts))
+}
+
+export interface GetSyncAgentOutputArgs {
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server on which the sync agent is hosted.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the sync agent.
+     */
+    syncAgentName: pulumi.Input<string>;
+}

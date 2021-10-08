@@ -44,7 +44,7 @@ export interface GetAlertRuleResult {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: outputs.insights.v20160301.RuleEmailActionResponse | outputs.insights.v20160301.RuleWebhookActionResponse[];
+    readonly actions?: (outputs.insights.v20160301.RuleEmailActionResponse | outputs.insights.v20160301.RuleWebhookActionResponse)[];
     /**
      * the condition that results in the alert rule being activated.
      */
@@ -85,4 +85,19 @@ export interface GetAlertRuleResult {
      * Azure resource type
      */
     readonly type: string;
+}
+
+export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
+    return pulumi.output(args).apply(a => getAlertRule(a, opts))
+}
+
+export interface GetAlertRuleOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    ruleName: pulumi.Input<string>;
 }

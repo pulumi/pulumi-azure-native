@@ -83,3 +83,22 @@ export interface GetWorkloadNetworkSegmentResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkSegment(a, opts))
+}
+
+export interface GetWorkloadNetworkSegmentOutputArgs {
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * NSX Segment identifier. Generally the same as the Segment's display name
+     */
+    segmentId: pulumi.Input<string>;
+}

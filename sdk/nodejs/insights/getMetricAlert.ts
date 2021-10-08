@@ -111,3 +111,18 @@ export interface GetMetricAlertResult {
      */
     readonly windowSize: string;
 }
+
+export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
+    return pulumi.output(args).apply(a => getMetricAlert(a, opts))
+}
+
+export interface GetMetricAlertOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    ruleName: pulumi.Input<string>;
+}

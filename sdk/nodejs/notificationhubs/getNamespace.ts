@@ -115,3 +115,18 @@ export interface GetNamespaceResult {
      */
     readonly updatedAt?: string;
 }
+
+export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
+    return pulumi.output(args).apply(a => getNamespace(a, opts))
+}
+
+export interface GetNamespaceOutputArgs {
+    /**
+     * The namespace name.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

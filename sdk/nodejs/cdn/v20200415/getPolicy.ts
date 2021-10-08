@@ -91,3 +91,18 @@ export interface GetPolicyResult {
      */
     readonly type: string;
 }
+
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+    return pulumi.output(args).apply(a => getPolicy(a, opts))
+}
+
+export interface GetPolicyOutputArgs {
+    /**
+     * The name of the CdnWebApplicationFirewallPolicy.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

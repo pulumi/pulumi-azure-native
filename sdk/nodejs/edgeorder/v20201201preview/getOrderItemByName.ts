@@ -83,3 +83,22 @@ export interface GetOrderItemByNameResult {
      */
     readonly type: string;
 }
+
+export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
+    return pulumi.output(args).apply(a => getOrderItemByName(a, opts))
+}
+
+export interface GetOrderItemByNameOutputArgs {
+    /**
+     * $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the order item
+     */
+    orderItemName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

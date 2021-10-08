@@ -57,3 +57,30 @@ export interface ListAssetContainerSasResult {
      */
     readonly assetContainerSasUrls?: string[];
 }
+
+export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {
+    return pulumi.output(args).apply(a => listAssetContainerSas(a, opts))
+}
+
+export interface ListAssetContainerSasOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Asset name.
+     */
+    assetName: pulumi.Input<string>;
+    /**
+     * The SAS URL expiration time.  This must be less than 24 hours from the current time.
+     */
+    expiryTime?: pulumi.Input<string>;
+    /**
+     * The permissions to set on the SAS URL.
+     */
+    permissions?: pulumi.Input<string | enums.media.v20200501.AssetContainerPermission>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

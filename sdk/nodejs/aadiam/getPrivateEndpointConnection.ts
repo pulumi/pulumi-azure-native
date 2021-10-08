@@ -68,3 +68,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private link policy in Azure AD.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * The PrivateEndpointConnection name.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

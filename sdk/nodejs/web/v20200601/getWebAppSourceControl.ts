@@ -77,3 +77,18 @@ export interface GetWebAppSourceControlResult {
      */
     readonly type: string;
 }
+
+export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlResult> {
+    return pulumi.output(args).apply(a => getWebAppSourceControl(a, opts))
+}
+
+export interface GetWebAppSourceControlOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

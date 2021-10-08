@@ -59,3 +59,22 @@ export interface GetMonitoringConfigResult {
      */
     readonly type: string;
 }
+
+export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
+    return pulumi.output(args).apply(a => getMonitoringConfig(a, opts))
+}
+
+export interface GetMonitoringConfigOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    roleName: pulumi.Input<string>;
+}

@@ -118,3 +118,26 @@ export interface GetRouteResult {
      */
     readonly type: string;
 }
+
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+    return pulumi.output(args).apply(a => getRoute(a, opts))
+}
+
+export interface GetRouteOutputArgs {
+    /**
+     * Name of the endpoint under the profile which is unique globally.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the routing rule.
+     */
+    routeName: pulumi.Input<string>;
+}

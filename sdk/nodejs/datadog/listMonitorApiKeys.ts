@@ -47,3 +47,18 @@ export interface ListMonitorApiKeysResult {
      */
     readonly value?: outputs.datadog.DatadogApiKeyResponse[];
 }
+
+export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
+    return pulumi.output(args).apply(a => listMonitorApiKeys(a, opts))
+}
+
+export interface ListMonitorApiKeysOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

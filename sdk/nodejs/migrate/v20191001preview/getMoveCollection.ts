@@ -70,3 +70,18 @@ export interface GetMoveCollectionResult {
      */
     readonly type: string;
 }
+
+export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
+    return pulumi.output(args).apply(a => getMoveCollection(a, opts))
+}
+
+export interface GetMoveCollectionOutputArgs {
+    /**
+     * The Move Collection Name.
+     */
+    moveCollectionName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

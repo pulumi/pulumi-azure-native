@@ -119,3 +119,22 @@ export interface GetGalleryImageResult {
      */
     readonly type: string;
 }
+
+export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
+    return pulumi.output(args).apply(a => getGalleryImage(a, opts))
+}
+
+export interface GetGalleryImageOutputArgs {
+    /**
+     * The name of the gallery image definition to be retrieved.
+     */
+    galleryImageName: pulumi.Input<string>;
+    /**
+     * The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

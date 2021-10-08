@@ -184,3 +184,26 @@ export interface GetSiteSlotResult {
      */
     readonly usageState: string;
 }
+
+export function getSiteSlotOutput(args: GetSiteSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotResult> {
+    return pulumi.output(args).apply(a => getSiteSlot(a, opts))
+}
+
+export interface GetSiteSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Additional web app properties included in the response
+     */
+    propertiesToInclude?: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

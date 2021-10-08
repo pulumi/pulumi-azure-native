@@ -66,3 +66,22 @@ export interface GetTableResourceTableResult {
      */
     readonly type: string;
 }
+
+export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {
+    return pulumi.output(args).apply(a => getTableResourceTable(a, opts))
+}
+
+export interface GetTableResourceTableOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB table name.
+     */
+    tableName: pulumi.Input<string>;
+}

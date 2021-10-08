@@ -87,3 +87,22 @@ export interface GetPredictionModelStatusResult {
      */
     readonly validationSetCount: number;
 }
+
+export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {
+    return pulumi.output(args).apply(a => getPredictionModelStatus(a, opts))
+}
+
+export interface GetPredictionModelStatusOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the Prediction.
+     */
+    predictionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

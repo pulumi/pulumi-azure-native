@@ -40,3 +40,22 @@ export interface ListIntegrationAccountCallbackUrlResult {
      */
     readonly value?: string;
 }
+
+export function listIntegrationAccountCallbackUrlOutput(args: ListIntegrationAccountCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listIntegrationAccountCallbackUrl(a, opts))
+}
+
+export interface ListIntegrationAccountCallbackUrlOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The expiry time.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

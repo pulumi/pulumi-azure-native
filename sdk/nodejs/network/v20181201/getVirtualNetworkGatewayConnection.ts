@@ -138,3 +138,18 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly virtualNetworkGateway2?: outputs.network.v20181201.VirtualNetworkGatewayResponse;
 }
+
+export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayConnection(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayConnectionOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network gateway connection.
+     */
+    virtualNetworkGatewayConnectionName: pulumi.Input<string>;
+}

@@ -81,3 +81,26 @@ export interface GetScriptResult {
      */
     readonly type: string;
 }
+
+export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
+    return pulumi.output(args).apply(a => getScript(a, opts))
+}
+
+export interface GetScriptOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto database script.
+     */
+    scriptName: pulumi.Input<string>;
+}

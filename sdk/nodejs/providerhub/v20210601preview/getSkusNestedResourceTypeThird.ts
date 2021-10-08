@@ -69,3 +69,34 @@ export interface GetSkusNestedResourceTypeThirdResult {
      */
     readonly type: string;
 }
+
+export function getSkusNestedResourceTypeThirdOutput(args: GetSkusNestedResourceTypeThirdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeThirdResult> {
+    return pulumi.output(args).apply(a => getSkusNestedResourceTypeThird(a, opts))
+}
+
+export interface GetSkusNestedResourceTypeThirdOutputArgs {
+    /**
+     * The first child resource type.
+     */
+    nestedResourceTypeFirst: pulumi.Input<string>;
+    /**
+     * The second child resource type.
+     */
+    nestedResourceTypeSecond: pulumi.Input<string>;
+    /**
+     * The third child resource type.
+     */
+    nestedResourceTypeThird: pulumi.Input<string>;
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+    /**
+     * The resource type.
+     */
+    resourceType: pulumi.Input<string>;
+    /**
+     * The SKU.
+     */
+    sku: pulumi.Input<string>;
+}

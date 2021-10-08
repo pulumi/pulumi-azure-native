@@ -89,3 +89,30 @@ export interface GetAnalyticsItemResult {
      */
     readonly version: string;
 }
+
+export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsItemResult> {
+    return pulumi.output(args).apply(a => getAnalyticsItem(a, opts))
+}
+
+export interface GetAnalyticsItemOutputArgs {
+    /**
+     * The Id of a specific item defined in the Application Insights component
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of a specific item defined in the Application Insights component
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     */
+    scopePath: pulumi.Input<string>;
+}

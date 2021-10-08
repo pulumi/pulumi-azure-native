@@ -225,3 +225,18 @@ export interface GetWebAppResult {
      */
     readonly usageState: string;
 }
+
+export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
+    return pulumi.output(args).apply(a => getWebApp(a, opts))
+}
+
+export interface GetWebAppOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -40,3 +40,14 @@ export interface GetProviderRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
+    return pulumi.output(args).apply(a => getProviderRegistration(a, opts))
+}
+
+export interface GetProviderRegistrationOutputArgs {
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+}

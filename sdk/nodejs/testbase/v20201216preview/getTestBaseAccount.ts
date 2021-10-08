@@ -78,3 +78,18 @@ export interface GetTestBaseAccountResult {
      */
     readonly type: string;
 }
+
+export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
+    return pulumi.output(args).apply(a => getTestBaseAccount(a, opts))
+}
+
+export interface GetTestBaseAccountOutputArgs {
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

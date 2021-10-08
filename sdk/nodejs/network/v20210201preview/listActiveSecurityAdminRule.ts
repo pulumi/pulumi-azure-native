@@ -54,5 +54,28 @@ export interface ListActiveSecurityAdminRuleResult {
     /**
      * Gets a page of active security admin rules.
      */
-    readonly value?: outputs.network.v20210201preview.ActiveDefaultSecurityAdminRuleResponse | outputs.network.v20210201preview.ActiveSecurityAdminRuleResponse[];
+    readonly value?: (outputs.network.v20210201preview.ActiveDefaultSecurityAdminRuleResponse | outputs.network.v20210201preview.ActiveSecurityAdminRuleResponse)[];
+}
+
+export function listActiveSecurityAdminRuleOutput(args: ListActiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityAdminRuleResult> {
+    return pulumi.output(args).apply(a => listActiveSecurityAdminRule(a, opts))
+}
+
+export interface ListActiveSecurityAdminRuleOutputArgs {
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * List of regions.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+     */
+    skipToken?: pulumi.Input<string>;
 }

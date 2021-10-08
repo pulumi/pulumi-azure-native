@@ -71,3 +71,22 @@ export interface GetCustomApiResult {
      */
     readonly type: string;
 }
+
+export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomApiResult> {
+    return pulumi.output(args).apply(a => getCustomApi(a, opts))
+}
+
+export interface GetCustomApiOutputArgs {
+    /**
+     * API name
+     */
+    apiName: pulumi.Input<string>;
+    /**
+     * The resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Subscription Id
+     */
+    subscriptionId?: pulumi.Input<string>;
+}

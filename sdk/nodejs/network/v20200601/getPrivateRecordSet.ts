@@ -112,3 +112,26 @@ export interface GetPrivateRecordSetResult {
      */
     readonly type: string;
 }
+
+export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
+    return pulumi.output(args).apply(a => getPrivateRecordSet(a, opts))
+}
+
+export interface GetPrivateRecordSetOutputArgs {
+    /**
+     * The name of the Private DNS zone (without a terminating dot).
+     */
+    privateZoneName: pulumi.Input<string>;
+    /**
+     * The type of DNS record in this record set.
+     */
+    recordType: pulumi.Input<string>;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    relativeRecordSetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

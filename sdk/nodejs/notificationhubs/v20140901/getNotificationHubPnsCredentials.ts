@@ -67,3 +67,22 @@ export interface GetNotificationHubPnsCredentialsResult {
      */
     readonly type?: string;
 }
+
+export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
+    return pulumi.output(args).apply(a => getNotificationHubPnsCredentials(a, opts))
+}
+
+export interface GetNotificationHubPnsCredentialsOutputArgs {
+    /**
+     * The namespace name.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The notification hub name.
+     */
+    notificationHubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

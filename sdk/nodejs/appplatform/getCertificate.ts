@@ -60,3 +60,22 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+export interface GetCertificateOutputArgs {
+    /**
+     * The name of the certificate resource.
+     */
+    certificateName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    serviceName: pulumi.Input<string>;
+}

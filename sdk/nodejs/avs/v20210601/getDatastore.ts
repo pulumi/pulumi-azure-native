@@ -72,3 +72,26 @@ export interface GetDatastoreResult {
      */
     readonly type: string;
 }
+
+export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
+    return pulumi.output(args).apply(a => getDatastore(a, opts))
+}
+
+export interface GetDatastoreOutputArgs {
+    /**
+     * Name of the cluster in the private cloud
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Name of the datastore in the private cloud cluster
+     */
+    datastoreName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

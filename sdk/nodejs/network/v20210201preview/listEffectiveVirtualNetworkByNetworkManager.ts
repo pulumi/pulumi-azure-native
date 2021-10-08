@@ -61,3 +61,30 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
      */
     readonly value?: outputs.network.v20210201preview.EffectiveVirtualNetworkResponse[];
 }
+
+export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
+    return pulumi.output(args).apply(a => listEffectiveVirtualNetworkByNetworkManager(a, opts))
+}
+
+export interface ListEffectiveVirtualNetworkByNetworkManagerOutputArgs {
+    /**
+     * Conditional Members.
+     */
+    conditionalMembers?: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+     */
+    skipToken?: pulumi.Input<string>;
+    /**
+     * An optional query parameter which specifies the maximum number of records to be returned by the server.
+     */
+    top?: pulumi.Input<number>;
+}

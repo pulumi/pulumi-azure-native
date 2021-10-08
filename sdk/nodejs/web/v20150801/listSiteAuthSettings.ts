@@ -173,3 +173,18 @@ export interface ListSiteAuthSettingsResult {
      */
     readonly unauthenticatedClientAction?: string;
 }
+
+export function listSiteAuthSettingsOutput(args: ListSiteAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteAuthSettingsResult> {
+    return pulumi.output(args).apply(a => listSiteAuthSettings(a, opts))
+}
+
+export interface ListSiteAuthSettingsOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

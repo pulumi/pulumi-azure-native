@@ -80,3 +80,22 @@ export interface GetVirtualNetworkGatewayNatRuleResult {
      */
     readonly type: string;
 }
+
+export function getVirtualNetworkGatewayNatRuleOutput(args: GetVirtualNetworkGatewayNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayNatRuleResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayNatRule(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayNatRuleOutputArgs {
+    /**
+     * The name of the nat rule.
+     */
+    natRuleName: pulumi.Input<string>;
+    /**
+     * The resource group name of the Virtual Network Gateway.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the gateway.
+     */
+    virtualNetworkGatewayName: pulumi.Input<string>;
+}

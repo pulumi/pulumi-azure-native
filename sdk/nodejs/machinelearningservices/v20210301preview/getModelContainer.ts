@@ -63,3 +63,22 @@ export interface GetModelContainerResult {
      */
     readonly type: string;
 }
+
+export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelContainerResult> {
+    return pulumi.output(args).apply(a => getModelContainer(a, opts))
+}
+
+export interface GetModelContainerOutputArgs {
+    /**
+     * Container name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

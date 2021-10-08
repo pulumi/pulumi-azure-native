@@ -59,3 +59,22 @@ export interface GetRegistrationAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
+    return pulumi.output(args).apply(a => getRegistrationAssignment(a, opts))
+}
+
+export interface GetRegistrationAssignmentOutputArgs {
+    /**
+     * The flag indicating whether to return the registration definition details along with the registration assignment details.
+     */
+    expandRegistrationDefinition?: pulumi.Input<boolean>;
+    /**
+     * The GUID of the registration assignment.
+     */
+    registrationAssignmentId: pulumi.Input<string>;
+    /**
+     * The scope of the resource.
+     */
+    scope: pulumi.Input<string>;
+}

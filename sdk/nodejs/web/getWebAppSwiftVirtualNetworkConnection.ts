@@ -67,3 +67,18 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
      */
     readonly type: string;
 }
+
+export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
+    return pulumi.output(args).apply(a => getWebAppSwiftVirtualNetworkConnection(a, opts))
+}
+
+export interface GetWebAppSwiftVirtualNetworkConnectionOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -62,3 +62,22 @@ export interface GetLinkedStorageAccountResult {
      */
     readonly type: string;
 }
+
+export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
+    return pulumi.output(args).apply(a => getLinkedStorageAccount(a, opts))
+}
+
+export interface GetLinkedStorageAccountOutputArgs {
+    /**
+     * Linked storage accounts type.
+     */
+    dataSourceType: pulumi.Input<string>;
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Log Analytics Workspace that will contain the resource.
+     */
+    workspaceName: pulumi.Input<string>;
+}

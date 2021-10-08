@@ -63,3 +63,18 @@ export interface GetPolicyPricingResult {
      */
     readonly type: string;
 }
+
+export function getPolicyPricingOutput(args: GetPolicyPricingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyPricingResult> {
+    return pulumi.output(args).apply(a => getPolicyPricing(a, opts))
+}
+
+export interface GetPolicyPricingOutputArgs {
+    /**
+     * The name of the policy pricing.
+     */
+    policyPricingName: pulumi.Input<string>;
+    /**
+     * The scope of the policy pricing. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}') or subscription (format: '/subscriptions/{subscriptionId}')
+     */
+    scope: pulumi.Input<string>;
+}

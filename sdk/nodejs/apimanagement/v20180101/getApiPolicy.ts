@@ -67,3 +67,26 @@ export interface GetApiPolicyResult {
      */
     readonly type: string;
 }
+
+export function getApiPolicyOutput(args: GetApiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPolicyResult> {
+    return pulumi.output(args).apply(a => getApiPolicy(a, opts))
+}
+
+export interface GetApiPolicyOutputArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * The identifier of the Policy.
+     */
+    policyId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

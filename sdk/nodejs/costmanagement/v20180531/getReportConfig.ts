@@ -65,3 +65,14 @@ export interface GetReportConfigResult {
      */
     readonly type: string;
 }
+
+export function getReportConfigOutput(args: GetReportConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigResult> {
+    return pulumi.output(args).apply(a => getReportConfig(a, opts))
+}
+
+export interface GetReportConfigOutputArgs {
+    /**
+     * Report Config Name.
+     */
+    reportConfigName: pulumi.Input<string>;
+}

@@ -70,3 +70,22 @@ export interface GetVirtualRouterPeeringResult {
      */
     readonly type: string;
 }
+
+export function getVirtualRouterPeeringOutput(args: GetVirtualRouterPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterPeeringResult> {
+    return pulumi.output(args).apply(a => getVirtualRouterPeering(a, opts))
+}
+
+export interface GetVirtualRouterPeeringOutputArgs {
+    /**
+     * The name of the Virtual Router Peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Virtual Router.
+     */
+    virtualRouterName: pulumi.Input<string>;
+}

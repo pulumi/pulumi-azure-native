@@ -111,3 +111,22 @@ export interface GetPublicIPPrefixResult {
      */
     readonly zones?: string[];
 }
+
+export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
+    return pulumi.output(args).apply(a => getPublicIPPrefix(a, opts))
+}
+
+export interface GetPublicIPPrefixOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the public IP prefix.
+     */
+    publicIpPrefixName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

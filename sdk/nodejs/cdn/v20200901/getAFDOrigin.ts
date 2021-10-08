@@ -105,3 +105,26 @@ export interface GetAFDOriginResult {
      */
     readonly weight?: number;
 }
+
+export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
+    return pulumi.output(args).apply(a => getAFDOrigin(a, opts))
+}
+
+export interface GetAFDOriginOutputArgs {
+    /**
+     * Name of the origin group which is unique within the profile.
+     */
+    originGroupName: pulumi.Input<string>;
+    /**
+     * Name of the origin which is unique within the profile.
+     */
+    originName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

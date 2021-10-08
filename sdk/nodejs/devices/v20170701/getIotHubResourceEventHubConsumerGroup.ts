@@ -59,3 +59,26 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
      */
     readonly tags?: {[key: string]: string};
 }
+
+export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
+    return pulumi.output(args).apply(a => getIotHubResourceEventHubConsumerGroup(a, opts))
+}
+
+export interface GetIotHubResourceEventHubConsumerGroupOutputArgs {
+    /**
+     * The name of the Event Hub-compatible endpoint in the IoT hub.
+     */
+    eventHubEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the consumer group to retrieve.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the IoT hub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub.
+     */
+    resourceName: pulumi.Input<string>;
+}

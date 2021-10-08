@@ -42,11 +42,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    public readonly customize!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateWindowsUpdateCustomizerResponse[] | undefined>;
+    public readonly customize!: pulumi.Output<(outputs.virtualmachineimages.v20200214.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.v20200214.ImageTemplateWindowsUpdateCustomizerResponse)[] | undefined>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    public readonly distribute!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20200214.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20200214.ImageTemplateVhdDistributorResponse[]>;
+    public readonly distribute!: pulumi.Output<(outputs.virtualmachineimages.v20200214.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20200214.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20200214.ImageTemplateVhdDistributorResponse)[]>;
     /**
      * The identity of the image template, if configured.
      */

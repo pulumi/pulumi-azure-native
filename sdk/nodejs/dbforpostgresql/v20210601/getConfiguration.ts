@@ -83,3 +83,22 @@ export interface GetConfigurationResult {
      */
     readonly value?: string;
 }
+
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+    return pulumi.output(args).apply(a => getConfiguration(a, opts))
+}
+
+export interface GetConfigurationOutputArgs {
+    /**
+     * The name of the server configuration.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

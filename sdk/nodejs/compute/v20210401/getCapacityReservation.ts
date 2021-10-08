@@ -96,3 +96,26 @@ export interface GetCapacityReservationResult {
      */
     readonly zones?: string[];
 }
+
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+    return pulumi.output(args).apply(a => getCapacityReservation(a, opts))
+}
+
+export interface GetCapacityReservationOutputArgs {
+    /**
+     * The name of the capacity reservation group.
+     */
+    capacityReservationGroupName: pulumi.Input<string>;
+    /**
+     * The name of the capacity reservation.
+     */
+    capacityReservationName: pulumi.Input<string>;
+    /**
+     * The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

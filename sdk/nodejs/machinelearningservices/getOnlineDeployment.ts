@@ -81,3 +81,26 @@ export interface GetOnlineDeploymentResult {
      */
     readonly type: string;
 }
+
+export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentResult> {
+    return pulumi.output(args).apply(a => getOnlineDeployment(a, opts))
+}
+
+export interface GetOnlineDeploymentOutputArgs {
+    /**
+     * Inference Endpoint Deployment name.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * Inference endpoint name.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

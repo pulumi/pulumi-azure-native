@@ -80,3 +80,22 @@ export interface GetVideoResult {
      */
     readonly type: string;
 }
+
+export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
+    return pulumi.output(args).apply(a => getVideo(a, opts))
+}
+
+export interface GetVideoOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the video to retrieve.
+     */
+    videoName: pulumi.Input<string>;
+}

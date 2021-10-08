@@ -46,3 +46,22 @@ export interface GetBuildLogLinkResult {
      */
     readonly logLink?: string;
 }
+
+export function getBuildLogLinkOutput(args: GetBuildLogLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildLogLinkResult> {
+    return pulumi.output(args).apply(a => getBuildLogLink(a, opts))
+}
+
+export interface GetBuildLogLinkOutputArgs {
+    /**
+     * The build ID.
+     */
+    buildId: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

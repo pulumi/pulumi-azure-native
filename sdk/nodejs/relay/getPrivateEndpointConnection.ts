@@ -76,3 +76,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The PrivateEndpointConnection name.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

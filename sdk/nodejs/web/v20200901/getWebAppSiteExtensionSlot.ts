@@ -145,3 +145,26 @@ export interface GetWebAppSiteExtensionSlotResult {
      */
     readonly version?: string;
 }
+
+export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppSiteExtensionSlot(a, opts))
+}
+
+export interface GetWebAppSiteExtensionSlotOutputArgs {
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site extension name.
+     */
+    siteExtensionId: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

@@ -47,3 +47,22 @@ export interface ListMachineLearningComputeKeysResult {
      */
     readonly computeType: string;
 }
+
+export function listMachineLearningComputeKeysOutput(args: ListMachineLearningComputeKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMachineLearningComputeKeysResult> {
+    return pulumi.output(args).apply(a => listMachineLearningComputeKeys(a, opts))
+}
+
+export interface ListMachineLearningComputeKeysOutputArgs {
+    /**
+     * Name of the Azure Machine Learning compute.
+     */
+    computeName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

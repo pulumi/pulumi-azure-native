@@ -90,3 +90,18 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+export interface GetServiceOutputArgs {
+    /**
+     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     */
+    searchServiceName: pulumi.Input<string>;
+}

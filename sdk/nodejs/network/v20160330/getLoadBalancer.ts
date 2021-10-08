@@ -103,3 +103,22 @@ export interface GetLoadBalancerResult {
      */
     readonly type: string;
 }
+
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+}
+
+export interface GetLoadBalancerOutputArgs {
+    /**
+     * expand references resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the loadBalancer.
+     */
+    loadBalancerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

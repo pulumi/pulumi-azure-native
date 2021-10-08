@@ -68,3 +68,22 @@ export interface ListWorkflowTriggerCallbackUrlResult {
      */
     readonly value: string;
 }
+
+export function listWorkflowTriggerCallbackUrlOutput(args: ListWorkflowTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowTriggerCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listWorkflowTriggerCallbackUrl(a, opts))
+}
+
+export interface ListWorkflowTriggerCallbackUrlOutputArgs {
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The workflow trigger name.
+     */
+    triggerName: pulumi.Input<string>;
+    /**
+     * The workflow name.
+     */
+    workflowName: pulumi.Input<string>;
+}

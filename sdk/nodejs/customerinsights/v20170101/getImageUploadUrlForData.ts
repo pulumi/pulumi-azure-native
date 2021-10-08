@@ -64,3 +64,30 @@ export interface GetImageUploadUrlForDataResult {
      */
     readonly relativePath?: string;
 }
+
+export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
+    return pulumi.output(args).apply(a => getImageUploadUrlForData(a, opts))
+}
+
+export interface GetImageUploadUrlForDataOutputArgs {
+    /**
+     * Type of entity. Can be Profile or Interaction.
+     */
+    entityType?: pulumi.Input<string>;
+    /**
+     * Name of the entity type.
+     */
+    entityTypeName?: pulumi.Input<string>;
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * Relative path of the image.
+     */
+    relativePath?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

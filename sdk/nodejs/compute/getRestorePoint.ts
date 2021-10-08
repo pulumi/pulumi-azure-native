@@ -76,3 +76,22 @@ export interface GetRestorePointResult {
      */
     readonly type: string;
 }
+
+export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
+    return pulumi.output(args).apply(a => getRestorePoint(a, opts))
+}
+
+export interface GetRestorePointOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the restore point collection.
+     */
+    restorePointCollectionName: pulumi.Input<string>;
+    /**
+     * The name of the restore point.
+     */
+    restorePointName: pulumi.Input<string>;
+}

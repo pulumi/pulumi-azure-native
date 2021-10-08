@@ -69,3 +69,18 @@ export interface GetApplicationSecurityGroupResult {
      */
     readonly type: string;
 }
+
+export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
+    return pulumi.output(args).apply(a => getApplicationSecurityGroup(a, opts))
+}
+
+export interface GetApplicationSecurityGroupOutputArgs {
+    /**
+     * The name of the application security group.
+     */
+    applicationSecurityGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

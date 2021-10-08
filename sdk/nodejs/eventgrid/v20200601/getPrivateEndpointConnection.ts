@@ -70,3 +70,26 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the parent resource (namely, either, the topic name or domain name).
+     */
+    parentName: pulumi.Input<string>;
+    /**
+     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     */
+    parentType: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

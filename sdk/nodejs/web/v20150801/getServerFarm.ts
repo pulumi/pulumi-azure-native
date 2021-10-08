@@ -111,3 +111,18 @@ export interface GetServerFarmResult {
      */
     readonly workerTierName?: string;
 }
+
+export function getServerFarmOutput(args: GetServerFarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerFarmResult> {
+    return pulumi.output(args).apply(a => getServerFarm(a, opts))
+}
+
+export interface GetServerFarmOutputArgs {
+    /**
+     * Name of App Service Plan
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

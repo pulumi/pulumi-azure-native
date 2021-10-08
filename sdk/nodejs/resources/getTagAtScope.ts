@@ -50,3 +50,14 @@ export interface GetTagAtScopeResult {
      */
     readonly type: string;
 }
+
+export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
+    return pulumi.output(args).apply(a => getTagAtScope(a, opts))
+}
+
+export interface GetTagAtScopeOutputArgs {
+    /**
+     * The resource scope.
+     */
+    scope: pulumi.Input<string>;
+}

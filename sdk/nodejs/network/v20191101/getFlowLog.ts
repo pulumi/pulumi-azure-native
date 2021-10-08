@@ -99,3 +99,22 @@ export interface GetFlowLogResult {
      */
     readonly type: string;
 }
+
+export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
+    return pulumi.output(args).apply(a => getFlowLog(a, opts))
+}
+
+export interface GetFlowLogOutputArgs {
+    /**
+     * The name of the flow log resource.
+     */
+    flowLogName: pulumi.Input<string>;
+    /**
+     * The name of the network watcher.
+     */
+    networkWatcherName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -67,3 +67,26 @@ export interface GetBackupShortTermRetentionPolicyResult {
      */
     readonly type: string;
 }
+
+export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
+    return pulumi.output(args).apply(a => getBackupShortTermRetentionPolicy(a, opts))
+}
+
+export interface GetBackupShortTermRetentionPolicyOutputArgs {
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The policy name. Should always be "default".
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

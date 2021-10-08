@@ -68,3 +68,22 @@ export interface GetManagedInstancePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getManagedInstancePrivateEndpointConnectionOutput(args: GetManagedInstancePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstancePrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getManagedInstancePrivateEndpointConnection(a, opts))
+}
+
+export interface GetManagedInstancePrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

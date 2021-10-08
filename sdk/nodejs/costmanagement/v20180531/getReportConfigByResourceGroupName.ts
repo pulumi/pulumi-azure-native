@@ -70,3 +70,18 @@ export interface GetReportConfigByResourceGroupNameResult {
      */
     readonly type: string;
 }
+
+export function getReportConfigByResourceGroupNameOutput(args: GetReportConfigByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigByResourceGroupNameResult> {
+    return pulumi.output(args).apply(a => getReportConfigByResourceGroupName(a, opts))
+}
+
+export interface GetReportConfigByResourceGroupNameOutputArgs {
+    /**
+     * Report Config Name.
+     */
+    reportConfigName: pulumi.Input<string>;
+    /**
+     * Azure Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

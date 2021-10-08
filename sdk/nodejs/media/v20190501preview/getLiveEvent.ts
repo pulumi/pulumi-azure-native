@@ -111,3 +111,22 @@ export interface GetLiveEventResult {
      */
     readonly vanityUrl?: boolean;
 }
+
+export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
+    return pulumi.output(args).apply(a => getLiveEvent(a, opts))
+}
+
+export interface GetLiveEventOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Live Event.
+     */
+    liveEventName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

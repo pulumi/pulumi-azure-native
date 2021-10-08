@@ -70,3 +70,18 @@ export interface GetArtifactSourceResult {
      */
     readonly type: string;
 }
+
+export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
+    return pulumi.output(args).apply(a => getArtifactSource(a, opts))
+}
+
+export interface GetArtifactSourceOutputArgs {
+    /**
+     * The name of the artifact source.
+     */
+    artifactSourceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

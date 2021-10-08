@@ -51,3 +51,22 @@ export interface ListConfigurationStoreKeysResult {
      */
     readonly value?: outputs.appconfiguration.v20191101preview.ApiKeyResponse[];
 }
+
+export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
+    return pulumi.output(args).apply(a => listConfigurationStoreKeys(a, opts))
+}
+
+export interface ListConfigurationStoreKeysOutputArgs {
+    /**
+     * The name of the configuration store.
+     */
+    configStoreName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+     */
+    skipToken?: pulumi.Input<string>;
+}

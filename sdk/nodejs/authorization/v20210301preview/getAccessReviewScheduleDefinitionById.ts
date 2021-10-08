@@ -157,3 +157,14 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly userPrincipalName: string;
 }
+
+export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
+    return pulumi.output(args).apply(a => getAccessReviewScheduleDefinitionById(a, opts))
+}
+
+export interface GetAccessReviewScheduleDefinitionByIdOutputArgs {
+    /**
+     * The id of the access review schedule definition.
+     */
+    scheduleDefinitionId: pulumi.Input<string>;
+}

@@ -69,3 +69,22 @@ export interface GetSecretResult {
      */
     readonly type: string;
 }
+
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+    return pulumi.output(args).apply(a => getSecret(a, opts))
+}
+
+export interface GetSecretOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Secret under the profile.
+     */
+    secretName: pulumi.Input<string>;
+}

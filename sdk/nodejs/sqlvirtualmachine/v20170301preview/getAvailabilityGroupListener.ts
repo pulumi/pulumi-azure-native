@@ -75,3 +75,22 @@ export interface GetAvailabilityGroupListenerResult {
      */
     readonly type: string;
 }
+
+export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
+    return pulumi.output(args).apply(a => getAvailabilityGroupListener(a, opts))
+}
+
+export interface GetAvailabilityGroupListenerOutputArgs {
+    /**
+     * Name of the availability group listener.
+     */
+    availabilityGroupListenerName: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SQL virtual machine group.
+     */
+    sqlVirtualMachineGroupName: pulumi.Input<string>;
+}

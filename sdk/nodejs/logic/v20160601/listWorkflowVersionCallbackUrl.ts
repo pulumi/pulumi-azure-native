@@ -82,3 +82,34 @@ export interface ListWorkflowVersionCallbackUrlResult {
      */
     readonly value: string;
 }
+
+export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listWorkflowVersionCallbackUrl(a, opts))
+}
+
+export interface ListWorkflowVersionCallbackUrlOutputArgs {
+    /**
+     * The key type.
+     */
+    keyType?: pulumi.Input<enums.logic.v20160601.KeyType>;
+    /**
+     * The expiry time.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The workflow trigger name.
+     */
+    triggerName: pulumi.Input<string>;
+    /**
+     * The workflow versionId.
+     */
+    versionId: pulumi.Input<string>;
+    /**
+     * The workflow name.
+     */
+    workflowName: pulumi.Input<string>;
+}

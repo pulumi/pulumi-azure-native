@@ -62,3 +62,18 @@ export interface GetServiceTopologyResult {
      */
     readonly type: string;
 }
+
+export function getServiceTopologyOutput(args: GetServiceTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTopologyResult> {
+    return pulumi.output(args).apply(a => getServiceTopology(a, opts))
+}
+
+export interface GetServiceTopologyOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service topology .
+     */
+    serviceTopologyName: pulumi.Input<string>;
+}

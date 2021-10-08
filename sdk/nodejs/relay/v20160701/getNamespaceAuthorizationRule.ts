@@ -58,3 +58,22 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+}
+
+export interface GetNamespaceAuthorizationRuleOutputArgs {
+    /**
+     * The authorizationRule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The Namespace Name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

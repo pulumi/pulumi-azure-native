@@ -53,3 +53,18 @@ export interface ListSignalRKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
+    return pulumi.output(args).apply(a => listSignalRKeys(a, opts))
+}
+
+export interface ListSignalRKeysOutputArgs {
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SignalR resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

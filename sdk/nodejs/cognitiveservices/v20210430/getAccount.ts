@@ -82,3 +82,18 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+export interface GetAccountOutputArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

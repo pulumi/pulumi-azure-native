@@ -64,3 +64,22 @@ export interface GetReplicationFabricResult {
      */
     readonly type: string;
 }
+
+export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {
+    return pulumi.output(args).apply(a => getReplicationFabric(a, opts))
+}
+
+export interface GetReplicationFabricOutputArgs {
+    /**
+     * Fabric name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

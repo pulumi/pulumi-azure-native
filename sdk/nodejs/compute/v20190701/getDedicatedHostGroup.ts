@@ -70,3 +70,18 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly zones?: string[];
 }
+
+export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
+    return pulumi.output(args).apply(a => getDedicatedHostGroup(a, opts))
+}
+
+export interface GetDedicatedHostGroupOutputArgs {
+    /**
+     * The name of the dedicated host group.
+     */
+    hostGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

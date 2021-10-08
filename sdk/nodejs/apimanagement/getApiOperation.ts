@@ -93,3 +93,26 @@ export interface GetApiOperationResult {
      */
     readonly urlTemplate: string;
 }
+
+export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {
+    return pulumi.output(args).apply(a => getApiOperation(a, opts))
+}
+
+export interface GetApiOperationOutputArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Operation identifier within an API. Must be unique in the current API Management service instance.
+     */
+    operationId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

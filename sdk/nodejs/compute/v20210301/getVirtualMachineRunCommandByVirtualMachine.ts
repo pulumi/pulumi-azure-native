@@ -112,3 +112,26 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
      */
     readonly type: string;
 }
+
+export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineRunCommandByVirtualMachine(a, opts))
+}
+
+export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine run command.
+     */
+    runCommandName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine containing the run command.
+     */
+    vmName: pulumi.Input<string>;
+}

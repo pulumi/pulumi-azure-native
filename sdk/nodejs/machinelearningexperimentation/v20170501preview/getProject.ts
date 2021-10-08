@@ -99,3 +99,26 @@ export interface GetProjectResult {
      */
     readonly workspaceId: string;
 }
+
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+    return pulumi.output(args).apply(a => getProject(a, opts))
+}
+
+export interface GetProjectOutputArgs {
+    /**
+     * The name of the machine learning team account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the machine learning project under a team account workspace.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the machine learning team account belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the machine learning team account workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

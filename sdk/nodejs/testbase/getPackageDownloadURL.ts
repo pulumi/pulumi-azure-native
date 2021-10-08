@@ -51,3 +51,22 @@ export interface GetPackageDownloadURLResult {
      */
     readonly expirationTime: string;
 }
+
+export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
+    return pulumi.output(args).apply(a => getPackageDownloadURL(a, opts))
+}
+
+export interface GetPackageDownloadURLOutputArgs {
+    /**
+     * The resource name of the Test Base Package.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

@@ -45,3 +45,18 @@ export interface ListRedisKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {
+    return pulumi.output(args).apply(a => listRedisKeys(a, opts))
+}
+
+export interface ListRedisKeysOutputArgs {
+    /**
+     * The name of the Redis cache.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

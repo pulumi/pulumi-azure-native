@@ -71,3 +71,22 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+export interface GetCertificateOutputArgs {
+    /**
+     * Identifier of the certificate entity. Must be unique in the current API Management service instance.
+     */
+    certificateId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

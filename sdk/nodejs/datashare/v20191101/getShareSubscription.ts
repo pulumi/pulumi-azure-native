@@ -110,3 +110,22 @@ export interface GetShareSubscriptionResult {
      */
     readonly userName: string;
 }
+
+export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {
+    return pulumi.output(args).apply(a => getShareSubscription(a, opts))
+}
+
+export interface GetShareSubscriptionOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

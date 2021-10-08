@@ -97,3 +97,30 @@ export interface GetDatabasePrincipalAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
+    return pulumi.output(args).apply(a => getDatabasePrincipalAssignment(a, opts))
+}
+
+export interface GetDatabasePrincipalAssignmentOutputArgs {
+    /**
+     * The name of the database in the Kusto pool.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto principalAssignment.
+     */
+    principalAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

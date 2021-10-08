@@ -95,3 +95,22 @@ export interface GetNatGatewayResult {
      */
     readonly type: string;
 }
+
+export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+}
+
+export interface GetNatGatewayOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the nat gateway.
+     */
+    natGatewayName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

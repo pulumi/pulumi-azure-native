@@ -41,3 +41,18 @@ export interface ListDelegationSettingSecretsResult {
      */
     readonly validationKey?: string;
 }
+
+export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
+    return pulumi.output(args).apply(a => listDelegationSettingSecrets(a, opts))
+}
+
+export interface ListDelegationSettingSecretsOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

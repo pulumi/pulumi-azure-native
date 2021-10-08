@@ -79,3 +79,22 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly type: string;
 }
+
+export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
+    return pulumi.output(args).apply(a => getStorageAccountCredential(a, opts))
+}
+
+export interface GetStorageAccountCredentialOutputArgs {
+    /**
+     * The name of storage account credential to be fetched.
+     */
+    credentialName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

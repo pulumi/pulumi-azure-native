@@ -51,3 +51,22 @@ export interface ListVideoStreamingTokenResult {
      */
     readonly token: string;
 }
+
+export function listVideoStreamingTokenOutput(args: ListVideoStreamingTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoStreamingTokenResult> {
+    return pulumi.output(args).apply(a => listVideoStreamingToken(a, opts))
+}
+
+export interface ListVideoStreamingTokenOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the video to generate a token for playback.
+     */
+    videoName: pulumi.Input<string>;
+}

@@ -97,3 +97,26 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
+    return pulumi.output(args).apply(a => getDatabaseSecurityAlertPolicy(a, opts))
+}
+
+export interface GetDatabaseSecurityAlertPolicyOutputArgs {
+    /**
+     * The name of the  database for which the security alert policy is defined.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the security alert policy.
+     */
+    securityAlertPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the  server.
+     */
+    serverName: pulumi.Input<string>;
+}

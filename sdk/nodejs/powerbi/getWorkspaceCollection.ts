@@ -57,3 +57,18 @@ export interface GetWorkspaceCollectionResult {
      */
     readonly type?: string;
 }
+
+export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {
+    return pulumi.output(args).apply(a => getWorkspaceCollection(a, opts))
+}
+
+export interface GetWorkspaceCollectionOutputArgs {
+    /**
+     * Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Power BI Embedded Workspace Collection name
+     */
+    workspaceCollectionName: pulumi.Input<string>;
+}

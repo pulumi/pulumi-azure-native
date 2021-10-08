@@ -78,3 +78,18 @@ export interface GetAttestationProviderResult {
      */
     readonly type: string;
 }
+
+export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
+    return pulumi.output(args).apply(a => getAttestationProvider(a, opts))
+}
+
+export interface GetAttestationProviderOutputArgs {
+    /**
+     * Name of the attestation provider.
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

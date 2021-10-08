@@ -78,3 +78,18 @@ export interface GetprivateLinkForAzureAdResult {
      */
     readonly type: string;
 }
+
+export function getprivateLinkForAzureAdOutput(args: GetprivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkForAzureAdResult> {
+    return pulumi.output(args).apply(a => getprivateLinkForAzureAd(a, opts))
+}
+
+export interface GetprivateLinkForAzureAdOutputArgs {
+    /**
+     * The name of the private link policy in Azure AD.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

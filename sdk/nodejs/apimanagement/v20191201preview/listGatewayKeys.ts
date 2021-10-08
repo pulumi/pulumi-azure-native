@@ -50,3 +50,22 @@ export interface ListGatewayKeysResult {
      */
     readonly secondary?: string;
 }
+
+export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
+    return pulumi.output(args).apply(a => listGatewayKeys(a, opts))
+}
+
+export interface ListGatewayKeysOutputArgs {
+    /**
+     * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+     */
+    gatewayId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

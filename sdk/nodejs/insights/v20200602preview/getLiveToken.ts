@@ -36,3 +36,14 @@ export interface GetLiveTokenResult {
      */
     readonly liveToken: string;
 }
+
+export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
+    return pulumi.output(args).apply(a => getLiveToken(a, opts))
+}
+
+export interface GetLiveTokenOutputArgs {
+    /**
+     * The identifier of the resource.
+     */
+    resourceUri: pulumi.Input<string>;
+}

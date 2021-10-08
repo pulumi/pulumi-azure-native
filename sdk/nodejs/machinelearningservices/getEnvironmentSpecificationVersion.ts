@@ -69,3 +69,26 @@ export interface GetEnvironmentSpecificationVersionResult {
      */
     readonly type: string;
 }
+
+export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
+    return pulumi.output(args).apply(a => getEnvironmentSpecificationVersion(a, opts))
+}
+
+export interface GetEnvironmentSpecificationVersionOutputArgs {
+    /**
+     * Container name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Version identifier.
+     */
+    version: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -90,3 +90,22 @@ export interface GetAgentPoolResult {
      */
     readonly virtualNetworkSubnetResourceId?: string;
 }
+
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+    return pulumi.output(args).apply(a => getAgentPool(a, opts))
+}
+
+export interface GetAgentPoolOutputArgs {
+    /**
+     * The name of the agent pool.
+     */
+    agentPoolName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

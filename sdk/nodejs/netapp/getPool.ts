@@ -91,3 +91,22 @@ export interface GetPoolResult {
      */
     readonly utilizedThroughputMibps: number;
 }
+
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+    return pulumi.output(args).apply(a => getPool(a, opts))
+}
+
+export interface GetPoolOutputArgs {
+    /**
+     * The name of the NetApp account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the capacity pool
+     */
+    poolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

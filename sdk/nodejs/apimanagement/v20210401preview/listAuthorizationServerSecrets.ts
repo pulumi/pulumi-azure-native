@@ -54,3 +54,22 @@ export interface ListAuthorizationServerSecretsResult {
      */
     readonly resourceOwnerUsername?: string;
 }
+
+export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
+    return pulumi.output(args).apply(a => listAuthorizationServerSecrets(a, opts))
+}
+
+export interface ListAuthorizationServerSecretsOutputArgs {
+    /**
+     * Identifier of the authorization server.
+     */
+    authsid: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

@@ -38,3 +38,14 @@ export interface GetConsoleResult {
      */
     readonly properties: outputs.portal.ConsolePropertiesResponse;
 }
+
+export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
+    return pulumi.output(args).apply(a => getConsole(a, opts))
+}
+
+export interface GetConsoleOutputArgs {
+    /**
+     * The name of the console
+     */
+    consoleName: pulumi.Input<string>;
+}

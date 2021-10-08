@@ -54,3 +54,18 @@ export interface ListDeploymentInfoResult {
      */
     readonly version: string;
 }
+
+export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeploymentInfoResult> {
+    return pulumi.output(args).apply(a => listDeploymentInfo(a, opts))
+}
+
+export interface ListDeploymentInfoOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Elastic resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

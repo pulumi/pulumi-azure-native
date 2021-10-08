@@ -37,3 +37,14 @@ export interface GetDiagnosticServiceTokenReadWriteResult {
      */
     readonly token?: string;
 }
+
+export function getDiagnosticServiceTokenReadWriteOutput(args: GetDiagnosticServiceTokenReadWriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadWriteResult> {
+    return pulumi.output(args).apply(a => getDiagnosticServiceTokenReadWrite(a, opts))
+}
+
+export interface GetDiagnosticServiceTokenReadWriteOutputArgs {
+    /**
+     * The identifier of the resource.
+     */
+    resourceUri: pulumi.Input<string>;
+}

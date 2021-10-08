@@ -76,3 +76,26 @@ export interface GetApiReleaseResult {
      */
     readonly updatedDateTime: string;
 }
+
+export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
+    return pulumi.output(args).apply(a => getApiRelease(a, opts))
+}
+
+export interface GetApiReleaseOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Release identifier within an API. Must be unique in the current API Management service instance.
+     */
+    releaseId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

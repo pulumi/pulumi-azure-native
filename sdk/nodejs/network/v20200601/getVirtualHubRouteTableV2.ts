@@ -67,3 +67,22 @@ export interface GetVirtualHubRouteTableV2Result {
      */
     readonly routes?: outputs.network.v20200601.VirtualHubRouteV2Response[];
 }
+
+export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
+    return pulumi.output(args).apply(a => getVirtualHubRouteTableV2(a, opts))
+}
+
+export interface GetVirtualHubRouteTableV2OutputArgs {
+    /**
+     * The resource group name of the VirtualHubRouteTableV2.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualHubRouteTableV2.
+     */
+    routeTableName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualHub.
+     */
+    virtualHubName: pulumi.Input<string>;
+}

@@ -46,3 +46,18 @@ export interface ListAdminKeyResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
+    return pulumi.output(args).apply(a => listAdminKey(a, opts))
+}
+
+export interface ListAdminKeyOutputArgs {
+    /**
+     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     */
+    searchServiceName: pulumi.Input<string>;
+}

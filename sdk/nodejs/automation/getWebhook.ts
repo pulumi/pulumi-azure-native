@@ -100,3 +100,22 @@ export interface GetWebhookResult {
      */
     readonly uri?: string;
 }
+
+export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
+    return pulumi.output(args).apply(a => getWebhook(a, opts))
+}
+
+export interface GetWebhookOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The webhook name.
+     */
+    webhookName: pulumi.Input<string>;
+}

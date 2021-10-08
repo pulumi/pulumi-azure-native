@@ -62,3 +62,18 @@ export interface GetDeploymentAtManagementGroupScopeResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
+    return pulumi.output(args).apply(a => getDeploymentAtManagementGroupScope(a, opts))
+}
+
+export interface GetDeploymentAtManagementGroupScopeOutputArgs {
+    /**
+     * The name of the deployment.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * The management group ID.
+     */
+    groupId: pulumi.Input<string>;
+}

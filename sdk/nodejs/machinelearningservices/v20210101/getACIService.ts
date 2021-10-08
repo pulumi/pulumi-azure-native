@@ -84,3 +84,26 @@ export interface GetACIServiceResult {
      */
     readonly type: string;
 }
+
+export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {
+    return pulumi.output(args).apply(a => getACIService(a, opts))
+}
+
+export interface GetACIServiceOutputArgs {
+    /**
+     * Set to True to include Model details.
+     */
+    expand?: pulumi.Input<boolean>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Machine Learning service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

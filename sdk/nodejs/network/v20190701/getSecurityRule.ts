@@ -119,3 +119,22 @@ export interface GetSecurityRuleResult {
      */
     readonly sourcePortRanges?: string[];
 }
+
+export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
+    return pulumi.output(args).apply(a => getSecurityRule(a, opts))
+}
+
+export interface GetSecurityRuleOutputArgs {
+    /**
+     * The name of the network security group.
+     */
+    networkSecurityGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the security rule.
+     */
+    securityRuleName: pulumi.Input<string>;
+}

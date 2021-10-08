@@ -51,3 +51,18 @@ export interface GetNotificationRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
+    return pulumi.output(args).apply(a => getNotificationRegistration(a, opts))
+}
+
+export interface GetNotificationRegistrationOutputArgs {
+    /**
+     * The notification registration.
+     */
+    notificationRegistrationName: pulumi.Input<string>;
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+}

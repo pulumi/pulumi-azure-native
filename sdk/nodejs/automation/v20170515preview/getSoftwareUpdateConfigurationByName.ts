@@ -91,3 +91,22 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly updateConfiguration: outputs.automation.v20170515preview.UpdateConfigurationResponse;
 }
+
+export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
+    return pulumi.output(args).apply(a => getSoftwareUpdateConfigurationByName(a, opts))
+}
+
+export interface GetSoftwareUpdateConfigurationByNameOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the software update configuration to be created.
+     */
+    softwareUpdateConfigurationName: pulumi.Input<string>;
+}

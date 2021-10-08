@@ -64,3 +64,26 @@ export interface GetCustomDomainResult {
      */
     readonly type: string;
 }
+
+export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
+    return pulumi.output(args).apply(a => getCustomDomain(a, opts))
+}
+
+export interface GetCustomDomainOutputArgs {
+    /**
+     * The name of the App resource.
+     */
+    appName: pulumi.Input<string>;
+    /**
+     * The name of the custom domain resource.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    serviceName: pulumi.Input<string>;
+}

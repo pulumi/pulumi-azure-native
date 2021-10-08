@@ -95,3 +95,26 @@ export interface GetPolicyResourceResult {
      */
     readonly type?: string;
 }
+
+export function getPolicyResourceOutput(args: GetPolicyResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResourceResult> {
+    return pulumi.output(args).apply(a => getPolicyResource(a, opts))
+}
+
+export interface GetPolicyResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the policy set.
+     */
+    policySetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

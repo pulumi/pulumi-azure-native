@@ -58,3 +58,22 @@ export interface GetLinkedServiceResult {
      */
     readonly type: string;
 }
+
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+    return pulumi.output(args).apply(a => getLinkedService(a, opts))
+}
+
+export interface GetLinkedServiceOutputArgs {
+    /**
+     * Name of the linked service.
+     */
+    linkedServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Log Analytics Workspace that contains the linkedServices resource
+     */
+    workspaceName: pulumi.Input<string>;
+}

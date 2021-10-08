@@ -56,3 +56,26 @@ export interface ListConnectedClusterUserCredentialsResult {
      */
     readonly kubeconfigs: outputs.kubernetes.v20210401preview.CredentialResultResponse[];
 }
+
+export function listConnectedClusterUserCredentialsOutput(args: ListConnectedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialsResult> {
+    return pulumi.output(args).apply(a => listConnectedClusterUserCredentials(a, opts))
+}
+
+export interface ListConnectedClusterUserCredentialsOutputArgs {
+    /**
+     * The mode of client authentication.
+     */
+    authenticationMethod: pulumi.Input<string | enums.kubernetes.v20210401preview.AuthenticationMethod>;
+    /**
+     * Boolean value to indicate whether the request is for client side proxy or not
+     */
+    clientProxy: pulumi.Input<boolean>;
+    /**
+     * The name of the Kubernetes cluster on which get is called.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

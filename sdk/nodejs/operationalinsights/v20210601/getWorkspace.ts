@@ -110,3 +110,18 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceCapping?: outputs.operationalinsights.v20210601.WorkspaceCappingResponse;
 }
+
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

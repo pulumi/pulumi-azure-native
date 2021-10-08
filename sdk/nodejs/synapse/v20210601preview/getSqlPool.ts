@@ -111,3 +111,22 @@ export interface GetSqlPoolResult {
      */
     readonly type: string;
 }
+
+export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
+    return pulumi.output(args).apply(a => getSqlPool(a, opts))
+}
+
+export interface GetSqlPoolOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * SQL pool name
+     */
+    sqlPoolName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

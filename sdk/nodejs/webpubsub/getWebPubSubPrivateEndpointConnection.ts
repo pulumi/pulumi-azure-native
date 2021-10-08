@@ -72,3 +72,22 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getWebPubSubPrivateEndpointConnection(a, opts))
+}
+
+export interface GetWebPubSubPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private endpoint connection
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

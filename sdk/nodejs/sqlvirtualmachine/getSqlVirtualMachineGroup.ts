@@ -87,3 +87,18 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly wsfcDomainProfile?: outputs.sqlvirtualmachine.WsfcDomainProfileResponse;
 }
+
+export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
+    return pulumi.output(args).apply(a => getSqlVirtualMachineGroup(a, opts))
+}
+
+export interface GetSqlVirtualMachineGroupOutputArgs {
+    /**
+     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SQL virtual machine group.
+     */
+    sqlVirtualMachineGroupName: pulumi.Input<string>;
+}

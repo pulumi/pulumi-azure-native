@@ -77,3 +77,22 @@ export interface GetPacketCaptureResult {
      */
     readonly totalBytesPerSession?: number;
 }
+
+export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
+    return pulumi.output(args).apply(a => getPacketCapture(a, opts))
+}
+
+export interface GetPacketCaptureOutputArgs {
+    /**
+     * The name of the network watcher.
+     */
+    networkWatcherName: pulumi.Input<string>;
+    /**
+     * The name of the packet capture session.
+     */
+    packetCaptureName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

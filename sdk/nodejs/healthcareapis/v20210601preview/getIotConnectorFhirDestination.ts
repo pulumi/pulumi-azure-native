@@ -84,3 +84,26 @@ export interface GetIotConnectorFhirDestinationResult {
      */
     readonly type: string;
 }
+
+export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
+    return pulumi.output(args).apply(a => getIotConnectorFhirDestination(a, opts))
+}
+
+export interface GetIotConnectorFhirDestinationOutputArgs {
+    /**
+     * The name of IoT Connector FHIR destination resource.
+     */
+    fhirDestinationName: pulumi.Input<string>;
+    /**
+     * The name of IoT Connector resource.
+     */
+    iotConnectorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of workspace resource.
+     */
+    workspaceName: pulumi.Input<string>;
+}

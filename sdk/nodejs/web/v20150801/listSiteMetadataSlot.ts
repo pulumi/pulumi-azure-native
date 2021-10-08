@@ -70,3 +70,22 @@ export interface ListSiteMetadataSlotResult {
      */
     readonly type?: string;
 }
+
+export function listSiteMetadataSlotOutput(args: ListSiteMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteMetadataSlotResult> {
+    return pulumi.output(args).apply(a => listSiteMetadataSlot(a, opts))
+}
+
+export interface ListSiteMetadataSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

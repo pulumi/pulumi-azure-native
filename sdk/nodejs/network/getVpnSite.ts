@@ -103,3 +103,18 @@ export interface GetVpnSiteResult {
      */
     readonly vpnSiteLinks?: outputs.network.VpnSiteLinkResponse[];
 }
+
+export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
+    return pulumi.output(args).apply(a => getVpnSite(a, opts))
+}
+
+export interface GetVpnSiteOutputArgs {
+    /**
+     * The resource group name of the VpnSite.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VpnSite being retrieved.
+     */
+    vpnSiteName: pulumi.Input<string>;
+}

@@ -120,3 +120,22 @@ export interface GetAuthorizationServerResult {
      */
     readonly type: string;
 }
+
+export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
+    return pulumi.output(args).apply(a => getAuthorizationServer(a, opts))
+}
+
+export interface GetAuthorizationServerOutputArgs {
+    /**
+     * Identifier of the authorization server.
+     */
+    authsid: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

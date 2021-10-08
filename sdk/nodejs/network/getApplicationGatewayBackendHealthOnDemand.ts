@@ -92,3 +92,54 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
      */
     readonly backendHealthHttpSettings?: outputs.network.ApplicationGatewayBackendHealthHttpSettingsResponse;
 }
+
+export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {
+    return pulumi.output(args).apply(a => getApplicationGatewayBackendHealthOnDemand(a, opts))
+}
+
+export interface GetApplicationGatewayBackendHealthOnDemandOutputArgs {
+    /**
+     * The name of the application gateway.
+     */
+    applicationGatewayName: pulumi.Input<string>;
+    /**
+     * Reference to backend pool of application gateway to which probe request will be sent.
+     */
+    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * Reference to backend http setting of application gateway to be used for test probe.
+     */
+    backendHttpSettings?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Host name to send the probe to.
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Criterion for classifying a healthy probe response.
+     */
+    match?: pulumi.Input<inputs.network.ApplicationGatewayProbeHealthResponseMatchArgs>;
+    /**
+     * Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Whether the host header should be picked from the backend http settings. Default value is false.
+     */
+    pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>;
+    /**
+     * The protocol used for the probe.
+     */
+    protocol?: pulumi.Input<string | enums.network.ApplicationGatewayProtocol>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+     */
+    timeout?: pulumi.Input<number>;
+}

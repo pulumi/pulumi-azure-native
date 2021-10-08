@@ -67,3 +67,22 @@ export interface GetCustomerEventResult {
      */
     readonly type: string;
 }
+
+export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
+    return pulumi.output(args).apply(a => getCustomerEvent(a, opts))
+}
+
+export interface GetCustomerEventOutputArgs {
+    /**
+     * The resource name of the Test Base Customer event.
+     */
+    customerEventName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

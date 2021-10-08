@@ -56,3 +56,22 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private endpoint connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the DigitalTwinsInstance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the DigitalTwinsInstance.
+     */
+    resourceName: pulumi.Input<string>;
+}

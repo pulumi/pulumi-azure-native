@@ -45,11 +45,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerResponse[];
+    readonly customize?: (outputs.virtualmachineimages.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerResponse)[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse[];
+    readonly distribute: (outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[];
     /**
      * Resource Id
      */
@@ -94,4 +94,19 @@ export interface GetVirtualMachineImageTemplateResult {
      * Describes how virtual machine is set up to build images
      */
     readonly vmProfile?: outputs.virtualmachineimages.ImageTemplateVmProfileResponse;
+}
+
+export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineImageTemplate(a, opts))
+}
+
+export interface GetVirtualMachineImageTemplateOutputArgs {
+    /**
+     * The name of the image Template
+     */
+    imageTemplateName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

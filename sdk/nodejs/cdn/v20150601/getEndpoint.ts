@@ -107,3 +107,22 @@ export interface GetEndpointResult {
      */
     readonly type: string;
 }
+
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+}
+
+export interface GetEndpointOutputArgs {
+    /**
+     * Name of the endpoint within the CDN profile.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

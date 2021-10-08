@@ -66,3 +66,18 @@ export interface GetMigrateProjectResult {
      */
     readonly type: string;
 }
+
+export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectResult> {
+    return pulumi.output(args).apply(a => getMigrateProject(a, opts))
+}
+
+export interface GetMigrateProjectOutputArgs {
+    /**
+     * Name of the Azure Migrate project.
+     */
+    migrateProjectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that migrate project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

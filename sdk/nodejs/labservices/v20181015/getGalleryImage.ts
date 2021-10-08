@@ -116,3 +116,26 @@ export interface GetGalleryImageResult {
      */
     readonly uniqueIdentifier?: string;
 }
+
+export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
+    return pulumi.output(args).apply(a => getGalleryImage(a, opts))
+}
+
+export interface GetGalleryImageOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=author)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the gallery Image.
+     */
+    galleryImageName: pulumi.Input<string>;
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

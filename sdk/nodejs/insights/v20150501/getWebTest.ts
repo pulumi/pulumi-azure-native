@@ -106,3 +106,18 @@ export interface GetWebTestResult {
      */
     readonly webTestName: string;
 }
+
+export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
+    return pulumi.output(args).apply(a => getWebTest(a, opts))
+}
+
+export interface GetWebTestOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights webtest resource.
+     */
+    webTestName: pulumi.Input<string>;
+}

@@ -87,3 +87,22 @@ export interface GetInstanceResult {
      */
     readonly type: string;
 }
+
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+    return pulumi.output(args).apply(a => getInstance(a, opts))
+}
+
+export interface GetInstanceOutputArgs {
+    /**
+     * Account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Instance name.
+     */
+    instanceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -49,3 +49,18 @@ export interface ListWebAppHostKeysResult {
      */
     readonly systemKeys?: {[key: string]: string};
 }
+
+export function listWebAppHostKeysOutput(args: ListWebAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysResult> {
+    return pulumi.output(args).apply(a => listWebAppHostKeys(a, opts))
+}
+
+export interface ListWebAppHostKeysOutputArgs {
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

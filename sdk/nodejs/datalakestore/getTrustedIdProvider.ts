@@ -59,3 +59,22 @@ export interface GetTrustedIdProviderResult {
      */
     readonly type: string;
 }
+
+export function getTrustedIdProviderOutput(args: GetTrustedIdProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedIdProviderResult> {
+    return pulumi.output(args).apply(a => getTrustedIdProvider(a, opts))
+}
+
+export interface GetTrustedIdProviderOutputArgs {
+    /**
+     * The name of the Data Lake Store account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the trusted identity provider to retrieve.
+     */
+    trustedIdProviderName: pulumi.Input<string>;
+}

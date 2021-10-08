@@ -83,3 +83,22 @@ export interface GetWorkloadNetworkDnsZoneResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkDnsZone(a, opts))
+}
+
+export interface GetWorkloadNetworkDnsZoneOutputArgs {
+    /**
+     * NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
+     */
+    dnsZoneId: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

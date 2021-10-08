@@ -67,3 +67,22 @@ export interface GetBlobServicePropertiesResult {
      */
     readonly type: string;
 }
+
+export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobServicePropertiesResult> {
+    return pulumi.output(args).apply(a => getBlobServiceProperties(a, opts))
+}
+
+export interface GetBlobServicePropertiesOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
+     */
+    blobServicesName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -59,3 +59,18 @@ export interface GetMonitorResult {
      */
     readonly type: string;
 }
+
+export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
+    return pulumi.output(args).apply(a => getMonitor(a, opts))
+}
+
+export interface GetMonitorOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

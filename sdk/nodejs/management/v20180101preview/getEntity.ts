@@ -48,3 +48,19 @@ export interface GetEntityResult {
      */
     readonly value?: outputs.management.v20180101preview.EntityInfoResponse[];
 }
+
+export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
+    return pulumi.output(args).apply(a => getEntity(a, opts))
+}
+
+export interface GetEntityOutputArgs {
+    /**
+     * A filter which allows the call to be filtered for a specific group.
+     */
+    groupName?: pulumi.Input<string>;
+    /**
+     * Page continuation token is only used if a previous operation returned a partial result. 
+     * If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
+     */
+    skiptoken?: pulumi.Input<string>;
+}

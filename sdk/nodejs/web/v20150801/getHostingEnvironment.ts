@@ -183,3 +183,18 @@ export interface GetHostingEnvironmentResult {
      */
     readonly workerPools?: outputs.web.v20150801.WorkerPoolResponse[];
 }
+
+export function getHostingEnvironmentOutput(args: GetHostingEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostingEnvironmentResult> {
+    return pulumi.output(args).apply(a => getHostingEnvironment(a, opts))
+}
+
+export interface GetHostingEnvironmentOutputArgs {
+    /**
+     * Name of hostingEnvironment (App Service Environment)
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

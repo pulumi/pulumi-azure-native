@@ -88,3 +88,22 @@ export interface GetIoTRoleResult {
      */
     readonly type: string;
 }
+
+export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
+    return pulumi.output(args).apply(a => getIoTRole(a, opts))
+}
+
+export interface GetIoTRoleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

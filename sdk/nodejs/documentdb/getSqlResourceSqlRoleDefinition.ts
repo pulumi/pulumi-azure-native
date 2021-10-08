@@ -68,3 +68,22 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getSqlResourceSqlRoleDefinitionOutput(args: GetSqlResourceSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleDefinitionResult> {
+    return pulumi.output(args).apply(a => getSqlResourceSqlRoleDefinition(a, opts))
+}
+
+export interface GetSqlResourceSqlRoleDefinitionOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The GUID for the Role Definition.
+     */
+    roleDefinitionId: pulumi.Input<string>;
+}

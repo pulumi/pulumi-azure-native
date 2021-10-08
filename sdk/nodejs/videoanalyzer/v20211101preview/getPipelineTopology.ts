@@ -87,7 +87,7 @@ export interface GetPipelineTopologyResult {
     /**
      * List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
      */
-    readonly sources: outputs.videoanalyzer.v20211101preview.RtspSourceResponse | outputs.videoanalyzer.v20211101preview.VideoSourceResponse[];
+    readonly sources: (outputs.videoanalyzer.v20211101preview.RtspSourceResponse | outputs.videoanalyzer.v20211101preview.VideoSourceResponse)[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -96,4 +96,23 @@ export interface GetPipelineTopologyResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+}
+
+export function getPipelineTopologyOutput(args: GetPipelineTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineTopologyResult> {
+    return pulumi.output(args).apply(a => getPipelineTopology(a, opts))
+}
+
+export interface GetPipelineTopologyOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Pipeline topology unique identifier.
+     */
+    pipelineTopologyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

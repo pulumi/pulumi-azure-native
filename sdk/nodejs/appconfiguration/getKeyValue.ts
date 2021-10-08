@@ -91,3 +91,22 @@ export interface GetKeyValueResult {
      */
     readonly value?: string;
 }
+
+export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
+    return pulumi.output(args).apply(a => getKeyValue(a, opts))
+}
+
+export interface GetKeyValueOutputArgs {
+    /**
+     * The name of the configuration store.
+     */
+    configStoreName: pulumi.Input<string>;
+    /**
+     * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
+     */
+    keyValueName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

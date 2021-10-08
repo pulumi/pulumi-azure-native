@@ -53,3 +53,14 @@ export interface GetVendorResult {
      */
     readonly type: string;
 }
+
+export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
+    return pulumi.output(args).apply(a => getVendor(a, opts))
+}
+
+export interface GetVendorOutputArgs {
+    /**
+     * The name of the vendor.
+     */
+    vendorName: pulumi.Input<string>;
+}

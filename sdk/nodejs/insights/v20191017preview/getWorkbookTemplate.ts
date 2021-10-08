@@ -78,3 +78,18 @@ export interface GetWorkbookTemplateResult {
      */
     readonly type: string;
 }
+
+export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
+    return pulumi.output(args).apply(a => getWorkbookTemplate(a, opts))
+}
+
+export interface GetWorkbookTemplateOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

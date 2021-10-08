@@ -70,3 +70,22 @@ export interface GetWebAppRelayServiceConnectionResult {
      */
     readonly type: string;
 }
+
+export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
+    return pulumi.output(args).apply(a => getWebAppRelayServiceConnection(a, opts))
+}
+
+export interface GetWebAppRelayServiceConnectionOutputArgs {
+    /**
+     * Name of the hybrid connection.
+     */
+    entityName: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -82,3 +82,18 @@ export interface GetManagerExtendedInfoResult {
      */
     readonly version?: string;
 }
+
+export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerExtendedInfoResult> {
+    return pulumi.output(args).apply(a => getManagerExtendedInfo(a, opts))
+}
+
+export interface GetManagerExtendedInfoOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

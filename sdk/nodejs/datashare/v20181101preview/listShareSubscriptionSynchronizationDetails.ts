@@ -71,3 +71,38 @@ export interface ListShareSubscriptionSynchronizationDetailsResult {
      */
     readonly value: outputs.datashare.v20181101preview.SynchronizationDetailsResponse[];
 }
+
+export function listShareSubscriptionSynchronizationDetailsOutput(args: ListShareSubscriptionSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationDetailsResult> {
+    return pulumi.output(args).apply(a => listShareSubscriptionSynchronizationDetails(a, opts))
+}
+
+export interface ListShareSubscriptionSynchronizationDetailsOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Filters the results using OData syntax.
+     */
+    filter?: pulumi.Input<string>;
+    /**
+     * Sorts the results using OData syntax.
+     */
+    orderby?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share subscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+    /**
+     * Continuation token
+     */
+    skipToken?: pulumi.Input<string>;
+    /**
+     * Synchronization id
+     */
+    synchronizationId: pulumi.Input<string>;
+}

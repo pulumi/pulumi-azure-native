@@ -70,3 +70,22 @@ export interface GetGroupResult {
      */
     readonly type: string;
 }
+
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+    return pulumi.output(args).apply(a => getGroup(a, opts))
+}
+
+export interface GetGroupOutputArgs {
+    /**
+     * Group identifier. Must be unique in the current API Management service instance.
+     */
+    groupId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

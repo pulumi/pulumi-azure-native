@@ -37,3 +37,14 @@ export interface GetUserSettingsResult {
      */
     readonly properties: outputs.portal.v20181001.UserPropertiesResponse;
 }
+
+export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
+    return pulumi.output(args).apply(a => getUserSettings(a, opts))
+}
+
+export interface GetUserSettingsOutputArgs {
+    /**
+     * The name of the user settings
+     */
+    userSettingsName: pulumi.Input<string>;
+}

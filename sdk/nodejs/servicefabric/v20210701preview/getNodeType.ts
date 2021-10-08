@@ -151,3 +151,22 @@ export interface GetNodeTypeResult {
      */
     readonly vmSize?: string;
 }
+
+export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
+    return pulumi.output(args).apply(a => getNodeType(a, opts))
+}
+
+export interface GetNodeTypeOutputArgs {
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the node type.
+     */
+    nodeTypeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

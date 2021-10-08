@@ -42,3 +42,18 @@ export interface GetGlobalUserOperationStatusResult {
      */
     readonly status: string;
 }
+
+export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
+    return pulumi.output(args).apply(a => getGlobalUserOperationStatus(a, opts))
+}
+
+export interface GetGlobalUserOperationStatusOutputArgs {
+    /**
+     * The operation url of long running operation
+     */
+    operationUrl: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

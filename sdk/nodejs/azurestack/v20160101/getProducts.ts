@@ -51,3 +51,22 @@ export interface GetProductsResult {
      */
     readonly value?: outputs.azurestack.v20160101.ProductResponse[];
 }
+
+export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
+    return pulumi.output(args).apply(a => getProducts(a, opts))
+}
+
+export interface GetProductsOutputArgs {
+    /**
+     * Name of the product.
+     */
+    productName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

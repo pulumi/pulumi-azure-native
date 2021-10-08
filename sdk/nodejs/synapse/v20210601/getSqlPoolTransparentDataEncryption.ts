@@ -67,3 +67,26 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
      */
     readonly type: string;
 }
+
+export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
+    return pulumi.output(args).apply(a => getSqlPoolTransparentDataEncryption(a, opts))
+}
+
+export interface GetSqlPoolTransparentDataEncryptionOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * SQL pool name
+     */
+    sqlPoolName: pulumi.Input<string>;
+    /**
+     * The name of the transparent data encryption configuration.
+     */
+    transparentDataEncryptionName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

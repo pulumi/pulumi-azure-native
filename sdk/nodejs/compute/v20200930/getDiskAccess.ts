@@ -70,3 +70,18 @@ export interface GetDiskAccessResult {
      */
     readonly type: string;
 }
+
+export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
+    return pulumi.output(args).apply(a => getDiskAccess(a, opts))
+}
+
+export interface GetDiskAccessOutputArgs {
+    /**
+     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    diskAccessName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

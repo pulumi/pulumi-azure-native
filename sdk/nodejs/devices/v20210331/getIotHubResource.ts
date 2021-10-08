@@ -74,3 +74,18 @@ export interface GetIotHubResourceResult {
      */
     readonly type: string;
 }
+
+export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
+    return pulumi.output(args).apply(a => getIotHubResource(a, opts))
+}
+
+export interface GetIotHubResourceOutputArgs {
+    /**
+     * The name of the resource group that contains the IoT hub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub.
+     */
+    resourceName: pulumi.Input<string>;
+}

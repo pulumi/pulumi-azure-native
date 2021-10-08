@@ -108,3 +108,26 @@ export interface GetNotificationHubAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getNotificationHubAuthorizationRule(a, opts))
+}
+
+export interface GetNotificationHubAuthorizationRuleOutputArgs {
+    /**
+     * authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The notification hub name.
+     */
+    notificationHubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

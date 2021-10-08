@@ -60,3 +60,22 @@ export interface GetFunctionResult {
      */
     readonly type: string;
 }
+
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+    return pulumi.output(args).apply(a => getFunction(a, opts))
+}
+
+export interface GetFunctionOutputArgs {
+    /**
+     * The name of the function.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * The name of the streaming job.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

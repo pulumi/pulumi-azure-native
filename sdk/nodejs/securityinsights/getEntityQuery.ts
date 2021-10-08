@@ -75,3 +75,26 @@ export interface GetEntityQueryResult {
      */
     readonly type: string;
 }
+
+export function getEntityQueryOutput(args: GetEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityQueryResult> {
+    return pulumi.output(args).apply(a => getEntityQuery(a, opts))
+}
+
+export interface GetEntityQueryOutputArgs {
+    /**
+     * entity query ID
+     */
+    entityQueryId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

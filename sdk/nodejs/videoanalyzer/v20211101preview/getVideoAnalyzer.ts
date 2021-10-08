@@ -98,3 +98,18 @@ export interface GetVideoAnalyzerResult {
      */
     readonly type: string;
 }
+
+export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
+    return pulumi.output(args).apply(a => getVideoAnalyzer(a, opts))
+}
+
+export interface GetVideoAnalyzerOutputArgs {
+    /**
+     * The Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

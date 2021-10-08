@@ -127,3 +127,18 @@ export interface GetStaticSiteResult {
      */
     readonly userProvidedFunctionApps: outputs.web.StaticSiteUserProvidedFunctionAppResponse[];
 }
+
+export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
+    return pulumi.output(args).apply(a => getStaticSite(a, opts))
+}
+
+export interface GetStaticSiteOutputArgs {
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

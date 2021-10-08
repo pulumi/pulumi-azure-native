@@ -88,3 +88,22 @@ export interface GetWebAppVnetConnectionResult {
      */
     readonly vnetResourceId?: string;
 }
+
+export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
+    return pulumi.output(args).apply(a => getWebAppVnetConnection(a, opts))
+}
+
+export interface GetWebAppVnetConnectionOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the virtual network.
+     */
+    vnetName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetRoleAssignmentArtifactResult {
      */
     readonly type: string;
 }
+
+export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
+    return pulumi.output(args).apply(a => getRoleAssignmentArtifact(a, opts))
+}
+
+export interface GetRoleAssignmentArtifactOutputArgs {
+    /**
+     * name of the artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * name of the blueprint.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * ManagementGroup where blueprint stores.
+     */
+    managementGroupName: pulumi.Input<string>;
+}

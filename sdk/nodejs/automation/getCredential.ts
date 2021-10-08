@@ -71,3 +71,22 @@ export interface GetCredentialResult {
      */
     readonly userName: string;
 }
+
+export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
+    return pulumi.output(args).apply(a => getCredential(a, opts))
+}
+
+export interface GetCredentialOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The name of credential.
+     */
+    credentialName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

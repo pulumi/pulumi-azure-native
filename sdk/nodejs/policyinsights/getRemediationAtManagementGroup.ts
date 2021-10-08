@@ -88,3 +88,22 @@ export interface GetRemediationAtManagementGroupResult {
      */
     readonly type: string;
 }
+
+export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
+    return pulumi.output(args).apply(a => getRemediationAtManagementGroup(a, opts))
+}
+
+export interface GetRemediationAtManagementGroupOutputArgs {
+    /**
+     * Management group ID.
+     */
+    managementGroupId: pulumi.Input<string>;
+    /**
+     * The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+     */
+    managementGroupsNamespace: pulumi.Input<string>;
+    /**
+     * The name of the remediation.
+     */
+    remediationName: pulumi.Input<string>;
+}

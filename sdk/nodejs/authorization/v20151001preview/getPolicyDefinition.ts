@@ -56,3 +56,14 @@ export interface GetPolicyDefinitionResult {
      */
     readonly policyType?: string;
 }
+
+export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
+    return pulumi.output(args).apply(a => getPolicyDefinition(a, opts))
+}
+
+export interface GetPolicyDefinitionOutputArgs {
+    /**
+     * The name of the policy definition to get.
+     */
+    policyDefinitionName: pulumi.Input<string>;
+}

@@ -64,3 +64,18 @@ export interface GetB2CTenantResult {
      */
     readonly type: string;
 }
+
+export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
+    return pulumi.output(args).apply(a => getB2CTenant(a, opts))
+}
+
+export interface GetB2CTenantOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The initial domain name of the B2C tenant.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -51,3 +51,22 @@ export interface ListScheduleApplicableResult {
      */
     readonly value?: outputs.devtestlab.v20160515.ScheduleResponse[];
 }
+
+export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
+    return pulumi.output(args).apply(a => listScheduleApplicable(a, opts))
+}
+
+export interface ListScheduleApplicableOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

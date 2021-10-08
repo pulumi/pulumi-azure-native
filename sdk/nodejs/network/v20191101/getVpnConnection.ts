@@ -119,3 +119,22 @@ export interface GetVpnConnectionResult {
      */
     readonly vpnLinkConnections?: outputs.network.v20191101.VpnSiteLinkConnectionResponse[];
 }
+
+export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
+    return pulumi.output(args).apply(a => getVpnConnection(a, opts))
+}
+
+export interface GetVpnConnectionOutputArgs {
+    /**
+     * The name of the vpn connection.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The name of the gateway.
+     */
+    gatewayName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VpnGateway.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

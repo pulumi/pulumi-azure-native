@@ -89,3 +89,18 @@ export interface GetLabResourceResult {
      */
     readonly vaultName?: string;
 }
+
+export function getLabResourceOutput(args: GetLabResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResourceResult> {
+    return pulumi.output(args).apply(a => getLabResource(a, opts))
+}
+
+export interface GetLabResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

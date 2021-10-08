@@ -47,3 +47,18 @@ export interface ListMonitorHostsResult {
      */
     readonly value?: outputs.datadog.DatadogHostResponse[];
 }
+
+export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
+    return pulumi.output(args).apply(a => listMonitorHosts(a, opts))
+}
+
+export interface ListMonitorHostsOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

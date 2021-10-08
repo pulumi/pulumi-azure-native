@@ -112,3 +112,22 @@ export interface GetScheduleResult {
      */
     readonly type: string;
 }
+
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
+}
+
+export interface GetScheduleOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The schedule name.
+     */
+    scheduleName: pulumi.Input<string>;
+}

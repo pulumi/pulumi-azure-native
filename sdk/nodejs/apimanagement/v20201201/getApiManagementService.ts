@@ -170,3 +170,18 @@ export interface GetApiManagementServiceResult {
      */
     readonly zones?: string[];
 }
+
+export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
+    return pulumi.output(args).apply(a => getApiManagementService(a, opts))
+}
+
+export interface GetApiManagementServiceOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

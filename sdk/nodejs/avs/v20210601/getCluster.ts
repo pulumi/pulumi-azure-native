@@ -75,3 +75,22 @@ export interface GetClusterResult {
      */
     readonly type: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+export interface GetClusterOutputArgs {
+    /**
+     * Name of the cluster in the private cloud
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

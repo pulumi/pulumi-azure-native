@@ -70,3 +70,26 @@ export interface GetGremlinResourceGremlinGraphResult {
      */
     readonly type: string;
 }
+
+export function getGremlinResourceGremlinGraphOutput(args: GetGremlinResourceGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinGraphResult> {
+    return pulumi.output(args).apply(a => getGremlinResourceGremlinGraph(a, opts))
+}
+
+export interface GetGremlinResourceGremlinGraphOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Cosmos DB graph name.
+     */
+    graphName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

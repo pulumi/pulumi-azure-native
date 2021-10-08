@@ -91,3 +91,22 @@ export interface GetExperimentResult {
      */
     readonly type: string;
 }
+
+export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
+    return pulumi.output(args).apply(a => getExperiment(a, opts))
+}
+
+export interface GetExperimentOutputArgs {
+    /**
+     * The Experiment identifier associated with the Experiment
+     */
+    experimentName: pulumi.Input<string>;
+    /**
+     * The Profile identifier associated with the Tenant and Partner
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

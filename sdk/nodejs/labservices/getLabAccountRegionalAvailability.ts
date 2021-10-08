@@ -43,3 +43,18 @@ export interface GetLabAccountRegionalAvailabilityResult {
      */
     readonly regionalAvailability?: outputs.labservices.RegionalAvailabilityResponse[];
 }
+
+export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
+    return pulumi.output(args).apply(a => getLabAccountRegionalAvailability(a, opts))
+}
+
+export interface GetLabAccountRegionalAvailabilityOutputArgs {
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

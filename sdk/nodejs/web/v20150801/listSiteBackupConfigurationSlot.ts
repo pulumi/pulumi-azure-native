@@ -83,3 +83,22 @@ export interface ListSiteBackupConfigurationSlotResult {
      */
     readonly type: string;
 }
+
+export function listSiteBackupConfigurationSlotOutput(args: ListSiteBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupConfigurationSlotResult> {
+    return pulumi.output(args).apply(a => listSiteBackupConfigurationSlot(a, opts))
+}
+
+export interface ListSiteBackupConfigurationSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

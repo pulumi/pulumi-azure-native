@@ -77,3 +77,26 @@ export interface GetMSTIDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSTIDataConnectorResult> {
+    return pulumi.output(args).apply(a => getMSTIDataConnector(a, opts))
+}
+
+export interface GetMSTIDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

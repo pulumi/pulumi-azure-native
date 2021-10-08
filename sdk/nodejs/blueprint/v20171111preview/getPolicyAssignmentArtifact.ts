@@ -84,3 +84,22 @@ export interface GetPolicyAssignmentArtifactResult {
      */
     readonly type: string;
 }
+
+export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
+    return pulumi.output(args).apply(a => getPolicyAssignmentArtifact(a, opts))
+}
+
+export interface GetPolicyAssignmentArtifactOutputArgs {
+    /**
+     * name of the artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * name of the blueprint.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * ManagementGroup where blueprint stores.
+     */
+    managementGroupName: pulumi.Input<string>;
+}

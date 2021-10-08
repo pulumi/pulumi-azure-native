@@ -94,3 +94,22 @@ export interface GetDistributedAvailabilityGroupResult {
      */
     readonly type: string;
 }
+
+export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
+    return pulumi.output(args).apply(a => getDistributedAvailabilityGroup(a, opts))
+}
+
+export interface GetDistributedAvailabilityGroupOutputArgs {
+    /**
+     * The distributed availability group name.
+     */
+    distributedAvailabilityGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -70,3 +70,26 @@ export interface GetDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getDataSetMappingOutput(args: GetDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getDataSetMapping(a, opts))
+}
+
+export interface GetDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

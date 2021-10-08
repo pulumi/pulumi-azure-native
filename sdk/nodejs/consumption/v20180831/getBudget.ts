@@ -77,3 +77,14 @@ export interface GetBudgetResult {
      */
     readonly type: string;
 }
+
+export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
+    return pulumi.output(args).apply(a => getBudget(a, opts))
+}
+
+export interface GetBudgetOutputArgs {
+    /**
+     * Budget Name.
+     */
+    budgetName: pulumi.Input<string>;
+}

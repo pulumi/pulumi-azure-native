@@ -122,3 +122,18 @@ export interface GetRedisResult {
      */
     readonly zones?: string[];
 }
+
+export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
+    return pulumi.output(args).apply(a => getRedis(a, opts))
+}
+
+export interface GetRedisOutputArgs {
+    /**
+     * The name of the Redis cache.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

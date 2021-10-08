@@ -56,3 +56,34 @@ export interface GetOnlineDeploymentLogsResult {
      */
     readonly content?: string;
 }
+
+export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
+    return pulumi.output(args).apply(a => getOnlineDeploymentLogs(a, opts))
+}
+
+export interface GetOnlineDeploymentLogsOutputArgs {
+    /**
+     * The type of container to retrieve logs from.
+     */
+    containerType?: pulumi.Input<string | enums.machinelearningservices.v20210301preview.ContainerType>;
+    /**
+     * The name and identifier for the endpoint.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * Inference endpoint name.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The maximum number of lines to tail.
+     */
+    tail?: pulumi.Input<number>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

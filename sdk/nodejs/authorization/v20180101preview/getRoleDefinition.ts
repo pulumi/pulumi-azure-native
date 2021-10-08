@@ -70,3 +70,18 @@ export interface GetRoleDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
+    return pulumi.output(args).apply(a => getRoleDefinition(a, opts))
+}
+
+export interface GetRoleDefinitionOutputArgs {
+    /**
+     * The ID of the role definition.
+     */
+    roleDefinitionId: pulumi.Input<string>;
+    /**
+     * The scope of the role definition.
+     */
+    scope: pulumi.Input<string>;
+}

@@ -95,3 +95,22 @@ export interface GetQueryResult {
      */
     readonly type: string;
 }
+
+export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
+    return pulumi.output(args).apply(a => getQuery(a, opts))
+}
+
+export interface GetQueryOutputArgs {
+    /**
+     * The id of a specific query defined in the Log Analytics QueryPack
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The name of the Log Analytics QueryPack resource.
+     */
+    queryPackName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

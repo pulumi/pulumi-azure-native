@@ -71,3 +71,22 @@ export interface ListVirtualMachineApplicableSchedulesResult {
      */
     readonly type: string;
 }
+
+export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
+    return pulumi.output(args).apply(a => listVirtualMachineApplicableSchedules(a, opts))
+}
+
+export interface ListVirtualMachineApplicableSchedulesOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

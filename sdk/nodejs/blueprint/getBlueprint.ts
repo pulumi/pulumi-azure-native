@@ -83,3 +83,18 @@ export interface GetBlueprintResult {
      */
     readonly versions?: any;
 }
+
+export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
+    return pulumi.output(args).apply(a => getBlueprint(a, opts))
+}
+
+export interface GetBlueprintOutputArgs {
+    /**
+     * Name of the blueprint definition.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+     */
+    resourceScope: pulumi.Input<string>;
+}

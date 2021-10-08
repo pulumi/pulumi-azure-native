@@ -122,3 +122,30 @@ export interface GetSourceControlConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
+    return pulumi.output(args).apply(a => getSourceControlConfiguration(a, opts))
+}
+
+export interface GetSourceControlConfigurationOutputArgs {
+    /**
+     * The name of the kubernetes cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     */
+    clusterResourceName: pulumi.Input<string>;
+    /**
+     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     */
+    clusterRp: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Source Control Configuration.
+     */
+    sourceControlConfigurationName: pulumi.Input<string>;
+}

@@ -78,3 +78,18 @@ export interface GetAutoScaleVCoreResult {
      */
     readonly type: string;
 }
+
+export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScaleVCoreResult> {
+    return pulumi.output(args).apply(a => getAutoScaleVCore(a, opts))
+}
+
+export interface GetAutoScaleVCoreOutputArgs {
+    /**
+     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    vcoreName: pulumi.Input<string>;
+}

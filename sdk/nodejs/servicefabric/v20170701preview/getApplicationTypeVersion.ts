@@ -75,3 +75,26 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly type: string;
 }
+
+export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
+    return pulumi.output(args).apply(a => getApplicationTypeVersion(a, opts))
+}
+
+export interface GetApplicationTypeVersionOutputArgs {
+    /**
+     * The name of the application type name resource.
+     */
+    applicationTypeName: pulumi.Input<string>;
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The application type version.
+     */
+    version: pulumi.Input<string>;
+}

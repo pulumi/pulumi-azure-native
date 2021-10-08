@@ -60,3 +60,19 @@ export interface GetBackupPolicyResult {
      */
     readonly type: string;
 }
+
+export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
+    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
+}
+
+export interface GetBackupPolicyOutputArgs {
+    backupPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the backup vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the backup vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

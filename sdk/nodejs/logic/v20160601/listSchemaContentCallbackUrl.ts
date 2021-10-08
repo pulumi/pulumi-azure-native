@@ -77,3 +77,30 @@ export interface ListSchemaContentCallbackUrlResult {
      */
     readonly value: string;
 }
+
+export function listSchemaContentCallbackUrlOutput(args: ListSchemaContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSchemaContentCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listSchemaContentCallbackUrl(a, opts))
+}
+
+export interface ListSchemaContentCallbackUrlOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The key type.
+     */
+    keyType?: pulumi.Input<enums.logic.v20160601.KeyType>;
+    /**
+     * The expiry time.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account schema name.
+     */
+    schemaName: pulumi.Input<string>;
+}

@@ -108,3 +108,22 @@ export interface GetDscConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getDscConfigurationOutput(args: GetDscConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscConfigurationResult> {
+    return pulumi.output(args).apply(a => getDscConfiguration(a, opts))
+}
+
+export interface GetDscConfigurationOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The configuration name.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

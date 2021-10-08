@@ -73,3 +73,18 @@ export interface ListSitePublishingCredentialsResult {
      */
     readonly type?: string;
 }
+
+export function listSitePublishingCredentialsOutput(args: ListSitePublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSitePublishingCredentialsResult> {
+    return pulumi.output(args).apply(a => listSitePublishingCredentials(a, opts))
+}
+
+export interface ListSitePublishingCredentialsOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

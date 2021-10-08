@@ -46,3 +46,18 @@ export interface ListMonitorMonitoredResourcesResult {
      */
     readonly value?: outputs.datadog.v20200201preview.MonitoredResourceResponse[];
 }
+
+export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
+    return pulumi.output(args).apply(a => listMonitorMonitoredResources(a, opts))
+}
+
+export interface ListMonitorMonitoredResourcesOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Datadog resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetNetworkProfileResult {
      */
     readonly type: string;
 }
+
+export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
+    return pulumi.output(args).apply(a => getNetworkProfile(a, opts))
+}
+
+export interface GetNetworkProfileOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the Public IP Prefix.
+     */
+    networkProfileName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

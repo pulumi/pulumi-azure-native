@@ -75,3 +75,22 @@ export interface GetAssessmentResult {
      */
     readonly type: string;
 }
+
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+    return pulumi.output(args).apply(a => getAssessment(a, opts))
+}
+
+export interface GetAssessmentOutputArgs {
+    /**
+     * The Assessment Key - Unique key for the assessment type
+     */
+    assessmentName: pulumi.Input<string>;
+    /**
+     * OData expand. Optional.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The identifier of the resource.
+     */
+    resourceId: pulumi.Input<string>;
+}

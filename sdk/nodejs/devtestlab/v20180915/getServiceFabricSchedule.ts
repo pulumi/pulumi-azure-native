@@ -122,3 +122,34 @@ export interface GetServiceFabricScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
+
+export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricScheduleResult> {
+    return pulumi.output(args).apply(a => getServiceFabricSchedule(a, opts))
+}
+
+export interface GetServiceFabricScheduleOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service fabric.
+     */
+    serviceFabricName: pulumi.Input<string>;
+    /**
+     * The name of the user profile.
+     */
+    userName: pulumi.Input<string>;
+}

@@ -75,3 +75,22 @@ export interface GetLoggerResult {
      */
     readonly type: string;
 }
+
+export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
+    return pulumi.output(args).apply(a => getLogger(a, opts))
+}
+
+export interface GetLoggerOutputArgs {
+    /**
+     * Logger identifier. Must be unique in the API Management service instance.
+     */
+    loggerId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

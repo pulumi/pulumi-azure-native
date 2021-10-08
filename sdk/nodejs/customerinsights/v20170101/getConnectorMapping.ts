@@ -120,3 +120,26 @@ export interface GetConnectorMappingResult {
      */
     readonly type: string;
 }
+
+export function getConnectorMappingOutput(args: GetConnectorMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorMappingResult> {
+    return pulumi.output(args).apply(a => getConnectorMapping(a, opts))
+}
+
+export interface GetConnectorMappingOutputArgs {
+    /**
+     * The name of the connector.
+     */
+    connectorName: pulumi.Input<string>;
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the connector mapping.
+     */
+    mappingName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

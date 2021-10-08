@@ -84,3 +84,26 @@ export interface GetSqlPoolWorkloadGroupResult {
      */
     readonly type: string;
 }
+
+export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
+    return pulumi.output(args).apply(a => getSqlPoolWorkloadGroup(a, opts))
+}
+
+export interface GetSqlPoolWorkloadGroupOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * SQL pool name
+     */
+    sqlPoolName: pulumi.Input<string>;
+    /**
+     * The name of the workload group.
+     */
+    workloadGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

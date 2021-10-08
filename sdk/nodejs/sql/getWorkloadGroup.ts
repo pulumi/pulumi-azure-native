@@ -84,3 +84,26 @@ export interface GetWorkloadGroupResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
+    return pulumi.output(args).apply(a => getWorkloadGroup(a, opts))
+}
+
+export interface GetWorkloadGroupOutputArgs {
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the workload group.
+     */
+    workloadGroupName: pulumi.Input<string>;
+}

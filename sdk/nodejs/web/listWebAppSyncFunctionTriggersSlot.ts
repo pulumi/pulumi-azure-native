@@ -51,3 +51,22 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
      */
     readonly triggerUrl?: string;
 }
+
+export function listWebAppSyncFunctionTriggersSlotOutput(args: ListWebAppSyncFunctionTriggersSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppSyncFunctionTriggersSlot(a, opts))
+}
+
+export interface ListWebAppSyncFunctionTriggersSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot.
+     */
+    slot: pulumi.Input<string>;
+}

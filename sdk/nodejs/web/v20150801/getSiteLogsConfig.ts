@@ -78,3 +78,18 @@ export interface GetSiteLogsConfigResult {
      */
     readonly type?: string;
 }
+
+export function getSiteLogsConfigOutput(args: GetSiteLogsConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteLogsConfigResult> {
+    return pulumi.output(args).apply(a => getSiteLogsConfig(a, opts))
+}
+
+export interface GetSiteLogsConfigOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

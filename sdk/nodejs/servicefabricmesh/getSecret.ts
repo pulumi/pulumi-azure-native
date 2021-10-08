@@ -63,3 +63,18 @@ export interface GetSecretResult {
      */
     readonly type: string;
 }
+
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+    return pulumi.output(args).apply(a => getSecret(a, opts))
+}
+
+export interface GetSecretOutputArgs {
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the secret resource.
+     */
+    secretResourceName: pulumi.Input<string>;
+}

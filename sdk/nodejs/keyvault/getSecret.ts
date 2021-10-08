@@ -68,3 +68,22 @@ export interface GetSecretResult {
      */
     readonly type: string;
 }
+
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+    return pulumi.output(args).apply(a => getSecret(a, opts))
+}
+
+export interface GetSecretOutputArgs {
+    /**
+     * The name of the Resource Group to which the vault belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the secret.
+     */
+    secretName: pulumi.Input<string>;
+    /**
+     * The name of the vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

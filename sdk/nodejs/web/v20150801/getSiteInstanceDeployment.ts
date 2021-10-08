@@ -107,3 +107,26 @@ export interface GetSiteInstanceDeploymentResult {
      */
     readonly type?: string;
 }
+
+export function getSiteInstanceDeploymentOutput(args: GetSiteInstanceDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteInstanceDeploymentResult> {
+    return pulumi.output(args).apply(a => getSiteInstanceDeployment(a, opts))
+}
+
+export interface GetSiteInstanceDeploymentOutputArgs {
+    /**
+     * Id of the deployment
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Id of web app instance
+     */
+    instanceId: pulumi.Input<string>;
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -67,3 +67,22 @@ export interface GetContentTypeResult {
      */
     readonly version?: string;
 }
+
+export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
+    return pulumi.output(args).apply(a => getContentType(a, opts))
+}
+
+export interface GetContentTypeOutputArgs {
+    /**
+     * Content type identifier.
+     */
+    contentTypeId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

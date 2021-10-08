@@ -63,3 +63,26 @@ export interface GetHybridConnectionAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getHybridConnectionAuthorizationRule(a, opts))
+}
+
+export interface GetHybridConnectionAuthorizationRuleOutputArgs {
+    /**
+     * The authorizationRule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The hybrid connection name.
+     */
+    hybridConnectionName: pulumi.Input<string>;
+    /**
+     * The Namespace Name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

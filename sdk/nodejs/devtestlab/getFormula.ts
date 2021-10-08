@@ -101,3 +101,26 @@ export interface GetFormulaResult {
      */
     readonly vm?: outputs.devtestlab.FormulaPropertiesFromVmResponse;
 }
+
+export function getFormulaOutput(args: GetFormulaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResult> {
+    return pulumi.output(args).apply(a => getFormula(a, opts))
+}
+
+export interface GetFormulaOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=description)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the formula.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

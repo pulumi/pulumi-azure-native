@@ -83,3 +83,18 @@ export interface GetPolicyExemptionResult {
      */
     readonly type: string;
 }
+
+export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
+    return pulumi.output(args).apply(a => getPolicyExemption(a, opts))
+}
+
+export interface GetPolicyExemptionOutputArgs {
+    /**
+     * The name of the policy exemption to delete.
+     */
+    policyExemptionName: pulumi.Input<string>;
+    /**
+     * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+     */
+    scope: pulumi.Input<string>;
+}

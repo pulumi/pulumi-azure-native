@@ -73,3 +73,14 @@ export interface GetSubscriptionDiagnosticSettingResult {
      */
     readonly workspaceId?: string;
 }
+
+export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
+    return pulumi.output(args).apply(a => getSubscriptionDiagnosticSetting(a, opts))
+}
+
+export interface GetSubscriptionDiagnosticSettingOutputArgs {
+    /**
+     * The name of the diagnostic setting.
+     */
+    name: pulumi.Input<string>;
+}

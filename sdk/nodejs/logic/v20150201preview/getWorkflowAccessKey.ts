@@ -56,3 +56,22 @@ export interface GetWorkflowAccessKeyResult {
      */
     readonly type: string;
 }
+
+export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
+    return pulumi.output(args).apply(a => getWorkflowAccessKey(a, opts))
+}
+
+export interface GetWorkflowAccessKeyOutputArgs {
+    /**
+     * The workflow access key name.
+     */
+    accessKeyName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The workflow name.
+     */
+    workflowName: pulumi.Input<string>;
+}

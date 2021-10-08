@@ -51,3 +51,22 @@ export interface GetIntegrationRuntimeStatusResult {
      */
     readonly properties: outputs.datafactory.v20180601.ManagedIntegrationRuntimeStatusResponse | outputs.datafactory.v20180601.SelfHostedIntegrationRuntimeStatusResponse;
 }
+
+export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntimeStatus(a, opts))
+}
+
+export interface GetIntegrationRuntimeStatusOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The integration runtime name.
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

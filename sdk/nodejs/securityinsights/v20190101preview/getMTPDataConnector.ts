@@ -77,3 +77,26 @@ export interface GetMTPDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
+    return pulumi.output(args).apply(a => getMTPDataConnector(a, opts))
+}
+
+export interface GetMTPDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

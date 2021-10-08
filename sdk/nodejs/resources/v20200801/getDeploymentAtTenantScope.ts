@@ -57,3 +57,14 @@ export interface GetDeploymentAtTenantScopeResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
+    return pulumi.output(args).apply(a => getDeploymentAtTenantScope(a, opts))
+}
+
+export interface GetDeploymentAtTenantScopeOutputArgs {
+    /**
+     * The name of the deployment.
+     */
+    deploymentName: pulumi.Input<string>;
+}

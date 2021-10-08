@@ -63,3 +63,22 @@ export interface GetDataFlowResult {
      */
     readonly type: string;
 }
+
+export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
+    return pulumi.output(args).apply(a => getDataFlow(a, opts))
+}
+
+export interface GetDataFlowOutputArgs {
+    /**
+     * The data flow name.
+     */
+    dataFlowName: pulumi.Input<string>;
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -97,3 +97,26 @@ export interface GetSiteVNETConnectionSlotResult {
      */
     readonly vnetResourceId?: string;
 }
+
+export function getSiteVNETConnectionSlotOutput(args: GetSiteVNETConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteVNETConnectionSlotResult> {
+    return pulumi.output(args).apply(a => getSiteVNETConnectionSlot(a, opts))
+}
+
+export interface GetSiteVNETConnectionSlotOutputArgs {
+    /**
+     * The name of the web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the slot for this web app.
+     */
+    slot: pulumi.Input<string>;
+    /**
+     * The name of the Virtual Network
+     */
+    vnetName: pulumi.Input<string>;
+}

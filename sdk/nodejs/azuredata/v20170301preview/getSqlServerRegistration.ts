@@ -69,3 +69,18 @@ export interface GetSqlServerRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
+    return pulumi.output(args).apply(a => getSqlServerRegistration(a, opts))
+}
+
+export interface GetSqlServerRegistrationOutputArgs {
+    /**
+     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SQL Server registration.
+     */
+    sqlServerRegistrationName: pulumi.Input<string>;
+}

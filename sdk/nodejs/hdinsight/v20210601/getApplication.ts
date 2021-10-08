@@ -71,3 +71,22 @@ export interface GetApplicationResult {
      */
     readonly type: string;
 }
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+export interface GetApplicationOutputArgs {
+    /**
+     * The constant value for the application name.
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

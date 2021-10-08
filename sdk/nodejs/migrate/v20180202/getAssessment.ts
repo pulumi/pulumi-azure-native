@@ -147,3 +147,26 @@ export interface GetAssessmentResult {
      */
     readonly updatedTimestamp: string;
 }
+
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+    return pulumi.output(args).apply(a => getAssessment(a, opts))
+}
+
+export interface GetAssessmentOutputArgs {
+    /**
+     * Unique name of an assessment within a project.
+     */
+    assessmentName: pulumi.Input<string>;
+    /**
+     * Unique name of a group within a project.
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

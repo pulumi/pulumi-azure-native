@@ -47,3 +47,22 @@ export interface ListDatastoreSecretsResult {
      */
     readonly secretsType: string;
 }
+
+export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatastoreSecretsResult> {
+    return pulumi.output(args).apply(a => listDatastoreSecrets(a, opts))
+}
+
+export interface ListDatastoreSecretsOutputArgs {
+    /**
+     * Datastore name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

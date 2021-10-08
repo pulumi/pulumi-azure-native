@@ -120,3 +120,22 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse;
 }
+
+export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {
+    return pulumi.output(args).apply(a => getSqlVirtualMachine(a, opts))
+}
+
+export interface GetSqlVirtualMachineOutputArgs {
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SQL virtual machine.
+     */
+    sqlVirtualMachineName: pulumi.Input<string>;
+}

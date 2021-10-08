@@ -55,3 +55,26 @@ export interface GetExposureControlFeatureValueByFactoryResult {
      */
     readonly value: string;
 }
+
+export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
+    return pulumi.output(args).apply(a => getExposureControlFeatureValueByFactory(a, opts))
+}
+
+export interface GetExposureControlFeatureValueByFactoryOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The feature name.
+     */
+    featureName?: pulumi.Input<string>;
+    /**
+     * The feature type.
+     */
+    featureType?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

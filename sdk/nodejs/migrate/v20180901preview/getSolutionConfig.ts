@@ -46,3 +46,22 @@ export interface GetSolutionConfigResult {
      */
     readonly publisherSasUri?: string;
 }
+
+export function getSolutionConfigOutput(args: GetSolutionConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigResult> {
+    return pulumi.output(args).apply(a => getSolutionConfig(a, opts))
+}
+
+export interface GetSolutionConfigOutputArgs {
+    /**
+     * Name of the Azure Migrate project.
+     */
+    migrateProjectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that migrate project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Unique name of a migration solution within a migrate project.
+     */
+    solutionName: pulumi.Input<string>;
+}

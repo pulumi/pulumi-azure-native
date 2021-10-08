@@ -99,3 +99,22 @@ export interface GetWebAppHostNameBindingResult {
      */
     readonly virtualIP: string;
 }
+
+export function getWebAppHostNameBindingOutput(args: GetWebAppHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingResult> {
+    return pulumi.output(args).apply(a => getWebAppHostNameBinding(a, opts))
+}
+
+export interface GetWebAppHostNameBindingOutputArgs {
+    /**
+     * Hostname in the hostname binding.
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

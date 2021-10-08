@@ -132,3 +132,90 @@ export interface ListStorageAccountServiceSASResult {
      */
     readonly serviceSasToken: string;
 }
+
+export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
+    return pulumi.output(args).apply(a => listStorageAccountServiceSAS(a, opts))
+}
+
+export interface ListStorageAccountServiceSASOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The response header override for cache control.
+     */
+    cacheControl?: pulumi.Input<string>;
+    /**
+     * The canonical path to the signed resource.
+     */
+    canonicalizedResource: pulumi.Input<string>;
+    /**
+     * The response header override for content disposition.
+     */
+    contentDisposition?: pulumi.Input<string>;
+    /**
+     * The response header override for content encoding.
+     */
+    contentEncoding?: pulumi.Input<string>;
+    /**
+     * The response header override for content language.
+     */
+    contentLanguage?: pulumi.Input<string>;
+    /**
+     * The response header override for content type.
+     */
+    contentType?: pulumi.Input<string>;
+    /**
+     * An IP address or a range of IP addresses from which to accept requests.
+     */
+    iPAddressOrRange?: pulumi.Input<string>;
+    /**
+     * A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.
+     */
+    identifier?: pulumi.Input<string>;
+    /**
+     * The key to sign the account SAS token with.
+     */
+    keyToSign?: pulumi.Input<string>;
+    /**
+     * The end of partition key.
+     */
+    partitionKeyEnd?: pulumi.Input<string>;
+    /**
+     * The start of partition key.
+     */
+    partitionKeyStart?: pulumi.Input<string>;
+    /**
+     * The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+     */
+    permissions?: pulumi.Input<string | enums.storage.v20181101.Permissions>;
+    /**
+     * The protocol permitted for a request made with the account SAS.
+     */
+    protocols?: pulumi.Input<enums.storage.v20181101.HttpProtocol>;
+    /**
+     * The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+     */
+    resource?: pulumi.Input<string | enums.storage.v20181101.SignedResource>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The end of row key.
+     */
+    rowKeyEnd?: pulumi.Input<string>;
+    /**
+     * The start of row key.
+     */
+    rowKeyStart?: pulumi.Input<string>;
+    /**
+     * The time at which the shared access signature becomes invalid.
+     */
+    sharedAccessExpiryTime?: pulumi.Input<string>;
+    /**
+     * The time at which the SAS becomes valid.
+     */
+    sharedAccessStartTime?: pulumi.Input<string>;
+}

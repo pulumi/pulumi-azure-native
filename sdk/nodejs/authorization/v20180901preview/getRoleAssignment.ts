@@ -69,3 +69,18 @@ export interface GetRoleAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
+    return pulumi.output(args).apply(a => getRoleAssignment(a, opts))
+}
+
+export interface GetRoleAssignmentOutputArgs {
+    /**
+     * The name of the role assignment to get.
+     */
+    roleAssignmentName: pulumi.Input<string>;
+    /**
+     * The scope of the role assignment.
+     */
+    scope: pulumi.Input<string>;
+}

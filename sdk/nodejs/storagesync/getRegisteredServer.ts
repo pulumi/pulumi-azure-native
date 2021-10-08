@@ -135,3 +135,22 @@ export interface GetRegisteredServerResult {
      */
     readonly type: string;
 }
+
+export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
+    return pulumi.output(args).apply(a => getRegisteredServer(a, opts))
+}
+
+export interface GetRegisteredServerOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * GUID identifying the on-premises server.
+     */
+    serverId: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    storageSyncServiceName: pulumi.Input<string>;
+}

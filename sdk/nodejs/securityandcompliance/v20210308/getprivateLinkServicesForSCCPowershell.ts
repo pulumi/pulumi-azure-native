@@ -78,3 +78,18 @@ export interface GetprivateLinkServicesForSCCPowershellResult {
      */
     readonly type: string;
 }
+
+export function getprivateLinkServicesForSCCPowershellOutput(args: GetprivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForSCCPowershellResult> {
+    return pulumi.output(args).apply(a => getprivateLinkServicesForSCCPowershell(a, opts))
+}
+
+export interface GetprivateLinkServicesForSCCPowershellOutputArgs {
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

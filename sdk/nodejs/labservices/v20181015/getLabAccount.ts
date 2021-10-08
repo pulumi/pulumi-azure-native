@@ -83,3 +83,22 @@ export interface GetLabAccountResult {
      */
     readonly uniqueIdentifier?: string;
 }
+
+export function getLabAccountOutput(args: GetLabAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountResult> {
+    return pulumi.output(args).apply(a => getLabAccount(a, opts))
+}
+
+export interface GetLabAccountOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

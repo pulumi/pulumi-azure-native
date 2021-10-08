@@ -47,3 +47,22 @@ export interface ListSecretValueResult {
      */
     readonly value?: string;
 }
+
+export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
+    return pulumi.output(args).apply(a => listSecretValue(a, opts))
+}
+
+export interface ListSecretValueOutputArgs {
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the secret resource.
+     */
+    secretResourceName: pulumi.Input<string>;
+    /**
+     * The name of the secret resource value which is typically the version identifier for the value.
+     */
+    secretValueResourceName: pulumi.Input<string>;
+}

@@ -42,3 +42,22 @@ export interface GetServerCollectorResult {
     readonly properties: outputs.migrate.v20191001.CollectorPropertiesResponse;
     readonly type: string;
 }
+
+export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorResult> {
+    return pulumi.output(args).apply(a => getServerCollector(a, opts))
+}
+
+export interface GetServerCollectorOutputArgs {
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Unique name of a Server collector within a project.
+     */
+    serverCollectorName: pulumi.Input<string>;
+}

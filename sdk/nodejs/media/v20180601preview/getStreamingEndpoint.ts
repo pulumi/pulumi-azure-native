@@ -127,3 +127,22 @@ export interface GetStreamingEndpointResult {
      */
     readonly type: string;
 }
+
+export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
+    return pulumi.output(args).apply(a => getStreamingEndpoint(a, opts))
+}
+
+export interface GetStreamingEndpointOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the StreamingEndpoint.
+     */
+    streamingEndpointName: pulumi.Input<string>;
+}

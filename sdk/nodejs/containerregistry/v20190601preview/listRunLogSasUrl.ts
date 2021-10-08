@@ -50,3 +50,22 @@ export interface ListRunLogSasUrlResult {
      */
     readonly logLink?: string;
 }
+
+export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
+    return pulumi.output(args).apply(a => listRunLogSasUrl(a, opts))
+}
+
+export interface ListRunLogSasUrlOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The run ID.
+     */
+    runId: pulumi.Input<string>;
+}

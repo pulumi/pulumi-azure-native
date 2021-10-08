@@ -52,3 +52,22 @@ export interface ListEffectiveConnectivityConfigurationResult {
      */
     readonly value?: outputs.network.EffectiveConnectivityConfigurationResponse[];
 }
+
+export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
+    return pulumi.output(args).apply(a => listEffectiveConnectivityConfiguration(a, opts))
+}
+
+export interface ListEffectiveConnectivityConfigurationOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+     */
+    skipToken?: pulumi.Input<string>;
+    /**
+     * The name of the virtual network.
+     */
+    virtualNetworkName: pulumi.Input<string>;
+}

@@ -58,3 +58,22 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
      */
     readonly type: string;
 }
+
+export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {
+    return pulumi.output(args).apply(a => getWebAppDomainOwnershipIdentifier(a, opts))
+}
+
+export interface GetWebAppDomainOwnershipIdentifierOutputArgs {
+    /**
+     * Name of domain ownership identifier.
+     */
+    domainOwnershipIdentifierName: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -62,3 +62,22 @@ export interface GetKeyResult {
      */
     readonly type: string;
 }
+
+export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
+    return pulumi.output(args).apply(a => getKey(a, opts))
+}
+
+export interface GetKeyOutputArgs {
+    /**
+     * The name of the workspace key
+     */
+    keyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

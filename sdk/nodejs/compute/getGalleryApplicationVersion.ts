@@ -86,3 +86,30 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly type: string;
 }
+
+export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
+    return pulumi.output(args).apply(a => getGalleryApplicationVersion(a, opts))
+}
+
+export interface GetGalleryApplicationVersionOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the gallery Application Definition in which the Application Version resides.
+     */
+    galleryApplicationName: pulumi.Input<string>;
+    /**
+     * The name of the gallery Application Version to be retrieved.
+     */
+    galleryApplicationVersionName: pulumi.Input<string>;
+    /**
+     * The name of the Shared Application Gallery in which the Application Definition resides.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

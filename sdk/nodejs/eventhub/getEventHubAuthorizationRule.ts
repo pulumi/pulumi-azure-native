@@ -64,3 +64,26 @@ export interface GetEventHubAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getEventHubAuthorizationRule(a, opts))
+}
+
+export interface GetEventHubAuthorizationRuleOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The Event Hub name
+     */
+    eventHubName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

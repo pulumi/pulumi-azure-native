@@ -66,3 +66,18 @@ export interface GetActionRuleByNameResult {
      */
     readonly type: string;
 }
+
+export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
+    return pulumi.output(args).apply(a => getActionRuleByName(a, opts))
+}
+
+export interface GetActionRuleByNameOutputArgs {
+    /**
+     * The name of the action rule that needs to be fetched
+     */
+    actionRuleName: pulumi.Input<string>;
+    /**
+     * Resource group name where the resource is created.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

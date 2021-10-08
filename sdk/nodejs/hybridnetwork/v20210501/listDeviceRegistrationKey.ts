@@ -41,3 +41,18 @@ export interface ListDeviceRegistrationKeyResult {
      */
     readonly registrationKey: string;
 }
+
+export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
+    return pulumi.output(args).apply(a => listDeviceRegistrationKey(a, opts))
+}
+
+export interface ListDeviceRegistrationKeyOutputArgs {
+    /**
+     * The name of the device resource.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

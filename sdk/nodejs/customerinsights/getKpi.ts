@@ -132,3 +132,22 @@ export interface GetKpiResult {
      */
     readonly unit?: string;
 }
+
+export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
+    return pulumi.output(args).apply(a => getKpi(a, opts))
+}
+
+export interface GetKpiOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the KPI.
+     */
+    kpiName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetPartnerResult {
      */
     readonly type: string;
 }
+
+export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
+    return pulumi.output(args).apply(a => getPartner(a, opts))
+}
+
+export interface GetPartnerOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The integration account partner name.
+     */
+    partnerName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

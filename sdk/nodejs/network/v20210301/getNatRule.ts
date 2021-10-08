@@ -87,3 +87,22 @@ export interface GetNatRuleResult {
      */
     readonly type: string;
 }
+
+export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
+    return pulumi.output(args).apply(a => getNatRule(a, opts))
+}
+
+export interface GetNatRuleOutputArgs {
+    /**
+     * The name of the gateway.
+     */
+    gatewayName: pulumi.Input<string>;
+    /**
+     * The name of the nat rule.
+     */
+    natRuleName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VpnGateway.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -58,3 +58,22 @@ export interface GetTagResult {
      */
     readonly type: string;
 }
+
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
+    return pulumi.output(args).apply(a => getTag(a, opts))
+}
+
+export interface GetTagOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    tagId: pulumi.Input<string>;
+}

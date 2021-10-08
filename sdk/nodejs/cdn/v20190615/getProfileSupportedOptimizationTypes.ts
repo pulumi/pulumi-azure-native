@@ -41,3 +41,18 @@ export interface GetProfileSupportedOptimizationTypesResult {
      */
     readonly supportedOptimizationTypes: string[];
 }
+
+export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {
+    return pulumi.output(args).apply(a => getProfileSupportedOptimizationTypes(a, opts))
+}
+
+export interface GetProfileSupportedOptimizationTypesOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

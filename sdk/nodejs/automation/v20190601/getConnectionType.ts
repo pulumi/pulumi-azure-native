@@ -75,3 +75,22 @@ export interface GetConnectionTypeResult {
      */
     readonly type: string;
 }
+
+export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
+    return pulumi.output(args).apply(a => getConnectionType(a, opts))
+}
+
+export interface GetConnectionTypeOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The name of connection type.
+     */
+    connectionTypeName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

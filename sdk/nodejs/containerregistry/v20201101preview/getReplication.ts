@@ -83,3 +83,22 @@ export interface GetReplicationResult {
      */
     readonly zoneRedundancy?: string;
 }
+
+export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
+    return pulumi.output(args).apply(a => getReplication(a, opts))
+}
+
+export interface GetReplicationOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the replication.
+     */
+    replicationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

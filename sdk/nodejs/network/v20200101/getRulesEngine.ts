@@ -63,3 +63,22 @@ export interface GetRulesEngineResult {
      */
     readonly type: string;
 }
+
+export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
+    return pulumi.output(args).apply(a => getRulesEngine(a, opts))
+}
+
+export interface GetRulesEngineOutputArgs {
+    /**
+     * Name of the Front Door which is globally unique.
+     */
+    frontDoorName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Rules Engine which is unique within the Front Door.
+     */
+    rulesEngineName: pulumi.Input<string>;
+}

@@ -55,3 +55,19 @@ export interface GetOutboundFirewallRuleResult {
      */
     readonly type: string;
 }
+
+export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
+    return pulumi.output(args).apply(a => getOutboundFirewallRule(a, opts))
+}
+
+export interface GetOutboundFirewallRuleOutputArgs {
+    outboundRuleFqdn: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

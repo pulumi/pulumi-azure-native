@@ -73,3 +73,18 @@ export interface ListWebAppSitePushSettingsResult {
      */
     readonly type: string;
 }
+
+export function listWebAppSitePushSettingsOutput(args: ListWebAppSitePushSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsResult> {
+    return pulumi.output(args).apply(a => listWebAppSitePushSettings(a, opts))
+}
+
+export interface ListWebAppSitePushSettingsOutputArgs {
+    /**
+     * Name of web app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

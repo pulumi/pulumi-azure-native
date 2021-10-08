@@ -147,3 +147,22 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly zones?: string[];
 }
+
+export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineScaleSet(a, opts))
+}
+
+export interface GetVirtualMachineScaleSetOutputArgs {
+    /**
+     * The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set.
+     */
+    vmScaleSetName: pulumi.Input<string>;
+}

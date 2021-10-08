@@ -94,3 +94,18 @@ export interface GetCustomLocationResult {
      */
     readonly type: string;
 }
+
+export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
+    return pulumi.output(args).apply(a => getCustomLocation(a, opts))
+}
+
+export interface GetCustomLocationOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Custom Locations name.
+     */
+    resourceName: pulumi.Input<string>;
+}

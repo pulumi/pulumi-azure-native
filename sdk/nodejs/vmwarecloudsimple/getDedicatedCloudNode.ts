@@ -115,3 +115,18 @@ export interface GetDedicatedCloudNodeResult {
      */
     readonly vmwareClusterName: string;
 }
+
+export function getDedicatedCloudNodeOutput(args: GetDedicatedCloudNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudNodeResult> {
+    return pulumi.output(args).apply(a => getDedicatedCloudNode(a, opts))
+}
+
+export interface GetDedicatedCloudNodeOutputArgs {
+    /**
+     * dedicated cloud node name
+     */
+    dedicatedCloudNodeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

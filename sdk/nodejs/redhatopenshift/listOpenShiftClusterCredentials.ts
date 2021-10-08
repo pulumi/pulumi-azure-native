@@ -46,3 +46,18 @@ export interface ListOpenShiftClusterCredentialsResult {
      */
     readonly kubeadminUsername?: string;
 }
+
+export function listOpenShiftClusterCredentialsOutput(args: ListOpenShiftClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterCredentialsResult> {
+    return pulumi.output(args).apply(a => listOpenShiftClusterCredentials(a, opts))
+}
+
+export interface ListOpenShiftClusterCredentialsOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the OpenShift cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

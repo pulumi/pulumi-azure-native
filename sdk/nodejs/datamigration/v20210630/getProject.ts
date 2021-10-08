@@ -95,3 +95,22 @@ export interface GetProjectResult {
      */
     readonly type: string;
 }
+
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+    return pulumi.output(args).apply(a => getProject(a, opts))
+}
+
+export interface GetProjectOutputArgs {
+    /**
+     * Name of the resource group
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Name of the project
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the service
+     */
+    serviceName: pulumi.Input<string>;
+}

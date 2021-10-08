@@ -103,3 +103,22 @@ export interface GetSchemaResult {
      */
     readonly type: string;
 }
+
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+    return pulumi.output(args).apply(a => getSchema(a, opts))
+}
+
+export interface GetSchemaOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The integration account schema name.
+     */
+    schemaName: pulumi.Input<string>;
+}

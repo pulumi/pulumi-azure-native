@@ -67,3 +67,22 @@ export interface GetAccessPolicyResult {
      */
     readonly type: string;
 }
+
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
+}
+
+export interface GetAccessPolicyOutputArgs {
+    /**
+     * The name of the Time Series Insights access policy associated with the specified environment.
+     */
+    accessPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

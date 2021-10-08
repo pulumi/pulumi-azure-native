@@ -74,3 +74,14 @@ export interface GetAlertsSuppressionRuleResult {
      */
     readonly type: string;
 }
+
+export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
+    return pulumi.output(args).apply(a => getAlertsSuppressionRule(a, opts))
+}
+
+export interface GetAlertsSuppressionRuleOutputArgs {
+    /**
+     * The unique name of the suppression alert rule
+     */
+    alertsSuppressionRuleName: pulumi.Input<string>;
+}

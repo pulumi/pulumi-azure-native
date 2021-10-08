@@ -239,3 +239,22 @@ export interface GetWebAppSlotResult {
      */
     readonly virtualNetworkSubnetId?: string;
 }
+
+export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppSlot(a, opts))
+}
+
+export interface GetWebAppSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. By default, this API returns the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

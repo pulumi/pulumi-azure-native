@@ -67,3 +67,26 @@ export interface GetPolicyResult {
      */
     readonly value: string;
 }
+
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+    return pulumi.output(args).apply(a => getPolicy(a, opts))
+}
+
+export interface GetPolicyOutputArgs {
+    /**
+     * Policy Export Format.
+     */
+    format?: pulumi.Input<string>;
+    /**
+     * The identifier of the Policy.
+     */
+    policyId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

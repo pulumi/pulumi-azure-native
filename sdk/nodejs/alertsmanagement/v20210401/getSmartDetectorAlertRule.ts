@@ -95,3 +95,22 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly type: string;
 }
+
+export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
+    return pulumi.output(args).apply(a => getSmartDetectorAlertRule(a, opts))
+}
+
+export interface GetSmartDetectorAlertRuleOutputArgs {
+    /**
+     * The name of the alert rule.
+     */
+    alertRuleName: pulumi.Input<string>;
+    /**
+     * Indicates if Smart Detector should be expanded.
+     */
+    expandDetector?: pulumi.Input<boolean>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

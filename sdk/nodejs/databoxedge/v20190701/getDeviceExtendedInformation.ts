@@ -61,3 +61,18 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly type: string;
 }
+
+export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
+    return pulumi.output(args).apply(a => getDeviceExtendedInformation(a, opts))
+}
+
+export interface GetDeviceExtendedInformationOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

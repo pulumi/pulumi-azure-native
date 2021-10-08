@@ -62,3 +62,22 @@ export interface GetDatabaseAccountTableResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseAccountTableOutput(args: GetDatabaseAccountTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountTableResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccountTable(a, opts))
+}
+
+export interface GetDatabaseAccountTableOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB table name.
+     */
+    tableName: pulumi.Input<string>;
+}

@@ -68,3 +68,26 @@ export interface GetReplicationRecoveryServicesProviderResult {
      */
     readonly type: string;
 }
+
+export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
+    return pulumi.output(args).apply(a => getReplicationRecoveryServicesProvider(a, opts))
+}
+
+export interface GetReplicationRecoveryServicesProviderOutputArgs {
+    /**
+     * Fabric name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Recovery services provider name
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

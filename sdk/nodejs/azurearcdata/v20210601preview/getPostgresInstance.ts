@@ -74,3 +74,18 @@ export interface GetPostgresInstanceResult {
      */
     readonly type: string;
 }
+
+export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
+    return pulumi.output(args).apply(a => getPostgresInstance(a, opts))
+}
+
+export interface GetPostgresInstanceOutputArgs {
+    /**
+     * Name of Postgres Instance
+     */
+    postgresInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

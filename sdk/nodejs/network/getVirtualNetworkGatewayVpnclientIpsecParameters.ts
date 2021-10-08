@@ -70,3 +70,18 @@ export interface GetVirtualNetworkGatewayVpnclientIpsecParametersResult {
      */
     readonly saLifeTimeSeconds: number;
 }
+
+export function getVirtualNetworkGatewayVpnclientIpsecParametersOutput(args: GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayVpnclientIpsecParameters(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The virtual network gateway name.
+     */
+    virtualNetworkGatewayName: pulumi.Input<string>;
+}

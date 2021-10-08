@@ -46,3 +46,18 @@ export interface ListIotDpsResourceKeysResult {
      */
     readonly value?: outputs.devices.v20180122.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse[];
 }
+
+export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
+    return pulumi.output(args).apply(a => listIotDpsResourceKeys(a, opts))
+}
+
+export interface ListIotDpsResourceKeysOutputArgs {
+    /**
+     * The provisioning service name to get the shared access keys for.
+     */
+    provisioningServiceName: pulumi.Input<string>;
+    /**
+     * resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

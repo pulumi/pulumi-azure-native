@@ -92,3 +92,22 @@ export interface GetP2sVpnServerConfigurationResult {
      */
     readonly vpnProtocols?: string[];
 }
+
+export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
+    return pulumi.output(args).apply(a => getP2sVpnServerConfiguration(a, opts))
+}
+
+export interface GetP2sVpnServerConfigurationOutputArgs {
+    /**
+     * The name of the P2SVpnServerConfiguration.
+     */
+    p2SVpnServerConfigurationName: pulumi.Input<string>;
+    /**
+     * The resource group name of the P2SVpnServerConfiguration.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualWan.
+     */
+    virtualWanName: pulumi.Input<string>;
+}

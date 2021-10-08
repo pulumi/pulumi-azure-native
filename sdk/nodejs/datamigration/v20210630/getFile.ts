@@ -72,3 +72,26 @@ export interface GetFileResult {
      */
     readonly type: string;
 }
+
+export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
+    return pulumi.output(args).apply(a => getFile(a, opts))
+}
+
+export interface GetFileOutputArgs {
+    /**
+     * Name of the File
+     */
+    fileName: pulumi.Input<string>;
+    /**
+     * Name of the resource group
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Name of the project
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the service
+     */
+    serviceName: pulumi.Input<string>;
+}

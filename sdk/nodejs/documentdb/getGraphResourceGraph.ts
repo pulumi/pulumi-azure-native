@@ -70,3 +70,22 @@ export interface GetGraphResourceGraphResult {
      */
     readonly type: string;
 }
+
+export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
+    return pulumi.output(args).apply(a => getGraphResourceGraph(a, opts))
+}
+
+export interface GetGraphResourceGraphOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB graph resource name.
+     */
+    graphName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

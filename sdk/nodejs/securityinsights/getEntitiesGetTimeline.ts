@@ -41,7 +41,7 @@ export interface GetEntitiesGetTimelineArgs {
     /**
      * Array of timeline Item kinds.
      */
-    kinds?: string | enums.securityinsights.EntityTimelineKind[];
+    kinds?: (string | enums.securityinsights.EntityTimelineKind)[];
     /**
      * The number of bucket for timeline queries aggregation.
      */
@@ -75,5 +75,44 @@ export interface GetEntitiesGetTimelineResult {
     /**
      * The timeline result values.
      */
-    readonly value?: outputs.securityinsights.ActivityTimelineItemResponse | outputs.securityinsights.BookmarkTimelineItemResponse | outputs.securityinsights.SecurityAlertTimelineItemResponse[];
+    readonly value?: (outputs.securityinsights.ActivityTimelineItemResponse | outputs.securityinsights.BookmarkTimelineItemResponse | outputs.securityinsights.SecurityAlertTimelineItemResponse)[];
+}
+
+export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
+    return pulumi.output(args).apply(a => getEntitiesGetTimeline(a, opts))
+}
+
+export interface GetEntitiesGetTimelineOutputArgs {
+    /**
+     * The end timeline date, so the results returned are before this date.
+     */
+    endTime: pulumi.Input<string>;
+    /**
+     * entity ID
+     */
+    entityId: pulumi.Input<string>;
+    /**
+     * Array of timeline Item kinds.
+     */
+    kinds?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityTimelineKind>[]>;
+    /**
+     * The number of bucket for timeline queries aggregation.
+     */
+    numberOfBucket?: pulumi.Input<number>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The start timeline date, so the results returned are after this date.
+     */
+    startTime: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
 }

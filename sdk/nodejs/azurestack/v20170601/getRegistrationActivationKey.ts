@@ -41,3 +41,18 @@ export interface GetRegistrationActivationKeyResult {
      */
     readonly activationKey?: string;
 }
+
+export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
+    return pulumi.output(args).apply(a => getRegistrationActivationKey(a, opts))
+}
+
+export interface GetRegistrationActivationKeyOutputArgs {
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

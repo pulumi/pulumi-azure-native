@@ -120,3 +120,22 @@ export interface GetConnectionMonitorResult {
      */
     readonly type: string;
 }
+
+export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
+    return pulumi.output(args).apply(a => getConnectionMonitor(a, opts))
+}
+
+export interface GetConnectionMonitorOutputArgs {
+    /**
+     * The name of the connection monitor.
+     */
+    connectionMonitorName: pulumi.Input<string>;
+    /**
+     * The name of the Network Watcher resource.
+     */
+    networkWatcherName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing Network Watcher.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

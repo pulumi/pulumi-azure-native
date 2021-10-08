@@ -126,3 +126,18 @@ export interface GetServerResult {
      */
     readonly version?: string;
 }
+
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+    return pulumi.output(args).apply(a => getServer(a, opts))
+}
+
+export interface GetServerOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

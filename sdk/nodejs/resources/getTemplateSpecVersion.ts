@@ -88,3 +88,22 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly uiFormDefinition?: any;
 }
+
+export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
+    return pulumi.output(args).apply(a => getTemplateSpecVersion(a, opts))
+}
+
+export interface GetTemplateSpecVersionOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Template Spec.
+     */
+    templateSpecName: pulumi.Input<string>;
+    /**
+     * The version of the Template Spec.
+     */
+    templateSpecVersion: pulumi.Input<string>;
+}

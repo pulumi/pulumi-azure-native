@@ -76,3 +76,30 @@ export interface GetActionResult {
      */
     readonly workflowId?: string;
 }
+
+export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
+    return pulumi.output(args).apply(a => getAction(a, opts))
+}
+
+export interface GetActionOutputArgs {
+    /**
+     * Action ID
+     */
+    actionId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    ruleId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

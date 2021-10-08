@@ -81,3 +81,26 @@ export interface GetContainerResult {
      */
     readonly type: string;
 }
+
+export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
+    return pulumi.output(args).apply(a => getContainer(a, opts))
+}
+
+export interface GetContainerOutputArgs {
+    /**
+     * The container Name
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Storage Account Name
+     */
+    storageAccountName: pulumi.Input<string>;
+}

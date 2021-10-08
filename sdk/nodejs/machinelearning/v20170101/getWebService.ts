@@ -67,3 +67,22 @@ export interface GetWebServiceResult {
      */
     readonly type: string;
 }
+
+export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
+    return pulumi.output(args).apply(a => getWebService(a, opts))
+}
+
+export interface GetWebServiceOutputArgs {
+    /**
+     * The region for which encrypted credential parameters are valid.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which the web service is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the web service.
+     */
+    webServiceName: pulumi.Input<string>;
+}

@@ -84,3 +84,26 @@ export interface GetKustoClusterDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getKustoClusterDataSetMapping(a, opts))
+}
+
+export interface GetKustoClusterDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

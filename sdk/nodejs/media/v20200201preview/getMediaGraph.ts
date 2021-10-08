@@ -79,3 +79,22 @@ export interface GetMediaGraphResult {
      */
     readonly type: string;
 }
+
+export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
+    return pulumi.output(args).apply(a => getMediaGraph(a, opts))
+}
+
+export interface GetMediaGraphOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Media Graph name.
+     */
+    mediaGraphName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

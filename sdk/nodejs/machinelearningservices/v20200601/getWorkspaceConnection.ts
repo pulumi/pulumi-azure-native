@@ -70,3 +70,22 @@ export interface GetWorkspaceConnectionResult {
      */
     readonly value?: string;
 }
+
+export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
+    return pulumi.output(args).apply(a => getWorkspaceConnection(a, opts))
+}
+
+export interface GetWorkspaceConnectionOutputArgs {
+    /**
+     * Friendly name of the workspace connection
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -71,3 +71,26 @@ export interface ListWebAppHybridConnectionKeysResult {
      */
     readonly type: string;
 }
+
+export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {
+    return pulumi.output(args).apply(a => listWebAppHybridConnectionKeys(a, opts))
+}
+
+export interface ListWebAppHybridConnectionKeysOutputArgs {
+    /**
+     * The name of the web app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The namespace for this hybrid connection.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name for this hybrid connection.
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -64,3 +64,22 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
+    return pulumi.output(args).apply(a => getGuestConfigurationHCRPAssignment(a, opts))
+}
+
+export interface GetGuestConfigurationHCRPAssignmentOutputArgs {
+    /**
+     * The guest configuration assignment name.
+     */
+    guestConfigurationAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the ARC machine.
+     */
+    machineName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -96,3 +96,30 @@ export interface GetFileShareResult {
      */
     readonly usedCapacityInBytes: number;
 }
+
+export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
+    return pulumi.output(args).apply(a => getFileShare(a, opts))
+}
+
+export interface GetFileShareOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The file server name.
+     */
+    fileServerName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The file share name.
+     */
+    shareName: pulumi.Input<string>;
+}

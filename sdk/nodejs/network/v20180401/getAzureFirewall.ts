@@ -78,3 +78,18 @@ export interface GetAzureFirewallResult {
      */
     readonly type: string;
 }
+
+export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
+    return pulumi.output(args).apply(a => getAzureFirewall(a, opts))
+}
+
+export interface GetAzureFirewallOutputArgs {
+    /**
+     * The name of the Azure Firewall.
+     */
+    azureFirewallName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

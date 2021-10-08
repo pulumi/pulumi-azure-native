@@ -67,3 +67,18 @@ export interface GetguestDiagnosticsSettingResult {
      */
     readonly type: string;
 }
+
+export function getguestDiagnosticsSettingOutput(args: GetguestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetguestDiagnosticsSettingResult> {
+    return pulumi.output(args).apply(a => getguestDiagnosticsSetting(a, opts))
+}
+
+export interface GetguestDiagnosticsSettingOutputArgs {
+    /**
+     * The name of the diagnostic setting.
+     */
+    diagnosticSettingsName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

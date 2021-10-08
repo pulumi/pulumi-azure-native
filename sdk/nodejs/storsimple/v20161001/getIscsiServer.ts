@@ -79,3 +79,26 @@ export interface GetIscsiServerResult {
      */
     readonly type: string;
 }
+
+export function getIscsiServerOutput(args: GetIscsiServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiServerResult> {
+    return pulumi.output(args).apply(a => getIscsiServer(a, opts))
+}
+
+export interface GetIscsiServerOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The iSCSI server name.
+     */
+    iscsiServerName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

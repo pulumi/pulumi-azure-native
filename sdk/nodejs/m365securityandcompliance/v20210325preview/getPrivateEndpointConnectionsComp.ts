@@ -71,3 +71,22 @@ export interface GetPrivateEndpointConnectionsCompResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionsCompOutput(args: GetPrivateEndpointConnectionsCompOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsCompResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsComp(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionsCompOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

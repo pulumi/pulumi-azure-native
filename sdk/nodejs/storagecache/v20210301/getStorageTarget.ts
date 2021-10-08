@@ -91,3 +91,22 @@ export interface GetStorageTargetResult {
      */
     readonly unknown?: outputs.storagecache.v20210301.UnknownTargetResponse;
 }
+
+export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
+    return pulumi.output(args).apply(a => getStorageTarget(a, opts))
+}
+
+export interface GetStorageTargetOutputArgs {
+    /**
+     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     */
+    cacheName: pulumi.Input<string>;
+    /**
+     * Target resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Storage Target.
+     */
+    storageTargetName: pulumi.Input<string>;
+}

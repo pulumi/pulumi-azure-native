@@ -87,3 +87,22 @@ export interface GetPublishedBlueprintResult {
      */
     readonly type: string;
 }
+
+export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
+    return pulumi.output(args).apply(a => getPublishedBlueprint(a, opts))
+}
+
+export interface GetPublishedBlueprintOutputArgs {
+    /**
+     * name of the blueprint.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * ManagementGroup where blueprint stores.
+     */
+    managementGroupName: pulumi.Input<string>;
+    /**
+     * version of the published blueprint.
+     */
+    versionId: pulumi.Input<string>;
+}

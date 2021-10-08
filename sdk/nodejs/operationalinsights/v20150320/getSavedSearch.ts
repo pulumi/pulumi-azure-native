@@ -79,3 +79,22 @@ export interface GetSavedSearchResult {
      */
     readonly version?: number;
 }
+
+export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
+    return pulumi.output(args).apply(a => getSavedSearch(a, opts))
+}
+
+export interface GetSavedSearchOutputArgs {
+    /**
+     * The Resource Group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The id of the saved search.
+     */
+    savedSearchId: pulumi.Input<string>;
+    /**
+     * The Log Analytics Workspace name.
+     */
+    workspaceName: pulumi.Input<string>;
+}

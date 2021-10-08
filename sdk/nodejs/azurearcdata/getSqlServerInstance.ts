@@ -67,3 +67,18 @@ export interface GetSqlServerInstanceResult {
      */
     readonly type: string;
 }
+
+export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
+    return pulumi.output(args).apply(a => getSqlServerInstance(a, opts))
+}
+
+export interface GetSqlServerInstanceOutputArgs {
+    /**
+     * The name of the Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of SQL Server Instance
+     */
+    sqlServerInstanceName: pulumi.Input<string>;
+}

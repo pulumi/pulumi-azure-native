@@ -75,3 +75,26 @@ export interface GetApplicationPackageResult {
      */
     readonly version?: string;
 }
+
+export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
+    return pulumi.output(args).apply(a => getApplicationPackage(a, opts))
+}
+
+export interface GetApplicationPackageOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The ID of the application.
+     */
+    applicationId: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the Batch account.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The version of the application.
+     */
+    version: pulumi.Input<string>;
+}

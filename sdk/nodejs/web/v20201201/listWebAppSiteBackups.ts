@@ -46,3 +46,18 @@ export interface ListWebAppSiteBackupsResult {
      */
     readonly value: outputs.web.v20201201.BackupItemResponse[];
 }
+
+export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
+    return pulumi.output(args).apply(a => listWebAppSiteBackups(a, opts))
+}
+
+export interface ListWebAppSiteBackupsOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

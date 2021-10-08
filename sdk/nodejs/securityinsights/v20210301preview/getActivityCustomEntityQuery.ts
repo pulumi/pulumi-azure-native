@@ -117,3 +117,26 @@ export interface GetActivityCustomEntityQueryResult {
      */
     readonly type: string;
 }
+
+export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
+    return pulumi.output(args).apply(a => getActivityCustomEntityQuery(a, opts))
+}
+
+export interface GetActivityCustomEntityQueryOutputArgs {
+    /**
+     * entity query ID
+     */
+    entityQueryId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

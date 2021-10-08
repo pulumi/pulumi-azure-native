@@ -74,3 +74,18 @@ export interface GetManagedNetworkResult {
      */
     readonly type: string;
 }
+
+export function getManagedNetworkOutput(args: GetManagedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkResult> {
+    return pulumi.output(args).apply(a => getManagedNetwork(a, opts))
+}
+
+export interface GetManagedNetworkOutputArgs {
+    /**
+     * The name of the Managed Network.
+     */
+    managedNetworkName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -111,3 +111,18 @@ export interface GetWorkflowResult {
      */
     readonly version: string;
 }
+
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+    return pulumi.output(args).apply(a => getWorkflow(a, opts))
+}
+
+export interface GetWorkflowOutputArgs {
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The workflow name.
+     */
+    workflowName: pulumi.Input<string>;
+}

@@ -200,3 +200,22 @@ export interface ListWebAppAuthSettingsSlotResult {
      */
     readonly validateIssuer?: boolean;
 }
+
+export function listWebAppAuthSettingsSlotOutput(args: ListWebAppAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppAuthSettingsSlot(a, opts))
+}
+
+export interface ListWebAppAuthSettingsSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

@@ -68,3 +68,26 @@ export interface GetDeploymentResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+    return pulumi.output(args).apply(a => getDeployment(a, opts))
+}
+
+export interface GetDeploymentOutputArgs {
+    /**
+     * The name of the App resource.
+     */
+    appName: pulumi.Input<string>;
+    /**
+     * The name of the Deployment resource.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    serviceName: pulumi.Input<string>;
+}

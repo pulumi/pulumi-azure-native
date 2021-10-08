@@ -94,3 +94,18 @@ export interface GetP2sVpnGatewayResult {
      */
     readonly vpnServerConfiguration?: outputs.network.v20200801.SubResourceResponse;
 }
+
+export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {
+    return pulumi.output(args).apply(a => getP2sVpnGateway(a, opts))
+}
+
+export interface GetP2sVpnGatewayOutputArgs {
+    /**
+     * The name of the gateway.
+     */
+    gatewayName: pulumi.Input<string>;
+    /**
+     * The resource group name of the P2SVpnGateway.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

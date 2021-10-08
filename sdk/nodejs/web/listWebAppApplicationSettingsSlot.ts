@@ -63,3 +63,22 @@ export interface ListWebAppApplicationSettingsSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppApplicationSettingsSlotOutput(args: ListWebAppApplicationSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppApplicationSettingsSlot(a, opts))
+}
+
+export interface ListWebAppApplicationSettingsSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the application settings for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

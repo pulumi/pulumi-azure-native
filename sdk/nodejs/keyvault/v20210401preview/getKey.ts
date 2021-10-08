@@ -92,3 +92,22 @@ export interface GetKeyResult {
      */
     readonly type: string;
 }
+
+export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
+    return pulumi.output(args).apply(a => getKey(a, opts))
+}
+
+export interface GetKeyOutputArgs {
+    /**
+     * The name of the key to be retrieved.
+     */
+    keyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group which contains the specified key vault.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the vault which contains the key to be retrieved.
+     */
+    vaultName: pulumi.Input<string>;
+}

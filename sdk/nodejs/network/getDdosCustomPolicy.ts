@@ -79,3 +79,18 @@ export interface GetDdosCustomPolicyResult {
      */
     readonly type: string;
 }
+
+export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
+    return pulumi.output(args).apply(a => getDdosCustomPolicy(a, opts))
+}
+
+export interface GetDdosCustomPolicyOutputArgs {
+    /**
+     * The name of the DDoS custom policy.
+     */
+    ddosCustomPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

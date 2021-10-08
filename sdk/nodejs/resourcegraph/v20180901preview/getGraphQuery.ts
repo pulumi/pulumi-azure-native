@@ -77,3 +77,18 @@ export interface GetGraphQueryResult {
      */
     readonly type: string;
 }
+
+export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQueryResult> {
+    return pulumi.output(args).apply(a => getGraphQuery(a, opts))
+}
+
+export interface GetGraphQueryOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Graph Query resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -41,3 +41,18 @@ export interface GetEventSubscriptionFullUrlResult {
      */
     readonly endpointUrl?: string;
 }
+
+export function getEventSubscriptionFullUrlOutput(args: GetEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionFullUrlResult> {
+    return pulumi.output(args).apply(a => getEventSubscriptionFullUrl(a, opts))
+}
+
+export interface GetEventSubscriptionFullUrlOutputArgs {
+    /**
+     * Name of the event subscription.
+     */
+    eventSubscriptionName: pulumi.Input<string>;
+    /**
+     * The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+     */
+    scope: pulumi.Input<string>;
+}

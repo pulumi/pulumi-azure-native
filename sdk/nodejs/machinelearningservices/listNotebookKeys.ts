@@ -36,3 +36,18 @@ export interface ListNotebookKeysResult {
     readonly primaryAccessKey: string;
     readonly secondaryAccessKey: string;
 }
+
+export function listNotebookKeysOutput(args: ListNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookKeysResult> {
+    return pulumi.output(args).apply(a => listNotebookKeys(a, opts))
+}
+
+export interface ListNotebookKeysOutputArgs {
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

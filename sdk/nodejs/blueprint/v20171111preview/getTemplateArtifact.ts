@@ -84,3 +84,22 @@ export interface GetTemplateArtifactResult {
      */
     readonly type: string;
 }
+
+export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
+    return pulumi.output(args).apply(a => getTemplateArtifact(a, opts))
+}
+
+export interface GetTemplateArtifactOutputArgs {
+    /**
+     * name of the artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * name of the blueprint.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * ManagementGroup where blueprint stores.
+     */
+    managementGroupName: pulumi.Input<string>;
+}

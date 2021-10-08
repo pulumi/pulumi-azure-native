@@ -96,3 +96,22 @@ export interface GetvNetPeeringResult {
      */
     readonly useRemoteGateways?: boolean;
 }
+
+export function getvNetPeeringOutput(args: GetvNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvNetPeeringResult> {
+    return pulumi.output(args).apply(a => getvNetPeering(a, opts))
+}
+
+export interface GetvNetPeeringOutputArgs {
+    /**
+     * The name of the workspace vNet peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}
