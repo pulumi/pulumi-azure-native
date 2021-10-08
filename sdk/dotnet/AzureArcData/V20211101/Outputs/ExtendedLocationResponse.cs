@@ -7,38 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
+namespace Pulumi.AzureNative.AzureArcData.V20211101.Outputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// The complex type of the extended location.
     /// </summary>
     [OutputType]
-    public sealed class IdentityResponse
+    public sealed class ExtendedLocationResponse
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The name of the extended location.
         /// </summary>
-        public readonly string PrincipalId;
+        public readonly string? Name;
         /// <summary>
-        /// The tenant ID of resource.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The identity type.
+        /// The type of the extended location.
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
-        private IdentityResponse(
-            string principalId,
-
-            string tenantId,
+        private ExtendedLocationResponse(
+            string? name,
 
             string? type)
         {
-            PrincipalId = principalId;
-            TenantId = tenantId;
+            Name = name;
             Type = type;
         }
     }

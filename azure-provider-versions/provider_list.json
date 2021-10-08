@@ -80078,7 +80078,9 @@
         "locations": [
           "Central US EUAP",
           "West Central US",
-          "West US 2"
+          "West US 2",
+          "North Europe",
+          "West Europe"
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses"

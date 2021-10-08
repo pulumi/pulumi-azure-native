@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         /// <summary>
         /// The type of identity used for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 

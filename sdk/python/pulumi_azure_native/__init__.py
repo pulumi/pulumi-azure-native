@@ -2189,6 +2189,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurearcdata/v20211101",
+  "fqn": "pulumi_azure_native.azurearcdata.v20211101",
+  "classes": {
+   "azure-native:azurearcdata/v20211101:DataController": "DataController",
+   "azure-native:azurearcdata/v20211101:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20211101:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuredata",
   "fqn": "pulumi_azure_native.azuredata",
   "classes": {

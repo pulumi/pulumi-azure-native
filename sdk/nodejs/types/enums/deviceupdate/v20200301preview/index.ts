@@ -11,6 +11,18 @@ export const AuthenticationType = {
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -31,13 +43,3 @@ export const PublicNetworkAccess = {
  * Whether or not public network access is allowed for the container registry.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

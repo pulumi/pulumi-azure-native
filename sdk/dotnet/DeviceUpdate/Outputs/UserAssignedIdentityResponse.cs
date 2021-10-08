@@ -11,35 +11,28 @@ namespace Pulumi.AzureNative.DeviceUpdate.Outputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// User assigned identity properties
     /// </summary>
     [OutputType]
-    public sealed class IdentityResponse
+    public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The client ID of the assigned identity.
+        /// </summary>
+        public readonly string ClientId;
+        /// <summary>
+        /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// The tenant ID of resource.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The identity type.
-        /// </summary>
-        public readonly string? Type;
 
         [OutputConstructor]
-        private IdentityResponse(
-            string principalId,
+        private UserAssignedIdentityResponse(
+            string clientId,
 
-            string tenantId,
-
-            string? type)
+            string principalId)
         {
+            ClientId = clientId;
             PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
         }
     }
 }

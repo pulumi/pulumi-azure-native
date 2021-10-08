@@ -6,9 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationType',
+    'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
-    'ResourceIdentityType',
 ]
 
 
@@ -17,6 +17,16 @@ class AuthenticationType(str, Enum):
     Authentication Type
     """
     KEY_BASED = "KeyBased"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -34,11 +44,3 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"

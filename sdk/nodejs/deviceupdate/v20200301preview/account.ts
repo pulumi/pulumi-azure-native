@@ -42,7 +42,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The type of identity used for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.deviceupdate.v20200301preview.IdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.deviceupdate.v20200301preview.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -128,7 +128,7 @@ export interface AccountArgs {
     /**
      * The type of identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.deviceupdate.v20200301preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.deviceupdate.v20200301preview.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft:
+
+- Identity definition `deviceupdate.Account` was adjusted to use the common type
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16197))
 
 ---
 

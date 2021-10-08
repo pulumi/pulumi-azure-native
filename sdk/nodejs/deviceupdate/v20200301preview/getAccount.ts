@@ -48,7 +48,7 @@ export interface GetAccountResult {
     /**
      * The type of identity used for the resource.
      */
-    readonly identity?: outputs.deviceupdate.v20200301preview.IdentityResponse;
+    readonly identity?: outputs.deviceupdate.v20200301preview.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */

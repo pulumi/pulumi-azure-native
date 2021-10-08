@@ -7,22 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Inputs
+namespace Pulumi.AzureNative.AzureArcData.V20211101.Outputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Username and password for basic login authentication.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class BasicLoginInformationResponse
     {
         /// <summary>
-        /// The identity type.
+        /// Login username.
         /// </summary>
-        [Input("type")]
-        public Input<Pulumi.AzureNative.DeviceUpdate.V20200301Preview.ResourceIdentityType>? Type { get; set; }
+        public readonly string? Username;
 
-        public IdentityArgs()
+        [OutputConstructor]
+        private BasicLoginInformationResponse(string? username)
         {
+            Username = username;
         }
     }
 }

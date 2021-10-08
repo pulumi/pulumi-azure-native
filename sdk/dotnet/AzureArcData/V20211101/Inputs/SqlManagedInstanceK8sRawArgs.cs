@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DeviceUpdate.Inputs
+namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// The raw kubernetes information.
     /// </summary>
-    public sealed class IdentityArgs : Pulumi.ResourceArgs
+    public sealed class SqlManagedInstanceK8sRawArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity type.
+        /// The kubernetes spec information.
         /// </summary>
-        [Input("type")]
-        public Input<Pulumi.AzureNative.DeviceUpdate.ResourceIdentityType>? Type { get; set; }
+        [Input("spec")]
+        public Input<Inputs.SqlManagedInstanceK8sSpecArgs>? Spec { get; set; }
 
-        public IdentityArgs()
+        public SqlManagedInstanceK8sRawArgs()
         {
         }
     }

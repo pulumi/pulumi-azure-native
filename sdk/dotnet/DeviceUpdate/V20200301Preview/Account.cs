@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         /// The type of identity used for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         /// The type of identity used for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
