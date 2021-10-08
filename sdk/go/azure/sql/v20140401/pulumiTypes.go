@@ -755,6 +755,16 @@ func (o TransparentDataEncryptionResponseArrayOutput) Index(i pulumi.IntInput) T
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationImpactResponseInput)(nil)).Elem(), OperationImpactResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationImpactResponseArrayInput)(nil)).Elem(), OperationImpactResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendedIndexResponseInput)(nil)).Elem(), RecommendedIndexResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendedIndexResponseArrayInput)(nil)).Elem(), RecommendedIndexResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTierAdvisorResponseInput)(nil)).Elem(), ServiceTierAdvisorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTierAdvisorResponseArrayInput)(nil)).Elem(), ServiceTierAdvisorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SloUsageMetricResponseInput)(nil)).Elem(), SloUsageMetricResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SloUsageMetricResponseArrayInput)(nil)).Elem(), SloUsageMetricResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransparentDataEncryptionResponseInput)(nil)).Elem(), TransparentDataEncryptionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransparentDataEncryptionResponseArrayInput)(nil)).Elem(), TransparentDataEncryptionResponseArray{})
 	pulumi.RegisterOutputType(OperationImpactResponseOutput{})
 	pulumi.RegisterOutputType(OperationImpactResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseOutput{})

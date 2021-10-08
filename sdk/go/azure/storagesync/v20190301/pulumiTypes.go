@@ -831,6 +831,14 @@ func (o SyncSessionStatusResponsePtrOutput) TransientFilesNotSyncingCount() pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesNotSyncingErrorResponseInput)(nil)).Elem(), FilesNotSyncingErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesNotSyncingErrorResponseArrayInput)(nil)).Elem(), FilesNotSyncingErrorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncStatusResponseInput)(nil)).Elem(), ServerEndpointSyncStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncStatusResponsePtrInput)(nil)).Elem(), ServerEndpointSyncStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncActivityStatusResponseInput)(nil)).Elem(), SyncActivityStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncActivityStatusResponsePtrInput)(nil)).Elem(), SyncActivityStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncSessionStatusResponseInput)(nil)).Elem(), SyncSessionStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncSessionStatusResponsePtrInput)(nil)).Elem(), SyncSessionStatusResponseArgs{})
 	pulumi.RegisterOutputType(FilesNotSyncingErrorResponseOutput{})
 	pulumi.RegisterOutputType(FilesNotSyncingErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncStatusResponseOutput{})

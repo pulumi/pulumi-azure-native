@@ -667,6 +667,14 @@ func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) WorkloadItemType() p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRecoveryServiceVaultProtectionIntentInput)(nil)).Elem(), AzureRecoveryServiceVaultProtectionIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRecoveryServiceVaultProtectionIntentResponseInput)(nil)).Elem(), AzureRecoveryServiceVaultProtectionIntentResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureResourceProtectionIntentInput)(nil)).Elem(), AzureResourceProtectionIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureResourceProtectionIntentResponseInput)(nil)).Elem(), AzureResourceProtectionIntentResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureWorkloadAutoProtectionIntentInput)(nil)).Elem(), AzureWorkloadAutoProtectionIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureWorkloadAutoProtectionIntentResponseInput)(nil)).Elem(), AzureWorkloadAutoProtectionIntentResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntentInput)(nil)).Elem(), AzureWorkloadSQLAutoProtectionIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureWorkloadSQLAutoProtectionIntentResponseInput)(nil)).Elem(), AzureWorkloadSQLAutoProtectionIntentResponseArgs{})
 	pulumi.RegisterOutputType(AzureRecoveryServiceVaultProtectionIntentOutput{})
 	pulumi.RegisterOutputType(AzureRecoveryServiceVaultProtectionIntentResponseOutput{})
 	pulumi.RegisterOutputType(AzureResourceProtectionIntentOutput{})

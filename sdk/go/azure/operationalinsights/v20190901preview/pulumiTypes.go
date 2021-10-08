@@ -545,6 +545,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesRelatedInput)(nil)).Elem(), LogAnalyticsQueryPackQueryPropertiesRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesRelatedPtrInput)(nil)).Elem(), LogAnalyticsQueryPackQueryPropertiesRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesResponseRelatedInput)(nil)).Elem(), LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrInput)(nil)).Elem(), LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesRelatedOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput{})

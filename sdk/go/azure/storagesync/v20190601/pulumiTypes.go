@@ -1282,6 +1282,20 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) UploadStatus() ServerEndpoint
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointCloudTieringStatusResponseInput)(nil)).Elem(), ServerEndpointCloudTieringStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointCloudTieringStatusResponsePtrInput)(nil)).Elem(), ServerEndpointCloudTieringStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointFilesNotSyncingErrorResponseInput)(nil)).Elem(), ServerEndpointFilesNotSyncingErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointFilesNotSyncingErrorResponseArrayInput)(nil)).Elem(), ServerEndpointFilesNotSyncingErrorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointRecallErrorResponseInput)(nil)).Elem(), ServerEndpointRecallErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointRecallErrorResponseArrayInput)(nil)).Elem(), ServerEndpointRecallErrorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointRecallStatusResponseInput)(nil)).Elem(), ServerEndpointRecallStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointRecallStatusResponsePtrInput)(nil)).Elem(), ServerEndpointRecallStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncActivityStatusResponseInput)(nil)).Elem(), ServerEndpointSyncActivityStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncActivityStatusResponsePtrInput)(nil)).Elem(), ServerEndpointSyncActivityStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncSessionStatusResponseInput)(nil)).Elem(), ServerEndpointSyncSessionStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncSessionStatusResponsePtrInput)(nil)).Elem(), ServerEndpointSyncSessionStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncStatusResponseInput)(nil)).Elem(), ServerEndpointSyncStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointSyncStatusResponsePtrInput)(nil)).Elem(), ServerEndpointSyncStatusResponseArgs{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorResponseOutput{})

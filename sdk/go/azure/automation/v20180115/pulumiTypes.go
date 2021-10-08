@@ -603,6 +603,14 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.Stri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashInput)(nil)).Elem(), ContentHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashPtrInput)(nil)).Elem(), ContentHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceInput)(nil)).Elem(), ContentSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourcePtrInput)(nil)).Elem(), ContentSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationAssociationPropertyInput)(nil)).Elem(), DscConfigurationAssociationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationAssociationPropertyPtrInput)(nil)).Elem(), DscConfigurationAssociationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationAssociationPropertyResponseInput)(nil)).Elem(), DscConfigurationAssociationPropertyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationAssociationPropertyResponsePtrInput)(nil)).Elem(), DscConfigurationAssociationPropertyResponseArgs{})
 	pulumi.RegisterOutputType(ContentHashOutput{})
 	pulumi.RegisterOutputType(ContentHashPtrOutput{})
 	pulumi.RegisterOutputType(ContentSourceOutput{})

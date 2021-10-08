@@ -397,6 +397,10 @@ func (o ExtensionResourcePlanResponsePtrOutput) Version() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionResourcePlanInput)(nil)).Elem(), ExtensionResourcePlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionResourcePlanPtrInput)(nil)).Elem(), ExtensionResourcePlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionResourcePlanResponseInput)(nil)).Elem(), ExtensionResourcePlanResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionResourcePlanResponsePtrInput)(nil)).Elem(), ExtensionResourcePlanResponseArgs{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanOutput{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanResponseOutput{})

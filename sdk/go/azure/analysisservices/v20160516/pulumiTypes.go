@@ -603,6 +603,14 @@ func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuInput)(nil)).Elem(), ResourceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuPtrInput)(nil)).Elem(), ResourceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponseInput)(nil)).Elem(), ResourceSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponsePtrInput)(nil)).Elem(), ResourceSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsInput)(nil)).Elem(), ServerAdministratorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsPtrInput)(nil)).Elem(), ServerAdministratorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsResponseInput)(nil)).Elem(), ServerAdministratorsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsResponsePtrInput)(nil)).Elem(), ServerAdministratorsResponseArgs{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})

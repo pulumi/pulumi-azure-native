@@ -727,6 +727,16 @@ func (o ServiceBusResponseOutput) Tags() pulumi.StringMapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuInfoInput)(nil)).Elem(), DigitalTwinsSkuInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuInfoPtrInput)(nil)).Elem(), DigitalTwinsSkuInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuInfoResponseInput)(nil)).Elem(), DigitalTwinsSkuInfoResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuInfoResponsePtrInput)(nil)).Elem(), DigitalTwinsSkuInfoResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridInput)(nil)).Elem(), EventGridArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridResponseInput)(nil)).Elem(), EventGridResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubInput)(nil)).Elem(), EventHubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubResponseInput)(nil)).Elem(), EventHubResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceBusInput)(nil)).Elem(), ServiceBusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceBusResponseInput)(nil)).Elem(), ServiceBusResponseArgs{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoResponseOutput{})

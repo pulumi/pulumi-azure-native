@@ -470,6 +470,12 @@ func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateInput)(nil)).Elem(), AppServiceCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateMapInput)(nil)).Elem(), AppServiceCertificateMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateResponseInput)(nil)).Elem(), AppServiceCertificateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateResponseMapInput)(nil)).Elem(), AppServiceCertificateResponseMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDetailsResponseInput)(nil)).Elem(), CertificateDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDetailsResponsePtrInput)(nil)).Elem(), CertificateDetailsResponseArgs{})
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})

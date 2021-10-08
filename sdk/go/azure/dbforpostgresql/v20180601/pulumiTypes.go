@@ -588,6 +588,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPropertyInput)(nil)).Elem(), PrivateEndpointPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPropertyPtrInput)(nil)).Elem(), PrivateEndpointPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPropertyResponseInput)(nil)).Elem(), PrivateEndpointPropertyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPropertyResponsePtrInput)(nil)).Elem(), PrivateEndpointPropertyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInput)(nil)).Elem(), PrivateLinkServiceConnectionStatePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyPtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyResponseInput)(nil)).Elem(), PrivateLinkServiceConnectionStatePropertyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyResponsePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatePropertyResponseArgs{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})

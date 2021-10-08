@@ -961,6 +961,22 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AclInput)(nil)).Elem(), AclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclArrayInput)(nil)).Elem(), AclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclResponseInput)(nil)).Elem(), AclResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclResponseArrayInput)(nil)).Elem(), AclResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskInput)(nil)).Elem(), DiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskArrayInput)(nil)).Elem(), DiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskResponseInput)(nil)).Elem(), DiskResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskResponseArrayInput)(nil)).Elem(), DiskResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IscsiLunInput)(nil)).Elem(), IscsiLunArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IscsiLunArrayInput)(nil)).Elem(), IscsiLunArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IscsiLunResponseInput)(nil)).Elem(), IscsiLunResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IscsiLunResponseArrayInput)(nil)).Elem(), IscsiLunResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemMetadataResponseInput)(nil)).Elem(), SystemMetadataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemMetadataResponsePtrInput)(nil)).Elem(), SystemMetadataResponseArgs{})
 	pulumi.RegisterOutputType(AclOutput{})
 	pulumi.RegisterOutputType(AclArrayOutput{})
 	pulumi.RegisterOutputType(AclResponseOutput{})

@@ -785,6 +785,17 @@ func (o TagsResourceResponseOutput) Tags() pulumi.StringMapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointInput)(nil)).Elem(), PrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPtrInput)(nil)).Elem(), PrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponseInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponsePtrInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponseInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponsePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagsResourceInput)(nil)).Elem(), TagsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagsResourcePtrInput)(nil)).Elem(), TagsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagsResourceResponseInput)(nil)).Elem(), TagsResourceResponseArgs{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

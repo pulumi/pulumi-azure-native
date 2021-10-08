@@ -407,6 +407,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataPoolLocationInput)(nil)).Elem(), DataPoolLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataPoolLocationArrayInput)(nil)).Elem(), DataPoolLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataPoolLocationResponseInput)(nil)).Elem(), DataPoolLocationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataPoolLocationResponseArrayInput)(nil)).Elem(), DataPoolLocationResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(DataPoolLocationOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationArrayOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseOutput{})

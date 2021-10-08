@@ -346,6 +346,10 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResponseInput)(nil)).Elem(), ClusterNodeResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResponseArrayInput)(nil)).Elem(), ClusterNodeResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterReportedPropertiesResponseInput)(nil)).Elem(), ClusterReportedPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterReportedPropertiesResponsePtrInput)(nil)).Elem(), ClusterReportedPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(ClusterNodeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponseOutput{})

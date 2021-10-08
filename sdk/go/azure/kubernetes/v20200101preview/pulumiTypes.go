@@ -849,6 +849,18 @@ func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationDetailsValueInput)(nil)).Elem(), AuthenticationDetailsValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterAADProfileInput)(nil)).Elem(), ConnectedClusterAADProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterAADProfilePtrInput)(nil)).Elem(), ConnectedClusterAADProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterAADProfileResponseInput)(nil)).Elem(), ConnectedClusterAADProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterAADProfileResponsePtrInput)(nil)).Elem(), ConnectedClusterAADProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityInput)(nil)).Elem(), ConnectedClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityPtrInput)(nil)).Elem(), ConnectedClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityResponseInput)(nil)).Elem(), ConnectedClusterIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityResponsePtrInput)(nil)).Elem(), ConnectedClusterIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialResultResponseInput)(nil)).Elem(), CredentialResultResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialResultResponseArrayInput)(nil)).Elem(), CredentialResultResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionConfigResponseInput)(nil)).Elem(), HybridConnectionConfigResponseArgs{})
 	pulumi.RegisterOutputType(AuthenticationDetailsValueOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfilePtrOutput{})

@@ -682,6 +682,15 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityInput)(nil)).Elem(), ConnectedClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityPtrInput)(nil)).Elem(), ConnectedClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityResponseInput)(nil)).Elem(), ConnectedClusterIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterIdentityResponsePtrInput)(nil)).Elem(), ConnectedClusterIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialResultResponseInput)(nil)).Elem(), CredentialResultResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialResultResponseArrayInput)(nil)).Elem(), CredentialResultResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionConfigResponseInput)(nil)).Elem(), HybridConnectionConfigResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityResponseOutput{})

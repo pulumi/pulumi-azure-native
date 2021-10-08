@@ -673,6 +673,16 @@ func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPasswordResponseInput)(nil)).Elem(), RegistryPasswordResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPasswordResponseArrayInput)(nil)).Elem(), RegistryPasswordResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountParametersInput)(nil)).Elem(), StorageAccountParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountParametersPtrInput)(nil)).Elem(), StorageAccountParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesResponseInput)(nil)).Elem(), StorageAccountPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesResponsePtrInput)(nil)).Elem(), StorageAccountPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

@@ -984,6 +984,19 @@ func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CompatibilityResponseInput)(nil)).Elem(), CompatibilityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompatibilityResponsePtrInput)(nil)).Elem(), CompatibilityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskImageResponseInput)(nil)).Elem(), DataDiskImageResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskImageResponseArrayInput)(nil)).Elem(), DataDiskImageResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IconUrisResponseInput)(nil)).Elem(), IconUrisResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IconUrisResponsePtrInput)(nil)).Elem(), IconUrisResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OsDiskImageResponseInput)(nil)).Elem(), OsDiskImageResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductLinkResponseInput)(nil)).Elem(), ProductLinkResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductLinkResponseArrayInput)(nil)).Elem(), ProductLinkResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductPropertiesResponseInput)(nil)).Elem(), ProductPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductPropertiesResponsePtrInput)(nil)).Elem(), ProductPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductResponseInput)(nil)).Elem(), ProductResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductResponseArrayInput)(nil)).Elem(), ProductResponseArray{})
 	pulumi.RegisterOutputType(CompatibilityResponseOutput{})
 	pulumi.RegisterOutputType(CompatibilityResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataDiskImageResponseOutput{})

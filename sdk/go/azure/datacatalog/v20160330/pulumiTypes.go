@@ -211,6 +211,10 @@ func (o PrincipalsResponseArrayOutput) Index(i pulumi.IntInput) PrincipalsRespon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalsInput)(nil)).Elem(), PrincipalsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalsArrayInput)(nil)).Elem(), PrincipalsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalsResponseInput)(nil)).Elem(), PrincipalsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalsResponseArrayInput)(nil)).Elem(), PrincipalsResponseArray{})
 	pulumi.RegisterOutputType(PrincipalsOutput{})
 	pulumi.RegisterOutputType(PrincipalsArrayOutput{})
 	pulumi.RegisterOutputType(PrincipalsResponseOutput{})

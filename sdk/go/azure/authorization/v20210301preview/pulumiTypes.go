@@ -429,6 +429,14 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewInstanceInput)(nil)).Elem(), AccessReviewInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewInstanceArrayInput)(nil)).Elem(), AccessReviewInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewInstanceResponseInput)(nil)).Elem(), AccessReviewInstanceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewInstanceResponseArrayInput)(nil)).Elem(), AccessReviewInstanceResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewReviewerInput)(nil)).Elem(), AccessReviewReviewerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewReviewerArrayInput)(nil)).Elem(), AccessReviewReviewerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewReviewerResponseInput)(nil)).Elem(), AccessReviewReviewerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewReviewerResponseArrayInput)(nil)).Elem(), AccessReviewReviewerResponseArray{})
 	pulumi.RegisterOutputType(AccessReviewInstanceOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceResponseOutput{})
