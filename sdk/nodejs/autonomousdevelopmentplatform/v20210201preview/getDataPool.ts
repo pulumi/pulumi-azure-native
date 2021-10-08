@@ -71,3 +71,22 @@ export interface GetDataPoolResult {
      */
     readonly type: string;
 }
+
+export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
+    return pulumi.output(args).apply(a => getDataPool(a, opts))
+}
+
+export interface GetDataPoolOutputArgs {
+    /**
+     * The name of the ADP account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Data Pool
+     */
+    dataPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

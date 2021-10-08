@@ -94,3 +94,18 @@ export interface GetFactoryResult {
      */
     readonly version: string;
 }
+
+export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
+    return pulumi.output(args).apply(a => getFactory(a, opts))
+}
+
+export interface GetFactoryOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

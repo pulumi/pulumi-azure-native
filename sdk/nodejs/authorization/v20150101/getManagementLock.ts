@@ -52,3 +52,14 @@ export interface GetManagementLockResult {
      */
     readonly type: string;
 }
+
+export function getManagementLockOutput(args: GetManagementLockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockResult> {
+    return pulumi.output(args).apply(a => getManagementLock(a, opts))
+}
+
+export interface GetManagementLockOutputArgs {
+    /**
+     * Name of the management lock.
+     */
+    lockName: pulumi.Input<string>;
+}

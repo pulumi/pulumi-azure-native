@@ -89,3 +89,30 @@ export interface GetIncidentCommentResult {
      */
     readonly type: string;
 }
+
+export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
+    return pulumi.output(args).apply(a => getIncidentComment(a, opts))
+}
+
+export interface GetIncidentCommentOutputArgs {
+    /**
+     * Incident comment ID
+     */
+    incidentCommentId: pulumi.Input<string>;
+    /**
+     * Incident ID
+     */
+    incidentId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

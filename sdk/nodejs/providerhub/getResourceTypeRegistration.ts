@@ -48,3 +48,18 @@ export interface GetResourceTypeRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
+    return pulumi.output(args).apply(a => getResourceTypeRegistration(a, opts))
+}
+
+export interface GetResourceTypeRegistrationOutputArgs {
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+    /**
+     * The resource type.
+     */
+    resourceType: pulumi.Input<string>;
+}

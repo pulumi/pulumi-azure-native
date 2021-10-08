@@ -103,3 +103,18 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly type: string;
 }
+
+export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
+    return pulumi.output(args).apply(a => getOpenShiftManagedCluster(a, opts))
+}
+
+export interface GetOpenShiftManagedClusterOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the OpenShift managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

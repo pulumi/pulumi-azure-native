@@ -55,3 +55,26 @@ export interface GetTestResultDownloadURLResult {
      */
     readonly expirationTime: string;
 }
+
+export function getTestResultDownloadURLOutput(args: GetTestResultDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultDownloadURLResult> {
+    return pulumi.output(args).apply(a => getTestResultDownloadURL(a, opts))
+}
+
+export interface GetTestResultDownloadURLOutputArgs {
+    /**
+     * The resource name of the Test Base Package.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+    /**
+     * The Test Result Name. It equals to {osName}-{TestResultId} string.
+     */
+    testResultName: pulumi.Input<string>;
+}

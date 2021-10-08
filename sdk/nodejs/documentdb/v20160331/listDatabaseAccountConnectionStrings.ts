@@ -42,3 +42,18 @@ export interface ListDatabaseAccountConnectionStringsResult {
      */
     readonly connectionStrings?: outputs.documentdb.v20160331.DatabaseAccountConnectionStringResponse[];
 }
+
+export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
+    return pulumi.output(args).apply(a => listDatabaseAccountConnectionStrings(a, opts))
+}
+
+export interface ListDatabaseAccountConnectionStringsOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

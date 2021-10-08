@@ -70,3 +70,38 @@ export interface GetTestResultFileResult {
      */
     readonly nextLink?: string;
 }
+
+export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
+    return pulumi.output(args).apply(a => getTestResultFile(a, opts))
+}
+
+export interface GetTestResultFileOutputArgs {
+    /**
+     * The continuation token.
+     */
+    continuationToken?: pulumi.Input<string>;
+    /**
+     * The format to use when returning the webtest result.
+     */
+    downloadAs: pulumi.Input<string>;
+    /**
+     * The location ID where the webtest was physically run.
+     */
+    geoLocationId: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The success state criteria for the webtest result.
+     */
+    testSuccessfulCriteria?: pulumi.Input<boolean>;
+    /**
+     * The posix (epoch) time stamp for the webtest result.
+     */
+    timeStamp: pulumi.Input<number>;
+    /**
+     * The name of the Application Insights webtest resource.
+     */
+    webTestName: pulumi.Input<string>;
+}

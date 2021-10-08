@@ -87,3 +87,22 @@ export interface GetSqlDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
+    return pulumi.output(args).apply(a => getSqlDatabase(a, opts))
+}
+
+export interface GetSqlDatabaseOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the sql database.
+     */
+    sqlDatabaseName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

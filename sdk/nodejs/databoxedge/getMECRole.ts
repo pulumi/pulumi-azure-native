@@ -73,3 +73,22 @@ export interface GetMECRoleResult {
      */
     readonly type: string;
 }
+
+export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
+    return pulumi.output(args).apply(a => getMECRole(a, opts))
+}
+
+export interface GetMECRoleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

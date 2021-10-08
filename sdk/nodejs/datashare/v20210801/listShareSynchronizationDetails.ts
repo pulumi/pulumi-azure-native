@@ -111,3 +111,70 @@ export interface ListShareSynchronizationDetailsResult {
      */
     readonly value: outputs.datashare.v20210801.SynchronizationDetailsResponse[];
 }
+
+export function listShareSynchronizationDetailsOutput(args: ListShareSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationDetailsResult> {
+    return pulumi.output(args).apply(a => listShareSynchronizationDetails(a, opts))
+}
+
+export interface ListShareSynchronizationDetailsOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Email of the user who created the synchronization
+     */
+    consumerEmail?: pulumi.Input<string>;
+    /**
+     * Name of the user who created the synchronization
+     */
+    consumerName?: pulumi.Input<string>;
+    /**
+     * Tenant name of the consumer who created the synchronization
+     */
+    consumerTenantName?: pulumi.Input<string>;
+    /**
+     * synchronization duration
+     */
+    durationMs?: pulumi.Input<number>;
+    /**
+     * End time of synchronization
+     */
+    endTime?: pulumi.Input<string>;
+    /**
+     * Filters the results using OData syntax.
+     */
+    filter?: pulumi.Input<string>;
+    /**
+     * message of synchronization
+     */
+    message?: pulumi.Input<string>;
+    /**
+     * Sorts the results using OData syntax.
+     */
+    orderby?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+    /**
+     * Continuation token
+     */
+    skipToken?: pulumi.Input<string>;
+    /**
+     * start time of synchronization
+     */
+    startTime?: pulumi.Input<string>;
+    /**
+     * Raw Status
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * Synchronization id
+     */
+    synchronizationId?: pulumi.Input<string>;
+}

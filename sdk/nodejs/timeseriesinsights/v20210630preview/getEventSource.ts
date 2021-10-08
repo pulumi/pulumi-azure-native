@@ -68,3 +68,22 @@ export interface GetEventSourceResult {
      */
     readonly type: string;
 }
+
+export function getEventSourceOutput(args: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
+    return pulumi.output(args).apply(a => getEventSource(a, opts))
+}
+
+export interface GetEventSourceOutputArgs {
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * The name of the Time Series Insights event source associated with the specified environment.
+     */
+    eventSourceName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

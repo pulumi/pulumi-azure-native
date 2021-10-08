@@ -47,3 +47,22 @@ export interface ListWorkflowAccessKeySecretKeysResult {
      */
     readonly secondarySecretKey: string;
 }
+
+export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
+    return pulumi.output(args).apply(a => listWorkflowAccessKeySecretKeys(a, opts))
+}
+
+export interface ListWorkflowAccessKeySecretKeysOutputArgs {
+    /**
+     * The workflow access key name.
+     */
+    accessKeyName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The workflow name.
+     */
+    workflowName: pulumi.Input<string>;
+}

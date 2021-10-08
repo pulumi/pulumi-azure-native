@@ -42,3 +42,18 @@ export interface ListClusterFollowerDatabasesResult {
      */
     readonly value?: outputs.kusto.v20200918.FollowerDatabaseDefinitionResponse[];
 }
+
+export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
+    return pulumi.output(args).apply(a => listClusterFollowerDatabases(a, opts))
+}
+
+export interface ListClusterFollowerDatabasesOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

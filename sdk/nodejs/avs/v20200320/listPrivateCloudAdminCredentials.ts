@@ -53,3 +53,18 @@ export interface ListPrivateCloudAdminCredentialsResult {
      */
     readonly vcenterUsername: string;
 }
+
+export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
+    return pulumi.output(args).apply(a => listPrivateCloudAdminCredentials(a, opts))
+}
+
+export interface ListPrivateCloudAdminCredentialsOutputArgs {
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

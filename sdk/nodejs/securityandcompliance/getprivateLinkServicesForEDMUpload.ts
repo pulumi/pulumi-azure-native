@@ -79,3 +79,18 @@ export interface GetprivateLinkServicesForEDMUploadResult {
      */
     readonly type: string;
 }
+
+export function getprivateLinkServicesForEDMUploadOutput(args: GetprivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForEDMUploadResult> {
+    return pulumi.output(args).apply(a => getprivateLinkServicesForEDMUpload(a, opts))
+}
+
+export interface GetprivateLinkServicesForEDMUploadOutputArgs {
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

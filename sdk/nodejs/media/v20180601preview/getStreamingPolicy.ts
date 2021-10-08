@@ -79,3 +79,22 @@ export interface GetStreamingPolicyResult {
      */
     readonly type: string;
 }
+
+export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
+    return pulumi.output(args).apply(a => getStreamingPolicy(a, opts))
+}
+
+export interface GetStreamingPolicyOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Streaming Policy name.
+     */
+    streamingPolicyName: pulumi.Input<string>;
+}

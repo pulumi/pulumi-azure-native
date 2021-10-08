@@ -69,3 +69,26 @@ export interface GetCodeVersionResult {
      */
     readonly type: string;
 }
+
+export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
+    return pulumi.output(args).apply(a => getCodeVersion(a, opts))
+}
+
+export interface GetCodeVersionOutputArgs {
+    /**
+     * Container name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Version identifier.
+     */
+    version: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

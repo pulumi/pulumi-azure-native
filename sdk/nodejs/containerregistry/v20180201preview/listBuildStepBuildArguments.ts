@@ -56,3 +56,26 @@ export interface ListBuildStepBuildArgumentsResult {
      */
     readonly value?: outputs.containerregistry.v20180201preview.BuildArgumentResponse[];
 }
+
+export function listBuildStepBuildArgumentsOutput(args: ListBuildStepBuildArgumentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildStepBuildArgumentsResult> {
+    return pulumi.output(args).apply(a => listBuildStepBuildArguments(a, opts))
+}
+
+export interface ListBuildStepBuildArgumentsOutputArgs {
+    /**
+     * The name of the container registry build task.
+     */
+    buildTaskName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of a build step for a container registry build task.
+     */
+    stepName: pulumi.Input<string>;
+}

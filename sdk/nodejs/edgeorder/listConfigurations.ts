@@ -52,3 +52,22 @@ export interface ListConfigurationsResult {
      */
     readonly value: outputs.edgeorder.ConfigurationResponse[];
 }
+
+export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationsResult> {
+    return pulumi.output(args).apply(a => listConfigurations(a, opts))
+}
+
+export interface ListConfigurationsOutputArgs {
+    /**
+     * Holds details about product hierarchy information and filterable property.
+     */
+    configurationFilters: pulumi.Input<pulumi.Input<inputs.edgeorder.ConfigurationFiltersArgs>[]>;
+    /**
+     * Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+     */
+    customerSubscriptionDetails?: pulumi.Input<inputs.edgeorder.CustomerSubscriptionDetailsArgs>;
+    /**
+     * $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
+     */
+    skipToken?: pulumi.Input<string>;
+}

@@ -54,3 +54,18 @@ export interface GetDefaultRolloutResult {
      */
     readonly type: string;
 }
+
+export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
+    return pulumi.output(args).apply(a => getDefaultRollout(a, opts))
+}
+
+export interface GetDefaultRolloutOutputArgs {
+    /**
+     * The name of the resource provider hosted within ProviderHub.
+     */
+    providerNamespace: pulumi.Input<string>;
+    /**
+     * The rollout name.
+     */
+    rolloutName: pulumi.Input<string>;
+}

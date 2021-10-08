@@ -86,3 +86,34 @@ export interface GetProtectedItemResult {
      */
     readonly type: string;
 }
+
+export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
+    return pulumi.output(args).apply(a => getProtectedItem(a, opts))
+}
+
+export interface GetProtectedItemOutputArgs {
+    /**
+     * Container name associated with the backed up item.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Fabric name associated with the backed up item.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * OData filter options.
+     */
+    filter?: pulumi.Input<string>;
+    /**
+     * Backed up item name whose details are to be fetched.
+     */
+    protectedItemName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

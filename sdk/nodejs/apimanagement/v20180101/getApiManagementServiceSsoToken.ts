@@ -41,3 +41,18 @@ export interface GetApiManagementServiceSsoTokenResult {
      */
     readonly redirectUri?: string;
 }
+
+export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
+    return pulumi.output(args).apply(a => getApiManagementServiceSsoToken(a, opts))
+}
+
+export interface GetApiManagementServiceSsoTokenOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

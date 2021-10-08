@@ -80,3 +80,22 @@ export interface GetHubVirtualNetworkConnectionResult {
      */
     readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
 }
+
+export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {
+    return pulumi.output(args).apply(a => getHubVirtualNetworkConnection(a, opts))
+}
+
+export interface GetHubVirtualNetworkConnectionOutputArgs {
+    /**
+     * The name of the vpn connection.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VirtualHub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualHub.
+     */
+    virtualHubName: pulumi.Input<string>;
+}

@@ -457,6 +457,9 @@ func (o WorkloadCrrAccessTokenResponseOutput) TokenExtendedInformation() pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AADPropertiesInput)(nil)).Elem(), AADPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AADPropertiesPtrInput)(nil)).Elem(), AADPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadCrrAccessTokenResponseInput)(nil)).Elem(), WorkloadCrrAccessTokenResponseArgs{})
 	pulumi.RegisterOutputType(AADPropertiesOutput{})
 	pulumi.RegisterOutputType(AADPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadCrrAccessTokenResponseOutput{})

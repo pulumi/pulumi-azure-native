@@ -286,6 +286,10 @@ func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierRespon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostingEnvironmentProfileResponseInput)(nil)).Elem(), HostingEnvironmentProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostingEnvironmentProfileResponsePtrInput)(nil)).Elem(), HostingEnvironmentProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentifierResponseInput)(nil)).Elem(), IdentifierResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentifierResponseArrayInput)(nil)).Elem(), IdentifierResponseArray{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentifierResponseOutput{})

@@ -32,3 +32,18 @@ export interface ListStorageAccountKeysArgs {
 export interface ListStorageAccountKeysResult {
     readonly userStorageKey: string;
 }
+
+export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
+    return pulumi.output(args).apply(a => listStorageAccountKeys(a, opts))
+}
+
+export interface ListStorageAccountKeysOutputArgs {
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

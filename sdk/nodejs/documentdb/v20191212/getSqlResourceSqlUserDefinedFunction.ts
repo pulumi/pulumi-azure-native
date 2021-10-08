@@ -74,3 +74,30 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
      */
     readonly type: string;
 }
+
+export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
+    return pulumi.output(args).apply(a => getSqlResourceSqlUserDefinedFunction(a, opts))
+}
+
+export interface GetSqlResourceSqlUserDefinedFunctionOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB container name.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB userDefinedFunction name.
+     */
+    userDefinedFunctionName: pulumi.Input<string>;
+}

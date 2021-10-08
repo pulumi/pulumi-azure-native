@@ -127,3 +127,22 @@ export interface GetTopicResult {
      */
     readonly updatedAt: string;
 }
+
+export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
+    return pulumi.output(args).apply(a => getTopic(a, opts))
+}
+
+export interface GetTopicOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The topic name.
+     */
+    topicName: pulumi.Input<string>;
+}

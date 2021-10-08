@@ -101,3 +101,22 @@ export interface ListTaskDetailsResult {
      */
     readonly type: string;
 }
+
+export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
+    return pulumi.output(args).apply(a => listTaskDetails(a, opts))
+}
+
+export interface ListTaskDetailsOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the container registry task.
+     */
+    taskName: pulumi.Input<string>;
+}

@@ -41,7 +41,7 @@ export interface GetAutomationResult {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse[];
+    readonly actions?: (outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse)[];
     /**
      * The security automation description.
      */
@@ -86,4 +86,19 @@ export interface GetAutomationResult {
      * Resource type
      */
     readonly type: string;
+}
+
+export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
+    return pulumi.output(args).apply(a => getAutomation(a, opts))
+}
+
+export interface GetAutomationOutputArgs {
+    /**
+     * The security automation name.
+     */
+    automationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

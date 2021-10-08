@@ -569,6 +569,16 @@ func (o DashboardPartsResponsePositionOutput) Y() pulumi.IntOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLensInput)(nil)).Elem(), DashboardLensArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLensMapInput)(nil)).Elem(), DashboardLensMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLensResponseInput)(nil)).Elem(), DashboardLensResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLensResponseMapInput)(nil)).Elem(), DashboardLensResponseMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsInput)(nil)).Elem(), DashboardPartsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsMapInput)(nil)).Elem(), DashboardPartsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsPositionInput)(nil)).Elem(), DashboardPartsPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsResponseInput)(nil)).Elem(), DashboardPartsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsResponseMapInput)(nil)).Elem(), DashboardPartsResponseMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPartsResponsePositionInput)(nil)).Elem(), DashboardPartsResponsePositionArgs{})
 	pulumi.RegisterOutputType(DashboardLensOutput{})
 	pulumi.RegisterOutputType(DashboardLensMapOutput{})
 	pulumi.RegisterOutputType(DashboardLensResponseOutput{})

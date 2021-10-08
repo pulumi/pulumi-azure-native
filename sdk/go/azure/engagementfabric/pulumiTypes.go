@@ -519,6 +519,14 @@ func (o SKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeDescriptionResponseInput)(nil)).Elem(), ChannelTypeDescriptionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeDescriptionResponseArrayInput)(nil)).Elem(), ChannelTypeDescriptionResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDescriptionResponseInput)(nil)).Elem(), KeyDescriptionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDescriptionResponseArrayInput)(nil)).Elem(), KeyDescriptionResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUInput)(nil)).Elem(), SKUArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUPtrInput)(nil)).Elem(), SKUArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUResponseInput)(nil)).Elem(), SKUResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUResponsePtrInput)(nil)).Elem(), SKUResponseArgs{})
 	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyDescriptionResponseOutput{})

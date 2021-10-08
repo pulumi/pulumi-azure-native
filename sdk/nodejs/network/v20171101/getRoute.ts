@@ -70,3 +70,22 @@ export interface GetRouteResult {
      */
     readonly provisioningState?: string;
 }
+
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+    return pulumi.output(args).apply(a => getRoute(a, opts))
+}
+
+export interface GetRouteOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the route.
+     */
+    routeName: pulumi.Input<string>;
+    /**
+     * The name of the route table.
+     */
+    routeTableName: pulumi.Input<string>;
+}

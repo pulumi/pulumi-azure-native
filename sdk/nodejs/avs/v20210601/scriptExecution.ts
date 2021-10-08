@@ -50,7 +50,7 @@ export class ScriptExecution extends pulumi.CustomResource {
     /**
      * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
      */
-    public readonly hiddenParameters!: pulumi.Output<outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse[] | undefined>;
+    public readonly hiddenParameters!: pulumi.Output<(outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse)[] | undefined>;
     /**
      * Standard information out stream from the powershell execution
      */
@@ -70,7 +70,7 @@ export class ScriptExecution extends pulumi.CustomResource {
     /**
      * Parameters the script will accept
      */
-    public readonly parameters!: pulumi.Output<outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse[] | undefined>;
+    public readonly parameters!: pulumi.Output<(outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse)[] | undefined>;
     /**
      * The state of the script execution resource
      */

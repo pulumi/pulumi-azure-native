@@ -76,3 +76,26 @@ export interface GetProtectionIntentResult {
      */
     readonly type: string;
 }
+
+export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
+    return pulumi.output(args).apply(a => getProtectionIntent(a, opts))
+}
+
+export interface GetProtectionIntentOutputArgs {
+    /**
+     * Fabric name associated with the backed up item.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Backed up item name whose details are to be fetched.
+     */
+    intentObjectName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

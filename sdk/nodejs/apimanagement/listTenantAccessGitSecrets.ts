@@ -59,3 +59,22 @@ export interface ListTenantAccessGitSecretsResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listTenantAccessGitSecretsOutput(args: ListTenantAccessGitSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessGitSecretsResult> {
+    return pulumi.output(args).apply(a => listTenantAccessGitSecrets(a, opts))
+}
+
+export interface ListTenantAccessGitSecretsOutputArgs {
+    /**
+     * The identifier of the Access configuration.
+     */
+    accessName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

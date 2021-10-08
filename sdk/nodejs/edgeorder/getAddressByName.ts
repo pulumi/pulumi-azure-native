@@ -71,3 +71,18 @@ export interface GetAddressByNameResult {
      */
     readonly type: string;
 }
+
+export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
+    return pulumi.output(args).apply(a => getAddressByName(a, opts))
+}
+
+export interface GetAddressByNameOutputArgs {
+    /**
+     * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+     */
+    addressName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -65,3 +65,18 @@ export interface GetWebAppSlotConfigurationNamesResult {
      */
     readonly type: string;
 }
+
+export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
+    return pulumi.output(args).apply(a => getWebAppSlotConfigurationNames(a, opts))
+}
+
+export interface GetWebAppSlotConfigurationNamesOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

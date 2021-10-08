@@ -59,3 +59,22 @@ export interface GetMoveResourceResult {
      */
     readonly type: string;
 }
+
+export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
+    return pulumi.output(args).apply(a => getMoveResource(a, opts))
+}
+
+export interface GetMoveResourceOutputArgs {
+    /**
+     * The Move Collection Name.
+     */
+    moveCollectionName: pulumi.Input<string>;
+    /**
+     * The Move Resource Name.
+     */
+    moveResourceName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

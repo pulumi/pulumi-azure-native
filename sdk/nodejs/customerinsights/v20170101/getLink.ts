@@ -99,3 +99,22 @@ export interface GetLinkResult {
      */
     readonly type: string;
 }
+
+export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
+    return pulumi.output(args).apply(a => getLink(a, opts))
+}
+
+export interface GetLinkOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the link.
+     */
+    linkName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

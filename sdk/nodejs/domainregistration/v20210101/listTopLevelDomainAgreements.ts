@@ -51,3 +51,22 @@ export interface ListTopLevelDomainAgreementsResult {
      */
     readonly value: outputs.domainregistration.v20210101.TldLegalAgreementResponse[];
 }
+
+export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
+    return pulumi.output(args).apply(a => listTopLevelDomainAgreements(a, opts))
+}
+
+export interface ListTopLevelDomainAgreementsOutputArgs {
+    /**
+     * If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
+     */
+    forTransfer?: pulumi.Input<boolean>;
+    /**
+     * If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
+     */
+    includePrivacy?: pulumi.Input<boolean>;
+    /**
+     * Name of the top-level domain.
+     */
+    name: pulumi.Input<string>;
+}

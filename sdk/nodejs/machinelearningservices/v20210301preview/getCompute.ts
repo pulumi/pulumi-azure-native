@@ -79,3 +79,22 @@ export interface GetComputeResult {
      */
     readonly type: string;
 }
+
+export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
+    return pulumi.output(args).apply(a => getCompute(a, opts))
+}
+
+export interface GetComputeOutputArgs {
+    /**
+     * Name of the Azure Machine Learning compute.
+     */
+    computeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

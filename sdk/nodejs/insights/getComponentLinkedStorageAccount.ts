@@ -59,3 +59,22 @@ export interface GetComponentLinkedStorageAccountResult {
      */
     readonly type: string;
 }
+
+export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
+    return pulumi.output(args).apply(a => getComponentLinkedStorageAccount(a, opts))
+}
+
+export interface GetComponentLinkedStorageAccountOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * The type of the Application Insights component data source for the linked storage account.
+     */
+    storageType: pulumi.Input<string>;
+}

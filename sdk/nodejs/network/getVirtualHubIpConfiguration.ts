@@ -80,3 +80,22 @@ export interface GetVirtualHubIpConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
+    return pulumi.output(args).apply(a => getVirtualHubIpConfiguration(a, opts))
+}
+
+export interface GetVirtualHubIpConfigurationOutputArgs {
+    /**
+     * The name of the ipconfig.
+     */
+    ipConfigName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VirtualHub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualHub.
+     */
+    virtualHubName: pulumi.Input<string>;
+}

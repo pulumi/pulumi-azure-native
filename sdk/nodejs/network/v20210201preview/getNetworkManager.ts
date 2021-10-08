@@ -86,3 +86,18 @@ export interface GetNetworkManagerResult {
      */
     readonly type: string;
 }
+
+export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
+    return pulumi.output(args).apply(a => getNetworkManager(a, opts))
+}
+
+export interface GetNetworkManagerOutputArgs {
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

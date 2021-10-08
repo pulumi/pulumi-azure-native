@@ -55,3 +55,18 @@ export interface GetDeviceGroupResult {
      */
     readonly type: string;
 }
+
+export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
+    return pulumi.output(args).apply(a => getDeviceGroup(a, opts))
+}
+
+export interface GetDeviceGroupOutputArgs {
+    /**
+     * Device group name
+     */
+    deviceGroupName: pulumi.Input<string>;
+    /**
+     * Defender for IoT location
+     */
+    iotDefenderLocation: pulumi.Input<string>;
+}

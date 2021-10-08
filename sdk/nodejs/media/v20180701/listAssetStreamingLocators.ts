@@ -47,3 +47,22 @@ export interface ListAssetStreamingLocatorsResult {
      */
     readonly streamingLocators: outputs.media.v20180701.AssetStreamingLocatorResponse[];
 }
+
+export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
+    return pulumi.output(args).apply(a => listAssetStreamingLocators(a, opts))
+}
+
+export interface ListAssetStreamingLocatorsOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Asset name.
+     */
+    assetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

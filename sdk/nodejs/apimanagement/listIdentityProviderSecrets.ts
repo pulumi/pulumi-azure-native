@@ -47,3 +47,22 @@ export interface ListIdentityProviderSecretsResult {
      */
     readonly clientSecret?: string;
 }
+
+export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
+    return pulumi.output(args).apply(a => listIdentityProviderSecrets(a, opts))
+}
+
+export interface ListIdentityProviderSecretsOutputArgs {
+    /**
+     * Identity Provider Type identifier.
+     */
+    identityProviderName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

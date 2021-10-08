@@ -62,3 +62,18 @@ export interface ListOperationalizationClusterKeysResult {
      */
     readonly storageAccount?: outputs.machinelearningcompute.v20170601preview.StorageAccountCredentialsResponse;
 }
+
+export function listOperationalizationClusterKeysOutput(args: ListOperationalizationClusterKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOperationalizationClusterKeysResult> {
+    return pulumi.output(args).apply(a => listOperationalizationClusterKeys(a, opts))
+}
+
+export interface ListOperationalizationClusterKeysOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which the cluster is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

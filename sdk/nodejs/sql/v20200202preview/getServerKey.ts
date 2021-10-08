@@ -74,3 +74,22 @@ export interface GetServerKeyResult {
      */
     readonly type: string;
 }
+
+export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
+    return pulumi.output(args).apply(a => getServerKey(a, opts))
+}
+
+export interface GetServerKeyOutputArgs {
+    /**
+     * The name of the server key to be retrieved.
+     */
+    keyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

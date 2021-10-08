@@ -105,3 +105,30 @@ export interface GetUserResult {
      */
     readonly uniqueIdentifier?: string;
 }
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+export interface GetUserOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=email)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

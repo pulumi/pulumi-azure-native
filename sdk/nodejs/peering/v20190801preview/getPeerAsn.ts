@@ -61,3 +61,14 @@ export interface GetPeerAsnResult {
      */
     readonly validationState?: string;
 }
+
+export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
+    return pulumi.output(args).apply(a => getPeerAsn(a, opts))
+}
+
+export interface GetPeerAsnOutputArgs {
+    /**
+     * The peer ASN name.
+     */
+    peerAsnName: pulumi.Input<string>;
+}

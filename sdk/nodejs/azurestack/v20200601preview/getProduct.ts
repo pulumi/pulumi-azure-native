@@ -135,3 +135,22 @@ export interface GetProductResult {
      */
     readonly vmExtensionType?: string;
 }
+
+export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
+    return pulumi.output(args).apply(a => getProduct(a, opts))
+}
+
+export interface GetProductOutputArgs {
+    /**
+     * Name of the product.
+     */
+    productName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

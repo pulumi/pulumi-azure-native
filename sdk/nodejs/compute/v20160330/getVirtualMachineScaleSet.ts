@@ -82,3 +82,18 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly virtualMachineProfile?: outputs.compute.v20160330.VirtualMachineScaleSetVMProfileResponse;
 }
+
+export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineScaleSet(a, opts))
+}
+
+export interface GetVirtualMachineScaleSetOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set.
+     */
+    vmScaleSetName: pulumi.Input<string>;
+}

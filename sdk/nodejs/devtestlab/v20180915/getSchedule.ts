@@ -112,3 +112,26 @@ export interface GetScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
+
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
+}
+
+export interface GetScheduleOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

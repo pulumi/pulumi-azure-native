@@ -45,3 +45,18 @@ export interface GetProjectKeysResult {
      */
     readonly workspaceKey: string;
 }
+
+export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
+    return pulumi.output(args).apply(a => getProjectKeys(a, opts))
+}
+
+export interface GetProjectKeysOutputArgs {
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

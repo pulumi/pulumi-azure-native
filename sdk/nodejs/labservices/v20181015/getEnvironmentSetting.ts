@@ -113,3 +113,30 @@ export interface GetEnvironmentSettingResult {
      */
     readonly uniqueIdentifier?: string;
 }
+
+export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
+    return pulumi.output(args).apply(a => getEnvironmentSetting(a, opts))
+}
+
+export interface GetEnvironmentSettingOutputArgs {
+    /**
+     * The name of the environment Setting.
+     */
+    environmentSettingName: pulumi.Input<string>;
+    /**
+     * Specify the $expand query. Example: 'properties($select=publishingState)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

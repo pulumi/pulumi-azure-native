@@ -66,3 +66,18 @@ export interface GetPrivateLinkHubResult {
      */
     readonly type: string;
 }
+
+export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
+    return pulumi.output(args).apply(a => getPrivateLinkHub(a, opts))
+}
+
+export interface GetPrivateLinkHubOutputArgs {
+    /**
+     * Name of the privateLinkHub
+     */
+    privateLinkHubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

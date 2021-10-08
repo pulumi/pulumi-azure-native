@@ -94,3 +94,18 @@ export interface GetAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
+    return pulumi.output(args).apply(a => getAssignment(a, opts))
+}
+
+export interface GetAssignmentOutputArgs {
+    /**
+     * Name of the blueprint assignment.
+     */
+    assignmentName: pulumi.Input<string>;
+    /**
+     * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+     */
+    resourceScope: pulumi.Input<string>;
+}

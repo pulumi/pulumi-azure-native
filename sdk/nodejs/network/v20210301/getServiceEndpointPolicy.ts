@@ -95,3 +95,22 @@ export interface GetServiceEndpointPolicyResult {
      */
     readonly type: string;
 }
+
+export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
+    return pulumi.output(args).apply(a => getServiceEndpointPolicy(a, opts))
+}
+
+export interface GetServiceEndpointPolicyOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service endpoint policy.
+     */
+    serviceEndpointPolicyName: pulumi.Input<string>;
+}

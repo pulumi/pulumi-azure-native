@@ -76,3 +76,30 @@ export interface GetApiIssueCommentResult {
      */
     readonly userId: string;
 }
+
+export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
+    return pulumi.output(args).apply(a => getApiIssueComment(a, opts))
+}
+
+export interface GetApiIssueCommentOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Comment identifier within an Issue. Must be unique in the current Issue.
+     */
+    commentId: pulumi.Input<string>;
+    /**
+     * Issue identifier. Must be unique in the current API Management service instance.
+     */
+    issueId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

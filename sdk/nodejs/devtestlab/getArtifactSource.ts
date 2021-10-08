@@ -112,3 +112,26 @@ export interface GetArtifactSourceResult {
      */
     readonly uri?: string;
 }
+
+export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
+    return pulumi.output(args).apply(a => getArtifactSource(a, opts))
+}
+
+export interface GetArtifactSourceOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=displayName)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the artifact source.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

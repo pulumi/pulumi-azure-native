@@ -63,3 +63,22 @@ export interface GetGuestConfigurationAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
+    return pulumi.output(args).apply(a => getGuestConfigurationAssignment(a, opts))
+}
+
+export interface GetGuestConfigurationAssignmentOutputArgs {
+    /**
+     * The guest configuration assignment name.
+     */
+    guestConfigurationAssignmentName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    vmName: pulumi.Input<string>;
+}

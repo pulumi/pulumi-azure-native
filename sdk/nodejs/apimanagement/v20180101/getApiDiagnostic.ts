@@ -63,3 +63,26 @@ export interface GetApiDiagnosticResult {
      */
     readonly type: string;
 }
+
+export function getApiDiagnosticOutput(args: GetApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDiagnosticResult> {
+    return pulumi.output(args).apply(a => getApiDiagnostic(a, opts))
+}
+
+export interface GetApiDiagnosticOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Diagnostic identifier. Must be unique in the current API Management service instance.
+     */
+    diagnosticId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

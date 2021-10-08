@@ -92,3 +92,26 @@ export interface GetKustoPoolPrincipalAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
+    return pulumi.output(args).apply(a => getKustoPoolPrincipalAssignment(a, opts))
+}
+
+export interface GetKustoPoolPrincipalAssignmentOutputArgs {
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto principalAssignment.
+     */
+    principalAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

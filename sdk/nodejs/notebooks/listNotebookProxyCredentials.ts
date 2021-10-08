@@ -54,3 +54,18 @@ export interface ListNotebookProxyCredentialsResult {
      */
     readonly secondaryAccessKey?: string;
 }
+
+export function listNotebookProxyCredentialsOutput(args: ListNotebookProxyCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookProxyCredentialsResult> {
+    return pulumi.output(args).apply(a => listNotebookProxyCredentials(a, opts))
+}
+
+export interface ListNotebookProxyCredentialsOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -134,3 +134,18 @@ export interface GetServerGroupResult {
      */
     readonly type: string;
 }
+
+export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerGroupResult> {
+    return pulumi.output(args).apply(a => getServerGroup(a, opts))
+}
+
+export interface GetServerGroupOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server group.
+     */
+    serverGroupName: pulumi.Input<string>;
+}

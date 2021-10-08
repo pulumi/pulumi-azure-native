@@ -59,3 +59,22 @@ export interface GetVirtualNetworkRuleResult {
      */
     readonly type: string;
 }
+
+export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkRule(a, opts))
+}
+
+export interface GetVirtualNetworkRuleOutputArgs {
+    /**
+     * The name of the Data Lake Store account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network rule to retrieve.
+     */
+    virtualNetworkRuleName: pulumi.Input<string>;
+}

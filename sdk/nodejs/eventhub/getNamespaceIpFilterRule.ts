@@ -67,3 +67,22 @@ export interface GetNamespaceIpFilterRuleResult {
      */
     readonly type: string;
 }
+
+export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceIpFilterRule(a, opts))
+}
+
+export interface GetNamespaceIpFilterRuleOutputArgs {
+    /**
+     * The IP Filter Rule name.
+     */
+    ipFilterRuleName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

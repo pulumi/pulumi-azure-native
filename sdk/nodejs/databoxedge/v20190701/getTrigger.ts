@@ -60,3 +60,22 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
+
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+    return pulumi.output(args).apply(a => getTrigger(a, opts))
+}
+
+export interface GetTriggerOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The trigger name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

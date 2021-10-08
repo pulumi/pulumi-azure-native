@@ -144,6 +144,8 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureADMetricsPropertiesFormatResponseInput)(nil)).Elem(), AzureADMetricsPropertiesFormatResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureADMetricsPropertiesFormatResponsePtrInput)(nil)).Elem(), AzureADMetricsPropertiesFormatResponseArgs{})
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponsePtrOutput{})
 }

@@ -1225,6 +1225,22 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CircuitResponseInput)(nil)).Elem(), CircuitResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CircuitResponsePtrInput)(nil)).Elem(), CircuitResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsResponseInput)(nil)).Elem(), EndpointsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsResponsePtrInput)(nil)).Elem(), EndpointsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceInput)(nil)).Elem(), IdentitySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceArrayInput)(nil)).Elem(), IdentitySourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceResponseInput)(nil)).Elem(), IdentitySourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceResponseArrayInput)(nil)).Elem(), IdentitySourceResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementClusterInput)(nil)).Elem(), ManagementClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementClusterPtrInput)(nil)).Elem(), ManagementClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementClusterResponseInput)(nil)).Elem(), ManagementClusterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementClusterResponsePtrInput)(nil)).Elem(), ManagementClusterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})

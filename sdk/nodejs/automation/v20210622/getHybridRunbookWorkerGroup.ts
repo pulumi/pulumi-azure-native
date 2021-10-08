@@ -71,3 +71,22 @@ export interface GetHybridRunbookWorkerGroupResult {
      */
     readonly type: string;
 }
+
+export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
+    return pulumi.output(args).apply(a => getHybridRunbookWorkerGroup(a, opts))
+}
+
+export interface GetHybridRunbookWorkerGroupOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The hybrid runbook worker group name
+     */
+    hybridRunbookWorkerGroupName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

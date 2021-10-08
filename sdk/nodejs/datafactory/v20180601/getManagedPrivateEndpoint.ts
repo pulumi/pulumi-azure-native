@@ -68,3 +68,26 @@ export interface GetManagedPrivateEndpointResult {
      */
     readonly type: string;
 }
+
+export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
+    return pulumi.output(args).apply(a => getManagedPrivateEndpoint(a, opts))
+}
+
+export interface GetManagedPrivateEndpointOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * Managed private endpoint name
+     */
+    managedPrivateEndpointName: pulumi.Input<string>;
+    /**
+     * Managed virtual network name
+     */
+    managedVirtualNetworkName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

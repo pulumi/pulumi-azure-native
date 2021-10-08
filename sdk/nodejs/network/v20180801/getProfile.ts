@@ -90,3 +90,18 @@ export interface GetProfileResult {
      */
     readonly type?: string;
 }
+
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+    return pulumi.output(args).apply(a => getProfile(a, opts))
+}
+
+export interface GetProfileOutputArgs {
+    /**
+     * The name of the Traffic Manager profile.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Traffic Manager profile.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

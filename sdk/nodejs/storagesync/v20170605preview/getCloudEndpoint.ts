@@ -99,3 +99,26 @@ export interface GetCloudEndpointResult {
      */
     readonly type: string;
 }
+
+export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
+    return pulumi.output(args).apply(a => getCloudEndpoint(a, opts))
+}
+
+export interface GetCloudEndpointOutputArgs {
+    /**
+     * Name of Cloud Endpoint object.
+     */
+    cloudEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Storage Sync Service resource.
+     */
+    storageSyncServiceName: pulumi.Input<string>;
+    /**
+     * Name of Sync Group resource.
+     */
+    syncGroupName: pulumi.Input<string>;
+}

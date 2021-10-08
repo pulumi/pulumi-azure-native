@@ -71,3 +71,26 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
      */
     readonly type: string;
 }
+
+export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
+    return pulumi.output(args).apply(a => listAppServicePlanHybridConnectionKeys(a, opts))
+}
+
+export interface ListAppServicePlanHybridConnectionKeysOutputArgs {
+    /**
+     * Name of the App Service plan.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus namespace.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus relay.
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

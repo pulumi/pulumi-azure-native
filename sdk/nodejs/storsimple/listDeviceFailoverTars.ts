@@ -53,3 +53,26 @@ export interface ListDeviceFailoverTarsResult {
      */
     readonly value?: outputs.storsimple.FailoverTargetResponse[];
 }
+
+export function listDeviceFailoverTarsOutput(args: ListDeviceFailoverTarsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverTarsResult> {
+    return pulumi.output(args).apply(a => listDeviceFailoverTars(a, opts))
+}
+
+export interface ListDeviceFailoverTarsOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The source device name on which failover is performed.
+     */
+    sourceDeviceName: pulumi.Input<string>;
+    /**
+     * The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
+     */
+    volumeContainers?: pulumi.Input<pulumi.Input<string>[]>;
+}

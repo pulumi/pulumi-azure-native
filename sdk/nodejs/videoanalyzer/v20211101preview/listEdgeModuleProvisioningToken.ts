@@ -55,3 +55,26 @@ export interface ListEdgeModuleProvisioningTokenResult {
      */
     readonly token: string;
 }
+
+export function listEdgeModuleProvisioningTokenOutput(args: ListEdgeModuleProvisioningTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEdgeModuleProvisioningTokenResult> {
+    return pulumi.output(args).apply(a => listEdgeModuleProvisioningToken(a, opts))
+}
+
+export interface ListEdgeModuleProvisioningTokenOutputArgs {
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The Edge Module name.
+     */
+    edgeModuleName: pulumi.Input<string>;
+    /**
+     * The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
+     */
+    expirationDate: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

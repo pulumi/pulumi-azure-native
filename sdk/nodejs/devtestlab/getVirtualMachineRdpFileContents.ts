@@ -47,3 +47,22 @@ export interface GetVirtualMachineRdpFileContentsResult {
      */
     readonly contents?: string;
 }
+
+export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineRdpFileContents(a, opts))
+}
+
+export interface GetVirtualMachineRdpFileContentsOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

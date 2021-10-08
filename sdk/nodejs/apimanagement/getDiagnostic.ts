@@ -92,3 +92,22 @@ export interface GetDiagnosticResult {
      */
     readonly verbosity?: string;
 }
+
+export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
+    return pulumi.output(args).apply(a => getDiagnostic(a, opts))
+}
+
+export interface GetDiagnosticOutputArgs {
+    /**
+     * Diagnostic identifier. Must be unique in the current API Management service instance.
+     */
+    diagnosticId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

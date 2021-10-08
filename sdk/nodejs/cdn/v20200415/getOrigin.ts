@@ -115,3 +115,26 @@ export interface GetOriginResult {
      */
     readonly weight?: number;
 }
+
+export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
+    return pulumi.output(args).apply(a => getOrigin(a, opts))
+}
+
+export interface GetOriginOutputArgs {
+    /**
+     * Name of the endpoint under the profile which is unique globally.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * Name of the origin which is unique within the endpoint.
+     */
+    originName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

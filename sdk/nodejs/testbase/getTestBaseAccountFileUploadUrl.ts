@@ -51,3 +51,22 @@ export interface GetTestBaseAccountFileUploadUrlResult {
      */
     readonly uploadUrl: string;
 }
+
+export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
+    return pulumi.output(args).apply(a => getTestBaseAccountFileUploadUrl(a, opts))
+}
+
+export interface GetTestBaseAccountFileUploadUrlOutputArgs {
+    /**
+     * The custom file name of the uploaded blob.
+     */
+    blobName?: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

@@ -71,3 +71,22 @@ export interface GetComputePolicyResult {
      */
     readonly type: string;
 }
+
+export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
+    return pulumi.output(args).apply(a => getComputePolicy(a, opts))
+}
+
+export interface GetComputePolicyOutputArgs {
+    /**
+     * The name of the Data Lake Analytics account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the compute policy to retrieve.
+     */
+    computePolicyName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

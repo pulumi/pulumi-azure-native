@@ -41,3 +41,18 @@ export interface ListManagerActivationKeyResult {
      */
     readonly activationKey: string;
 }
+
+export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {
+    return pulumi.output(args).apply(a => listManagerActivationKey(a, opts))
+}
+
+export interface ListManagerActivationKeyOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

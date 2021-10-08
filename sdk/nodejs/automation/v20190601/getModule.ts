@@ -111,3 +111,22 @@ export interface GetModuleResult {
      */
     readonly version?: string;
 }
+
+export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
+    return pulumi.output(args).apply(a => getModule(a, opts))
+}
+
+export interface GetModuleOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The module name.
+     */
+    moduleName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

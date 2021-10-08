@@ -63,3 +63,22 @@ export interface GetManagedNetworkPeeringPolicyResult {
      */
     readonly type: string;
 }
+
+export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
+    return pulumi.output(args).apply(a => getManagedNetworkPeeringPolicy(a, opts))
+}
+
+export interface GetManagedNetworkPeeringPolicyOutputArgs {
+    /**
+     * The name of the Managed Network.
+     */
+    managedNetworkName: pulumi.Input<string>;
+    /**
+     * The name of the Managed Network Peering Policy.
+     */
+    managedNetworkPeeringPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

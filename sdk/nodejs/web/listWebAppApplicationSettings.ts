@@ -58,3 +58,18 @@ export interface ListWebAppApplicationSettingsResult {
      */
     readonly type: string;
 }
+
+export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
+    return pulumi.output(args).apply(a => listWebAppApplicationSettings(a, opts))
+}
+
+export interface ListWebAppApplicationSettingsOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

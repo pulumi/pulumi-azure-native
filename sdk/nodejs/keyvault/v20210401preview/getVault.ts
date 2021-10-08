@@ -66,3 +66,18 @@ export interface GetVaultResult {
      */
     readonly type: string;
 }
+
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+    return pulumi.output(args).apply(a => getVault(a, opts))
+}
+
+export interface GetVaultOutputArgs {
+    /**
+     * The name of the Resource Group to which the vault belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

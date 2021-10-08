@@ -56,3 +56,26 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsResult {
      */
     readonly value: outputs.datashare.v20191101.ScheduledSourceSynchronizationSettingResponse[];
 }
+
+export function listShareSubscriptionSourceShareSynchronizationSettingsOutput(args: ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
+    return pulumi.output(args).apply(a => listShareSubscriptionSourceShareSynchronizationSettings(a, opts))
+}
+
+export interface ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+    /**
+     * Continuation token
+     */
+    skipToken?: pulumi.Input<string>;
+}

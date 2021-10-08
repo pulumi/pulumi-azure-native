@@ -77,3 +77,30 @@ export interface ListIntegrationAccountMapContentCallbackUrlResult {
      */
     readonly value: string;
 }
+
+export function listIntegrationAccountMapContentCallbackUrlOutput(args: ListIntegrationAccountMapContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountMapContentCallbackUrlResult> {
+    return pulumi.output(args).apply(a => listIntegrationAccountMapContentCallbackUrl(a, opts))
+}
+
+export interface ListIntegrationAccountMapContentCallbackUrlOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The key type.
+     */
+    keyType?: pulumi.Input<string | enums.logic.v20180701preview.KeyType>;
+    /**
+     * The integration account map name.
+     */
+    mapName: pulumi.Input<string>;
+    /**
+     * The expiry time.
+     */
+    notAfter?: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

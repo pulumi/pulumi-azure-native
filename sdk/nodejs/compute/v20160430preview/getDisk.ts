@@ -90,3 +90,18 @@ export interface GetDiskResult {
      */
     readonly type: string;
 }
+
+export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
+    return pulumi.output(args).apply(a => getDisk(a, opts))
+}
+
+export interface GetDiskOutputArgs {
+    /**
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    diskName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetWorkloadNetworkPortMirroringResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkPortMirroring(a, opts))
+}
+
+export interface GetWorkloadNetworkPortMirroringOutputArgs {
+    /**
+     * NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+     */
+    portMirroringId: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -58,3 +58,22 @@ export interface GetServerAzureADOnlyAuthenticationResult {
      */
     readonly type: string;
 }
+
+export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
+    return pulumi.output(args).apply(a => getServerAzureADOnlyAuthentication(a, opts))
+}
+
+export interface GetServerAzureADOnlyAuthenticationOutputArgs {
+    /**
+     * The name of server azure active directory only authentication.
+     */
+    authenticationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

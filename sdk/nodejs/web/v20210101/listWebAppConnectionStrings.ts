@@ -58,3 +58,18 @@ export interface ListWebAppConnectionStringsResult {
      */
     readonly type: string;
 }
+
+export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
+    return pulumi.output(args).apply(a => listWebAppConnectionStrings(a, opts))
+}
+
+export interface ListWebAppConnectionStringsOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

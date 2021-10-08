@@ -72,7 +72,7 @@ export class PipelineTopology extends pulumi.CustomResource {
     /**
      * List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
      */
-    public readonly sources!: pulumi.Output<outputs.videoanalyzer.RtspSourceResponse | outputs.videoanalyzer.VideoSourceResponse[]>;
+    public readonly sources!: pulumi.Output<(outputs.videoanalyzer.RtspSourceResponse | outputs.videoanalyzer.VideoSourceResponse)[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

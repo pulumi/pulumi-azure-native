@@ -86,3 +86,22 @@ export interface GetFavoriteResult {
      */
     readonly version?: string;
 }
+
+export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
+    return pulumi.output(args).apply(a => getFavorite(a, opts))
+}
+
+export interface GetFavoriteOutputArgs {
+    /**
+     * The Id of a specific favorite defined in the Application Insights component
+     */
+    favoriteId: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -63,3 +63,22 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+export interface GetCertificateOutputArgs {
+    /**
+     * The name of the certificate
+     */
+    certificateName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the IoT hub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -45,3 +45,18 @@ export interface ListAccountKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+}
+
+export interface ListAccountKeysOutputArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

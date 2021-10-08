@@ -57,3 +57,18 @@ export interface ListMediaServiceKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceKeysResult> {
+    return pulumi.output(args).apply(a => listMediaServiceKeys(a, opts))
+}
+
+export interface ListMediaServiceKeysOutputArgs {
+    /**
+     * Name of the Media Service.
+     */
+    mediaServiceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

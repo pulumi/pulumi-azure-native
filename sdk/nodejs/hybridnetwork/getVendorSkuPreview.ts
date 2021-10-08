@@ -55,3 +55,22 @@ export interface GetVendorSkuPreviewResult {
      */
     readonly type: string;
 }
+
+export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
+    return pulumi.output(args).apply(a => getVendorSkuPreview(a, opts))
+}
+
+export interface GetVendorSkuPreviewOutputArgs {
+    /**
+     * Preview subscription ID.
+     */
+    previewSubscription: pulumi.Input<string>;
+    /**
+     * The name of the vendor sku.
+     */
+    skuName: pulumi.Input<string>;
+    /**
+     * The name of the vendor.
+     */
+    vendorName: pulumi.Input<string>;
+}

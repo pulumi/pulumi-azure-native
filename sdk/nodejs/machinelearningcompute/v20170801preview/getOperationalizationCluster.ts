@@ -102,3 +102,18 @@ export interface GetOperationalizationClusterResult {
      */
     readonly type: string;
 }
+
+export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {
+    return pulumi.output(args).apply(a => getOperationalizationCluster(a, opts))
+}
+
+export interface GetOperationalizationClusterOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which the cluster is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

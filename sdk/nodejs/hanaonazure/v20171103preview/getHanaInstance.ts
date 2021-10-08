@@ -98,3 +98,18 @@ export interface GetHanaInstanceResult {
      */
     readonly type: string;
 }
+
+export function getHanaInstanceOutput(args: GetHanaInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHanaInstanceResult> {
+    return pulumi.output(args).apply(a => getHanaInstance(a, opts))
+}
+
+export interface GetHanaInstanceOutputArgs {
+    /**
+     * Name of the SAP HANA on Azure instance.
+     */
+    hanaInstanceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

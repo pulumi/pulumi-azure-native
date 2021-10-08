@@ -123,3 +123,22 @@ export interface GetApiResult {
      */
     readonly type: string;
 }
+
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+    return pulumi.output(args).apply(a => getApi(a, opts))
+}
+
+export interface GetApiOutputArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

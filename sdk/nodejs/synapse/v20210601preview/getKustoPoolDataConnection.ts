@@ -79,3 +79,30 @@ export interface GetKustoPoolDataConnectionResult {
      */
     readonly type: string;
 }
+
+export function getKustoPoolDataConnectionOutput(args: GetKustoPoolDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDataConnectionResult> {
+    return pulumi.output(args).apply(a => getKustoPoolDataConnection(a, opts))
+}
+
+export interface GetKustoPoolDataConnectionOutputArgs {
+    /**
+     * The name of the data connection.
+     */
+    dataConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto pool.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

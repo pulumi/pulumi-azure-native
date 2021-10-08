@@ -99,3 +99,22 @@ export interface GetOuContainerResult {
      */
     readonly type: string;
 }
+
+export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
+    return pulumi.output(args).apply(a => getOuContainer(a, opts))
+}
+
+export interface GetOuContainerOutputArgs {
+    /**
+     * The name of the domain service.
+     */
+    domainServiceName: pulumi.Input<string>;
+    /**
+     * The name of the OuContainer.
+     */
+    ouContainerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

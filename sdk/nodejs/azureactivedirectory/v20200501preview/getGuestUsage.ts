@@ -61,3 +61,18 @@ export interface GetGuestUsageResult {
      */
     readonly type: string;
 }
+
+export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
+    return pulumi.output(args).apply(a => getGuestUsage(a, opts))
+}
+
+export interface GetGuestUsageOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The initial domain name of the AAD tenant.
+     */
+    resourceName: pulumi.Input<string>;
+}

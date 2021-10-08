@@ -82,3 +82,18 @@ export interface GetCapacityDetailsResult {
      */
     readonly type: string;
 }
+
+export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {
+    return pulumi.output(args).apply(a => getCapacityDetails(a, opts))
+}
+
+export interface GetCapacityDetailsOutputArgs {
+    /**
+     * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    dedicatedCapacityName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

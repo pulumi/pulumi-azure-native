@@ -71,3 +71,22 @@ export interface GetVirtualApplianceSiteResult {
      */
     readonly type: string;
 }
+
+export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
+    return pulumi.output(args).apply(a => getVirtualApplianceSite(a, opts))
+}
+
+export interface GetVirtualApplianceSiteOutputArgs {
+    /**
+     * The name of the Network Virtual Appliance.
+     */
+    networkVirtualApplianceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the site.
+     */
+    siteName: pulumi.Input<string>;
+}

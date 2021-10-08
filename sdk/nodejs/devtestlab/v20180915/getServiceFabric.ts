@@ -93,3 +93,30 @@ export interface GetServiceFabricResult {
      */
     readonly uniqueIdentifier: string;
 }
+
+export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricResult> {
+    return pulumi.output(args).apply(a => getServiceFabric(a, opts))
+}
+
+export interface GetServiceFabricOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the service fabric.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the user profile.
+     */
+    userName: pulumi.Input<string>;
+}

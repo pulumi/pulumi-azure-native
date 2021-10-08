@@ -63,3 +63,22 @@ export interface GetPredictionTrainingResultsResult {
      */
     readonly tenantId: string;
 }
+
+export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
+    return pulumi.output(args).apply(a => getPredictionTrainingResults(a, opts))
+}
+
+export interface GetPredictionTrainingResultsOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the Prediction.
+     */
+    predictionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

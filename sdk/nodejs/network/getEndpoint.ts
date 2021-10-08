@@ -113,3 +113,26 @@ export interface GetEndpointResult {
      */
     readonly weight?: number;
 }
+
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+}
+
+export interface GetEndpointOutputArgs {
+    /**
+     * The name of the Traffic Manager endpoint.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The type of the Traffic Manager endpoint.
+     */
+    endpointType: pulumi.Input<string>;
+    /**
+     * The name of the Traffic Manager profile.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Traffic Manager endpoint.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

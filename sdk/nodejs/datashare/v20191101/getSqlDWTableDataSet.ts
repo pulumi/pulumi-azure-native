@@ -84,3 +84,26 @@ export interface GetSqlDWTableDataSetResult {
      */
     readonly type: string;
 }
+
+export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
+    return pulumi.output(args).apply(a => getSqlDWTableDataSet(a, opts))
+}
+
+export interface GetSqlDWTableDataSetOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSet.
+     */
+    dataSetName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+}

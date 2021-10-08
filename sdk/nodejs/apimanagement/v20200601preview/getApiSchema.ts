@@ -71,3 +71,26 @@ export interface GetApiSchemaResult {
      */
     readonly value?: string;
 }
+
+export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
+    return pulumi.output(args).apply(a => getApiSchema(a, opts))
+}
+
+export interface GetApiSchemaOutputArgs {
+    /**
+     * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     */
+    schemaId: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

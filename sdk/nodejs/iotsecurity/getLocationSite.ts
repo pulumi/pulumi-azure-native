@@ -63,3 +63,18 @@ export interface GetLocationSiteResult {
      */
     readonly type: string;
 }
+
+export function getLocationSiteOutput(args: GetLocationSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationSiteResult> {
+    return pulumi.output(args).apply(a => getLocationSite(a, opts))
+}
+
+export interface GetLocationSiteOutputArgs {
+    /**
+     * Defender for IoT location
+     */
+    iotDefenderLocation: pulumi.Input<string>;
+    /**
+     * Site Name
+     */
+    siteName: pulumi.Input<string>;
+}

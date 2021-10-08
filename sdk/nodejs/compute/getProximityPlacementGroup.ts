@@ -84,3 +84,22 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly virtualMachines: outputs.compute.SubResourceWithColocationStatusResponse[];
 }
+
+export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
+    return pulumi.output(args).apply(a => getProximityPlacementGroup(a, opts))
+}
+
+export interface GetProximityPlacementGroupOutputArgs {
+    /**
+     * includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
+     */
+    includeColocationStatus?: pulumi.Input<string>;
+    /**
+     * The name of the proximity placement group.
+     */
+    proximityPlacementGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

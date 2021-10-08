@@ -603,6 +603,14 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesInput)(nil)).Elem(), EnterpriseKnowledgeGraphPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesPtrInput)(nil)).Elem(), EnterpriseKnowledgeGraphPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesResponseInput)(nil)).Elem(), EnterpriseKnowledgeGraphPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesResponsePtrInput)(nil)).Elem(), EnterpriseKnowledgeGraphPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesResponseOutput{})

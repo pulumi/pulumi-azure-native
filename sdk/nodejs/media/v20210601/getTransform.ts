@@ -75,3 +75,22 @@ export interface GetTransformResult {
      */
     readonly type: string;
 }
+
+export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
+    return pulumi.output(args).apply(a => getTransform(a, opts))
+}
+
+export interface GetTransformOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Transform name.
+     */
+    transformName: pulumi.Input<string>;
+}

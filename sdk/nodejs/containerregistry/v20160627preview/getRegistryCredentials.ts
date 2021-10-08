@@ -45,3 +45,18 @@ export interface GetRegistryCredentialsResult {
      */
     readonly username?: string;
 }
+
+export function getRegistryCredentialsOutput(args: GetRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCredentialsResult> {
+    return pulumi.output(args).apply(a => getRegistryCredentials(a, opts))
+}
+
+export interface GetRegistryCredentialsOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -66,3 +66,22 @@ export interface GetIpFirewallRuleResult {
      */
     readonly type: string;
 }
+
+export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpFirewallRuleResult> {
+    return pulumi.output(args).apply(a => getIpFirewallRule(a, opts))
+}
+
+export interface GetIpFirewallRuleOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The IP firewall rule name
+     */
+    ruleName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

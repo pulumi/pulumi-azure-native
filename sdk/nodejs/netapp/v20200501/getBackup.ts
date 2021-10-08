@@ -88,3 +88,30 @@ export interface GetBackupResult {
      */
     readonly type: string;
 }
+
+export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
+    return pulumi.output(args).apply(a => getBackup(a, opts))
+}
+
+export interface GetBackupOutputArgs {
+    /**
+     * The name of the NetApp account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the backup
+     */
+    backupName: pulumi.Input<string>;
+    /**
+     * The name of the capacity pool
+     */
+    poolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the volume
+     */
+    volumeName: pulumi.Input<string>;
+}

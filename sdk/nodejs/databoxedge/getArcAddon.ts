@@ -102,3 +102,26 @@ export interface GetArcAddonResult {
      */
     readonly version: string;
 }
+
+export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
+    return pulumi.output(args).apply(a => getArcAddon(a, opts))
+}
+
+export interface GetArcAddonOutputArgs {
+    /**
+     * The addon name.
+     */
+    addonName: pulumi.Input<string>;
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    roleName: pulumi.Input<string>;
+}

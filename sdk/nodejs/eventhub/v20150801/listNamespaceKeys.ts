@@ -62,3 +62,22 @@ export interface ListNamespaceKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
+    return pulumi.output(args).apply(a => listNamespaceKeys(a, opts))
+}
+
+export interface ListNamespaceKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

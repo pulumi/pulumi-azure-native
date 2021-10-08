@@ -95,3 +95,26 @@ export interface GetDatabaseThreatDetectionPolicyResult {
      */
     readonly useServerDefault?: string;
 }
+
+export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
+    return pulumi.output(args).apply(a => getDatabaseThreatDetectionPolicy(a, opts))
+}
+
+export interface GetDatabaseThreatDetectionPolicyOutputArgs {
+    /**
+     * The name of the database for which database Threat Detection policy is defined.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the security alert policy.
+     */
+    securityAlertPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

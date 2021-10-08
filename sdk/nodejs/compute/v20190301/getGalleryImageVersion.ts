@@ -89,3 +89,30 @@ export interface GetGalleryImageVersionResult {
      */
     readonly type: string;
 }
+
+export function getGalleryImageVersionOutput(args: GetGalleryImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageVersionResult> {
+    return pulumi.output(args).apply(a => getGalleryImageVersion(a, opts))
+}
+
+export interface GetGalleryImageVersionOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the gallery Image Definition in which the Image Version resides.
+     */
+    galleryImageName: pulumi.Input<string>;
+    /**
+     * The name of the gallery Image Version to be retrieved.
+     */
+    galleryImageVersionName: pulumi.Input<string>;
+    /**
+     * The name of the Shared Image Gallery in which the Image Definition resides.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

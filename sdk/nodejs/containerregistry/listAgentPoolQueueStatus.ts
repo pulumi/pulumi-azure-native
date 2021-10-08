@@ -47,3 +47,22 @@ export interface ListAgentPoolQueueStatusResult {
      */
     readonly count?: number;
 }
+
+export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
+    return pulumi.output(args).apply(a => listAgentPoolQueueStatus(a, opts))
+}
+
+export interface ListAgentPoolQueueStatusOutputArgs {
+    /**
+     * The name of the agent pool.
+     */
+    agentPoolName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

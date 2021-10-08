@@ -71,3 +71,18 @@ export interface GetSnapshotResult {
      */
     readonly type: string;
 }
+
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+}
+
+export interface GetSnapshotOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

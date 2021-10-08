@@ -99,3 +99,22 @@ export interface GetRolloutResult {
      */
     readonly type: string;
 }
+
+export function getRolloutOutput(args: GetRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolloutResult> {
+    return pulumi.output(args).apply(a => getRollout(a, opts))
+}
+
+export interface GetRolloutOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
+     */
+    retryAttempt?: pulumi.Input<number>;
+    /**
+     * The rollout name.
+     */
+    rolloutName: pulumi.Input<string>;
+}

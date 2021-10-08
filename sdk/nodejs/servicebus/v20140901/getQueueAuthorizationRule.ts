@@ -67,3 +67,26 @@ export interface GetQueueAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getQueueAuthorizationRule(a, opts))
+}
+
+export interface GetQueueAuthorizationRuleOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The queue name.
+     */
+    queueName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

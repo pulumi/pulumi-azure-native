@@ -91,3 +91,18 @@ export interface GetAttestationAtResourceGroupResult {
      */
     readonly type: string;
 }
+
+export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
+    return pulumi.output(args).apply(a => getAttestationAtResourceGroup(a, opts))
+}
+
+export interface GetAttestationAtResourceGroupOutputArgs {
+    /**
+     * The name of the attestation.
+     */
+    attestationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

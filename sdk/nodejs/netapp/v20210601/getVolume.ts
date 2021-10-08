@@ -205,3 +205,26 @@ export interface GetVolumeResult {
      */
     readonly volumeType?: string;
 }
+
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+    return pulumi.output(args).apply(a => getVolume(a, opts))
+}
+
+export interface GetVolumeOutputArgs {
+    /**
+     * The name of the NetApp account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the capacity pool
+     */
+    poolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the volume
+     */
+    volumeName: pulumi.Input<string>;
+}

@@ -75,3 +75,18 @@ export interface GetVirtualWANResult {
     readonly virtualHubs: outputs.network.v20180401.SubResourceResponse[];
     readonly vpnSites: outputs.network.v20180401.SubResourceResponse[];
 }
+
+export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {
+    return pulumi.output(args).apply(a => getVirtualWAN(a, opts))
+}
+
+export interface GetVirtualWANOutputArgs {
+    /**
+     * The resource group name of the VirtualWan.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualWAN being retrieved.
+     */
+    virtualWANName: pulumi.Input<string>;
+}

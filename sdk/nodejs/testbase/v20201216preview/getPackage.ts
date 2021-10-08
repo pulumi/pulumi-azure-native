@@ -119,3 +119,22 @@ export interface GetPackageResult {
      */
     readonly version: string;
 }
+
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+    return pulumi.output(args).apply(a => getPackage(a, opts))
+}
+
+export interface GetPackageOutputArgs {
+    /**
+     * The resource name of the Test Base Package.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource name of the Test Base Account.
+     */
+    testBaseAccountName: pulumi.Input<string>;
+}

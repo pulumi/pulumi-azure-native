@@ -755,6 +755,18 @@ func (o MediaGraphUserCredentialsResponsePtrOutput) Username() pulumi.StringPtrO
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphAssetSinkInput)(nil)).Elem(), MediaGraphAssetSinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphAssetSinkArrayInput)(nil)).Elem(), MediaGraphAssetSinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphAssetSinkResponseInput)(nil)).Elem(), MediaGraphAssetSinkResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphAssetSinkResponseArrayInput)(nil)).Elem(), MediaGraphAssetSinkResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspSourceInput)(nil)).Elem(), MediaGraphRtspSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspSourceArrayInput)(nil)).Elem(), MediaGraphRtspSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspSourceResponseInput)(nil)).Elem(), MediaGraphRtspSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspSourceResponseArrayInput)(nil)).Elem(), MediaGraphRtspSourceResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphUserCredentialsInput)(nil)).Elem(), MediaGraphUserCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphUserCredentialsPtrInput)(nil)).Elem(), MediaGraphUserCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphUserCredentialsResponseInput)(nil)).Elem(), MediaGraphUserCredentialsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphUserCredentialsResponsePtrInput)(nil)).Elem(), MediaGraphUserCredentialsResponseArgs{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkOutput{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkArrayOutput{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkResponseOutput{})

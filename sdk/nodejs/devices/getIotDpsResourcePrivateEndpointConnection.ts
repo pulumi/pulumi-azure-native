@@ -60,3 +60,22 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getIotDpsResourcePrivateEndpointConnectionOutput(args: GetIotDpsResourcePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourcePrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getIotDpsResourcePrivateEndpointConnection(a, opts))
+}
+
+export interface GetIotDpsResourcePrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private endpoint connection
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the provisioning service.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the provisioning service.
+     */
+    resourceName: pulumi.Input<string>;
+}

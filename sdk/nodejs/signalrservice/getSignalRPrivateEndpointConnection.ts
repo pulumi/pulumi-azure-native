@@ -68,3 +68,22 @@ export interface GetSignalRPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getSignalRPrivateEndpointConnection(a, opts))
+}
+
+export interface GetSignalRPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the SignalR resource.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SignalR resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

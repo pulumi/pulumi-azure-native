@@ -104,3 +104,22 @@ export interface GetGen2EnvironmentResult {
      */
     readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20210331preview.WarmStoreConfigurationPropertiesResponse;
 }
+
+export function getGen2EnvironmentOutput(args: GetGen2EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen2EnvironmentResult> {
+    return pulumi.output(args).apply(a => getGen2Environment(a, opts))
+}
+
+export interface GetGen2EnvironmentOutputArgs {
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

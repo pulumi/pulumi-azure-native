@@ -66,3 +66,18 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly virtualNetworkRules?: outputs.servicebus.v20210101preview.NWRuleSetVirtualNetworkRulesResponse[];
 }
+
+export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
+    return pulumi.output(args).apply(a => getNamespaceNetworkRuleSet(a, opts))
+}
+
+export interface GetNamespaceNetworkRuleSetOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

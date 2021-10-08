@@ -118,3 +118,30 @@ export interface GetDefaultUserRuleResult {
      */
     readonly type: string;
 }
+
+export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
+    return pulumi.output(args).apply(a => getDefaultUserRule(a, opts))
+}
+
+export interface GetDefaultUserRuleOutputArgs {
+    /**
+     * The name of the network manager security Configuration.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the network manager security Configuration rule collection.
+     */
+    ruleCollectionName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    ruleName: pulumi.Input<string>;
+}

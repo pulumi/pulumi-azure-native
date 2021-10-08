@@ -86,3 +86,18 @@ export interface GetVirtualNetworkTapResult {
      */
     readonly type: string;
 }
+
+export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkTap(a, opts))
+}
+
+export interface GetVirtualNetworkTapOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of virtual network tap.
+     */
+    tapName: pulumi.Input<string>;
+}

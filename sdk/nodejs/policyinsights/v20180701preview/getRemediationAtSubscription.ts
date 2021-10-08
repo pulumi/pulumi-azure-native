@@ -73,3 +73,14 @@ export interface GetRemediationAtSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
+    return pulumi.output(args).apply(a => getRemediationAtSubscription(a, opts))
+}
+
+export interface GetRemediationAtSubscriptionOutputArgs {
+    /**
+     * The name of the remediation.
+     */
+    remediationName: pulumi.Input<string>;
+}

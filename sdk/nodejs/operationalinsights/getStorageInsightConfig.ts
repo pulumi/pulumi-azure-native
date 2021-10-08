@@ -80,3 +80,22 @@ export interface GetStorageInsightConfigResult {
      */
     readonly type: string;
 }
+
+export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
+    return pulumi.output(args).apply(a => getStorageInsightConfig(a, opts))
+}
+
+export interface GetStorageInsightConfigOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the storageInsightsConfigs resource
+     */
+    storageInsightName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

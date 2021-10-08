@@ -62,3 +62,22 @@ export interface GetDatabaseAccountCassandraKeyspaceResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseAccountCassandraKeyspaceOutput(args: GetDatabaseAccountCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraKeyspaceResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccountCassandraKeyspace(a, opts))
+}
+
+export interface GetDatabaseAccountCassandraKeyspaceOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB keyspace name.
+     */
+    keyspaceName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

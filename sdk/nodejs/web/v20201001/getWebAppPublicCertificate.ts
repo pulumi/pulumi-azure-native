@@ -75,3 +75,22 @@ export interface GetWebAppPublicCertificateResult {
      */
     readonly type: string;
 }
+
+export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
+    return pulumi.output(args).apply(a => getWebAppPublicCertificate(a, opts))
+}
+
+export interface GetWebAppPublicCertificateOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Public certificate name.
+     */
+    publicCertificateName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -44,3 +44,14 @@ export interface GetIngestionSettingResult {
      */
     readonly type: string;
 }
+
+export function getIngestionSettingOutput(args: GetIngestionSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIngestionSettingResult> {
+    return pulumi.output(args).apply(a => getIngestionSetting(a, opts))
+}
+
+export interface GetIngestionSettingOutputArgs {
+    /**
+     * Name of the ingestion setting
+     */
+    ingestionSettingName: pulumi.Input<string>;
+}

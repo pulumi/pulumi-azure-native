@@ -62,3 +62,22 @@ export interface GetManagementPolicyResult {
      */
     readonly type: string;
 }
+
+export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
+    return pulumi.output(args).apply(a => getManagementPolicy(a, opts))
+}
+
+export interface GetManagementPolicyOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Storage Account Management Policy. It should always be 'default'
+     */
+    managementPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

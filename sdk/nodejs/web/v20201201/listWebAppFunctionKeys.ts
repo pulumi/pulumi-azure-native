@@ -62,3 +62,22 @@ export interface ListWebAppFunctionKeysResult {
      */
     readonly type: string;
 }
+
+export function listWebAppFunctionKeysOutput(args: ListWebAppFunctionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysResult> {
+    return pulumi.output(args).apply(a => listWebAppFunctionKeys(a, opts))
+}
+
+export interface ListWebAppFunctionKeysOutputArgs {
+    /**
+     * Function name.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

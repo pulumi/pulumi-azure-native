@@ -50,7 +50,7 @@ export interface GetAutomationRuleResult {
     /**
      * The actions to execute when the automation rule is triggered
      */
-    readonly actions: outputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionResponse[];
+    readonly actions: (outputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionResponse)[];
     /**
      * Describes the client that created the automation rule
      */
@@ -95,4 +95,27 @@ export interface GetAutomationRuleResult {
      * Azure resource type
      */
     readonly type: string;
+}
+
+export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
+    return pulumi.output(args).apply(a => getAutomationRule(a, opts))
+}
+
+export interface GetAutomationRuleOutputArgs {
+    /**
+     * Automation rule ID
+     */
+    automationRuleId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
 }

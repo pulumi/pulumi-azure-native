@@ -92,3 +92,38 @@ export interface GetConfigurationAssignmentParentResult {
      */
     readonly type: string;
 }
+
+export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
+    return pulumi.output(args).apply(a => getConfigurationAssignmentParent(a, opts))
+}
+
+export interface GetConfigurationAssignmentParentOutputArgs {
+    /**
+     * Configuration assignment name
+     */
+    configurationAssignmentName: pulumi.Input<string>;
+    /**
+     * Resource provider name
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * Resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource identifier
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Resource parent identifier
+     */
+    resourceParentName: pulumi.Input<string>;
+    /**
+     * Resource parent type
+     */
+    resourceParentType: pulumi.Input<string>;
+    /**
+     * Resource type
+     */
+    resourceType: pulumi.Input<string>;
+}

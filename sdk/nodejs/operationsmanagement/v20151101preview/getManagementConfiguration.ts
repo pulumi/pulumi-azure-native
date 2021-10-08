@@ -58,3 +58,18 @@ export interface GetManagementConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
+    return pulumi.output(args).apply(a => getManagementConfiguration(a, opts))
+}
+
+export interface GetManagementConfigurationOutputArgs {
+    /**
+     * User Management Configuration Name.
+     */
+    managementConfigurationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

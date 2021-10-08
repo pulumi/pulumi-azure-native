@@ -100,3 +100,26 @@ export interface GetWebAppDeploymentSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppDeploymentSlot(a, opts))
+}
+
+export interface GetWebAppDeploymentSlotOutputArgs {
+    /**
+     * Deployment ID.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

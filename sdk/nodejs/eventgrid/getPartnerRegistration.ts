@@ -123,3 +123,18 @@ export interface GetPartnerRegistrationResult {
      */
     readonly visibilityState?: string;
 }
+
+export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
+    return pulumi.output(args).apply(a => getPartnerRegistration(a, opts))
+}
+
+export interface GetPartnerRegistrationOutputArgs {
+    /**
+     * Name of the partner registration.
+     */
+    partnerRegistrationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

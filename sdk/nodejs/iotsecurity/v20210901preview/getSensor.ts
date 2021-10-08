@@ -94,3 +94,18 @@ export interface GetSensorResult {
      */
     readonly zone?: string;
 }
+
+export function getSensorOutput(args: GetSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensorResult> {
+    return pulumi.output(args).apply(a => getSensor(a, opts))
+}
+
+export interface GetSensorOutputArgs {
+    /**
+     * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+     */
+    scope: pulumi.Input<string>;
+    /**
+     * Name of the IoT sensor
+     */
+    sensorName: pulumi.Input<string>;
+}

@@ -46,3 +46,18 @@ export interface ListMonitorLinkedResourcesResult {
      */
     readonly value?: outputs.datadog.v20210301.LinkedResourceResponse[];
 }
+
+export function listMonitorLinkedResourcesOutput(args: ListMonitorLinkedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorLinkedResourcesResult> {
+    return pulumi.output(args).apply(a => listMonitorLinkedResources(a, opts))
+}
+
+export interface ListMonitorLinkedResourcesOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

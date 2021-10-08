@@ -103,3 +103,22 @@ export interface GetIscsiTargetResult {
      */
     readonly type: string;
 }
+
+export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
+    return pulumi.output(args).apply(a => getIscsiTarget(a, opts))
+}
+
+export interface GetIscsiTargetOutputArgs {
+    /**
+     * The name of the Disk Pool.
+     */
+    diskPoolName: pulumi.Input<string>;
+    /**
+     * The name of the iSCSI Target.
+     */
+    iscsiTargetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

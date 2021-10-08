@@ -58,3 +58,18 @@ export interface GetDeploymentAtScopeResult {
      */
     readonly type: string;
 }
+
+export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtScopeResult> {
+    return pulumi.output(args).apply(a => getDeploymentAtScope(a, opts))
+}
+
+export interface GetDeploymentAtScopeOutputArgs {
+    /**
+     * The name of the deployment.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * The scope of a deployment.
+     */
+    scope: pulumi.Input<string>;
+}

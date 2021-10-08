@@ -72,3 +72,22 @@ export interface GetExtensionResult {
      */
     readonly type: string;
 }
+
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+    return pulumi.output(args).apply(a => getExtension(a, opts))
+}
+
+export interface GetExtensionOutputArgs {
+    /**
+     * The name of the Visual Studio Team Services account resource.
+     */
+    accountResourceName: pulumi.Input<string>;
+    /**
+     * The name of the extension.
+     */
+    extensionResourceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -65,3 +65,18 @@ export interface ListSiteMetadataResult {
      */
     readonly type?: string;
 }
+
+export function listSiteMetadataOutput(args: ListSiteMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteMetadataResult> {
+    return pulumi.output(args).apply(a => listSiteMetadata(a, opts))
+}
+
+export interface ListSiteMetadataOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

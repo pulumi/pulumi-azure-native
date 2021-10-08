@@ -62,3 +62,18 @@ export interface ListWebAppMetadataResult {
      */
     readonly type: string;
 }
+
+export function listWebAppMetadataOutput(args: ListWebAppMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataResult> {
+    return pulumi.output(args).apply(a => listWebAppMetadata(a, opts))
+}
+
+export interface ListWebAppMetadataOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -85,3 +85,22 @@ export interface GetTemplateArtifactResult {
      */
     readonly type: string;
 }
+
+export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
+    return pulumi.output(args).apply(a => getTemplateArtifact(a, opts))
+}
+
+export interface GetTemplateArtifactOutputArgs {
+    /**
+     * Name of the blueprint artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * Name of the blueprint definition.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+     */
+    resourceScope: pulumi.Input<string>;
+}

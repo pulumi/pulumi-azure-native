@@ -73,3 +73,30 @@ export interface GetReplicationNetworkMappingResult {
      */
     readonly type: string;
 }
+
+export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
+    return pulumi.output(args).apply(a => getReplicationNetworkMapping(a, opts))
+}
+
+export interface GetReplicationNetworkMappingOutputArgs {
+    /**
+     * Primary fabric name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Network mapping name.
+     */
+    networkMappingName: pulumi.Input<string>;
+    /**
+     * Primary network name.
+     */
+    networkName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

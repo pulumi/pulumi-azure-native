@@ -71,3 +71,26 @@ export interface ListWebAppFunctionSecretsSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppFunctionSecretsSlot(a, opts))
+}
+
+export interface ListWebAppFunctionSecretsSlotOutputArgs {
+    /**
+     * Function name.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot.
+     */
+    slot: pulumi.Input<string>;
+}

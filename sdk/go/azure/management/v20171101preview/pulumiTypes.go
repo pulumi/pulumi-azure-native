@@ -449,6 +449,12 @@ func (o ParentGroupInfoResponsePtrOutput) ParentId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupChildInfoResponseInput)(nil)).Elem(), ManagementGroupChildInfoResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupChildInfoResponseArrayInput)(nil)).Elem(), ManagementGroupChildInfoResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupDetailsResponseInput)(nil)).Elem(), ManagementGroupDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupDetailsResponsePtrInput)(nil)).Elem(), ManagementGroupDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParentGroupInfoResponseInput)(nil)).Elem(), ParentGroupInfoResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParentGroupInfoResponsePtrInput)(nil)).Elem(), ParentGroupInfoResponseArgs{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponseOutput{})

@@ -74,3 +74,26 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
      */
     readonly type: string;
 }
+
+export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
+    return pulumi.output(args).apply(a => getMongoDBResourceMongoDBCollection(a, opts))
+}
+
+export interface GetMongoDBResourceMongoDBCollectionOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB collection name.
+     */
+    collectionName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

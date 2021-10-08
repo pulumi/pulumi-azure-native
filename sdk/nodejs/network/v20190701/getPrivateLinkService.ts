@@ -103,3 +103,22 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly visibility?: outputs.network.v20190701.PrivateLinkServicePropertiesResponseVisibility;
 }
+
+export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServiceResult> {
+    return pulumi.output(args).apply(a => getPrivateLinkService(a, opts))
+}
+
+export interface GetPrivateLinkServiceOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the private link service.
+     */
+    serviceName: pulumi.Input<string>;
+}

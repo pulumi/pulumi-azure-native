@@ -71,3 +71,22 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEndpointConnectionByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByWorkspaceResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionByWorkspace(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionByWorkspaceOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

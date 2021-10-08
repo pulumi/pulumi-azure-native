@@ -54,3 +54,18 @@ export interface ListDatabaseAccountKeysResult {
      */
     readonly secondaryReadonlyMasterKey: string;
 }
+
+export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
+    return pulumi.output(args).apply(a => listDatabaseAccountKeys(a, opts))
+}
+
+export interface ListDatabaseAccountKeysOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

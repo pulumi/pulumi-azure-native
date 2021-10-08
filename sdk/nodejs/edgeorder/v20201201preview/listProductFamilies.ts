@@ -56,3 +56,26 @@ export interface ListProductFamiliesResult {
      */
     readonly value: outputs.edgeorder.v20201201preview.ProductFamilyResponse[];
 }
+
+export function listProductFamiliesOutput(args: ListProductFamiliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductFamiliesResult> {
+    return pulumi.output(args).apply(a => listProductFamilies(a, opts))
+}
+
+export interface ListProductFamiliesOutputArgs {
+    /**
+     * Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+     */
+    customerSubscriptionDetails?: pulumi.Input<inputs.edgeorder.v20201201preview.CustomerSubscriptionDetailsArgs>;
+    /**
+     * $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Dictionary of filterable properties on product family.
+     */
+    filterableProperties: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.edgeorder.v20201201preview.FilterablePropertyArgs>[]>}>;
+    /**
+     * $skipToken is supported on list of product families, which provides the next page in the list of product families.
+     */
+    skipToken?: pulumi.Input<string>;
+}

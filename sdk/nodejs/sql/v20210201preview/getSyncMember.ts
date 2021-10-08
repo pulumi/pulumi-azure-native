@@ -108,3 +108,30 @@ export interface GetSyncMemberResult {
      */
     readonly userName?: string;
 }
+
+export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
+    return pulumi.output(args).apply(a => getSyncMember(a, opts))
+}
+
+export interface GetSyncMemberOutputArgs {
+    /**
+     * The name of the database on which the sync group is hosted.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the sync group on which the sync member is hosted.
+     */
+    syncGroupName: pulumi.Input<string>;
+    /**
+     * The name of the sync member.
+     */
+    syncMemberName: pulumi.Input<string>;
+}

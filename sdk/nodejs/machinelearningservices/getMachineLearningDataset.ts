@@ -76,3 +76,22 @@ export interface GetMachineLearningDatasetResult {
      */
     readonly type: string;
 }
+
+export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
+    return pulumi.output(args).apply(a => getMachineLearningDataset(a, opts))
+}
+
+export interface GetMachineLearningDatasetOutputArgs {
+    /**
+     * The Dataset name.
+     */
+    datasetName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

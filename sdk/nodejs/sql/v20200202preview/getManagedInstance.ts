@@ -144,3 +144,18 @@ export interface GetManagedInstanceResult {
      */
     readonly zoneRedundant?: boolean;
 }
+
+export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
+    return pulumi.output(args).apply(a => getManagedInstance(a, opts))
+}
+
+export interface GetManagedInstanceOutputArgs {
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

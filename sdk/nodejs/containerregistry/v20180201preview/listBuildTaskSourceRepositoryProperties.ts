@@ -59,3 +59,22 @@ export interface ListBuildTaskSourceRepositoryPropertiesResult {
      */
     readonly sourceControlType: string;
 }
+
+export function listBuildTaskSourceRepositoryPropertiesOutput(args: ListBuildTaskSourceRepositoryPropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildTaskSourceRepositoryPropertiesResult> {
+    return pulumi.output(args).apply(a => listBuildTaskSourceRepositoryProperties(a, opts))
+}
+
+export interface ListBuildTaskSourceRepositoryPropertiesOutputArgs {
+    /**
+     * The name of the container registry build task.
+     */
+    buildTaskName: pulumi.Input<string>;
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

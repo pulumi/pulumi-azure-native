@@ -90,3 +90,22 @@ export interface GetSiteHostNameBindingResult {
      */
     readonly type?: string;
 }
+
+export function getSiteHostNameBindingOutput(args: GetSiteHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteHostNameBindingResult> {
+    return pulumi.output(args).apply(a => getSiteHostNameBinding(a, opts))
+}
+
+export interface GetSiteHostNameBindingOutputArgs {
+    /**
+     * Name of host
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

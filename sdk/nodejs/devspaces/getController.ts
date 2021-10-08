@@ -79,3 +79,18 @@ export interface GetControllerResult {
      */
     readonly type: string;
 }
+
+export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerResult> {
+    return pulumi.output(args).apply(a => getController(a, opts))
+}
+
+export interface GetControllerOutputArgs {
+    /**
+     * Name of the resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

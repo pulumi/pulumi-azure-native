@@ -121,3 +121,30 @@ export interface GetExtensionResult {
      */
     readonly version?: string;
 }
+
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+    return pulumi.output(args).apply(a => getExtension(a, opts))
+}
+
+export interface GetExtensionOutputArgs {
+    /**
+     * The name of the kubernetes cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     */
+    clusterResourceName: pulumi.Input<string>;
+    /**
+     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     */
+    clusterRp: pulumi.Input<string>;
+    /**
+     * Name of the Extension.
+     */
+    extensionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -87,3 +87,22 @@ export interface ListProductDetailsResult {
      */
     readonly vmScaleSetEnabled: boolean;
 }
+
+export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductDetailsResult> {
+    return pulumi.output(args).apply(a => listProductDetails(a, opts))
+}
+
+export interface ListProductDetailsOutputArgs {
+    /**
+     * Name of the product.
+     */
+    productName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Stack registration.
+     */
+    registrationName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

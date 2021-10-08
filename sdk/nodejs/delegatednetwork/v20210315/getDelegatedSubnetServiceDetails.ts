@@ -74,3 +74,18 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly type: string;
 }
+
+export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
+    return pulumi.output(args).apply(a => getDelegatedSubnetServiceDetails(a, opts))
+}
+
+export interface GetDelegatedSubnetServiceDetailsOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    resourceName: pulumi.Input<string>;
+}

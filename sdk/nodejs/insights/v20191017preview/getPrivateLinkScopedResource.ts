@@ -62,3 +62,22 @@ export interface GetPrivateLinkScopedResourceResult {
      */
     readonly type: string;
 }
+
+export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
+    return pulumi.output(args).apply(a => getPrivateLinkScopedResource(a, opts))
+}
+
+export interface GetPrivateLinkScopedResourceOutputArgs {
+    /**
+     * The name of the scoped resource object.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Monitor PrivateLinkScope resource.
+     */
+    scopeName: pulumi.Input<string>;
+}

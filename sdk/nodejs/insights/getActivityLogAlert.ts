@@ -79,3 +79,18 @@ export interface GetActivityLogAlertResult {
      */
     readonly type: string;
 }
+
+export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
+    return pulumi.output(args).apply(a => getActivityLogAlert(a, opts))
+}
+
+export interface GetActivityLogAlertOutputArgs {
+    /**
+     * The name of the Activity Log Alert rule.
+     */
+    activityLogAlertName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

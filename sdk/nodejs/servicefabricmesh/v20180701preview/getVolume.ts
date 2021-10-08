@@ -74,3 +74,18 @@ export interface GetVolumeResult {
      */
     readonly type: string;
 }
+
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+    return pulumi.output(args).apply(a => getVolume(a, opts))
+}
+
+export interface GetVolumeOutputArgs {
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The identity of the volume.
+     */
+    volumeName: pulumi.Input<string>;
+}

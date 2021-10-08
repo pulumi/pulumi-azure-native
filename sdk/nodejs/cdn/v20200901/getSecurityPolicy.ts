@@ -68,3 +68,22 @@ export interface GetSecurityPolicyResult {
      */
     readonly type: string;
 }
+
+export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
+    return pulumi.output(args).apply(a => getSecurityPolicy(a, opts))
+}
+
+export interface GetSecurityPolicyOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the security policy under the profile.
+     */
+    securityPolicyName: pulumi.Input<string>;
+}

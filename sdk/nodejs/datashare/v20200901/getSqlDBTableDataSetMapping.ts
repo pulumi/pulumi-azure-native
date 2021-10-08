@@ -97,3 +97,26 @@ export interface GetSqlDBTableDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getSqlDBTableDataSetMappingOutput(args: GetSqlDBTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getSqlDBTableDataSetMapping(a, opts))
+}
+
+export interface GetSqlDBTableDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

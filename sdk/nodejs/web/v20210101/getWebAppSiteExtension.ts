@@ -135,3 +135,22 @@ export interface GetWebAppSiteExtensionResult {
      */
     readonly version?: string;
 }
+
+export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
+    return pulumi.output(args).apply(a => getWebAppSiteExtension(a, opts))
+}
+
+export interface GetWebAppSiteExtensionOutputArgs {
+    /**
+     * Site name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site extension name.
+     */
+    siteExtensionId: pulumi.Input<string>;
+}

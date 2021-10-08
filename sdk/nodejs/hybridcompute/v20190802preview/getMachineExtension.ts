@@ -103,3 +103,22 @@ export interface GetMachineExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
+
+export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
+    return pulumi.output(args).apply(a => getMachineExtension(a, opts))
+}
+
+export interface GetMachineExtensionOutputArgs {
+    /**
+     * The name of the machine extension.
+     */
+    extensionName: pulumi.Input<string>;
+    /**
+     * The name of the machine containing the extension.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

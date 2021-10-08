@@ -82,3 +82,18 @@ export interface GetClusterResult {
      */
     readonly updatedAt: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+export interface GetClusterOutputArgs {
+    /**
+     * The name of the Event Hubs Cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

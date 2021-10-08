@@ -135,3 +135,22 @@ export interface GetPoolResult {
      */
     readonly vmSize?: string;
 }
+
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+    return pulumi.output(args).apply(a => getPool(a, opts))
+}
+
+export interface GetPoolOutputArgs {
+    /**
+     * The name of the Batch account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The pool name. This must be unique within the account.
+     */
+    poolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the Batch account.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

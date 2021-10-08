@@ -88,3 +88,30 @@ export interface GetSqlPoolWorkloadClassifierResult {
      */
     readonly type: string;
 }
+
+export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
+    return pulumi.output(args).apply(a => getSqlPoolWorkloadClassifier(a, opts))
+}
+
+export interface GetSqlPoolWorkloadClassifierOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * SQL pool name
+     */
+    sqlPoolName: pulumi.Input<string>;
+    /**
+     * The name of the workload classifier.
+     */
+    workloadClassifierName: pulumi.Input<string>;
+    /**
+     * The name of the workload group.
+     */
+    workloadGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

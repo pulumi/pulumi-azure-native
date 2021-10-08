@@ -106,3 +106,18 @@ export interface GetIotSecuritySolutionResult {
      */
     readonly workspace?: string;
 }
+
+export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
+    return pulumi.output(args).apply(a => getIotSecuritySolution(a, opts))
+}
+
+export interface GetIotSecuritySolutionOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT Security solution.
+     */
+    solutionName: pulumi.Input<string>;
+}

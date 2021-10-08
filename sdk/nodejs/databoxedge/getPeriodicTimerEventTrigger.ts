@@ -77,3 +77,22 @@ export interface GetPeriodicTimerEventTriggerResult {
      */
     readonly type: string;
 }
+
+export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
+    return pulumi.output(args).apply(a => getPeriodicTimerEventTrigger(a, opts))
+}
+
+export interface GetPeriodicTimerEventTriggerOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The trigger name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

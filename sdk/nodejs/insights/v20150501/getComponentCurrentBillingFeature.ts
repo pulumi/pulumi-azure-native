@@ -46,3 +46,18 @@ export interface GetComponentCurrentBillingFeatureResult {
      */
     readonly dataVolumeCap?: outputs.insights.v20150501.ApplicationInsightsComponentDataVolumeCapResponse;
 }
+
+export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
+    return pulumi.output(args).apply(a => getComponentCurrentBillingFeature(a, opts))
+}
+
+export interface GetComponentCurrentBillingFeatureOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

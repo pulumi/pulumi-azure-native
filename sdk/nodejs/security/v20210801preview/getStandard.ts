@@ -90,3 +90,18 @@ export interface GetStandardResult {
      */
     readonly type: string;
 }
+
+export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
+    return pulumi.output(args).apply(a => getStandard(a, opts))
+}
+
+export interface GetStandardOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Security Standard key - unique key for the standard type
+     */
+    standardId: pulumi.Input<string>;
+}

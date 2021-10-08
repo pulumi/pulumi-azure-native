@@ -558,6 +558,14 @@ func (o PerNodeStateResponseArrayOutput) Index(i pulumi.IntInput) PerNodeStateRe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResponseInput)(nil)).Elem(), ClusterNodeResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResponseArrayInput)(nil)).Elem(), ClusterNodeResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterReportedPropertiesResponseInput)(nil)).Elem(), ClusterReportedPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterReportedPropertiesResponsePtrInput)(nil)).Elem(), ClusterReportedPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerNodeExtensionStateResponseInput)(nil)).Elem(), PerNodeExtensionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerNodeExtensionStateResponseArrayInput)(nil)).Elem(), PerNodeExtensionStateResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerNodeStateResponseInput)(nil)).Elem(), PerNodeStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerNodeStateResponseArrayInput)(nil)).Elem(), PerNodeStateResponseArray{})
 	pulumi.RegisterOutputType(ClusterNodeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponseOutput{})

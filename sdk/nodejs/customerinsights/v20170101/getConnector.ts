@@ -98,3 +98,22 @@ export interface GetConnectorResult {
      */
     readonly type: string;
 }
+
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+    return pulumi.output(args).apply(a => getConnector(a, opts))
+}
+
+export interface GetConnectorOutputArgs {
+    /**
+     * The name of the connector.
+     */
+    connectorName: pulumi.Input<string>;
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

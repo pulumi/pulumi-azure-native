@@ -123,3 +123,22 @@ export interface GetExpressRouteCircuitPeeringResult {
      */
     readonly vlanId?: number;
 }
+
+export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
+    return pulumi.output(args).apply(a => getExpressRouteCircuitPeering(a, opts))
+}
+
+export interface GetExpressRouteCircuitPeeringOutputArgs {
+    /**
+     * The name of the express route circuit.
+     */
+    circuitName: pulumi.Input<string>;
+    /**
+     * The name of the peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

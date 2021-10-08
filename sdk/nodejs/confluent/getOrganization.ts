@@ -83,3 +83,18 @@ export interface GetOrganizationResult {
      */
     readonly userDetail?: outputs.confluent.OrganizationResourcePropertiesResponseUserDetail;
 }
+
+export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
+    return pulumi.output(args).apply(a => getOrganization(a, opts))
+}
+
+export interface GetOrganizationOutputArgs {
+    /**
+     * Organization resource name
+     */
+    organizationName: pulumi.Input<string>;
+    /**
+     * Resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

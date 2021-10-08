@@ -97,3 +97,30 @@ export interface GetResourceResult {
      */
     readonly type: string;
 }
+
+export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
+    return pulumi.output(args).apply(a => getResource(a, opts))
+}
+
+export interface GetResourceOutputArgs {
+    /**
+     * Resource identity.
+     */
+    parentResourcePath: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource identity.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Resource identity.
+     */
+    resourceProviderNamespace: pulumi.Input<string>;
+    /**
+     * Resource identity.
+     */
+    resourceType: pulumi.Input<string>;
+}

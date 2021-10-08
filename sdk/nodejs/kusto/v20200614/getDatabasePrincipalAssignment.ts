@@ -87,3 +87,26 @@ export interface GetDatabasePrincipalAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
+    return pulumi.output(args).apply(a => getDatabasePrincipalAssignment(a, opts))
+}
+
+export interface GetDatabasePrincipalAssignmentOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto principalAssignment.
+     */
+    principalAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

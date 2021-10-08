@@ -39,7 +39,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * The actions to execute when the automation rule is triggered
      */
-    public readonly actions!: pulumi.Output<outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse[]>;
+    public readonly actions!: pulumi.Output<(outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
     /**
      * Describes the client that created the automation rule
      */

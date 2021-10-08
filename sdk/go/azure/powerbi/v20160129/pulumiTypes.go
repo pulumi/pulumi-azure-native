@@ -307,6 +307,10 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuInput)(nil)).Elem(), AzureSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuPtrInput)(nil)).Elem(), AzureSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuResponseInput)(nil)).Elem(), AzureSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuResponsePtrInput)(nil)).Elem(), AzureSkuResponseArgs{})
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})

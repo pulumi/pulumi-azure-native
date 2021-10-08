@@ -72,3 +72,22 @@ export interface GetPrivateEndpointConnectionByHostPoolResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionByHostPoolOutput(args: GetPrivateEndpointConnectionByHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByHostPoolResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionByHostPool(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionByHostPoolOutputArgs {
+    /**
+     * The name of the host pool within the specified resource group
+     */
+    hostPoolName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

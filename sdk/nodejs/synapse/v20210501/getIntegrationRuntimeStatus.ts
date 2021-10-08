@@ -51,3 +51,22 @@ export interface GetIntegrationRuntimeStatusResult {
      */
     readonly properties: outputs.synapse.v20210501.ManagedIntegrationRuntimeStatusResponse | outputs.synapse.v20210501.SelfHostedIntegrationRuntimeStatusResponse;
 }
+
+export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntimeStatus(a, opts))
+}
+
+export interface GetIntegrationRuntimeStatusOutputArgs {
+    /**
+     * Integration runtime name
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

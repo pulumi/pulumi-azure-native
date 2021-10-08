@@ -78,3 +78,22 @@ export interface GetAttachedDatabaseConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
+    return pulumi.output(args).apply(a => getAttachedDatabaseConfiguration(a, opts))
+}
+
+export interface GetAttachedDatabaseConfigurationOutputArgs {
+    /**
+     * The name of the attached database configuration.
+     */
+    attachedDatabaseConfigurationName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

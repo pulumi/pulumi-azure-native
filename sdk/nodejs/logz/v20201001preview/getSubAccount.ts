@@ -60,3 +60,22 @@ export interface GetSubAccountResult {
      */
     readonly type: string;
 }
+
+export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
+    return pulumi.output(args).apply(a => getSubAccount(a, opts))
+}
+
+export interface GetSubAccountOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sub Account resource name
+     */
+    subAccountName: pulumi.Input<string>;
+}

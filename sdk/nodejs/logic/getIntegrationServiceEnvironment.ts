@@ -67,3 +67,18 @@ export interface GetIntegrationServiceEnvironmentResult {
      */
     readonly type: string;
 }
+
+export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
+    return pulumi.output(args).apply(a => getIntegrationServiceEnvironment(a, opts))
+}
+
+export interface GetIntegrationServiceEnvironmentOutputArgs {
+    /**
+     * The integration service environment name.
+     */
+    integrationServiceEnvironmentName: pulumi.Input<string>;
+    /**
+     * The resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

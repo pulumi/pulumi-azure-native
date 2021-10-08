@@ -43,3 +43,18 @@ export interface ListBitLockerKeyResult {
      */
     readonly value?: outputs.importexport.DriveBitLockerKeyResponse[];
 }
+
+export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
+    return pulumi.output(args).apply(a => listBitLockerKey(a, opts))
+}
+
+export interface ListBitLockerKeyOutputArgs {
+    /**
+     * The name of the import/export job.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The resource group name uniquely identifies the resource group within the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

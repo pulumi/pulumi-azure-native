@@ -72,3 +72,26 @@ export interface GetAnomaliesResult {
      */
     readonly type: string;
 }
+
+export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
+    return pulumi.output(args).apply(a => getAnomalies(a, opts))
+}
+
+export interface GetAnomaliesOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+     */
+    settingsName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

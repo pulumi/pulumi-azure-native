@@ -62,3 +62,18 @@ export interface GetSshPublicKeyResult {
      */
     readonly type: string;
 }
+
+export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
+    return pulumi.output(args).apply(a => getSshPublicKey(a, opts))
+}
+
+export interface GetSshPublicKeyOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the SSH public key.
+     */
+    sshPublicKeyName: pulumi.Input<string>;
+}

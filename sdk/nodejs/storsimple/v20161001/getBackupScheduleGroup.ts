@@ -64,3 +64,26 @@ export interface GetBackupScheduleGroupResult {
      */
     readonly type: string;
 }
+
+export function getBackupScheduleGroupOutput(args: GetBackupScheduleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleGroupResult> {
+    return pulumi.output(args).apply(a => getBackupScheduleGroup(a, opts))
+}
+
+export interface GetBackupScheduleGroupOutputArgs {
+    /**
+     * The name of the device.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the schedule group.
+     */
+    scheduleGroupName: pulumi.Input<string>;
+}

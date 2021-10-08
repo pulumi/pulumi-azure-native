@@ -87,3 +87,22 @@ export interface GetWebAppSourceControlSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppSourceControlSlot(a, opts))
+}
+
+export interface GetWebAppSourceControlSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

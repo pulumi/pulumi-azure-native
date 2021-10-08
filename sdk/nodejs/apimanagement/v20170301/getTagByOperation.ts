@@ -68,3 +68,30 @@ export interface GetTagByOperationResult {
      */
     readonly type: string;
 }
+
+export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
+    return pulumi.output(args).apply(a => getTagByOperation(a, opts))
+}
+
+export interface GetTagByOperationOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Operation identifier within an API. Must be unique in the current API Management service instance.
+     */
+    operationId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    tagId: pulumi.Input<string>;
+}

@@ -63,3 +63,22 @@ export interface GetLinkedServiceResult {
      */
     readonly type: string;
 }
+
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+    return pulumi.output(args).apply(a => getLinkedService(a, opts))
+}
+
+export interface GetLinkedServiceOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The linked service name.
+     */
+    linkedServiceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

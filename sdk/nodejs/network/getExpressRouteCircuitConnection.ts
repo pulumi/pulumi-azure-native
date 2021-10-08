@@ -93,3 +93,26 @@ export interface GetExpressRouteCircuitConnectionResult {
      */
     readonly type: string;
 }
+
+export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
+    return pulumi.output(args).apply(a => getExpressRouteCircuitConnection(a, opts))
+}
+
+export interface GetExpressRouteCircuitConnectionOutputArgs {
+    /**
+     * The name of the express route circuit.
+     */
+    circuitName: pulumi.Input<string>;
+    /**
+     * The name of the express route circuit connection.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The name of the peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

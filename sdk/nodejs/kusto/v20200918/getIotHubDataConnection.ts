@@ -100,3 +100,26 @@ export interface GetIotHubDataConnectionResult {
      */
     readonly type: string;
 }
+
+export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
+    return pulumi.output(args).apply(a => getIotHubDataConnection(a, opts))
+}
+
+export interface GetIotHubDataConnectionOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the data connection.
+     */
+    dataConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

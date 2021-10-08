@@ -86,3 +86,22 @@ export interface GetSiteSourceControlSlotResult {
      */
     readonly type?: string;
 }
+
+export function getSiteSourceControlSlotOutput(args: GetSiteSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSourceControlSlotResult> {
+    return pulumi.output(args).apply(a => getSiteSourceControlSlot(a, opts))
+}
+
+export interface GetSiteSourceControlSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

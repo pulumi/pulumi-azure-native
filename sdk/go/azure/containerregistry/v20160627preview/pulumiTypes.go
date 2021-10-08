@@ -307,6 +307,10 @@ func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesInput)(nil)).Elem(), StorageAccountPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesPtrInput)(nil)).Elem(), StorageAccountPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesResponseInput)(nil)).Elem(), StorageAccountPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPropertiesResponsePtrInput)(nil)).Elem(), StorageAccountPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})

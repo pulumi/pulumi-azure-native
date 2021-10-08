@@ -53,3 +53,18 @@ export interface GetSupportPlanTypeResult {
      */
     readonly type: string;
 }
+
+export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportPlanTypeResult> {
+    return pulumi.output(args).apply(a => getSupportPlanType(a, opts))
+}
+
+export interface GetSupportPlanTypeOutputArgs {
+    /**
+     * The Canonical support plan type.
+     */
+    planTypeName: pulumi.Input<string>;
+    /**
+     * The support plan type. For now the only valid type is "canonical".
+     */
+    providerName: pulumi.Input<string>;
+}

@@ -126,3 +126,18 @@ export interface GetApplicationDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
+    return pulumi.output(args).apply(a => getApplicationDefinition(a, opts))
+}
+
+export interface GetApplicationDefinitionOutputArgs {
+    /**
+     * The name of the managed application definition.
+     */
+    applicationDefinitionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

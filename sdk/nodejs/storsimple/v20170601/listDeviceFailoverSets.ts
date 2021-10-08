@@ -47,3 +47,22 @@ export interface ListDeviceFailoverSetsResult {
      */
     readonly value?: outputs.storsimple.v20170601.FailoverSetResponse[];
 }
+
+export function listDeviceFailoverSetsOutput(args: ListDeviceFailoverSetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverSetsResult> {
+    return pulumi.output(args).apply(a => listDeviceFailoverSets(a, opts))
+}
+
+export interface ListDeviceFailoverSetsOutputArgs {
+    /**
+     * The device name
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

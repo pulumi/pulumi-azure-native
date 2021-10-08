@@ -79,3 +79,22 @@ export interface GetReferenceDataSetResult {
      */
     readonly type: string;
 }
+
+export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
+    return pulumi.output(args).apply(a => getReferenceDataSet(a, opts))
+}
+
+export interface GetReferenceDataSetOutputArgs {
+    /**
+     * The name of the Time Series Insights environment associated with the specified resource group.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * The name of the Time Series Insights reference data set associated with the specified environment.
+     */
+    referenceDataSetName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -62,3 +62,22 @@ export interface GetCloudLinkResult {
      */
     readonly type: string;
 }
+
+export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
+    return pulumi.output(args).apply(a => getCloudLink(a, opts))
+}
+
+export interface GetCloudLinkOutputArgs {
+    /**
+     * Name of the cloud link resource
+     */
+    cloudLinkName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

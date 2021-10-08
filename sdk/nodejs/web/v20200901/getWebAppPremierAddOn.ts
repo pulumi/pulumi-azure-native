@@ -91,3 +91,22 @@ export interface GetWebAppPremierAddOnResult {
      */
     readonly vendor?: string;
 }
+
+export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
+    return pulumi.output(args).apply(a => getWebAppPremierAddOn(a, opts))
+}
+
+export interface GetWebAppPremierAddOnOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Add-on name.
+     */
+    premierAddOnName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

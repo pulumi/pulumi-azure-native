@@ -74,3 +74,22 @@ export interface GetRegisteredPrefixResult {
      */
     readonly type: string;
 }
+
+export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {
+    return pulumi.output(args).apply(a => getRegisteredPrefix(a, opts))
+}
+
+export interface GetRegisteredPrefixOutputArgs {
+    /**
+     * The name of the peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the registered prefix.
+     */
+    registeredPrefixName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

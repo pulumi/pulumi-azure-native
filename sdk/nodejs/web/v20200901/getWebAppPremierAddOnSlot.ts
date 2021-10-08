@@ -96,3 +96,26 @@ export interface GetWebAppPremierAddOnSlotResult {
      */
     readonly vendor?: string;
 }
+
+export function getWebAppPremierAddOnSlotOutput(args: GetWebAppPremierAddOnSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppPremierAddOnSlot(a, opts))
+}
+
+export interface GetWebAppPremierAddOnSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Add-on name.
+     */
+    premierAddOnName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

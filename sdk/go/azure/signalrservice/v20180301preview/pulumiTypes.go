@@ -530,6 +530,12 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) HostNamePrefix() pulumi.String
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuInput)(nil)).Elem(), ResourceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuPtrInput)(nil)).Elem(), ResourceSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponseInput)(nil)).Elem(), ResourceSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponsePtrInput)(nil)).Elem(), ResourceSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCreateOrUpdatePropertiesInput)(nil)).Elem(), SignalRCreateOrUpdatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCreateOrUpdatePropertiesPtrInput)(nil)).Elem(), SignalRCreateOrUpdatePropertiesArgs{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})

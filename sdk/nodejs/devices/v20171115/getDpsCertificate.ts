@@ -63,3 +63,22 @@ export interface GetDpsCertificateResult {
      */
     readonly type: string;
 }
+
+export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
+    return pulumi.output(args).apply(a => getDpsCertificate(a, opts))
+}
+
+export interface GetDpsCertificateOutputArgs {
+    /**
+     * Name of the certificate to retrieve.
+     */
+    certificateName: pulumi.Input<string>;
+    /**
+     * Name of the provisioning service the certificate is associated with.
+     */
+    provisioningServiceName: pulumi.Input<string>;
+    /**
+     * Resource group identifier.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

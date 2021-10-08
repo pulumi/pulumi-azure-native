@@ -75,3 +75,26 @@ export interface ListQueueKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
+    return pulumi.output(args).apply(a => listQueueKeys(a, opts))
+}
+
+export interface ListQueueKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The queue name.
+     */
+    queueName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

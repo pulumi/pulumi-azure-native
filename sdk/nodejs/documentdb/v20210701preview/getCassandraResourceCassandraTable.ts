@@ -74,3 +74,26 @@ export interface GetCassandraResourceCassandraTableResult {
      */
     readonly type: string;
 }
+
+export function getCassandraResourceCassandraTableOutput(args: GetCassandraResourceCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraTableResult> {
+    return pulumi.output(args).apply(a => getCassandraResourceCassandraTable(a, opts))
+}
+
+export interface GetCassandraResourceCassandraTableOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB keyspace name.
+     */
+    keyspaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB table name.
+     */
+    tableName: pulumi.Input<string>;
+}

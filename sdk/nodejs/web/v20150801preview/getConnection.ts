@@ -104,3 +104,18 @@ export interface GetConnectionResult {
      */
     readonly type?: string;
 }
+
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+    return pulumi.output(args).apply(a => getConnection(a, opts))
+}
+
+export interface GetConnectionOutputArgs {
+    /**
+     * The connection name.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -186,3 +186,18 @@ export interface ListWebAppAuthSettingsResult {
      */
     readonly unauthenticatedClientAction?: string;
 }
+
+export function listWebAppAuthSettingsOutput(args: ListWebAppAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsResult> {
+    return pulumi.output(args).apply(a => listWebAppAuthSettings(a, opts))
+}
+
+export interface ListWebAppAuthSettingsOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

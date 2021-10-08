@@ -118,3 +118,18 @@ export interface GetBlockchainMemberResult {
      */
     readonly validatorNodesSku?: outputs.blockchain.v20180601preview.BlockchainMemberNodesSkuResponse;
 }
+
+export function getBlockchainMemberOutput(args: GetBlockchainMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlockchainMemberResult> {
+    return pulumi.output(args).apply(a => getBlockchainMember(a, opts))
+}
+
+export interface GetBlockchainMemberOutputArgs {
+    /**
+     * Blockchain member name.
+     */
+    blockchainMemberName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

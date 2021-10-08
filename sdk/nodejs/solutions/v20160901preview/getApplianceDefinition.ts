@@ -94,3 +94,18 @@ export interface GetApplianceDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getApplianceDefinitionOutput(args: GetApplianceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceDefinitionResult> {
+    return pulumi.output(args).apply(a => getApplianceDefinition(a, opts))
+}
+
+export interface GetApplianceDefinitionOutputArgs {
+    /**
+     * The name of the appliance definition.
+     */
+    applianceDefinitionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

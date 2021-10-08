@@ -82,3 +82,14 @@ export interface GetAssessmentsMetadataSubscriptionResult {
      */
     readonly userImpact?: string;
 }
+
+export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
+    return pulumi.output(args).apply(a => getAssessmentsMetadataSubscription(a, opts))
+}
+
+export interface GetAssessmentsMetadataSubscriptionOutputArgs {
+    /**
+     * The Assessment Key - Unique key for the assessment type
+     */
+    assessmentMetadataName: pulumi.Input<string>;
+}

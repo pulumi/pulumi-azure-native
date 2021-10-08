@@ -133,3 +133,26 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly type: string;
 }
+
+export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
+    return pulumi.output(args).apply(a => getScheduledAlertRule(a, opts))
+}
+
+export interface GetScheduledAlertRuleOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    ruleId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

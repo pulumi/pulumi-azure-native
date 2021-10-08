@@ -78,3 +78,22 @@ export interface ListSitePublishingCredentialsSlotResult {
      */
     readonly type?: string;
 }
+
+export function listSitePublishingCredentialsSlotOutput(args: ListSitePublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSitePublishingCredentialsSlotResult> {
+    return pulumi.output(args).apply(a => listSitePublishingCredentialsSlot(a, opts))
+}
+
+export interface ListSitePublishingCredentialsSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

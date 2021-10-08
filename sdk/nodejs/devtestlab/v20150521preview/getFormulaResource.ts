@@ -91,3 +91,22 @@ export interface GetFormulaResourceResult {
      */
     readonly vm?: outputs.devtestlab.v20150521preview.FormulaPropertiesFromVmResponse;
 }
+
+export function getFormulaResourceOutput(args: GetFormulaResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResourceResult> {
+    return pulumi.output(args).apply(a => getFormulaResource(a, opts))
+}
+
+export interface GetFormulaResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the formula.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

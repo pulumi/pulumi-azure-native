@@ -41,3 +41,18 @@ export interface ListServerGatewayStatusResult {
      */
     readonly status?: number;
 }
+
+export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {
+    return pulumi.output(args).apply(a => listServerGatewayStatus(a, opts))
+}
+
+export interface ListServerGatewayStatusOutputArgs {
+    /**
+     * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.
+     */
+    serverName: pulumi.Input<string>;
+}

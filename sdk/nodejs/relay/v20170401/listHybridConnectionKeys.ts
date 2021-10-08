@@ -67,3 +67,26 @@ export interface ListHybridConnectionKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
+    return pulumi.output(args).apply(a => listHybridConnectionKeys(a, opts))
+}
+
+export interface ListHybridConnectionKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The hybrid connection name.
+     */
+    hybridConnectionName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -56,3 +56,26 @@ export interface GetGlobalUserPersonalPreferencesResult {
      */
     readonly id?: string;
 }
+
+export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
+    return pulumi.output(args).apply(a => getGlobalUserPersonalPreferences(a, opts))
+}
+
+export interface GetGlobalUserPersonalPreferencesOutputArgs {
+    /**
+     * Enum indicating if user is adding or removing a favorite lab
+     */
+    addRemove?: pulumi.Input<string | enums.labservices.v20181015.AddRemove>;
+    /**
+     * Resource Id of the lab account
+     */
+    labAccountResourceId?: pulumi.Input<string>;
+    /**
+     * Resource Id of the lab to add/remove from the favorites list
+     */
+    labResourceId?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    userName: pulumi.Input<string>;
+}

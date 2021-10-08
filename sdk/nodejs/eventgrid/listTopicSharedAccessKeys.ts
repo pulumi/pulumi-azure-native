@@ -46,3 +46,18 @@ export interface ListTopicSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listTopicSharedAccessKeysOutput(args: ListTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicSharedAccessKeysResult> {
+    return pulumi.output(args).apply(a => listTopicSharedAccessKeys(a, opts))
+}
+
+export interface ListTopicSharedAccessKeysOutputArgs {
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the topic.
+     */
+    topicName: pulumi.Input<string>;
+}

@@ -77,3 +77,26 @@ export interface GetDynamics365DataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
+    return pulumi.output(args).apply(a => getDynamics365DataConnector(a, opts))
+}
+
+export interface GetDynamics365DataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

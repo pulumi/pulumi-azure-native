@@ -83,3 +83,18 @@ export interface GetPeeringResult {
      */
     readonly type: string;
 }
+
+export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {
+    return pulumi.output(args).apply(a => getPeering(a, opts))
+}
+
+export interface GetPeeringOutputArgs {
+    /**
+     * The name of the peering.
+     */
+    peeringName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -713,6 +713,18 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeepCreatedOriginInput)(nil)).Elem(), DeepCreatedOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeepCreatedOriginArrayInput)(nil)).Elem(), DeepCreatedOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeepCreatedOriginResponseInput)(nil)).Elem(), DeepCreatedOriginResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeepCreatedOriginResponseArrayInput)(nil)).Elem(), DeepCreatedOriginResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterInput)(nil)).Elem(), GeoFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterArrayInput)(nil)).Elem(), GeoFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterResponseInput)(nil)).Elem(), GeoFilterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterResponseArrayInput)(nil)).Elem(), GeoFilterResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})

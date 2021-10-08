@@ -84,3 +84,22 @@ export interface GetReadWriteDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
+    return pulumi.output(args).apply(a => getReadWriteDatabase(a, opts))
+}
+
+export interface GetReadWriteDatabaseOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

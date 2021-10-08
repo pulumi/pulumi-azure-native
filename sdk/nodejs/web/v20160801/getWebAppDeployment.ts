@@ -94,3 +94,22 @@ export interface GetWebAppDeploymentResult {
      */
     readonly type: string;
 }
+
+export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
+    return pulumi.output(args).apply(a => getWebAppDeployment(a, opts))
+}
+
+export interface GetWebAppDeploymentOutputArgs {
+    /**
+     * Deployment ID.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

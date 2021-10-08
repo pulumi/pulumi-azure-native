@@ -99,3 +99,18 @@ export interface GetLinkedSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedSubscriptionResult> {
+    return pulumi.output(args).apply(a => getLinkedSubscription(a, opts))
+}
+
+export interface GetLinkedSubscriptionOutputArgs {
+    /**
+     * Name of the Linked Subscription resource.
+     */
+    linkedSubscriptionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroup: pulumi.Input<string>;
+}

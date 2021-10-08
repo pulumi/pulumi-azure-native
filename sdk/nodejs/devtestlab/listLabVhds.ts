@@ -47,3 +47,18 @@ export interface ListLabVhdsResult {
      */
     readonly value?: outputs.devtestlab.LabVhdResponse[];
 }
+
+export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
+    return pulumi.output(args).apply(a => listLabVhds(a, opts))
+}
+
+export interface ListLabVhdsOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

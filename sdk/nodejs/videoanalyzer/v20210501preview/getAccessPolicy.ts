@@ -67,3 +67,22 @@ export interface GetAccessPolicyResult {
      */
     readonly type: string;
 }
+
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
+}
+
+export interface GetAccessPolicyOutputArgs {
+    /**
+     * The name of the access policy to retrieve.
+     */
+    accessPolicyName: pulumi.Input<string>;
+    /**
+     * The Azure Video Analyzer account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

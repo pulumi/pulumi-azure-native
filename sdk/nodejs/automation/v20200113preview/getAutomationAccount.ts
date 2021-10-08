@@ -102,3 +102,18 @@ export interface GetAutomationAccountResult {
      */
     readonly type: string;
 }
+
+export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
+    return pulumi.output(args).apply(a => getAutomationAccount(a, opts))
+}
+
+export interface GetAutomationAccountOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

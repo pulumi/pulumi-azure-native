@@ -57,3 +57,18 @@ export interface GetCustomEntityStoreAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
+    return pulumi.output(args).apply(a => getCustomEntityStoreAssignment(a, opts))
+}
+
+export interface GetCustomEntityStoreAssignmentOutputArgs {
+    /**
+     * Name of the custom entity store assignment. Generated name is GUID.
+     */
+    customEntityStoreAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

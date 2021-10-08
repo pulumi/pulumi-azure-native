@@ -103,3 +103,18 @@ export interface GetManagedHostingEnvironmentResult {
      */
     readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileResponse;
 }
+
+export function getManagedHostingEnvironmentOutput(args: GetManagedHostingEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHostingEnvironmentResult> {
+    return pulumi.output(args).apply(a => getManagedHostingEnvironment(a, opts))
+}
+
+export interface GetManagedHostingEnvironmentOutputArgs {
+    /**
+     * Name of managed hosting environment
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

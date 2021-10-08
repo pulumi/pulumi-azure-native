@@ -67,3 +67,18 @@ export interface GetLedgerResult {
      */
     readonly type: string;
 }
+
+export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
+    return pulumi.output(args).apply(a => getLedger(a, opts))
+}
+
+export interface GetLedgerOutputArgs {
+    /**
+     * Name of the Confidential Ledger
+     */
+    ledgerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

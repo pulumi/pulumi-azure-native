@@ -53,3 +53,18 @@ export interface ListDatabaseAccountKeysResult {
      */
     readonly secondaryReadonlyMasterKey: string;
 }
+
+export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
+    return pulumi.output(args).apply(a => listDatabaseAccountKeys(a, opts))
+}
+
+export interface ListDatabaseAccountKeysOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

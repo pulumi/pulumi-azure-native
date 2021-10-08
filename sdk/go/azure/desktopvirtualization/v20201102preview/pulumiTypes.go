@@ -809,6 +809,18 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageApplicationsInput)(nil)).Elem(), MsixPackageApplicationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageApplicationsArrayInput)(nil)).Elem(), MsixPackageApplicationsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageApplicationsResponseInput)(nil)).Elem(), MsixPackageApplicationsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageApplicationsResponseArrayInput)(nil)).Elem(), MsixPackageApplicationsResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageDependenciesInput)(nil)).Elem(), MsixPackageDependenciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageDependenciesArrayInput)(nil)).Elem(), MsixPackageDependenciesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageDependenciesResponseInput)(nil)).Elem(), MsixPackageDependenciesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MsixPackageDependenciesResponseArrayInput)(nil)).Elem(), MsixPackageDependenciesResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoInput)(nil)).Elem(), RegistrationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoPtrInput)(nil)).Elem(), RegistrationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoResponseInput)(nil)).Elem(), RegistrationInfoResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoResponsePtrInput)(nil)).Elem(), RegistrationInfoResponseArgs{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseOutput{})

@@ -94,3 +94,22 @@ export interface GetArtifactSourceResourceResult {
      */
     readonly uri?: string;
 }
+
+export function getArtifactSourceResourceOutput(args: GetArtifactSourceResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResourceResult> {
+    return pulumi.output(args).apply(a => getArtifactSourceResource(a, opts))
+}
+
+export interface GetArtifactSourceResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the artifact source.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

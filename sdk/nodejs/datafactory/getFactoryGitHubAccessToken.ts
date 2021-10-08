@@ -63,3 +63,34 @@ export interface GetFactoryGitHubAccessTokenResult {
      */
     readonly gitHubAccessToken?: string;
 }
+
+export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
+    return pulumi.output(args).apply(a => getFactoryGitHubAccessToken(a, opts))
+}
+
+export interface GetFactoryGitHubAccessTokenOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * GitHub access code.
+     */
+    gitHubAccessCode: pulumi.Input<string>;
+    /**
+     * GitHub access token base URL.
+     */
+    gitHubAccessTokenBaseUrl: pulumi.Input<string>;
+    /**
+     * GitHub application client ID.
+     */
+    gitHubClientId?: pulumi.Input<string>;
+    /**
+     * GitHub bring your own app client secret information.
+     */
+    gitHubClientSecret?: pulumi.Input<inputs.datafactory.GitHubClientSecretArgs>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

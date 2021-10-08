@@ -66,3 +66,18 @@ export interface GetDataCollectionRuleAssociationResult {
      */
     readonly type: string;
 }
+
+export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
+    return pulumi.output(args).apply(a => getDataCollectionRuleAssociation(a, opts))
+}
+
+export interface GetDataCollectionRuleAssociationOutputArgs {
+    /**
+     * The name of the association. The name is case insensitive.
+     */
+    associationName: pulumi.Input<string>;
+    /**
+     * The identifier of the resource.
+     */
+    resourceUri: pulumi.Input<string>;
+}

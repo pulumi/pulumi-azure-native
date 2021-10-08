@@ -82,3 +82,22 @@ export interface GetIdentityProviderResult {
      */
     readonly type: string;
 }
+
+export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
+    return pulumi.output(args).apply(a => getIdentityProvider(a, opts))
+}
+
+export interface GetIdentityProviderOutputArgs {
+    /**
+     * Identity Provider Type identifier.
+     */
+    identityProviderName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

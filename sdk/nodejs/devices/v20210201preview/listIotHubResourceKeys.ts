@@ -46,3 +46,18 @@ export interface ListIotHubResourceKeysResult {
      */
     readonly value?: outputs.devices.v20210201preview.SharedAccessSignatureAuthorizationRuleResponse[];
 }
+
+export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
+    return pulumi.output(args).apply(a => listIotHubResourceKeys(a, opts))
+}
+
+export interface ListIotHubResourceKeysOutputArgs {
+    /**
+     * The name of the resource group that contains the IoT hub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub.
+     */
+    resourceName: pulumi.Input<string>;
+}

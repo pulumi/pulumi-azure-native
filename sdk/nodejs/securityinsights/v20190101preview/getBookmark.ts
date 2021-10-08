@@ -116,3 +116,26 @@ export interface GetBookmarkResult {
      */
     readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
 }
+
+export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
+    return pulumi.output(args).apply(a => getBookmark(a, opts))
+}
+
+export interface GetBookmarkOutputArgs {
+    /**
+     * Bookmark ID
+     */
+    bookmarkId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

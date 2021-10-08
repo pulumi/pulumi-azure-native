@@ -71,3 +71,22 @@ export interface GetSecretValueResult {
      */
     readonly value?: string;
 }
+
+export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretValueResult> {
+    return pulumi.output(args).apply(a => getSecretValue(a, opts))
+}
+
+export interface GetSecretValueOutputArgs {
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the secret resource.
+     */
+    secretResourceName: pulumi.Input<string>;
+    /**
+     * The name of the secret resource value which is typically the version identifier for the value.
+     */
+    secretValueResourceName: pulumi.Input<string>;
+}

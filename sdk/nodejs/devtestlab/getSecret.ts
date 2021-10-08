@@ -85,3 +85,30 @@ export interface GetSecretResult {
      */
     readonly value?: string;
 }
+
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+    return pulumi.output(args).apply(a => getSecret(a, opts))
+}
+
+export interface GetSecretOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=value)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the secret.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the user profile.
+     */
+    userName: pulumi.Input<string>;
+}

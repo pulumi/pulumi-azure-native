@@ -77,3 +77,26 @@ export interface ListServiceFabricApplicableSchedulesResult {
      */
     readonly type: string;
 }
+
+export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
+    return pulumi.output(args).apply(a => listServiceFabricApplicableSchedules(a, opts))
+}
+
+export interface ListServiceFabricApplicableSchedulesOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the service fabric.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the user profile.
+     */
+    userName: pulumi.Input<string>;
+}

@@ -78,3 +78,18 @@ export interface ListSiteBackupConfigurationResult {
      */
     readonly type: string;
 }
+
+export function listSiteBackupConfigurationOutput(args: ListSiteBackupConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupConfigurationResult> {
+    return pulumi.output(args).apply(a => listSiteBackupConfiguration(a, opts))
+}
+
+export interface ListSiteBackupConfigurationOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

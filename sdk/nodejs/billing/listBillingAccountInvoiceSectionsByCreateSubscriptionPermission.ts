@@ -42,3 +42,14 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
      */
     readonly value?: outputs.billing.InvoiceSectionWithCreateSubPermissionResponse[];
 }
+
+export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
+    return pulumi.output(args).apply(a => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))
+}
+
+export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs {
+    /**
+     * The ID that uniquely identifies a billing account.
+     */
+    billingAccountName: pulumi.Input<string>;
+}

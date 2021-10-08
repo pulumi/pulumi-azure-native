@@ -67,3 +67,18 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
+    return pulumi.output(args).apply(a => getManagementGroupSubscription(a, opts))
+}
+
+export interface GetManagementGroupSubscriptionOutputArgs {
+    /**
+     * Management Group ID.
+     */
+    groupId: pulumi.Input<string>;
+    /**
+     * Subscription ID.
+     */
+    subscriptionId?: pulumi.Input<string>;
+}

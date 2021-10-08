@@ -79,3 +79,22 @@ export interface GetStorageTargetResult {
      */
     readonly unknown?: outputs.storagecache.v20190801preview.UnknownTargetResponse;
 }
+
+export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
+    return pulumi.output(args).apply(a => getStorageTarget(a, opts))
+}
+
+export interface GetStorageTargetOutputArgs {
+    /**
+     * Name of cache.
+     */
+    cacheName: pulumi.Input<string>;
+    /**
+     * Target resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of storage target.
+     */
+    storageTargetName: pulumi.Input<string>;
+}

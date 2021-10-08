@@ -178,3 +178,22 @@ export interface ListSiteAuthSettingsSlotResult {
      */
     readonly unauthenticatedClientAction?: string;
 }
+
+export function listSiteAuthSettingsSlotOutput(args: ListSiteAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteAuthSettingsSlotResult> {
+    return pulumi.output(args).apply(a => listSiteAuthSettingsSlot(a, opts))
+}
+
+export interface ListSiteAuthSettingsSlotOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

@@ -84,3 +84,30 @@ export interface GetBookmarkRelationResult {
      */
     readonly type: string;
 }
+
+export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
+    return pulumi.output(args).apply(a => getBookmarkRelation(a, opts))
+}
+
+export interface GetBookmarkRelationOutputArgs {
+    /**
+     * Bookmark ID
+     */
+    bookmarkId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * Relation Name
+     */
+    relationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

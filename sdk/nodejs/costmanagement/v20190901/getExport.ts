@@ -70,3 +70,18 @@ export interface GetExportResult {
      */
     readonly type: string;
 }
+
+export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
+    return pulumi.output(args).apply(a => getExport(a, opts))
+}
+
+export interface GetExportOutputArgs {
+    /**
+     * Export Name.
+     */
+    exportName: pulumi.Input<string>;
+    /**
+     * The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
+     */
+    scope: pulumi.Input<string>;
+}

@@ -29,7 +29,7 @@ export interface ListNetworkManagerDeploymentStatusArgs {
     /**
      * List of deployment types.
      */
-    deploymentTypes?: string | enums.network.v20210201preview.ConfigurationType[];
+    deploymentTypes?: (string | enums.network.v20210201preview.ConfigurationType)[];
     /**
      * The name of the network manager.
      */
@@ -60,4 +60,31 @@ export interface ListNetworkManagerDeploymentStatusResult {
      * Gets a page of Network Manager Deployment Status
      */
     readonly value?: outputs.network.v20210201preview.NetworkManagerDeploymentStatusResponse[];
+}
+
+export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
+    return pulumi.output(args).apply(a => listNetworkManagerDeploymentStatus(a, opts))
+}
+
+export interface ListNetworkManagerDeploymentStatusOutputArgs {
+    /**
+     * List of deployment types.
+     */
+    deploymentTypes?: pulumi.Input<pulumi.Input<string | enums.network.v20210201preview.ConfigurationType>[]>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * List of locations.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+     */
+    skipToken?: pulumi.Input<string>;
 }

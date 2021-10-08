@@ -66,3 +66,22 @@ export interface GetAccessControlRecordResult {
      */
     readonly volumeCount: number;
 }
+
+export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
+    return pulumi.output(args).apply(a => getAccessControlRecord(a, opts))
+}
+
+export interface GetAccessControlRecordOutputArgs {
+    /**
+     * Name of access control record to be fetched.
+     */
+    accessControlRecordName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

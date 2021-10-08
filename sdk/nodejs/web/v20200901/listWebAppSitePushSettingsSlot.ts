@@ -82,3 +82,22 @@ export interface ListWebAppSitePushSettingsSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppSitePushSettingsSlotOutput(args: ListWebAppSitePushSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppSitePushSettingsSlot(a, opts))
+}
+
+export interface ListWebAppSitePushSettingsSlotOutputArgs {
+    /**
+     * Name of web app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

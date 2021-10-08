@@ -1345,6 +1345,22 @@ func (o UserPropertiesResponsePtrOutput) TerminalSettings() TerminalSettingsResp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsoleCreatePropertiesInput)(nil)).Elem(), ConsoleCreatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsoleCreatePropertiesPtrInput)(nil)).Elem(), ConsoleCreatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsolePropertiesResponseInput)(nil)).Elem(), ConsolePropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsolePropertiesResponsePtrInput)(nil)).Elem(), ConsolePropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileInput)(nil)).Elem(), StorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfilePtrInput)(nil)).Elem(), StorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileResponseInput)(nil)).Elem(), StorageProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileResponsePtrInput)(nil)).Elem(), StorageProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminalSettingsInput)(nil)).Elem(), TerminalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminalSettingsPtrInput)(nil)).Elem(), TerminalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminalSettingsResponseInput)(nil)).Elem(), TerminalSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminalSettingsResponsePtrInput)(nil)).Elem(), TerminalSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPropertiesInput)(nil)).Elem(), UserPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPropertiesPtrInput)(nil)).Elem(), UserPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPropertiesResponseInput)(nil)).Elem(), UserPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPropertiesResponsePtrInput)(nil)).Elem(), UserPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConsolePropertiesResponseOutput{})

@@ -117,3 +117,26 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+export interface GetServiceOutputArgs {
+    /**
+     * The name of the application resource.
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service resource in the format of {applicationName}~{serviceName}.
+     */
+    serviceName: pulumi.Input<string>;
+}

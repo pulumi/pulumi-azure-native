@@ -75,3 +75,18 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly type: string;
 }
+
+export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
+    return pulumi.output(args).apply(a => getSqlManagedInstance(a, opts))
+}
+
+export interface GetSqlManagedInstanceOutputArgs {
+    /**
+     * The name of the Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of SQL Managed Instance
+     */
+    sqlManagedInstanceName: pulumi.Input<string>;
+}

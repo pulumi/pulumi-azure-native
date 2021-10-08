@@ -79,3 +79,18 @@ export interface GetprivateLinkServicesForM365ComplianceCenterResult {
      */
     readonly type: string;
 }
+
+export function getprivateLinkServicesForM365ComplianceCenterOutput(args: GetprivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365ComplianceCenterResult> {
+    return pulumi.output(args).apply(a => getprivateLinkServicesForM365ComplianceCenter(a, opts))
+}
+
+export interface GetprivateLinkServicesForM365ComplianceCenterOutputArgs {
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

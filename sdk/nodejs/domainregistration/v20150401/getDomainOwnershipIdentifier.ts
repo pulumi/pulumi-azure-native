@@ -62,3 +62,22 @@ export interface GetDomainOwnershipIdentifierResult {
      */
     readonly type: string;
 }
+
+export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
+    return pulumi.output(args).apply(a => getDomainOwnershipIdentifier(a, opts))
+}
+
+export interface GetDomainOwnershipIdentifierOutputArgs {
+    /**
+     * Name of domain.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * Name of identifier.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

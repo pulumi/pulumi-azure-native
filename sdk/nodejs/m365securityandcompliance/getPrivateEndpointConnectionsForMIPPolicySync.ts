@@ -72,3 +72,22 @@ export interface GetPrivateEndpointConnectionsForMIPPolicySyncResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionsForMIPPolicySyncOutput(args: GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsForMIPPolicySync(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

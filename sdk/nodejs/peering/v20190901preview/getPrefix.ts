@@ -84,3 +84,26 @@ export interface GetPrefixResult {
      */
     readonly type: string;
 }
+
+export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
+    return pulumi.output(args).apply(a => getPrefix(a, opts))
+}
+
+export interface GetPrefixOutputArgs {
+    /**
+     * The properties to be expanded.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the peering service.
+     */
+    peeringServiceName: pulumi.Input<string>;
+    /**
+     * The name of the prefix.
+     */
+    prefixName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -45,3 +45,22 @@ export interface GetHyperVCollectorResult {
     readonly properties: outputs.migrate.CollectorPropertiesResponse;
     readonly type: string;
 }
+
+export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVCollectorResult> {
+    return pulumi.output(args).apply(a => getHyperVCollector(a, opts))
+}
+
+export interface GetHyperVCollectorOutputArgs {
+    /**
+     * Unique name of a Hyper-V collector within a project.
+     */
+    hyperVCollectorName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

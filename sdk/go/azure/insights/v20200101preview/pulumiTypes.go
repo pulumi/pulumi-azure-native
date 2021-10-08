@@ -211,6 +211,10 @@ func (o ManagementGroupLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupLogSettingsInput)(nil)).Elem(), ManagementGroupLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupLogSettingsArrayInput)(nil)).Elem(), ManagementGroupLogSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupLogSettingsResponseInput)(nil)).Elem(), ManagementGroupLogSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupLogSettingsResponseArrayInput)(nil)).Elem(), ManagementGroupLogSettingsResponseArray{})
 	pulumi.RegisterOutputType(ManagementGroupLogSettingsOutput{})
 	pulumi.RegisterOutputType(ManagementGroupLogSettingsArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupLogSettingsResponseOutput{})

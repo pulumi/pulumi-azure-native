@@ -100,3 +100,22 @@ export interface GetStreamingLocatorResult {
      */
     readonly type: string;
 }
+
+export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
+    return pulumi.output(args).apply(a => getStreamingLocator(a, opts))
+}
+
+export interface GetStreamingLocatorOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Streaming Locator name.
+     */
+    streamingLocatorName: pulumi.Input<string>;
+}

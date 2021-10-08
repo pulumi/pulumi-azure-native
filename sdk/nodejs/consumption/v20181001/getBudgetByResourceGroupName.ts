@@ -82,3 +82,18 @@ export interface GetBudgetByResourceGroupNameResult {
      */
     readonly type: string;
 }
+
+export function getBudgetByResourceGroupNameOutput(args: GetBudgetByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetByResourceGroupNameResult> {
+    return pulumi.output(args).apply(a => getBudgetByResourceGroupName(a, opts))
+}
+
+export interface GetBudgetByResourceGroupNameOutputArgs {
+    /**
+     * Budget Name.
+     */
+    budgetName: pulumi.Input<string>;
+    /**
+     * Azure Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

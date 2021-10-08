@@ -101,3 +101,26 @@ export interface GetBlobFolderDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getBlobFolderDataSetMapping(a, opts))
+}
+
+export interface GetBlobFolderDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

@@ -107,3 +107,22 @@ export interface GetBackupPolicyResult {
      */
     readonly yearlyBackupsToKeep?: number;
 }
+
+export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
+    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
+}
+
+export interface GetBackupPolicyOutputArgs {
+    /**
+     * The name of the NetApp account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Backup policy Name which uniquely identify backup policy.
+     */
+    backupPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

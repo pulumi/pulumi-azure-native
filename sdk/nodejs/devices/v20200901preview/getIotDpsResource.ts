@@ -74,3 +74,18 @@ export interface GetIotDpsResourceResult {
      */
     readonly type: string;
 }
+
+export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
+    return pulumi.output(args).apply(a => getIotDpsResource(a, opts))
+}
+
+export interface GetIotDpsResourceOutputArgs {
+    /**
+     * Name of the provisioning service to retrieve.
+     */
+    provisioningServiceName: pulumi.Input<string>;
+    /**
+     * Resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -97,3 +97,26 @@ export interface GetWebAppHybridConnectionResult {
      */
     readonly type: string;
 }
+
+export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
+    return pulumi.output(args).apply(a => getWebAppHybridConnection(a, opts))
+}
+
+export interface GetWebAppHybridConnectionOutputArgs {
+    /**
+     * The name of the web app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The namespace for this hybrid connection.
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name for this hybrid connection.
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

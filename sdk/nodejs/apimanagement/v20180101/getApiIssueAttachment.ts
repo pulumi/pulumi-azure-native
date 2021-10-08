@@ -76,3 +76,30 @@ export interface GetApiIssueAttachmentResult {
      */
     readonly type: string;
 }
+
+export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
+    return pulumi.output(args).apply(a => getApiIssueAttachment(a, opts))
+}
+
+export interface GetApiIssueAttachmentOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Attachment identifier within an Issue. Must be unique in the current Issue.
+     */
+    attachmentId: pulumi.Input<string>;
+    /**
+     * Issue identifier. Must be unique in the current API Management service instance.
+     */
+    issueId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

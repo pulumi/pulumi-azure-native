@@ -122,3 +122,18 @@ export interface GetContainerGroupResult {
      */
     readonly volumes?: outputs.containerinstance.VolumeResponse[];
 }
+
+export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
+    return pulumi.output(args).apply(a => getContainerGroup(a, opts))
+}
+
+export interface GetContainerGroupOutputArgs {
+    /**
+     * The name of the container group.
+     */
+    containerGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -74,3 +74,18 @@ export interface GetManagerResult {
      */
     readonly type: string;
 }
+
+export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
+    return pulumi.output(args).apply(a => getManager(a, opts))
+}
+
+export interface GetManagerOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

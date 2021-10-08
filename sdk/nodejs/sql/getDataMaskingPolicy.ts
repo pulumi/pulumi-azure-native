@@ -84,3 +84,26 @@ export interface GetDataMaskingPolicyResult {
      */
     readonly type: string;
 }
+
+export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
+    return pulumi.output(args).apply(a => getDataMaskingPolicy(a, opts))
+}
+
+export interface GetDataMaskingPolicyOutputArgs {
+    /**
+     * The name of the database for which the data masking rule applies.
+     */
+    dataMaskingPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

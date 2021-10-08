@@ -52,3 +52,22 @@ export interface ListStreamingLocatorPathsResult {
      */
     readonly streamingPaths?: outputs.media.StreamingPathResponse[];
 }
+
+export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorPathsResult> {
+    return pulumi.output(args).apply(a => listStreamingLocatorPaths(a, opts))
+}
+
+export interface ListStreamingLocatorPathsOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Streaming Locator name.
+     */
+    streamingLocatorName: pulumi.Input<string>;
+}

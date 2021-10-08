@@ -115,3 +115,22 @@ export interface GetkustoPoolResult {
      */
     readonly workspaceUID?: string;
 }
+
+export function getkustoPoolOutput(args: GetkustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetkustoPoolResult> {
+    return pulumi.output(args).apply(a => getkustoPool(a, opts))
+}
+
+export interface GetkustoPoolOutputArgs {
+    /**
+     * The name of the Kusto pool.
+     */
+    kustoPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

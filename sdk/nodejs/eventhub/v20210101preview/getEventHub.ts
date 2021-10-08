@@ -87,3 +87,22 @@ export interface GetEventHubResult {
      */
     readonly updatedAt: string;
 }
+
+export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
+    return pulumi.output(args).apply(a => getEventHub(a, opts))
+}
+
+export interface GetEventHubOutputArgs {
+    /**
+     * The Event Hub name
+     */
+    eventHubName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -69,3 +69,26 @@ export interface GetDataConnectionResult {
      */
     readonly type: string;
 }
+
+export function getDataConnectionOutput(args: GetDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectionResult> {
+    return pulumi.output(args).apply(a => getDataConnection(a, opts))
+}
+
+export interface GetDataConnectionOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the data connection.
+     */
+    dataConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

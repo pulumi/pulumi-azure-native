@@ -70,3 +70,22 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
      */
     readonly type: string;
 }
+
+export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
+    return pulumi.output(args).apply(a => getStaticSiteUserProvidedFunctionAppForStaticSite(a, opts))
+}
+
+export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs {
+    /**
+     * Name of the function app registered with the static site.
+     */
+    functionAppName: pulumi.Input<string>;
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

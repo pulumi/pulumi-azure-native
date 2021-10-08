@@ -100,3 +100,26 @@ export interface GetCustomImageResult {
      */
     readonly vm?: outputs.devtestlab.v20160515.CustomImagePropertiesFromVmResponse;
 }
+
+export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
+    return pulumi.output(args).apply(a => getCustomImage(a, opts))
+}
+
+export interface GetCustomImageOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=vm)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the custom image.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

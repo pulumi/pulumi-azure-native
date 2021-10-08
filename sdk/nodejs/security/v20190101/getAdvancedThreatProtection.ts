@@ -53,3 +53,18 @@ export interface GetAdvancedThreatProtectionResult {
      */
     readonly type: string;
 }
+
+export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
+    return pulumi.output(args).apply(a => getAdvancedThreatProtection(a, opts))
+}
+
+export interface GetAdvancedThreatProtectionOutputArgs {
+    /**
+     * The identifier of the resource.
+     */
+    resourceId: pulumi.Input<string>;
+    /**
+     * Advanced Threat Protection setting name.
+     */
+    settingName: pulumi.Input<string>;
+}

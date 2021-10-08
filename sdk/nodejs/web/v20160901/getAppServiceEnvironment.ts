@@ -200,3 +200,18 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly workerPools: outputs.web.v20160901.WorkerPoolResponse[];
 }
+
+export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
+    return pulumi.output(args).apply(a => getAppServiceEnvironment(a, opts))
+}
+
+export interface GetAppServiceEnvironmentOutputArgs {
+    /**
+     * Name of the App Service Environment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

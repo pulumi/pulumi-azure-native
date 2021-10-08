@@ -63,3 +63,22 @@ export interface GetFirewallRuleResult {
      */
     readonly type: string;
 }
+
+export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
+    return pulumi.output(args).apply(a => getFirewallRule(a, opts))
+}
+
+export interface GetFirewallRuleOutputArgs {
+    /**
+     * The name of the Data Lake Analytics account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the firewall rule to retrieve.
+     */
+    firewallRuleName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

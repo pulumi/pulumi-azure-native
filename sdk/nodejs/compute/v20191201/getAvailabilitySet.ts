@@ -82,3 +82,18 @@ export interface GetAvailabilitySetResult {
      */
     readonly virtualMachines?: outputs.compute.v20191201.SubResourceResponse[];
 }
+
+export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
+    return pulumi.output(args).apply(a => getAvailabilitySet(a, opts))
+}
+
+export interface GetAvailabilitySetOutputArgs {
+    /**
+     * The name of the availability set.
+     */
+    availabilitySetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -50,5 +50,24 @@ export interface ListNetworkManagerEffectiveSecurityAdminRuleResult {
     /**
      * Gets a page of NetworkManagerEffectiveSecurityAdminRules
      */
-    readonly value?: outputs.network.EffectiveDefaultSecurityAdminRuleResponse | outputs.network.EffectiveSecurityAdminRuleResponse[];
+    readonly value?: (outputs.network.EffectiveDefaultSecurityAdminRuleResponse | outputs.network.EffectiveSecurityAdminRuleResponse)[];
+}
+
+export function listNetworkManagerEffectiveSecurityAdminRuleOutput(args: ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> {
+    return pulumi.output(args).apply(a => listNetworkManagerEffectiveSecurityAdminRule(a, opts))
+}
+
+export interface ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+     */
+    skipToken?: pulumi.Input<string>;
+    /**
+     * The name of the virtual network.
+     */
+    virtualNetworkName: pulumi.Input<string>;
 }

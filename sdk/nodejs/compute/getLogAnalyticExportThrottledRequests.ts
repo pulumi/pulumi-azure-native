@@ -78,3 +78,46 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
      */
     readonly properties: outputs.compute.LogAnalyticsOutputResponse;
 }
+
+export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
+    return pulumi.output(args).apply(a => getLogAnalyticExportThrottledRequests(a, opts))
+}
+
+export interface GetLogAnalyticExportThrottledRequestsOutputArgs {
+    /**
+     * SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+     */
+    blobContainerSasUri: pulumi.Input<string>;
+    /**
+     * From time of the query
+     */
+    fromTime: pulumi.Input<string>;
+    /**
+     * Group query result by Client Application ID.
+     */
+    groupByClientApplicationId?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Operation Name.
+     */
+    groupByOperationName?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Resource Name.
+     */
+    groupByResourceName?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Throttle Policy applied.
+     */
+    groupByThrottlePolicy?: pulumi.Input<boolean>;
+    /**
+     * Group query result by User Agent.
+     */
+    groupByUserAgent?: pulumi.Input<boolean>;
+    /**
+     * The location upon which virtual-machine-sizes is queried.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * To time of the query
+     */
+    toTime: pulumi.Input<string>;
+}

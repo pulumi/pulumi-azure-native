@@ -82,3 +82,18 @@ export interface GetRemediationAtResourceGroupResult {
      */
     readonly type: string;
 }
+
+export function getRemediationAtResourceGroupOutput(args: GetRemediationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceGroupResult> {
+    return pulumi.output(args).apply(a => getRemediationAtResourceGroup(a, opts))
+}
+
+export interface GetRemediationAtResourceGroupOutputArgs {
+    /**
+     * The name of the remediation.
+     */
+    remediationName: pulumi.Input<string>;
+    /**
+     * Resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

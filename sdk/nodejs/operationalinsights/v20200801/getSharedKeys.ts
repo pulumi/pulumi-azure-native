@@ -45,3 +45,18 @@ export interface GetSharedKeysResult {
      */
     readonly secondarySharedKey?: string;
 }
+
+export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedKeysResult> {
+    return pulumi.output(args).apply(a => getSharedKeys(a, opts))
+}
+
+export interface GetSharedKeysOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

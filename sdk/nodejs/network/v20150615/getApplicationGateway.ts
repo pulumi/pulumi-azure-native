@@ -118,3 +118,18 @@ export interface GetApplicationGatewayResult {
      */
     readonly urlPathMaps?: outputs.network.v20150615.ApplicationGatewayUrlPathMapResponse[];
 }
+
+export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
+    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+}
+
+export interface GetApplicationGatewayOutputArgs {
+    /**
+     * The name of the application gateway.
+     */
+    applicationGatewayName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

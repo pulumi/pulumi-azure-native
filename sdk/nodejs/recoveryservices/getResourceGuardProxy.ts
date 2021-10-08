@@ -65,3 +65,19 @@ export interface GetResourceGuardProxyResult {
      */
     readonly type: string;
 }
+
+export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
+    return pulumi.output(args).apply(a => getResourceGuardProxy(a, opts))
+}
+
+export interface GetResourceGuardProxyOutputArgs {
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    resourceGuardProxyName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    vaultName: pulumi.Input<string>;
+}

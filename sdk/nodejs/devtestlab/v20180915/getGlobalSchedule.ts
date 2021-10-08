@@ -107,3 +107,22 @@ export interface GetGlobalScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
+
+export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
+    return pulumi.output(args).apply(a => getGlobalSchedule(a, opts))
+}
+
+export interface GetGlobalScheduleOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

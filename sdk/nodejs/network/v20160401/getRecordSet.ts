@@ -112,3 +112,26 @@ export interface GetRecordSetResult {
      */
     readonly type?: string;
 }
+
+export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
+    return pulumi.output(args).apply(a => getRecordSet(a, opts))
+}
+
+export interface GetRecordSetOutputArgs {
+    /**
+     * The type of DNS record in this record set.
+     */
+    recordType: pulumi.Input<string>;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    relativeRecordSetName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the DNS zone (without a terminating dot).
+     */
+    zoneName: pulumi.Input<string>;
+}

@@ -507,6 +507,14 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataSetKeyPropertyInput)(nil)).Elem(), ReferenceDataSetKeyPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataSetKeyPropertyArrayInput)(nil)).Elem(), ReferenceDataSetKeyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataSetKeyPropertyResponseInput)(nil)).Elem(), ReferenceDataSetKeyPropertyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataSetKeyPropertyResponseArrayInput)(nil)).Elem(), ReferenceDataSetKeyPropertyResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})

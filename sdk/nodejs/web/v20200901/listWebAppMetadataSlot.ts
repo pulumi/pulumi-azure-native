@@ -67,3 +67,22 @@ export interface ListWebAppMetadataSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppMetadataSlotOutput(args: ListWebAppMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppMetadataSlot(a, opts))
+}
+
+export interface ListWebAppMetadataSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the metadata for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

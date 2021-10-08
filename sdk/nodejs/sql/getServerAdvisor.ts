@@ -88,3 +88,22 @@ export interface GetServerAdvisorResult {
      */
     readonly type: string;
 }
+
+export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
+    return pulumi.output(args).apply(a => getServerAdvisor(a, opts))
+}
+
+export interface GetServerAdvisorOutputArgs {
+    /**
+     * The name of the Server Advisor.
+     */
+    advisorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

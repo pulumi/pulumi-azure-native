@@ -74,3 +74,18 @@ export interface GetCustomResourceProviderResult {
      */
     readonly validations?: outputs.customproviders.v20180901preview.CustomRPValidationsResponse[];
 }
+
+export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
+    return pulumi.output(args).apply(a => getCustomResourceProvider(a, opts))
+}
+
+export interface GetCustomResourceProviderOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource provider.
+     */
+    resourceProviderName: pulumi.Input<string>;
+}

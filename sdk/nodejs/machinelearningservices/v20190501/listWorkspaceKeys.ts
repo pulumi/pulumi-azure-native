@@ -36,3 +36,18 @@ export interface ListWorkspaceKeysResult {
     readonly userStorageKey: string;
     readonly userStorageResourceId: string;
 }
+
+export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
+    return pulumi.output(args).apply(a => listWorkspaceKeys(a, opts))
+}
+
+export interface ListWorkspaceKeysOutputArgs {
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

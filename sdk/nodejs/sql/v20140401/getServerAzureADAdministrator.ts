@@ -70,3 +70,22 @@ export interface GetServerAzureADAdministratorResult {
      */
     readonly type: string;
 }
+
+export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
+    return pulumi.output(args).apply(a => getServerAzureADAdministrator(a, opts))
+}
+
+export interface GetServerAzureADAdministratorOutputArgs {
+    /**
+     * Name of the server administrator resource.
+     */
+    administratorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

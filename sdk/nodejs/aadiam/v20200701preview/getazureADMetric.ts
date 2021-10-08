@@ -59,3 +59,18 @@ export interface GetazureADMetricResult {
      */
     readonly type: string;
 }
+
+export function getazureADMetricOutput(args: GetazureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetazureADMetricResult> {
+    return pulumi.output(args).apply(a => getazureADMetric(a, opts))
+}
+
+export interface GetazureADMetricOutputArgs {
+    /**
+     * Name of the azureADMetrics instance.
+     */
+    azureADMetricsName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

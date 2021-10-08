@@ -82,3 +82,18 @@ export interface GetVpnGatewayResult {
      */
     readonly vpnGatewayScaleUnit?: number;
 }
+
+export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
+    return pulumi.output(args).apply(a => getVpnGateway(a, opts))
+}
+
+export interface GetVpnGatewayOutputArgs {
+    /**
+     * The name of the gateway.
+     */
+    gatewayName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VpnGateway.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

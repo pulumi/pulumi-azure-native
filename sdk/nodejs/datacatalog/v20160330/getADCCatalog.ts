@@ -86,3 +86,18 @@ export interface GetADCCatalogResult {
      */
     readonly users?: outputs.datacatalog.v20160330.PrincipalsResponse[];
 }
+
+export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
+    return pulumi.output(args).apply(a => getADCCatalog(a, opts))
+}
+
+export interface GetADCCatalogOutputArgs {
+    /**
+     * The name of the data catalog in the specified subscription and resource group.
+     */
+    catalogName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

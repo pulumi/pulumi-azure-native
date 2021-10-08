@@ -1124,6 +1124,22 @@ func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateIsoSourceInput)(nil)).Elem(), ImageTemplateIsoSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateIsoSourceResponseInput)(nil)).Elem(), ImageTemplateIsoSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateLastRunStatusResponseInput)(nil)).Elem(), ImageTemplateLastRunStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateLastRunStatusResponsePtrInput)(nil)).Elem(), ImageTemplateLastRunStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageDistributorInput)(nil)).Elem(), ImageTemplateManagedImageDistributorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageDistributorResponseInput)(nil)).Elem(), ImageTemplateManagedImageDistributorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePlatformImageSourceInput)(nil)).Elem(), ImageTemplatePlatformImageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePlatformImageSourceResponseInput)(nil)).Elem(), ImageTemplatePlatformImageSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateSharedImageDistributorInput)(nil)).Elem(), ImageTemplateSharedImageDistributorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateSharedImageDistributorResponseInput)(nil)).Elem(), ImageTemplateSharedImageDistributorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerInput)(nil)).Elem(), ImageTemplateShellCustomizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerArrayInput)(nil)).Elem(), ImageTemplateShellCustomizerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerResponseInput)(nil)).Elem(), ImageTemplateShellCustomizerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerResponseArrayInput)(nil)).Elem(), ImageTemplateShellCustomizerResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningErrorResponseInput)(nil)).Elem(), ProvisioningErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningErrorResponsePtrInput)(nil)).Elem(), ProvisioningErrorResponseArgs{})
 	pulumi.RegisterOutputType(ImageTemplateIsoSourceOutput{})
 	pulumi.RegisterOutputType(ImageTemplateIsoSourceResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponseOutput{})

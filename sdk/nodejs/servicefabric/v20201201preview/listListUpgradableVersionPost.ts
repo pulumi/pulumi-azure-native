@@ -43,3 +43,22 @@ export interface ListListUpgradableVersionPostArgs {
 export interface ListListUpgradableVersionPostResult {
     readonly supportedPath?: string[];
 }
+
+export function listListUpgradableVersionPostOutput(args: ListListUpgradableVersionPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListUpgradableVersionPostResult> {
+    return pulumi.output(args).apply(a => listListUpgradableVersionPost(a, opts))
+}
+
+export interface ListListUpgradableVersionPostOutputArgs {
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The target code version.
+     */
+    targetVersion: pulumi.Input<string>;
+}

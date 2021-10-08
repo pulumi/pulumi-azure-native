@@ -76,3 +76,26 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult {
      */
     readonly type: string;
 }
+
+export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
+    return pulumi.output(args).apply(a => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))
+}
+
+export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs {
+    /**
+     * The stage site identifier.
+     */
+    environmentName: pulumi.Input<string>;
+    /**
+     * Name of the function app registered with the static site build.
+     */
+    functionAppName: pulumi.Input<string>;
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

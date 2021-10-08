@@ -66,3 +66,18 @@ export interface GetSolutionResult {
      */
     readonly type: string;
 }
+
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+    return pulumi.output(args).apply(a => getSolution(a, opts))
+}
+
+export interface GetSolutionOutputArgs {
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * User Solution Name.
+     */
+    solutionName: pulumi.Input<string>;
+}

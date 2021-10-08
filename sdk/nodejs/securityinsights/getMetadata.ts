@@ -117,3 +117,26 @@ export interface GetMetadataResult {
      */
     readonly version?: string;
 }
+
+export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
+    return pulumi.output(args).apply(a => getMetadata(a, opts))
+}
+
+export interface GetMetadataOutputArgs {
+    /**
+     * The Metadata name.
+     */
+    metadataName: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

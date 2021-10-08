@@ -103,3 +103,22 @@ export interface GetMSIXPackageResult {
      */
     readonly version?: string;
 }
+
+export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
+    return pulumi.output(args).apply(a => getMSIXPackage(a, opts))
+}
+
+export interface GetMSIXPackageOutputArgs {
+    /**
+     * The name of the host pool within the specified resource group
+     */
+    hostPoolName: pulumi.Input<string>;
+    /**
+     * The version specific package full name of the MSIX package within specified hostpool
+     */
+    msixPackageFullName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

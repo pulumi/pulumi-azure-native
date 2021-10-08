@@ -82,3 +82,50 @@ export interface ListStorageAccountSASResult {
      */
     readonly accountSasToken: string;
 }
+
+export function listStorageAccountSASOutput(args: ListStorageAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSASResult> {
+    return pulumi.output(args).apply(a => listStorageAccountSAS(a, opts))
+}
+
+export interface ListStorageAccountSASOutputArgs {
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * An IP address or a range of IP addresses from which to accept requests.
+     */
+    iPAddressOrRange?: pulumi.Input<string>;
+    /**
+     * The key to sign the account SAS token with.
+     */
+    keyToSign?: pulumi.Input<string>;
+    /**
+     * The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+     */
+    permissions: pulumi.Input<string>;
+    /**
+     * The protocol permitted for a request made with the account SAS.
+     */
+    protocols?: pulumi.Input<enums.storage.v20160501.HttpProtocol>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
+     */
+    resourceTypes: pulumi.Input<string>;
+    /**
+     * The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
+     */
+    services: pulumi.Input<string>;
+    /**
+     * The time at which the shared access signature becomes invalid.
+     */
+    sharedAccessExpiryTime: pulumi.Input<string>;
+    /**
+     * The time at which the SAS becomes valid.
+     */
+    sharedAccessStartTime?: pulumi.Input<string>;
+}

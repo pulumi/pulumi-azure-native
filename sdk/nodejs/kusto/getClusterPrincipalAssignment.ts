@@ -83,3 +83,22 @@ export interface GetClusterPrincipalAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
+    return pulumi.output(args).apply(a => getClusterPrincipalAssignment(a, opts))
+}
+
+export interface GetClusterPrincipalAssignmentOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto principalAssignment.
+     */
+    principalAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

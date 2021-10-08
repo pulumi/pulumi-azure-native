@@ -57,7 +57,7 @@ export interface GetScriptExecutionResult {
     /**
      * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
      */
-    readonly hiddenParameters?: outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse[];
+    readonly hiddenParameters?: (outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse)[];
     /**
      * Resource ID.
      */
@@ -81,7 +81,7 @@ export interface GetScriptExecutionResult {
     /**
      * Parameters the script will accept
      */
-    readonly parameters?: outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse[];
+    readonly parameters?: (outputs.avs.v20210601.PSCredentialExecutionParameterResponse | outputs.avs.v20210601.ScriptSecureStringExecutionParameterResponse | outputs.avs.v20210601.ScriptStringExecutionParameterResponse)[];
     /**
      * The state of the script execution resource
      */
@@ -114,4 +114,23 @@ export interface GetScriptExecutionResult {
      * Standard warning out stream from the powershell execution
      */
     readonly warnings: string[];
+}
+
+export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionResult> {
+    return pulumi.output(args).apply(a => getScriptExecution(a, opts))
+}
+
+export interface GetScriptExecutionOutputArgs {
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the user-invoked script execution resource
+     */
+    scriptExecutionName: pulumi.Input<string>;
 }

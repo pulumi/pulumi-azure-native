@@ -79,3 +79,22 @@ export interface GetStorageInsightResult {
      */
     readonly type: string;
 }
+
+export function getStorageInsightOutput(args: GetStorageInsightOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightResult> {
+    return pulumi.output(args).apply(a => getStorageInsight(a, opts))
+}
+
+export interface GetStorageInsightOutputArgs {
+    /**
+     * The Resource Group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the storageInsightsConfigs resource
+     */
+    storageInsightName: pulumi.Input<string>;
+    /**
+     * The Log Analytics Workspace name.
+     */
+    workspaceName: pulumi.Input<string>;
+}

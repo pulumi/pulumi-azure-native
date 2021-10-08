@@ -138,3 +138,18 @@ export interface GetApplicationResult {
      */
     readonly updatedBy: outputs.solutions.v20200821preview.ApplicationClientDetailsResponse;
 }
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+export interface GetApplicationOutputArgs {
+    /**
+     * The name of the managed application.
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -63,3 +63,22 @@ export interface GetIntegrationRuntimeResult {
      */
     readonly type: string;
 }
+
+export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntime(a, opts))
+}
+
+export interface GetIntegrationRuntimeOutputArgs {
+    /**
+     * Integration runtime name
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

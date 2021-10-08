@@ -46,3 +46,18 @@ export interface ListSpatialAnchorsAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
+    return pulumi.output(args).apply(a => listSpatialAnchorsAccountKeys(a, opts))
+}
+
+export interface ListSpatialAnchorsAccountKeysOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

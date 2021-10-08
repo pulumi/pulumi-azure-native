@@ -98,3 +98,26 @@ export interface GetScheduledTriggerResult {
      */
     readonly userName: string;
 }
+
+export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
+    return pulumi.output(args).apply(a => getScheduledTrigger(a, opts))
+}
+
+export interface GetScheduledTriggerOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+    /**
+     * The name of the trigger.
+     */
+    triggerName: pulumi.Input<string>;
+}

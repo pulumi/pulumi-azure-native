@@ -115,3 +115,18 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+export interface GetAccountOutputArgs {
+    /**
+     * The name of the account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

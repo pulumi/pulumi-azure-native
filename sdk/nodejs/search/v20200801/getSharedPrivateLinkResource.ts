@@ -59,3 +59,22 @@ export interface GetSharedPrivateLinkResourceResult {
      */
     readonly type: string;
 }
+
+export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
+    return pulumi.output(args).apply(a => getSharedPrivateLinkResource(a, opts))
+}
+
+export interface GetSharedPrivateLinkResourceOutputArgs {
+    /**
+     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     */
+    searchServiceName: pulumi.Input<string>;
+    /**
+     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+     */
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
+}

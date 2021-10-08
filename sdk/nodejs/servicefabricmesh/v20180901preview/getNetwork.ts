@@ -62,3 +62,18 @@ export interface GetNetworkResult {
      */
     readonly type: string;
 }
+
+export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
+    return pulumi.output(args).apply(a => getNetwork(a, opts))
+}
+
+export interface GetNetworkOutputArgs {
+    /**
+     * The identity of the network.
+     */
+    networkResourceName: pulumi.Input<string>;
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

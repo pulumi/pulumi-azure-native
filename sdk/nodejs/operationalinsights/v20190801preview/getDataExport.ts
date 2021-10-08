@@ -82,3 +82,22 @@ export interface GetDataExportResult {
      */
     readonly type: string;
 }
+
+export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
+    return pulumi.output(args).apply(a => getDataExport(a, opts))
+}
+
+export interface GetDataExportOutputArgs {
+    /**
+     * The data export rule name.
+     */
+    dataExportName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to get. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Log Analytics workspace name.
+     */
+    workspaceName: pulumi.Input<string>;
+}

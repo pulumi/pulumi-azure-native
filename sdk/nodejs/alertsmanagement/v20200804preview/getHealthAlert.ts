@@ -82,3 +82,18 @@ export interface GetHealthAlertResult {
      */
     readonly type: string;
 }
+
+export function getHealthAlertOutput(args: GetHealthAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHealthAlertResult> {
+    return pulumi.output(args).apply(a => getHealthAlert(a, opts))
+}
+
+export interface GetHealthAlertOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the rule.
+     */
+    ruleName: pulumi.Input<string>;
+}

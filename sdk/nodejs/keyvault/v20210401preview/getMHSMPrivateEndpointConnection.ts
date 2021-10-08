@@ -87,3 +87,22 @@ export interface GetMHSMPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getMHSMPrivateEndpointConnection(a, opts))
+}
+
+export interface GetMHSMPrivateEndpointConnectionOutputArgs {
+    /**
+     * Name of the managed HSM Pool
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the private endpoint connection associated with the managed hsm pool.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the managed HSM pool.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

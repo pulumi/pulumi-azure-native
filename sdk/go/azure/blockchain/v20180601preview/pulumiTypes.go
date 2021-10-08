@@ -985,6 +985,22 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseInput)(nil)).Elem(), ApiKeyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseArrayInput)(nil)).Elem(), ApiKeyResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainMemberNodesSkuInput)(nil)).Elem(), BlockchainMemberNodesSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainMemberNodesSkuPtrInput)(nil)).Elem(), BlockchainMemberNodesSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainMemberNodesSkuResponseInput)(nil)).Elem(), BlockchainMemberNodesSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainMemberNodesSkuResponsePtrInput)(nil)).Elem(), BlockchainMemberNodesSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsortiumResponseInput)(nil)).Elem(), ConsortiumResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsortiumResponseArrayInput)(nil)).Elem(), ConsortiumResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleInput)(nil)).Elem(), FirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleArrayInput)(nil)).Elem(), FirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleResponseInput)(nil)).Elem(), FirewallRuleResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleResponseArrayInput)(nil)).Elem(), FirewallRuleResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(ApiKeyResponseOutput{})
 	pulumi.RegisterOutputType(ApiKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuOutput{})

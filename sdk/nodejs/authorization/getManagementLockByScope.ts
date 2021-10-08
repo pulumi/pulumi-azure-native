@@ -63,3 +63,18 @@ export interface GetManagementLockByScopeResult {
      */
     readonly type: string;
 }
+
+export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
+    return pulumi.output(args).apply(a => getManagementLockByScope(a, opts))
+}
+
+export interface GetManagementLockByScopeOutputArgs {
+    /**
+     * The name of lock.
+     */
+    lockName: pulumi.Input<string>;
+    /**
+     * The scope for the lock. 
+     */
+    scope: pulumi.Input<string>;
+}

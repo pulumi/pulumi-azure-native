@@ -96,3 +96,26 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
+
+export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineScaleSetExtension(a, opts))
+}
+
+export interface GetVirtualMachineScaleSetExtensionOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set containing the extension.
+     */
+    vmScaleSetName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set extension.
+     */
+    vmssExtensionName: pulumi.Input<string>;
+}

@@ -74,3 +74,30 @@ export interface GetReplicationProtectedItemResult {
      */
     readonly type: string;
 }
+
+export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
+    return pulumi.output(args).apply(a => getReplicationProtectedItem(a, opts))
+}
+
+export interface GetReplicationProtectedItemOutputArgs {
+    /**
+     * Fabric unique name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Protection container name.
+     */
+    protectionContainerName: pulumi.Input<string>;
+    /**
+     * Replication protected item name.
+     */
+    replicatedProtectedItemName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

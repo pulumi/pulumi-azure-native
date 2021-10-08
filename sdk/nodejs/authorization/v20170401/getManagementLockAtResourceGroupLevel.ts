@@ -62,3 +62,18 @@ export interface GetManagementLockAtResourceGroupLevelResult {
      */
     readonly type: string;
 }
+
+export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
+    return pulumi.output(args).apply(a => getManagementLockAtResourceGroupLevel(a, opts))
+}
+
+export interface GetManagementLockAtResourceGroupLevelOutputArgs {
+    /**
+     * The name of the lock to get.
+     */
+    lockName: pulumi.Input<string>;
+    /**
+     * The name of the locked resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -98,3 +98,18 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly type: string;
 }
+
+export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
+    return pulumi.output(args).apply(a => getExpressRouteCircuit(a, opts))
+}
+
+export interface GetExpressRouteCircuitOutputArgs {
+    /**
+     * The name of the circuit.
+     */
+    circuitName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

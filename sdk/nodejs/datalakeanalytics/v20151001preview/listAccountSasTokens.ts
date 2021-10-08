@@ -56,3 +56,26 @@ export interface ListAccountSasTokensResult {
      */
     readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInformationResponse[];
 }
+
+export function listAccountSasTokensOutput(args: ListAccountSasTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasTokensResult> {
+    return pulumi.output(args).apply(a => listAccountSasTokens(a, opts))
+}
+
+export interface ListAccountSasTokensOutputArgs {
+    /**
+     * The name of the Data Lake Analytics account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Azure storage container for which the SAS token is being requested.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Azure storage account for which the SAS token is being requested.
+     */
+    storageAccountName: pulumi.Input<string>;
+}

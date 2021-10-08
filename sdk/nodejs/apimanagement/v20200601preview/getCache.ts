@@ -70,3 +70,22 @@ export interface GetCacheResult {
      */
     readonly useFromLocation: string;
 }
+
+export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
+    return pulumi.output(args).apply(a => getCache(a, opts))
+}
+
+export interface GetCacheOutputArgs {
+    /**
+     * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+     */
+    cacheId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

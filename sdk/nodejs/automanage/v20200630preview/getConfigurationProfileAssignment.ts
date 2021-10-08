@@ -59,3 +59,22 @@ export interface GetConfigurationProfileAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
+    return pulumi.output(args).apply(a => getConfigurationProfileAssignment(a, opts))
+}
+
+export interface GetConfigurationProfileAssignmentOutputArgs {
+    /**
+     * The configuration profile assignment name.
+     */
+    configurationProfileAssignmentName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine.
+     */
+    vmName: pulumi.Input<string>;
+}

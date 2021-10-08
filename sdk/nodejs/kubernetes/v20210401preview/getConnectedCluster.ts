@@ -122,3 +122,18 @@ export interface GetConnectedClusterResult {
      */
     readonly type: string;
 }
+
+export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
+    return pulumi.output(args).apply(a => getConnectedCluster(a, opts))
+}
+
+export interface GetConnectedClusterOutputArgs {
+    /**
+     * The name of the Kubernetes cluster on which get is called.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

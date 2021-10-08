@@ -256,6 +256,10 @@ func (o OSProfileResponsePtrOutput) ComputerName() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDetailResponseInput)(nil)).Elem(), ErrorDetailResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDetailResponseArrayInput)(nil)).Elem(), ErrorDetailResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OSProfileResponseInput)(nil)).Elem(), OSProfileResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OSProfileResponsePtrInput)(nil)).Elem(), OSProfileResponseArgs{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(OSProfileResponseOutput{})

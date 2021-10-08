@@ -103,3 +103,22 @@ export interface GetWatcherResult {
      */
     readonly type: string;
 }
+
+export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
+    return pulumi.output(args).apply(a => getWatcher(a, opts))
+}
+
+export interface GetWatcherOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The watcher name.
+     */
+    watcherName: pulumi.Input<string>;
+}

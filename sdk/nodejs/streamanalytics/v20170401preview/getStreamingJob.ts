@@ -163,3 +163,22 @@ export interface GetStreamingJobResult {
      */
     readonly type: string;
 }
+
+export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
+    return pulumi.output(args).apply(a => getStreamingJob(a, opts))
+}
+
+export interface GetStreamingJobOutputArgs {
+    /**
+     * The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the streaming job.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

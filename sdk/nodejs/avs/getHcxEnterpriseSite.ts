@@ -63,3 +63,22 @@ export interface GetHcxEnterpriseSiteResult {
      */
     readonly type: string;
 }
+
+export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
+    return pulumi.output(args).apply(a => getHcxEnterpriseSite(a, opts))
+}
+
+export interface GetHcxEnterpriseSiteOutputArgs {
+    /**
+     * Name of the HCX Enterprise Site in the private cloud
+     */
+    hcxEnterpriseSiteName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

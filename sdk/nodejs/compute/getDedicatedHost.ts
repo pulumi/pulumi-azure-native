@@ -105,3 +105,26 @@ export interface GetDedicatedHostResult {
      */
     readonly virtualMachines: outputs.compute.SubResourceReadOnlyResponse[];
 }
+
+export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
+    return pulumi.output(args).apply(a => getDedicatedHost(a, opts))
+}
+
+export interface GetDedicatedHostOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the dedicated host group.
+     */
+    hostGroupName: pulumi.Input<string>;
+    /**
+     * The name of the dedicated host.
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetInventoryItemResult {
      */
     readonly type: string;
 }
+
+export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
+    return pulumi.output(args).apply(a => getInventoryItem(a, opts))
+}
+
+export interface GetInventoryItemOutputArgs {
+    /**
+     * Name of the inventoryItem.
+     */
+    inventoryItemName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the vCenter.
+     */
+    vcenterName: pulumi.Input<string>;
+}

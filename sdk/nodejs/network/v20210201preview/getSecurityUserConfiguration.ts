@@ -83,3 +83,22 @@ export interface GetSecurityUserConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
+    return pulumi.output(args).apply(a => getSecurityUserConfiguration(a, opts))
+}
+
+export interface GetSecurityUserConfigurationOutputArgs {
+    /**
+     * The name of the network manager security Configuration.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

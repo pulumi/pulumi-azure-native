@@ -80,3 +80,26 @@ export interface GetServiceUnitResult {
      */
     readonly type: string;
 }
+
+export function getServiceUnitOutput(args: GetServiceUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceUnitResult> {
+    return pulumi.output(args).apply(a => getServiceUnit(a, opts))
+}
+
+export interface GetServiceUnitOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service resource.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * The name of the service topology .
+     */
+    serviceTopologyName: pulumi.Input<string>;
+    /**
+     * The name of the service unit resource.
+     */
+    serviceUnitName: pulumi.Input<string>;
+}

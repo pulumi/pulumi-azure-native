@@ -1049,6 +1049,20 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStateInput)(nil)).Elem(), ConnectionStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStatePtrInput)(nil)).Elem(), ConnectionStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStateResponseInput)(nil)).Elem(), ConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStateResponsePtrInput)(nil)).Elem(), ConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointInput)(nil)).Elem(), PrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointPtrInput)(nil)).Elem(), PrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionTypeInput)(nil)).Elem(), PrivateEndpointConnectionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionTypeArrayInput)(nil)).Elem(), PrivateEndpointConnectionTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionResponseInput)(nil)).Elem(), PrivateEndpointConnectionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionResponseArrayInput)(nil)).Elem(), PrivateEndpointConnectionResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponseInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponsePtrInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(ConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})

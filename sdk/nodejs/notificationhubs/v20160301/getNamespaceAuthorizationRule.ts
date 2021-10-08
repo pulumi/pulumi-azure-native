@@ -71,3 +71,22 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+}
+
+export interface GetNamespaceAuthorizationRuleOutputArgs {
+    /**
+     * Authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

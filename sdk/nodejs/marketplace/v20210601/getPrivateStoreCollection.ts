@@ -82,3 +82,18 @@ export interface GetPrivateStoreCollectionResult {
      */
     readonly type: string;
 }
+
+export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
+    return pulumi.output(args).apply(a => getPrivateStoreCollection(a, opts))
+}
+
+export interface GetPrivateStoreCollectionOutputArgs {
+    /**
+     * The collection ID
+     */
+    collectionId: pulumi.Input<string>;
+    /**
+     * The store ID - must use the tenant ID
+     */
+    privateStoreId: pulumi.Input<string>;
+}

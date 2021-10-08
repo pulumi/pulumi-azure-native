@@ -73,3 +73,30 @@ export interface GetReplicationProtectionContainerMappingResult {
      */
     readonly type: string;
 }
+
+export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
+    return pulumi.output(args).apply(a => getReplicationProtectionContainerMapping(a, opts))
+}
+
+export interface GetReplicationProtectionContainerMappingOutputArgs {
+    /**
+     * Fabric name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * Protection Container mapping name.
+     */
+    mappingName: pulumi.Input<string>;
+    /**
+     * Protection container name.
+     */
+    protectionContainerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

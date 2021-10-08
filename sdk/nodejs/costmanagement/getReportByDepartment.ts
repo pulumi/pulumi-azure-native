@@ -71,3 +71,18 @@ export interface GetReportByDepartmentResult {
      */
     readonly type: string;
 }
+
+export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
+    return pulumi.output(args).apply(a => getReportByDepartment(a, opts))
+}
+
+export interface GetReportByDepartmentOutputArgs {
+    /**
+     * Department ID
+     */
+    departmentId: pulumi.Input<string>;
+    /**
+     * Report Name.
+     */
+    reportName: pulumi.Input<string>;
+}

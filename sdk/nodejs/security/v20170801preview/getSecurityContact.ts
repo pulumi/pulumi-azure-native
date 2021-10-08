@@ -60,3 +60,14 @@ export interface GetSecurityContactResult {
      */
     readonly type: string;
 }
+
+export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
+    return pulumi.output(args).apply(a => getSecurityContact(a, opts))
+}
+
+export interface GetSecurityContactOutputArgs {
+    /**
+     * Name of the security contact object
+     */
+    securityContactName: pulumi.Input<string>;
+}

@@ -86,3 +86,34 @@ export interface GetManagementLockAtResourceLevelResult {
      */
     readonly type: string;
 }
+
+export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {
+    return pulumi.output(args).apply(a => getManagementLockAtResourceLevel(a, opts))
+}
+
+export interface GetManagementLockAtResourceLevelOutputArgs {
+    /**
+     * The name of lock.
+     */
+    lockName: pulumi.Input<string>;
+    /**
+     * An extra path parameter needed in some services, like SQL Databases.
+     */
+    parentResourcePath: pulumi.Input<string>;
+    /**
+     * The name of the resource group. 
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * The namespace of the resource provider.
+     */
+    resourceProviderNamespace: pulumi.Input<string>;
+    /**
+     * The type of the resource.
+     */
+    resourceType: pulumi.Input<string>;
+}

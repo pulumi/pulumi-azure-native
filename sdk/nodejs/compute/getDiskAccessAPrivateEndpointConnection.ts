@@ -68,3 +68,22 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getDiskAccessAPrivateEndpointConnection(a, opts))
+}
+
+export interface GetDiskAccessAPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    diskAccessName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -888,6 +888,18 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookManagedIdentityInput)(nil)).Elem(), MyWorkbookManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookManagedIdentityPtrInput)(nil)).Elem(), MyWorkbookManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookManagedIdentityResponseInput)(nil)).Elem(), MyWorkbookManagedIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookManagedIdentityResponsePtrInput)(nil)).Elem(), MyWorkbookManagedIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookUserAssignedIdentitiesResponseInput)(nil)).Elem(), MyWorkbookUserAssignedIdentitiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MyWorkbookUserAssignedIdentitiesResponsePtrInput)(nil)).Elem(), MyWorkbookUserAssignedIdentitiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookManagedIdentityInput)(nil)).Elem(), WorkbookManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookManagedIdentityPtrInput)(nil)).Elem(), WorkbookManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookManagedIdentityResponseInput)(nil)).Elem(), WorkbookManagedIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookManagedIdentityResponsePtrInput)(nil)).Elem(), WorkbookManagedIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookUserAssignedIdentitiesResponseInput)(nil)).Elem(), WorkbookUserAssignedIdentitiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookUserAssignedIdentitiesResponsePtrInput)(nil)).Elem(), WorkbookUserAssignedIdentitiesResponseArgs{})
 	pulumi.RegisterOutputType(MyWorkbookManagedIdentityOutput{})
 	pulumi.RegisterOutputType(MyWorkbookManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MyWorkbookManagedIdentityResponseOutput{})

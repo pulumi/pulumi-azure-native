@@ -83,3 +83,22 @@ export interface GetIpGroupResult {
      */
     readonly type: string;
 }
+
+export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
+    return pulumi.output(args).apply(a => getIpGroup(a, opts))
+}
+
+export interface GetIpGroupOutputArgs {
+    /**
+     * Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the ipGroups.
+     */
+    ipGroupsName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -78,3 +78,26 @@ export interface GetSiteRelayServiceConnectionSlotResult {
      */
     readonly type?: string;
 }
+
+export function getSiteRelayServiceConnectionSlotOutput(args: GetSiteRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteRelayServiceConnectionSlotResult> {
+    return pulumi.output(args).apply(a => getSiteRelayServiceConnectionSlot(a, opts))
+}
+
+export interface GetSiteRelayServiceConnectionSlotOutputArgs {
+    /**
+     * The name by which the Hybrid Connection is identified
+     */
+    entityName: pulumi.Input<string>;
+    /**
+     * The name of the web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the slot for the web app.
+     */
+    slot: pulumi.Input<string>;
+}

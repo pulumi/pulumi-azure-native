@@ -91,3 +91,22 @@ export interface GetScheduleResourceResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20150521preview.WeekDetailsResponse;
 }
+
+export function getScheduleResourceOutput(args: GetScheduleResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResourceResult> {
+    return pulumi.output(args).apply(a => getScheduleResource(a, opts))
+}
+
+export interface GetScheduleResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the schedule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

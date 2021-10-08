@@ -84,3 +84,22 @@ export interface GetDicomServiceResult {
      */
     readonly type: string;
 }
+
+export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
+    return pulumi.output(args).apply(a => getDicomService(a, opts))
+}
+
+export interface GetDicomServiceOutputArgs {
+    /**
+     * The name of DICOM Service resource.
+     */
+    dicomServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of workspace resource.
+     */
+    workspaceName: pulumi.Input<string>;
+}

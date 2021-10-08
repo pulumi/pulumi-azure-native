@@ -64,3 +64,26 @@ export interface GetTopicAuthorizationRuleResult {
      */
     readonly type: string;
 }
+
+export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
+    return pulumi.output(args).apply(a => getTopicAuthorizationRule(a, opts))
+}
+
+export interface GetTopicAuthorizationRuleOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The topic name.
+     */
+    topicName: pulumi.Input<string>;
+}

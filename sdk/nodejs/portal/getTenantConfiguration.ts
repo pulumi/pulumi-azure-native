@@ -49,3 +49,14 @@ export interface GetTenantConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
+    return pulumi.output(args).apply(a => getTenantConfiguration(a, opts))
+}
+
+export interface GetTenantConfigurationOutputArgs {
+    /**
+     * The configuration name. Value must be 'default'
+     */
+    configurationName: pulumi.Input<string>;
+}

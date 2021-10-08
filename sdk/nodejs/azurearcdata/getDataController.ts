@@ -68,3 +68,15 @@ export interface GetDataControllerResult {
      */
     readonly type: string;
 }
+
+export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {
+    return pulumi.output(args).apply(a => getDataController(a, opts))
+}
+
+export interface GetDataControllerOutputArgs {
+    dataControllerName: pulumi.Input<string>;
+    /**
+     * The name of the Azure resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -60,3 +60,19 @@ export interface GetTagRuleResult {
      */
     readonly type: string;
 }
+
+export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
+    return pulumi.output(args).apply(a => getTagRule(a, opts))
+}
+
+export interface GetTagRuleOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    ruleSetName: pulumi.Input<string>;
+}

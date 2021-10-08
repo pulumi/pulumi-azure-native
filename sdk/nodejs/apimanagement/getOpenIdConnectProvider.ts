@@ -75,3 +75,22 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly type: string;
 }
+
+export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
+    return pulumi.output(args).apply(a => getOpenIdConnectProvider(a, opts))
+}
+
+export interface GetOpenIdConnectProviderOutputArgs {
+    /**
+     * Identifier of the OpenID Connect Provider.
+     */
+    opid: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

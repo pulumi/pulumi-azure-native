@@ -86,3 +86,22 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceId: string;
 }
+
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The name of the machine learning team account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the machine learning team account belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the machine learning team account workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

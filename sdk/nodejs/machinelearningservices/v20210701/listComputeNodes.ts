@@ -51,3 +51,22 @@ export interface ListComputeNodesResult {
      */
     readonly nodes: outputs.machinelearningservices.v20210701.AmlComputeNodeInformationResponse[];
 }
+
+export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeNodesResult> {
+    return pulumi.output(args).apply(a => listComputeNodes(a, opts))
+}
+
+export interface ListComputeNodesOutputArgs {
+    /**
+     * Name of the Azure Machine Learning compute.
+     */
+    computeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

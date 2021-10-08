@@ -60,3 +60,22 @@ export interface GetArtifactResult {
      */
     readonly type: string;
 }
+
+export function getArtifactOutput(args: GetArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactResult> {
+    return pulumi.output(args).apply(a => getArtifact(a, opts))
+}
+
+export interface GetArtifactOutputArgs {
+    /**
+     * name of the artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * name of the blueprint.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * ManagementGroup where blueprint stores.
+     */
+    managementGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,26 @@ export interface GetApiIssueResult {
      */
     readonly userId: string;
 }
+
+export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
+    return pulumi.output(args).apply(a => getApiIssue(a, opts))
+}
+
+export interface GetApiIssueOutputArgs {
+    /**
+     * API identifier. Must be unique in the current API Management service instance.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * Issue identifier. Must be unique in the current API Management service instance.
+     */
+    issueId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

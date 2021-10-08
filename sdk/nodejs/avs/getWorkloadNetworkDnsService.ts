@@ -87,3 +87,22 @@ export interface GetWorkloadNetworkDnsServiceResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkDnsService(a, opts))
+}
+
+export interface GetWorkloadNetworkDnsServiceOutputArgs {
+    /**
+     * NSX DNS Service identifier. Generally the same as the DNS Service's display name
+     */
+    dnsServiceId: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

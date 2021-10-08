@@ -97,3 +97,14 @@ export interface GetViewResult {
      */
     readonly type: string;
 }
+
+export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
+    return pulumi.output(args).apply(a => getView(a, opts))
+}
+
+export interface GetViewOutputArgs {
+    /**
+     * View name
+     */
+    viewName: pulumi.Input<string>;
+}

@@ -46,3 +46,18 @@ export interface ListVMHostResult {
      */
     readonly value?: outputs.elastic.v20200701preview.VMResourcesResponse[];
 }
+
+export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVMHostResult> {
+    return pulumi.output(args).apply(a => listVMHost(a, opts))
+}
+
+export interface ListVMHostOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Elastic resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

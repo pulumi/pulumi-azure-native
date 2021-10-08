@@ -75,3 +75,22 @@ export interface GetDisasterRecoveryConfigResult {
      */
     readonly type: string;
 }
+
+export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
+    return pulumi.output(args).apply(a => getDisasterRecoveryConfig(a, opts))
+}
+
+export interface GetDisasterRecoveryConfigOutputArgs {
+    /**
+     * The Disaster Recovery configuration name
+     */
+    alias: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

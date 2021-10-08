@@ -78,3 +78,18 @@ export interface GetNotebookProxyResult {
      */
     readonly type: string;
 }
+
+export function getNotebookProxyOutput(args: GetNotebookProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookProxyResult> {
+    return pulumi.output(args).apply(a => getNotebookProxy(a, opts))
+}
+
+export interface GetNotebookProxyOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

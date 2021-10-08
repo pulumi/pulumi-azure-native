@@ -78,3 +78,18 @@ export interface GetControllerDetailsResult {
      */
     readonly type: string;
 }
+
+export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
+    return pulumi.output(args).apply(a => getControllerDetails(a, opts))
+}
+
+export interface GetControllerDetailsOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    resourceName: pulumi.Input<string>;
+}

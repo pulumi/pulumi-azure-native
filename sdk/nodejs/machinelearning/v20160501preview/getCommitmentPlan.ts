@@ -70,3 +70,18 @@ export interface GetCommitmentPlanResult {
      */
     readonly type: string;
 }
+
+export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
+    return pulumi.output(args).apply(a => getCommitmentPlan(a, opts))
+}
+
+export interface GetCommitmentPlanOutputArgs {
+    /**
+     * The Azure ML commitment plan name.
+     */
+    commitmentPlanName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

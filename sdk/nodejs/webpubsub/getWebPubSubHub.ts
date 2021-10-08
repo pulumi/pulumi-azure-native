@@ -64,3 +64,22 @@ export interface GetWebPubSubHubResult {
      */
     readonly type: string;
 }
+
+export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
+    return pulumi.output(args).apply(a => getWebPubSubHub(a, opts))
+}
+
+export interface GetWebPubSubHubOutputArgs {
+    /**
+     * The hub name.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

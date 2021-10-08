@@ -110,3 +110,18 @@ export interface GetScalingPlanResult {
      */
     readonly type: string;
 }
+
+export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
+    return pulumi.output(args).apply(a => getScalingPlan(a, opts))
+}
+
+export interface GetScalingPlanOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the scaling plan.
+     */
+    scalingPlanName: pulumi.Input<string>;
+}

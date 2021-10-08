@@ -107,3 +107,22 @@ export interface GetSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
+    return pulumi.output(args).apply(a => getSubscription(a, opts))
+}
+
+export interface GetSubscriptionOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+     */
+    sid: pulumi.Input<string>;
+}

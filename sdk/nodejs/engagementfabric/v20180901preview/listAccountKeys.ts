@@ -42,3 +42,18 @@ export interface ListAccountKeysResult {
      */
     readonly value: outputs.engagementfabric.v20180901preview.KeyDescriptionResponse[];
 }
+
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+}
+
+export interface ListAccountKeysOutputArgs {
+    /**
+     * Account Name
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -45,3 +45,22 @@ export interface GetVMwareCollectorResult {
     readonly properties: outputs.migrate.CollectorPropertiesResponse;
     readonly type: string;
 }
+
+export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {
+    return pulumi.output(args).apply(a => getVMwareCollector(a, opts))
+}
+
+export interface GetVMwareCollectorOutputArgs {
+    /**
+     * Name of the Azure Migrate project.
+     */
+    projectName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Resource Group that project is part of.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Unique name of a VMware collector within a project.
+     */
+    vmWareCollectorName: pulumi.Input<string>;
+}

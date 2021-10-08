@@ -64,3 +64,22 @@ export interface GetGremlinResourceGremlinDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
+    return pulumi.output(args).apply(a => getGremlinResourceGremlinDatabase(a, opts))
+}
+
+export interface GetGremlinResourceGremlinDatabaseOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -96,3 +96,26 @@ export interface GetJobDefinitionResult {
      */
     readonly userConfirmation?: string;
 }
+
+export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
+    return pulumi.output(args).apply(a => getJobDefinition(a, opts))
+}
+
+export interface GetJobDefinitionOutputArgs {
+    /**
+     * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+     */
+    dataManagerName: pulumi.Input<string>;
+    /**
+     * The data service name of the job definition
+     */
+    dataServiceName: pulumi.Input<string>;
+    /**
+     * The job definition name that is being queried.
+     */
+    jobDefinitionName: pulumi.Input<string>;
+    /**
+     * The Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

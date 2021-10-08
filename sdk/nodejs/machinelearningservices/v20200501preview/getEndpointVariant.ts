@@ -80,3 +80,26 @@ export interface GetEndpointVariantResult {
      */
     readonly type: string;
 }
+
+export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointVariantResult> {
+    return pulumi.output(args).apply(a => getEndpointVariant(a, opts))
+}
+
+export interface GetEndpointVariantOutputArgs {
+    /**
+     * Set to True to include Model details.
+     */
+    expand?: pulumi.Input<boolean>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Azure Machine Learning service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

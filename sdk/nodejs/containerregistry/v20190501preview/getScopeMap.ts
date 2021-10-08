@@ -77,3 +77,22 @@ export interface GetScopeMapResult {
      */
     readonly type: string;
 }
+
+export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
+    return pulumi.output(args).apply(a => getScopeMap(a, opts))
+}
+
+export interface GetScopeMapOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the scope map.
+     */
+    scopeMapName: pulumi.Input<string>;
+}

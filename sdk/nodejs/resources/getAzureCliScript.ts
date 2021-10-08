@@ -132,3 +132,18 @@ export interface GetAzureCliScriptResult {
      */
     readonly type: string;
 }
+
+export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
+    return pulumi.output(args).apply(a => getAzureCliScript(a, opts))
+}
+
+export interface GetAzureCliScriptOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment script.
+     */
+    scriptName: pulumi.Input<string>;
+}

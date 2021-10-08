@@ -66,3 +66,22 @@ export interface GetChannelResult {
      */
     readonly type: string;
 }
+
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+    return pulumi.output(args).apply(a => getChannel(a, opts))
+}
+
+export interface GetChannelOutputArgs {
+    /**
+     * Account Name
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Channel Name
+     */
+    channelName: pulumi.Input<string>;
+    /**
+     * Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

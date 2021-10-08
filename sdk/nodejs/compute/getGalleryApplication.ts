@@ -87,3 +87,22 @@ export interface GetGalleryApplicationResult {
      */
     readonly type: string;
 }
+
+export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
+    return pulumi.output(args).apply(a => getGalleryApplication(a, opts))
+}
+
+export interface GetGalleryApplicationOutputArgs {
+    /**
+     * The name of the gallery Application Definition to be retrieved.
+     */
+    galleryApplicationName: pulumi.Input<string>;
+    /**
+     * The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
+     */
+    galleryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

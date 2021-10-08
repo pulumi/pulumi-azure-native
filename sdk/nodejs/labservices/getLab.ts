@@ -113,3 +113,26 @@ export interface GetLabResult {
      */
     readonly userQuota: number;
 }
+
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+    return pulumi.output(args).apply(a => getLab(a, opts))
+}
+
+export interface GetLabOutputArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the lab Account.
+     */
+    labAccountName: pulumi.Input<string>;
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

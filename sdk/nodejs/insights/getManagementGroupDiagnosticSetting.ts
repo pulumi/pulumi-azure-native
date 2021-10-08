@@ -79,3 +79,18 @@ export interface GetManagementGroupDiagnosticSettingResult {
      */
     readonly workspaceId?: string;
 }
+
+export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
+    return pulumi.output(args).apply(a => getManagementGroupDiagnosticSetting(a, opts))
+}
+
+export interface GetManagementGroupDiagnosticSettingOutputArgs {
+    /**
+     * The management group id.
+     */
+    managementGroupId: pulumi.Input<string>;
+    /**
+     * The name of the diagnostic setting.
+     */
+    name: pulumi.Input<string>;
+}

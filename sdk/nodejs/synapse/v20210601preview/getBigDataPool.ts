@@ -135,3 +135,22 @@ export interface GetBigDataPoolResult {
      */
     readonly type: string;
 }
+
+export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
+    return pulumi.output(args).apply(a => getBigDataPool(a, opts))
+}
+
+export interface GetBigDataPoolOutputArgs {
+    /**
+     * Big Data pool name
+     */
+    bigDataPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

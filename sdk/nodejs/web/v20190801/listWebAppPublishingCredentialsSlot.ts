@@ -78,3 +78,22 @@ export interface ListWebAppPublishingCredentialsSlotResult {
      */
     readonly type: string;
 }
+
+export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
+    return pulumi.output(args).apply(a => listWebAppPublishingCredentialsSlot(a, opts))
+}
+
+export interface ListWebAppPublishingCredentialsSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the publishing credentials for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

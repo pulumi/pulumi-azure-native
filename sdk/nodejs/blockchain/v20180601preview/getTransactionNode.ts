@@ -83,3 +83,22 @@ export interface GetTransactionNodeResult {
      */
     readonly userName: string;
 }
+
+export function getTransactionNodeOutput(args: GetTransactionNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransactionNodeResult> {
+    return pulumi.output(args).apply(a => getTransactionNode(a, opts))
+}
+
+export interface GetTransactionNodeOutputArgs {
+    /**
+     * Blockchain member name.
+     */
+    blockchainMemberName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Transaction node name.
+     */
+    transactionNodeName: pulumi.Input<string>;
+}

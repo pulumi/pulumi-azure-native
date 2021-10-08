@@ -153,3 +153,26 @@ export interface GetWatchlistResult {
      */
     readonly watchlistType?: string;
 }
+
+export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistResult> {
+    return pulumi.output(args).apply(a => getWatchlist(a, opts))
+}
+
+export interface GetWatchlistOutputArgs {
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Watchlist Alias
+     */
+    watchlistAlias: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

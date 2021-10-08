@@ -68,3 +68,26 @@ export interface ListWCFRelayKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
+    return pulumi.output(args).apply(a => listWCFRelayKeys(a, opts))
+}
+
+export interface ListWCFRelayKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name.
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

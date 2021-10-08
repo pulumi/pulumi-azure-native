@@ -82,3 +82,50 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
      */
     readonly properties: outputs.compute.v20201201.LogAnalyticsOutputResponse;
 }
+
+export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
+    return pulumi.output(args).apply(a => getLogAnalyticExportRequestRateByInterval(a, opts))
+}
+
+export interface GetLogAnalyticExportRequestRateByIntervalOutputArgs {
+    /**
+     * SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+     */
+    blobContainerSasUri: pulumi.Input<string>;
+    /**
+     * From time of the query
+     */
+    fromTime: pulumi.Input<string>;
+    /**
+     * Group query result by Client Application ID.
+     */
+    groupByClientApplicationId?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Operation Name.
+     */
+    groupByOperationName?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Resource Name.
+     */
+    groupByResourceName?: pulumi.Input<boolean>;
+    /**
+     * Group query result by Throttle Policy applied.
+     */
+    groupByThrottlePolicy?: pulumi.Input<boolean>;
+    /**
+     * Group query result by User Agent.
+     */
+    groupByUserAgent?: pulumi.Input<boolean>;
+    /**
+     * Interval value in minutes used to create LogAnalytics call rate logs.
+     */
+    intervalLength: pulumi.Input<enums.compute.v20201201.IntervalInMins>;
+    /**
+     * The location upon which virtual-machine-sizes is queried.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * To time of the query
+     */
+    toTime: pulumi.Input<string>;
+}

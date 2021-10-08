@@ -112,3 +112,22 @@ export interface GetBookmarkResult {
      */
     readonly updatedBy?: outputs.securityinsights.UserInfoResponse;
 }
+
+export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
+    return pulumi.output(args).apply(a => getBookmark(a, opts))
+}
+
+export interface GetBookmarkOutputArgs {
+    /**
+     * Bookmark ID
+     */
+    bookmarkId: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

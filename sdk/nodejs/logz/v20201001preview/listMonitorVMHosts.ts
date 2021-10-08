@@ -46,3 +46,18 @@ export interface ListMonitorVMHostsResult {
      */
     readonly value?: outputs.logz.v20201001preview.VMResourcesResponse[];
 }
+
+export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorVMHostsResult> {
+    return pulumi.output(args).apply(a => listMonitorVMHosts(a, opts))
+}
+
+export interface ListMonitorVMHostsOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

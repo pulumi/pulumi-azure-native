@@ -132,3 +132,18 @@ export interface GetManagedClusterResult {
      */
     readonly type: string;
 }
+
+export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
+    return pulumi.output(args).apply(a => getManagedCluster(a, opts))
+}
+
+export interface GetManagedClusterOutputArgs {
+    /**
+     * The name of the cluster resource.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -76,3 +76,22 @@ export interface GetBatchEndpointResult {
      */
     readonly type: string;
 }
+
+export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
+    return pulumi.output(args).apply(a => getBatchEndpoint(a, opts))
+}
+
+export interface GetBatchEndpointOutputArgs {
+    /**
+     * Name for the Batch Endpoint.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

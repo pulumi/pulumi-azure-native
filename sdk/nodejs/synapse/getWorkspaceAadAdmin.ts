@@ -66,3 +66,18 @@ export interface GetWorkspaceAadAdminResult {
      */
     readonly type: string;
 }
+
+export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
+    return pulumi.output(args).apply(a => getWorkspaceAadAdmin(a, opts))
+}
+
+export interface GetWorkspaceAadAdminOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace
+     */
+    workspaceName: pulumi.Input<string>;
+}

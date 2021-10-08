@@ -79,3 +79,22 @@ export interface GetVirtualHubBgpConnectionResult {
      */
     readonly type: string;
 }
+
+export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
+    return pulumi.output(args).apply(a => getVirtualHubBgpConnection(a, opts))
+}
+
+export interface GetVirtualHubBgpConnectionOutputArgs {
+    /**
+     * The name of the connection.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The resource group name of the VirtualHub.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VirtualHub.
+     */
+    virtualHubName: pulumi.Input<string>;
+}

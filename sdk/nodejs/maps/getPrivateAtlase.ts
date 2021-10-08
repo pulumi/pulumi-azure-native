@@ -68,3 +68,22 @@ export interface GetPrivateAtlaseResult {
      */
     readonly type: string;
 }
+
+export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
+    return pulumi.output(args).apply(a => getPrivateAtlase(a, opts))
+}
+
+export interface GetPrivateAtlaseOutputArgs {
+    /**
+     * The name of the Maps Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the Private Atlas instance.
+     */
+    privateAtlasName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

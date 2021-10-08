@@ -1071,6 +1071,20 @@ func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) Notificati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodInput)(nil)).Elem(), BudgetTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodPtrInput)(nil)).Elem(), BudgetTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodResponseInput)(nil)).Elem(), BudgetTimePeriodResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetTimePeriodResponsePtrInput)(nil)).Elem(), BudgetTimePeriodResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CurrentSpendResponseInput)(nil)).Elem(), CurrentSpendResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CurrentSpendResponsePtrInput)(nil)).Elem(), CurrentSpendResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterInput)(nil)).Elem(), FilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterPtrInput)(nil)).Elem(), FilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterResponseInput)(nil)).Elem(), FilterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterResponsePtrInput)(nil)).Elem(), FilterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationInput)(nil)).Elem(), NotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationMapInput)(nil)).Elem(), NotificationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationResponseInput)(nil)).Elem(), NotificationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationResponseMapInput)(nil)).Elem(), NotificationResponseMap{})
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})

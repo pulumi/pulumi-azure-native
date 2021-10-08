@@ -74,3 +74,22 @@ export interface GetHybridConnectionResult {
      */
     readonly userMetadata?: string;
 }
+
+export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
+    return pulumi.output(args).apply(a => getHybridConnection(a, opts))
+}
+
+export interface GetHybridConnectionOutputArgs {
+    /**
+     * The hybrid connection name.
+     */
+    hybridConnectionName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

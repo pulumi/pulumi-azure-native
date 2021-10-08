@@ -77,3 +77,46 @@ export interface ListConnectionConsentLinksResult {
      */
     readonly value?: outputs.web.v20150801preview.ConsentLinkResponse[];
 }
+
+export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
+    return pulumi.output(args).apply(a => listConnectionConsentLinks(a, opts))
+}
+
+export interface ListConnectionConsentLinksOutputArgs {
+    /**
+     * The connection name.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * Resource Id
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Kind of resource
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Resource Location
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Resource Name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Array of links
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.web.v20150801preview.ConsentLinkInputParameterArgs>[]>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    type?: pulumi.Input<string>;
+}

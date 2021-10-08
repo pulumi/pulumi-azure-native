@@ -63,3 +63,18 @@ export interface GetStepResult {
      */
     readonly type: string;
 }
+
+export function getStepOutput(args: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
+    return pulumi.output(args).apply(a => getStep(a, opts))
+}
+
+export interface GetStepOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the deployment step.
+     */
+    stepName: pulumi.Input<string>;
+}

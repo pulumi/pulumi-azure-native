@@ -178,3 +178,18 @@ export interface GetDatabaseAccountResult {
      */
     readonly writeLocations: outputs.documentdb.v20210415.LocationResponse[];
 }
+
+export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccount(a, opts))
+}
+
+export interface GetDatabaseAccountOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

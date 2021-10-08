@@ -85,3 +85,26 @@ export interface GetAdminRuleCollectionResult {
      */
     readonly type: string;
 }
+
+export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
+    return pulumi.output(args).apply(a => getAdminRuleCollection(a, opts))
+}
+
+export interface GetAdminRuleCollectionOutputArgs {
+    /**
+     * The name of the network manager security Configuration.
+     */
+    configurationName: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the network manager security Configuration rule collection.
+     */
+    ruleCollectionName: pulumi.Input<string>;
+}

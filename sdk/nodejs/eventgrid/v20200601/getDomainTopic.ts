@@ -63,3 +63,22 @@ export interface GetDomainTopicResult {
      */
     readonly type: string;
 }
+
+export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
+    return pulumi.output(args).apply(a => getDomainTopic(a, opts))
+}
+
+export interface GetDomainTopicOutputArgs {
+    /**
+     * Name of the domain.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * Name of the topic.
+     */
+    domainTopicName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

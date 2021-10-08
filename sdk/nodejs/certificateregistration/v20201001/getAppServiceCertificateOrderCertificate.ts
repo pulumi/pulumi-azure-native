@@ -83,3 +83,22 @@ export interface GetAppServiceCertificateOrderCertificateResult {
      */
     readonly type: string;
 }
+
+export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
+    return pulumi.output(args).apply(a => getAppServiceCertificateOrderCertificate(a, opts))
+}
+
+export interface GetAppServiceCertificateOrderCertificateOutputArgs {
+    /**
+     * Name of the certificate order.
+     */
+    certificateOrderName: pulumi.Input<string>;
+    /**
+     * Name of the certificate.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -129,3 +129,26 @@ export interface GetSubscriptionResult {
      */
     readonly updatedAt: string;
 }
+
+export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
+    return pulumi.output(args).apply(a => getSubscription(a, opts))
+}
+
+export interface GetSubscriptionOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The subscription name.
+     */
+    subscriptionName: pulumi.Input<string>;
+    /**
+     * The topic name.
+     */
+    topicName: pulumi.Input<string>;
+}

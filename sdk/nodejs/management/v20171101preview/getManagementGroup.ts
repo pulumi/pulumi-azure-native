@@ -71,3 +71,22 @@ export interface GetManagementGroupResult {
      */
     readonly type: string;
 }
+
+export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
+    return pulumi.output(args).apply(a => getManagementGroup(a, opts))
+}
+
+export interface GetManagementGroupOutputArgs {
+    /**
+     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Management Group ID.
+     */
+    groupId: pulumi.Input<string>;
+    /**
+     * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload.
+     */
+    recurse?: pulumi.Input<boolean>;
+}

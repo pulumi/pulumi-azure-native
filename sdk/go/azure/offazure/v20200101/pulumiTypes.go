@@ -1139,6 +1139,18 @@ func (o SiteSpnPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteAgentPropertiesInput)(nil)).Elem(), SiteAgentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteAgentPropertiesPtrInput)(nil)).Elem(), SiteAgentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteAgentPropertiesResponseInput)(nil)).Elem(), SiteAgentPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteAgentPropertiesResponsePtrInput)(nil)).Elem(), SiteAgentPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SitePropertiesInput)(nil)).Elem(), SitePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SitePropertiesPtrInput)(nil)).Elem(), SitePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SitePropertiesResponseInput)(nil)).Elem(), SitePropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SitePropertiesResponsePtrInput)(nil)).Elem(), SitePropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSpnPropertiesInput)(nil)).Elem(), SiteSpnPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSpnPropertiesPtrInput)(nil)).Elem(), SiteSpnPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSpnPropertiesResponseInput)(nil)).Elem(), SiteSpnPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSpnPropertiesResponsePtrInput)(nil)).Elem(), SiteSpnPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesResponseOutput{})

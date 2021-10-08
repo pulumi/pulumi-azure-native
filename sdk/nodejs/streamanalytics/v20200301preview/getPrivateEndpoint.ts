@@ -63,3 +63,22 @@ export interface GetPrivateEndpointResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpoint(a, opts))
+}
+
+export interface GetPrivateEndpointOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint.
+     */
+    privateEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

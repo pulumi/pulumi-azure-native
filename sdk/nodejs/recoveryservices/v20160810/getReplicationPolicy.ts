@@ -63,3 +63,22 @@ export interface GetReplicationPolicyResult {
      */
     readonly type: string;
 }
+
+export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
+    return pulumi.output(args).apply(a => getReplicationPolicy(a, opts))
+}
+
+export interface GetReplicationPolicyOutputArgs {
+    /**
+     * Replication policy name.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -50,3 +50,22 @@ export interface ListDatabaseKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseKeysResult> {
+    return pulumi.output(args).apply(a => listDatabaseKeys(a, opts))
+}
+
+export interface ListDatabaseKeysOutputArgs {
+    /**
+     * The name of the RedisEnterprise cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

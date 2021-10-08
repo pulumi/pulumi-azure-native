@@ -90,3 +90,26 @@ export interface GetScheduledSynchronizationSettingResult {
      */
     readonly userName: string;
 }
+
+export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
+    return pulumi.output(args).apply(a => getScheduledSynchronizationSetting(a, opts))
+}
+
+export interface GetScheduledSynchronizationSettingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the share.
+     */
+    shareName: pulumi.Input<string>;
+    /**
+     * The name of the synchronizationSetting.
+     */
+    synchronizationSettingName: pulumi.Input<string>;
+}

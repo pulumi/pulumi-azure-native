@@ -46,3 +46,18 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
+
+export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
+    return pulumi.output(args).apply(a => listPartnerNamespaceSharedAccessKeys(a, opts))
+}
+
+export interface ListPartnerNamespaceSharedAccessKeysOutputArgs {
+    /**
+     * Name of the partner namespace.
+     */
+    partnerNamespaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

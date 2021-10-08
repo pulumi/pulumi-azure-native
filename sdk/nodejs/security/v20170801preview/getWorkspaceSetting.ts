@@ -52,3 +52,14 @@ export interface GetWorkspaceSettingResult {
      */
     readonly workspaceId: string;
 }
+
+export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
+    return pulumi.output(args).apply(a => getWorkspaceSetting(a, opts))
+}
+
+export interface GetWorkspaceSettingOutputArgs {
+    /**
+     * Name of the security setting
+     */
+    workspaceSettingName: pulumi.Input<string>;
+}

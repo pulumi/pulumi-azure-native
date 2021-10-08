@@ -79,3 +79,22 @@ export interface GetManagedPrivateEndpointResult {
      */
     readonly type: string;
 }
+
+export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
+    return pulumi.output(args).apply(a => getManagedPrivateEndpoint(a, opts))
+}
+
+export interface GetManagedPrivateEndpointOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the managed private endpoint.
+     */
+    managedPrivateEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

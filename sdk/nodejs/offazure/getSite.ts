@@ -64,3 +64,18 @@ export interface GetSiteResult {
      */
     readonly type: string;
 }
+
+export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+    return pulumi.output(args).apply(a => getSite(a, opts))
+}
+
+export interface GetSiteOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    siteName: pulumi.Input<string>;
+}

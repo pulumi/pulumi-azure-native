@@ -37,3 +37,14 @@ export interface ListIngestionSettingTokensResult {
      */
     readonly token: string;
 }
+
+export function listIngestionSettingTokensOutput(args: ListIngestionSettingTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingTokensResult> {
+    return pulumi.output(args).apply(a => listIngestionSettingTokens(a, opts))
+}
+
+export interface ListIngestionSettingTokensOutputArgs {
+    /**
+     * Name of the ingestion setting
+     */
+    ingestionSettingName: pulumi.Input<string>;
+}

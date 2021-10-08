@@ -45,3 +45,18 @@ export interface ListWebAppSyncFunctionTriggersResult {
      */
     readonly triggerUrl?: string;
 }
+
+export function listWebAppSyncFunctionTriggersOutput(args: ListWebAppSyncFunctionTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersResult> {
+    return pulumi.output(args).apply(a => listWebAppSyncFunctionTriggers(a, opts))
+}
+
+export interface ListWebAppSyncFunctionTriggersOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

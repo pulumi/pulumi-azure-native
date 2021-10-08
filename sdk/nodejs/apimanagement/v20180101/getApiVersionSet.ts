@@ -74,3 +74,22 @@ export interface GetApiVersionSetResult {
      */
     readonly versioningScheme: string;
 }
+
+export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
+    return pulumi.output(args).apply(a => getApiVersionSet(a, opts))
+}
+
+export interface GetApiVersionSetOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+    /**
+     * Api Version Set identifier. Must be unique in the current API Management service instance.
+     */
+    versionSetId: pulumi.Input<string>;
+}

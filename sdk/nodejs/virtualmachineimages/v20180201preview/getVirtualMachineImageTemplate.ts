@@ -38,7 +38,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse[];
+    readonly distribute: (outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse)[];
     /**
      * Resource Id
      */
@@ -75,4 +75,19 @@ export interface GetVirtualMachineImageTemplateResult {
      * Resource type
      */
     readonly type: string;
+}
+
+export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineImageTemplate(a, opts))
+}
+
+export interface GetVirtualMachineImageTemplateOutputArgs {
+    /**
+     * The name of the image Template
+     */
+    imageTemplateName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

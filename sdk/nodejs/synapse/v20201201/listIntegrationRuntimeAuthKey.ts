@@ -50,3 +50,22 @@ export interface ListIntegrationRuntimeAuthKeyResult {
      */
     readonly authKey2?: string;
 }
+
+export function listIntegrationRuntimeAuthKeyOutput(args: ListIntegrationRuntimeAuthKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeyResult> {
+    return pulumi.output(args).apply(a => listIntegrationRuntimeAuthKey(a, opts))
+}
+
+export interface ListIntegrationRuntimeAuthKeyOutputArgs {
+    /**
+     * Integration runtime name
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

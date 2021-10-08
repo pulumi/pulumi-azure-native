@@ -77,3 +77,26 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppPrivateEndpointConnectionSlot(a, opts))
+}
+
+export interface GetWebAppPrivateEndpointConnectionSlotOutputArgs {
+    /**
+     * Name of the site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the private endpoint connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the site deployment slot.
+     */
+    slot: pulumi.Input<string>;
+}

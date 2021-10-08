@@ -45,3 +45,18 @@ export interface ListObjectAnchorsAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
+    return pulumi.output(args).apply(a => listObjectAnchorsAccountKeys(a, opts))
+}
+
+export interface ListObjectAnchorsAccountKeysOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

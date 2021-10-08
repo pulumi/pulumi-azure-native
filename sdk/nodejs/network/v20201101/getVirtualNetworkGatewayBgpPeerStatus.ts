@@ -47,3 +47,22 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
      */
     readonly value?: outputs.network.v20201101.BgpPeerStatusResponse[];
 }
+
+export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayBgpPeerStatus(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayBgpPeerStatusOutputArgs {
+    /**
+     * The IP address of the peer to retrieve the status of.
+     */
+    peer?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network gateway.
+     */
+    virtualNetworkGatewayName: pulumi.Input<string>;
+}

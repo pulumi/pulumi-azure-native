@@ -66,3 +66,18 @@ export interface GetScopeAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAssignmentResult> {
+    return pulumi.output(args).apply(a => getScopeAssignment(a, opts))
+}
+
+export interface GetScopeAssignmentOutputArgs {
+    /**
+     * The base resource of the scope assignment.
+     */
+    scope: pulumi.Input<string>;
+    /**
+     * The name of the scope assignment to get.
+     */
+    scopeAssignmentName: pulumi.Input<string>;
+}

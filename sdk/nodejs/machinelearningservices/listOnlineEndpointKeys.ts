@@ -51,3 +51,22 @@ export interface ListOnlineEndpointKeysResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
+    return pulumi.output(args).apply(a => listOnlineEndpointKeys(a, opts))
+}
+
+export interface ListOnlineEndpointKeysOutputArgs {
+    /**
+     * Online Endpoint name.
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

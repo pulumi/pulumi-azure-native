@@ -54,5 +54,28 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
     /**
      * List of SSIS object metadata.
      */
-    readonly value?: outputs.synapse.v20210601.SsisEnvironmentResponse | outputs.synapse.v20210601.SsisFolderResponse | outputs.synapse.v20210601.SsisPackageResponse | outputs.synapse.v20210601.SsisProjectResponse[];
+    readonly value?: (outputs.synapse.v20210601.SsisEnvironmentResponse | outputs.synapse.v20210601.SsisFolderResponse | outputs.synapse.v20210601.SsisPackageResponse | outputs.synapse.v20210601.SsisProjectResponse)[];
+}
+
+export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntimeObjectMetadatum(a, opts))
+}
+
+export interface GetIntegrationRuntimeObjectMetadatumOutputArgs {
+    /**
+     * Integration runtime name
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * Metadata path.
+     */
+    metadataPath?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
 }

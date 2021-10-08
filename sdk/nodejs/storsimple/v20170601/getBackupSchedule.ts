@@ -93,3 +93,30 @@ export interface GetBackupScheduleResult {
      */
     readonly type: string;
 }
+
+export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {
+    return pulumi.output(args).apply(a => getBackupSchedule(a, opts))
+}
+
+export interface GetBackupScheduleOutputArgs {
+    /**
+     * The backup policy name.
+     */
+    backupPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the backup schedule to be fetched
+     */
+    backupScheduleName: pulumi.Input<string>;
+    /**
+     * The device name
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

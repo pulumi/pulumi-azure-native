@@ -62,3 +62,22 @@ export interface GetSuppressionResult {
      */
     readonly type: string;
 }
+
+export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
+    return pulumi.output(args).apply(a => getSuppression(a, opts))
+}
+
+export interface GetSuppressionOutputArgs {
+    /**
+     * The name of the suppression.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The recommendation ID.
+     */
+    recommendationId: pulumi.Input<string>;
+    /**
+     * The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+     */
+    resourceUri: pulumi.Input<string>;
+}

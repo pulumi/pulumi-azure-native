@@ -98,3 +98,18 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      */
     readonly type: string;
 }
+
+export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
+    return pulumi.output(args).apply(a => getOrchestratorInstanceServiceDetails(a, opts))
+}
+
+export interface GetOrchestratorInstanceServiceDetailsOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    resourceName: pulumi.Input<string>;
+}

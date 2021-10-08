@@ -46,3 +46,18 @@ export interface ListMonitorApiKeysResult {
      */
     readonly value?: outputs.datadog.v20200201preview.DatadogApiKeyResponse[];
 }
+
+export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
+    return pulumi.output(args).apply(a => listMonitorApiKeys(a, opts))
+}
+
+export interface ListMonitorApiKeysOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Datadog resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

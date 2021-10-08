@@ -753,6 +753,14 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) LastName() pulumi.Str
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesOfferDetailInput)(nil)).Elem(), OrganizationResourcePropertiesOfferDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesOfferDetailPtrInput)(nil)).Elem(), OrganizationResourcePropertiesOfferDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesResponseOfferDetailInput)(nil)).Elem(), OrganizationResourcePropertiesResponseOfferDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesResponseOfferDetailPtrInput)(nil)).Elem(), OrganizationResourcePropertiesResponseOfferDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesResponseUserDetailInput)(nil)).Elem(), OrganizationResourcePropertiesResponseUserDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesResponseUserDetailPtrInput)(nil)).Elem(), OrganizationResourcePropertiesResponseUserDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesUserDetailInput)(nil)).Elem(), OrganizationResourcePropertiesUserDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationResourcePropertiesUserDetailPtrInput)(nil)).Elem(), OrganizationResourcePropertiesUserDetailArgs{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesOfferDetailOutput{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesOfferDetailPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesResponseOfferDetailOutput{})

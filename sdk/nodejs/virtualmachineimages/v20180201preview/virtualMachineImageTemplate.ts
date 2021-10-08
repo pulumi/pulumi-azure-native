@@ -39,7 +39,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * The distribution targets where the image output needs to go to.
      */
-    public readonly distribute!: pulumi.Output<outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse[]>;
+    public readonly distribute!: pulumi.Output<(outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse)[]>;
     /**
      * State of 'run' that is currently executing or was last executed.
      */

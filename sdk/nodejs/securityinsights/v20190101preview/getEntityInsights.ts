@@ -76,3 +76,42 @@ export interface GetEntityInsightsResult {
      */
     readonly value?: outputs.securityinsights.v20190101preview.EntityInsightItemResponse[];
 }
+
+export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
+    return pulumi.output(args).apply(a => getEntityInsights(a, opts))
+}
+
+export interface GetEntityInsightsOutputArgs {
+    /**
+     * Indicates if query time range should be extended with default time range of the query. Default value is false
+     */
+    addDefaultExtendedTimeRange?: pulumi.Input<boolean>;
+    /**
+     * The end timeline date, so the results returned are before this date.
+     */
+    endTime: pulumi.Input<string>;
+    /**
+     * entity ID
+     */
+    entityId: pulumi.Input<string>;
+    /**
+     * List of Insights Query Id. If empty, default value is all insights of this entity
+     */
+    insightQueryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The start timeline date, so the results returned are after this date.
+     */
+    startTime: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

@@ -63,3 +63,22 @@ export interface GetGatewayResult {
      */
     readonly type: string;
 }
+
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+    return pulumi.output(args).apply(a => getGateway(a, opts))
+}
+
+export interface GetGatewayOutputArgs {
+    /**
+     * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+     */
+    gatewayId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

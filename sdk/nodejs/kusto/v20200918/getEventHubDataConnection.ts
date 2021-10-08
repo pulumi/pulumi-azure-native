@@ -100,3 +100,26 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly type: string;
 }
+
+export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
+    return pulumi.output(args).apply(a => getEventHubDataConnection(a, opts))
+}
+
+export interface GetEventHubDataConnectionOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the data connection.
+     */
+    dataConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

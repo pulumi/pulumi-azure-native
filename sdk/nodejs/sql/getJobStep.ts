@@ -90,3 +90,30 @@ export interface GetJobStepResult {
      */
     readonly type: string;
 }
+
+export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
+    return pulumi.output(args).apply(a => getJobStep(a, opts))
+}
+
+export interface GetJobStepOutputArgs {
+    /**
+     * The name of the job agent.
+     */
+    jobAgentName: pulumi.Input<string>;
+    /**
+     * The name of the job.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the job step.
+     */
+    stepName: pulumi.Input<string>;
+}

@@ -127,3 +127,22 @@ export interface GetRunbookResult {
      */
     readonly type: string;
 }
+
+export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
+    return pulumi.output(args).apply(a => getRunbook(a, opts))
+}
+
+export interface GetRunbookOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The runbook name.
+     */
+    runbookName: pulumi.Input<string>;
+}

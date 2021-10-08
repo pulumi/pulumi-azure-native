@@ -91,3 +91,22 @@ export interface GetSourceControlResult {
      */
     readonly type: string;
 }
+
+export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
+    return pulumi.output(args).apply(a => getSourceControl(a, opts))
+}
+
+export interface GetSourceControlOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of source control.
+     */
+    sourceControlName: pulumi.Input<string>;
+}

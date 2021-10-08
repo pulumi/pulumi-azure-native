@@ -91,3 +91,18 @@ export interface GetDiskPoolResult {
      */
     readonly type: string;
 }
+
+export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
+    return pulumi.output(args).apply(a => getDiskPool(a, opts))
+}
+
+export interface GetDiskPoolOutputArgs {
+    /**
+     * The name of the Disk pool.
+     */
+    diskPoolName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

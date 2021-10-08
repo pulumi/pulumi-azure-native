@@ -75,3 +75,22 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getApplicationGatewayPrivateEndpointConnectionOutput(args: GetApplicationGatewayPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayPrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getApplicationGatewayPrivateEndpointConnection(a, opts))
+}
+
+export interface GetApplicationGatewayPrivateEndpointConnectionOutputArgs {
+    /**
+     * The name of the application gateway.
+     */
+    applicationGatewayName: pulumi.Input<string>;
+    /**
+     * The name of the application gateway private endpoint connection.
+     */
+    connectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

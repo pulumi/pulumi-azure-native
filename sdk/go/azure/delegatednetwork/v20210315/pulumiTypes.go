@@ -839,6 +839,18 @@ func (o SubnetDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerDetailsTypeInput)(nil)).Elem(), ControllerDetailsTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerDetailsTypePtrInput)(nil)).Elem(), ControllerDetailsTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerDetailsResponseInput)(nil)).Elem(), ControllerDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerDetailsResponsePtrInput)(nil)).Elem(), ControllerDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorIdentityInput)(nil)).Elem(), OrchestratorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorIdentityPtrInput)(nil)).Elem(), OrchestratorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorIdentityResponseInput)(nil)).Elem(), OrchestratorIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorIdentityResponsePtrInput)(nil)).Elem(), OrchestratorIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDetailsInput)(nil)).Elem(), SubnetDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDetailsPtrInput)(nil)).Elem(), SubnetDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDetailsResponseInput)(nil)).Elem(), SubnetDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDetailsResponsePtrInput)(nil)).Elem(), SubnetDetailsResponseArgs{})
 	pulumi.RegisterOutputType(ControllerDetailsTypeOutput{})
 	pulumi.RegisterOutputType(ControllerDetailsTypePtrOutput{})
 	pulumi.RegisterOutputType(ControllerDetailsResponseOutput{})

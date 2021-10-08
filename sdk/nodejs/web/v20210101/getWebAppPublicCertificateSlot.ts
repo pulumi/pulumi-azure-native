@@ -75,3 +75,26 @@ export interface GetWebAppPublicCertificateSlotResult {
      */
     readonly type: string;
 }
+
+export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppPublicCertificateSlot(a, opts))
+}
+
+export interface GetWebAppPublicCertificateSlotOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Public certificate name.
+     */
+    publicCertificateName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

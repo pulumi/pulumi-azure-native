@@ -79,3 +79,22 @@ export interface GetRestorePointCollectionResult {
      */
     readonly type: string;
 }
+
+export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
+    return pulumi.output(args).apply(a => getRestorePointCollection(a, opts))
+}
+
+export interface GetRestorePointCollectionOutputArgs {
+    /**
+     * The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the restore point collection.
+     */
+    restorePointCollectionName: pulumi.Input<string>;
+}

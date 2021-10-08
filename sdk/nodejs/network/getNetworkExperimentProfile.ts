@@ -70,3 +70,18 @@ export interface GetNetworkExperimentProfileResult {
      */
     readonly type: string;
 }
+
+export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
+    return pulumi.output(args).apply(a => getNetworkExperimentProfile(a, opts))
+}
+
+export interface GetNetworkExperimentProfileOutputArgs {
+    /**
+     * The Profile identifier associated with the Tenant and Partner
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

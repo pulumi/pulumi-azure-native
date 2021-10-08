@@ -74,3 +74,18 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
+    return pulumi.output(args).apply(a => getWebAppDiagnosticLogsConfiguration(a, opts))
+}
+
+export interface GetWebAppDiagnosticLogsConfigurationOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

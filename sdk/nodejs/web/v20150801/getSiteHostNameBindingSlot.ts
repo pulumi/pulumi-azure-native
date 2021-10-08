@@ -95,3 +95,26 @@ export interface GetSiteHostNameBindingSlotResult {
      */
     readonly type?: string;
 }
+
+export function getSiteHostNameBindingSlotOutput(args: GetSiteHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteHostNameBindingSlotResult> {
+    return pulumi.output(args).apply(a => getSiteHostNameBindingSlot(a, opts))
+}
+
+export interface GetSiteHostNameBindingSlotOutputArgs {
+    /**
+     * Name of host
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    slot: pulumi.Input<string>;
+}

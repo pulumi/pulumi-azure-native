@@ -45,3 +45,18 @@ export interface ListAccountKeysResult {
      */
     readonly atlasKafkaSecondaryEndpoint?: string;
 }
+
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+}
+
+export interface ListAccountKeysOutputArgs {
+    /**
+     * The name of the account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

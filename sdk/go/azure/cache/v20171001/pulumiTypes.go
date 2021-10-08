@@ -791,6 +791,18 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisAccessKeysResponseInput)(nil)).Elem(), RedisAccessKeysResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisAccessKeysResponsePtrInput)(nil)).Elem(), RedisAccessKeysResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisLinkedServerResponseInput)(nil)).Elem(), RedisLinkedServerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisLinkedServerResponseArrayInput)(nil)).Elem(), RedisLinkedServerResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEntryInput)(nil)).Elem(), ScheduleEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEntryArrayInput)(nil)).Elem(), ScheduleEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEntryResponseInput)(nil)).Elem(), ScheduleEntryResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEntryResponseArrayInput)(nil)).Elem(), ScheduleEntryResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseOutput{})

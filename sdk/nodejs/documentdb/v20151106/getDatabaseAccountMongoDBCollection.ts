@@ -76,3 +76,26 @@ export interface GetDatabaseAccountMongoDBCollectionResult {
      */
     readonly type: string;
 }
+
+export function getDatabaseAccountMongoDBCollectionOutput(args: GetDatabaseAccountMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBCollectionResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccountMongoDBCollection(a, opts))
+}
+
+export interface GetDatabaseAccountMongoDBCollectionOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB collection name.
+     */
+    collectionName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

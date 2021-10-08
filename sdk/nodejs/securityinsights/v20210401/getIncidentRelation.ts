@@ -84,3 +84,26 @@ export interface GetIncidentRelationResult {
      */
     readonly type: string;
 }
+
+export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
+    return pulumi.output(args).apply(a => getIncidentRelation(a, opts))
+}
+
+export interface GetIncidentRelationOutputArgs {
+    /**
+     * Incident ID
+     */
+    incidentId: pulumi.Input<string>;
+    /**
+     * Relation Name
+     */
+    relationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

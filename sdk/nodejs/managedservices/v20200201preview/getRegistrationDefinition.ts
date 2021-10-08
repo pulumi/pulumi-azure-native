@@ -58,3 +58,18 @@ export interface GetRegistrationDefinitionResult {
      */
     readonly type: string;
 }
+
+export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
+    return pulumi.output(args).apply(a => getRegistrationDefinition(a, opts))
+}
+
+export interface GetRegistrationDefinitionOutputArgs {
+    /**
+     * The GUID of the registration definition.
+     */
+    registrationDefinitionId: pulumi.Input<string>;
+    /**
+     * The scope of the resource.
+     */
+    scope: pulumi.Input<string>;
+}

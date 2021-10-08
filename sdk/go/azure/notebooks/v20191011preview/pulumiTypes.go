@@ -427,6 +427,10 @@ func (o NotebookResourceSystemDataResponsePtrOutput) LastModifiedByType() pulumi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookResourceSystemDataInput)(nil)).Elem(), NotebookResourceSystemDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookResourceSystemDataPtrInput)(nil)).Elem(), NotebookResourceSystemDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookResourceSystemDataResponseInput)(nil)).Elem(), NotebookResourceSystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookResourceSystemDataResponsePtrInput)(nil)).Elem(), NotebookResourceSystemDataResponseArgs{})
 	pulumi.RegisterOutputType(NotebookResourceSystemDataOutput{})
 	pulumi.RegisterOutputType(NotebookResourceSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(NotebookResourceSystemDataResponseOutput{})

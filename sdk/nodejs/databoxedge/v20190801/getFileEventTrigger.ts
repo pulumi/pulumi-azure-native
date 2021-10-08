@@ -72,3 +72,22 @@ export interface GetFileEventTriggerResult {
      */
     readonly type: string;
 }
+
+export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
+    return pulumi.output(args).apply(a => getFileEventTrigger(a, opts))
+}
+
+export interface GetFileEventTriggerOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The trigger name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

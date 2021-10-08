@@ -87,3 +87,22 @@ export interface GetSnapshotPolicyResult {
      */
     readonly weeklySchedule?: outputs.netapp.v20200901.WeeklyScheduleResponse;
 }
+
+export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
+    return pulumi.output(args).apply(a => getSnapshotPolicy(a, opts))
+}
+
+export interface GetSnapshotPolicyOutputArgs {
+    /**
+     * The name of the NetApp account
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the snapshot policy
+     */
+    snapshotPolicyName: pulumi.Input<string>;
+}

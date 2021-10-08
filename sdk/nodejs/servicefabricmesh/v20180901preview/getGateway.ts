@@ -94,3 +94,18 @@ export interface GetGatewayResult {
      */
     readonly type: string;
 }
+
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+    return pulumi.output(args).apply(a => getGateway(a, opts))
+}
+
+export interface GetGatewayOutputArgs {
+    /**
+     * The identity of the gateway.
+     */
+    gatewayResourceName: pulumi.Input<string>;
+    /**
+     * Azure resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

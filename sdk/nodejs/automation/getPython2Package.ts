@@ -112,3 +112,22 @@ export interface GetPython2PackageResult {
      */
     readonly version?: string;
 }
+
+export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
+    return pulumi.output(args).apply(a => getPython2Package(a, opts))
+}
+
+export interface GetPython2PackageOutputArgs {
+    /**
+     * The name of the automation account.
+     */
+    automationAccountName: pulumi.Input<string>;
+    /**
+     * The python package name.
+     */
+    packageName: pulumi.Input<string>;
+    /**
+     * Name of an Azure Resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

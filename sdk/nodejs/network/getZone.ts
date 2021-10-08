@@ -91,3 +91,18 @@ export interface GetZoneResult {
      */
     readonly zoneType?: string;
 }
+
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+    return pulumi.output(args).apply(a => getZone(a, opts))
+}
+
+export interface GetZoneOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the DNS zone (without a terminating dot).
+     */
+    zoneName: pulumi.Input<string>;
+}

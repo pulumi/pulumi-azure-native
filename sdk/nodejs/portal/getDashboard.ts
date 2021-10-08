@@ -67,3 +67,18 @@ export interface GetDashboardResult {
      */
     readonly type: string;
 }
+
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+    return pulumi.output(args).apply(a => getDashboard(a, opts))
+}
+
+export interface GetDashboardOutputArgs {
+    /**
+     * The name of the dashboard.
+     */
+    dashboardName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

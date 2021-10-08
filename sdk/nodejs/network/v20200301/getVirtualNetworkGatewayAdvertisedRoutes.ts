@@ -47,3 +47,22 @@ export interface GetVirtualNetworkGatewayAdvertisedRoutesResult {
      */
     readonly value?: outputs.network.v20200301.GatewayRouteResponse[];
 }
+
+export function getVirtualNetworkGatewayAdvertisedRoutesOutput(args: GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayAdvertisedRoutes(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs {
+    /**
+     * The IP address of the peer.
+     */
+    peer: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network gateway.
+     */
+    virtualNetworkGatewayName: pulumi.Input<string>;
+}

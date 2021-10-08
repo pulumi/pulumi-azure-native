@@ -89,3 +89,18 @@ export interface GetWorkbookResult {
      */
     readonly version?: string;
 }
+
+export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
+    return pulumi.output(args).apply(a => getWorkbook(a, opts))
+}
+
+export interface GetWorkbookOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

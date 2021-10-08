@@ -66,3 +66,22 @@ export interface GetProviderInstanceResult {
      */
     readonly type: string;
 }
+
+export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
+    return pulumi.output(args).apply(a => getProviderInstance(a, opts))
+}
+
+export interface GetProviderInstanceOutputArgs {
+    /**
+     * Name of the provider instance.
+     */
+    providerInstanceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SAP monitor resource.
+     */
+    sapMonitorName: pulumi.Input<string>;
+}

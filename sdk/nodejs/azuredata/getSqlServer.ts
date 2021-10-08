@@ -80,3 +80,26 @@ export interface GetSqlServerResult {
      */
     readonly version?: string;
 }
+
+export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
+    return pulumi.output(args).apply(a => getSqlServer(a, opts))
+}
+
+export interface GetSqlServerOutputArgs {
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the SQL Server.
+     */
+    sqlServerName: pulumi.Input<string>;
+    /**
+     * Name of the SQL Server registration.
+     */
+    sqlServerRegistrationName: pulumi.Input<string>;
+}

@@ -90,3 +90,18 @@ export interface GetRedisEnterpriseResult {
      */
     readonly zones?: string[];
 }
+
+export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
+    return pulumi.output(args).apply(a => getRedisEnterprise(a, opts))
+}
+
+export interface GetRedisEnterpriseOutputArgs {
+    /**
+     * The name of the RedisEnterprise cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

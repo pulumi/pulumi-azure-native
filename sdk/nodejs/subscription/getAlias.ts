@@ -50,3 +50,14 @@ export interface GetAliasResult {
      */
     readonly type: string;
 }
+
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+    return pulumi.output(args).apply(a => getAlias(a, opts))
+}
+
+export interface GetAliasOutputArgs {
+    /**
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+     */
+    aliasName: pulumi.Input<string>;
+}

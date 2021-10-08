@@ -70,3 +70,26 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
+
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+    return pulumi.output(args).apply(a => getTrigger(a, opts))
+}
+
+export interface GetTriggerOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+    /**
+     * The name of the trigger.
+     */
+    triggerName: pulumi.Input<string>;
+}

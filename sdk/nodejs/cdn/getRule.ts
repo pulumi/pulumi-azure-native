@@ -51,11 +51,11 @@ export interface GetRuleResult {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse[];
+    readonly actions: (outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[];
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse[];
+    readonly conditions?: (outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[];
     readonly deploymentStatus: string;
     /**
      * Resource ID.
@@ -85,4 +85,27 @@ export interface GetRuleResult {
      * Resource type.
      */
     readonly type: string;
+}
+
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+    return pulumi.output(args).apply(a => getRule(a, opts))
+}
+
+export interface GetRuleOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the delivery rule which is unique within the endpoint.
+     */
+    ruleName: pulumi.Input<string>;
+    /**
+     * Name of the rule set under the profile.
+     */
+    ruleSetName: pulumi.Input<string>;
 }

@@ -101,3 +101,26 @@ export interface GetLiveOutputResult {
      */
     readonly type: string;
 }
+
+export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
+    return pulumi.output(args).apply(a => getLiveOutput(a, opts))
+}
+
+export interface GetLiveOutputOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the live event, maximum length is 32.
+     */
+    liveEventName: pulumi.Input<string>;
+    /**
+     * The name of the live output.
+     */
+    liveOutputName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

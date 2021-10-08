@@ -70,3 +70,22 @@ export interface GetPeeringServicePrefixResult {
      */
     readonly type: string;
 }
+
+export function getPeeringServicePrefixOutput(args: GetPeeringServicePrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServicePrefixResult> {
+    return pulumi.output(args).apply(a => getPeeringServicePrefix(a, opts))
+}
+
+export interface GetPeeringServicePrefixOutputArgs {
+    /**
+     * The peering service name.
+     */
+    peeringServiceName: pulumi.Input<string>;
+    /**
+     * The prefix name.
+     */
+    prefixName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

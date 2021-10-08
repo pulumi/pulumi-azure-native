@@ -62,3 +62,18 @@ export interface GetCloudServiceResult {
      */
     readonly type: string;
 }
+
+export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
+    return pulumi.output(args).apply(a => getCloudService(a, opts))
+}
+
+export interface GetCloudServiceOutputArgs {
+    /**
+     * Name of the cloud service.
+     */
+    cloudServiceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

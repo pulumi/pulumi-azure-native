@@ -143,3 +143,18 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly validityInYears?: number;
 }
+
+export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
+    return pulumi.output(args).apply(a => getAppServiceCertificateOrder(a, opts))
+}
+
+export interface GetAppServiceCertificateOrderOutputArgs {
+    /**
+     * Name of the certificate order..
+     */
+    certificateOrderName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -83,3 +83,22 @@ export interface GetRoleAssignmentArtifactResult {
      */
     readonly type: string;
 }
+
+export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
+    return pulumi.output(args).apply(a => getRoleAssignmentArtifact(a, opts))
+}
+
+export interface GetRoleAssignmentArtifactOutputArgs {
+    /**
+     * Name of the blueprint artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * Name of the blueprint definition.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+     */
+    resourceScope: pulumi.Input<string>;
+}

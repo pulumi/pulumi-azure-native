@@ -42,3 +42,18 @@ export interface ListBlockchainMemberApiKeysResult {
      */
     readonly keys?: outputs.blockchain.v20180601preview.ApiKeyResponse[];
 }
+
+export function listBlockchainMemberApiKeysOutput(args: ListBlockchainMemberApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBlockchainMemberApiKeysResult> {
+    return pulumi.output(args).apply(a => listBlockchainMemberApiKeys(a, opts))
+}
+
+export interface ListBlockchainMemberApiKeysOutputArgs {
+    /**
+     * Blockchain member name.
+     */
+    blockchainMemberName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

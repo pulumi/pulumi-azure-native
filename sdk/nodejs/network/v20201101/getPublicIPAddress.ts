@@ -139,3 +139,22 @@ export interface GetPublicIPAddressResult {
      */
     readonly zones?: string[];
 }
+
+export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
+    return pulumi.output(args).apply(a => getPublicIPAddress(a, opts))
+}
+
+export interface GetPublicIPAddressOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the public IP address.
+     */
+    publicIpAddressName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

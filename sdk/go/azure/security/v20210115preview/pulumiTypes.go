@@ -111,6 +111,8 @@ func (o IngestionConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) I
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IngestionConnectionStringResponseInput)(nil)).Elem(), IngestionConnectionStringResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngestionConnectionStringResponseArrayInput)(nil)).Elem(), IngestionConnectionStringResponseArray{})
 	pulumi.RegisterOutputType(IngestionConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(IngestionConnectionStringResponseArrayOutput{})
 }

@@ -92,3 +92,22 @@ export interface GetBackendResult {
      */
     readonly url: string;
 }
+
+export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
+    return pulumi.output(args).apply(a => getBackend(a, opts))
+}
+
+export interface GetBackendOutputArgs {
+    /**
+     * Identifier of the Backend entity. Must be unique in the current API Management service instance.
+     */
+    backendId: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    serviceName: pulumi.Input<string>;
+}

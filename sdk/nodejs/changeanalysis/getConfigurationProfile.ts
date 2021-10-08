@@ -62,3 +62,14 @@ export interface GetConfigurationProfileResult {
      */
     readonly type: string;
 }
+
+export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
+    return pulumi.output(args).apply(a => getConfigurationProfile(a, opts))
+}
+
+export interface GetConfigurationProfileOutputArgs {
+    /**
+     * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+     */
+    profileName: pulumi.Input<string>;
+}

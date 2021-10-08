@@ -73,3 +73,22 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
+
+export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
+    return pulumi.output(args).apply(a => getStaticSitePrivateEndpointConnection(a, opts))
+}
+
+export interface GetStaticSitePrivateEndpointConnectionOutputArgs {
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the private endpoint connection.
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

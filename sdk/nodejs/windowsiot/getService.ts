@@ -82,3 +82,18 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+export interface GetServiceOutputArgs {
+    /**
+     * The name of the Windows IoT Device Service.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the Windows IoT Device Service.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

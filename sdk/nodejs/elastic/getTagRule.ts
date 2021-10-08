@@ -64,3 +64,22 @@ export interface GetTagRuleResult {
      */
     readonly type: string;
 }
+
+export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
+    return pulumi.output(args).apply(a => getTagRule(a, opts))
+}
+
+export interface GetTagRuleOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the Elastic resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Tag Rule Set resource name
+     */
+    ruleSetName: pulumi.Input<string>;
+}

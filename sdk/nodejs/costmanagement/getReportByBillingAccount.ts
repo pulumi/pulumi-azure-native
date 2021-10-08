@@ -71,3 +71,18 @@ export interface GetReportByBillingAccountResult {
      */
     readonly type: string;
 }
+
+export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
+    return pulumi.output(args).apply(a => getReportByBillingAccount(a, opts))
+}
+
+export interface GetReportByBillingAccountOutputArgs {
+    /**
+     * BillingAccount ID
+     */
+    billingAccountId: pulumi.Input<string>;
+    /**
+     * Report Name.
+     */
+    reportName: pulumi.Input<string>;
+}

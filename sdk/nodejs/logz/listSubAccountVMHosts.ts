@@ -52,3 +52,22 @@ export interface ListSubAccountVMHostsResult {
      */
     readonly value?: outputs.logz.VMResourcesResponse[];
 }
+
+export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountVMHostsResult> {
+    return pulumi.output(args).apply(a => listSubAccountVMHosts(a, opts))
+}
+
+export interface ListSubAccountVMHostsOutputArgs {
+    /**
+     * Monitor resource name
+     */
+    monitorName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sub Account resource name
+     */
+    subAccountName: pulumi.Input<string>;
+}

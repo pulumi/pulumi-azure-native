@@ -66,3 +66,18 @@ export interface GetEnterpriseKnowledgeGraphResult {
      */
     readonly type: string;
 }
+
+export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
+    return pulumi.output(args).apply(a => getEnterpriseKnowledgeGraph(a, opts))
+}
+
+export interface GetEnterpriseKnowledgeGraphOutputArgs {
+    /**
+     * The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the EnterpriseKnowledgeGraph resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

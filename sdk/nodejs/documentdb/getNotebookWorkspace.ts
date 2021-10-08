@@ -63,3 +63,22 @@ export interface GetNotebookWorkspaceResult {
      */
     readonly type: string;
 }
+
+export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
+    return pulumi.output(args).apply(a => getNotebookWorkspace(a, opts))
+}
+
+export interface GetNotebookWorkspaceOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the notebook workspace resource.
+     */
+    notebookWorkspaceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

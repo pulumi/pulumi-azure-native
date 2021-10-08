@@ -89,3 +89,22 @@ export interface GetKubernetesRoleResult {
      */
     readonly type: string;
 }
+
+export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {
+    return pulumi.output(args).apply(a => getKubernetesRole(a, opts))
+}
+
+export interface GetKubernetesRoleOutputArgs {
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

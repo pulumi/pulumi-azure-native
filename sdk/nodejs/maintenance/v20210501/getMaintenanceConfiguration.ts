@@ -98,3 +98,18 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly visibility?: string;
 }
+
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+    return pulumi.output(args).apply(a => getMaintenanceConfiguration(a, opts))
+}
+
+export interface GetMaintenanceConfigurationOutputArgs {
+    /**
+     * Resource Group Name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Maintenance Configuration Name
+     */
+    resourceName: pulumi.Input<string>;
+}

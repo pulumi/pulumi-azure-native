@@ -107,3 +107,18 @@ export interface GetAssignmentResult {
      */
     readonly type: string;
 }
+
+export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
+    return pulumi.output(args).apply(a => getAssignment(a, opts))
+}
+
+export interface GetAssignmentOutputArgs {
+    /**
+     * The security assignment key - unique key for the standard assignment
+     */
+    assignmentId: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

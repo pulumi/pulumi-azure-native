@@ -104,3 +104,26 @@ export interface GetVirtualMachineExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
+
+export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
+    return pulumi.output(args).apply(a => getVirtualMachineExtension(a, opts))
+}
+
+export interface GetVirtualMachineExtensionOutputArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine extension.
+     */
+    vmExtensionName: pulumi.Input<string>;
+    /**
+     * The name of the virtual machine containing the extension.
+     */
+    vmName: pulumi.Input<string>;
+}

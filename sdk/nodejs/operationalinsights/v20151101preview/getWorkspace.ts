@@ -86,3 +86,18 @@ export interface GetWorkspaceResult {
      */
     readonly type: string;
 }
+
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The resource group name of the workspace.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Log Analytics Workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

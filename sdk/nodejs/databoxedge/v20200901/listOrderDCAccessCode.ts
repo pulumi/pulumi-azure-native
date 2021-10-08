@@ -41,3 +41,18 @@ export interface ListOrderDCAccessCodeResult {
      */
     readonly authCode?: string;
 }
+
+export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
+    return pulumi.output(args).apply(a => listOrderDCAccessCode(a, opts))
+}
+
+export interface ListOrderDCAccessCodeOutputArgs {
+    /**
+     * The device name
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

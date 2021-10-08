@@ -78,3 +78,26 @@ export interface GetBatchDeploymentResult {
      */
     readonly type: string;
 }
+
+export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
+    return pulumi.output(args).apply(a => getBatchDeployment(a, opts))
+}
+
+export interface GetBatchDeploymentOutputArgs {
+    /**
+     * The identifier for the Batch deployments.
+     */
+    deploymentName: pulumi.Input<string>;
+    /**
+     * Endpoint name
+     */
+    endpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

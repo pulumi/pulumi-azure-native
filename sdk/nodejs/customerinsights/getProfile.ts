@@ -133,3 +133,26 @@ export interface GetProfileResult {
      */
     readonly typeName?: string;
 }
+
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+    return pulumi.output(args).apply(a => getProfile(a, opts))
+}
+
+export interface GetProfileOutputArgs {
+    /**
+     * The name of the hub.
+     */
+    hubName: pulumi.Input<string>;
+    /**
+     * Locale of profile to retrieve, default is en-us.
+     */
+    localeCode?: pulumi.Input<string>;
+    /**
+     * The name of the profile.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -134,3 +134,18 @@ export interface GetClusterResult {
      */
     readonly vmImage?: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+export interface GetClusterOutputArgs {
+    /**
+     * The name of the cluster resource
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the resource belongs or get created
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

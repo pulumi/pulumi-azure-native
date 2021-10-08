@@ -75,3 +75,26 @@ export interface ListEventHubKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
+    return pulumi.output(args).apply(a => listEventHubKeys(a, opts))
+}
+
+export interface ListEventHubKeysOutputArgs {
+    /**
+     * The authorization rule name.
+     */
+    authorizationRuleName: pulumi.Input<string>;
+    /**
+     * The Event Hub name
+     */
+    eventHubName: pulumi.Input<string>;
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -126,3 +126,18 @@ export interface GetNamespaceResult {
      */
     readonly zoneRedundant?: boolean;
 }
+
+export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
+    return pulumi.output(args).apply(a => getNamespace(a, opts))
+}
+
+export interface GetNamespaceOutputArgs {
+    /**
+     * The Namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

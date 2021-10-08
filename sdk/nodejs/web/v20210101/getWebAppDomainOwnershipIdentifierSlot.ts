@@ -67,3 +67,26 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
      */
     readonly value?: string;
 }
+
+export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppDomainOwnershipIdentifierSlot(a, opts))
+}
+
+export interface GetWebAppDomainOwnershipIdentifierSlotOutputArgs {
+    /**
+     * Name of domain ownership identifier.
+     */
+    domainOwnershipIdentifierName: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

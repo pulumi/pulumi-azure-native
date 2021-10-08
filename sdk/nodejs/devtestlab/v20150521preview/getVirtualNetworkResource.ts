@@ -83,3 +83,22 @@ export interface GetVirtualNetworkResourceResult {
      */
     readonly type?: string;
 }
+
+export function getVirtualNetworkResourceOutput(args: GetVirtualNetworkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResourceResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkResource(a, opts))
+}
+
+export interface GetVirtualNetworkResourceOutputArgs {
+    /**
+     * The name of the lab.
+     */
+    labName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

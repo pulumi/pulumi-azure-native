@@ -37,3 +37,14 @@ export interface GetClientTokenResult {
      */
     readonly token: string;
 }
+
+export function getClientTokenOutput(args?: GetClientTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientTokenResult> {
+    return pulumi.output(args).apply(a => getClientToken(a, opts))
+}
+
+export interface GetClientTokenOutputArgs {
+    /**
+     * Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
+     */
+    endpoint?: pulumi.Input<string>;
+}

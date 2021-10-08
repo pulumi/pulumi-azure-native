@@ -91,3 +91,22 @@ export interface GetInterfaceEndpointResult {
      */
     readonly type: string;
 }
+
+export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
+    return pulumi.output(args).apply(a => getInterfaceEndpoint(a, opts))
+}
+
+export interface GetInterfaceEndpointOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the interface endpoint.
+     */
+    interfaceEndpointName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -72,3 +72,26 @@ export interface GetJobResult {
      */
     readonly version: number;
 }
+
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+    return pulumi.output(args).apply(a => getJob(a, opts))
+}
+
+export interface GetJobOutputArgs {
+    /**
+     * The name of the job agent.
+     */
+    jobAgentName: pulumi.Input<string>;
+    /**
+     * The name of the job to get.
+     */
+    jobName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

@@ -69,3 +69,22 @@ export interface GetJitNetworkAccessPolicyResult {
      */
     readonly virtualMachines: outputs.security.JitNetworkAccessPolicyVirtualMachineResponse[];
 }
+
+export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
+    return pulumi.output(args).apply(a => getJitNetworkAccessPolicy(a, opts))
+}
+
+export interface GetJitNetworkAccessPolicyOutputArgs {
+    /**
+     * The location where ASC stores the data of the subscription. can be retrieved from Get locations
+     */
+    ascLocation: pulumi.Input<string>;
+    /**
+     * Name of a Just-in-Time access configuration policy.
+     */
+    jitNetworkAccessPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

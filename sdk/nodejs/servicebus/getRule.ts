@@ -82,3 +82,30 @@ export interface GetRuleResult {
      */
     readonly type: string;
 }
+
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+    return pulumi.output(args).apply(a => getRule(a, opts))
+}
+
+export interface GetRuleOutputArgs {
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rule name.
+     */
+    ruleName: pulumi.Input<string>;
+    /**
+     * The subscription name.
+     */
+    subscriptionName: pulumi.Input<string>;
+    /**
+     * The topic name.
+     */
+    topicName: pulumi.Input<string>;
+}

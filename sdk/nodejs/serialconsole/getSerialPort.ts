@@ -69,3 +69,30 @@ export interface GetSerialPortResult {
      */
     readonly type: string;
 }
+
+export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {
+    return pulumi.output(args).apply(a => getSerialPort(a, opts))
+}
+
+export interface GetSerialPortOutputArgs {
+    /**
+     * The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
+     */
+    parentResource: pulumi.Input<string>;
+    /**
+     * The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
+     */
+    parentResourceType: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The namespace of the resource provider.
+     */
+    resourceProviderNamespace: pulumi.Input<string>;
+    /**
+     * The name of the serial port to connect to.
+     */
+    serialPort: pulumi.Input<string>;
+}

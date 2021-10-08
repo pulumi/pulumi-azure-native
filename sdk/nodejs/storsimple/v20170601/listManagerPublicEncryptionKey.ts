@@ -49,3 +49,18 @@ export interface ListManagerPublicEncryptionKeyResult {
      */
     readonly valueCertificateThumbprint?: string;
 }
+
+export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {
+    return pulumi.output(args).apply(a => listManagerPublicEncryptionKey(a, opts))
+}
+
+export interface ListManagerPublicEncryptionKeyOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

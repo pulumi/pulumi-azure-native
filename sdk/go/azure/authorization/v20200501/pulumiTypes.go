@@ -542,6 +542,14 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerInput)(nil)).Elem(), ManagementLockOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerArrayInput)(nil)).Elem(), ManagementLockOwnerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerResponseInput)(nil)).Elem(), ManagementLockOwnerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerResponseArrayInput)(nil)).Elem(), ManagementLockOwnerResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceManagementPrivateLinkEndpointConnectionsResponseInput)(nil)).Elem(), ResourceManagementPrivateLinkEndpointConnectionsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceManagementPrivateLinkEndpointConnectionsResponsePtrInput)(nil)).Elem(), ResourceManagementPrivateLinkEndpointConnectionsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(ManagementLockOwnerOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})

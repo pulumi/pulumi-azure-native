@@ -90,3 +90,18 @@ export interface GetRemoteRenderingAccountResult {
      */
     readonly type: string;
 }
+
+export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
+    return pulumi.output(args).apply(a => getRemoteRenderingAccount(a, opts))
+}
+
+export interface GetRemoteRenderingAccountOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -650,6 +650,12 @@ func (o SyncSessionStatusResponsePtrOutput) LastSyncTimestamp() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointHealthResponseInput)(nil)).Elem(), ServerEndpointHealthResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointHealthResponsePtrInput)(nil)).Elem(), ServerEndpointHealthResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncProgressStatusResponseInput)(nil)).Elem(), SyncProgressStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncProgressStatusResponsePtrInput)(nil)).Elem(), SyncProgressStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncSessionStatusResponseInput)(nil)).Elem(), SyncSessionStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncSessionStatusResponsePtrInput)(nil)).Elem(), SyncSessionStatusResponseArgs{})
 	pulumi.RegisterOutputType(ServerEndpointHealthResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointHealthResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncProgressStatusResponseOutput{})

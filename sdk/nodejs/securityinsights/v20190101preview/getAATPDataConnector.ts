@@ -77,3 +77,26 @@ export interface GetAATPDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAATPDataConnectorResult> {
+    return pulumi.output(args).apply(a => getAATPDataConnector(a, opts))
+}
+
+export interface GetAATPDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

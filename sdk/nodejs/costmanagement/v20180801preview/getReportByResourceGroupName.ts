@@ -70,3 +70,18 @@ export interface GetReportByResourceGroupNameResult {
      */
     readonly type: string;
 }
+
+export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByResourceGroupNameResult> {
+    return pulumi.output(args).apply(a => getReportByResourceGroupName(a, opts))
+}
+
+export interface GetReportByResourceGroupNameOutputArgs {
+    /**
+     * Report Name.
+     */
+    reportName: pulumi.Input<string>;
+    /**
+     * Azure Resource Group Name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

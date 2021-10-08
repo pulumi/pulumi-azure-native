@@ -114,3 +114,18 @@ export interface GetVpnServerConfigurationResult {
      */
     readonly vpnProtocols?: string[];
 }
+
+export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
+    return pulumi.output(args).apply(a => getVpnServerConfiguration(a, opts))
+}
+
+export interface GetVpnServerConfigurationOutputArgs {
+    /**
+     * The resource group name of the VpnServerConfiguration.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the VpnServerConfiguration being retrieved.
+     */
+    vpnServerConfigurationName: pulumi.Input<string>;
+}

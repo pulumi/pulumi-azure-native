@@ -79,3 +79,22 @@ export interface GetChannelResult {
      */
     readonly type: string;
 }
+
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+    return pulumi.output(args).apply(a => getChannel(a, opts))
+}
+
+export interface GetChannelOutputArgs {
+    /**
+     * The name of the Bot resource.
+     */
+    channelName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource group in the user subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Bot resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

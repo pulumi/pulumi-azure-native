@@ -103,3 +103,18 @@ export interface GetDscpConfigurationResult {
      */
     readonly type: string;
 }
+
+export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
+    return pulumi.output(args).apply(a => getDscpConfiguration(a, opts))
+}
+
+export interface GetDscpConfigurationOutputArgs {
+    /**
+     * The name of the resource.
+     */
+    dscpConfigurationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

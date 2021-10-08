@@ -88,3 +88,18 @@ export interface GetObjectAnchorsAccountResult {
      */
     readonly type: string;
 }
+
+export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
+    return pulumi.output(args).apply(a => getObjectAnchorsAccount(a, opts))
+}
+
+export interface GetObjectAnchorsAccountOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

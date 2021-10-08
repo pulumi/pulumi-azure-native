@@ -46,5 +46,24 @@ export interface GetPartnerTopicEventSubscriptionDeliveryAttributesResult {
     /**
      * A collection of DeliveryAttributeMapping
      */
-    readonly value?: outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse[];
+    readonly value?: (outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse)[];
+}
+
+export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
+    return pulumi.output(args).apply(a => getPartnerTopicEventSubscriptionDeliveryAttributes(a, opts))
+}
+
+export interface GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs {
+    /**
+     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     */
+    eventSubscriptionName: pulumi.Input<string>;
+    /**
+     * Name of the partner topic.
+     */
+    partnerTopicName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -73,3 +73,18 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly type: string;
 }
+
+export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
+    return pulumi.output(args).apply(a => getUserAssignedIdentity(a, opts))
+}
+
+export interface GetUserAssignedIdentityOutputArgs {
+    /**
+     * The name of the Resource Group to which the identity belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the identity resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

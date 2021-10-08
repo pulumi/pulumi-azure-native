@@ -45,3 +45,18 @@ export interface ListWorkspaceKeysResult {
      */
     readonly secondaryToken?: string;
 }
+
+export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
+    return pulumi.output(args).apply(a => listWorkspaceKeys(a, opts))
+}
+
+export interface ListWorkspaceKeysOutputArgs {
+    /**
+     * The name of the resource group to which the machine learning workspace belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the machine learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

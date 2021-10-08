@@ -45,3 +45,18 @@ export interface ListRemoteRenderingAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
+
+export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
+    return pulumi.output(args).apply(a => listRemoteRenderingAccountKeys(a, opts))
+}
+
+export interface ListRemoteRenderingAccountKeysOutputArgs {
+    /**
+     * Name of an Mixed Reality Account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

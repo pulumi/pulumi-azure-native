@@ -71,3 +71,18 @@ export interface GetFarmBeatsModelResult {
      */
     readonly type: string;
 }
+
+export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
+    return pulumi.output(args).apply(a => getFarmBeatsModel(a, opts))
+}
+
+export interface GetFarmBeatsModelOutputArgs {
+    /**
+     * FarmBeats resource name.
+     */
+    farmBeatsResourceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

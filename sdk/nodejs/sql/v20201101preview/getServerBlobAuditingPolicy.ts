@@ -166,3 +166,22 @@ export interface GetServerBlobAuditingPolicyResult {
      */
     readonly type: string;
 }
+
+export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
+    return pulumi.output(args).apply(a => getServerBlobAuditingPolicy(a, opts))
+}
+
+export interface GetServerBlobAuditingPolicyOutputArgs {
+    /**
+     * The name of the blob auditing policy.
+     */
+    blobAuditingPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+}

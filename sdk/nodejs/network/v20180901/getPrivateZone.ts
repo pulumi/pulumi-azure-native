@@ -89,3 +89,18 @@ export interface GetPrivateZoneResult {
      */
     readonly type: string;
 }
+
+export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
+    return pulumi.output(args).apply(a => getPrivateZone(a, opts))
+}
+
+export interface GetPrivateZoneOutputArgs {
+    /**
+     * The name of the Private DNS zone (without a terminating dot).
+     */
+    privateZoneName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

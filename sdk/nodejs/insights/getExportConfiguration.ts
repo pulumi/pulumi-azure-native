@@ -119,3 +119,22 @@ export interface GetExportConfigurationResult {
      */
     readonly subscriptionId: string;
 }
+
+export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
+    return pulumi.output(args).apply(a => getExportConfiguration(a, opts))
+}
+
+export interface GetExportConfigurationOutputArgs {
+    /**
+     * The Continuous Export configuration ID. This is unique within a Application Insights component.
+     */
+    exportId: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    resourceName: pulumi.Input<string>;
+}

@@ -1165,6 +1165,22 @@ func (o TimeResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AsymmetricEncryptedSecretInput)(nil)).Elem(), AsymmetricEncryptedSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AsymmetricEncryptedSecretPtrInput)(nil)).Elem(), AsymmetricEncryptedSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AsymmetricEncryptedSecretResponseInput)(nil)).Elem(), AsymmetricEncryptedSecretResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AsymmetricEncryptedSecretResponsePtrInput)(nil)).Elem(), AsymmetricEncryptedSecretResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerIntrinsicSettingsInput)(nil)).Elem(), ManagerIntrinsicSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerIntrinsicSettingsPtrInput)(nil)).Elem(), ManagerIntrinsicSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerIntrinsicSettingsResponseInput)(nil)).Elem(), ManagerIntrinsicSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerIntrinsicSettingsResponsePtrInput)(nil)).Elem(), ManagerIntrinsicSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerSkuInput)(nil)).Elem(), ManagerSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerSkuPtrInput)(nil)).Elem(), ManagerSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerSkuResponseInput)(nil)).Elem(), ManagerSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerSkuResponsePtrInput)(nil)).Elem(), ManagerSkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeInput)(nil)).Elem(), TimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimePtrInput)(nil)).Elem(), TimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeResponseInput)(nil)).Elem(), TimeResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeResponsePtrInput)(nil)).Elem(), TimeResponseArgs{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponseOutput{})

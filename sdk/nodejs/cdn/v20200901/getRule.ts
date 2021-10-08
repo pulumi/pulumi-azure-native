@@ -50,11 +50,11 @@ export interface GetRuleResult {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: outputs.cdn.v20200901.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.v20200901.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.v20200901.OriginGroupOverrideActionResponse | outputs.cdn.v20200901.UrlRedirectActionResponse | outputs.cdn.v20200901.UrlRewriteActionResponse | outputs.cdn.v20200901.UrlSigningActionResponse[];
+    readonly actions: (outputs.cdn.v20200901.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.v20200901.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.v20200901.OriginGroupOverrideActionResponse | outputs.cdn.v20200901.UrlRedirectActionResponse | outputs.cdn.v20200901.UrlRewriteActionResponse | outputs.cdn.v20200901.UrlSigningActionResponse)[];
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: outputs.cdn.v20200901.DeliveryRuleCookiesConditionResponse | outputs.cdn.v20200901.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.v20200901.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.v20200901.DeliveryRulePostArgsConditionResponse | outputs.cdn.v20200901.DeliveryRuleQueryStringConditionResponse | outputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestUriConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlPathConditionResponse[];
+    readonly conditions?: (outputs.cdn.v20200901.DeliveryRuleCookiesConditionResponse | outputs.cdn.v20200901.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.v20200901.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.v20200901.DeliveryRulePostArgsConditionResponse | outputs.cdn.v20200901.DeliveryRuleQueryStringConditionResponse | outputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestUriConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlPathConditionResponse)[];
     readonly deploymentStatus: string;
     /**
      * Resource ID.
@@ -84,4 +84,27 @@ export interface GetRuleResult {
      * Resource type.
      */
     readonly type: string;
+}
+
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+    return pulumi.output(args).apply(a => getRule(a, opts))
+}
+
+export interface GetRuleOutputArgs {
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the delivery rule which is unique within the endpoint.
+     */
+    ruleName: pulumi.Input<string>;
+    /**
+     * Name of the rule set under the profile.
+     */
+    ruleSetName: pulumi.Input<string>;
 }

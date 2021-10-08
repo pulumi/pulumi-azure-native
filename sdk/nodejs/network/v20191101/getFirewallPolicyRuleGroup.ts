@@ -65,9 +65,28 @@ export interface GetFirewallPolicyRuleGroupResult {
     /**
      * Group of Firewall Policy rules.
      */
-    readonly rules?: outputs.network.v20191101.FirewallPolicyFilterRuleResponse | outputs.network.v20191101.FirewallPolicyNatRuleResponse[];
+    readonly rules?: (outputs.network.v20191101.FirewallPolicyFilterRuleResponse | outputs.network.v20191101.FirewallPolicyNatRuleResponse)[];
     /**
      * Rule Group type.
      */
     readonly type: string;
+}
+
+export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
+    return pulumi.output(args).apply(a => getFirewallPolicyRuleGroup(a, opts))
+}
+
+export interface GetFirewallPolicyRuleGroupOutputArgs {
+    /**
+     * The name of the Firewall Policy.
+     */
+    firewallPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the FirewallPolicyRuleGroup.
+     */
+    ruleGroupName: pulumi.Input<string>;
 }

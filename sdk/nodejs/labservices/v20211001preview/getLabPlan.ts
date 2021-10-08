@@ -94,3 +94,18 @@ export interface GetLabPlanResult {
      */
     readonly type: string;
 }
+
+export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
+    return pulumi.output(args).apply(a => getLabPlan(a, opts))
+}
+
+export interface GetLabPlanOutputArgs {
+    /**
+     * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
+     */
+    labPlanName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

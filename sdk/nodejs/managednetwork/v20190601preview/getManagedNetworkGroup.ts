@@ -87,3 +87,22 @@ export interface GetManagedNetworkGroupResult {
      */
     readonly virtualNetworks?: outputs.managednetwork.v20190601preview.ResourceIdResponse[];
 }
+
+export function getManagedNetworkGroupOutput(args: GetManagedNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkGroupResult> {
+    return pulumi.output(args).apply(a => getManagedNetworkGroup(a, opts))
+}
+
+export interface GetManagedNetworkGroupOutputArgs {
+    /**
+     * The name of the Managed Network Group.
+     */
+    managedNetworkGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Managed Network.
+     */
+    managedNetworkName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

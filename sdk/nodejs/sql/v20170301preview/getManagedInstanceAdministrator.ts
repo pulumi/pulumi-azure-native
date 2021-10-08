@@ -70,3 +70,22 @@ export interface GetManagedInstanceAdministratorResult {
      */
     readonly type: string;
 }
+
+export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
+    return pulumi.output(args).apply(a => getManagedInstanceAdministrator(a, opts))
+}
+
+export interface GetManagedInstanceAdministratorOutputArgs {
+    /**
+     * The administrator name.
+     */
+    administratorName: pulumi.Input<string>;
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

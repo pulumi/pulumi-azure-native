@@ -47,3 +47,18 @@ export interface ListDomainRecommendationsResult {
      */
     readonly value: outputs.domainregistration.v20200601.NameIdentifierResponse[];
 }
+
+export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {
+    return pulumi.output(args).apply(a => listDomainRecommendations(a, opts))
+}
+
+export interface ListDomainRecommendationsOutputArgs {
+    /**
+     * Keywords to be used for generating domain recommendations.
+     */
+    keywords?: pulumi.Input<string>;
+    /**
+     * Maximum number of recommendations.
+     */
+    maxDomainRecommendations?: pulumi.Input<number>;
+}

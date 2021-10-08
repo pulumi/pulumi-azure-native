@@ -59,3 +59,18 @@ export interface ListWebAppAzureStorageAccountsResult {
      */
     readonly type: string;
 }
+
+export function listWebAppAzureStorageAccountsOutput(args: ListWebAppAzureStorageAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsResult> {
+    return pulumi.output(args).apply(a => listWebAppAzureStorageAccounts(a, opts))
+}
+
+export interface ListWebAppAzureStorageAccountsOutputArgs {
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

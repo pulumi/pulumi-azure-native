@@ -66,3 +66,18 @@ export interface GetMediaServiceResult {
      */
     readonly type: string;
 }
+
+export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
+    return pulumi.output(args).apply(a => getMediaService(a, opts))
+}
+
+export interface GetMediaServiceOutputArgs {
+    /**
+     * Name of the Media Service.
+     */
+    mediaServiceName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

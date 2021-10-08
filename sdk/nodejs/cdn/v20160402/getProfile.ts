@@ -70,3 +70,18 @@ export interface GetProfileResult {
      */
     readonly type: string;
 }
+
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+    return pulumi.output(args).apply(a => getProfile(a, opts))
+}
+
+export interface GetProfileOutputArgs {
+    /**
+     * Name of the CDN profile within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -68,3 +68,22 @@ export interface GetConnectionGatewayResult {
      */
     readonly type: string;
 }
+
+export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionGatewayResult> {
+    return pulumi.output(args).apply(a => getConnectionGateway(a, opts))
+}
+
+export interface GetConnectionGatewayOutputArgs {
+    /**
+     * The connection gateway name
+     */
+    connectionGatewayName: pulumi.Input<string>;
+    /**
+     * The resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Subscription Id
+     */
+    subscriptionId?: pulumi.Input<string>;
+}

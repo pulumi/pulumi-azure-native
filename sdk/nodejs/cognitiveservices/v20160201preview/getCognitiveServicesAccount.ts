@@ -78,3 +78,18 @@ export interface GetCognitiveServicesAccountResult {
      */
     readonly type?: string;
 }
+
+export function getCognitiveServicesAccountOutput(args: GetCognitiveServicesAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCognitiveServicesAccountResult> {
+    return pulumi.output(args).apply(a => getCognitiveServicesAccount(a, opts))
+}
+
+export interface GetCognitiveServicesAccountOutputArgs {
+    /**
+     * The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

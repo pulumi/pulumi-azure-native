@@ -73,3 +73,22 @@ export interface GetMDATPDataConnectorResult {
      */
     readonly type: string;
 }
+
+export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {
+    return pulumi.output(args).apply(a => getMDATPDataConnector(a, opts))
+}
+
+export interface GetMDATPDataConnectorOutputArgs {
+    /**
+     * Connector ID
+     */
+    dataConnectorId: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

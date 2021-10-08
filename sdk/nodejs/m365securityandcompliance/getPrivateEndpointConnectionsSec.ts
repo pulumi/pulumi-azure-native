@@ -72,3 +72,22 @@ export interface GetPrivateEndpointConnectionsSecResult {
      */
     readonly type: string;
 }
+
+export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsSec(a, opts))
+}
+
+export interface GetPrivateEndpointConnectionsSecOutputArgs {
+    /**
+     * The name of the private endpoint connection associated with the Azure resource
+     */
+    privateEndpointConnectionName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the service instance.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    resourceName: pulumi.Input<string>;
+}

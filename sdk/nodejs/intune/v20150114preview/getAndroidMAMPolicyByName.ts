@@ -82,3 +82,22 @@ export interface GetAndroidMAMPolicyByNameResult {
      */
     readonly type: string;
 }
+
+export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
+    return pulumi.output(args).apply(a => getAndroidMAMPolicyByName(a, opts))
+}
+
+export interface GetAndroidMAMPolicyByNameOutputArgs {
+    /**
+     * Location hostName for the tenant
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Unique name for the policy
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * select specific fields in entity.
+     */
+    select?: pulumi.Input<string>;
+}

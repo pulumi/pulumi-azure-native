@@ -38,3 +38,22 @@ export interface ListMediaServiceEdgePoliciesArgs {
 export interface ListMediaServiceEdgePoliciesResult {
     readonly usageDataCollectionPolicy?: outputs.media.v20210501.EdgeUsageDataCollectionPolicyResponse;
 }
+
+export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
+    return pulumi.output(args).apply(a => listMediaServiceEdgePolicies(a, opts))
+}
+
+export interface ListMediaServiceEdgePoliciesOutputArgs {
+    /**
+     * The Media Services account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Unique identifier of the edge device.
+     */
+    deviceId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

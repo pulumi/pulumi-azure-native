@@ -88,3 +88,22 @@ export interface GetFailoverGroupResult {
      */
     readonly type: string;
 }
+
+export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
+    return pulumi.output(args).apply(a => getFailoverGroup(a, opts))
+}
+
+export interface GetFailoverGroupOutputArgs {
+    /**
+     * The name of the failover group.
+     */
+    failoverGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server containing the failover group.
+     */
+    serverName: pulumi.Input<string>;
+}

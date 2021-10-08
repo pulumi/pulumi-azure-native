@@ -92,3 +92,22 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
+    return pulumi.output(args).apply(a => getReadOnlyFollowingDatabase(a, opts))
+}
+
+export interface GetReadOnlyFollowingDatabaseOutputArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the database in the Kusto cluster.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group containing the Kusto cluster.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

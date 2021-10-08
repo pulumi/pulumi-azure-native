@@ -75,3 +75,18 @@ export interface GetBastionHostResult {
      */
     readonly type: string;
 }
+
+export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
+    return pulumi.output(args).apply(a => getBastionHost(a, opts))
+}
+
+export interface GetBastionHostOutputArgs {
+    /**
+     * The name of the Bastion Host.
+     */
+    bastionHostName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

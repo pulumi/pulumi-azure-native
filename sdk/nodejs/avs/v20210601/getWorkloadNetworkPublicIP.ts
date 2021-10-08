@@ -70,3 +70,22 @@ export interface GetWorkloadNetworkPublicIPResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadNetworkPublicIPOutput(args: GetWorkloadNetworkPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPublicIPResult> {
+    return pulumi.output(args).apply(a => getWorkloadNetworkPublicIP(a, opts))
+}
+
+export interface GetWorkloadNetworkPublicIPOutputArgs {
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+     */
+    publicIPId: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

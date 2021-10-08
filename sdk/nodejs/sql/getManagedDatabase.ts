@@ -91,3 +91,22 @@ export interface GetManagedDatabaseResult {
      */
     readonly type: string;
 }
+
+export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
+    return pulumi.output(args).apply(a => getManagedDatabase(a, opts))
+}
+
+export interface GetManagedDatabaseOutputArgs {
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the managed instance.
+     */
+    managedInstanceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -71,3 +71,18 @@ export interface GetAdaptiveApplicationControlResult {
     readonly type: string;
     readonly vmRecommendations?: outputs.security.v20150601preview.VmRecommendationResponse[];
 }
+
+export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {
+    return pulumi.output(args).apply(a => getAdaptiveApplicationControl(a, opts))
+}
+
+export interface GetAdaptiveApplicationControlOutputArgs {
+    /**
+     * The location where ASC stores the data of the subscription. can be retrieved from Get locations
+     */
+    ascLocation: pulumi.Input<string>;
+    /**
+     * Name of an application control VM/server group
+     */
+    groupName: pulumi.Input<string>;
+}

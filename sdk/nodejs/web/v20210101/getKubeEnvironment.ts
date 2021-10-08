@@ -99,3 +99,18 @@ export interface GetKubeEnvironmentResult {
      */
     readonly type: string;
 }
+
+export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
+    return pulumi.output(args).apply(a => getKubeEnvironment(a, opts))
+}
+
+export interface GetKubeEnvironmentOutputArgs {
+    /**
+     * Name of the Kubernetes Environment.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

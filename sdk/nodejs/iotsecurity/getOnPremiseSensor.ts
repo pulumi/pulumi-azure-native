@@ -50,3 +50,14 @@ export interface GetOnPremiseSensorResult {
      */
     readonly type: string;
 }
+
+export function getOnPremiseSensorOutput(args: GetOnPremiseSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnPremiseSensorResult> {
+    return pulumi.output(args).apply(a => getOnPremiseSensor(a, opts))
+}
+
+export interface GetOnPremiseSensorOutputArgs {
+    /**
+     * Name of the on-premise IoT sensor
+     */
+    onPremiseSensorName: pulumi.Input<string>;
+}

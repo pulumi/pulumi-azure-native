@@ -57,3 +57,26 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
      */
     readonly value?: outputs.logic.KeyVaultKeyResponse[];
 }
+
+export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {
+    return pulumi.output(args).apply(a => listIntegrationAccountKeyVaultKeys(a, opts))
+}
+
+export interface ListIntegrationAccountKeyVaultKeysOutputArgs {
+    /**
+     * The integration account name.
+     */
+    integrationAccountName: pulumi.Input<string>;
+    /**
+     * The key vault reference.
+     */
+    keyVault: pulumi.Input<inputs.logic.KeyVaultReferenceArgs>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The skip token.
+     */
+    skipToken?: pulumi.Input<string>;
+}

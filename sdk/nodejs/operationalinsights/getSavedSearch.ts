@@ -88,3 +88,22 @@ export interface GetSavedSearchResult {
      */
     readonly version?: number;
 }
+
+export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
+    return pulumi.output(args).apply(a => getSavedSearch(a, opts))
+}
+
+export interface GetSavedSearchOutputArgs {
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The id of the saved search.
+     */
+    savedSearchId: pulumi.Input<string>;
+    /**
+     * The name of the workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

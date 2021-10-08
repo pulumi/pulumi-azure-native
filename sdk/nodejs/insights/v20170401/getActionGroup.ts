@@ -90,3 +90,18 @@ export interface GetActionGroupResult {
      */
     readonly webhookReceivers?: outputs.insights.v20170401.WebhookReceiverResponse[];
 }
+
+export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
+    return pulumi.output(args).apply(a => getActionGroup(a, opts))
+}
+
+export interface GetActionGroupOutputArgs {
+    /**
+     * The name of the action group.
+     */
+    actionGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

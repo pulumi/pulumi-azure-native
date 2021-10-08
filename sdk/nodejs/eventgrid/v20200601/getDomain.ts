@@ -95,3 +95,18 @@ export interface GetDomainResult {
      */
     readonly type: string;
 }
+
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+    return pulumi.output(args).apply(a => getDomain(a, opts))
+}
+
+export interface GetDomainOutputArgs {
+    /**
+     * Name of the domain.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

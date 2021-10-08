@@ -85,3 +85,22 @@ export interface GetAFDCustomDomainResult {
      */
     readonly validationProperties: outputs.cdn.DomainValidationPropertiesResponse;
 }
+
+export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
+    return pulumi.output(args).apply(a => getAFDCustomDomain(a, opts))
+}
+
+export interface GetAFDCustomDomainOutputArgs {
+    /**
+     * Name of the domain under the profile which is unique globally.
+     */
+    customDomainName: pulumi.Input<string>;
+    /**
+     * Name of the CDN profile which is unique within the resource group.
+     */
+    profileName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

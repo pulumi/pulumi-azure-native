@@ -51,3 +51,22 @@ export interface ListStaticSiteUsersResult {
      */
     readonly value: outputs.web.v20190801.StaticSiteUserARMResourceResponse[];
 }
+
+export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
+    return pulumi.output(args).apply(a => listStaticSiteUsers(a, opts))
+}
+
+export interface ListStaticSiteUsersOutputArgs {
+    /**
+     * The auth provider for the users.
+     */
+    authprovider: pulumi.Input<string>;
+    /**
+     * Name of the static site.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

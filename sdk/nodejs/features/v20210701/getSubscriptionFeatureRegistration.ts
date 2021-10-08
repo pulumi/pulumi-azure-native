@@ -51,3 +51,18 @@ export interface GetSubscriptionFeatureRegistrationResult {
      */
     readonly type: string;
 }
+
+export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
+    return pulumi.output(args).apply(a => getSubscriptionFeatureRegistration(a, opts))
+}
+
+export interface GetSubscriptionFeatureRegistrationOutputArgs {
+    /**
+     * The feature name.
+     */
+    featureName: pulumi.Input<string>;
+    /**
+     * The provider namespace.
+     */
+    providerNamespace: pulumi.Input<string>;
+}

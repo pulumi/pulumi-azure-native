@@ -86,3 +86,14 @@ export interface GetAttestationAtSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
+    return pulumi.output(args).apply(a => getAttestationAtSubscription(a, opts))
+}
+
+export interface GetAttestationAtSubscriptionOutputArgs {
+    /**
+     * The name of the attestation.
+     */
+    attestationName: pulumi.Input<string>;
+}

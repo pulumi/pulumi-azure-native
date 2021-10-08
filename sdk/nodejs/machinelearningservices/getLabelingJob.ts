@@ -74,3 +74,30 @@ export interface GetLabelingJobResult {
      */
     readonly type: string;
 }
+
+export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
+    return pulumi.output(args).apply(a => getLabelingJob(a, opts))
+}
+
+export interface GetLabelingJobOutputArgs {
+    /**
+     * Boolean value to indicate whether to include JobInstructions in response.
+     */
+    includeJobInstructions?: pulumi.Input<boolean>;
+    /**
+     * Boolean value to indicate whether to include LabelCategories in response.
+     */
+    includeLabelCategories?: pulumi.Input<boolean>;
+    /**
+     * Name and identifier for LabelingJob.
+     */
+    labelingJobId: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}

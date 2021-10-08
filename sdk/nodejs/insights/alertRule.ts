@@ -43,7 +43,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    public readonly actions!: pulumi.Output<outputs.insights.RuleEmailActionResponse | outputs.insights.RuleWebhookActionResponse[] | undefined>;
+    public readonly actions!: pulumi.Output<(outputs.insights.RuleEmailActionResponse | outputs.insights.RuleWebhookActionResponse)[] | undefined>;
     /**
      * the condition that results in the alert rule being activated.
      */

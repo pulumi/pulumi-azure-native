@@ -104,3 +104,26 @@ export interface GetWebAppHostNameBindingSlotResult {
      */
     readonly virtualIP: string;
 }
+
+export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
+    return pulumi.output(args).apply(a => getWebAppHostNameBindingSlot(a, opts))
+}
+
+export interface GetWebAppHostNameBindingSlotOutputArgs {
+    /**
+     * Hostname in the hostname binding.
+     */
+    hostName: pulumi.Input<string>;
+    /**
+     * Name of the app.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the resource group to which the resource belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
+     */
+    slot: pulumi.Input<string>;
+}

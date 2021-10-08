@@ -67,3 +67,22 @@ export interface GetStorageDomainResult {
      */
     readonly type: string;
 }
+
+export function getStorageDomainOutput(args: GetStorageDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageDomainResult> {
+    return pulumi.output(args).apply(a => getStorageDomain(a, opts))
+}
+
+export interface GetStorageDomainOutputArgs {
+    /**
+     * The manager name
+     */
+    managerName: pulumi.Input<string>;
+    /**
+     * The resource group name
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage domain name.
+     */
+    storageDomainName: pulumi.Input<string>;
+}

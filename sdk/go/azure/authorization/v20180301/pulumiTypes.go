@@ -507,6 +507,14 @@ func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionReferenceInput)(nil)).Elem(), PolicyDefinitionReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionReferenceArrayInput)(nil)).Elem(), PolicyDefinitionReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionReferenceResponseInput)(nil)).Elem(), PolicyDefinitionReferenceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionReferenceResponseArrayInput)(nil)).Elem(), PolicyDefinitionReferenceResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySkuInput)(nil)).Elem(), PolicySkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySkuPtrInput)(nil)).Elem(), PolicySkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySkuResponseInput)(nil)).Elem(), PolicySkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySkuResponsePtrInput)(nil)).Elem(), PolicySkuResponseArgs{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})

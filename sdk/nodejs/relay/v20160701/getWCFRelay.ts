@@ -86,3 +86,22 @@ export interface GetWCFRelayResult {
      */
     readonly userMetadata?: string;
 }
+
+export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
+    return pulumi.output(args).apply(a => getWCFRelay(a, opts))
+}
+
+export interface GetWCFRelayOutputArgs {
+    /**
+     * The Namespace Name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name
+     */
+    relayName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

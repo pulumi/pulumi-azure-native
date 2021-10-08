@@ -1315,6 +1315,22 @@ func (o NotificationSettingsResponsePtrOutput) NotifyGlobalAdmins() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSecuritySettingsInput)(nil)).Elem(), DomainSecuritySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSecuritySettingsPtrInput)(nil)).Elem(), DomainSecuritySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSecuritySettingsResponseInput)(nil)).Elem(), DomainSecuritySettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSecuritySettingsResponsePtrInput)(nil)).Elem(), DomainSecuritySettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthAlertResponseInput)(nil)).Elem(), HealthAlertResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthAlertResponseArrayInput)(nil)).Elem(), HealthAlertResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthMonitorResponseInput)(nil)).Elem(), HealthMonitorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthMonitorResponseArrayInput)(nil)).Elem(), HealthMonitorResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LdapsSettingsInput)(nil)).Elem(), LdapsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LdapsSettingsPtrInput)(nil)).Elem(), LdapsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LdapsSettingsResponseInput)(nil)).Elem(), LdapsSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LdapsSettingsResponsePtrInput)(nil)).Elem(), LdapsSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationSettingsInput)(nil)).Elem(), NotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationSettingsPtrInput)(nil)).Elem(), NotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationSettingsResponseInput)(nil)).Elem(), NotificationSettingsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationSettingsResponsePtrInput)(nil)).Elem(), NotificationSettingsResponseArgs{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponseOutput{})

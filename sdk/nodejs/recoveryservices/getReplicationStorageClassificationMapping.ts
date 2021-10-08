@@ -74,3 +74,30 @@ export interface GetReplicationStorageClassificationMappingResult {
      */
     readonly type: string;
 }
+
+export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
+    return pulumi.output(args).apply(a => getReplicationStorageClassificationMapping(a, opts))
+}
+
+export interface GetReplicationStorageClassificationMappingOutputArgs {
+    /**
+     * Fabric name.
+     */
+    fabricName: pulumi.Input<string>;
+    /**
+     * The name of the resource group where the recovery services vault is present.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the recovery services vault.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * Storage classification mapping name.
+     */
+    storageClassificationMappingName: pulumi.Input<string>;
+    /**
+     * Storage classification name.
+     */
+    storageClassificationName: pulumi.Input<string>;
+}

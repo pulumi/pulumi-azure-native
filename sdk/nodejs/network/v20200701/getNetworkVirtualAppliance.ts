@@ -115,3 +115,22 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly virtualHub?: outputs.network.v20200701.SubResourceResponse;
 }
+
+export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
+    return pulumi.output(args).apply(a => getNetworkVirtualAppliance(a, opts))
+}
+
+export interface GetNetworkVirtualApplianceOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of Network Virtual Appliance.
+     */
+    networkVirtualApplianceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -57,3 +57,26 @@ export interface ListEffectiveVirtualNetworkByNetworkGroupResult {
      */
     readonly value?: outputs.network.EffectiveVirtualNetworkResponse[];
 }
+
+export function listEffectiveVirtualNetworkByNetworkGroupOutput(args: ListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkGroupResult> {
+    return pulumi.output(args).apply(a => listEffectiveVirtualNetworkByNetworkGroup(a, opts))
+}
+
+export interface ListEffectiveVirtualNetworkByNetworkGroupOutputArgs {
+    /**
+     * The name of the network group to get.
+     */
+    networkGroupName: pulumi.Input<string>;
+    /**
+     * The name of the network manager.
+     */
+    networkManagerName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+     */
+    skipToken?: pulumi.Input<string>;
+}

@@ -95,3 +95,22 @@ export interface GetFirewallPolicyResult {
      */
     readonly type: string;
 }
+
+export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
+    return pulumi.output(args).apply(a => getFirewallPolicy(a, opts))
+}
+
+export interface GetFirewallPolicyOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the Firewall Policy.
+     */
+    firewallPolicyName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

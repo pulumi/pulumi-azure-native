@@ -130,3 +130,18 @@ export interface GetDatabaseAccountResult {
      */
     readonly writeLocations: outputs.documentdb.v20190801.LocationResponse[];
 }
+
+export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
+    return pulumi.output(args).apply(a => getDatabaseAccount(a, opts))
+}
+
+export interface GetDatabaseAccountOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

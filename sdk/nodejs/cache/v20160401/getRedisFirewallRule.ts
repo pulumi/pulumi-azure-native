@@ -62,3 +62,22 @@ export interface GetRedisFirewallRuleResult {
      */
     readonly type: string;
 }
+
+export function getRedisFirewallRuleOutput(args: GetRedisFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisFirewallRuleResult> {
+    return pulumi.output(args).apply(a => getRedisFirewallRule(a, opts))
+}
+
+export interface GetRedisFirewallRuleOutputArgs {
+    /**
+     * The name of the Redis cache.
+     */
+    cacheName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the firewall rule.
+     */
+    ruleName: pulumi.Input<string>;
+}

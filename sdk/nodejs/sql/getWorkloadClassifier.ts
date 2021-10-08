@@ -89,3 +89,30 @@ export interface GetWorkloadClassifierResult {
      */
     readonly type: string;
 }
+
+export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
+    return pulumi.output(args).apply(a => getWorkloadClassifier(a, opts))
+}
+
+export interface GetWorkloadClassifierOutputArgs {
+    /**
+     * The name of the database.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
+    /**
+     * The name of the workload classifier.
+     */
+    workloadClassifierName: pulumi.Input<string>;
+    /**
+     * The name of the workload group from which to receive the classifier from.
+     */
+    workloadGroupName: pulumi.Input<string>;
+}

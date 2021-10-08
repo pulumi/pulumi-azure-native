@@ -95,3 +95,22 @@ export interface GetIpAllocationResult {
      */
     readonly virtualNetwork: outputs.network.v20200501.SubResourceResponse;
 }
+
+export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
+    return pulumi.output(args).apply(a => getIpAllocation(a, opts))
+}
+
+export interface GetIpAllocationOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the IpAllocation.
+     */
+    ipAllocationName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

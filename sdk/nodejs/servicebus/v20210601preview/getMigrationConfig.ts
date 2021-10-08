@@ -79,3 +79,22 @@ export interface GetMigrationConfigResult {
      */
     readonly type: string;
 }
+
+export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
+    return pulumi.output(args).apply(a => getMigrationConfig(a, opts))
+}
+
+export interface GetMigrationConfigOutputArgs {
+    /**
+     * The configuration name. Should always be "$default".
+     */
+    configName: pulumi.Input<string>;
+    /**
+     * The namespace name
+     */
+    namespaceName: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

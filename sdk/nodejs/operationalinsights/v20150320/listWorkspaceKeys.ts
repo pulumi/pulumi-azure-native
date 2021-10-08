@@ -45,3 +45,18 @@ export interface ListWorkspaceKeysResult {
      */
     readonly secondarySharedKey?: string;
 }
+
+export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
+    return pulumi.output(args).apply(a => listWorkspaceKeys(a, opts))
+}
+
+export interface ListWorkspaceKeysOutputArgs {
+    /**
+     * The Resource Group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Log Analytics Workspace name.
+     */
+    workspaceName: pulumi.Input<string>;
+}

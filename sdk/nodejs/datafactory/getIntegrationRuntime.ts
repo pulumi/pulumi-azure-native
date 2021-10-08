@@ -64,3 +64,22 @@ export interface GetIntegrationRuntimeResult {
      */
     readonly type: string;
 }
+
+export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
+    return pulumi.output(args).apply(a => getIntegrationRuntime(a, opts))
+}
+
+export interface GetIntegrationRuntimeOutputArgs {
+    /**
+     * The factory name.
+     */
+    factoryName: pulumi.Input<string>;
+    /**
+     * The integration runtime name.
+     */
+    integrationRuntimeName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

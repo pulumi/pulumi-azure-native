@@ -74,3 +74,18 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly virtualMachines: outputs.compute.v20181001.SubResourceResponse[];
 }
+
+export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
+    return pulumi.output(args).apply(a => getProximityPlacementGroup(a, opts))
+}
+
+export interface GetProximityPlacementGroupOutputArgs {
+    /**
+     * The name of the proximity placement group.
+     */
+    proximityPlacementGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

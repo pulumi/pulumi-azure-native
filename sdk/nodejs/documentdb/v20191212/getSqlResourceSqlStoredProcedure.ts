@@ -74,3 +74,30 @@ export interface GetSqlResourceSqlStoredProcedureResult {
      */
     readonly type: string;
 }
+
+export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
+    return pulumi.output(args).apply(a => getSqlResourceSqlStoredProcedure(a, opts))
+}
+
+export interface GetSqlResourceSqlStoredProcedureOutputArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * Cosmos DB container name.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * Cosmos DB database name.
+     */
+    databaseName: pulumi.Input<string>;
+    /**
+     * Name of an Azure resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Cosmos DB storedProcedure name.
+     */
+    storedProcedureName: pulumi.Input<string>;
+}

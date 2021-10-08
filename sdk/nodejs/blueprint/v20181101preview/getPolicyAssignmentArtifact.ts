@@ -84,3 +84,22 @@ export interface GetPolicyAssignmentArtifactResult {
      */
     readonly type: string;
 }
+
+export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
+    return pulumi.output(args).apply(a => getPolicyAssignmentArtifact(a, opts))
+}
+
+export interface GetPolicyAssignmentArtifactOutputArgs {
+    /**
+     * Name of the blueprint artifact.
+     */
+    artifactName: pulumi.Input<string>;
+    /**
+     * Name of the blueprint definition.
+     */
+    blueprintName: pulumi.Input<string>;
+    /**
+     * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+     */
+    resourceScope: pulumi.Input<string>;
+}

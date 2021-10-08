@@ -86,3 +86,26 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
      */
     readonly type: string;
 }
+
+export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
+    return pulumi.output(args).apply(a => getSynapseWorkspaceSqlPoolTableDataSetMapping(a, opts))
+}
+
+export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs {
+    /**
+     * The name of the share account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the dataSetMapping.
+     */
+    dataSetMappingName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    shareSubscriptionName: pulumi.Input<string>;
+}

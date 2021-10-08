@@ -98,3 +98,18 @@ export interface GetAccountResult {
      */
     readonly vsoAccountId: string;
 }
+
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+export interface GetAccountOutputArgs {
+    /**
+     * The name of the machine learning team account.
+     */
+    accountName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the machine learning team account belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

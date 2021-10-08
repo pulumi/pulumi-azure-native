@@ -43,3 +43,18 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
      */
     readonly value?: outputs.network.VpnClientConnectionHealthDetailResponse[];
 }
+
+export function getVirtualNetworkGatewayVpnclientConnectionHealthOutput(args: GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))
+}
+
+export interface GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs {
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network gateway.
+     */
+    virtualNetworkGatewayName: pulumi.Input<string>;
+}

@@ -42,3 +42,18 @@ export interface GetConsoleWithLocationResult {
      */
     readonly properties: outputs.portal.v20181001.ConsolePropertiesResponse;
 }
+
+export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {
+    return pulumi.output(args).apply(a => getConsoleWithLocation(a, opts))
+}
+
+export interface GetConsoleWithLocationOutputArgs {
+    /**
+     * The name of the console
+     */
+    consoleName: pulumi.Input<string>;
+    /**
+     * The provider location
+     */
+    location: pulumi.Input<string>;
+}

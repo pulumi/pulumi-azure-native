@@ -74,3 +74,22 @@ export interface GetGlobalReachConnectionResult {
      */
     readonly type: string;
 }
+
+export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReachConnectionResult> {
+    return pulumi.output(args).apply(a => getGlobalReachConnection(a, opts))
+}
+
+export interface GetGlobalReachConnectionOutputArgs {
+    /**
+     * Name of the global reach connection in the private cloud
+     */
+    globalReachConnectionName: pulumi.Input<string>;
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -70,3 +70,26 @@ export interface GetAddonResult {
      */
     readonly type: string;
 }
+
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+    return pulumi.output(args).apply(a => getAddon(a, opts))
+}
+
+export interface GetAddonOutputArgs {
+    /**
+     * The addon name.
+     */
+    addonName: pulumi.Input<string>;
+    /**
+     * The device name.
+     */
+    deviceName: pulumi.Input<string>;
+    /**
+     * The resource group name.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * The role name.
+     */
+    roleName: pulumi.Input<string>;
+}

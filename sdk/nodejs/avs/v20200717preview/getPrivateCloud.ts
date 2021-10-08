@@ -118,3 +118,18 @@ export interface GetPrivateCloudResult {
      */
     readonly vmotionNetwork: string;
 }
+
+export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
+    return pulumi.output(args).apply(a => getPrivateCloud(a, opts))
+}
+
+export interface GetPrivateCloudOutputArgs {
+    /**
+     * Name of the private cloud
+     */
+    privateCloudName: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -107,3 +107,22 @@ export interface GetPartnerTopicEventSubscriptionResult {
      */
     readonly type: string;
 }
+
+export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
+    return pulumi.output(args).apply(a => getPartnerTopicEventSubscription(a, opts))
+}
+
+export interface GetPartnerTopicEventSubscriptionOutputArgs {
+    /**
+     * Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     */
+    eventSubscriptionName: pulumi.Input<string>;
+    /**
+     * Name of the partner topic.
+     */
+    partnerTopicName: pulumi.Input<string>;
+    /**
+     * The name of the resource group within the user's subscription.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

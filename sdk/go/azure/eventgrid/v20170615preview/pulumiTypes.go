@@ -678,6 +678,14 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDestinationInput)(nil)).Elem(), EventSubscriptionDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDestinationPtrInput)(nil)).Elem(), EventSubscriptionDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDestinationResponseInput)(nil)).Elem(), EventSubscriptionDestinationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDestinationResponsePtrInput)(nil)).Elem(), EventSubscriptionDestinationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterInput)(nil)).Elem(), EventSubscriptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterPtrInput)(nil)).Elem(), EventSubscriptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponseInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponsePtrInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationResponseOutput{})

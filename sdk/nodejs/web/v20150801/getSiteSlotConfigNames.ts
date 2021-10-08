@@ -69,3 +69,18 @@ export interface GetSiteSlotConfigNamesResult {
      */
     readonly type?: string;
 }
+
+export function getSiteSlotConfigNamesOutput(args: GetSiteSlotConfigNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotConfigNamesResult> {
+    return pulumi.output(args).apply(a => getSiteSlotConfigNames(a, opts))
+}
+
+export interface GetSiteSlotConfigNamesOutputArgs {
+    /**
+     * Name of web app
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of resource group
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

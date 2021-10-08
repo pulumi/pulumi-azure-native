@@ -94,3 +94,18 @@ export interface GetPrivateStoreOfferResult {
      */
     readonly updateSuppressedDueIdempotence?: boolean;
 }
+
+export function getPrivateStoreOfferOutput(args: GetPrivateStoreOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreOfferResult> {
+    return pulumi.output(args).apply(a => getPrivateStoreOffer(a, opts))
+}
+
+export interface GetPrivateStoreOfferOutputArgs {
+    /**
+     * The offer ID to update or delete
+     */
+    offerId: pulumi.Input<string>;
+    /**
+     * The store ID - must use the tenant ID
+     */
+    privateStoreId: pulumi.Input<string>;
+}

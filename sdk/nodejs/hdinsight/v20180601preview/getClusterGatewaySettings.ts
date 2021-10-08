@@ -49,3 +49,18 @@ export interface GetClusterGatewaySettingsResult {
      */
     readonly userName: string;
 }
+
+export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
+    return pulumi.output(args).apply(a => getClusterGatewaySettings(a, opts))
+}
+
+export interface GetClusterGatewaySettingsOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

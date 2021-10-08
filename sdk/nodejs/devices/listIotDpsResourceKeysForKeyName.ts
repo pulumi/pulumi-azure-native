@@ -59,3 +59,22 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
      */
     readonly secondaryKey?: string;
 }
+
+export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
+    return pulumi.output(args).apply(a => listIotDpsResourceKeysForKeyName(a, opts))
+}
+
+export interface ListIotDpsResourceKeysForKeyNameOutputArgs {
+    /**
+     * Logical key name to get key-values for.
+     */
+    keyName: pulumi.Input<string>;
+    /**
+     * Name of the provisioning service.
+     */
+    provisioningServiceName: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the provisioning service.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

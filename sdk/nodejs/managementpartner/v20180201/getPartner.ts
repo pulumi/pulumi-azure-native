@@ -76,3 +76,14 @@ export interface GetPartnerResult {
      */
     readonly version?: number;
 }
+
+export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
+    return pulumi.output(args).apply(a => getPartner(a, opts))
+}
+
+export interface GetPartnerOutputArgs {
+    /**
+     * Id of the Partner
+     */
+    partnerId: pulumi.Input<string>;
+}

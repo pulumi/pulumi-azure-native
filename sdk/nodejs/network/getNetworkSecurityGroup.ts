@@ -96,3 +96,22 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly type: string;
 }
+
+export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
+    return pulumi.output(args).apply(a => getNetworkSecurityGroup(a, opts))
+}
+
+export interface GetNetworkSecurityGroupOutputArgs {
+    /**
+     * Expands referenced resources.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * The name of the network security group.
+     */
+    networkSecurityGroupName: pulumi.Input<string>;
+    /**
+     * The name of the resource group.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

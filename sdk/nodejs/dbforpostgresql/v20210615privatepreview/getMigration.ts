@@ -107,3 +107,26 @@ export interface GetMigrationResult {
     readonly type: string;
     readonly userAssignedIdentityResourceId?: string;
 }
+
+export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
+    return pulumi.output(args).apply(a => getMigration(a, opts))
+}
+
+export interface GetMigrationOutputArgs {
+    /**
+     * The name of the migration.
+     */
+    migrationName: pulumi.Input<string>;
+    /**
+     * The name of the target database server.
+     */
+    targetDBServerName: pulumi.Input<string>;
+    /**
+     * The resource group name of the target database server.
+     */
+    targetDBServerResourceGroupName: pulumi.Input<string>;
+    /**
+     * The subscription ID of the target database server.
+     */
+    targetDBServerSubscriptionId: pulumi.Input<string>;
+}

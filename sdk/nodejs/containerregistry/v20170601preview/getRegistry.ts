@@ -86,3 +86,18 @@ export interface GetRegistryResult {
      */
     readonly type: string;
 }
+
+export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+    return pulumi.output(args).apply(a => getRegistry(a, opts))
+}
+
+export interface GetRegistryOutputArgs {
+    /**
+     * The name of the container registry.
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The name of the resource group to which the container registry belongs.
+     */
+    resourceGroupName: pulumi.Input<string>;
+}

@@ -73,3 +73,18 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
      */
     readonly policyType?: string;
 }
+
+export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
+    return pulumi.output(args).apply(a => getPolicyDefinitionAtManagementGroup(a, opts))
+}
+
+export interface GetPolicyDefinitionAtManagementGroupOutputArgs {
+    /**
+     * The ID of the management group.
+     */
+    managementGroupId: pulumi.Input<string>;
+    /**
+     * The name of the policy definition to get.
+     */
+    policyDefinitionName: pulumi.Input<string>;
+}

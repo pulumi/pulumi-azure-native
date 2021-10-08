@@ -76,3 +76,22 @@ export interface GetMachineLearningDatastoreResult {
      */
     readonly type: string;
 }
+
+export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
+    return pulumi.output(args).apply(a => getMachineLearningDatastore(a, opts))
+}
+
+export interface GetMachineLearningDatastoreOutputArgs {
+    /**
+     * The Datastore name.
+     */
+    datastoreName: pulumi.Input<string>;
+    /**
+     * Name of the resource group in which workspace is located.
+     */
+    resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    workspaceName: pulumi.Input<string>;
+}
