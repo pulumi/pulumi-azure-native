@@ -3,6 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Enhancements:
+
+- Update to `pulumi/pulumi` 3.14.0 with input/output based functions API in Node.js
+
 #### Breaking Changes published by Microsoft:
 
 - Identity definition `deviceupdate.Account` was adjusted to use the common type
