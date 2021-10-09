@@ -1,0 +1,177 @@
+
+
+
+package v20160515
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Policy struct {
+	pulumi.CustomResourceState
+
+	CreatedDate       pulumi.StringOutput    `pulumi:"createdDate"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	EvaluatorType     pulumi.StringPtrOutput `pulumi:"evaluatorType"`
+	FactData          pulumi.StringPtrOutput `pulumi:"factData"`
+	FactName          pulumi.StringPtrOutput `pulumi:"factName"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	Status            pulumi.StringPtrOutput `pulumi:"status"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Threshold         pulumi.StringPtrOutput `pulumi:"threshold"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	UniqueIdentifier  pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+}
+
+
+func NewPolicy(ctx *pulumi.Context,
+	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.PolicySetName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicySetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Policy"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource Policy
+	err := ctx.RegisterResource("azure-native:devtestlab/v20160515:Policy", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetPolicy(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
+	var resource Policy
+	err := ctx.ReadResource("azure-native:devtestlab/v20160515:Policy", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type policyState struct {
+}
+
+type PolicyState struct {
+}
+
+func (PolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*policyState)(nil)).Elem()
+}
+
+type policyArgs struct {
+	Description       *string           `pulumi:"description"`
+	EvaluatorType     *string           `pulumi:"evaluatorType"`
+	FactData          *string           `pulumi:"factData"`
+	FactName          *string           `pulumi:"factName"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	PolicySetName     string            `pulumi:"policySetName"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	Threshold         *string           `pulumi:"threshold"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
+}
+
+
+type PolicyArgs struct {
+	Description       pulumi.StringPtrInput
+	EvaluatorType     pulumi.StringPtrInput
+	FactData          pulumi.StringPtrInput
+	FactName          pulumi.StringPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PolicySetName     pulumi.StringInput
+	ProvisioningState pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Threshold         pulumi.StringPtrInput
+	UniqueIdentifier  pulumi.StringPtrInput
+}
+
+func (PolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*policyArgs)(nil)).Elem()
+}
+
+type PolicyInput interface {
+	pulumi.Input
+
+	ToPolicyOutput() PolicyOutput
+	ToPolicyOutputWithContext(ctx context.Context) PolicyOutput
+}
+
+func (*Policy) ElementType() reflect.Type {
+	return reflect.TypeOf((*Policy)(nil))
+}
+
+func (i *Policy) ToPolicyOutput() PolicyOutput {
+	return i.ToPolicyOutputWithContext(context.Background())
+}
+
+func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
+}
+
+type PolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Policy)(nil))
+}
+
+func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
+	return o
+}
+
+func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyOutput{})
+}

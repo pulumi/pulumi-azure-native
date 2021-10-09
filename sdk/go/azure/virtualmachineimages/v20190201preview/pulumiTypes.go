@@ -1,0 +1,1617 @@
+
+
+
+package v20190201preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ImageTemplateIsoSource struct {
+	Sha256Checksum string `pulumi:"sha256Checksum"`
+	SourceURI      string `pulumi:"sourceURI"`
+	Type           string `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateIsoSourceInput interface {
+	pulumi.Input
+
+	ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput
+	ToImageTemplateIsoSourceOutputWithContext(context.Context) ImageTemplateIsoSourceOutput
+}
+
+type ImageTemplateIsoSourceArgs struct {
+	Sha256Checksum pulumi.StringInput `pulumi:"sha256Checksum"`
+	SourceURI      pulumi.StringInput `pulumi:"sourceURI"`
+	Type           pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateIsoSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSource)(nil)).Elem()
+}
+
+func (i ImageTemplateIsoSourceArgs) ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput {
+	return i.ToImageTemplateIsoSourceOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateIsoSourceArgs) ToImageTemplateIsoSourceOutputWithContext(ctx context.Context) ImageTemplateIsoSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIsoSourceOutput)
+}
+
+type ImageTemplateIsoSourceOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateIsoSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSource)(nil)).Elem()
+}
+
+func (o ImageTemplateIsoSourceOutput) ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput {
+	return o
+}
+
+func (o ImageTemplateIsoSourceOutput) ToImageTemplateIsoSourceOutputWithContext(ctx context.Context) ImageTemplateIsoSourceOutput {
+	return o
+}
+
+func (o ImageTemplateIsoSourceOutput) Sha256Checksum() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.Sha256Checksum }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateIsoSourceOutput) SourceURI() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.SourceURI }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateIsoSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateIsoSourceResponse struct {
+	Sha256Checksum string `pulumi:"sha256Checksum"`
+	SourceURI      string `pulumi:"sourceURI"`
+	Type           string `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateIsoSourceResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput
+	ToImageTemplateIsoSourceResponseOutputWithContext(context.Context) ImageTemplateIsoSourceResponseOutput
+}
+
+type ImageTemplateIsoSourceResponseArgs struct {
+	Sha256Checksum pulumi.StringInput `pulumi:"sha256Checksum"`
+	SourceURI      pulumi.StringInput `pulumi:"sourceURI"`
+	Type           pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateIsoSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSourceResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateIsoSourceResponseArgs) ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput {
+	return i.ToImageTemplateIsoSourceResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateIsoSourceResponseArgs) ToImageTemplateIsoSourceResponseOutputWithContext(ctx context.Context) ImageTemplateIsoSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIsoSourceResponseOutput)
+}
+
+type ImageTemplateIsoSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateIsoSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSourceResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateIsoSourceResponseOutput) ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplateIsoSourceResponseOutput) ToImageTemplateIsoSourceResponseOutputWithContext(ctx context.Context) ImageTemplateIsoSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplateIsoSourceResponseOutput) Sha256Checksum() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.Sha256Checksum }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateIsoSourceResponseOutput) SourceURI() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.SourceURI }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateIsoSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateLastRunStatusResponse struct {
+	EndTime     *string `pulumi:"endTime"`
+	Message     *string `pulumi:"message"`
+	RunState    *string `pulumi:"runState"`
+	RunSubState *string `pulumi:"runSubState"`
+	StartTime   *string `pulumi:"startTime"`
+}
+
+
+
+
+
+type ImageTemplateLastRunStatusResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateLastRunStatusResponseOutput() ImageTemplateLastRunStatusResponseOutput
+	ToImageTemplateLastRunStatusResponseOutputWithContext(context.Context) ImageTemplateLastRunStatusResponseOutput
+}
+
+type ImageTemplateLastRunStatusResponseArgs struct {
+	EndTime     pulumi.StringPtrInput `pulumi:"endTime"`
+	Message     pulumi.StringPtrInput `pulumi:"message"`
+	RunState    pulumi.StringPtrInput `pulumi:"runState"`
+	RunSubState pulumi.StringPtrInput `pulumi:"runSubState"`
+	StartTime   pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (ImageTemplateLastRunStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateLastRunStatusResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateLastRunStatusResponseArgs) ToImageTemplateLastRunStatusResponseOutput() ImageTemplateLastRunStatusResponseOutput {
+	return i.ToImageTemplateLastRunStatusResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateLastRunStatusResponseArgs) ToImageTemplateLastRunStatusResponseOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateLastRunStatusResponseOutput)
+}
+
+func (i ImageTemplateLastRunStatusResponseArgs) ToImageTemplateLastRunStatusResponsePtrOutput() ImageTemplateLastRunStatusResponsePtrOutput {
+	return i.ToImageTemplateLastRunStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateLastRunStatusResponseArgs) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateLastRunStatusResponseOutput).ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ImageTemplateLastRunStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageTemplateLastRunStatusResponsePtrOutput() ImageTemplateLastRunStatusResponsePtrOutput
+	ToImageTemplateLastRunStatusResponsePtrOutputWithContext(context.Context) ImageTemplateLastRunStatusResponsePtrOutput
+}
+
+type imageTemplateLastRunStatusResponsePtrType ImageTemplateLastRunStatusResponseArgs
+
+func ImageTemplateLastRunStatusResponsePtr(v *ImageTemplateLastRunStatusResponseArgs) ImageTemplateLastRunStatusResponsePtrInput {
+	return (*imageTemplateLastRunStatusResponsePtrType)(v)
+}
+
+func (*imageTemplateLastRunStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageTemplateLastRunStatusResponse)(nil)).Elem()
+}
+
+func (i *imageTemplateLastRunStatusResponsePtrType) ToImageTemplateLastRunStatusResponsePtrOutput() ImageTemplateLastRunStatusResponsePtrOutput {
+	return i.ToImageTemplateLastRunStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageTemplateLastRunStatusResponsePtrType) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateLastRunStatusResponsePtrOutput)
+}
+
+type ImageTemplateLastRunStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateLastRunStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateLastRunStatusResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponseOutput() ImageTemplateLastRunStatusResponseOutput {
+	return o
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponseOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponseOutput {
+	return o
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponsePtrOutput() ImageTemplateLastRunStatusResponsePtrOutput {
+	return o.ToImageTemplateLastRunStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
+		return &v
+	}).(ImageTemplateLastRunStatusResponsePtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) RunState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *string { return v.RunState }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) RunSubState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *string { return v.RunSubState }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type ImageTemplateLastRunStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateLastRunStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageTemplateLastRunStatusResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) ToImageTemplateLastRunStatusResponsePtrOutput() ImageTemplateLastRunStatusResponsePtrOutput {
+	return o
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
+	return o
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) Elem() ImageTemplateLastRunStatusResponseOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateLastRunStatusResponse
+		return ret
+	}).(ImageTemplateLastRunStatusResponseOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) RunState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) RunSubState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunSubState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateLastRunStatusResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageTemplateManagedImageDistributor struct {
+	ArtifactTags  map[string]string `pulumi:"artifactTags"`
+	ImageId       string            `pulumi:"imageId"`
+	Location      string            `pulumi:"location"`
+	RunOutputName string            `pulumi:"runOutputName"`
+	Type          string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateManagedImageDistributorInput interface {
+	pulumi.Input
+
+	ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput
+	ToImageTemplateManagedImageDistributorOutputWithContext(context.Context) ImageTemplateManagedImageDistributorOutput
+}
+
+type ImageTemplateManagedImageDistributorArgs struct {
+	ArtifactTags  pulumi.StringMapInput `pulumi:"artifactTags"`
+	ImageId       pulumi.StringInput    `pulumi:"imageId"`
+	Location      pulumi.StringInput    `pulumi:"location"`
+	RunOutputName pulumi.StringInput    `pulumi:"runOutputName"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateManagedImageDistributorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributor)(nil)).Elem()
+}
+
+func (i ImageTemplateManagedImageDistributorArgs) ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput {
+	return i.ToImageTemplateManagedImageDistributorOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateManagedImageDistributorArgs) ToImageTemplateManagedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageDistributorOutput)
+}
+
+type ImageTemplateManagedImageDistributorOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageDistributorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributor)(nil)).Elem()
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) ToImageTemplateManagedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateManagedImageDistributorResponse struct {
+	ArtifactTags  map[string]string `pulumi:"artifactTags"`
+	ImageId       string            `pulumi:"imageId"`
+	Location      string            `pulumi:"location"`
+	RunOutputName string            `pulumi:"runOutputName"`
+	Type          string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateManagedImageDistributorResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput
+	ToImageTemplateManagedImageDistributorResponseOutputWithContext(context.Context) ImageTemplateManagedImageDistributorResponseOutput
+}
+
+type ImageTemplateManagedImageDistributorResponseArgs struct {
+	ArtifactTags  pulumi.StringMapInput `pulumi:"artifactTags"`
+	ImageId       pulumi.StringInput    `pulumi:"imageId"`
+	Location      pulumi.StringInput    `pulumi:"location"`
+	RunOutputName pulumi.StringInput    `pulumi:"runOutputName"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateManagedImageDistributorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributorResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateManagedImageDistributorResponseArgs) ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput {
+	return i.ToImageTemplateManagedImageDistributorResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateManagedImageDistributorResponseArgs) ToImageTemplateManagedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageDistributorResponseOutput)
+}
+
+type ImageTemplateManagedImageDistributorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageDistributorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributorResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) ToImageTemplateManagedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageDistributorResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateManagedImageSource struct {
+	ImageId string `pulumi:"imageId"`
+	Type    string `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateManagedImageSourceInput interface {
+	pulumi.Input
+
+	ToImageTemplateManagedImageSourceOutput() ImageTemplateManagedImageSourceOutput
+	ToImageTemplateManagedImageSourceOutputWithContext(context.Context) ImageTemplateManagedImageSourceOutput
+}
+
+type ImageTemplateManagedImageSourceArgs struct {
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	Type    pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateManagedImageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageSource)(nil)).Elem()
+}
+
+func (i ImageTemplateManagedImageSourceArgs) ToImageTemplateManagedImageSourceOutput() ImageTemplateManagedImageSourceOutput {
+	return i.ToImageTemplateManagedImageSourceOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateManagedImageSourceArgs) ToImageTemplateManagedImageSourceOutputWithContext(ctx context.Context) ImageTemplateManagedImageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageSourceOutput)
+}
+
+type ImageTemplateManagedImageSourceOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageSource)(nil)).Elem()
+}
+
+func (o ImageTemplateManagedImageSourceOutput) ToImageTemplateManagedImageSourceOutput() ImageTemplateManagedImageSourceOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageSourceOutput) ToImageTemplateManagedImageSourceOutputWithContext(ctx context.Context) ImageTemplateManagedImageSourceOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageSourceOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageSource) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateManagedImageSourceResponse struct {
+	ImageId string `pulumi:"imageId"`
+	Type    string `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateManagedImageSourceResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateManagedImageSourceResponseOutput() ImageTemplateManagedImageSourceResponseOutput
+	ToImageTemplateManagedImageSourceResponseOutputWithContext(context.Context) ImageTemplateManagedImageSourceResponseOutput
+}
+
+type ImageTemplateManagedImageSourceResponseArgs struct {
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	Type    pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateManagedImageSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageSourceResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateManagedImageSourceResponseArgs) ToImageTemplateManagedImageSourceResponseOutput() ImageTemplateManagedImageSourceResponseOutput {
+	return i.ToImageTemplateManagedImageSourceResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateManagedImageSourceResponseArgs) ToImageTemplateManagedImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageSourceResponseOutput)
+}
+
+type ImageTemplateManagedImageSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageSourceResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateManagedImageSourceResponseOutput) ToImageTemplateManagedImageSourceResponseOutput() ImageTemplateManagedImageSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageSourceResponseOutput) ToImageTemplateManagedImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplateManagedImageSourceResponseOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageSourceResponse) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateManagedImageSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplatePlatformImageSource struct {
+	Offer     *string `pulumi:"offer"`
+	Publisher *string `pulumi:"publisher"`
+	Sku       *string `pulumi:"sku"`
+	Type      string  `pulumi:"type"`
+	Version   *string `pulumi:"version"`
+}
+
+
+
+
+
+type ImageTemplatePlatformImageSourceInput interface {
+	pulumi.Input
+
+	ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput
+	ToImageTemplatePlatformImageSourceOutputWithContext(context.Context) ImageTemplatePlatformImageSourceOutput
+}
+
+type ImageTemplatePlatformImageSourceArgs struct {
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Type      pulumi.StringInput    `pulumi:"type"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ImageTemplatePlatformImageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSource)(nil)).Elem()
+}
+
+func (i ImageTemplatePlatformImageSourceArgs) ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput {
+	return i.ToImageTemplatePlatformImageSourceOutputWithContext(context.Background())
+}
+
+func (i ImageTemplatePlatformImageSourceArgs) ToImageTemplatePlatformImageSourceOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePlatformImageSourceOutput)
+}
+
+type ImageTemplatePlatformImageSourceOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplatePlatformImageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSource)(nil)).Elem()
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput {
+	return o
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) ToImageTemplatePlatformImageSourceOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceOutput {
+	return o
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ImageTemplatePlatformImageSourceResponse struct {
+	Offer     *string `pulumi:"offer"`
+	Publisher *string `pulumi:"publisher"`
+	Sku       *string `pulumi:"sku"`
+	Type      string  `pulumi:"type"`
+	Version   *string `pulumi:"version"`
+}
+
+
+
+
+
+type ImageTemplatePlatformImageSourceResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput
+	ToImageTemplatePlatformImageSourceResponseOutputWithContext(context.Context) ImageTemplatePlatformImageSourceResponseOutput
+}
+
+type ImageTemplatePlatformImageSourceResponseArgs struct {
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Type      pulumi.StringInput    `pulumi:"type"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ImageTemplatePlatformImageSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSourceResponse)(nil)).Elem()
+}
+
+func (i ImageTemplatePlatformImageSourceResponseArgs) ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput {
+	return i.ToImageTemplatePlatformImageSourceResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplatePlatformImageSourceResponseArgs) ToImageTemplatePlatformImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePlatformImageSourceResponseOutput)
+}
+
+type ImageTemplatePlatformImageSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplatePlatformImageSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSourceResponse)(nil)).Elem()
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceResponseOutput {
+	return o
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ImageTemplatePowerShellCustomizer struct {
+	Inline         []string `pulumi:"inline"`
+	Name           *string  `pulumi:"name"`
+	Script         *string  `pulumi:"script"`
+	Type           string   `pulumi:"type"`
+	ValidExitCodes []int    `pulumi:"validExitCodes"`
+}
+
+
+
+
+
+type ImageTemplatePowerShellCustomizerInput interface {
+	pulumi.Input
+
+	ToImageTemplatePowerShellCustomizerOutput() ImageTemplatePowerShellCustomizerOutput
+	ToImageTemplatePowerShellCustomizerOutputWithContext(context.Context) ImageTemplatePowerShellCustomizerOutput
+}
+
+type ImageTemplatePowerShellCustomizerArgs struct {
+	Inline         pulumi.StringArrayInput `pulumi:"inline"`
+	Name           pulumi.StringPtrInput   `pulumi:"name"`
+	Script         pulumi.StringPtrInput   `pulumi:"script"`
+	Type           pulumi.StringInput      `pulumi:"type"`
+	ValidExitCodes pulumi.IntArrayInput    `pulumi:"validExitCodes"`
+}
+
+func (ImageTemplatePowerShellCustomizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePowerShellCustomizer)(nil)).Elem()
+}
+
+func (i ImageTemplatePowerShellCustomizerArgs) ToImageTemplatePowerShellCustomizerOutput() ImageTemplatePowerShellCustomizerOutput {
+	return i.ToImageTemplatePowerShellCustomizerOutputWithContext(context.Background())
+}
+
+func (i ImageTemplatePowerShellCustomizerArgs) ToImageTemplatePowerShellCustomizerOutputWithContext(ctx context.Context) ImageTemplatePowerShellCustomizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePowerShellCustomizerOutput)
+}
+
+type ImageTemplatePowerShellCustomizerOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplatePowerShellCustomizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePowerShellCustomizer)(nil)).Elem()
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) ToImageTemplatePowerShellCustomizerOutput() ImageTemplatePowerShellCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) ToImageTemplatePowerShellCustomizerOutputWithContext(ctx context.Context) ImageTemplatePowerShellCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) Inline() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) []string { return v.Inline }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerOutput) ValidExitCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) []int { return v.ValidExitCodes }).(pulumi.IntArrayOutput)
+}
+
+type ImageTemplatePowerShellCustomizerResponse struct {
+	Inline         []string `pulumi:"inline"`
+	Name           *string  `pulumi:"name"`
+	Script         *string  `pulumi:"script"`
+	Type           string   `pulumi:"type"`
+	ValidExitCodes []int    `pulumi:"validExitCodes"`
+}
+
+
+
+
+
+type ImageTemplatePowerShellCustomizerResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplatePowerShellCustomizerResponseOutput() ImageTemplatePowerShellCustomizerResponseOutput
+	ToImageTemplatePowerShellCustomizerResponseOutputWithContext(context.Context) ImageTemplatePowerShellCustomizerResponseOutput
+}
+
+type ImageTemplatePowerShellCustomizerResponseArgs struct {
+	Inline         pulumi.StringArrayInput `pulumi:"inline"`
+	Name           pulumi.StringPtrInput   `pulumi:"name"`
+	Script         pulumi.StringPtrInput   `pulumi:"script"`
+	Type           pulumi.StringInput      `pulumi:"type"`
+	ValidExitCodes pulumi.IntArrayInput    `pulumi:"validExitCodes"`
+}
+
+func (ImageTemplatePowerShellCustomizerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePowerShellCustomizerResponse)(nil)).Elem()
+}
+
+func (i ImageTemplatePowerShellCustomizerResponseArgs) ToImageTemplatePowerShellCustomizerResponseOutput() ImageTemplatePowerShellCustomizerResponseOutput {
+	return i.ToImageTemplatePowerShellCustomizerResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplatePowerShellCustomizerResponseArgs) ToImageTemplatePowerShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplatePowerShellCustomizerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePowerShellCustomizerResponseOutput)
+}
+
+type ImageTemplatePowerShellCustomizerResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplatePowerShellCustomizerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePowerShellCustomizerResponse)(nil)).Elem()
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) ToImageTemplatePowerShellCustomizerResponseOutput() ImageTemplatePowerShellCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) ToImageTemplatePowerShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplatePowerShellCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) Inline() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) []string { return v.Inline }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplatePowerShellCustomizerResponseOutput) ValidExitCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) []int { return v.ValidExitCodes }).(pulumi.IntArrayOutput)
+}
+
+type ImageTemplateRestartCustomizer struct {
+	Name                *string `pulumi:"name"`
+	RestartCheckCommand *string `pulumi:"restartCheckCommand"`
+	RestartCommand      *string `pulumi:"restartCommand"`
+	RestartTimeout      *string `pulumi:"restartTimeout"`
+	Type                string  `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateRestartCustomizerInput interface {
+	pulumi.Input
+
+	ToImageTemplateRestartCustomizerOutput() ImageTemplateRestartCustomizerOutput
+	ToImageTemplateRestartCustomizerOutputWithContext(context.Context) ImageTemplateRestartCustomizerOutput
+}
+
+type ImageTemplateRestartCustomizerArgs struct {
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RestartCheckCommand pulumi.StringPtrInput `pulumi:"restartCheckCommand"`
+	RestartCommand      pulumi.StringPtrInput `pulumi:"restartCommand"`
+	RestartTimeout      pulumi.StringPtrInput `pulumi:"restartTimeout"`
+	Type                pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateRestartCustomizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateRestartCustomizer)(nil)).Elem()
+}
+
+func (i ImageTemplateRestartCustomizerArgs) ToImageTemplateRestartCustomizerOutput() ImageTemplateRestartCustomizerOutput {
+	return i.ToImageTemplateRestartCustomizerOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateRestartCustomizerArgs) ToImageTemplateRestartCustomizerOutputWithContext(ctx context.Context) ImageTemplateRestartCustomizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateRestartCustomizerOutput)
+}
+
+type ImageTemplateRestartCustomizerOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateRestartCustomizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateRestartCustomizer)(nil)).Elem()
+}
+
+func (o ImageTemplateRestartCustomizerOutput) ToImageTemplateRestartCustomizerOutput() ImageTemplateRestartCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplateRestartCustomizerOutput) ToImageTemplateRestartCustomizerOutputWithContext(ctx context.Context) ImageTemplateRestartCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplateRestartCustomizerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerOutput) RestartCheckCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizer) *string { return v.RestartCheckCommand }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerOutput) RestartCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizer) *string { return v.RestartCommand }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerOutput) RestartTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizer) *string { return v.RestartTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizer) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateRestartCustomizerResponse struct {
+	Name                *string `pulumi:"name"`
+	RestartCheckCommand *string `pulumi:"restartCheckCommand"`
+	RestartCommand      *string `pulumi:"restartCommand"`
+	RestartTimeout      *string `pulumi:"restartTimeout"`
+	Type                string  `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateRestartCustomizerResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateRestartCustomizerResponseOutput() ImageTemplateRestartCustomizerResponseOutput
+	ToImageTemplateRestartCustomizerResponseOutputWithContext(context.Context) ImageTemplateRestartCustomizerResponseOutput
+}
+
+type ImageTemplateRestartCustomizerResponseArgs struct {
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RestartCheckCommand pulumi.StringPtrInput `pulumi:"restartCheckCommand"`
+	RestartCommand      pulumi.StringPtrInput `pulumi:"restartCommand"`
+	RestartTimeout      pulumi.StringPtrInput `pulumi:"restartTimeout"`
+	Type                pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateRestartCustomizerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateRestartCustomizerResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateRestartCustomizerResponseArgs) ToImageTemplateRestartCustomizerResponseOutput() ImageTemplateRestartCustomizerResponseOutput {
+	return i.ToImageTemplateRestartCustomizerResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateRestartCustomizerResponseArgs) ToImageTemplateRestartCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateRestartCustomizerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateRestartCustomizerResponseOutput)
+}
+
+type ImageTemplateRestartCustomizerResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateRestartCustomizerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateRestartCustomizerResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) ToImageTemplateRestartCustomizerResponseOutput() ImageTemplateRestartCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) ToImageTemplateRestartCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateRestartCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) RestartCheckCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizerResponse) *string { return v.RestartCheckCommand }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) RestartCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizerResponse) *string { return v.RestartCommand }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) RestartTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizerResponse) *string { return v.RestartTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateRestartCustomizerResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateRestartCustomizerResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateSharedImageDistributor struct {
+	ArtifactTags       map[string]string `pulumi:"artifactTags"`
+	GalleryImageId     string            `pulumi:"galleryImageId"`
+	ReplicationRegions []string          `pulumi:"replicationRegions"`
+	RunOutputName      string            `pulumi:"runOutputName"`
+	Type               string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateSharedImageDistributorInput interface {
+	pulumi.Input
+
+	ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput
+	ToImageTemplateSharedImageDistributorOutputWithContext(context.Context) ImageTemplateSharedImageDistributorOutput
+}
+
+type ImageTemplateSharedImageDistributorArgs struct {
+	ArtifactTags       pulumi.StringMapInput   `pulumi:"artifactTags"`
+	GalleryImageId     pulumi.StringInput      `pulumi:"galleryImageId"`
+	ReplicationRegions pulumi.StringArrayInput `pulumi:"replicationRegions"`
+	RunOutputName      pulumi.StringInput      `pulumi:"runOutputName"`
+	Type               pulumi.StringInput      `pulumi:"type"`
+}
+
+func (ImageTemplateSharedImageDistributorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributor)(nil)).Elem()
+}
+
+func (i ImageTemplateSharedImageDistributorArgs) ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput {
+	return i.ToImageTemplateSharedImageDistributorOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateSharedImageDistributorArgs) ToImageTemplateSharedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSharedImageDistributorOutput)
+}
+
+type ImageTemplateSharedImageDistributorOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateSharedImageDistributorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributor)(nil)).Elem()
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ToImageTemplateSharedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) GalleryImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.GalleryImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ReplicationRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) []string { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateSharedImageDistributorResponse struct {
+	ArtifactTags       map[string]string `pulumi:"artifactTags"`
+	GalleryImageId     string            `pulumi:"galleryImageId"`
+	ReplicationRegions []string          `pulumi:"replicationRegions"`
+	RunOutputName      string            `pulumi:"runOutputName"`
+	Type               string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateSharedImageDistributorResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput
+	ToImageTemplateSharedImageDistributorResponseOutputWithContext(context.Context) ImageTemplateSharedImageDistributorResponseOutput
+}
+
+type ImageTemplateSharedImageDistributorResponseArgs struct {
+	ArtifactTags       pulumi.StringMapInput   `pulumi:"artifactTags"`
+	GalleryImageId     pulumi.StringInput      `pulumi:"galleryImageId"`
+	ReplicationRegions pulumi.StringArrayInput `pulumi:"replicationRegions"`
+	RunOutputName      pulumi.StringInput      `pulumi:"runOutputName"`
+	Type               pulumi.StringInput      `pulumi:"type"`
+}
+
+func (ImageTemplateSharedImageDistributorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributorResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateSharedImageDistributorResponseArgs) ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput {
+	return i.ToImageTemplateSharedImageDistributorResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateSharedImageDistributorResponseArgs) ToImageTemplateSharedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSharedImageDistributorResponseOutput)
+}
+
+type ImageTemplateSharedImageDistributorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateSharedImageDistributorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributorResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ToImageTemplateSharedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) GalleryImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.GalleryImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ReplicationRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) []string { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateShellCustomizer struct {
+	Inline []string `pulumi:"inline"`
+	Name   *string  `pulumi:"name"`
+	Script *string  `pulumi:"script"`
+	Type   string   `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateShellCustomizerInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput
+	ToImageTemplateShellCustomizerOutputWithContext(context.Context) ImageTemplateShellCustomizerOutput
+}
+
+type ImageTemplateShellCustomizerArgs struct {
+	Inline pulumi.StringArrayInput `pulumi:"inline"`
+	Name   pulumi.StringPtrInput   `pulumi:"name"`
+	Script pulumi.StringPtrInput   `pulumi:"script"`
+	Type   pulumi.StringInput      `pulumi:"type"`
+}
+
+func (ImageTemplateShellCustomizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerArgs) ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput {
+	return i.ToImageTemplateShellCustomizerOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerArgs) ToImageTemplateShellCustomizerOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerOutput)
+}
+
+type ImageTemplateShellCustomizerOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerOutput) ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerOutput) ToImageTemplateShellCustomizerOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerOutput) Inline() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) []string { return v.Inline }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplateShellCustomizerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateShellCustomizerOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateShellCustomizerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateShellCustomizerResponse struct {
+	Inline []string `pulumi:"inline"`
+	Name   *string  `pulumi:"name"`
+	Script *string  `pulumi:"script"`
+	Type   string   `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateShellCustomizerResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput
+	ToImageTemplateShellCustomizerResponseOutputWithContext(context.Context) ImageTemplateShellCustomizerResponseOutput
+}
+
+type ImageTemplateShellCustomizerResponseArgs struct {
+	Inline pulumi.StringArrayInput `pulumi:"inline"`
+	Name   pulumi.StringPtrInput   `pulumi:"name"`
+	Script pulumi.StringPtrInput   `pulumi:"script"`
+	Type   pulumi.StringInput      `pulumi:"type"`
+}
+
+func (ImageTemplateShellCustomizerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerResponseArgs) ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput {
+	return i.ToImageTemplateShellCustomizerResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerResponseArgs) ToImageTemplateShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerResponseOutput)
+}
+
+type ImageTemplateShellCustomizerResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) ToImageTemplateShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) Inline() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) []string { return v.Inline }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateVhdDistributor struct {
+	ArtifactTags  map[string]string `pulumi:"artifactTags"`
+	RunOutputName string            `pulumi:"runOutputName"`
+	Type          string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateVhdDistributorInput interface {
+	pulumi.Input
+
+	ToImageTemplateVhdDistributorOutput() ImageTemplateVhdDistributorOutput
+	ToImageTemplateVhdDistributorOutputWithContext(context.Context) ImageTemplateVhdDistributorOutput
+}
+
+type ImageTemplateVhdDistributorArgs struct {
+	ArtifactTags  pulumi.StringMapInput `pulumi:"artifactTags"`
+	RunOutputName pulumi.StringInput    `pulumi:"runOutputName"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateVhdDistributorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateVhdDistributor)(nil)).Elem()
+}
+
+func (i ImageTemplateVhdDistributorArgs) ToImageTemplateVhdDistributorOutput() ImageTemplateVhdDistributorOutput {
+	return i.ToImageTemplateVhdDistributorOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateVhdDistributorArgs) ToImageTemplateVhdDistributorOutputWithContext(ctx context.Context) ImageTemplateVhdDistributorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateVhdDistributorOutput)
+}
+
+type ImageTemplateVhdDistributorOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateVhdDistributorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateVhdDistributor)(nil)).Elem()
+}
+
+func (o ImageTemplateVhdDistributorOutput) ToImageTemplateVhdDistributorOutput() ImageTemplateVhdDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateVhdDistributorOutput) ToImageTemplateVhdDistributorOutputWithContext(ctx context.Context) ImageTemplateVhdDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateVhdDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateVhdDistributorOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateVhdDistributorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateVhdDistributorResponse struct {
+	ArtifactTags  map[string]string `pulumi:"artifactTags"`
+	RunOutputName string            `pulumi:"runOutputName"`
+	Type          string            `pulumi:"type"`
+}
+
+
+
+
+
+type ImageTemplateVhdDistributorResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateVhdDistributorResponseOutput() ImageTemplateVhdDistributorResponseOutput
+	ToImageTemplateVhdDistributorResponseOutputWithContext(context.Context) ImageTemplateVhdDistributorResponseOutput
+}
+
+type ImageTemplateVhdDistributorResponseArgs struct {
+	ArtifactTags  pulumi.StringMapInput `pulumi:"artifactTags"`
+	RunOutputName pulumi.StringInput    `pulumi:"runOutputName"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ImageTemplateVhdDistributorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateVhdDistributorResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateVhdDistributorResponseArgs) ToImageTemplateVhdDistributorResponseOutput() ImageTemplateVhdDistributorResponseOutput {
+	return i.ToImageTemplateVhdDistributorResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateVhdDistributorResponseArgs) ToImageTemplateVhdDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateVhdDistributorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateVhdDistributorResponseOutput)
+}
+
+type ImageTemplateVhdDistributorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateVhdDistributorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateVhdDistributorResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateVhdDistributorResponseOutput) ToImageTemplateVhdDistributorResponseOutput() ImageTemplateVhdDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateVhdDistributorResponseOutput) ToImageTemplateVhdDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateVhdDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateVhdDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+func (o ImageTemplateVhdDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateVhdDistributorResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateVhdDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProvisioningErrorResponse struct {
+	Message               *string `pulumi:"message"`
+	ProvisioningErrorCode *string `pulumi:"provisioningErrorCode"`
+}
+
+
+
+
+
+type ProvisioningErrorResponseInput interface {
+	pulumi.Input
+
+	ToProvisioningErrorResponseOutput() ProvisioningErrorResponseOutput
+	ToProvisioningErrorResponseOutputWithContext(context.Context) ProvisioningErrorResponseOutput
+}
+
+type ProvisioningErrorResponseArgs struct {
+	Message               pulumi.StringPtrInput `pulumi:"message"`
+	ProvisioningErrorCode pulumi.StringPtrInput `pulumi:"provisioningErrorCode"`
+}
+
+func (ProvisioningErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (i ProvisioningErrorResponseArgs) ToProvisioningErrorResponseOutput() ProvisioningErrorResponseOutput {
+	return i.ToProvisioningErrorResponseOutputWithContext(context.Background())
+}
+
+func (i ProvisioningErrorResponseArgs) ToProvisioningErrorResponseOutputWithContext(ctx context.Context) ProvisioningErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningErrorResponseOutput)
+}
+
+func (i ProvisioningErrorResponseArgs) ToProvisioningErrorResponsePtrOutput() ProvisioningErrorResponsePtrOutput {
+	return i.ToProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProvisioningErrorResponseArgs) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningErrorResponseOutput).ToProvisioningErrorResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ProvisioningErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToProvisioningErrorResponsePtrOutput() ProvisioningErrorResponsePtrOutput
+	ToProvisioningErrorResponsePtrOutputWithContext(context.Context) ProvisioningErrorResponsePtrOutput
+}
+
+type provisioningErrorResponsePtrType ProvisioningErrorResponseArgs
+
+func ProvisioningErrorResponsePtr(v *ProvisioningErrorResponseArgs) ProvisioningErrorResponsePtrInput {
+	return (*provisioningErrorResponsePtrType)(v)
+}
+
+func (*provisioningErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (i *provisioningErrorResponsePtrType) ToProvisioningErrorResponsePtrOutput() ProvisioningErrorResponsePtrOutput {
+	return i.ToProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *provisioningErrorResponsePtrType) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningErrorResponsePtrOutput)
+}
+
+type ProvisioningErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponseOutput() ProvisioningErrorResponseOutput {
+	return o
+}
+
+func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponseOutputWithContext(ctx context.Context) ProvisioningErrorResponseOutput {
+	return o
+}
+
+func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutput() ProvisioningErrorResponsePtrOutput {
+	return o.ToProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningErrorResponse) *ProvisioningErrorResponse {
+		return &v
+	}).(ProvisioningErrorResponsePtrOutput)
+}
+
+func (o ProvisioningErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisioningErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningErrorResponseOutput) ProvisioningErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisioningErrorResponse) *string { return v.ProvisioningErrorCode }).(pulumi.StringPtrOutput)
+}
+
+type ProvisioningErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisioningErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (o ProvisioningErrorResponsePtrOutput) ToProvisioningErrorResponsePtrOutput() ProvisioningErrorResponsePtrOutput {
+	return o
+}
+
+func (o ProvisioningErrorResponsePtrOutput) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
+	return o
+}
+
+func (o ProvisioningErrorResponsePtrOutput) Elem() ProvisioningErrorResponseOutput {
+	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisioningErrorResponse
+		return ret
+	}).(ProvisioningErrorResponseOutput)
+}
+
+func (o ProvisioningErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisioningErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateIsoSourceInput)(nil)).Elem(), ImageTemplateIsoSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateIsoSourceResponseInput)(nil)).Elem(), ImageTemplateIsoSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateLastRunStatusResponseInput)(nil)).Elem(), ImageTemplateLastRunStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateLastRunStatusResponsePtrInput)(nil)).Elem(), ImageTemplateLastRunStatusResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageDistributorInput)(nil)).Elem(), ImageTemplateManagedImageDistributorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageDistributorResponseInput)(nil)).Elem(), ImageTemplateManagedImageDistributorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageSourceInput)(nil)).Elem(), ImageTemplateManagedImageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateManagedImageSourceResponseInput)(nil)).Elem(), ImageTemplateManagedImageSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePlatformImageSourceInput)(nil)).Elem(), ImageTemplatePlatformImageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePlatformImageSourceResponseInput)(nil)).Elem(), ImageTemplatePlatformImageSourceResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePowerShellCustomizerInput)(nil)).Elem(), ImageTemplatePowerShellCustomizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplatePowerShellCustomizerResponseInput)(nil)).Elem(), ImageTemplatePowerShellCustomizerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateRestartCustomizerInput)(nil)).Elem(), ImageTemplateRestartCustomizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateRestartCustomizerResponseInput)(nil)).Elem(), ImageTemplateRestartCustomizerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateSharedImageDistributorInput)(nil)).Elem(), ImageTemplateSharedImageDistributorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateSharedImageDistributorResponseInput)(nil)).Elem(), ImageTemplateSharedImageDistributorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerInput)(nil)).Elem(), ImageTemplateShellCustomizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateShellCustomizerResponseInput)(nil)).Elem(), ImageTemplateShellCustomizerResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateVhdDistributorInput)(nil)).Elem(), ImageTemplateVhdDistributorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageTemplateVhdDistributorResponseInput)(nil)).Elem(), ImageTemplateVhdDistributorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningErrorResponseInput)(nil)).Elem(), ProvisioningErrorResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningErrorResponsePtrInput)(nil)).Elem(), ProvisioningErrorResponseArgs{})
+	pulumi.RegisterOutputType(ImageTemplateIsoSourceOutput{})
+	pulumi.RegisterOutputType(ImageTemplateIsoSourceResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageDistributorOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageDistributorResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageSourceOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageSourceResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePlatformImageSourceOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePlatformImageSourceResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePowerShellCustomizerOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePowerShellCustomizerResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateRestartCustomizerOutput{})
+	pulumi.RegisterOutputType(ImageTemplateRestartCustomizerResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateSharedImageDistributorOutput{})
+	pulumi.RegisterOutputType(ImageTemplateSharedImageDistributorResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateVhdDistributorOutput{})
+	pulumi.RegisterOutputType(ImageTemplateVhdDistributorResponseOutput{})
+	pulumi.RegisterOutputType(ProvisioningErrorResponseOutput{})
+	pulumi.RegisterOutputType(ProvisioningErrorResponsePtrOutput{})
+}
