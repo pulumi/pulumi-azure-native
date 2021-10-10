@@ -1,0 +1,35 @@
+
+
+
+package v20190601preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupManagedNetwork(ctx *pulumi.Context, args *LookupManagedNetworkArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkResult, error) {
+	var rv LookupManagedNetworkResult
+	err := ctx.Invoke("azure-native:managednetwork/v20190601preview:getManagedNetwork", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupManagedNetworkArgs struct {
+	ManagedNetworkName string `pulumi:"managedNetworkName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupManagedNetworkResult struct {
+	Connectivity      ConnectivityCollectionResponse `pulumi:"connectivity"`
+	Etag              string                         `pulumi:"etag"`
+	Id                string                         `pulumi:"id"`
+	Location          string                         `pulumi:"location"`
+	Name              string                         `pulumi:"name"`
+	ProvisioningState string                         `pulumi:"provisioningState"`
+	Scope             *ScopeResponse                 `pulumi:"scope"`
+	Tags              map[string]string              `pulumi:"tags"`
+	Type              string                         `pulumi:"type"`
+}
