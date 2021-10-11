@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:KubernetesRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:KubernetesRole"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:KubernetesRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:KubernetesRole"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:KubernetesRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:KubernetesRole"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:KubernetesRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

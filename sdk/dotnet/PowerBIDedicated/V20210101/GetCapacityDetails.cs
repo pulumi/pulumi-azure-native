@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The capacity mode.
+        /// Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// </summary>
         public readonly string? Mode;
         /// <summary>

@@ -31,7 +31,7 @@ class CapacityDetailsArgs:
         :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
         :param pulumi.Input[str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
-        :param pulumi.Input[Union[str, 'Mode']] mode: The capacity mode.
+        :param pulumi.Input[Union[str, 'Mode']] mode: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         :param pulumi.Input['SystemDataArgs'] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
@@ -114,7 +114,7 @@ class CapacityDetailsArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[str, 'Mode']]]:
         """
-        The capacity mode.
+        Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         """
         return pulumi.get(self, "mode")
 
@@ -170,7 +170,7 @@ class CapacityDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']] administration: A collection of Dedicated capacity administrators
         :param pulumi.Input[str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
-        :param pulumi.Input[Union[str, 'Mode']] mode: The capacity mode.
+        :param pulumi.Input[Union[str, 'Mode']] mode: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[pulumi.InputType['CapacitySkuArgs']] sku: The SKU of the PowerBI Dedicated capacity resource.
         :param pulumi.Input[pulumi.InputType['SystemDataArgs']] system_data: Metadata pertaining to creation and last modification of the resource.
@@ -293,7 +293,7 @@ class CapacityDetails(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The capacity mode.
+        Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         """
         return pulumi.get(self, "mode")
 

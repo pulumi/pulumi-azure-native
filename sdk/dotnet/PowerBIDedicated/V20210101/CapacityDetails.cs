@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity mode.
+        /// Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// </summary>
         [Output("mode")]
         public Output<string?> Mode { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The capacity mode.
+        /// Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.V20210101.Mode>? Mode { get; set; }

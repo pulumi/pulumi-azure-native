@@ -11,6 +11,8 @@ import * as v20200901preview from "./v20200901preview";
 import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210601 from "./v20210601";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20190301,
@@ -22,6 +24,8 @@ export {
     v20201201,
     v20210201,
     v20210201preview,
+    v20210601,
+    v20210601preview,
 };
 
 export const AccountType = {

@@ -138,6 +138,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
