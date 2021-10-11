@@ -1,7 +1,7 @@
 name: nightly-sdk-generation
 "on":
   schedule:
-    - cron: 35 17 * * *
+    - cron: 35 4 * * *
   workflow_dispatch: {}
 
 env:
