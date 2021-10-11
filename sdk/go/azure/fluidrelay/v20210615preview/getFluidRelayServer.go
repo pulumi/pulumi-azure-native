@@ -1,0 +1,36 @@
+
+
+
+package v20210615preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupFluidRelayServer(ctx *pulumi.Context, args *LookupFluidRelayServerArgs, opts ...pulumi.InvokeOption) (*LookupFluidRelayServerResult, error) {
+	var rv LookupFluidRelayServerResult
+	err := ctx.Invoke("azure-native:fluidrelay/v20210615preview:getFluidRelayServer", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupFluidRelayServerArgs struct {
+	Name          string `pulumi:"name"`
+	ResourceGroup string `pulumi:"resourceGroup"`
+}
+
+
+type LookupFluidRelayServerResult struct {
+	FluidRelayEndpoints FluidRelayEndpointsResponse `pulumi:"fluidRelayEndpoints"`
+	FrsTenantId         string                      `pulumi:"frsTenantId"`
+	Id                  string                      `pulumi:"id"`
+	Identity            *IdentityResponse           `pulumi:"identity"`
+	Location            string                      `pulumi:"location"`
+	Name                string                      `pulumi:"name"`
+	ProvisioningState   *string                     `pulumi:"provisioningState"`
+	SystemData          SystemDataResponse          `pulumi:"systemData"`
+	Tags                map[string]string           `pulumi:"tags"`
+	Type                string                      `pulumi:"type"`
+}

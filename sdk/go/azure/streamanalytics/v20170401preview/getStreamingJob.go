@@ -1,0 +1,57 @@
+
+
+
+package v20170401preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupStreamingJob(ctx *pulumi.Context, args *LookupStreamingJobArgs, opts ...pulumi.InvokeOption) (*LookupStreamingJobResult, error) {
+	var rv LookupStreamingJobResult
+	err := ctx.Invoke("azure-native:streamanalytics/v20170401preview:getStreamingJob", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupStreamingJobArgs struct {
+	Expand            *string `pulumi:"expand"`
+	JobName           string  `pulumi:"jobName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+}
+
+
+type LookupStreamingJobResult struct {
+	Cluster                            *ClusterInfoResponse       `pulumi:"cluster"`
+	CompatibilityLevel                 *string                    `pulumi:"compatibilityLevel"`
+	ContentStoragePolicy               *string                    `pulumi:"contentStoragePolicy"`
+	CreatedDate                        string                     `pulumi:"createdDate"`
+	DataLocale                         *string                    `pulumi:"dataLocale"`
+	Etag                               string                     `pulumi:"etag"`
+	EventsLateArrivalMaxDelayInSeconds *int                       `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
+	EventsOutOfOrderMaxDelayInSeconds  *int                       `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
+	EventsOutOfOrderPolicy             *string                    `pulumi:"eventsOutOfOrderPolicy"`
+	Externals                          *ExternalResponse          `pulumi:"externals"`
+	Functions                          []FunctionResponse         `pulumi:"functions"`
+	Id                                 string                     `pulumi:"id"`
+	Identity                           *IdentityResponse          `pulumi:"identity"`
+	Inputs                             []InputResponse            `pulumi:"inputs"`
+	JobId                              string                     `pulumi:"jobId"`
+	JobState                           string                     `pulumi:"jobState"`
+	JobStorageAccount                  *JobStorageAccountResponse `pulumi:"jobStorageAccount"`
+	JobType                            *string                    `pulumi:"jobType"`
+	LastOutputEventTime                string                     `pulumi:"lastOutputEventTime"`
+	Location                           *string                    `pulumi:"location"`
+	Name                               string                     `pulumi:"name"`
+	OutputErrorPolicy                  *string                    `pulumi:"outputErrorPolicy"`
+	OutputStartMode                    *string                    `pulumi:"outputStartMode"`
+	OutputStartTime                    *string                    `pulumi:"outputStartTime"`
+	Outputs                            []OutputResponse           `pulumi:"outputs"`
+	ProvisioningState                  string                     `pulumi:"provisioningState"`
+	Sku                                *StreamingJobSkuResponse   `pulumi:"sku"`
+	Tags                               map[string]string          `pulumi:"tags"`
+	Transformation                     *TransformationResponse    `pulumi:"transformation"`
+	Type                               string                     `pulumi:"type"`
+}

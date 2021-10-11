@@ -1,0 +1,40 @@
+
+
+
+package v20190601preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
+	var rv LookupSyncGroupResult
+	err := ctx.Invoke("azure-native:sql/v20190601preview:getSyncGroup", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSyncGroupArgs struct {
+	DatabaseName      string `pulumi:"databaseName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName        string `pulumi:"serverName"`
+	SyncGroupName     string `pulumi:"syncGroupName"`
+}
+
+
+type LookupSyncGroupResult struct {
+	ConflictResolutionPolicy *string                  `pulumi:"conflictResolutionPolicy"`
+	HubDatabaseUserName      *string                  `pulumi:"hubDatabaseUserName"`
+	Id                       string                   `pulumi:"id"`
+	Interval                 *int                     `pulumi:"interval"`
+	LastSyncTime             string                   `pulumi:"lastSyncTime"`
+	Name                     string                   `pulumi:"name"`
+	PrivateEndpointName      string                   `pulumi:"privateEndpointName"`
+	Schema                   *SyncGroupSchemaResponse `pulumi:"schema"`
+	SyncDatabaseId           *string                  `pulumi:"syncDatabaseId"`
+	SyncState                string                   `pulumi:"syncState"`
+	Type                     string                   `pulumi:"type"`
+	UsePrivateLinkConnection *bool                    `pulumi:"usePrivateLinkConnection"`
+}

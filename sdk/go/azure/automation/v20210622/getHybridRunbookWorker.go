@@ -1,0 +1,38 @@
+
+
+
+package v20210622
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupHybridRunbookWorker(ctx *pulumi.Context, args *LookupHybridRunbookWorkerArgs, opts ...pulumi.InvokeOption) (*LookupHybridRunbookWorkerResult, error) {
+	var rv LookupHybridRunbookWorkerResult
+	err := ctx.Invoke("azure-native:automation/v20210622:getHybridRunbookWorker", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupHybridRunbookWorkerArgs struct {
+	AutomationAccountName        string `pulumi:"automationAccountName"`
+	HybridRunbookWorkerGroupName string `pulumi:"hybridRunbookWorkerGroupName"`
+	HybridRunbookWorkerId        string `pulumi:"hybridRunbookWorkerId"`
+	ResourceGroupName            string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupHybridRunbookWorkerResult struct {
+	Id                 string             `pulumi:"id"`
+	Ip                 *string            `pulumi:"ip"`
+	LastSeenDateTime   *string            `pulumi:"lastSeenDateTime"`
+	Name               string             `pulumi:"name"`
+	RegisteredDateTime *string            `pulumi:"registeredDateTime"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
+	VmResourceId       *string            `pulumi:"vmResourceId"`
+	WorkerName         *string            `pulumi:"workerName"`
+	WorkerType         *string            `pulumi:"workerType"`
+}

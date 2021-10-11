@@ -1,0 +1,28 @@
+
+
+
+package security
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupIngestionSetting(ctx *pulumi.Context, args *LookupIngestionSettingArgs, opts ...pulumi.InvokeOption) (*LookupIngestionSettingResult, error) {
+	var rv LookupIngestionSettingResult
+	err := ctx.Invoke("azure-native:security:getIngestionSetting", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupIngestionSettingArgs struct {
+	IngestionSettingName string `pulumi:"ingestionSettingName"`
+}
+
+
+type LookupIngestionSettingResult struct {
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}

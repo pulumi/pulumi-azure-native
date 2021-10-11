@@ -1,0 +1,38 @@
+
+
+
+package v20200501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
+	var rv LookupLocalNetworkGatewayResult
+	err := ctx.Invoke("azure-native:network/v20200501:getLocalNetworkGateway", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupLocalNetworkGatewayArgs struct {
+	LocalNetworkGatewayName string `pulumi:"localNetworkGatewayName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupLocalNetworkGatewayResult struct {
+	BgpSettings              *BgpSettingsResponse  `pulumi:"bgpSettings"`
+	Etag                     string                `pulumi:"etag"`
+	Fqdn                     *string               `pulumi:"fqdn"`
+	GatewayIpAddress         *string               `pulumi:"gatewayIpAddress"`
+	Id                       *string               `pulumi:"id"`
+	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
+	Location                 *string               `pulumi:"location"`
+	Name                     string                `pulumi:"name"`
+	ProvisioningState        string                `pulumi:"provisioningState"`
+	ResourceGuid             string                `pulumi:"resourceGuid"`
+	Tags                     map[string]string     `pulumi:"tags"`
+	Type                     string                `pulumi:"type"`
+}

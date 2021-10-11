@@ -1,0 +1,42 @@
+
+
+
+package v20201001preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupDatastoreResult, error) {
+	var rv LookupDatastoreResult
+	err := ctx.Invoke("azure-native:connectedvmwarevsphere/v20201001preview:getDatastore", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupDatastoreArgs struct {
+	DatastoreName     string `pulumi:"datastoreName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupDatastoreResult struct {
+	CustomResourceName string                    `pulumi:"customResourceName"`
+	ExtendedLocation   *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	Id                 string                    `pulumi:"id"`
+	InventoryItemId    *string                   `pulumi:"inventoryItemId"`
+	Kind               *string                   `pulumi:"kind"`
+	Location           string                    `pulumi:"location"`
+	MoName             string                    `pulumi:"moName"`
+	MoRefId            *string                   `pulumi:"moRefId"`
+	Name               string                    `pulumi:"name"`
+	ProvisioningState  string                    `pulumi:"provisioningState"`
+	Statuses           []ResourceStatusResponse  `pulumi:"statuses"`
+	SystemData         SystemDataResponse        `pulumi:"systemData"`
+	Tags               map[string]string         `pulumi:"tags"`
+	Type               string                    `pulumi:"type"`
+	Uuid               string                    `pulumi:"uuid"`
+	VCenterId          *string                   `pulumi:"vCenterId"`
+}
