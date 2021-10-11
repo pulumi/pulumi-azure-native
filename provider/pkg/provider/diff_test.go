@@ -108,7 +108,7 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 			"p3": {V: true},
 		},
 	}
-	actual := calculateDetailedDiff(&res, &diff)
+	actual := calculateDetailedDiff(&res, nil, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":          {Kind: rpc.PropertyDiff_ADD},
@@ -170,7 +170,7 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, &diff)
+	actual := calculateDetailedDiff(&res, nil, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"Prop2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -192,8 +192,21 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 						"p2": {Type: "number", ForceNew: true},
 						"p3": {Ref: "#/types/azure-native:foobar/v20200101:FooType"},
 						"p4": {Ref: "#/types/azure-native:foobar/v20200101:FooType", ForceNew: true},
+						"p5": {
+							Items: &resources.AzureAPIProperty{
+								Ref: "#/types/azure-native:foobar/v20200101:FooType",
+							},
+						},
 					},
 				},
+			},
+		},
+	}
+	types := map[string]resources.AzureAPIType{
+		"azure-native:foobar/v20200101:FooType": {
+			Properties: map[string]resources.AzureAPIProperty{
+				"ps1": {},
+				"ps2": {ForceNew: true},
 			},
 		},
 	}
@@ -214,6 +227,10 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 							Old: resource.PropertyValue{V: "oldvalue"},
 							New: resource.PropertyValue{V: "newvalue"},
 						},
+						"ps2": {
+							Old: resource.PropertyValue{V: "oldvalue"},
+							New: resource.PropertyValue{V: "newvalue"},
+						},
 					},
 				},
 			},
@@ -227,14 +244,37 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 					},
 				},
 			},
+			"p5": {
+				Array: &resource.ArrayDiff{
+					Updates: map[int]resource.ValueDiff{
+						0: {
+							Object: &resource.ObjectDiff{
+								Updates: map[resource.PropertyKey]resource.ValueDiff{
+									"ps1": {
+										Old: resource.PropertyValue{V: "oldvalue"},
+										New: resource.PropertyValue{V: "newvalue"},
+									},
+									"ps2": {
+										Old: resource.PropertyValue{V: "oldvalue"},
+										New: resource.PropertyValue{V: "newvalue"},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, &diff)
+	actual := calculateDetailedDiff(&res, types, &diff)
 	expected := map[string]*rpc.PropertyDiff{
-		"p1":     {Kind: rpc.PropertyDiff_UPDATE},
-		"p2":     {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
-		"p3.ps1": {Kind: rpc.PropertyDiff_UPDATE},
-		"p4.ps1": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
+		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p3.ps1":    {Kind: rpc.PropertyDiff_UPDATE},
+		"p3.ps2":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p4.ps1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p5[0].ps1": {Kind: rpc.PropertyDiff_UPDATE},
+		"p5[0].ps2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 	}
 	assert.Equal(t, expected, actual)
 }

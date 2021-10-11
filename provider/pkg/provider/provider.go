@@ -715,7 +715,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	}
 
 	// Calculate the detailed diff object containing information about replacements.
-	detailedDiff := calculateDetailedDiff(&res, diff)
+	detailedDiff := calculateDetailedDiff(&res, k.resourceMap.Types, diff)
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	var changes, replaces []string
