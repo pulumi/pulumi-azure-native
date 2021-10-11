@@ -43,6 +43,10 @@ export interface GetIntegrationServiceEnvironmentResult {
      */
     readonly id: string;
     /**
+     * Managed service identity properties.
+     */
+    readonly identity?: outputs.logic.ManagedServiceIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location?: string;

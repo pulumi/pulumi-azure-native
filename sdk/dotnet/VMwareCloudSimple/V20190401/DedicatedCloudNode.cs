@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         /// date time the resource was created
         /// </summary>
         [Output("created")]
-        public Output<object> Created { get; private set; } = null!;
+        public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
         /// Azure region

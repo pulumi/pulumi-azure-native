@@ -36,10 +36,6 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the Azure stack edge device. Once set, it cannot be updated.
-     */
-    public readonly azureStackEdge!: pulumi.Output<outputs.hybridnetwork.v20210501.SubResourceResponse | undefined>;
-    /**
      * The type of the device.
      */
     public readonly deviceType!: pulumi.Output<string>;
@@ -93,7 +89,6 @@ export class Device extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["azureStackEdge"] = args ? args.azureStackEdge : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["deviceType"] = args ? args.deviceType : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -106,7 +101,6 @@ export class Device extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["azureStackEdge"] = undefined /*out*/;
             inputs["deviceType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -130,10 +124,6 @@ export class Device extends pulumi.CustomResource {
  * The set of arguments for constructing a Device resource.
  */
 export interface DeviceArgs {
-    /**
-     * The reference to the Azure stack edge device. Once set, it cannot be updated.
-     */
-    azureStackEdge?: pulumi.Input<inputs.hybridnetwork.v20210501.SubResourceArgs>;
     /**
      * Resource name for the device resource.
      */

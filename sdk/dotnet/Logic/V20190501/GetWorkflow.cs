@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The integration account.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.Logic.V20190501
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             Outputs.ResourceReferenceResponse? integrationAccount,
 
             Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
             Definition = definition;
             EndpointsConfiguration = endpointsConfiguration;
             Id = id;
+            Identity = identity;
             IntegrationAccount = integrationAccount;
             IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;

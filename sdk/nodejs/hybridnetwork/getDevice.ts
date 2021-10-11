@@ -39,10 +39,6 @@ export interface GetDeviceArgs {
  */
 export interface GetDeviceResult {
     /**
-     * The reference to the Azure stack edge device.
-     */
-    readonly azureStackEdge?: outputs.hybridnetwork.SubResourceResponse;
-    /**
      * The type of the device.
      */
     readonly deviceType: string;

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AppSku',
+    'SystemAssignedServiceIdentityType',
 ]
 
 
@@ -16,3 +17,11 @@ class AppSku(str, Enum):
     ST0 = "ST0"
     ST1 = "ST1"
     ST2 = "ST2"
+
+
+class SystemAssignedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"

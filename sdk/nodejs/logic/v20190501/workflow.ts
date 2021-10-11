@@ -60,6 +60,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly endpointsConfiguration!: pulumi.Output<outputs.logic.v20190501.FlowEndpointsConfigurationResponse | undefined>;
     /**
+     * Managed service identity properties.
+     */
+    public readonly identity!: pulumi.Output<outputs.logic.v20190501.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The integration account.
      */
     public readonly integrationAccount!: pulumi.Output<outputs.logic.v20190501.ResourceReferenceResponse | undefined>;
@@ -121,6 +125,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["accessControl"] = args ? args.accessControl : undefined;
             inputs["definition"] = args ? args.definition : undefined;
             inputs["endpointsConfiguration"] = args ? args.endpointsConfiguration : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["integrationAccount"] = args ? args.integrationAccount : undefined;
             inputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -144,6 +149,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["definition"] = undefined /*out*/;
             inputs["endpointsConfiguration"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["integrationAccount"] = undefined /*out*/;
             inputs["integrationServiceEnvironment"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -181,6 +187,10 @@ export interface WorkflowArgs {
      * The endpoints configuration.
      */
     endpointsConfiguration?: pulumi.Input<inputs.logic.v20190501.FlowEndpointsConfigurationArgs>;
+    /**
+     * Managed service identity properties.
+     */
+    identity?: pulumi.Input<inputs.logic.v20190501.ManagedServiceIdentityArgs>;
     /**
      * The integration account.
      */

@@ -14,16 +14,17 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	ApplicationId pulumi.StringOutput      `pulumi:"applicationId"`
-	DisplayName   pulumi.StringPtrOutput   `pulumi:"displayName"`
-	Location      pulumi.StringOutput      `pulumi:"location"`
-	Name          pulumi.StringOutput      `pulumi:"name"`
-	Sku           AppSkuInfoResponseOutput `pulumi:"sku"`
-	State         pulumi.StringOutput      `pulumi:"state"`
-	Subdomain     pulumi.StringPtrOutput   `pulumi:"subdomain"`
-	Tags          pulumi.StringMapOutput   `pulumi:"tags"`
-	Template      pulumi.StringPtrOutput   `pulumi:"template"`
-	Type          pulumi.StringOutput      `pulumi:"type"`
+	ApplicationId pulumi.StringOutput                            `pulumi:"applicationId"`
+	DisplayName   pulumi.StringPtrOutput                         `pulumi:"displayName"`
+	Identity      SystemAssignedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Location      pulumi.StringOutput                            `pulumi:"location"`
+	Name          pulumi.StringOutput                            `pulumi:"name"`
+	Sku           AppSkuInfoResponseOutput                       `pulumi:"sku"`
+	State         pulumi.StringOutput                            `pulumi:"state"`
+	Subdomain     pulumi.StringPtrOutput                         `pulumi:"subdomain"`
+	Tags          pulumi.StringMapOutput                         `pulumi:"tags"`
+	Template      pulumi.StringPtrOutput                         `pulumi:"template"`
+	Type          pulumi.StringOutput                            `pulumi:"type"`
 }
 
 
@@ -95,19 +96,21 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	DisplayName       *string           `pulumi:"displayName"`
-	Location          *string           `pulumi:"location"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	ResourceName      *string           `pulumi:"resourceName"`
-	Sku               AppSkuInfo        `pulumi:"sku"`
-	Subdomain         *string           `pulumi:"subdomain"`
-	Tags              map[string]string `pulumi:"tags"`
-	Template          *string           `pulumi:"template"`
+	DisplayName       *string                        `pulumi:"displayName"`
+	Identity          *SystemAssignedServiceIdentity `pulumi:"identity"`
+	Location          *string                        `pulumi:"location"`
+	ResourceGroupName string                         `pulumi:"resourceGroupName"`
+	ResourceName      *string                        `pulumi:"resourceName"`
+	Sku               AppSkuInfo                     `pulumi:"sku"`
+	Subdomain         *string                        `pulumi:"subdomain"`
+	Tags              map[string]string              `pulumi:"tags"`
+	Template          *string                        `pulumi:"template"`
 }
 
 
 type AppArgs struct {
 	DisplayName       pulumi.StringPtrInput
+	Identity          SystemAssignedServiceIdentityPtrInput
 	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 	ResourceName      pulumi.StringPtrInput

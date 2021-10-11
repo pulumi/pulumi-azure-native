@@ -20,6 +20,7 @@ class WorkflowArgs:
                  access_control: Optional[pulumi.Input['FlowAccessControlConfigurationArgs']] = None,
                  definition: Optional[Any] = None,
                  endpoints_configuration: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  integration_account: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class WorkflowArgs:
         :param pulumi.Input['FlowAccessControlConfigurationArgs'] access_control: The access control configuration.
         :param Any definition: The definition.
         :param pulumi.Input['FlowEndpointsConfigurationArgs'] endpoints_configuration: The endpoints configuration.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity properties.
         :param pulumi.Input['ResourceReferenceArgs'] integration_account: The integration account.
         :param pulumi.Input['ResourceReferenceArgs'] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
@@ -48,6 +50,8 @@ class WorkflowArgs:
             pulumi.set(__self__, "definition", definition)
         if endpoints_configuration is not None:
             pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if integration_account is not None:
             pulumi.set(__self__, "integration_account", integration_account)
         if integration_service_environment is not None:
@@ -110,6 +114,18 @@ class WorkflowArgs:
     @endpoints_configuration.setter
     def endpoints_configuration(self, value: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']]):
         pulumi.set(self, "endpoints_configuration", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity properties.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="integrationAccount")
@@ -204,6 +220,7 @@ class Workflow(pulumi.CustomResource):
                  access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
                  definition: Optional[Any] = None,
                  endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -221,6 +238,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']] access_control: The access control configuration.
         :param Any definition: The definition.
         :param pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']] endpoints_configuration: The endpoints configuration.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity properties.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_account: The integration account.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
@@ -257,6 +275,7 @@ class Workflow(pulumi.CustomResource):
                  access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
                  definition: Optional[Any] = None,
                  endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -280,6 +299,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["definition"] = definition
             __props__.__dict__["endpoints_configuration"] = endpoints_configuration
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["integration_account"] = integration_account
             __props__.__dict__["integration_service_environment"] = integration_service_environment
             __props__.__dict__["location"] = location
@@ -328,6 +348,7 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["created_time"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["endpoints_configuration"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["integration_account"] = None
         __props__.__dict__["integration_service_environment"] = None
         __props__.__dict__["location"] = None
@@ -388,6 +409,14 @@ class Workflow(pulumi.CustomResource):
         The endpoints configuration.
         """
         return pulumi.get(self, "endpoints_configuration")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity properties.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="integrationAccount")

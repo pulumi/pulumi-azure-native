@@ -14,28 +14,30 @@ import (
 type RegisteredServer struct {
 	pulumi.CustomResourceState
 
-	AgentVersion              pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	ClusterId                 pulumi.StringPtrOutput `pulumi:"clusterId"`
-	ClusterName               pulumi.StringPtrOutput `pulumi:"clusterName"`
-	DiscoveryEndpointUri      pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
-	FriendlyName              pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	LastHeartBeat             pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
-	LastOperationName         pulumi.StringPtrOutput `pulumi:"lastOperationName"`
-	LastWorkflowId            pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
-	ManagementEndpointUri     pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
-	MonitoringConfiguration   pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
-	MonitoringEndpointUri     pulumi.StringPtrOutput `pulumi:"monitoringEndpointUri"`
-	Name                      pulumi.StringOutput    `pulumi:"name"`
-	ProvisioningState         pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	ResourceLocation          pulumi.StringPtrOutput `pulumi:"resourceLocation"`
-	ServerCertificate         pulumi.StringPtrOutput `pulumi:"serverCertificate"`
-	ServerId                  pulumi.StringPtrOutput `pulumi:"serverId"`
-	ServerManagementErrorCode pulumi.IntPtrOutput    `pulumi:"serverManagementErrorCode"`
-	ServerOSVersion           pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
-	ServerRole                pulumi.StringPtrOutput `pulumi:"serverRole"`
-	ServiceLocation           pulumi.StringPtrOutput `pulumi:"serviceLocation"`
-	StorageSyncServiceUid     pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
-	Type                      pulumi.StringOutput    `pulumi:"type"`
+	AgentVersion               pulumi.StringPtrOutput `pulumi:"agentVersion"`
+	AgentVersionExpirationDate pulumi.StringOutput    `pulumi:"agentVersionExpirationDate"`
+	AgentVersionStatus         pulumi.StringOutput    `pulumi:"agentVersionStatus"`
+	ClusterId                  pulumi.StringPtrOutput `pulumi:"clusterId"`
+	ClusterName                pulumi.StringPtrOutput `pulumi:"clusterName"`
+	DiscoveryEndpointUri       pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
+	FriendlyName               pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	LastHeartBeat              pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
+	LastOperationName          pulumi.StringPtrOutput `pulumi:"lastOperationName"`
+	LastWorkflowId             pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
+	ManagementEndpointUri      pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
+	MonitoringConfiguration    pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
+	MonitoringEndpointUri      pulumi.StringPtrOutput `pulumi:"monitoringEndpointUri"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState          pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ResourceLocation           pulumi.StringPtrOutput `pulumi:"resourceLocation"`
+	ServerCertificate          pulumi.StringPtrOutput `pulumi:"serverCertificate"`
+	ServerId                   pulumi.StringPtrOutput `pulumi:"serverId"`
+	ServerManagementErrorCode  pulumi.IntPtrOutput    `pulumi:"serverManagementErrorCode"`
+	ServerOSVersion            pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
+	ServerRole                 pulumi.StringPtrOutput `pulumi:"serverRole"`
+	ServiceLocation            pulumi.StringPtrOutput `pulumi:"serviceLocation"`
+	StorageSyncServiceUid      pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
+	Type                       pulumi.StringOutput    `pulumi:"type"`
 }
 
 

@@ -21,10 +21,7 @@ class GetDeviceResult:
     """
     Device resource.
     """
-    def __init__(__self__, azure_stack_edge=None, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
-        if azure_stack_edge and not isinstance(azure_stack_edge, dict):
-            raise TypeError("Expected argument 'azure_stack_edge' to be a dict")
-        pulumi.set(__self__, "azure_stack_edge", azure_stack_edge)
+    def __init__(__self__, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
@@ -55,14 +52,6 @@ class GetDeviceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="azureStackEdge")
-    def azure_stack_edge(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
-        """
-        return pulumi.get(self, "azure_stack_edge")
 
     @property
     @pulumi.getter(name="deviceType")
@@ -151,7 +140,6 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
-            azure_stack_edge=self.azure_stack_edge,
             device_type=self.device_type,
             id=self.id,
             location=self.location,
@@ -184,7 +172,6 @@ def get_device(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork/v20210501:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
-        azure_stack_edge=__ret__.azure_stack_edge,
         device_type=__ret__.device_type,
         id=__ret__.id,
         location=__ret__.location,

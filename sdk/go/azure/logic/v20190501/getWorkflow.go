@@ -30,6 +30,7 @@ type LookupWorkflowResult struct {
 	Definition                    interface{}                             `pulumi:"definition"`
 	EndpointsConfiguration        *FlowEndpointsConfigurationResponse     `pulumi:"endpointsConfiguration"`
 	Id                            string                                  `pulumi:"id"`
+	Identity                      *ManagedServiceIdentityResponse         `pulumi:"identity"`
 	IntegrationAccount            *ResourceReferenceResponse              `pulumi:"integrationAccount"`
 	IntegrationServiceEnvironment *ResourceReferenceResponse              `pulumi:"integrationServiceEnvironment"`
 	Location                      *string                                 `pulumi:"location"`

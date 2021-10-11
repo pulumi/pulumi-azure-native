@@ -44,6 +44,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * The managed identities for the IoT Central application.
+     */
+    public readonly identity!: pulumi.Output<outputs.iotcentral.v20210601.SystemAssignedServiceIdentityResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class App extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
@@ -108,6 +113,7 @@ export class App extends pulumi.CustomResource {
         } else {
             inputs["applicationId"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface AppArgs {
      * The display name of the application.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The managed identities for the IoT Central application.
+     */
+    identity?: pulumi.Input<inputs.iotcentral.v20210601.SystemAssignedServiceIdentityArgs>;
     /**
      * The resource location.
      */

@@ -20,10 +20,16 @@ class GetRegisteredServerResult:
     """
     Registered Server resource.
     """
-    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
+    def __init__(__self__, agent_version=None, agent_version_expiration_date=None, agent_version_status=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
+        if agent_version_expiration_date and not isinstance(agent_version_expiration_date, str):
+            raise TypeError("Expected argument 'agent_version_expiration_date' to be a str")
+        pulumi.set(__self__, "agent_version_expiration_date", agent_version_expiration_date)
+        if agent_version_status and not isinstance(agent_version_status, str):
+            raise TypeError("Expected argument 'agent_version_status' to be a str")
+        pulumi.set(__self__, "agent_version_status", agent_version_status)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -98,6 +104,22 @@ class GetRegisteredServerResult:
         Registered Server Agent Version
         """
         return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="agentVersionExpirationDate")
+    def agent_version_expiration_date(self) -> str:
+        """
+        Registered Server Agent Version Expiration Date
+        """
+        return pulumi.get(self, "agent_version_expiration_date")
+
+    @property
+    @pulumi.getter(name="agentVersionStatus")
+    def agent_version_status(self) -> str:
+        """
+        Registered Server Agent Version Status
+        """
+        return pulumi.get(self, "agent_version_status")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -283,6 +305,8 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             yield self
         return GetRegisteredServerResult(
             agent_version=self.agent_version,
+            agent_version_expiration_date=self.agent_version_expiration_date,
+            agent_version_status=self.agent_version_status,
             cluster_id=self.cluster_id,
             cluster_name=self.cluster_name,
             discovery_endpoint_uri=self.discovery_endpoint_uri,
@@ -331,6 +355,8 @@ def get_registered_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetRegisteredServerResult(
         agent_version=__ret__.agent_version,
+        agent_version_expiration_date=__ret__.agent_version_expiration_date,
+        agent_version_status=__ret__.agent_version_status,
         cluster_id=__ret__.cluster_id,
         cluster_name=__ret__.cluster_name,
         discovery_endpoint_uri=__ret__.discovery_endpoint_uri,

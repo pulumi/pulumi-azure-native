@@ -138,8 +138,8 @@ export class ServerEndpoint extends pulumi.CustomResource {
             }
             inputs["cloudTiering"] = args ? args.cloudTiering : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
-            inputs["localCacheMode"] = args ? args.localCacheMode : undefined;
+            inputs["initialDownloadPolicy"] = (args ? args.initialDownloadPolicy : undefined) ?? "NamespaceThenModifiedFiles";
+            inputs["localCacheMode"] = (args ? args.localCacheMode : undefined) ?? "UpdateLocallyCachedFiles";
             inputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
             inputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

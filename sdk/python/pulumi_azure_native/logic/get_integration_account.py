@@ -57,7 +57,7 @@ class GetIntegrationAccountResult:
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional['outputs.IntegrationServiceEnvironmentResponse']:
+    def integration_service_environment(self) -> Optional['outputs.ResourceReferenceResponse']:
         """
         The integration service environment.
         """

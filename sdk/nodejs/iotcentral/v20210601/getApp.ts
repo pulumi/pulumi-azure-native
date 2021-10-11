@@ -50,6 +50,10 @@ export interface GetAppResult {
      */
     readonly id: string;
     /**
+     * The managed identities for the IoT Central application.
+     */
+    readonly identity?: outputs.iotcentral.v20210601.SystemAssignedServiceIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location: string;

@@ -10,16 +10,76 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
-    /// The managed api definition.
+    /// The integration service environment managed api.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi")]
     public partial class IntegrationServiceEnvironmentManagedApi : Pulumi.CustomResource
     {
         /// <summary>
+        /// The API definition.
+        /// </summary>
+        [Output("apiDefinitionUrl")]
+        public Output<string> ApiDefinitionUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The api definitions.
+        /// </summary>
+        [Output("apiDefinitions")]
+        public Output<Outputs.ApiResourceDefinitionsResponse> ApiDefinitions { get; private set; } = null!;
+
+        /// <summary>
+        /// The backend service.
+        /// </summary>
+        [Output("backendService")]
+        public Output<Outputs.ApiResourceBackendServiceResponse> BackendService { get; private set; } = null!;
+
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
+        [Output("capabilities")]
+        public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// The category.
+        /// </summary>
+        [Output("category")]
+        public Output<string> Category { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection parameters.
+        /// </summary>
+        [Output("connectionParameters")]
+        public Output<ImmutableDictionary<string, object>> ConnectionParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration service environment managed api deployment parameters.
+        /// </summary>
+        [Output("deploymentParameters")]
+        public Output<Outputs.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse?> DeploymentParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The api general information.
+        /// </summary>
+        [Output("generalInformation")]
+        public Output<Outputs.ApiResourceGeneralInformationResponse> GeneralInformation { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration service environment reference.
+        /// </summary>
+        [Output("integrationServiceEnvironment")]
+        public Output<Outputs.ResourceReferenceResponse?> IntegrationServiceEnvironment { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.ApiResourceMetadataResponse> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -28,10 +88,22 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The api resource properties.
+        /// The policies for the API.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApiResourcePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("policies")]
+        public Output<Outputs.ApiResourcePoliciesResponse> Policies { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The runtime urls.
+        /// </summary>
+        [Output("runtimeUrls")]
+        public Output<ImmutableArray<string>> RuntimeUrls { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -103,16 +175,46 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
+        /// The integration service environment managed api deployment parameters.
+        /// </summary>
+        [Input("deploymentParameters")]
+        public Input<Inputs.IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs>? DeploymentParameters { get; set; }
+
+        /// <summary>
+        /// The integration service environment reference.
+        /// </summary>
+        [Input("integrationServiceEnvironment")]
+        public Input<Inputs.ResourceReferenceArgs>? IntegrationServiceEnvironment { get; set; }
+
+        /// <summary>
         /// The integration service environment name.
         /// </summary>
         [Input("integrationServiceEnvironmentName", required: true)]
         public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
 
         /// <summary>
+        /// The resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroup", required: true)]
         public Input<string> ResourceGroup { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public IntegrationServiceEnvironmentManagedApiArgs()
         {

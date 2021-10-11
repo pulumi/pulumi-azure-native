@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Logic.Inputs
             set => _claims = value;
         }
 
+        /// <summary>
+        /// Type of provider for OAuth.
+        /// </summary>
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.Logic.OpenAuthenticationProviderType>? Type { get; set; }
+
         public OpenAuthenticationAccessPolicyArgs()
         {
         }

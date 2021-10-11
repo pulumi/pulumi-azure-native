@@ -18,7 +18,7 @@ class IntegrationAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 integration_service_environment: Optional[pulumi.Input['IntegrationServiceEnvironmentArgs']] = None,
+                 integration_service_environment: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['IntegrationAccountSkuArgs']] = None,
                  state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
@@ -27,7 +27,7 @@ class IntegrationAccountArgs:
         The set of arguments for constructing a IntegrationAccount resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
-        :param pulumi.Input['IntegrationServiceEnvironmentArgs'] integration_service_environment: The integration service environment.
+        :param pulumi.Input['ResourceReferenceArgs'] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input['IntegrationAccountSkuArgs'] sku: The sku.
         :param pulumi.Input[Union[str, 'WorkflowState']] state: The workflow state.
@@ -73,14 +73,14 @@ class IntegrationAccountArgs:
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentArgs']]:
+    def integration_service_environment(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
         """
         The integration service environment.
         """
         return pulumi.get(self, "integration_service_environment")
 
     @integration_service_environment.setter
-    def integration_service_environment(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentArgs']]):
+    def integration_service_environment(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "integration_service_environment", value)
 
     @property
@@ -138,7 +138,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentArgs']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']]] = None,
@@ -152,7 +152,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_account_name: The integration account name.
-        :param pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentArgs']] integration_service_environment: The integration service environment.
+        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']] sku: The sku.
@@ -185,7 +185,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentArgs']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']]] = None,
@@ -249,7 +249,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> pulumi.Output[Optional['outputs.IntegrationServiceEnvironmentResponse']]:
+    def integration_service_environment(self) -> pulumi.Output[Optional['outputs.ResourceReferenceResponse']]:
         """
         The integration service environment.
         """

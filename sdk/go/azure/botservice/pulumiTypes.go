@@ -447,6 +447,7 @@ func (o AlexaChannelResponseOutput) Properties() AlexaChannelPropertiesResponseP
 }
 
 type BotProperties struct {
+	AppPasswordHint                   *string  `pulumi:"appPasswordHint"`
 	CmekKeyVaultUrl                   *string  `pulumi:"cmekKeyVaultUrl"`
 	Description                       *string  `pulumi:"description"`
 	DeveloperAppInsightKey            *string  `pulumi:"developerAppInsightKey"`
@@ -460,6 +461,7 @@ type BotProperties struct {
 	LuisAppIds                        []string `pulumi:"luisAppIds"`
 	LuisKey                           *string  `pulumi:"luisKey"`
 	MsaAppId                          string   `pulumi:"msaAppId"`
+	OpenWithHint                      *string  `pulumi:"openWithHint"`
 	SchemaTransformationVersion       *string  `pulumi:"schemaTransformationVersion"`
 }
 
@@ -475,6 +477,7 @@ type BotPropertiesInput interface {
 }
 
 type BotPropertiesArgs struct {
+	AppPasswordHint                   pulumi.StringPtrInput   `pulumi:"appPasswordHint"`
 	CmekKeyVaultUrl                   pulumi.StringPtrInput   `pulumi:"cmekKeyVaultUrl"`
 	Description                       pulumi.StringPtrInput   `pulumi:"description"`
 	DeveloperAppInsightKey            pulumi.StringPtrInput   `pulumi:"developerAppInsightKey"`
@@ -488,6 +491,7 @@ type BotPropertiesArgs struct {
 	LuisAppIds                        pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput   `pulumi:"luisKey"`
 	MsaAppId                          pulumi.StringInput      `pulumi:"msaAppId"`
+	OpenWithHint                      pulumi.StringPtrInput   `pulumi:"openWithHint"`
 	SchemaTransformationVersion       pulumi.StringPtrInput   `pulumi:"schemaTransformationVersion"`
 }
 
@@ -568,6 +572,10 @@ func (o BotPropertiesOutput) ToBotPropertiesPtrOutputWithContext(ctx context.Con
 	}).(BotPropertiesPtrOutput)
 }
 
+func (o BotPropertiesOutput) AppPasswordHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.AppPasswordHint }).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.CmekKeyVaultUrl }).(pulumi.StringPtrOutput)
 }
@@ -620,6 +628,10 @@ func (o BotPropertiesOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotProperties) string { return v.MsaAppId }).(pulumi.StringOutput)
 }
 
+func (o BotPropertiesOutput) OpenWithHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.OpenWithHint }).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
 }
@@ -646,6 +658,15 @@ func (o BotPropertiesPtrOutput) Elem() BotPropertiesOutput {
 		var ret BotProperties
 		return ret
 	}).(BotPropertiesOutput)
+}
+
+func (o BotPropertiesPtrOutput) AppPasswordHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppPasswordHint
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesPtrOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
@@ -765,6 +786,15 @@ func (o BotPropertiesPtrOutput) MsaAppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesPtrOutput) OpenWithHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenWithHint
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
 		if v == nil {
@@ -775,6 +805,7 @@ func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOu
 }
 
 type BotPropertiesResponse struct {
+	AppPasswordHint                   *string  `pulumi:"appPasswordHint"`
 	CmekKeyVaultUrl                   *string  `pulumi:"cmekKeyVaultUrl"`
 	ConfiguredChannels                []string `pulumi:"configuredChannels"`
 	Description                       *string  `pulumi:"description"`
@@ -791,6 +822,7 @@ type BotPropertiesResponse struct {
 	LuisAppIds                        []string `pulumi:"luisAppIds"`
 	LuisKey                           *string  `pulumi:"luisKey"`
 	MsaAppId                          string   `pulumi:"msaAppId"`
+	OpenWithHint                      *string  `pulumi:"openWithHint"`
 	SchemaTransformationVersion       *string  `pulumi:"schemaTransformationVersion"`
 }
 
@@ -806,6 +838,7 @@ type BotPropertiesResponseInput interface {
 }
 
 type BotPropertiesResponseArgs struct {
+	AppPasswordHint                   pulumi.StringPtrInput   `pulumi:"appPasswordHint"`
 	CmekKeyVaultUrl                   pulumi.StringPtrInput   `pulumi:"cmekKeyVaultUrl"`
 	ConfiguredChannels                pulumi.StringArrayInput `pulumi:"configuredChannels"`
 	Description                       pulumi.StringPtrInput   `pulumi:"description"`
@@ -822,6 +855,7 @@ type BotPropertiesResponseArgs struct {
 	LuisAppIds                        pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput   `pulumi:"luisKey"`
 	MsaAppId                          pulumi.StringInput      `pulumi:"msaAppId"`
+	OpenWithHint                      pulumi.StringPtrInput   `pulumi:"openWithHint"`
 	SchemaTransformationVersion       pulumi.StringPtrInput   `pulumi:"schemaTransformationVersion"`
 }
 
@@ -902,6 +936,10 @@ func (o BotPropertiesResponseOutput) ToBotPropertiesResponsePtrOutputWithContext
 	}).(BotPropertiesResponsePtrOutput)
 }
 
+func (o BotPropertiesResponseOutput) AppPasswordHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.AppPasswordHint }).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesResponseOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.CmekKeyVaultUrl }).(pulumi.StringPtrOutput)
 }
@@ -966,6 +1004,10 @@ func (o BotPropertiesResponseOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) string { return v.MsaAppId }).(pulumi.StringOutput)
 }
 
+func (o BotPropertiesResponseOutput) OpenWithHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.OpenWithHint }).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesResponseOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
 }
@@ -992,6 +1034,15 @@ func (o BotPropertiesResponsePtrOutput) Elem() BotPropertiesResponseOutput {
 		var ret BotPropertiesResponse
 		return ret
 	}).(BotPropertiesResponseOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) AppPasswordHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppPasswordHint
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponsePtrOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
@@ -1135,6 +1186,15 @@ func (o BotPropertiesResponsePtrOutput) MsaAppId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.MsaAppId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) OpenWithHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenWithHint
 	}).(pulumi.StringPtrOutput)
 }
 

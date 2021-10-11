@@ -11,6 +11,12 @@ CHANGELOG
 
 - Identity definition `deviceupdate.Account` was adjusted to use the common type
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16197))
+- Several fixes in the `logic` module to match the API behavior
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16181))
+- `vmwarecloudsimple.DedicatedCloudNode.created` type is set to `string`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16090))
+- `hybridnetwork:Device` has `azureStackEdge` removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16316))
 
 ---
 

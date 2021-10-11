@@ -23,12 +23,12 @@ type LookupIntegrationAccountArgs struct {
 
 
 type LookupIntegrationAccountResult struct {
-	Id                            string                                 `pulumi:"id"`
-	IntegrationServiceEnvironment *IntegrationServiceEnvironmentResponse `pulumi:"integrationServiceEnvironment"`
-	Location                      *string                                `pulumi:"location"`
-	Name                          string                                 `pulumi:"name"`
-	Sku                           *IntegrationAccountSkuResponse         `pulumi:"sku"`
-	State                         *string                                `pulumi:"state"`
-	Tags                          map[string]string                      `pulumi:"tags"`
-	Type                          string                                 `pulumi:"type"`
+	Id                            string                         `pulumi:"id"`
+	IntegrationServiceEnvironment *ResourceReferenceResponse     `pulumi:"integrationServiceEnvironment"`
+	Location                      *string                        `pulumi:"location"`
+	Name                          string                         `pulumi:"name"`
+	Sku                           *IntegrationAccountSkuResponse `pulumi:"sku"`
+	State                         *string                        `pulumi:"state"`
+	Tags                          map[string]string              `pulumi:"tags"`
+	Type                          string                         `pulumi:"type"`
 }

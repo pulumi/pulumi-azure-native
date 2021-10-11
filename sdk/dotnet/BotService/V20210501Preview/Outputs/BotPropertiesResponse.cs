@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
     public sealed class BotPropertiesResponse
     {
         /// <summary>
+        /// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        /// </summary>
+        public readonly string? AppPasswordHint;
+        /// <summary>
         /// The CMK Url
         /// </summary>
         public readonly string? CmekKeyVaultUrl;
@@ -97,6 +101,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string? MsaAppType;
         /// <summary>
+        /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        /// </summary>
+        public readonly string? OpenWithHint;
+        /// <summary>
         /// List of Private Endpoint Connections configured for the bot
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -107,6 +115,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
         [OutputConstructor]
         private BotPropertiesResponse(
+            string? appPasswordHint,
+
             string? cmekKeyVaultUrl,
 
             ImmutableArray<string> configuredChannels,
@@ -147,10 +157,13 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string? msaAppType,
 
+            string? openWithHint,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? schemaTransformationVersion)
         {
+            AppPasswordHint = appPasswordHint;
             CmekKeyVaultUrl = cmekKeyVaultUrl;
             ConfiguredChannels = configuredChannels;
             Description = description;
@@ -171,6 +184,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             MsaAppMSIResourceId = msaAppMSIResourceId;
             MsaAppTenantId = msaAppTenantId;
             MsaAppType = msaAppType;
+            OpenWithHint = openWithHint;
             PrivateEndpointConnections = privateEndpointConnections;
             SchemaTransformationVersion = schemaTransformationVersion;
         }

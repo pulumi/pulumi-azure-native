@@ -29,7 +29,6 @@ __all__ = [
     'ApiResourceGeneralInformationResponse',
     'ApiResourceMetadataResponse',
     'ApiResourcePoliciesResponse',
-    'ApiResourcePropertiesResponse',
     'AssemblyPropertiesResponse',
     'AzureResourceErrorInfoResponse',
     'B2BPartnerContentResponse',
@@ -63,8 +62,8 @@ __all__ = [
     'IntegrationServiceEnvironmenEncryptionConfigurationResponse',
     'IntegrationServiceEnvironmenEncryptionKeyReferenceResponse',
     'IntegrationServiceEnvironmentAccessEndpointResponse',
+    'IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse',
     'IntegrationServiceEnvironmentPropertiesResponse',
-    'IntegrationServiceEnvironmentResponse',
     'IntegrationServiceEnvironmentSkuResponse',
     'IpAddressRangeResponse',
     'IpAddressResponse',
@@ -72,6 +71,7 @@ __all__ = [
     'KeyVaultKeyReferenceResponseKeyVault',
     'KeyVaultKeyResponse',
     'KeyVaultKeyResponseAttributes',
+    'ManagedServiceIdentityResponse',
     'NetworkConfigurationResponse',
     'OpenAuthenticationAccessPoliciesResponse',
     'OpenAuthenticationAccessPolicyResponse',
@@ -81,6 +81,7 @@ __all__ = [
     'RecurrenceScheduleResponse',
     'ResourceReferenceResponse',
     'SkuResponse',
+    'UserAssignedIdentityResponse',
     'WorkflowParameterResponse',
     'WorkflowTriggerListCallbackUrlQueriesResponse',
     'WorkflowTriggerRecurrenceResponse',
@@ -1720,204 +1721,6 @@ class ApiResourcePoliciesResponse(dict):
 
 
 @pulumi.output_type
-class ApiResourcePropertiesResponse(dict):
-    """
-    The API resource properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apiDefinitionUrl":
-            suggest = "api_definition_url"
-        elif key == "apiDefinitions":
-            suggest = "api_definitions"
-        elif key == "backendService":
-            suggest = "backend_service"
-        elif key == "connectionParameters":
-            suggest = "connection_parameters"
-        elif key == "generalInformation":
-            suggest = "general_information"
-        elif key == "integrationServiceEnvironment":
-            suggest = "integration_service_environment"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "runtimeUrls":
-            suggest = "runtime_urls"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApiResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApiResourcePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApiResourcePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 api_definition_url: Optional[str] = None,
-                 api_definitions: Optional['outputs.ApiResourceDefinitionsResponse'] = None,
-                 backend_service: Optional['outputs.ApiResourceBackendServiceResponse'] = None,
-                 capabilities: Optional[Sequence[str]] = None,
-                 category: Optional[str] = None,
-                 connection_parameters: Optional[Mapping[str, Any]] = None,
-                 general_information: Optional['outputs.ApiResourceGeneralInformationResponse'] = None,
-                 integration_service_environment: Optional['outputs.ResourceReferenceResponse'] = None,
-                 metadata: Optional['outputs.ApiResourceMetadataResponse'] = None,
-                 name: Optional[str] = None,
-                 policies: Optional['outputs.ApiResourcePoliciesResponse'] = None,
-                 provisioning_state: Optional[str] = None,
-                 runtime_urls: Optional[Sequence[str]] = None):
-        """
-        The API resource properties.
-        :param str api_definition_url: The API definition.
-        :param 'ApiResourceDefinitionsResponse' api_definitions: The api definitions.
-        :param 'ApiResourceBackendServiceResponse' backend_service: The backend service.
-        :param Sequence[str] capabilities: The capabilities.
-        :param str category: The category.
-        :param Mapping[str, Any] connection_parameters: The connection parameters.
-        :param 'ApiResourceGeneralInformationResponse' general_information: The api general information.
-        :param 'ResourceReferenceResponse' integration_service_environment: The integration service environment reference.
-        :param 'ApiResourceMetadataResponse' metadata: The metadata.
-        :param str name: The name
-        :param 'ApiResourcePoliciesResponse' policies: The policies for the API.
-        :param str provisioning_state: The provisioning state.
-        :param Sequence[str] runtime_urls: The runtime urls.
-        """
-        if api_definition_url is not None:
-            pulumi.set(__self__, "api_definition_url", api_definition_url)
-        if api_definitions is not None:
-            pulumi.set(__self__, "api_definitions", api_definitions)
-        if backend_service is not None:
-            pulumi.set(__self__, "backend_service", backend_service)
-        if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if connection_parameters is not None:
-            pulumi.set(__self__, "connection_parameters", connection_parameters)
-        if general_information is not None:
-            pulumi.set(__self__, "general_information", general_information)
-        if integration_service_environment is not None:
-            pulumi.set(__self__, "integration_service_environment", integration_service_environment)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if policies is not None:
-            pulumi.set(__self__, "policies", policies)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if runtime_urls is not None:
-            pulumi.set(__self__, "runtime_urls", runtime_urls)
-
-    @property
-    @pulumi.getter(name="apiDefinitionUrl")
-    def api_definition_url(self) -> Optional[str]:
-        """
-        The API definition.
-        """
-        return pulumi.get(self, "api_definition_url")
-
-    @property
-    @pulumi.getter(name="apiDefinitions")
-    def api_definitions(self) -> Optional['outputs.ApiResourceDefinitionsResponse']:
-        """
-        The api definitions.
-        """
-        return pulumi.get(self, "api_definitions")
-
-    @property
-    @pulumi.getter(name="backendService")
-    def backend_service(self) -> Optional['outputs.ApiResourceBackendServiceResponse']:
-        """
-        The backend service.
-        """
-        return pulumi.get(self, "backend_service")
-
-    @property
-    @pulumi.getter
-    def capabilities(self) -> Optional[Sequence[str]]:
-        """
-        The capabilities.
-        """
-        return pulumi.get(self, "capabilities")
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        The category.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="connectionParameters")
-    def connection_parameters(self) -> Optional[Mapping[str, Any]]:
-        """
-        The connection parameters.
-        """
-        return pulumi.get(self, "connection_parameters")
-
-    @property
-    @pulumi.getter(name="generalInformation")
-    def general_information(self) -> Optional['outputs.ApiResourceGeneralInformationResponse']:
-        """
-        The api general information.
-        """
-        return pulumi.get(self, "general_information")
-
-    @property
-    @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional['outputs.ResourceReferenceResponse']:
-        """
-        The integration service environment reference.
-        """
-        return pulumi.get(self, "integration_service_environment")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional['outputs.ApiResourceMetadataResponse']:
-        """
-        The metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def policies(self) -> Optional['outputs.ApiResourcePoliciesResponse']:
-        """
-        The policies for the API.
-        """
-        return pulumi.get(self, "policies")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[Sequence[str]]:
-        """
-        The runtime urls.
-        """
-        return pulumi.get(self, "runtime_urls")
-
-
-@pulumi.output_type
 class AssemblyPropertiesResponse(dict):
     """
     The assembly properties definition.
@@ -2404,10 +2207,10 @@ class ContentLinkResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_hash: Optional['outputs.ContentHashResponse'] = None,
-                 content_size: Optional[float] = None,
-                 content_version: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 content_hash: 'outputs.ContentHashResponse',
+                 content_size: float,
+                 content_version: str,
+                 metadata: Any,
                  uri: Optional[str] = None):
         """
         The content link.
@@ -2417,20 +2220,16 @@ class ContentLinkResponse(dict):
         :param Any metadata: The metadata.
         :param str uri: The content link URI.
         """
-        if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
-        if content_size is not None:
-            pulumi.set(__self__, "content_size", content_size)
-        if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "content_hash", content_hash)
+        pulumi.set(__self__, "content_size", content_size)
+        pulumi.set(__self__, "content_version", content_version)
+        pulumi.set(__self__, "metadata", metadata)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="contentHash")
-    def content_hash(self) -> Optional['outputs.ContentHashResponse']:
+    def content_hash(self) -> 'outputs.ContentHashResponse':
         """
         The content hash.
         """
@@ -2438,7 +2237,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[float]:
+    def content_size(self) -> float:
         """
         The content size.
         """
@@ -2446,7 +2245,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[str]:
+    def content_version(self) -> str:
         """
         The content version.
         """
@@ -2454,7 +2253,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Any:
         """
         The metadata.
         """
@@ -5190,6 +4989,46 @@ class IntegrationServiceEnvironmentAccessEndpointResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse(dict):
+    """
+    The integration service environment managed api deployment parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentLinkDefinition":
+            suggest = "content_link_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_link_definition: Optional['outputs.ContentLinkResponse'] = None):
+        """
+        The integration service environment managed api deployment parameters.
+        :param 'ContentLinkResponse' content_link_definition: The integration service environment managed api content link for deployment.
+        """
+        if content_link_definition is not None:
+            pulumi.set(__self__, "content_link_definition", content_link_definition)
+
+    @property
+    @pulumi.getter(name="contentLinkDefinition")
+    def content_link_definition(self) -> Optional['outputs.ContentLinkResponse']:
+        """
+        The integration service environment managed api content link for deployment.
+        """
+        return pulumi.get(self, "content_link_definition")
+
+
+@pulumi.output_type
 class IntegrationServiceEnvironmentPropertiesResponse(dict):
     """
     The integration service environment properties.
@@ -5295,98 +5134,6 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
         The integration service environment state.
         """
         return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class IntegrationServiceEnvironmentResponse(dict):
-    """
-    The integration service environment.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
-                 location: Optional[str] = None,
-                 properties: Optional['outputs.IntegrationServiceEnvironmentPropertiesResponse'] = None,
-                 sku: Optional['outputs.IntegrationServiceEnvironmentSkuResponse'] = None,
-                 tags: Optional[Mapping[str, str]] = None):
-        """
-        The integration service environment.
-        :param str id: The resource id.
-        :param str name: Gets the resource name.
-        :param str type: Gets the resource type.
-        :param str location: The resource location.
-        :param 'IntegrationServiceEnvironmentPropertiesResponse' properties: The integration service environment properties.
-        :param 'IntegrationServiceEnvironmentSkuResponse' sku: The sku.
-        :param Mapping[str, str] tags: The resource tags.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Gets the resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Gets the resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional['outputs.IntegrationServiceEnvironmentPropertiesResponse']:
-        """
-        The integration service environment properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.IntegrationServiceEnvironmentSkuResponse']:
-        """
-        The sku.
-        """
-        return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        The resource tags.
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -5681,6 +5428,83 @@ class KeyVaultKeyResponseAttributes(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity properties.
+        :param str principal_id: Principal Id of managed service identity.
+        :param str tenant_id: Tenant of managed service identity.
+        :param str type: Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of managed service identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant of managed service identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class NetworkConfigurationResponse(dict):
     """
     The network configuration.
@@ -5775,24 +5599,17 @@ class OpenAuthenticationAccessPolicyResponse(dict):
     Open authentication access policy defined by user.
     """
     def __init__(__self__, *,
-                 type: str,
-                 claims: Optional[Sequence['outputs.OpenAuthenticationPolicyClaimResponse']] = None):
+                 claims: Optional[Sequence['outputs.OpenAuthenticationPolicyClaimResponse']] = None,
+                 type: Optional[str] = None):
         """
         Open authentication access policy defined by user.
-        :param str type: Type of provider for OAuth.
         :param Sequence['OpenAuthenticationPolicyClaimResponse'] claims: The access policy claims.
+        :param str type: Type of provider for OAuth.
         """
-        pulumi.set(__self__, "type", type)
         if claims is not None:
             pulumi.set(__self__, "claims", claims)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of provider for OAuth.
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -5801,6 +5618,14 @@ class OpenAuthenticationAccessPolicyResponse(dict):
         The access policy claims.
         """
         return pulumi.get(self, "claims")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of provider for OAuth.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -6065,6 +5890,58 @@ class SkuResponse(dict):
         The reference to plan.
         """
         return pulumi.get(self, "plan")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User Assigned identity properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned identity properties.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

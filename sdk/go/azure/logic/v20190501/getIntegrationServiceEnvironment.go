@@ -24,6 +24,7 @@ type LookupIntegrationServiceEnvironmentArgs struct {
 
 type LookupIntegrationServiceEnvironmentResult struct {
 	Id         string                                          `pulumi:"id"`
+	Identity   *ManagedServiceIdentityResponse                 `pulumi:"identity"`
 	Location   *string                                         `pulumi:"location"`
 	Name       string                                          `pulumi:"name"`
 	Properties IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`

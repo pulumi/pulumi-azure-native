@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         public Output<string?> AgentVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Registered Server Agent Version Expiration Date
+        /// </summary>
+        [Output("agentVersionExpirationDate")]
+        public Output<string> AgentVersionExpirationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server Agent Version Status
+        /// </summary>
+        [Output("agentVersionStatus")]
+        public Output<string> AgentVersionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Registered Server clusterId
         /// </summary>
         [Output("clusterId")]

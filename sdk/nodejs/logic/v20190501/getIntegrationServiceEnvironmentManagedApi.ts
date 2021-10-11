@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * The managed api definition.
+ * The integration service environment managed api.
  */
 export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentManagedApiResult> {
     if (!opts) {
@@ -39,25 +39,73 @@ export interface GetIntegrationServiceEnvironmentManagedApiArgs {
 }
 
 /**
- * The managed api definition.
+ * The integration service environment managed api.
  */
 export interface GetIntegrationServiceEnvironmentManagedApiResult {
+    /**
+     * The API definition.
+     */
+    readonly apiDefinitionUrl: string;
+    /**
+     * The api definitions.
+     */
+    readonly apiDefinitions: outputs.logic.v20190501.ApiResourceDefinitionsResponse;
+    /**
+     * The backend service.
+     */
+    readonly backendService: outputs.logic.v20190501.ApiResourceBackendServiceResponse;
+    /**
+     * The capabilities.
+     */
+    readonly capabilities: string[];
+    /**
+     * The category.
+     */
+    readonly category: string;
+    /**
+     * The connection parameters.
+     */
+    readonly connectionParameters: {[key: string]: any};
+    /**
+     * The integration service environment managed api deployment parameters.
+     */
+    readonly deploymentParameters?: outputs.logic.v20190501.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse;
+    /**
+     * The api general information.
+     */
+    readonly generalInformation: outputs.logic.v20190501.ApiResourceGeneralInformationResponse;
     /**
      * The resource id.
      */
     readonly id: string;
     /**
+     * The integration service environment reference.
+     */
+    readonly integrationServiceEnvironment?: outputs.logic.v20190501.ResourceReferenceResponse;
+    /**
      * The resource location.
      */
     readonly location?: string;
+    /**
+     * The metadata.
+     */
+    readonly metadata: outputs.logic.v20190501.ApiResourceMetadataResponse;
     /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The api resource properties.
+     * The policies for the API.
      */
-    readonly properties: outputs.logic.v20190501.ApiResourcePropertiesResponse;
+    readonly policies: outputs.logic.v20190501.ApiResourcePoliciesResponse;
+    /**
+     * The provisioning state.
+     */
+    readonly provisioningState: string;
+    /**
+     * The runtime urls.
+     */
+    readonly runtimeUrls: string[];
     /**
      * The resource tags.
      */

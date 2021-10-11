@@ -14,7 +14,6 @@ import (
 type Device struct {
 	pulumi.CustomResourceState
 
-	AzureStackEdge    SubResourceResponsePtrOutput   `pulumi:"azureStackEdge"`
 	DeviceType        pulumi.StringOutput            `pulumi:"deviceType"`
 	Location          pulumi.StringOutput            `pulumi:"location"`
 	Name              pulumi.StringOutput            `pulumi:"name"`
@@ -89,7 +88,6 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	AzureStackEdge    *SubResource      `pulumi:"azureStackEdge"`
 	DeviceName        *string           `pulumi:"deviceName"`
 	DeviceType        string            `pulumi:"deviceType"`
 	Location          *string           `pulumi:"location"`
@@ -99,7 +97,6 @@ type deviceArgs struct {
 
 
 type DeviceArgs struct {
-	AzureStackEdge    SubResourcePtrInput
 	DeviceName        pulumi.StringPtrInput
 	DeviceType        pulumi.StringInput
 	Location          pulumi.StringPtrInput

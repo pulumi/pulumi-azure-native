@@ -53,8 +53,12 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "cloud_tiering", cloud_tiering)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if initial_download_policy is None:
+            initial_download_policy = 'NamespaceThenModifiedFiles'
         if initial_download_policy is not None:
             pulumi.set(__self__, "initial_download_policy", initial_download_policy)
+        if local_cache_mode is None:
+            local_cache_mode = 'UpdateLocallyCachedFiles'
         if local_cache_mode is not None:
             pulumi.set(__self__, "local_cache_mode", local_cache_mode)
         if offline_data_transfer is not None:
@@ -333,7 +337,11 @@ class ServerEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["cloud_tiering"] = cloud_tiering
             __props__.__dict__["friendly_name"] = friendly_name
+            if initial_download_policy is None:
+                initial_download_policy = 'NamespaceThenModifiedFiles'
             __props__.__dict__["initial_download_policy"] = initial_download_policy
+            if local_cache_mode is None:
+                local_cache_mode = 'UpdateLocallyCachedFiles'
             __props__.__dict__["local_cache_mode"] = local_cache_mode
             __props__.__dict__["offline_data_transfer"] = offline_data_transfer
             __props__.__dict__["offline_data_transfer_share_name"] = offline_data_transfer_share_name

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration service environment.
         /// </summary>
-        public readonly Outputs.IntegrationServiceEnvironmentResponse? IntegrationServiceEnvironment;
+        public readonly Outputs.ResourceReferenceResponse? IntegrationServiceEnvironment;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Logic
         private GetIntegrationAccountResult(
             string id,
 
-            Outputs.IntegrationServiceEnvironmentResponse? integrationServiceEnvironment,
+            Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
 
             string? location,
 

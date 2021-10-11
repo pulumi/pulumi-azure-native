@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Logic.V20190501.Outputs
         /// <summary>
         /// Type of provider for OAuth.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private OpenAuthenticationAccessPolicyResponse(
             ImmutableArray<Outputs.OpenAuthenticationPolicyClaimResponse> claims,
 
-            string type)
+            string? type)
         {
             Claims = claims;
             Type = type;

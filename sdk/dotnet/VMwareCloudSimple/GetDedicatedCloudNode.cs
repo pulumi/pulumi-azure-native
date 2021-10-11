@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// <summary>
         /// date time the resource was created
         /// </summary>
-        public readonly object Created;
+        public readonly string Created;
         /// <summary>
         /// SKU's id
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 
             string cloudRackName,
 
-            object created,
+            string created,
 
             string id,
 

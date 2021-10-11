@@ -2206,6 +2206,7 @@ type ServerEndpointSyncActivityStatusResponse struct {
 	AppliedBytes      float64 `pulumi:"appliedBytes"`
 	AppliedItemCount  float64 `pulumi:"appliedItemCount"`
 	PerItemErrorCount float64 `pulumi:"perItemErrorCount"`
+	SyncMode          string  `pulumi:"syncMode"`
 	Timestamp         string  `pulumi:"timestamp"`
 	TotalBytes        float64 `pulumi:"totalBytes"`
 	TotalItemCount    float64 `pulumi:"totalItemCount"`
@@ -2226,6 +2227,7 @@ type ServerEndpointSyncActivityStatusResponseArgs struct {
 	AppliedBytes      pulumi.Float64Input `pulumi:"appliedBytes"`
 	AppliedItemCount  pulumi.Float64Input `pulumi:"appliedItemCount"`
 	PerItemErrorCount pulumi.Float64Input `pulumi:"perItemErrorCount"`
+	SyncMode          pulumi.StringInput  `pulumi:"syncMode"`
 	Timestamp         pulumi.StringInput  `pulumi:"timestamp"`
 	TotalBytes        pulumi.Float64Input `pulumi:"totalBytes"`
 	TotalItemCount    pulumi.Float64Input `pulumi:"totalItemCount"`
@@ -2320,6 +2322,10 @@ func (o ServerEndpointSyncActivityStatusResponseOutput) PerItemErrorCount() pulu
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) float64 { return v.PerItemErrorCount }).(pulumi.Float64Output)
 }
 
+func (o ServerEndpointSyncActivityStatusResponseOutput) SyncMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) string { return v.SyncMode }).(pulumi.StringOutput)
+}
+
 func (o ServerEndpointSyncActivityStatusResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
@@ -2383,6 +2389,15 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) PerItemErrorCount() p
 	}).(pulumi.Float64PtrOutput)
 }
 
+func (o ServerEndpointSyncActivityStatusResponsePtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ServerEndpointSyncActivityStatusResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) *string {
 		if v == nil {
@@ -2412,6 +2427,7 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) TotalItemCount() pulu
 
 type ServerEndpointSyncSessionStatusResponse struct {
 	FilesNotSyncingErrors          []ServerEndpointFilesNotSyncingErrorResponse `pulumi:"filesNotSyncingErrors"`
+	LastSyncMode                   string                                       `pulumi:"lastSyncMode"`
 	LastSyncPerItemErrorCount      float64                                      `pulumi:"lastSyncPerItemErrorCount"`
 	LastSyncResult                 int                                          `pulumi:"lastSyncResult"`
 	LastSyncSuccessTimestamp       string                                       `pulumi:"lastSyncSuccessTimestamp"`
@@ -2433,6 +2449,7 @@ type ServerEndpointSyncSessionStatusResponseInput interface {
 
 type ServerEndpointSyncSessionStatusResponseArgs struct {
 	FilesNotSyncingErrors          ServerEndpointFilesNotSyncingErrorResponseArrayInput `pulumi:"filesNotSyncingErrors"`
+	LastSyncMode                   pulumi.StringInput                                   `pulumi:"lastSyncMode"`
 	LastSyncPerItemErrorCount      pulumi.Float64Input                                  `pulumi:"lastSyncPerItemErrorCount"`
 	LastSyncResult                 pulumi.IntInput                                      `pulumi:"lastSyncResult"`
 	LastSyncSuccessTimestamp       pulumi.StringInput                                   `pulumi:"lastSyncSuccessTimestamp"`
@@ -2524,6 +2541,10 @@ func (o ServerEndpointSyncSessionStatusResponseOutput) FilesNotSyncingErrors() S
 	}).(ServerEndpointFilesNotSyncingErrorResponseArrayOutput)
 }
 
+func (o ServerEndpointSyncSessionStatusResponseOutput) LastSyncMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusResponse) string { return v.LastSyncMode }).(pulumi.StringOutput)
+}
+
 func (o ServerEndpointSyncSessionStatusResponseOutput) LastSyncPerItemErrorCount() pulumi.Float64Output {
 	return o.ApplyT(func(v ServerEndpointSyncSessionStatusResponse) float64 { return v.LastSyncPerItemErrorCount }).(pulumi.Float64Output)
 }
@@ -2579,6 +2600,15 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) FilesNotSyncingErrors(
 		}
 		return v.FilesNotSyncingErrors
 	}).(ServerEndpointFilesNotSyncingErrorResponseArrayOutput)
+}
+
+func (o ServerEndpointSyncSessionStatusResponsePtrOutput) LastSyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncSessionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastSyncMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ServerEndpointSyncSessionStatusResponsePtrOutput) LastSyncPerItemErrorCount() pulumi.Float64PtrOutput {

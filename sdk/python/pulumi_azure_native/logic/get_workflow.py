@@ -21,7 +21,7 @@ class GetWorkflowResult:
     """
     The workflow type.
     """
-    def __init__(__self__, access_control=None, access_endpoint=None, changed_time=None, created_time=None, definition=None, endpoints_configuration=None, id=None, integration_account=None, integration_service_environment=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, access_control=None, access_endpoint=None, changed_time=None, created_time=None, definition=None, endpoints_configuration=None, id=None, identity=None, integration_account=None, integration_service_environment=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
         pulumi.set(__self__, "access_control", access_control)
@@ -43,6 +43,9 @@ class GetWorkflowResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if integration_account and not isinstance(integration_account, dict):
             raise TypeError("Expected argument 'integration_account' to be a dict")
         pulumi.set(__self__, "integration_account", integration_account)
@@ -132,6 +135,14 @@ class GetWorkflowResult:
         The resource id.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity properties.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="integrationAccount")
@@ -235,6 +246,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             definition=self.definition,
             endpoints_configuration=self.endpoints_configuration,
             id=self.id,
+            identity=self.identity,
             integration_account=self.integration_account,
             integration_service_environment=self.integration_service_environment,
             location=self.location,
@@ -276,6 +288,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
         definition=__ret__.definition,
         endpoints_configuration=__ret__.endpoints_configuration,
         id=__ret__.id,
+        identity=__ret__.identity,
         integration_account=__ret__.integration_account,
         integration_service_environment=__ret__.integration_service_environment,
         location=__ret__.location,

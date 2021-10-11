@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the Azure stack edge device.
-        /// </summary>
-        [Output("azureStackEdge")]
-        public Output<Outputs.SubResourceResponse?> AzureStackEdge { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the device.
         /// </summary>
         [Output("deviceType")]
@@ -122,12 +116,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The reference to the Azure stack edge device.
-        /// </summary>
-        [Input("azureStackEdge")]
-        public Input<Inputs.SubResourceArgs>? AzureStackEdge { get; set; }
-
         /// <summary>
         /// Resource name for the device resource.
         /// </summary>

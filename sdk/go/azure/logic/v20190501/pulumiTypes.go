@@ -5634,323 +5634,6 @@ func (o ApiResourcePoliciesResponsePtrOutput) ContentLink() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApiResourcePropertiesResponse struct {
-	ApiDefinitionUrl              *string                                `pulumi:"apiDefinitionUrl"`
-	ApiDefinitions                *ApiResourceDefinitionsResponse        `pulumi:"apiDefinitions"`
-	BackendService                *ApiResourceBackendServiceResponse     `pulumi:"backendService"`
-	Capabilities                  []string                               `pulumi:"capabilities"`
-	Category                      *string                                `pulumi:"category"`
-	ConnectionParameters          map[string]interface{}                 `pulumi:"connectionParameters"`
-	GeneralInformation            *ApiResourceGeneralInformationResponse `pulumi:"generalInformation"`
-	IntegrationServiceEnvironment *ResourceReferenceResponse             `pulumi:"integrationServiceEnvironment"`
-	Metadata                      *ApiResourceMetadataResponse           `pulumi:"metadata"`
-	Name                          *string                                `pulumi:"name"`
-	Policies                      *ApiResourcePoliciesResponse           `pulumi:"policies"`
-	ProvisioningState             *string                                `pulumi:"provisioningState"`
-	RuntimeUrls                   []string                               `pulumi:"runtimeUrls"`
-}
-
-
-
-
-
-type ApiResourcePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApiResourcePropertiesResponseOutput() ApiResourcePropertiesResponseOutput
-	ToApiResourcePropertiesResponseOutputWithContext(context.Context) ApiResourcePropertiesResponseOutput
-}
-
-type ApiResourcePropertiesResponseArgs struct {
-	ApiDefinitionUrl              pulumi.StringPtrInput                         `pulumi:"apiDefinitionUrl"`
-	ApiDefinitions                ApiResourceDefinitionsResponsePtrInput        `pulumi:"apiDefinitions"`
-	BackendService                ApiResourceBackendServiceResponsePtrInput     `pulumi:"backendService"`
-	Capabilities                  pulumi.StringArrayInput                       `pulumi:"capabilities"`
-	Category                      pulumi.StringPtrInput                         `pulumi:"category"`
-	ConnectionParameters          pulumi.MapInput                               `pulumi:"connectionParameters"`
-	GeneralInformation            ApiResourceGeneralInformationResponsePtrInput `pulumi:"generalInformation"`
-	IntegrationServiceEnvironment ResourceReferenceResponsePtrInput             `pulumi:"integrationServiceEnvironment"`
-	Metadata                      ApiResourceMetadataResponsePtrInput           `pulumi:"metadata"`
-	Name                          pulumi.StringPtrInput                         `pulumi:"name"`
-	Policies                      ApiResourcePoliciesResponsePtrInput           `pulumi:"policies"`
-	ProvisioningState             pulumi.StringPtrInput                         `pulumi:"provisioningState"`
-	RuntimeUrls                   pulumi.StringArrayInput                       `pulumi:"runtimeUrls"`
-}
-
-func (ApiResourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i ApiResourcePropertiesResponseArgs) ToApiResourcePropertiesResponseOutput() ApiResourcePropertiesResponseOutput {
-	return i.ToApiResourcePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApiResourcePropertiesResponseArgs) ToApiResourcePropertiesResponseOutputWithContext(ctx context.Context) ApiResourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePropertiesResponseOutput)
-}
-
-func (i ApiResourcePropertiesResponseArgs) ToApiResourcePropertiesResponsePtrOutput() ApiResourcePropertiesResponsePtrOutput {
-	return i.ToApiResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApiResourcePropertiesResponseArgs) ToApiResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ApiResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePropertiesResponseOutput).ToApiResourcePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiResourcePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApiResourcePropertiesResponsePtrOutput() ApiResourcePropertiesResponsePtrOutput
-	ToApiResourcePropertiesResponsePtrOutputWithContext(context.Context) ApiResourcePropertiesResponsePtrOutput
-}
-
-type apiResourcePropertiesResponsePtrType ApiResourcePropertiesResponseArgs
-
-func ApiResourcePropertiesResponsePtr(v *ApiResourcePropertiesResponseArgs) ApiResourcePropertiesResponsePtrInput {
-	return (*apiResourcePropertiesResponsePtrType)(v)
-}
-
-func (*apiResourcePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i *apiResourcePropertiesResponsePtrType) ToApiResourcePropertiesResponsePtrOutput() ApiResourcePropertiesResponsePtrOutput {
-	return i.ToApiResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apiResourcePropertiesResponsePtrType) ToApiResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ApiResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePropertiesResponsePtrOutput)
-}
-
-type ApiResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ApiResourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o ApiResourcePropertiesResponseOutput) ToApiResourcePropertiesResponseOutput() ApiResourcePropertiesResponseOutput {
-	return o
-}
-
-func (o ApiResourcePropertiesResponseOutput) ToApiResourcePropertiesResponseOutputWithContext(ctx context.Context) ApiResourcePropertiesResponseOutput {
-	return o
-}
-
-func (o ApiResourcePropertiesResponseOutput) ToApiResourcePropertiesResponsePtrOutput() ApiResourcePropertiesResponsePtrOutput {
-	return o.ToApiResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApiResourcePropertiesResponseOutput) ToApiResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ApiResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourcePropertiesResponse) *ApiResourcePropertiesResponse {
-		return &v
-	}).(ApiResourcePropertiesResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *string { return v.ApiDefinitionUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) ApiDefinitions() ApiResourceDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ApiResourceDefinitionsResponse { return v.ApiDefinitions }).(ApiResourceDefinitionsResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) BackendService() ApiResourceBackendServiceResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ApiResourceBackendServiceResponse { return v.BackendService }).(ApiResourceBackendServiceResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) Capabilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) ConnectionParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) map[string]interface{} { return v.ConnectionParameters }).(pulumi.MapOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) GeneralInformation() ApiResourceGeneralInformationResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ApiResourceGeneralInformationResponse {
-		return v.GeneralInformation
-	}).(ApiResourceGeneralInformationResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) IntegrationServiceEnvironment() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ResourceReferenceResponse {
-		return v.IntegrationServiceEnvironment
-	}).(ResourceReferenceResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) Metadata() ApiResourceMetadataResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ApiResourceMetadataResponse { return v.Metadata }).(ApiResourceMetadataResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) Policies() ApiResourcePoliciesResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *ApiResourcePoliciesResponse { return v.Policies }).(ApiResourcePoliciesResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponseOutput) RuntimeUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
-}
-
-type ApiResourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApiResourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ToApiResourcePropertiesResponsePtrOutput() ApiResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ToApiResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ApiResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Elem() ApiResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) ApiResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiResourcePropertiesResponse
-		return ret
-	}).(ApiResourcePropertiesResponseOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApiDefinitionUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ApiDefinitions() ApiResourceDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ApiResourceDefinitionsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApiDefinitions
-	}).(ApiResourceDefinitionsResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) BackendService() ApiResourceBackendServiceResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ApiResourceBackendServiceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BackendService
-	}).(ApiResourceBackendServiceResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Capabilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Capabilities
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Category
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ConnectionParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionParameters
-	}).(pulumi.MapOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) GeneralInformation() ApiResourceGeneralInformationResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ApiResourceGeneralInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GeneralInformation
-	}).(ApiResourceGeneralInformationResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) IntegrationServiceEnvironment() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ResourceReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.IntegrationServiceEnvironment
-	}).(ResourceReferenceResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Metadata() ApiResourceMetadataResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ApiResourceMetadataResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(ApiResourceMetadataResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) Policies() ApiResourcePoliciesResponsePtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *ApiResourcePoliciesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Policies
-	}).(ApiResourcePoliciesResponsePtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiResourcePropertiesResponsePtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.RuntimeUrls
-	}).(pulumi.StringArrayOutput)
-}
-
 type AssemblyProperties struct {
 	AssemblyCulture        *string      `pulumi:"assemblyCulture"`
 	AssemblyName           string       `pulumi:"assemblyName"`
@@ -8059,154 +7742,6 @@ func (o BusinessIdentityResponseArrayOutput) Index(i pulumi.IntInput) BusinessId
 	}).(BusinessIdentityResponseOutput)
 }
 
-type ContentHash struct {
-	Algorithm *string `pulumi:"algorithm"`
-	Value     *string `pulumi:"value"`
-}
-
-
-
-
-
-type ContentHashInput interface {
-	pulumi.Input
-
-	ToContentHashOutput() ContentHashOutput
-	ToContentHashOutputWithContext(context.Context) ContentHashOutput
-}
-
-type ContentHashArgs struct {
-	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	Value     pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ContentHashArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentHash)(nil)).Elem()
-}
-
-func (i ContentHashArgs) ToContentHashOutput() ContentHashOutput {
-	return i.ToContentHashOutputWithContext(context.Background())
-}
-
-func (i ContentHashArgs) ToContentHashOutputWithContext(ctx context.Context) ContentHashOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentHashOutput)
-}
-
-func (i ContentHashArgs) ToContentHashPtrOutput() ContentHashPtrOutput {
-	return i.ToContentHashPtrOutputWithContext(context.Background())
-}
-
-func (i ContentHashArgs) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentHashOutput).ToContentHashPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContentHashPtrInput interface {
-	pulumi.Input
-
-	ToContentHashPtrOutput() ContentHashPtrOutput
-	ToContentHashPtrOutputWithContext(context.Context) ContentHashPtrOutput
-}
-
-type contentHashPtrType ContentHashArgs
-
-func ContentHashPtr(v *ContentHashArgs) ContentHashPtrInput {
-	return (*contentHashPtrType)(v)
-}
-
-func (*contentHashPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentHash)(nil)).Elem()
-}
-
-func (i *contentHashPtrType) ToContentHashPtrOutput() ContentHashPtrOutput {
-	return i.ToContentHashPtrOutputWithContext(context.Background())
-}
-
-func (i *contentHashPtrType) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentHashPtrOutput)
-}
-
-type ContentHashOutput struct{ *pulumi.OutputState }
-
-func (ContentHashOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentHash)(nil)).Elem()
-}
-
-func (o ContentHashOutput) ToContentHashOutput() ContentHashOutput {
-	return o
-}
-
-func (o ContentHashOutput) ToContentHashOutputWithContext(ctx context.Context) ContentHashOutput {
-	return o
-}
-
-func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
-	return o.ToContentHashPtrOutputWithContext(context.Background())
-}
-
-func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
-		return &v
-	}).(ContentHashPtrOutput)
-}
-
-func (o ContentHashOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContentHash) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
-}
-
-func (o ContentHashOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContentHash) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ContentHashPtrOutput struct{ *pulumi.OutputState }
-
-func (ContentHashPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentHash)(nil)).Elem()
-}
-
-func (o ContentHashPtrOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
-	return o
-}
-
-func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o
-}
-
-func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash {
-		if v != nil {
-			return *v
-		}
-		var ret ContentHash
-		return ret
-	}).(ContentHashOutput)
-}
-
-func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContentHash) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Algorithm
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContentHash) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
 type ContentHashResponse struct {
 	Algorithm *string `pulumi:"algorithm"`
 	Value     *string `pulumi:"value"`
@@ -8356,11 +7891,7 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type ContentLink struct {
-	ContentHash    *ContentHash `pulumi:"contentHash"`
-	ContentSize    *float64     `pulumi:"contentSize"`
-	ContentVersion *string      `pulumi:"contentVersion"`
-	Metadata       interface{}  `pulumi:"metadata"`
-	Uri            *string      `pulumi:"uri"`
+	Uri *string `pulumi:"uri"`
 }
 
 
@@ -8375,11 +7906,7 @@ type ContentLinkInput interface {
 }
 
 type ContentLinkArgs struct {
-	ContentHash    ContentHashPtrInput    `pulumi:"contentHash"`
-	ContentSize    pulumi.Float64PtrInput `pulumi:"contentSize"`
-	ContentVersion pulumi.StringPtrInput  `pulumi:"contentVersion"`
-	Metadata       pulumi.Input           `pulumi:"metadata"`
-	Uri            pulumi.StringPtrInput  `pulumi:"uri"`
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (ContentLinkArgs) ElementType() reflect.Type {
@@ -8459,22 +7986,6 @@ func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context
 	}).(ContentLinkPtrOutput)
 }
 
-func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentHash { return v.ContentHash }).(ContentHashPtrOutput)
-}
-
-func (o ContentLinkOutput) ContentSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContentLink) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
-}
-
-func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContentLink) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
-}
-
-func (o ContentLinkOutput) Metadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v ContentLink) interface{} { return v.Metadata }).(pulumi.AnyOutput)
-}
-
 func (o ContentLinkOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -8503,42 +8014,6 @@ func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
 	}).(ContentLinkOutput)
 }
 
-func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
-	return o.ApplyT(func(v *ContentLink) *ContentHash {
-		if v == nil {
-			return nil
-		}
-		return v.ContentHash
-	}).(ContentHashPtrOutput)
-}
-
-func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ContentLink) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ContentSize
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContentLink) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ContentLink) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.AnyOutput)
-}
-
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -8549,11 +8024,11 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type ContentLinkResponse struct {
-	ContentHash    *ContentHashResponse `pulumi:"contentHash"`
-	ContentSize    *float64             `pulumi:"contentSize"`
-	ContentVersion *string              `pulumi:"contentVersion"`
-	Metadata       interface{}          `pulumi:"metadata"`
-	Uri            *string              `pulumi:"uri"`
+	ContentHash    ContentHashResponse `pulumi:"contentHash"`
+	ContentSize    float64             `pulumi:"contentSize"`
+	ContentVersion string              `pulumi:"contentVersion"`
+	Metadata       interface{}         `pulumi:"metadata"`
+	Uri            *string             `pulumi:"uri"`
 }
 
 
@@ -8568,11 +8043,11 @@ type ContentLinkResponseInput interface {
 }
 
 type ContentLinkResponseArgs struct {
-	ContentHash    ContentHashResponsePtrInput `pulumi:"contentHash"`
-	ContentSize    pulumi.Float64PtrInput      `pulumi:"contentSize"`
-	ContentVersion pulumi.StringPtrInput       `pulumi:"contentVersion"`
-	Metadata       pulumi.Input                `pulumi:"metadata"`
-	Uri            pulumi.StringPtrInput       `pulumi:"uri"`
+	ContentHash    ContentHashResponseInput `pulumi:"contentHash"`
+	ContentSize    pulumi.Float64Input      `pulumi:"contentSize"`
+	ContentVersion pulumi.StringInput       `pulumi:"contentVersion"`
+	Metadata       pulumi.Input             `pulumi:"metadata"`
+	Uri            pulumi.StringPtrInput    `pulumi:"uri"`
 }
 
 func (ContentLinkResponseArgs) ElementType() reflect.Type {
@@ -8652,16 +8127,16 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx
 	}).(ContentLinkResponsePtrOutput)
 }
 
-func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentHashResponse { return v.ContentHash }).(ContentHashResponsePtrOutput)
+func (o ContentLinkResponseOutput) ContentHash() ContentHashResponseOutput {
+	return o.ApplyT(func(v ContentLinkResponse) ContentHashResponse { return v.ContentHash }).(ContentHashResponseOutput)
 }
 
-func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
+func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentLinkResponse) float64 { return v.ContentSize }).(pulumi.Float64Output)
 }
 
-func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
+func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentLinkResponse) string { return v.ContentVersion }).(pulumi.StringOutput)
 }
 
 func (o ContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
@@ -8701,7 +8176,7 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.ContentHash
+		return &v.ContentHash
 	}).(ContentHashResponsePtrOutput)
 }
 
@@ -8710,7 +8185,7 @@ func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ContentSize
+		return &v.ContentSize
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -8719,7 +8194,7 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ContentVersion
+		return &v.ContentVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17725,186 +17200,6 @@ func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) Key
 	}).(pulumi.StringPtrOutput)
 }
 
-type IntegrationServiceEnvironmentType struct {
-	Location   *string                                  `pulumi:"location"`
-	Properties *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
-	Sku        *IntegrationServiceEnvironmentSku        `pulumi:"sku"`
-	Tags       map[string]string                        `pulumi:"tags"`
-}
-
-
-
-
-
-type IntegrationServiceEnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationServiceEnvironmentTypeOutput() IntegrationServiceEnvironmentTypeOutput
-	ToIntegrationServiceEnvironmentTypeOutputWithContext(context.Context) IntegrationServiceEnvironmentTypeOutput
-}
-
-type IntegrationServiceEnvironmentTypeArgs struct {
-	Location   pulumi.StringPtrInput                           `pulumi:"location"`
-	Properties IntegrationServiceEnvironmentPropertiesPtrInput `pulumi:"properties"`
-	Sku        IntegrationServiceEnvironmentSkuPtrInput        `pulumi:"sku"`
-	Tags       pulumi.StringMapInput                           `pulumi:"tags"`
-}
-
-func (IntegrationServiceEnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentType)(nil)).Elem()
-}
-
-func (i IntegrationServiceEnvironmentTypeArgs) ToIntegrationServiceEnvironmentTypeOutput() IntegrationServiceEnvironmentTypeOutput {
-	return i.ToIntegrationServiceEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationServiceEnvironmentTypeArgs) ToIntegrationServiceEnvironmentTypeOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentTypeOutput)
-}
-
-func (i IntegrationServiceEnvironmentTypeArgs) ToIntegrationServiceEnvironmentTypePtrOutput() IntegrationServiceEnvironmentTypePtrOutput {
-	return i.ToIntegrationServiceEnvironmentTypePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationServiceEnvironmentTypeArgs) ToIntegrationServiceEnvironmentTypePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentTypeOutput).ToIntegrationServiceEnvironmentTypePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IntegrationServiceEnvironmentTypePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationServiceEnvironmentTypePtrOutput() IntegrationServiceEnvironmentTypePtrOutput
-	ToIntegrationServiceEnvironmentTypePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentTypePtrOutput
-}
-
-type integrationServiceEnvironmentTypePtrType IntegrationServiceEnvironmentTypeArgs
-
-func IntegrationServiceEnvironmentTypePtr(v *IntegrationServiceEnvironmentTypeArgs) IntegrationServiceEnvironmentTypePtrInput {
-	return (*integrationServiceEnvironmentTypePtrType)(v)
-}
-
-func (*integrationServiceEnvironmentTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationServiceEnvironmentType)(nil)).Elem()
-}
-
-func (i *integrationServiceEnvironmentTypePtrType) ToIntegrationServiceEnvironmentTypePtrOutput() IntegrationServiceEnvironmentTypePtrOutput {
-	return i.ToIntegrationServiceEnvironmentTypePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationServiceEnvironmentTypePtrType) ToIntegrationServiceEnvironmentTypePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentTypePtrOutput)
-}
-
-type IntegrationServiceEnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationServiceEnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentType)(nil)).Elem()
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) ToIntegrationServiceEnvironmentTypeOutput() IntegrationServiceEnvironmentTypeOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) ToIntegrationServiceEnvironmentTypeOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypeOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) ToIntegrationServiceEnvironmentTypePtrOutput() IntegrationServiceEnvironmentTypePtrOutput {
-	return o.ToIntegrationServiceEnvironmentTypePtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) ToIntegrationServiceEnvironmentTypePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentType {
-		return &v
-	}).(IntegrationServiceEnvironmentTypePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) Properties() IntegrationServiceEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentProperties {
-		return v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) Sku() IntegrationServiceEnvironmentSkuPtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSku { return v.Sku }).(IntegrationServiceEnvironmentSkuPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type IntegrationServiceEnvironmentTypePtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationServiceEnvironmentTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationServiceEnvironmentType)(nil)).Elem()
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) ToIntegrationServiceEnvironmentTypePtrOutput() IntegrationServiceEnvironmentTypePtrOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) ToIntegrationServiceEnvironmentTypePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentTypePtrOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) Elem() IntegrationServiceEnvironmentTypeOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) IntegrationServiceEnvironmentType {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationServiceEnvironmentType
-		return ret
-	}).(IntegrationServiceEnvironmentTypeOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) Properties() IntegrationServiceEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) Sku() IntegrationServiceEnvironmentSkuPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSku {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(IntegrationServiceEnvironmentSkuPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentTypePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
 type IntegrationServiceEnvironmentAccessEndpoint struct {
 	Type *string `pulumi:"type"`
 }
@@ -18169,6 +17464,276 @@ func (o IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput) Type() pul
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParameters struct {
+	ContentLinkDefinition *ContentLink `pulumi:"contentLinkDefinition"`
+}
+
+
+
+
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutputWithContext(context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs struct {
+	ContentLinkDefinition ContentLinkPtrInput `pulumi:"contentLinkDefinition"`
+}
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParameters)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput)
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput).ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput
+}
+
+type integrationServiceEnvironmentManagedApiDeploymentParametersPtrType IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs
+
+func IntegrationServiceEnvironmentManagedApiDeploymentParametersPtr(v *IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrInput {
+	return (*integrationServiceEnvironmentManagedApiDeploymentParametersPtrType)(v)
+}
+
+func (*integrationServiceEnvironmentManagedApiDeploymentParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApiDeploymentParameters)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmentManagedApiDeploymentParametersPtrType) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmentManagedApiDeploymentParametersPtrType) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParameters)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return o.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationServiceEnvironmentManagedApiDeploymentParameters) *IntegrationServiceEnvironmentManagedApiDeploymentParameters {
+		return &v
+	}).(IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput)
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput) ContentLinkDefinition() ContentLinkPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiDeploymentParameters) *ContentLink {
+		return v.ContentLinkDefinition
+	}).(ContentLinkPtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApiDeploymentParameters)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput) Elem() IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApiDeploymentParameters) IntegrationServiceEnvironmentManagedApiDeploymentParameters {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationServiceEnvironmentManagedApiDeploymentParameters
+		return ret
+	}).(IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput)
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput) ContentLinkDefinition() ContentLinkPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApiDeploymentParameters) *ContentLink {
+		if v == nil {
+			return nil
+		}
+		return v.ContentLinkDefinition
+	}).(ContentLinkPtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse struct {
+	ContentLinkDefinition *ContentLinkResponse `pulumi:"contentLinkDefinition"`
+}
+
+
+
+
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs struct {
+	ContentLinkDefinition ContentLinkResponsePtrInput `pulumi:"contentLinkDefinition"`
+}
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput).ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput
+	ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput
+}
+
+type integrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrType IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs
+
+func IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtr(v *IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrInput {
+	return (*integrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrType) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrType) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse) *IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse {
+		return &v
+	}).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput)
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput) ContentLinkDefinition() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse) *ContentLinkResponse {
+		return v.ContentLinkDefinition
+	}).(ContentLinkResponsePtrOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput) ToIntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput) Elem() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse
+		return ret
+	}).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput)
+}
+
+func (o IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput) ContentLinkDefinition() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse) *ContentLinkResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContentLinkDefinition
+	}).(ContentLinkResponsePtrOutput)
 }
 
 type IntegrationServiceEnvironmentProperties struct {
@@ -18596,231 +18161,6 @@ func (o IntegrationServiceEnvironmentPropertiesResponsePtrOutput) State() pulumi
 			return nil
 		}
 		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-type IntegrationServiceEnvironmentResponse struct {
-	Id         string                                           `pulumi:"id"`
-	Location   *string                                          `pulumi:"location"`
-	Name       string                                           `pulumi:"name"`
-	Properties *IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`
-	Sku        *IntegrationServiceEnvironmentSkuResponse        `pulumi:"sku"`
-	Tags       map[string]string                                `pulumi:"tags"`
-	Type       string                                           `pulumi:"type"`
-}
-
-
-
-
-
-type IntegrationServiceEnvironmentResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationServiceEnvironmentResponseOutput() IntegrationServiceEnvironmentResponseOutput
-	ToIntegrationServiceEnvironmentResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentResponseOutput
-}
-
-type IntegrationServiceEnvironmentResponseArgs struct {
-	Id         pulumi.StringInput                                      `pulumi:"id"`
-	Location   pulumi.StringPtrInput                                   `pulumi:"location"`
-	Name       pulumi.StringInput                                      `pulumi:"name"`
-	Properties IntegrationServiceEnvironmentPropertiesResponsePtrInput `pulumi:"properties"`
-	Sku        IntegrationServiceEnvironmentSkuResponsePtrInput        `pulumi:"sku"`
-	Tags       pulumi.StringMapInput                                   `pulumi:"tags"`
-	Type       pulumi.StringInput                                      `pulumi:"type"`
-}
-
-func (IntegrationServiceEnvironmentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentResponse)(nil)).Elem()
-}
-
-func (i IntegrationServiceEnvironmentResponseArgs) ToIntegrationServiceEnvironmentResponseOutput() IntegrationServiceEnvironmentResponseOutput {
-	return i.ToIntegrationServiceEnvironmentResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationServiceEnvironmentResponseArgs) ToIntegrationServiceEnvironmentResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentResponseOutput)
-}
-
-func (i IntegrationServiceEnvironmentResponseArgs) ToIntegrationServiceEnvironmentResponsePtrOutput() IntegrationServiceEnvironmentResponsePtrOutput {
-	return i.ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationServiceEnvironmentResponseArgs) ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentResponseOutput).ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IntegrationServiceEnvironmentResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationServiceEnvironmentResponsePtrOutput() IntegrationServiceEnvironmentResponsePtrOutput
-	ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentResponsePtrOutput
-}
-
-type integrationServiceEnvironmentResponsePtrType IntegrationServiceEnvironmentResponseArgs
-
-func IntegrationServiceEnvironmentResponsePtr(v *IntegrationServiceEnvironmentResponseArgs) IntegrationServiceEnvironmentResponsePtrInput {
-	return (*integrationServiceEnvironmentResponsePtrType)(v)
-}
-
-func (*integrationServiceEnvironmentResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationServiceEnvironmentResponse)(nil)).Elem()
-}
-
-func (i *integrationServiceEnvironmentResponsePtrType) ToIntegrationServiceEnvironmentResponsePtrOutput() IntegrationServiceEnvironmentResponsePtrOutput {
-	return i.ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationServiceEnvironmentResponsePtrType) ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentResponsePtrOutput)
-}
-
-type IntegrationServiceEnvironmentResponseOutput struct{ *pulumi.OutputState }
-
-func (IntegrationServiceEnvironmentResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentResponse)(nil)).Elem()
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) ToIntegrationServiceEnvironmentResponseOutput() IntegrationServiceEnvironmentResponseOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) ToIntegrationServiceEnvironmentResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponseOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) ToIntegrationServiceEnvironmentResponsePtrOutput() IntegrationServiceEnvironmentResponsePtrOutput {
-	return o.ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationServiceEnvironmentResponse) *IntegrationServiceEnvironmentResponse {
-		return &v
-	}).(IntegrationServiceEnvironmentResponsePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Properties() IntegrationServiceEnvironmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) *IntegrationServiceEnvironmentPropertiesResponse {
-		return v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesResponsePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Sku() IntegrationServiceEnvironmentSkuResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) *IntegrationServiceEnvironmentSkuResponse { return v.Sku }).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type IntegrationServiceEnvironmentResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationServiceEnvironmentResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationServiceEnvironmentResponse)(nil)).Elem()
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) ToIntegrationServiceEnvironmentResponsePtrOutput() IntegrationServiceEnvironmentResponsePtrOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) ToIntegrationServiceEnvironmentResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentResponsePtrOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Elem() IntegrationServiceEnvironmentResponseOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) IntegrationServiceEnvironmentResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationServiceEnvironmentResponse
-		return ret
-	}).(IntegrationServiceEnvironmentResponseOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Properties() IntegrationServiceEnvironmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *IntegrationServiceEnvironmentPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesResponsePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Sku() IntegrationServiceEnvironmentSkuResponsePtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *IntegrationServiceEnvironmentSkuResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-func (o IntegrationServiceEnvironmentResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20436,6 +19776,334 @@ func (o KeyVaultReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+type ManagedServiceIdentity struct {
+	Type                   string                 `pulumi:"type"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+
+
+
+
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+type ManagedServiceIdentityArgs struct {
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
+}
+
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+type ManagedServiceIdentityResponse struct {
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   string                                  `pulumi:"type"`
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+
+
+
+
+type ManagedServiceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput
+	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
+}
+
+type ManagedServiceIdentityResponseArgs struct {
+	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                   `pulumi:"type"`
+	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return i.ToManagedServiceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput)
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput).ToManagedServiceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ManagedServiceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput
+	ToManagedServiceIdentityResponsePtrOutputWithContext(context.Context) ManagedServiceIdentityResponsePtrOutput
+}
+
+type managedServiceIdentityResponsePtrType ManagedServiceIdentityResponseArgs
+
+func ManagedServiceIdentityResponsePtr(v *ManagedServiceIdentityResponseArgs) ManagedServiceIdentityResponsePtrInput {
+	return (*managedServiceIdentityResponsePtrType)(v)
+}
+
+func (*managedServiceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+		return &v
+	}).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
 type NetworkConfiguration struct {
 	AccessEndpoint             *IntegrationServiceEnvironmentAccessEndpoint `pulumi:"accessEndpoint"`
 	Subnets                    []ResourceReference                          `pulumi:"subnets"`
@@ -21034,6 +20702,7 @@ func (o OpenAuthenticationAccessPoliciesResponsePtrOutput) Policies() OpenAuthen
 
 type OpenAuthenticationAccessPolicy struct {
 	Claims []OpenAuthenticationPolicyClaim `pulumi:"claims"`
+	Type   *string                         `pulumi:"type"`
 }
 
 
@@ -21049,6 +20718,7 @@ type OpenAuthenticationAccessPolicyInput interface {
 
 type OpenAuthenticationAccessPolicyArgs struct {
 	Claims OpenAuthenticationPolicyClaimArrayInput `pulumi:"claims"`
+	Type   pulumi.StringPtrInput                   `pulumi:"type"`
 }
 
 func (OpenAuthenticationAccessPolicyArgs) ElementType() reflect.Type {
@@ -21106,6 +20776,10 @@ func (o OpenAuthenticationAccessPolicyOutput) Claims() OpenAuthenticationPolicyC
 	return o.ApplyT(func(v OpenAuthenticationAccessPolicy) []OpenAuthenticationPolicyClaim { return v.Claims }).(OpenAuthenticationPolicyClaimArrayOutput)
 }
 
+func (o OpenAuthenticationAccessPolicyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPolicy) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type OpenAuthenticationAccessPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (OpenAuthenticationAccessPolicyMapOutput) ElementType() reflect.Type {
@@ -21128,7 +20802,7 @@ func (o OpenAuthenticationAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) 
 
 type OpenAuthenticationAccessPolicyResponse struct {
 	Claims []OpenAuthenticationPolicyClaimResponse `pulumi:"claims"`
-	Type   string                                  `pulumi:"type"`
+	Type   *string                                 `pulumi:"type"`
 }
 
 
@@ -21144,7 +20818,7 @@ type OpenAuthenticationAccessPolicyResponseInput interface {
 
 type OpenAuthenticationAccessPolicyResponseArgs struct {
 	Claims OpenAuthenticationPolicyClaimResponseArrayInput `pulumi:"claims"`
-	Type   pulumi.StringInput                              `pulumi:"type"`
+	Type   pulumi.StringPtrInput                           `pulumi:"type"`
 }
 
 func (OpenAuthenticationAccessPolicyResponseArgs) ElementType() reflect.Type {
@@ -21204,8 +20878,8 @@ func (o OpenAuthenticationAccessPolicyResponseOutput) Claims() OpenAuthenticatio
 	}).(OpenAuthenticationPolicyClaimResponseArrayOutput)
 }
 
-func (o OpenAuthenticationAccessPolicyResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenAuthenticationAccessPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o OpenAuthenticationAccessPolicyResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPolicyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type OpenAuthenticationAccessPolicyResponseMapOutput struct{ *pulumi.OutputState }
@@ -22812,6 +22486,106 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 		}
 		return v.Plan
 	}).(ResourceReferenceResponsePtrOutput)
+}
+
+type UserAssignedIdentityResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+
+
+
+
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+type UserAssignedIdentityResponseArgs struct {
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+
+
+
+
+type UserAssignedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
+}
+
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
+
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
+}
+
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
 }
 
 type WorkflowParameter struct {
@@ -29988,8 +29762,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiResourceMetadataResponsePtrInput)(nil)).Elem(), ApiResourceMetadataResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiResourcePoliciesResponseInput)(nil)).Elem(), ApiResourcePoliciesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiResourcePoliciesResponsePtrInput)(nil)).Elem(), ApiResourcePoliciesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiResourcePropertiesResponseInput)(nil)).Elem(), ApiResourcePropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiResourcePropertiesResponsePtrInput)(nil)).Elem(), ApiResourcePropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssemblyPropertiesInput)(nil)).Elem(), AssemblyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssemblyPropertiesPtrInput)(nil)).Elem(), AssemblyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssemblyPropertiesResponseInput)(nil)).Elem(), AssemblyPropertiesResponseArgs{})
@@ -30015,8 +29787,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessIdentityResponseInput)(nil)).Elem(), BusinessIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessIdentityResponsePtrInput)(nil)).Elem(), BusinessIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessIdentityResponseArrayInput)(nil)).Elem(), BusinessIdentityResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashInput)(nil)).Elem(), ContentHashArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashPtrInput)(nil)).Elem(), ContentHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashResponseInput)(nil)).Elem(), ContentHashResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentHashResponsePtrInput)(nil)).Elem(), ContentHashResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentLinkInput)(nil)).Elem(), ContentLinkArgs{})
@@ -30115,18 +29885,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput)(nil)).Elem(), IntegrationServiceEnvironmenEncryptionKeyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceResponseInput)(nil)).Elem(), IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput)(nil)).Elem(), IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentTypeInput)(nil)).Elem(), IntegrationServiceEnvironmentTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentTypePtrInput)(nil)).Elem(), IntegrationServiceEnvironmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointInput)(nil)).Elem(), IntegrationServiceEnvironmentAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointPtrInput)(nil)).Elem(), IntegrationServiceEnvironmentAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointResponseInput)(nil)).Elem(), IntegrationServiceEnvironmentAccessEndpointResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointResponsePtrInput)(nil)).Elem(), IntegrationServiceEnvironmentAccessEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersInput)(nil)).Elem(), IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrInput)(nil)).Elem(), IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseInput)(nil)).Elem(), IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrInput)(nil)).Elem(), IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesInput)(nil)).Elem(), IntegrationServiceEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesPtrInput)(nil)).Elem(), IntegrationServiceEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesResponseInput)(nil)).Elem(), IntegrationServiceEnvironmentPropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesResponsePtrInput)(nil)).Elem(), IntegrationServiceEnvironmentPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentResponseInput)(nil)).Elem(), IntegrationServiceEnvironmentResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentResponsePtrInput)(nil)).Elem(), IntegrationServiceEnvironmentResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentSkuInput)(nil)).Elem(), IntegrationServiceEnvironmentSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentSkuPtrInput)(nil)).Elem(), IntegrationServiceEnvironmentSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentSkuResponseInput)(nil)).Elem(), IntegrationServiceEnvironmentSkuResponseArgs{})
@@ -30152,6 +29922,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultKeyResponseAttributesInput)(nil)).Elem(), KeyVaultKeyResponseAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultKeyResponseAttributesPtrInput)(nil)).Elem(), KeyVaultKeyResponseAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultReferenceInput)(nil)).Elem(), KeyVaultReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityInput)(nil)).Elem(), ManagedServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityPtrInput)(nil)).Elem(), ManagedServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityResponseInput)(nil)).Elem(), ManagedServiceIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityResponsePtrInput)(nil)).Elem(), ManagedServiceIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConfigurationInput)(nil)).Elem(), NetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConfigurationPtrInput)(nil)).Elem(), NetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConfigurationResponseInput)(nil)).Elem(), NetworkConfigurationResponseArgs{})
@@ -30188,6 +29962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceReferenceResponseArrayInput)(nil)).Elem(), ResourceReferenceResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseInput)(nil)).Elem(), UserAssignedIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseMapInput)(nil)).Elem(), UserAssignedIdentityResponseMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterInput)(nil)).Elem(), WorkflowParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterMapInput)(nil)).Elem(), WorkflowParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterResponseInput)(nil)).Elem(), WorkflowParameterResponseArgs{})
@@ -30318,8 +30094,6 @@ func init() {
 	pulumi.RegisterOutputType(ApiResourceMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourcePoliciesResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourcePoliciesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApiResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApiResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesResponseOutput{})
@@ -30345,8 +30119,6 @@ func init() {
 	pulumi.RegisterOutputType(BusinessIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityResponseArrayOutput{})
-	pulumi.RegisterOutputType(ContentHashOutput{})
-	pulumi.RegisterOutputType(ContentHashPtrOutput{})
 	pulumi.RegisterOutputType(ContentHashResponseOutput{})
 	pulumi.RegisterOutputType(ContentHashResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkOutput{})
@@ -30445,18 +30217,18 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypeOutput{})
-	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiDeploymentParametersOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationServiceEnvironmentResponseOutput{})
-	pulumi.RegisterOutputType(IntegrationServiceEnvironmentResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuResponseOutput{})
@@ -30482,6 +30254,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponseOutput{})
@@ -30518,6 +30294,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})

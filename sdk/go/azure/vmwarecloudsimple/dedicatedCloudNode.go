@@ -17,7 +17,7 @@ type DedicatedCloudNode struct {
 	AvailabilityZoneId   pulumi.StringOutput    `pulumi:"availabilityZoneId"`
 	AvailabilityZoneName pulumi.StringOutput    `pulumi:"availabilityZoneName"`
 	CloudRackName        pulumi.StringOutput    `pulumi:"cloudRackName"`
-	Created              pulumi.AnyOutput       `pulumi:"created"`
+	Created              pulumi.StringOutput    `pulumi:"created"`
 	Location             pulumi.StringOutput    `pulumi:"location"`
 	Name                 pulumi.StringOutput    `pulumi:"name"`
 	NodesCount           pulumi.IntOutput       `pulumi:"nodesCount"`

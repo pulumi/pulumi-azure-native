@@ -11,12 +11,13 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['IntegrationServiceEnvironmentInitArgs', 'IntegrationServiceEnvironment']
+__all__ = ['IntegrationServiceEnvironmentArgs', 'IntegrationServiceEnvironment']
 
 @pulumi.input_type
-class IntegrationServiceEnvironmentInitArgs:
+class IntegrationServiceEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
@@ -25,6 +26,7 @@ class IntegrationServiceEnvironmentInitArgs:
         """
         The set of arguments for constructing a IntegrationServiceEnvironment resource.
         :param pulumi.Input[str] resource_group: The resource group.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity properties.
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
@@ -32,6 +34,8 @@ class IntegrationServiceEnvironmentInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group", resource_group)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if integration_service_environment_name is not None:
             pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
         if location is not None:
@@ -54,6 +58,18 @@ class IntegrationServiceEnvironmentInitArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity properties.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="integrationServiceEnvironmentName")
@@ -121,6 +137,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']]] = None,
@@ -133,6 +150,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity properties.
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']] properties: The integration service environment properties.
@@ -144,18 +162,18 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationServiceEnvironmentInitArgs,
+                 args: IntegrationServiceEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration service environment.
 
         :param str resource_name: The name of the resource.
-        :param IntegrationServiceEnvironmentInitArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -164,6 +182,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']]] = None,
@@ -180,8 +199,9 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationServiceEnvironmentInitArgs.__new__(IntegrationServiceEnvironmentInitArgs)
+            __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["integration_service_environment_name"] = integration_service_environment_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -214,8 +234,9 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IntegrationServiceEnvironmentInitArgs.__new__(IntegrationServiceEnvironmentInitArgs)
+        __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
 
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -223,6 +244,14 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return IntegrationServiceEnvironment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity properties.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

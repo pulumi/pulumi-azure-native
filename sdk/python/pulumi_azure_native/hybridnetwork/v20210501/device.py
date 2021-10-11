@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['DeviceArgs', 'Device']
 
@@ -18,7 +17,6 @@ class DeviceArgs:
     def __init__(__self__, *,
                  device_type: pulumi.Input[Union[str, 'DeviceType']],
                  resource_group_name: pulumi.Input[str],
-                 azure_stack_edge: Optional[pulumi.Input['SubResourceArgs']] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,15 +24,12 @@ class DeviceArgs:
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[Union[str, 'DeviceType']] device_type: The type of the device.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SubResourceArgs'] azure_stack_edge: The reference to the Azure stack edge device. Once set, it cannot be updated.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "device_type", device_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if azure_stack_edge is not None:
-            pulumi.set(__self__, "azure_stack_edge", azure_stack_edge)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if location is not None:
@@ -65,18 +60,6 @@ class DeviceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="azureStackEdge")
-    def azure_stack_edge(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
-        """
-        return pulumi.get(self, "azure_stack_edge")
-
-    @azure_stack_edge.setter
-    def azure_stack_edge(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "azure_stack_edge", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -120,7 +103,6 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_stack_edge: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[Union[str, 'DeviceType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -132,7 +114,6 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the Azure stack edge device. Once set, it cannot be updated.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
         :param pulumi.Input[Union[str, 'DeviceType']] device_type: The type of the device.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -163,7 +144,6 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_stack_edge: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[Union[str, 'DeviceType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -181,7 +161,6 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
-            __props__.__dict__["azure_stack_edge"] = azure_stack_edge
             __props__.__dict__["device_name"] = device_name
             if device_type is None and not opts.urn:
                 raise TypeError("Missing required property 'device_type'")
@@ -221,7 +200,6 @@ class Device(pulumi.CustomResource):
 
         __props__ = DeviceArgs.__new__(DeviceArgs)
 
-        __props__.__dict__["azure_stack_edge"] = None
         __props__.__dict__["device_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -232,14 +210,6 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Device(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="azureStackEdge")
-    def azure_stack_edge(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
-        """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
-        """
-        return pulumi.get(self, "azure_stack_edge")
 
     @property
     @pulumi.getter(name="deviceType")

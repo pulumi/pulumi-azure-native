@@ -52,6 +52,12 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	if args.SyncGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
+	if args.InitialDownloadPolicy == nil {
+		args.InitialDownloadPolicy = pulumi.StringPtr("NamespaceThenModifiedFiles")
+	}
+	if args.LocalCacheMode == nil {
+		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:ServerEndpoint"),

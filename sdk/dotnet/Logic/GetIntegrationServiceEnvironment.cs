@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNative.Logic
         private GetIntegrationServiceEnvironmentResult(
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string? location,
 
             string name,
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.Logic
             string type)
         {
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

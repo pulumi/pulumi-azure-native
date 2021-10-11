@@ -14,11 +14,23 @@ import (
 type IntegrationServiceEnvironmentManagedApi struct {
 	pulumi.CustomResourceState
 
-	Location   pulumi.StringPtrOutput              `pulumi:"location"`
-	Name       pulumi.StringOutput                 `pulumi:"name"`
-	Properties ApiResourcePropertiesResponseOutput `pulumi:"properties"`
-	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
-	Type       pulumi.StringOutput                 `pulumi:"type"`
+	ApiDefinitionUrl              pulumi.StringOutput                                                          `pulumi:"apiDefinitionUrl"`
+	ApiDefinitions                ApiResourceDefinitionsResponseOutput                                         `pulumi:"apiDefinitions"`
+	BackendService                ApiResourceBackendServiceResponseOutput                                      `pulumi:"backendService"`
+	Capabilities                  pulumi.StringArrayOutput                                                     `pulumi:"capabilities"`
+	Category                      pulumi.StringOutput                                                          `pulumi:"category"`
+	ConnectionParameters          pulumi.MapOutput                                                             `pulumi:"connectionParameters"`
+	DeploymentParameters          IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput `pulumi:"deploymentParameters"`
+	GeneralInformation            ApiResourceGeneralInformationResponseOutput                                  `pulumi:"generalInformation"`
+	IntegrationServiceEnvironment ResourceReferenceResponsePtrOutput                                           `pulumi:"integrationServiceEnvironment"`
+	Location                      pulumi.StringPtrOutput                                                       `pulumi:"location"`
+	Metadata                      ApiResourceMetadataResponseOutput                                            `pulumi:"metadata"`
+	Name                          pulumi.StringOutput                                                          `pulumi:"name"`
+	Policies                      ApiResourcePoliciesResponseOutput                                            `pulumi:"policies"`
+	ProvisioningState             pulumi.StringOutput                                                          `pulumi:"provisioningState"`
+	RuntimeUrls                   pulumi.StringArrayOutput                                                     `pulumi:"runtimeUrls"`
+	Tags                          pulumi.StringMapOutput                                                       `pulumi:"tags"`
+	Type                          pulumi.StringOutput                                                          `pulumi:"type"`
 }
 
 
@@ -78,16 +90,24 @@ func (IntegrationServiceEnvironmentManagedApiState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentManagedApiArgs struct {
-	ApiName                           *string `pulumi:"apiName"`
-	IntegrationServiceEnvironmentName string  `pulumi:"integrationServiceEnvironmentName"`
-	ResourceGroup                     string  `pulumi:"resourceGroup"`
+	ApiName                           *string                                                      `pulumi:"apiName"`
+	DeploymentParameters              *IntegrationServiceEnvironmentManagedApiDeploymentParameters `pulumi:"deploymentParameters"`
+	IntegrationServiceEnvironment     *ResourceReference                                           `pulumi:"integrationServiceEnvironment"`
+	IntegrationServiceEnvironmentName string                                                       `pulumi:"integrationServiceEnvironmentName"`
+	Location                          *string                                                      `pulumi:"location"`
+	ResourceGroup                     string                                                       `pulumi:"resourceGroup"`
+	Tags                              map[string]string                                            `pulumi:"tags"`
 }
 
 
 type IntegrationServiceEnvironmentManagedApiArgs struct {
 	ApiName                           pulumi.StringPtrInput
+	DeploymentParameters              IntegrationServiceEnvironmentManagedApiDeploymentParametersPtrInput
+	IntegrationServiceEnvironment     ResourceReferencePtrInput
 	IntegrationServiceEnvironmentName pulumi.StringInput
+	Location                          pulumi.StringPtrInput
 	ResourceGroup                     pulumi.StringInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (IntegrationServiceEnvironmentManagedApiArgs) ElementType() reflect.Type {

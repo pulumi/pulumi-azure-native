@@ -24,10 +24,22 @@ type LookupIntegrationServiceEnvironmentManagedApiArgs struct {
 
 
 type LookupIntegrationServiceEnvironmentManagedApiResult struct {
-	Id         string                        `pulumi:"id"`
-	Location   *string                       `pulumi:"location"`
-	Name       string                        `pulumi:"name"`
-	Properties ApiResourcePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string             `pulumi:"tags"`
-	Type       string                        `pulumi:"type"`
+	ApiDefinitionUrl              string                                                               `pulumi:"apiDefinitionUrl"`
+	ApiDefinitions                ApiResourceDefinitionsResponse                                       `pulumi:"apiDefinitions"`
+	BackendService                ApiResourceBackendServiceResponse                                    `pulumi:"backendService"`
+	Capabilities                  []string                                                             `pulumi:"capabilities"`
+	Category                      string                                                               `pulumi:"category"`
+	ConnectionParameters          map[string]interface{}                                               `pulumi:"connectionParameters"`
+	DeploymentParameters          *IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse `pulumi:"deploymentParameters"`
+	GeneralInformation            ApiResourceGeneralInformationResponse                                `pulumi:"generalInformation"`
+	Id                            string                                                               `pulumi:"id"`
+	IntegrationServiceEnvironment *ResourceReferenceResponse                                           `pulumi:"integrationServiceEnvironment"`
+	Location                      *string                                                              `pulumi:"location"`
+	Metadata                      ApiResourceMetadataResponse                                          `pulumi:"metadata"`
+	Name                          string                                                               `pulumi:"name"`
+	Policies                      ApiResourcePoliciesResponse                                          `pulumi:"policies"`
+	ProvisioningState             string                                                               `pulumi:"provisioningState"`
+	RuntimeUrls                   []string                                                             `pulumi:"runtimeUrls"`
+	Tags                          map[string]string                                                    `pulumi:"tags"`
+	Type                          string                                                               `pulumi:"type"`
 }

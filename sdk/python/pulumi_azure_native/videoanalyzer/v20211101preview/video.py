@@ -127,7 +127,8 @@ class Video(pulumi.CustomResource):
                  video_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Video resource with the given unique name, props, and options.
+        Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -144,7 +145,8 @@ class Video(pulumi.CustomResource):
                  args: VideoArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Video resource with the given unique name, props, and options.
+        Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+
         :param str resource_name: The name of the resource.
         :param VideoArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -134,6 +134,7 @@ class BotPropertiesArgs:
                  display_name: pulumi.Input[str],
                  endpoint: pulumi.Input[str],
                  msa_app_id: pulumi.Input[str],
+                 app_password_hint: Optional[pulumi.Input[str]] = None,
                  cmek_key_vault_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  developer_app_insight_key: Optional[pulumi.Input[str]] = None,
@@ -144,12 +145,14 @@ class BotPropertiesArgs:
                  is_isolated: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
+                 open_with_hint: Optional[pulumi.Input[str]] = None,
                  schema_transformation_version: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Bot.
         :param pulumi.Input[str] display_name: The Name of the bot
         :param pulumi.Input[str] endpoint: The bot's endpoint
         :param pulumi.Input[str] msa_app_id: Microsoft App Id for the bot
+        :param pulumi.Input[str] app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         :param pulumi.Input[str] cmek_key_vault_url: The CMK Url
         :param pulumi.Input[str] description: The description of the bot
         :param pulumi.Input[str] developer_app_insight_key: The Application Insights key
@@ -160,11 +163,14 @@ class BotPropertiesArgs:
         :param pulumi.Input[bool] is_isolated: Whether the bot is in an isolated network
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
+        :param pulumi.Input[str] open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         :param pulumi.Input[str] schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        if app_password_hint is not None:
+            pulumi.set(__self__, "app_password_hint", app_password_hint)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -185,6 +191,8 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if open_with_hint is not None:
+            pulumi.set(__self__, "open_with_hint", open_with_hint)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -223,6 +231,18 @@ class BotPropertiesArgs:
     @msa_app_id.setter
     def msa_app_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "msa_app_id", value)
+
+    @property
+    @pulumi.getter(name="appPasswordHint")
+    def app_password_hint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        """
+        return pulumi.get(self, "app_password_hint")
+
+    @app_password_hint.setter
+    def app_password_hint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_password_hint", value)
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -343,6 +363,18 @@ class BotPropertiesArgs:
     @luis_key.setter
     def luis_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "luis_key", value)
+
+    @property
+    @pulumi.getter(name="openWithHint")
+    def open_with_hint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        """
+        return pulumi.get(self, "open_with_hint")
+
+    @open_with_hint.setter
+    def open_with_hint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "open_with_hint", value)
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")

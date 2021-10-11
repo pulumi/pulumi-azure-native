@@ -26,7 +26,7 @@ type LookupDedicatedCloudNodeResult struct {
 	AvailabilityZoneId   string            `pulumi:"availabilityZoneId"`
 	AvailabilityZoneName string            `pulumi:"availabilityZoneName"`
 	CloudRackName        string            `pulumi:"cloudRackName"`
-	Created              interface{}       `pulumi:"created"`
+	Created              string            `pulumi:"created"`
 	Id                   string            `pulumi:"id"`
 	Location             string            `pulumi:"location"`
 	Name                 string            `pulumi:"name"`

@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         [Input("disableRtspPublishing")]
         public Input<string>? DisableRtspPublishing { get; set; }
 
-        /// <summary>
-        /// When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
-        /// </summary>
-        [Input("disableVideoPreviewImage")]
-        public Input<string>? DisableVideoPreviewImage { get; set; }
-
         public VideoPublishingOptionsArgs()
         {
         }

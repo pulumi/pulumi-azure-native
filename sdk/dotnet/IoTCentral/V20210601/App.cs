@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -135,6 +141,12 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The resource location.

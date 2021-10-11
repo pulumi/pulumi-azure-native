@@ -23,15 +23,16 @@ type LookupAppArgs struct {
 
 
 type LookupAppResult struct {
-	ApplicationId string             `pulumi:"applicationId"`
-	DisplayName   *string            `pulumi:"displayName"`
-	Id            string             `pulumi:"id"`
-	Location      string             `pulumi:"location"`
-	Name          string             `pulumi:"name"`
-	Sku           AppSkuInfoResponse `pulumi:"sku"`
-	State         string             `pulumi:"state"`
-	Subdomain     *string            `pulumi:"subdomain"`
-	Tags          map[string]string  `pulumi:"tags"`
-	Template      *string            `pulumi:"template"`
-	Type          string             `pulumi:"type"`
+	ApplicationId string                                 `pulumi:"applicationId"`
+	DisplayName   *string                                `pulumi:"displayName"`
+	Id            string                                 `pulumi:"id"`
+	Identity      *SystemAssignedServiceIdentityResponse `pulumi:"identity"`
+	Location      string                                 `pulumi:"location"`
+	Name          string                                 `pulumi:"name"`
+	Sku           AppSkuInfoResponse                     `pulumi:"sku"`
+	State         string                                 `pulumi:"state"`
+	Subdomain     *string                                `pulumi:"subdomain"`
+	Tags          map[string]string                      `pulumi:"tags"`
+	Template      *string                                `pulumi:"template"`
+	Type          string                                 `pulumi:"type"`
 }

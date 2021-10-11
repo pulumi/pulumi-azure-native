@@ -14,13 +14,13 @@ import (
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
-	IntegrationServiceEnvironment IntegrationServiceEnvironmentResponsePtrOutput `pulumi:"integrationServiceEnvironment"`
-	Location                      pulumi.StringPtrOutput                         `pulumi:"location"`
-	Name                          pulumi.StringOutput                            `pulumi:"name"`
-	Sku                           IntegrationAccountSkuResponsePtrOutput         `pulumi:"sku"`
-	State                         pulumi.StringPtrOutput                         `pulumi:"state"`
-	Tags                          pulumi.StringMapOutput                         `pulumi:"tags"`
-	Type                          pulumi.StringOutput                            `pulumi:"type"`
+	IntegrationServiceEnvironment ResourceReferenceResponsePtrOutput     `pulumi:"integrationServiceEnvironment"`
+	Location                      pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name                          pulumi.StringOutput                    `pulumi:"name"`
+	Sku                           IntegrationAccountSkuResponsePtrOutput `pulumi:"sku"`
+	State                         pulumi.StringPtrOutput                 `pulumi:"state"`
+	Tags                          pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type                          pulumi.StringOutput                    `pulumi:"type"`
 }
 
 
@@ -95,19 +95,19 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
-	IntegrationAccountName        *string                            `pulumi:"integrationAccountName"`
-	IntegrationServiceEnvironment *IntegrationServiceEnvironmentType `pulumi:"integrationServiceEnvironment"`
-	Location                      *string                            `pulumi:"location"`
-	ResourceGroupName             string                             `pulumi:"resourceGroupName"`
-	Sku                           *IntegrationAccountSku             `pulumi:"sku"`
-	State                         *string                            `pulumi:"state"`
-	Tags                          map[string]string                  `pulumi:"tags"`
+	IntegrationAccountName        *string                `pulumi:"integrationAccountName"`
+	IntegrationServiceEnvironment *ResourceReference     `pulumi:"integrationServiceEnvironment"`
+	Location                      *string                `pulumi:"location"`
+	ResourceGroupName             string                 `pulumi:"resourceGroupName"`
+	Sku                           *IntegrationAccountSku `pulumi:"sku"`
+	State                         *string                `pulumi:"state"`
+	Tags                          map[string]string      `pulumi:"tags"`
 }
 
 
 type IntegrationAccountArgs struct {
 	IntegrationAccountName        pulumi.StringPtrInput
-	IntegrationServiceEnvironment IntegrationServiceEnvironmentTypePtrInput
+	IntegrationServiceEnvironment ResourceReferencePtrInput
 	Location                      pulumi.StringPtrInput
 	ResourceGroupName             pulumi.StringInput
 	Sku                           IntegrationAccountSkuPtrInput

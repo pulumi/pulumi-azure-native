@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.Logic.V20190501.Inputs
     public sealed class ContentLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content hash.
-        /// </summary>
-        [Input("contentHash")]
-        public Input<Inputs.ContentHashArgs>? ContentHash { get; set; }
-
-        /// <summary>
-        /// The content size.
-        /// </summary>
-        [Input("contentSize")]
-        public Input<double>? ContentSize { get; set; }
-
-        /// <summary>
-        /// The content version.
-        /// </summary>
-        [Input("contentVersion")]
-        public Input<string>? ContentVersion { get; set; }
-
-        /// <summary>
-        /// The metadata.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
-
-        /// <summary>
         /// The content link URI.
         /// </summary>
         [Input("uri")]

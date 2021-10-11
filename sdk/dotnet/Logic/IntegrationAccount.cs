@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Logic
         /// The integration service environment.
         /// </summary>
         [Output("integrationServiceEnvironment")]
-        public Output<Outputs.IntegrationServiceEnvironmentResponse?> IntegrationServiceEnvironment { get; private set; } = null!;
+        public Output<Outputs.ResourceReferenceResponse?> IntegrationServiceEnvironment { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Logic
         /// The integration service environment.
         /// </summary>
         [Input("integrationServiceEnvironment")]
-        public Input<Inputs.IntegrationServiceEnvironmentArgs>? IntegrationServiceEnvironment { get; set; }
+        public Input<Inputs.ResourceReferenceArgs>? IntegrationServiceEnvironment { get; set; }
 
         /// <summary>
         /// The resource location.

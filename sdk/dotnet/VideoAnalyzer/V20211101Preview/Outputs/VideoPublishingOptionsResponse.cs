@@ -24,22 +24,15 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Outputs
         /// When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
         /// </summary>
         public readonly string? DisableRtspPublishing;
-        /// <summary>
-        /// When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
-        /// </summary>
-        public readonly string? DisableVideoPreviewImage;
 
         [OutputConstructor]
         private VideoPublishingOptionsResponse(
             string? disableArchive,
 
-            string? disableRtspPublishing,
-
-            string? disableVideoPreviewImage)
+            string? disableRtspPublishing)
         {
             DisableArchive = disableArchive;
             DisableRtspPublishing = disableRtspPublishing;
-            DisableVideoPreviewImage = disableVideoPreviewImage;
         }
     }
 }

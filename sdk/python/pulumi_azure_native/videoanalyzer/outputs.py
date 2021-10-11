@@ -1957,8 +1957,6 @@ class VideoPublishingOptionsResponse(dict):
             suggest = "disable_archive"
         elif key == "disableRtspPublishing":
             suggest = "disable_rtsp_publishing"
-        elif key == "disableVideoPreviewImage":
-            suggest = "disable_video_preview_image"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VideoPublishingOptionsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1973,20 +1971,16 @@ class VideoPublishingOptionsResponse(dict):
 
     def __init__(__self__, *,
                  disable_archive: Optional[str] = None,
-                 disable_rtsp_publishing: Optional[str] = None,
-                 disable_video_preview_image: Optional[str] = None):
+                 disable_rtsp_publishing: Optional[str] = None):
         """
         Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
         :param str disable_archive: When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
         :param str disable_rtsp_publishing: When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
-        :param str disable_video_preview_image: When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
         """
         if disable_archive is not None:
             pulumi.set(__self__, "disable_archive", disable_archive)
         if disable_rtsp_publishing is not None:
             pulumi.set(__self__, "disable_rtsp_publishing", disable_rtsp_publishing)
-        if disable_video_preview_image is not None:
-            pulumi.set(__self__, "disable_video_preview_image", disable_video_preview_image)
 
     @property
     @pulumi.getter(name="disableArchive")
@@ -2003,14 +1997,6 @@ class VideoPublishingOptionsResponse(dict):
         When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
         """
         return pulumi.get(self, "disable_rtsp_publishing")
-
-    @property
-    @pulumi.getter(name="disableVideoPreviewImage")
-    def disable_video_preview_image(self) -> Optional[str]:
-        """
-        When set to 'true' preview images will not be generated. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'false', then "disableArchive" must be set to 'false'.
-        """
-        return pulumi.get(self, "disable_video_preview_image")
 
 
 @pulumi.output_type

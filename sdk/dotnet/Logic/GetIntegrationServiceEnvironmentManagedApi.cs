@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Logic
     public static class GetIntegrationServiceEnvironmentManagedApi
     {
         /// <summary>
-        /// The managed api definition.
+        /// The integration service environment managed api.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
@@ -50,21 +50,69 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationServiceEnvironmentManagedApiResult
     {
         /// <summary>
+        /// The API definition.
+        /// </summary>
+        public readonly string ApiDefinitionUrl;
+        /// <summary>
+        /// The api definitions.
+        /// </summary>
+        public readonly Outputs.ApiResourceDefinitionsResponse ApiDefinitions;
+        /// <summary>
+        /// The backend service.
+        /// </summary>
+        public readonly Outputs.ApiResourceBackendServiceResponse BackendService;
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
+        public readonly ImmutableArray<string> Capabilities;
+        /// <summary>
+        /// The category.
+        /// </summary>
+        public readonly string Category;
+        /// <summary>
+        /// The connection parameters.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> ConnectionParameters;
+        /// <summary>
+        /// The integration service environment managed api deployment parameters.
+        /// </summary>
+        public readonly Outputs.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse? DeploymentParameters;
+        /// <summary>
+        /// The api general information.
+        /// </summary>
+        public readonly Outputs.ApiResourceGeneralInformationResponse GeneralInformation;
+        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The integration service environment reference.
+        /// </summary>
+        public readonly Outputs.ResourceReferenceResponse? IntegrationServiceEnvironment;
         /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The metadata.
+        /// </summary>
+        public readonly Outputs.ApiResourceMetadataResponse Metadata;
+        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The api resource properties.
+        /// The policies for the API.
         /// </summary>
-        public readonly Outputs.ApiResourcePropertiesResponse Properties;
+        public readonly Outputs.ApiResourcePoliciesResponse Policies;
+        /// <summary>
+        /// The provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The runtime urls.
+        /// </summary>
+        public readonly ImmutableArray<string> RuntimeUrls;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,22 +124,58 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationServiceEnvironmentManagedApiResult(
+            string apiDefinitionUrl,
+
+            Outputs.ApiResourceDefinitionsResponse apiDefinitions,
+
+            Outputs.ApiResourceBackendServiceResponse backendService,
+
+            ImmutableArray<string> capabilities,
+
+            string category,
+
+            ImmutableDictionary<string, object> connectionParameters,
+
+            Outputs.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse? deploymentParameters,
+
+            Outputs.ApiResourceGeneralInformationResponse generalInformation,
+
             string id,
+
+            Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
 
             string? location,
 
+            Outputs.ApiResourceMetadataResponse metadata,
+
             string name,
 
-            Outputs.ApiResourcePropertiesResponse properties,
+            Outputs.ApiResourcePoliciesResponse policies,
+
+            string provisioningState,
+
+            ImmutableArray<string> runtimeUrls,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ApiDefinitionUrl = apiDefinitionUrl;
+            ApiDefinitions = apiDefinitions;
+            BackendService = backendService;
+            Capabilities = capabilities;
+            Category = category;
+            ConnectionParameters = connectionParameters;
+            DeploymentParameters = deploymentParameters;
+            GeneralInformation = generalInformation;
             Id = id;
+            IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            Policies = policies;
+            ProvisioningState = provisioningState;
+            RuntimeUrls = runtimeUrls;
             Tags = tags;
             Type = type;
         }

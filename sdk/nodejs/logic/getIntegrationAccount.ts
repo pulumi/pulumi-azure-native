@@ -45,7 +45,7 @@ export interface GetIntegrationAccountResult {
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: outputs.logic.IntegrationServiceEnvironmentResponse;
+    readonly integrationServiceEnvironment?: outputs.logic.ResourceReferenceResponse;
     /**
      * The resource location.
      */

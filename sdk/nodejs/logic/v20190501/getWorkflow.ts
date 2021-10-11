@@ -66,6 +66,10 @@ export interface GetWorkflowResult {
      */
     readonly id: string;
     /**
+     * Managed service identity properties.
+     */
+    readonly identity?: outputs.logic.v20190501.ManagedServiceIdentityResponse;
+    /**
      * The integration account.
      */
     readonly integrationAccount?: outputs.logic.v20190501.ResourceReferenceResponse;

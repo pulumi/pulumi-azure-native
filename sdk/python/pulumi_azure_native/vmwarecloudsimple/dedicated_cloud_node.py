@@ -377,7 +377,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> pulumi.Output[Any]:
+    def created(self) -> pulumi.Output[str]:
         """
         date time the resource was created
         """

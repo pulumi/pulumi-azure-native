@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     public sealed class BotPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        /// </summary>
+        [Input("appPasswordHint")]
+        public Input<string>? AppPasswordHint { get; set; }
+
+        /// <summary>
         /// The CMK Url
         /// </summary>
         [Input("cmekKeyVaultUrl")]
@@ -122,6 +128,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         /// </summary>
         [Input("msaAppType")]
         public InputUnion<string, Pulumi.AzureNative.BotService.V20210501Preview.MsaAppType>? MsaAppType { get; set; }
+
+        /// <summary>
+        /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        /// </summary>
+        [Input("openWithHint")]
+        public Input<string>? OpenWithHint { get; set; }
 
         /// <summary>
         /// The channel schema transformation version for the bot

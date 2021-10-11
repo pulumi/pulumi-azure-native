@@ -38,7 +38,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * The integration service environment.
      */
-    public readonly integrationServiceEnvironment!: pulumi.Output<outputs.logic.v20190501.IntegrationServiceEnvironmentResponse | undefined>;
+    public readonly integrationServiceEnvironment!: pulumi.Output<outputs.logic.v20190501.ResourceReferenceResponse | undefined>;
     /**
      * The resource location.
      */
@@ -116,7 +116,7 @@ export interface IntegrationAccountArgs {
     /**
      * The integration service environment.
      */
-    integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentArgs>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.ResourceReferenceArgs>;
     /**
      * The resource location.
      */

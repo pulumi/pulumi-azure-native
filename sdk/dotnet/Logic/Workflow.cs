@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Logic
         public Output<Outputs.FlowEndpointsConfigurationResponse?> EndpointsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The integration account.
         /// </summary>
         [Output("integrationAccount")]
@@ -192,6 +198,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Input("endpointsConfiguration")]
         public Input<Inputs.FlowEndpointsConfigurationArgs>? EndpointsConfiguration { get; set; }
+
+        /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The integration account.

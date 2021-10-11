@@ -53,7 +53,7 @@ export interface GetDedicatedCloudNodeResult {
     /**
      * date time the resource was created
      */
-    readonly created: any;
+    readonly created: string;
     /**
      * SKU's id
      */

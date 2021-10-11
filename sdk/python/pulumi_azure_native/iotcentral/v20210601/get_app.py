@@ -21,7 +21,7 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, application_id=None, display_name=None, id=None, location=None, name=None, sku=None, state=None, subdomain=None, tags=None, template=None, type=None):
+    def __init__(__self__, application_id=None, display_name=None, id=None, identity=None, location=None, name=None, sku=None, state=None, subdomain=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -31,6 +31,9 @@ class GetAppResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -79,6 +82,14 @@ class GetAppResult:
         The ARM resource identifier.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
+        """
+        The managed identities for the IoT Central application.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetAppResult(GetAppResult):
             application_id=self.application_id,
             display_name=self.display_name,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -187,6 +199,7 @@ def get_app(resource_group_name: Optional[str] = None,
         application_id=__ret__.application_id,
         display_name=__ret__.display_name,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,

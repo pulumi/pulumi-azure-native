@@ -51,7 +51,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
      * date time the resource was created
      */
-    public /*out*/ readonly created!: pulumi.Output<any>;
+    public /*out*/ readonly created!: pulumi.Output<string>;
     /**
      * Azure region
      */

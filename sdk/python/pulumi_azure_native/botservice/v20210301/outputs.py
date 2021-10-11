@@ -199,6 +199,8 @@ class BotPropertiesResponse(dict):
             suggest = "endpoint_version"
         elif key == "msaAppId":
             suggest = "msa_app_id"
+        elif key == "appPasswordHint":
+            suggest = "app_password_hint"
         elif key == "cmekKeyVaultUrl":
             suggest = "cmek_key_vault_url"
         elif key == "developerAppInsightKey":
@@ -217,6 +219,8 @@ class BotPropertiesResponse(dict):
             suggest = "luis_app_ids"
         elif key == "luisKey":
             suggest = "luis_key"
+        elif key == "openWithHint":
+            suggest = "open_with_hint"
         elif key == "schemaTransformationVersion":
             suggest = "schema_transformation_version"
 
@@ -238,6 +242,7 @@ class BotPropertiesResponse(dict):
                  endpoint: str,
                  endpoint_version: str,
                  msa_app_id: str,
+                 app_password_hint: Optional[str] = None,
                  cmek_key_vault_url: Optional[str] = None,
                  description: Optional[str] = None,
                  developer_app_insight_key: Optional[str] = None,
@@ -248,6 +253,7 @@ class BotPropertiesResponse(dict):
                  is_isolated: Optional[bool] = None,
                  luis_app_ids: Optional[Sequence[str]] = None,
                  luis_key: Optional[str] = None,
+                 open_with_hint: Optional[str] = None,
                  schema_transformation_version: Optional[str] = None):
         """
         The parameters to provide for the Bot.
@@ -257,6 +263,7 @@ class BotPropertiesResponse(dict):
         :param str endpoint: The bot's endpoint
         :param str endpoint_version: The bot's endpoint version
         :param str msa_app_id: Microsoft App Id for the bot
+        :param str app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         :param str cmek_key_vault_url: The CMK Url
         :param str description: The description of the bot
         :param str developer_app_insight_key: The Application Insights key
@@ -267,6 +274,7 @@ class BotPropertiesResponse(dict):
         :param bool is_isolated: Whether the bot is in an isolated network
         :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
+        :param str open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         :param str schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "configured_channels", configured_channels)
@@ -275,6 +283,8 @@ class BotPropertiesResponse(dict):
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "endpoint_version", endpoint_version)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        if app_password_hint is not None:
+            pulumi.set(__self__, "app_password_hint", app_password_hint)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -295,6 +305,8 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if open_with_hint is not None:
+            pulumi.set(__self__, "open_with_hint", open_with_hint)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -345,6 +357,14 @@ class BotPropertiesResponse(dict):
         Microsoft App Id for the bot
         """
         return pulumi.get(self, "msa_app_id")
+
+    @property
+    @pulumi.getter(name="appPasswordHint")
+    def app_password_hint(self) -> Optional[str]:
+        """
+        The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        """
+        return pulumi.get(self, "app_password_hint")
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -425,6 +445,14 @@ class BotPropertiesResponse(dict):
         The LUIS Key
         """
         return pulumi.get(self, "luis_key")
+
+    @property
+    @pulumi.getter(name="openWithHint")
+    def open_with_hint(self) -> Optional[str]:
+        """
+        The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        """
+        return pulumi.get(self, "open_with_hint")
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")

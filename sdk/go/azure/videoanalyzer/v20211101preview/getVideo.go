@@ -22,6 +22,7 @@ type LookupVideoArgs struct {
 	VideoName         string `pulumi:"videoName"`
 }
 
+
 type LookupVideoResult struct {
 	Archival    *VideoArchivalResponse   `pulumi:"archival"`
 	ContentUrls VideoContentUrlsResponse `pulumi:"contentUrls"`

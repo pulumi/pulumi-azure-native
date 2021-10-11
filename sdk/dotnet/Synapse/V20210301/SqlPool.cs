@@ -22,7 +22,15 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// What is this?
+        /// Specifies the mode of sql pool creation.
+        /// 
+        /// Default: regular sql pool creation.
+        /// 
+        /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+        /// 
+        /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+        /// 
+        /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -177,10 +185,18 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// What is this?
+        /// Specifies the mode of sql pool creation.
+        /// 
+        /// Default: regular sql pool creation.
+        /// 
+        /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+        /// 
+        /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+        /// 
+        /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20210301.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Date the SQL pool was created

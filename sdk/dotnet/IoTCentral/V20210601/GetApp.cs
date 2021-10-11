@@ -55,6 +55,10 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
 
             string id,
 
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20210601
             ApplicationId = applicationId;
             DisplayName = displayName;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Sku = sku;

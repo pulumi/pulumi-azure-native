@@ -18,6 +18,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetVideoResult:
+    """
+    Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+    """
     def __init__(__self__, archival=None, content_urls=None, description=None, flags=None, id=None, media_info=None, name=None, system_data=None, title=None, type=None):
         if archival and not isinstance(archival, dict):
             raise TypeError("Expected argument 'archival' to be a dict")
@@ -154,7 +157,8 @@ def get_video(account_name: Optional[str] = None,
               video_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -189,7 +193,8 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
                      video_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoResult]:
     """
-    Use this data source to access information about an existing resource.
+    Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

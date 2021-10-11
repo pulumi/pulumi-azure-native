@@ -288,6 +288,8 @@ class RegisteredServer(pulumi.CustomResource):
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            __props__.__dict__["agent_version_expiration_date"] = None
+            __props__.__dict__["agent_version_status"] = None
             __props__.__dict__["discovery_endpoint_uri"] = None
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
@@ -326,6 +328,8 @@ class RegisteredServer(pulumi.CustomResource):
         __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
         __props__.__dict__["agent_version"] = None
+        __props__.__dict__["agent_version_expiration_date"] = None
+        __props__.__dict__["agent_version_status"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["discovery_endpoint_uri"] = None
@@ -356,6 +360,22 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server Agent Version
         """
         return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="agentVersionExpirationDate")
+    def agent_version_expiration_date(self) -> pulumi.Output[str]:
+        """
+        Registered Server Agent Version Expiration Date
+        """
+        return pulumi.get(self, "agent_version_expiration_date")
+
+    @property
+    @pulumi.getter(name="agentVersionStatus")
+    def agent_version_status(self) -> pulumi.Output[str]:
+        """
+        Registered Server Agent Version Status
+        """
+        return pulumi.get(self, "agent_version_status")
 
     @property
     @pulumi.getter(name="clusterId")

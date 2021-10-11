@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public partial class IntegrationServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -102,6 +108,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
 
     public sealed class IntegrationServiceEnvironmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Managed service identity properties.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The integration service environment name.
         /// </summary>

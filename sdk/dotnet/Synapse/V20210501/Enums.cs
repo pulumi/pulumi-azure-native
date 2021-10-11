@@ -8,6 +8,47 @@ using Pulumi;
 namespace Pulumi.AzureNative.Synapse.V20210501
 {
     /// <summary>
+    /// Specifies the mode of sql pool creation.
+    /// 
+    /// Default: regular sql pool creation.
+    /// 
+    /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+    /// 
+    /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+    /// 
+    /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreateMode : IEquatable<CreateMode>
+    {
+        private readonly string _value;
+
+        private CreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreateMode Default { get; } = new CreateMode("Default");
+        public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
+        public static CreateMode Recovery { get; } = new CreateMode("Recovery");
+        public static CreateMode Restore { get; } = new CreateMode("Restore");
+
+        public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
+        public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(CreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreateMode other && Equals(other);
+        public bool Equals(CreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Compute type of the cluster which will execute data flow job.
     /// </summary>
     [EnumType]

@@ -354,9 +354,8 @@ namespace Pulumi.AzureNative.Security.V20210601
         public static Techniques Network_Sniffing { get; } = new Techniques("Network Sniffing");
         public static Techniques Non_Application_Layer_Protocol { get; } = new Techniques("Non-Application Layer Protocol");
         public static Techniques Non_Standard_Port { get; } = new Techniques("Non-Standard Port");
-        public static Techniques Obfuscated_Files_or_Information { get; } = new Techniques("Obfuscated Files or Information");
         public static Techniques Obtain_Capabilities { get; } = new Techniques("Obtain Capabilities");
-        public static Techniques Obuscated_Files_or_Information { get; } = new Techniques("Obuscated Files or Information");
+        public static Techniques Obfuscated_Files_or_Information { get; } = new Techniques("Obfuscated Files or Information");
         public static Techniques Office_Application_Startup { get; } = new Techniques("Office Application Startup");
         public static Techniques OS_Credential_Dumping { get; } = new Techniques("OS Credential Dumping");
         public static Techniques Permission_Groups_Discovery { get; } = new Techniques("Permission Groups Discovery");

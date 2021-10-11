@@ -290,6 +290,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
 
         public ServerEndpointArgs()
         {
+            InitialDownloadPolicy = "NamespaceThenModifiedFiles";
+            LocalCacheMode = "UpdateLocallyCachedFiles";
         }
     }
 }

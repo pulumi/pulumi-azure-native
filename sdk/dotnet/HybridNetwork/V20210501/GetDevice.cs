@@ -43,10 +43,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     public sealed class GetDeviceResult
     {
         /// <summary>
-        /// The reference to the Azure stack edge device. Once set, it cannot be updated.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse? AzureStackEdge;
-        /// <summary>
         /// The type of the device.
         /// </summary>
         public readonly string DeviceType;
@@ -89,8 +85,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
 
         [OutputConstructor]
         private GetDeviceResult(
-            Outputs.SubResourceResponse? azureStackEdge,
-
             string deviceType,
 
             string id,
@@ -111,7 +105,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
 
             string type)
         {
-            AzureStackEdge = azureStackEdge;
             DeviceType = deviceType;
             Id = id;
             Location = location;

@@ -31,8 +31,8 @@ class GetDedicatedCloudNodeResult:
         if cloud_rack_name and not isinstance(cloud_rack_name, str):
             raise TypeError("Expected argument 'cloud_rack_name' to be a str")
         pulumi.set(__self__, "cloud_rack_name", cloud_rack_name)
-        if created and not isinstance(created, dict):
-            raise TypeError("Expected argument 'created' to be a dict")
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -106,7 +106,7 @@ class GetDedicatedCloudNodeResult:
 
     @property
     @pulumi.getter
-    def created(self) -> Any:
+    def created(self) -> str:
         """
         date time the resource was created
         """

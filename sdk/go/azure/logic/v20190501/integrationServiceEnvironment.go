@@ -14,6 +14,7 @@ import (
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 
+	Identity   ManagedServiceIdentityResponsePtrOutput               `pulumi:"identity"`
 	Location   pulumi.StringPtrOutput                                `pulumi:"location"`
 	Name       pulumi.StringOutput                                   `pulumi:"name"`
 	Properties IntegrationServiceEnvironmentPropertiesResponseOutput `pulumi:"properties"`
@@ -76,6 +77,7 @@ func (IntegrationServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentArgs struct {
+	Identity                          *ManagedServiceIdentity                  `pulumi:"identity"`
 	IntegrationServiceEnvironmentName *string                                  `pulumi:"integrationServiceEnvironmentName"`
 	Location                          *string                                  `pulumi:"location"`
 	Properties                        *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
@@ -86,6 +88,7 @@ type integrationServiceEnvironmentArgs struct {
 
 
 type IntegrationServiceEnvironmentArgs struct {
+	Identity                          ManagedServiceIdentityPtrInput
 	IntegrationServiceEnvironmentName pulumi.StringPtrInput
 	Location                          pulumi.StringPtrInput
 	Properties                        IntegrationServiceEnvironmentPropertiesPtrInput

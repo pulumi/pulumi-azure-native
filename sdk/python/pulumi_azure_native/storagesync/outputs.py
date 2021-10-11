@@ -976,6 +976,8 @@ class ServerEndpointSyncActivityStatusResponse(dict):
             suggest = "applied_item_count"
         elif key == "perItemErrorCount":
             suggest = "per_item_error_count"
+        elif key == "syncMode":
+            suggest = "sync_mode"
         elif key == "totalBytes":
             suggest = "total_bytes"
         elif key == "totalItemCount":
@@ -996,6 +998,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
                  applied_bytes: float,
                  applied_item_count: float,
                  per_item_error_count: float,
+                 sync_mode: str,
                  timestamp: str,
                  total_bytes: float,
                  total_item_count: float):
@@ -1004,6 +1007,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         :param float applied_bytes: Applied bytes
         :param float applied_item_count: Applied item count.
         :param float per_item_error_count: Per item error count
+        :param str sync_mode: Sync mode
         :param str timestamp: Timestamp when properties were updated
         :param float total_bytes: Total bytes (if available)
         :param float total_item_count: Total item count (if available)
@@ -1011,6 +1015,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         pulumi.set(__self__, "applied_bytes", applied_bytes)
         pulumi.set(__self__, "applied_item_count", applied_item_count)
         pulumi.set(__self__, "per_item_error_count", per_item_error_count)
+        pulumi.set(__self__, "sync_mode", sync_mode)
         pulumi.set(__self__, "timestamp", timestamp)
         pulumi.set(__self__, "total_bytes", total_bytes)
         pulumi.set(__self__, "total_item_count", total_item_count)
@@ -1038,6 +1043,14 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         Per item error count
         """
         return pulumi.get(self, "per_item_error_count")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> str:
+        """
+        Sync mode
+        """
+        return pulumi.get(self, "sync_mode")
 
     @property
     @pulumi.getter
@@ -1074,6 +1087,8 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         suggest = None
         if key == "filesNotSyncingErrors":
             suggest = "files_not_syncing_errors"
+        elif key == "lastSyncMode":
+            suggest = "last_sync_mode"
         elif key == "lastSyncPerItemErrorCount":
             suggest = "last_sync_per_item_error_count"
         elif key == "lastSyncResult":
@@ -1100,6 +1115,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
 
     def __init__(__self__, *,
                  files_not_syncing_errors: Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
+                 last_sync_mode: str,
                  last_sync_per_item_error_count: float,
                  last_sync_result: int,
                  last_sync_success_timestamp: str,
@@ -1109,6 +1125,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         """
         Sync Session status object.
         :param Sequence['ServerEndpointFilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param str last_sync_mode: Sync mode
         :param float last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp
@@ -1117,6 +1134,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         :param float transient_files_not_syncing_count: Count of transient files not syncing.
         """
         pulumi.set(__self__, "files_not_syncing_errors", files_not_syncing_errors)
+        pulumi.set(__self__, "last_sync_mode", last_sync_mode)
         pulumi.set(__self__, "last_sync_per_item_error_count", last_sync_per_item_error_count)
         pulumi.set(__self__, "last_sync_result", last_sync_result)
         pulumi.set(__self__, "last_sync_success_timestamp", last_sync_success_timestamp)
@@ -1131,6 +1149,14 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         Array of per-item errors coming from the last sync session.
         """
         return pulumi.get(self, "files_not_syncing_errors")
+
+    @property
+    @pulumi.getter(name="lastSyncMode")
+    def last_sync_mode(self) -> str:
+        """
+        Sync mode
+        """
+        return pulumi.get(self, "last_sync_mode")
 
     @property
     @pulumi.getter(name="lastSyncPerItemErrorCount")

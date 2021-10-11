@@ -204,6 +204,8 @@ class BotPropertiesResponse(dict):
             suggest = "msa_app_id"
         elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
+        elif key == "appPasswordHint":
+            suggest = "app_password_hint"
         elif key == "cmekKeyVaultUrl":
             suggest = "cmek_key_vault_url"
         elif key == "developerAppInsightKey":
@@ -230,6 +232,8 @@ class BotPropertiesResponse(dict):
             suggest = "msa_app_tenant_id"
         elif key == "msaAppType":
             suggest = "msa_app_type"
+        elif key == "openWithHint":
+            suggest = "open_with_hint"
         elif key == "schemaTransformationVersion":
             suggest = "schema_transformation_version"
 
@@ -252,6 +256,7 @@ class BotPropertiesResponse(dict):
                  endpoint_version: str,
                  msa_app_id: str,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 app_password_hint: Optional[str] = None,
                  cmek_key_vault_url: Optional[str] = None,
                  description: Optional[str] = None,
                  developer_app_insight_key: Optional[str] = None,
@@ -266,6 +271,7 @@ class BotPropertiesResponse(dict):
                  msa_app_msi_resource_id: Optional[str] = None,
                  msa_app_tenant_id: Optional[str] = None,
                  msa_app_type: Optional[str] = None,
+                 open_with_hint: Optional[str] = None,
                  schema_transformation_version: Optional[str] = None):
         """
         The parameters to provide for the Bot.
@@ -276,6 +282,7 @@ class BotPropertiesResponse(dict):
         :param str endpoint_version: The bot's endpoint version
         :param str msa_app_id: Microsoft App Id for the bot
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of Private Endpoint Connections configured for the bot
+        :param str app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         :param str cmek_key_vault_url: The CMK Url
         :param str description: The description of the bot
         :param str developer_app_insight_key: The Application Insights key
@@ -290,6 +297,7 @@ class BotPropertiesResponse(dict):
         :param str msa_app_msi_resource_id: Microsoft App Managed Identity Resource Id for the bot
         :param str msa_app_tenant_id: Microsoft App Tenant Id for the bot
         :param str msa_app_type: Microsoft App Type for the bot
+        :param str open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         :param str schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "configured_channels", configured_channels)
@@ -299,6 +307,8 @@ class BotPropertiesResponse(dict):
         pulumi.set(__self__, "endpoint_version", endpoint_version)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if app_password_hint is not None:
+            pulumi.set(__self__, "app_password_hint", app_password_hint)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -327,6 +337,8 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
         if msa_app_type is not None:
             pulumi.set(__self__, "msa_app_type", msa_app_type)
+        if open_with_hint is not None:
+            pulumi.set(__self__, "open_with_hint", open_with_hint)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -385,6 +397,14 @@ class BotPropertiesResponse(dict):
         List of Private Endpoint Connections configured for the bot
         """
         return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="appPasswordHint")
+    def app_password_hint(self) -> Optional[str]:
+        """
+        The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        """
+        return pulumi.get(self, "app_password_hint")
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -497,6 +517,14 @@ class BotPropertiesResponse(dict):
         Microsoft App Type for the bot
         """
         return pulumi.get(self, "msa_app_type")
+
+    @property
+    @pulumi.getter(name="openWithHint")
+    def open_with_hint(self) -> Optional[str]:
+        """
+        The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        """
+        return pulumi.get(self, "open_with_hint")
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")

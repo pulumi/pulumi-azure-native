@@ -23,7 +23,6 @@ type LookupDeviceArgs struct {
 
 
 type LookupDeviceResult struct {
-	AzureStackEdge    *SubResourceResponse  `pulumi:"azureStackEdge"`
 	DeviceType        string                `pulumi:"deviceType"`
 	Id                string                `pulumi:"id"`
 	Location          string                `pulumi:"location"`

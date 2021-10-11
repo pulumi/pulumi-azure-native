@@ -47,6 +47,14 @@ export interface GetRegisteredServerResult {
      */
     readonly agentVersion?: string;
     /**
+     * Registered Server Agent Version Expiration Date
+     */
+    readonly agentVersionExpirationDate: string;
+    /**
+     * Registered Server Agent Version Status
+     */
+    readonly agentVersionStatus: string;
+    /**
      * Registered Server clusterId
      */
     readonly clusterId?: string;

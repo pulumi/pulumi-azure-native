@@ -9156,9 +9156,8 @@ func (o VideoPreviewImageUrlsResponsePtrOutput) Small() pulumi.StringPtrOutput {
 }
 
 type VideoPublishingOptions struct {
-	DisableArchive           *string `pulumi:"disableArchive"`
-	DisableRtspPublishing    *string `pulumi:"disableRtspPublishing"`
-	DisableVideoPreviewImage *string `pulumi:"disableVideoPreviewImage"`
+	DisableArchive        *string `pulumi:"disableArchive"`
+	DisableRtspPublishing *string `pulumi:"disableRtspPublishing"`
 }
 
 
@@ -9173,9 +9172,8 @@ type VideoPublishingOptionsInput interface {
 }
 
 type VideoPublishingOptionsArgs struct {
-	DisableArchive           pulumi.StringPtrInput `pulumi:"disableArchive"`
-	DisableRtspPublishing    pulumi.StringPtrInput `pulumi:"disableRtspPublishing"`
-	DisableVideoPreviewImage pulumi.StringPtrInput `pulumi:"disableVideoPreviewImage"`
+	DisableArchive        pulumi.StringPtrInput `pulumi:"disableArchive"`
+	DisableRtspPublishing pulumi.StringPtrInput `pulumi:"disableRtspPublishing"`
 }
 
 func (VideoPublishingOptionsArgs) ElementType() reflect.Type {
@@ -9263,10 +9261,6 @@ func (o VideoPublishingOptionsOutput) DisableRtspPublishing() pulumi.StringPtrOu
 	return o.ApplyT(func(v VideoPublishingOptions) *string { return v.DisableRtspPublishing }).(pulumi.StringPtrOutput)
 }
 
-func (o VideoPublishingOptionsOutput) DisableVideoPreviewImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoPublishingOptions) *string { return v.DisableVideoPreviewImage }).(pulumi.StringPtrOutput)
-}
-
 type VideoPublishingOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (VideoPublishingOptionsPtrOutput) ElementType() reflect.Type {
@@ -9309,19 +9303,9 @@ func (o VideoPublishingOptionsPtrOutput) DisableRtspPublishing() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o VideoPublishingOptionsPtrOutput) DisableVideoPreviewImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoPublishingOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisableVideoPreviewImage
-	}).(pulumi.StringPtrOutput)
-}
-
 type VideoPublishingOptionsResponse struct {
-	DisableArchive           *string `pulumi:"disableArchive"`
-	DisableRtspPublishing    *string `pulumi:"disableRtspPublishing"`
-	DisableVideoPreviewImage *string `pulumi:"disableVideoPreviewImage"`
+	DisableArchive        *string `pulumi:"disableArchive"`
+	DisableRtspPublishing *string `pulumi:"disableRtspPublishing"`
 }
 
 
@@ -9336,9 +9320,8 @@ type VideoPublishingOptionsResponseInput interface {
 }
 
 type VideoPublishingOptionsResponseArgs struct {
-	DisableArchive           pulumi.StringPtrInput `pulumi:"disableArchive"`
-	DisableRtspPublishing    pulumi.StringPtrInput `pulumi:"disableRtspPublishing"`
-	DisableVideoPreviewImage pulumi.StringPtrInput `pulumi:"disableVideoPreviewImage"`
+	DisableArchive        pulumi.StringPtrInput `pulumi:"disableArchive"`
+	DisableRtspPublishing pulumi.StringPtrInput `pulumi:"disableRtspPublishing"`
 }
 
 func (VideoPublishingOptionsResponseArgs) ElementType() reflect.Type {
@@ -9426,10 +9409,6 @@ func (o VideoPublishingOptionsResponseOutput) DisableRtspPublishing() pulumi.Str
 	return o.ApplyT(func(v VideoPublishingOptionsResponse) *string { return v.DisableRtspPublishing }).(pulumi.StringPtrOutput)
 }
 
-func (o VideoPublishingOptionsResponseOutput) DisableVideoPreviewImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VideoPublishingOptionsResponse) *string { return v.DisableVideoPreviewImage }).(pulumi.StringPtrOutput)
-}
-
 type VideoPublishingOptionsResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (VideoPublishingOptionsResponsePtrOutput) ElementType() reflect.Type {
@@ -9469,15 +9448,6 @@ func (o VideoPublishingOptionsResponsePtrOutput) DisableRtspPublishing() pulumi.
 			return nil
 		}
 		return v.DisableRtspPublishing
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VideoPublishingOptionsResponsePtrOutput) DisableVideoPreviewImage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VideoPublishingOptionsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisableVideoPreviewImage
 	}).(pulumi.StringPtrOutput)
 }
 

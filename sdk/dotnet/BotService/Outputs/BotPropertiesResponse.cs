@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
     public sealed class BotPropertiesResponse
     {
         /// <summary>
+        /// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        /// </summary>
+        public readonly string? AppPasswordHint;
+        /// <summary>
         /// The CMK Url
         /// </summary>
         public readonly string? CmekKeyVaultUrl;
@@ -81,12 +85,18 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string MsaAppId;
         /// <summary>
+        /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        /// </summary>
+        public readonly string? OpenWithHint;
+        /// <summary>
         /// The channel schema transformation version for the bot
         /// </summary>
         public readonly string? SchemaTransformationVersion;
 
         [OutputConstructor]
         private BotPropertiesResponse(
+            string? appPasswordHint,
+
             string? cmekKeyVaultUrl,
 
             ImmutableArray<string> configuredChannels,
@@ -119,8 +129,11 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string msaAppId,
 
+            string? openWithHint,
+
             string? schemaTransformationVersion)
         {
+            AppPasswordHint = appPasswordHint;
             CmekKeyVaultUrl = cmekKeyVaultUrl;
             ConfiguredChannels = configuredChannels;
             Description = description;
@@ -137,6 +150,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
             MsaAppId = msaAppId;
+            OpenWithHint = openWithHint;
             SchemaTransformationVersion = schemaTransformationVersion;
         }
     }

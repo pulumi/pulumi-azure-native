@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlPoolArgs', 'SqlPool']
@@ -18,7 +19,7 @@ class SqlPoolArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
@@ -35,7 +36,15 @@ class SqlPoolArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         :param pulumi.Input[str] collation: Collation mode
-        :param pulumi.Input[str] create_mode: What is this?
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of sql pool creation.
+               
+               Default: regular sql pool creation.
+               
+               PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+               
+               Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+               
+               Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         :param pulumi.Input[str] creation_date: Date the SQL pool was created
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
@@ -115,14 +124,22 @@ class SqlPoolArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
-        What is this?
+        Specifies the mode of sql pool creation.
+
+        Default: regular sql pool creation.
+
+        PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+
+        Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+
+        Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -264,7 +281,7 @@ class SqlPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
@@ -285,7 +302,15 @@ class SqlPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: Collation mode
-        :param pulumi.Input[str] create_mode: What is this?
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of sql pool creation.
+               
+               Default: regular sql pool creation.
+               
+               PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+               
+               Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+               
+               Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         :param pulumi.Input[str] creation_date: Date the SQL pool was created
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
@@ -325,7 +350,7 @@ class SqlPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
@@ -424,7 +449,15 @@ class SqlPool(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        What is this?
+        Specifies the mode of sql pool creation.
+
+        Default: regular sql pool creation.
+
+        PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+
+        Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+
+        Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
         """
         return pulumi.get(self, "create_mode")
 

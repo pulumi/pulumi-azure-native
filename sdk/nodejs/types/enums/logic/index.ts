@@ -164,6 +164,17 @@ export const KeyType = {
  */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const MapType = {
     NotSpecified: "NotSpecified",
     Xslt: "Xslt",
@@ -187,6 +198,15 @@ export const MessageFilterType = {
  * The message filter type.
  */
 export type MessageFilterType = (typeof MessageFilterType)[keyof typeof MessageFilterType];
+
+export const OpenAuthenticationProviderType = {
+    AAD: "AAD",
+} as const;
+
+/**
+ * Type of provider for OAuth.
+ */
+export type OpenAuthenticationProviderType = (typeof OpenAuthenticationProviderType)[keyof typeof OpenAuthenticationProviderType];
 
 export const ParameterType = {
     NotSpecified: "NotSpecified",

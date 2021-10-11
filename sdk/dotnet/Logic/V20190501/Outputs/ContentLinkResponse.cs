@@ -19,19 +19,19 @@ namespace Pulumi.AzureNative.Logic.V20190501.Outputs
         /// <summary>
         /// The content hash.
         /// </summary>
-        public readonly Outputs.ContentHashResponse? ContentHash;
+        public readonly Outputs.ContentHashResponse ContentHash;
         /// <summary>
         /// The content size.
         /// </summary>
-        public readonly double? ContentSize;
+        public readonly double ContentSize;
         /// <summary>
         /// The content version.
         /// </summary>
-        public readonly string? ContentVersion;
+        public readonly string ContentVersion;
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly object? Metadata;
+        public readonly object Metadata;
         /// <summary>
         /// The content link URI.
         /// </summary>
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 
         [OutputConstructor]
         private ContentLinkResponse(
-            Outputs.ContentHashResponse? contentHash,
+            Outputs.ContentHashResponse contentHash,
 
-            double? contentSize,
+            double contentSize,
 
-            string? contentVersion,
+            string contentVersion,
 
-            object? metadata,
+            object metadata,
 
             string? uri)
         {

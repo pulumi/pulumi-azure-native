@@ -36,6 +36,10 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     }
 
     /**
+     * Managed service identity properties.
+     */
+    public readonly identity!: pulumi.Output<outputs.logic.v20190501.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -74,6 +78,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -83,6 +88,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
@@ -103,6 +109,10 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
  * The set of arguments for constructing a IntegrationServiceEnvironment resource.
  */
 export interface IntegrationServiceEnvironmentArgs {
+    /**
+     * Managed service identity properties.
+     */
+    identity?: pulumi.Input<inputs.logic.v20190501.ManagedServiceIdentityArgs>;
     /**
      * The integration service environment name.
      */

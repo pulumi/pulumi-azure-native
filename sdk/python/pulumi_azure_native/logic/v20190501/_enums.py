@@ -16,8 +16,10 @@ __all__ = [
     'IntegrationServiceEnvironmentAccessEndpointType',
     'IntegrationServiceEnvironmentSkuName',
     'KeyType',
+    'ManagedServiceIdentityType',
     'MapType',
     'MessageFilterType',
+    'OpenAuthenticationProviderType',
     'ParameterType',
     'PartnerType',
     'RecurrenceFrequency',
@@ -160,6 +162,15 @@ class KeyType(str, Enum):
     SECONDARY = "Secondary"
 
 
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    NONE = "None"
+
+
 class MapType(str, Enum):
     """
     The map type.
@@ -178,6 +189,13 @@ class MessageFilterType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     INCLUDE = "Include"
     EXCLUDE = "Exclude"
+
+
+class OpenAuthenticationProviderType(str, Enum):
+    """
+    Type of provider for OAuth.
+    """
+    AAD = "AAD"
 
 
 class ParameterType(str, Enum):

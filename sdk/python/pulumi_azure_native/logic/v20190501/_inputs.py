@@ -26,7 +26,6 @@ __all__ = [
     'BatchConfigurationPropertiesArgs',
     'BatchReleaseCriteriaArgs',
     'BusinessIdentityArgs',
-    'ContentHashArgs',
     'ContentLinkArgs',
     'EdifactAcknowledgementSettingsArgs',
     'EdifactAgreementContentArgs',
@@ -51,14 +50,15 @@ __all__ = [
     'IntegrationServiceEnvironmenEncryptionConfigurationArgs',
     'IntegrationServiceEnvironmenEncryptionKeyReferenceArgs',
     'IntegrationServiceEnvironmentAccessEndpointArgs',
+    'IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs',
     'IntegrationServiceEnvironmentPropertiesArgs',
     'IntegrationServiceEnvironmentSkuArgs',
-    'IntegrationServiceEnvironmentArgs',
     'IpAddressRangeArgs',
     'IpAddressArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
     'KeyVaultKeyReferenceArgs',
     'KeyVaultReference',
+    'ManagedServiceIdentityArgs',
     'NetworkConfigurationArgs',
     'OpenAuthenticationAccessPoliciesArgs',
     'OpenAuthenticationAccessPolicyArgs',
@@ -1429,119 +1429,15 @@ class BusinessIdentityArgs:
 
 
 @pulumi.input_type
-class ContentHashArgs:
-    def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        The content hash.
-        :param pulumi.Input[str] algorithm: The algorithm of the content hash.
-        :param pulumi.Input[str] value: The value of the content hash.
-        """
-        if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        The algorithm of the content hash.
-        """
-        return pulumi.get(self, "algorithm")
-
-    @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "algorithm", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the content hash.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ContentLinkArgs:
     def __init__(__self__, *,
-                 content_hash: Optional[pulumi.Input['ContentHashArgs']] = None,
-                 content_size: Optional[pulumi.Input[float]] = None,
-                 content_version: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The content link.
-        :param pulumi.Input['ContentHashArgs'] content_hash: The content hash.
-        :param pulumi.Input[float] content_size: The content size.
-        :param pulumi.Input[str] content_version: The content version.
-        :param Any metadata: The metadata.
         :param pulumi.Input[str] uri: The content link URI.
         """
-        if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
-        if content_size is not None:
-            pulumi.set(__self__, "content_size", content_size)
-        if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter(name="contentHash")
-    def content_hash(self) -> Optional[pulumi.Input['ContentHashArgs']]:
-        """
-        The content hash.
-        """
-        return pulumi.get(self, "content_hash")
-
-    @content_hash.setter
-    def content_hash(self, value: Optional[pulumi.Input['ContentHashArgs']]):
-        pulumi.set(self, "content_hash", value)
-
-    @property
-    @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[pulumi.Input[float]]:
-        """
-        The content size.
-        """
-        return pulumi.get(self, "content_size")
-
-    @content_size.setter
-    def content_size(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "content_size", value)
-
-    @property
-    @pulumi.getter(name="contentVersion")
-    def content_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The content version.
-        """
-        return pulumi.get(self, "content_version")
-
-    @content_version.setter
-    def content_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "content_version", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        The metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[Any]):
-        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter
@@ -4125,6 +4021,30 @@ class IntegrationServiceEnvironmentAccessEndpointArgs:
 
 
 @pulumi.input_type
+class IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs:
+    def __init__(__self__, *,
+                 content_link_definition: Optional[pulumi.Input['ContentLinkArgs']] = None):
+        """
+        The integration service environment managed api deployment parameters.
+        :param pulumi.Input['ContentLinkArgs'] content_link_definition: The integration service environment managed api content link for deployment.
+        """
+        if content_link_definition is not None:
+            pulumi.set(__self__, "content_link_definition", content_link_definition)
+
+    @property
+    @pulumi.getter(name="contentLinkDefinition")
+    def content_link_definition(self) -> Optional[pulumi.Input['ContentLinkArgs']]:
+        """
+        The integration service environment managed api content link for deployment.
+        """
+        return pulumi.get(self, "content_link_definition")
+
+    @content_link_definition.setter
+    def content_link_definition(self, value: Optional[pulumi.Input['ContentLinkArgs']]):
+        pulumi.set(self, "content_link_definition", value)
+
+
+@pulumi.input_type
 class IntegrationServiceEnvironmentPropertiesArgs:
     def __init__(__self__, *,
                  encryption_configuration: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs']] = None,
@@ -4266,78 +4186,6 @@ class IntegrationServiceEnvironmentSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[Union[str, 'IntegrationServiceEnvironmentSkuName']]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class IntegrationServiceEnvironmentArgs:
-    def __init__(__self__, *,
-                 location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
-                 sku: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        The integration service environment.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
-        :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        """
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]:
-        """
-        The integration service environment properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]:
-        """
-        The sku.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -4507,6 +4355,45 @@ class KeyVaultReference:
 
 
 @pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Managed service identity properties.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class NetworkConfigurationArgs:
     def __init__(__self__, *,
                  access_endpoint: Optional[pulumi.Input['IntegrationServiceEnvironmentAccessEndpointArgs']] = None,
@@ -4589,13 +4476,17 @@ class OpenAuthenticationAccessPoliciesArgs:
 @pulumi.input_type
 class OpenAuthenticationAccessPolicyArgs:
     def __init__(__self__, *,
-                 claims: Optional[pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]]] = None):
+                 claims: Optional[pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'OpenAuthenticationProviderType']]] = None):
         """
         Open authentication access policy defined by user.
         :param pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]] claims: The access policy claims.
+        :param pulumi.Input[Union[str, 'OpenAuthenticationProviderType']] type: Type of provider for OAuth.
         """
         if claims is not None:
             pulumi.set(__self__, "claims", claims)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -4608,6 +4499,18 @@ class OpenAuthenticationAccessPolicyArgs:
     @claims.setter
     def claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenAuthenticationPolicyClaimArgs']]]]):
         pulumi.set(self, "claims", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'OpenAuthenticationProviderType']]]:
+        """
+        Type of provider for OAuth.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'OpenAuthenticationProviderType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

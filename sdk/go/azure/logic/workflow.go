@@ -20,6 +20,7 @@ type Workflow struct {
 	CreatedTime                   pulumi.StringOutput                             `pulumi:"createdTime"`
 	Definition                    pulumi.AnyOutput                                `pulumi:"definition"`
 	EndpointsConfiguration        FlowEndpointsConfigurationResponsePtrOutput     `pulumi:"endpointsConfiguration"`
+	Identity                      ManagedServiceIdentityResponsePtrOutput         `pulumi:"identity"`
 	IntegrationAccount            ResourceReferenceResponsePtrOutput              `pulumi:"integrationAccount"`
 	IntegrationServiceEnvironment ResourceReferenceResponsePtrOutput              `pulumi:"integrationServiceEnvironment"`
 	Location                      pulumi.StringPtrOutput                          `pulumi:"location"`
@@ -108,6 +109,7 @@ type workflowArgs struct {
 	AccessControl                 *FlowAccessControlConfiguration `pulumi:"accessControl"`
 	Definition                    interface{}                     `pulumi:"definition"`
 	EndpointsConfiguration        *FlowEndpointsConfiguration     `pulumi:"endpointsConfiguration"`
+	Identity                      *ManagedServiceIdentity         `pulumi:"identity"`
 	IntegrationAccount            *ResourceReference              `pulumi:"integrationAccount"`
 	IntegrationServiceEnvironment *ResourceReference              `pulumi:"integrationServiceEnvironment"`
 	Location                      *string                         `pulumi:"location"`
@@ -123,6 +125,7 @@ type WorkflowArgs struct {
 	AccessControl                 FlowAccessControlConfigurationPtrInput
 	Definition                    pulumi.Input
 	EndpointsConfiguration        FlowEndpointsConfigurationPtrInput
+	Identity                      ManagedServiceIdentityPtrInput
 	IntegrationAccount            ResourceReferencePtrInput
 	IntegrationServiceEnvironment ResourceReferencePtrInput
 	Location                      pulumi.StringPtrInput
