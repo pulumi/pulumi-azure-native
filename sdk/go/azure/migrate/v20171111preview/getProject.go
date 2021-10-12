@@ -1,0 +1,40 @@
+
+
+
+package v20171111preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
+	var rv LookupProjectResult
+	err := ctx.Invoke("azure-native:migrate/v20171111preview:getProject", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupProjectArgs struct {
+	ProjectName       string `pulumi:"projectName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupProjectResult struct {
+	CreatedTimestamp    string      `pulumi:"createdTimestamp"`
+	CustomerWorkspaceId *string     `pulumi:"customerWorkspaceId"`
+	DiscoveryStatus     string      `pulumi:"discoveryStatus"`
+	ETag                *string     `pulumi:"eTag"`
+	Id                  string      `pulumi:"id"`
+	Location            *string     `pulumi:"location"`
+	Name                string      `pulumi:"name"`
+	NumberOfAssessments int         `pulumi:"numberOfAssessments"`
+	NumberOfGroups      int         `pulumi:"numberOfGroups"`
+	NumberOfMachines    int         `pulumi:"numberOfMachines"`
+	ProvisioningState   *string     `pulumi:"provisioningState"`
+	Tags                interface{} `pulumi:"tags"`
+	Type                string      `pulumi:"type"`
+	UpdatedTimestamp    string      `pulumi:"updatedTimestamp"`
+}

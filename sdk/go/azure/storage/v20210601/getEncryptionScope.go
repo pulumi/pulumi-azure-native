@@ -1,0 +1,36 @@
+
+
+
+package v20210601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
+	var rv LookupEncryptionScopeResult
+	err := ctx.Invoke("azure-native:storage/v20210601:getEncryptionScope", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupEncryptionScopeArgs struct {
+	AccountName         string `pulumi:"accountName"`
+	EncryptionScopeName string `pulumi:"encryptionScopeName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupEncryptionScopeResult struct {
+	CreationTime                    string                                     `pulumi:"creationTime"`
+	Id                              string                                     `pulumi:"id"`
+	KeyVaultProperties              *EncryptionScopeKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	LastModifiedTime                string                                     `pulumi:"lastModifiedTime"`
+	Name                            string                                     `pulumi:"name"`
+	RequireInfrastructureEncryption *bool                                      `pulumi:"requireInfrastructureEncryption"`
+	Source                          *string                                    `pulumi:"source"`
+	State                           *string                                    `pulumi:"state"`
+	Type                            string                                     `pulumi:"type"`
+}
