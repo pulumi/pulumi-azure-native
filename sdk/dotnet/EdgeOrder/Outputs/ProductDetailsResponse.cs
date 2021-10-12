@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Quantity of the product
         /// </summary>
-        public readonly int? Count;
+        public readonly int Count;
         /// <summary>
         /// list of device details
         /// </summary>
@@ -32,21 +32,28 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// Hierarchy of the product which uniquely identifies the product
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
+        /// <summary>
+        /// Double encryption status of the configuration. Read-only field.
+        /// </summary>
+        public readonly string ProductDoubleEncryptionStatus;
 
         [OutputConstructor]
         private ProductDetailsResponse(
-            int? count,
+            int count,
 
             ImmutableArray<Outputs.DeviceDetailsResponse> deviceDetails,
 
             Outputs.DisplayInfoResponse? displayInfo,
 
-            Outputs.HierarchyInformationResponse hierarchyInformation)
+            Outputs.HierarchyInformationResponse hierarchyInformation,
+
+            string productDoubleEncryptionStatus)
         {
             Count = count;
             DeviceDetails = deviceDetails;
             DisplayInfo = displayInfo;
             HierarchyInformation = hierarchyInformation;
+            ProductDoubleEncryptionStatus = productDoubleEncryptionStatus;
         }
     }
 }

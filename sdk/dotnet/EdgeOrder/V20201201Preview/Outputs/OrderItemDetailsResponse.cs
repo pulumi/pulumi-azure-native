@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly string CancellationReason;
         /// <summary>
-        /// Describes whether the orderItem is cancellable or not.
+        /// Describes whether the order item is cancellable or not.
         /// </summary>
         public readonly string CancellationStatus;
         /// <summary>
@@ -39,11 +39,15 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// <summary>
         /// Forward Package Shipping details
         /// </summary>
-        public readonly Outputs.ShippingDetailsResponse ForwardShippingDetails;
+        public readonly Outputs.ForwardShippingDetailsResponse ForwardShippingDetails;
         /// <summary>
-        /// parent RP details
+        /// Parent RP details - this returns only the first or default parent RP from the entire list
         /// </summary>
-        public readonly object ManagementRpDetails;
+        public readonly Outputs.ResourceProviderDetailsResponse ManagementRpDetails;
+        /// <summary>
+        /// List of parent RP details supported for configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceProviderDetailsResponse> ManagementRpDetailsList;
         /// <summary>
         /// Additional notification email list
         /// </summary>
@@ -69,13 +73,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly string ReturnReason;
         /// <summary>
-        /// Describes whether the orderItem is returnable or not.
+        /// Describes whether the order item is returnable or not.
         /// </summary>
         public readonly string ReturnStatus;
         /// <summary>
         /// Reverse Package Shipping details
         /// </summary>
-        public readonly Outputs.ShippingDetailsResponse ReverseShippingDetails;
+        public readonly Outputs.ReverseShippingDetailsResponse ReverseShippingDetails;
 
         [OutputConstructor]
         private OrderItemDetailsResponse(
@@ -89,9 +93,11 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
             Outputs.ErrorDetailResponse error,
 
-            Outputs.ShippingDetailsResponse forwardShippingDetails,
+            Outputs.ForwardShippingDetailsResponse forwardShippingDetails,
 
-            object managementRpDetails,
+            Outputs.ResourceProviderDetailsResponse managementRpDetails,
+
+            ImmutableArray<Outputs.ResourceProviderDetailsResponse> managementRpDetailsList,
 
             ImmutableArray<string> notificationEmailList,
 
@@ -107,7 +113,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
             string returnStatus,
 
-            Outputs.ShippingDetailsResponse reverseShippingDetails)
+            Outputs.ReverseShippingDetailsResponse reverseShippingDetails)
         {
             CancellationReason = cancellationReason;
             CancellationStatus = cancellationStatus;
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
             Error = error;
             ForwardShippingDetails = forwardShippingDetails;
             ManagementRpDetails = managementRpDetails;
+            ManagementRpDetailsList = managementRpDetailsList;
             NotificationEmailList = notificationEmailList;
             OrderItemStageHistory = orderItemStageHistory;
             OrderItemType = orderItemType;

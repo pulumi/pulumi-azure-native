@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string ManagementResourceId;
         /// <summary>
+        /// Management Resource Tenant ID
+        /// </summary>
+        public readonly string ManagementResourceTenantId;
+        /// <summary>
         /// device serial number
         /// </summary>
         public readonly string SerialNumber;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         private DeviceDetailsResponse(
             string managementResourceId,
 
+            string managementResourceTenantId,
+
             string serialNumber)
         {
             ManagementResourceId = managementResourceId;
+            ManagementResourceTenantId = managementResourceTenantId;
             SerialNumber = serialNumber;
         }
     }

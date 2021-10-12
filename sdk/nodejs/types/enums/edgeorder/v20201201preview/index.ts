@@ -34,7 +34,7 @@ export const DoubleEncryptionStatus = {
 } as const;
 
 /**
- * Defines secondary layer of software-based encryption enablement.
+ * Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
  */
 export type DoubleEncryptionStatus = (typeof DoubleEncryptionStatus)[keyof typeof DoubleEncryptionStatus];
 

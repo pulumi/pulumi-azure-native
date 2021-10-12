@@ -316,10 +316,8 @@ class EncryptionPreferencesArgs:
                  double_encryption_status: Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]] = None):
         """
         Preferences related to the double encryption
-        :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Defines secondary layer of software-based encryption enablement.
+        :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
-        if double_encryption_status is None:
-            double_encryption_status = 'Disabled'
         if double_encryption_status is not None:
             pulumi.set(__self__, "double_encryption_status", double_encryption_status)
 
@@ -327,7 +325,7 @@ class EncryptionPreferencesArgs:
     @pulumi.getter(name="doubleEncryptionStatus")
     def double_encryption_status(self) -> Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]]:
         """
-        Defines secondary layer of software-based encryption enablement.
+        Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
         return pulumi.get(self, "double_encryption_status")
 
@@ -725,16 +723,12 @@ class PreferencesArgs:
 @pulumi.input_type
 class ProductDetailsArgs:
     def __init__(__self__, *,
-                 hierarchy_information: pulumi.Input['HierarchyInformationArgs'],
-                 count: Optional[pulumi.Input[int]] = None):
+                 hierarchy_information: pulumi.Input['HierarchyInformationArgs']):
         """
         Represents product details
         :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the product
-        :param pulumi.Input[int] count: Quantity of the product
         """
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -747,18 +741,6 @@ class ProductDetailsArgs:
     @hierarchy_information.setter
     def hierarchy_information(self, value: pulumi.Input['HierarchyInformationArgs']):
         pulumi.set(self, "hierarchy_information", value)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Quantity of the product
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
 
 
 @pulumi.input_type

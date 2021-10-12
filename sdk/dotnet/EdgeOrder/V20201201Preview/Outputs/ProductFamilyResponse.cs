@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// List of product lines supported in the product family
         /// </summary>
         public readonly ImmutableArray<Outputs.ProductLineResponse> ProductLines;
+        /// <summary>
+        /// Contains details related to resource provider
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceProviderDetailsResponse> ResourceProviderDetails;
 
         [OutputConstructor]
         private ProductFamilyResponse(
@@ -65,7 +69,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
             ImmutableArray<Outputs.ImageInformationResponse> imageInformation,
 
-            ImmutableArray<Outputs.ProductLineResponse> productLines)
+            ImmutableArray<Outputs.ProductLineResponse> productLines,
+
+            ImmutableArray<Outputs.ResourceProviderDetailsResponse> resourceProviderDetails)
         {
             AvailabilityInformation = availabilityInformation;
             CostInformation = costInformation;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
             HierarchyInformation = hierarchyInformation;
             ImageInformation = imageInformation;
             ProductLines = productLines;
+            ResourceProviderDetails = resourceProviderDetails;
         }
     }
 }

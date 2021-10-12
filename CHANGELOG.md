@@ -15,8 +15,10 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16181))
 - `vmwarecloudsimple.DedicatedCloudNode.created` type is set to `string`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16090))
-- `hybridnetwork:Device` has `azureStackEdge` removed
+- `hybridnetwork.Device` has `azureStackEdge` removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16316))
+- `edgeorder.ShippingDetails` type split into `ForwardShippingDetails` and `ReverseShippingDetails`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15962))
 
 ---
 

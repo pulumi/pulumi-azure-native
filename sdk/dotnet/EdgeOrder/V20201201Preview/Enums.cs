@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     }
 
     /// <summary>
-    /// Defines secondary layer of software-based encryption enablement.
+    /// Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
     /// </summary>
     [EnumType]
     public readonly struct DoubleEncryptionStatus : IEquatable<DoubleEncryptionStatus>

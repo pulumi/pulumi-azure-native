@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     public sealed class ProductDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Quantity of the product
-        /// </summary>
-        [Input("count")]
-        public Input<int>? Count { get; set; }
-
-        /// <summary>
         /// Hierarchy of the product which uniquely identifies the product
         /// </summary>
         [Input("hierarchyInformation", required: true)]

@@ -25,7 +25,7 @@ export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.I
 
 export interface GetOrderItemByNameArgs {
     /**
-     * $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+     * $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
      */
     expand?: string;
     /**
@@ -90,7 +90,7 @@ export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opt
 
 export interface GetOrderItemByNameOutputArgs {
     /**
-     * $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+     * $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
      */
     expand?: pulumi.Input<string>;
     /**

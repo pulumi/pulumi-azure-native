@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class EncryptionPreferencesResponse
     {
         /// <summary>
-        /// Defines secondary layer of software-based encryption enablement.
+        /// Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         /// </summary>
         public readonly string? DoubleEncryptionStatus;
 

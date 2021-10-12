@@ -16,14 +16,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     public sealed class EncryptionPreferencesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines secondary layer of software-based encryption enablement.
+        /// Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         /// </summary>
         [Input("doubleEncryptionStatus")]
         public InputUnion<string, Pulumi.AzureNative.EdgeOrder.DoubleEncryptionStatus>? DoubleEncryptionStatus { get; set; }
 
         public EncryptionPreferencesArgs()
         {
-            DoubleEncryptionStatus = "Disabled";
         }
     }
 }

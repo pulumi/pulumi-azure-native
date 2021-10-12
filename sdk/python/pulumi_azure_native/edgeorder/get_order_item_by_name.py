@@ -161,7 +161,7 @@ def get_order_item_by_name(expand: Optional[str] = None,
     API Version: 2020-12-01-preview.
 
 
-    :param str expand: $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+    :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
     :param str order_item_name: The name of the order item
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -198,7 +198,7 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
     API Version: 2020-12-01-preview.
 
 
-    :param str expand: $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+    :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
     :param str order_item_name: The name of the order item
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
