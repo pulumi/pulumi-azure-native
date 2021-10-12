@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.37.0 (2021-10-12)
+
 #### Enhancements:
 
 - Update to `pulumi/pulumi` 3.14.0 with input/output based functions API in Node.js
@@ -19,8 +25,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16316))
 - `edgeorder.ShippingDetails` type split into `ForwardShippingDetails` and `ReverseShippingDetails`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15962))
-
----
 
 ## 1.36.0 (2021-10-07)
 
