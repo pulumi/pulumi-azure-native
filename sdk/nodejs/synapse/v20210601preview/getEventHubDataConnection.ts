@@ -86,6 +86,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly location?: string;
     /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    readonly managedIdentityResourceId?: string;
+    /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
     readonly mappingRuleName?: string;

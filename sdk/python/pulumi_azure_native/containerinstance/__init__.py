@@ -37,6 +37,8 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.containerinstance.v20210701 as __v20210701
     v20210701 = __v20210701
+    import pulumi_azure_native.containerinstance.v20210901 as __v20210901
+    v20210901 = __v20210901
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20170801preview')
     v20171001preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20171001preview')
@@ -50,4 +52,5 @@ else:
     v20201101 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20201101')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210301')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210701')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210901')
 

@@ -26,18 +26,19 @@ type LookupEventHubDataConnectionArgs struct {
 
 
 type LookupEventHubDataConnectionResult struct {
-	Compression           *string            `pulumi:"compression"`
-	ConsumerGroup         string             `pulumi:"consumerGroup"`
-	DataFormat            *string            `pulumi:"dataFormat"`
-	EventHubResourceId    string             `pulumi:"eventHubResourceId"`
-	EventSystemProperties []string           `pulumi:"eventSystemProperties"`
-	Id                    string             `pulumi:"id"`
-	Kind                  string             `pulumi:"kind"`
-	Location              *string            `pulumi:"location"`
-	MappingRuleName       *string            `pulumi:"mappingRuleName"`
-	Name                  string             `pulumi:"name"`
-	ProvisioningState     string             `pulumi:"provisioningState"`
-	SystemData            SystemDataResponse `pulumi:"systemData"`
-	TableName             *string            `pulumi:"tableName"`
-	Type                  string             `pulumi:"type"`
+	Compression               *string            `pulumi:"compression"`
+	ConsumerGroup             string             `pulumi:"consumerGroup"`
+	DataFormat                *string            `pulumi:"dataFormat"`
+	EventHubResourceId        string             `pulumi:"eventHubResourceId"`
+	EventSystemProperties     []string           `pulumi:"eventSystemProperties"`
+	Id                        string             `pulumi:"id"`
+	Kind                      string             `pulumi:"kind"`
+	Location                  *string            `pulumi:"location"`
+	ManagedIdentityResourceId *string            `pulumi:"managedIdentityResourceId"`
+	MappingRuleName           *string            `pulumi:"mappingRuleName"`
+	Name                      string             `pulumi:"name"`
+	ProvisioningState         string             `pulumi:"provisioningState"`
+	SystemData                SystemDataResponse `pulumi:"systemData"`
+	TableName                 *string            `pulumi:"tableName"`
+	Type                      string             `pulumi:"type"`
 }

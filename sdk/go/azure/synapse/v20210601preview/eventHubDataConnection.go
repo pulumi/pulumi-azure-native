@@ -14,19 +14,20 @@ import (
 type EventHubDataConnection struct {
 	pulumi.CustomResourceState
 
-	Compression           pulumi.StringPtrOutput   `pulumi:"compression"`
-	ConsumerGroup         pulumi.StringOutput      `pulumi:"consumerGroup"`
-	DataFormat            pulumi.StringPtrOutput   `pulumi:"dataFormat"`
-	EventHubResourceId    pulumi.StringOutput      `pulumi:"eventHubResourceId"`
-	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
-	Kind                  pulumi.StringOutput      `pulumi:"kind"`
-	Location              pulumi.StringPtrOutput   `pulumi:"location"`
-	MappingRuleName       pulumi.StringPtrOutput   `pulumi:"mappingRuleName"`
-	Name                  pulumi.StringOutput      `pulumi:"name"`
-	ProvisioningState     pulumi.StringOutput      `pulumi:"provisioningState"`
-	SystemData            SystemDataResponseOutput `pulumi:"systemData"`
-	TableName             pulumi.StringPtrOutput   `pulumi:"tableName"`
-	Type                  pulumi.StringOutput      `pulumi:"type"`
+	Compression               pulumi.StringPtrOutput   `pulumi:"compression"`
+	ConsumerGroup             pulumi.StringOutput      `pulumi:"consumerGroup"`
+	DataFormat                pulumi.StringPtrOutput   `pulumi:"dataFormat"`
+	EventHubResourceId        pulumi.StringOutput      `pulumi:"eventHubResourceId"`
+	EventSystemProperties     pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
+	Kind                      pulumi.StringOutput      `pulumi:"kind"`
+	Location                  pulumi.StringPtrOutput   `pulumi:"location"`
+	ManagedIdentityResourceId pulumi.StringPtrOutput   `pulumi:"managedIdentityResourceId"`
+	MappingRuleName           pulumi.StringPtrOutput   `pulumi:"mappingRuleName"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState         pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData                SystemDataResponseOutput `pulumi:"systemData"`
+	TableName                 pulumi.StringPtrOutput   `pulumi:"tableName"`
+	Type                      pulumi.StringOutput      `pulumi:"type"`
 }
 
 
@@ -108,38 +109,40 @@ func (EventHubDataConnectionState) ElementType() reflect.Type {
 }
 
 type eventHubDataConnectionArgs struct {
-	Compression           *string  `pulumi:"compression"`
-	ConsumerGroup         string   `pulumi:"consumerGroup"`
-	DataConnectionName    *string  `pulumi:"dataConnectionName"`
-	DataFormat            *string  `pulumi:"dataFormat"`
-	DatabaseName          string   `pulumi:"databaseName"`
-	EventHubResourceId    string   `pulumi:"eventHubResourceId"`
-	EventSystemProperties []string `pulumi:"eventSystemProperties"`
-	Kind                  string   `pulumi:"kind"`
-	KustoPoolName         string   `pulumi:"kustoPoolName"`
-	Location              *string  `pulumi:"location"`
-	MappingRuleName       *string  `pulumi:"mappingRuleName"`
-	ResourceGroupName     string   `pulumi:"resourceGroupName"`
-	TableName             *string  `pulumi:"tableName"`
-	WorkspaceName         string   `pulumi:"workspaceName"`
+	Compression               *string  `pulumi:"compression"`
+	ConsumerGroup             string   `pulumi:"consumerGroup"`
+	DataConnectionName        *string  `pulumi:"dataConnectionName"`
+	DataFormat                *string  `pulumi:"dataFormat"`
+	DatabaseName              string   `pulumi:"databaseName"`
+	EventHubResourceId        string   `pulumi:"eventHubResourceId"`
+	EventSystemProperties     []string `pulumi:"eventSystemProperties"`
+	Kind                      string   `pulumi:"kind"`
+	KustoPoolName             string   `pulumi:"kustoPoolName"`
+	Location                  *string  `pulumi:"location"`
+	ManagedIdentityResourceId *string  `pulumi:"managedIdentityResourceId"`
+	MappingRuleName           *string  `pulumi:"mappingRuleName"`
+	ResourceGroupName         string   `pulumi:"resourceGroupName"`
+	TableName                 *string  `pulumi:"tableName"`
+	WorkspaceName             string   `pulumi:"workspaceName"`
 }
 
 
 type EventHubDataConnectionArgs struct {
-	Compression           pulumi.StringPtrInput
-	ConsumerGroup         pulumi.StringInput
-	DataConnectionName    pulumi.StringPtrInput
-	DataFormat            pulumi.StringPtrInput
-	DatabaseName          pulumi.StringInput
-	EventHubResourceId    pulumi.StringInput
-	EventSystemProperties pulumi.StringArrayInput
-	Kind                  pulumi.StringInput
-	KustoPoolName         pulumi.StringInput
-	Location              pulumi.StringPtrInput
-	MappingRuleName       pulumi.StringPtrInput
-	ResourceGroupName     pulumi.StringInput
-	TableName             pulumi.StringPtrInput
-	WorkspaceName         pulumi.StringInput
+	Compression               pulumi.StringPtrInput
+	ConsumerGroup             pulumi.StringInput
+	DataConnectionName        pulumi.StringPtrInput
+	DataFormat                pulumi.StringPtrInput
+	DatabaseName              pulumi.StringInput
+	EventHubResourceId        pulumi.StringInput
+	EventSystemProperties     pulumi.StringArrayInput
+	Kind                      pulumi.StringInput
+	KustoPoolName             pulumi.StringInput
+	Location                  pulumi.StringPtrInput
+	ManagedIdentityResourceId pulumi.StringPtrInput
+	MappingRuleName           pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	TableName                 pulumi.StringPtrInput
+	WorkspaceName             pulumi.StringInput
 }
 
 func (EventHubDataConnectionArgs) ElementType() reflect.Type {

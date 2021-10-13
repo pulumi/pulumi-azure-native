@@ -3838,6 +3838,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerinstance/v20210901",
+  "fqn": "pulumi_azure_native.containerinstance.v20210901",
+  "classes": {
+   "azure-native:containerinstance/v20210901:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerregistry",
   "fqn": "pulumi_azure_native.containerregistry",
   "classes": {

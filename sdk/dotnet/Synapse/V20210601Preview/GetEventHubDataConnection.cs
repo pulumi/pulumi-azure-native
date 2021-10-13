@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// </summary>
+        public readonly string? ManagedIdentityResourceId;
+        /// <summary>
         /// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         /// </summary>
         public readonly string? MappingRuleName;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             string? location,
 
+            string? managedIdentityResourceId,
+
             string? mappingRuleName,
 
             string name,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             Id = id;
             Kind = kind;
             Location = location;
+            ManagedIdentityResourceId = managedIdentityResourceId;
             MappingRuleName = mappingRuleName;
             Name = name;
             ProvisioningState = provisioningState;

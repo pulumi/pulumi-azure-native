@@ -65,6 +65,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
+    /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
     public readonly mappingRuleName!: pulumi.Output<string | undefined>;
@@ -131,6 +135,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             inputs["kind"] = "EventHub";
             inputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
@@ -147,6 +152,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             inputs["eventSystemProperties"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedIdentityResourceId"] = undefined /*out*/;
             inputs["mappingRuleName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -208,6 +214,10 @@ export interface EventHubDataConnectionArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
