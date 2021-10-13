@@ -10,6 +10,40 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	"Authorization": {
 		"RoleAssignment": codegen.NewStringSet("principalId", "scope"),
 	},
+	"ContainerService": {
+		"ManagedCluster": codegen.NewStringSet(
+			// aadProfile
+			"enableAzureRBAC",
+			// agentPoolProfiles
+			"availabilityZones",
+			"enableEncryptionAtHost",
+			"enableFIPS",
+			"enableNodePublicIP",
+			"kubeletConfig",
+			"linuxOSConfig",
+			"maxPods",
+			"name",
+			"nodeLabels",
+			"nodePublicIPPrefixID",
+			"nodeTaints",
+			"osDiskSizeGB",
+			"osSKU",
+			"podSubnetID",
+			"proximityPlacementGroupID",
+			"type",
+			"vnetSubnetID",
+			"vmSize",
+			// cluster
+			"diskEncryptionSetID",
+			"dnsPrefix",
+			"fqdnSubdomain",
+			"linuxProfile",
+			"location",
+			"networkProfile",
+			"nodeResourceGroup",
+			"windowsProfile",
+		),
+	},
 	"Insights": {
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
 	},
