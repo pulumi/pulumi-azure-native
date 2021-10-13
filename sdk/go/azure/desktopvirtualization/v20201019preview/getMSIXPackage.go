@@ -1,0 +1,41 @@
+
+
+
+package v20201019preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupMSIXPackage(ctx *pulumi.Context, args *LookupMSIXPackageArgs, opts ...pulumi.InvokeOption) (*LookupMSIXPackageResult, error) {
+	var rv LookupMSIXPackageResult
+	err := ctx.Invoke("azure-native:desktopvirtualization/v20201019preview:getMSIXPackage", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupMSIXPackageArgs struct {
+	HostPoolName        string `pulumi:"hostPoolName"`
+	MsixPackageFullName string `pulumi:"msixPackageFullName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupMSIXPackageResult struct {
+	DisplayName           *string                           `pulumi:"displayName"`
+	Id                    string                            `pulumi:"id"`
+	ImagePath             *string                           `pulumi:"imagePath"`
+	IsActive              *bool                             `pulumi:"isActive"`
+	IsRegularRegistration *bool                             `pulumi:"isRegularRegistration"`
+	LastUpdated           *string                           `pulumi:"lastUpdated"`
+	Name                  string                            `pulumi:"name"`
+	PackageApplications   []MsixPackageApplicationsResponse `pulumi:"packageApplications"`
+	PackageDependencies   []MsixPackageDependenciesResponse `pulumi:"packageDependencies"`
+	PackageFamilyName     *string                           `pulumi:"packageFamilyName"`
+	PackageName           *string                           `pulumi:"packageName"`
+	PackageRelativePath   *string                           `pulumi:"packageRelativePath"`
+	Type                  string                            `pulumi:"type"`
+	Version               *string                           `pulumi:"version"`
+}

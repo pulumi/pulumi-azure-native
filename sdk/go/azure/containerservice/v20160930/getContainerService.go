@@ -1,0 +1,40 @@
+
+
+
+package v20160930
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArgs, opts ...pulumi.InvokeOption) (*LookupContainerServiceResult, error) {
+	var rv LookupContainerServiceResult
+	err := ctx.Invoke("azure-native:containerservice/v20160930:getContainerService", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupContainerServiceArgs struct {
+	ContainerServiceName string `pulumi:"containerServiceName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupContainerServiceResult struct {
+	AgentPoolProfiles       []ContainerServiceAgentPoolProfileResponse       `pulumi:"agentPoolProfiles"`
+	CustomProfile           *ContainerServiceCustomProfileResponse           `pulumi:"customProfile"`
+	DiagnosticsProfile      *ContainerServiceDiagnosticsProfileResponse      `pulumi:"diagnosticsProfile"`
+	Id                      string                                           `pulumi:"id"`
+	LinuxProfile            ContainerServiceLinuxProfileResponse             `pulumi:"linuxProfile"`
+	Location                string                                           `pulumi:"location"`
+	MasterProfile           ContainerServiceMasterProfileResponse            `pulumi:"masterProfile"`
+	Name                    string                                           `pulumi:"name"`
+	OrchestratorProfile     *ContainerServiceOrchestratorProfileResponse     `pulumi:"orchestratorProfile"`
+	ProvisioningState       string                                           `pulumi:"provisioningState"`
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
+	Tags                    map[string]string                                `pulumi:"tags"`
+	Type                    string                                           `pulumi:"type"`
+	WindowsProfile          *ContainerServiceWindowsProfileResponse          `pulumi:"windowsProfile"`
+}

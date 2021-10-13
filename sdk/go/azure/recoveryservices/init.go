@@ -1,0 +1,76 @@
+
+
+
+package recoveryservices
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:recoveryservices:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
+	case "azure-native:recoveryservices:ProtectedItem":
+		r = &ProtectedItem{}
+	case "azure-native:recoveryservices:ProtectionContainer":
+		r = &ProtectionContainer{}
+	case "azure-native:recoveryservices:ProtectionIntent":
+		r = &ProtectionIntent{}
+	case "azure-native:recoveryservices:ProtectionPolicy":
+		r = &ProtectionPolicy{}
+	case "azure-native:recoveryservices:ReplicationFabric":
+		r = &ReplicationFabric{}
+	case "azure-native:recoveryservices:ReplicationMigrationItem":
+		r = &ReplicationMigrationItem{}
+	case "azure-native:recoveryservices:ReplicationNetworkMapping":
+		r = &ReplicationNetworkMapping{}
+	case "azure-native:recoveryservices:ReplicationPolicy":
+		r = &ReplicationPolicy{}
+	case "azure-native:recoveryservices:ReplicationProtectedItem":
+		r = &ReplicationProtectedItem{}
+	case "azure-native:recoveryservices:ReplicationProtectionContainerMapping":
+		r = &ReplicationProtectionContainerMapping{}
+	case "azure-native:recoveryservices:ReplicationRecoveryPlan":
+		r = &ReplicationRecoveryPlan{}
+	case "azure-native:recoveryservices:ReplicationRecoveryServicesProvider":
+		r = &ReplicationRecoveryServicesProvider{}
+	case "azure-native:recoveryservices:ReplicationStorageClassificationMapping":
+		r = &ReplicationStorageClassificationMapping{}
+	case "azure-native:recoveryservices:ReplicationvCenter":
+		r = &ReplicationvCenter{}
+	case "azure-native:recoveryservices:ResourceGuardProxy":
+		r = &ResourceGuardProxy{}
+	case "azure-native:recoveryservices:Vault":
+		r = &Vault{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"recoveryservices",
+		&module{version},
+	)
+}
