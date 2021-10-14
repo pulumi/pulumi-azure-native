@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type KustomizationValidationType string
+
+const (
+	KustomizationValidationTypeNone   = KustomizationValidationType("none")
+	KustomizationValidationTypeClient = KustomizationValidationType("client")
+	KustomizationValidationTypeServer = KustomizationValidationType("server")
+)
+
+func (KustomizationValidationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KustomizationValidationType)(nil)).Elem()
+}
+
+func (e KustomizationValidationType) ToKustomizationValidationTypeOutput() KustomizationValidationTypeOutput {
+	return pulumi.ToOutput(e).(KustomizationValidationTypeOutput)
+}
+
+func (e KustomizationValidationType) ToKustomizationValidationTypeOutputWithContext(ctx context.Context) KustomizationValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KustomizationValidationTypeOutput)
+}
+
+func (e KustomizationValidationType) ToKustomizationValidationTypePtrOutput() KustomizationValidationTypePtrOutput {
+	return e.ToKustomizationValidationTypePtrOutputWithContext(context.Background())
+}
+
+func (e KustomizationValidationType) ToKustomizationValidationTypePtrOutputWithContext(ctx context.Context) KustomizationValidationTypePtrOutput {
+	return KustomizationValidationType(e).ToKustomizationValidationTypeOutputWithContext(ctx).ToKustomizationValidationTypePtrOutputWithContext(ctx)
+}
+
+func (e KustomizationValidationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KustomizationValidationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KustomizationValidationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KustomizationValidationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KustomizationValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (KustomizationValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KustomizationValidationType)(nil)).Elem()
+}
+
+func (o KustomizationValidationTypeOutput) ToKustomizationValidationTypeOutput() KustomizationValidationTypeOutput {
+	return o
+}
+
+func (o KustomizationValidationTypeOutput) ToKustomizationValidationTypeOutputWithContext(ctx context.Context) KustomizationValidationTypeOutput {
+	return o
+}
+
+func (o KustomizationValidationTypeOutput) ToKustomizationValidationTypePtrOutput() KustomizationValidationTypePtrOutput {
+	return o.ToKustomizationValidationTypePtrOutputWithContext(context.Background())
+}
+
+func (o KustomizationValidationTypeOutput) ToKustomizationValidationTypePtrOutputWithContext(ctx context.Context) KustomizationValidationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KustomizationValidationType) *KustomizationValidationType {
+		return &v
+	}).(KustomizationValidationTypePtrOutput)
+}
+
+func (o KustomizationValidationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KustomizationValidationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KustomizationValidationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KustomizationValidationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KustomizationValidationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KustomizationValidationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KustomizationValidationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KustomizationValidationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KustomizationValidationType)(nil)).Elem()
+}
+
+func (o KustomizationValidationTypePtrOutput) ToKustomizationValidationTypePtrOutput() KustomizationValidationTypePtrOutput {
+	return o
+}
+
+func (o KustomizationValidationTypePtrOutput) ToKustomizationValidationTypePtrOutputWithContext(ctx context.Context) KustomizationValidationTypePtrOutput {
+	return o
+}
+
+func (o KustomizationValidationTypePtrOutput) Elem() KustomizationValidationTypeOutput {
+	return o.ApplyT(func(v *KustomizationValidationType) KustomizationValidationType {
+		if v != nil {
+			return *v
+		}
+		var ret KustomizationValidationType
+		return ret
+	}).(KustomizationValidationTypeOutput)
+}
+
+func (o KustomizationValidationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KustomizationValidationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KustomizationValidationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type KustomizationValidationTypeInput interface {
+	pulumi.Input
+
+	ToKustomizationValidationTypeOutput() KustomizationValidationTypeOutput
+	ToKustomizationValidationTypeOutputWithContext(context.Context) KustomizationValidationTypeOutput
+}
+
+var kustomizationValidationTypePtrType = reflect.TypeOf((**KustomizationValidationType)(nil)).Elem()
+
+type KustomizationValidationTypePtrInput interface {
+	pulumi.Input
+
+	ToKustomizationValidationTypePtrOutput() KustomizationValidationTypePtrOutput
+	ToKustomizationValidationTypePtrOutputWithContext(context.Context) KustomizationValidationTypePtrOutput
+}
+
+type kustomizationValidationTypePtr string
+
+func KustomizationValidationTypePtr(v string) KustomizationValidationTypePtrInput {
+	return (*kustomizationValidationTypePtr)(&v)
+}
+
+func (*kustomizationValidationTypePtr) ElementType() reflect.Type {
+	return kustomizationValidationTypePtrType
+}
+
+func (in *kustomizationValidationTypePtr) ToKustomizationValidationTypePtrOutput() KustomizationValidationTypePtrOutput {
+	return pulumi.ToOutput(in).(KustomizationValidationTypePtrOutput)
+}
+
+func (in *kustomizationValidationTypePtr) ToKustomizationValidationTypePtrOutputWithContext(ctx context.Context) KustomizationValidationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KustomizationValidationTypePtrOutput)
+}
+
 type LevelType string
 
 const (
@@ -666,7 +831,336 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
+type ScopeType string
+
+const (
+	ScopeTypeCluster   = ScopeType("cluster")
+	ScopeTypeNamespace = ScopeType("namespace")
+)
+
+func (ScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeType)(nil)).Elem()
+}
+
+func (e ScopeType) ToScopeTypeOutput() ScopeTypeOutput {
+	return pulumi.ToOutput(e).(ScopeTypeOutput)
+}
+
+func (e ScopeType) ToScopeTypeOutputWithContext(ctx context.Context) ScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ScopeTypeOutput)
+}
+
+func (e ScopeType) ToScopeTypePtrOutput() ScopeTypePtrOutput {
+	return e.ToScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ScopeType) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
+	return ScopeType(e).ToScopeTypeOutputWithContext(ctx).ToScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeType)(nil)).Elem()
+}
+
+func (o ScopeTypeOutput) ToScopeTypeOutput() ScopeTypeOutput {
+	return o
+}
+
+func (o ScopeTypeOutput) ToScopeTypeOutputWithContext(ctx context.Context) ScopeTypeOutput {
+	return o
+}
+
+func (o ScopeTypeOutput) ToScopeTypePtrOutput() ScopeTypePtrOutput {
+	return o.ToScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTypeOutput) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeType) *ScopeType {
+		return &v
+	}).(ScopeTypePtrOutput)
+}
+
+func (o ScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeType)(nil)).Elem()
+}
+
+func (o ScopeTypePtrOutput) ToScopeTypePtrOutput() ScopeTypePtrOutput {
+	return o
+}
+
+func (o ScopeTypePtrOutput) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
+	return o
+}
+
+func (o ScopeTypePtrOutput) Elem() ScopeTypeOutput {
+	return o.ApplyT(func(v *ScopeType) ScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeType
+		return ret
+	}).(ScopeTypeOutput)
+}
+
+func (o ScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ScopeTypeInput interface {
+	pulumi.Input
+
+	ToScopeTypeOutput() ScopeTypeOutput
+	ToScopeTypeOutputWithContext(context.Context) ScopeTypeOutput
+}
+
+var scopeTypePtrType = reflect.TypeOf((**ScopeType)(nil)).Elem()
+
+type ScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToScopeTypePtrOutput() ScopeTypePtrOutput
+	ToScopeTypePtrOutputWithContext(context.Context) ScopeTypePtrOutput
+}
+
+type scopeTypePtr string
+
+func ScopeTypePtr(v string) ScopeTypePtrInput {
+	return (*scopeTypePtr)(&v)
+}
+
+func (*scopeTypePtr) ElementType() reflect.Type {
+	return scopeTypePtrType
+}
+
+func (in *scopeTypePtr) ToScopeTypePtrOutput() ScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ScopeTypePtrOutput)
+}
+
+func (in *scopeTypePtr) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ScopeTypePtrOutput)
+}
+
+type SourceKindType string
+
+const (
+	SourceKindTypeGitRepository = SourceKindType("GitRepository")
+)
+
+func (SourceKindType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceKindType)(nil)).Elem()
+}
+
+func (e SourceKindType) ToSourceKindTypeOutput() SourceKindTypeOutput {
+	return pulumi.ToOutput(e).(SourceKindTypeOutput)
+}
+
+func (e SourceKindType) ToSourceKindTypeOutputWithContext(ctx context.Context) SourceKindTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceKindTypeOutput)
+}
+
+func (e SourceKindType) ToSourceKindTypePtrOutput() SourceKindTypePtrOutput {
+	return e.ToSourceKindTypePtrOutputWithContext(context.Background())
+}
+
+func (e SourceKindType) ToSourceKindTypePtrOutputWithContext(ctx context.Context) SourceKindTypePtrOutput {
+	return SourceKindType(e).ToSourceKindTypeOutputWithContext(ctx).ToSourceKindTypePtrOutputWithContext(ctx)
+}
+
+func (e SourceKindType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceKindType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceKindType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceKindType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceKindTypeOutput struct{ *pulumi.OutputState }
+
+func (SourceKindTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceKindType)(nil)).Elem()
+}
+
+func (o SourceKindTypeOutput) ToSourceKindTypeOutput() SourceKindTypeOutput {
+	return o
+}
+
+func (o SourceKindTypeOutput) ToSourceKindTypeOutputWithContext(ctx context.Context) SourceKindTypeOutput {
+	return o
+}
+
+func (o SourceKindTypeOutput) ToSourceKindTypePtrOutput() SourceKindTypePtrOutput {
+	return o.ToSourceKindTypePtrOutputWithContext(context.Background())
+}
+
+func (o SourceKindTypeOutput) ToSourceKindTypePtrOutputWithContext(ctx context.Context) SourceKindTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceKindType) *SourceKindType {
+		return &v
+	}).(SourceKindTypePtrOutput)
+}
+
+func (o SourceKindTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceKindTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceKindType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceKindTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceKindTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceKindType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceKindTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceKindTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceKindType)(nil)).Elem()
+}
+
+func (o SourceKindTypePtrOutput) ToSourceKindTypePtrOutput() SourceKindTypePtrOutput {
+	return o
+}
+
+func (o SourceKindTypePtrOutput) ToSourceKindTypePtrOutputWithContext(ctx context.Context) SourceKindTypePtrOutput {
+	return o
+}
+
+func (o SourceKindTypePtrOutput) Elem() SourceKindTypeOutput {
+	return o.ApplyT(func(v *SourceKindType) SourceKindType {
+		if v != nil {
+			return *v
+		}
+		var ret SourceKindType
+		return ret
+	}).(SourceKindTypeOutput)
+}
+
+func (o SourceKindTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceKindTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceKindType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SourceKindTypeInput interface {
+	pulumi.Input
+
+	ToSourceKindTypeOutput() SourceKindTypeOutput
+	ToSourceKindTypeOutputWithContext(context.Context) SourceKindTypeOutput
+}
+
+var sourceKindTypePtrType = reflect.TypeOf((**SourceKindType)(nil)).Elem()
+
+type SourceKindTypePtrInput interface {
+	pulumi.Input
+
+	ToSourceKindTypePtrOutput() SourceKindTypePtrOutput
+	ToSourceKindTypePtrOutputWithContext(context.Context) SourceKindTypePtrOutput
+}
+
+type sourceKindTypePtr string
+
+func SourceKindTypePtr(v string) SourceKindTypePtrInput {
+	return (*sourceKindTypePtr)(&v)
+}
+
+func (*sourceKindTypePtr) ElementType() reflect.Type {
+	return sourceKindTypePtrType
+}
+
+func (in *sourceKindTypePtr) ToSourceKindTypePtrOutput() SourceKindTypePtrOutput {
+	return pulumi.ToOutput(in).(SourceKindTypePtrOutput)
+}
+
+func (in *sourceKindTypePtr) ToSourceKindTypePtrOutputWithContext(ctx context.Context) SourceKindTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceKindTypePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(KustomizationValidationTypeOutput{})
+	pulumi.RegisterOutputType(KustomizationValidationTypePtrOutput{})
 	pulumi.RegisterOutputType(LevelTypeOutput{})
 	pulumi.RegisterOutputType(LevelTypePtrOutput{})
 	pulumi.RegisterOutputType(OperatorScopeTypeOutput{})
@@ -675,4 +1169,8 @@ func init() {
 	pulumi.RegisterOutputType(OperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(ScopeTypeOutput{})
+	pulumi.RegisterOutputType(ScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(SourceKindTypeOutput{})
+	pulumi.RegisterOutputType(SourceKindTypePtrOutput{})
 }

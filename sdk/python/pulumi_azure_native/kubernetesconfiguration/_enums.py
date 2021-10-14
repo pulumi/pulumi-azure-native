@@ -5,11 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'KustomizationValidationType',
     'LevelType',
     'OperatorScopeType',
     'OperatorType',
     'ResourceIdentityType',
+    'ScopeType',
+    'SourceKindType',
 ]
+
+
+class KustomizationValidationType(str, Enum):
+    """
+    Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+    """
+    NONE = "none"
+    CLIENT = "client"
+    SERVER = "server"
 
 
 class LevelType(str, Enum):
@@ -42,3 +54,18 @@ class ResourceIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
+
+
+class ScopeType(str, Enum):
+    """
+    Scope at which the operator will be installed.
+    """
+    CLUSTER = "cluster"
+    NAMESPACE = "namespace"
+
+
+class SourceKindType(str, Enum):
+    """
+    Source Kind to pull the configuration data from.
+    """
+    GIT_REPOSITORY = "GitRepository"

@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("script")]
         public Input<string>? Script { get; set; }
 
+        [Input("scriptLines")]
+        private InputList<string>? _scriptLines;
+
+        /// <summary>
+        /// Data flow script lines.
+        /// </summary>
+        public InputList<string> ScriptLines
+        {
+            get => _scriptLines ?? (_scriptLines = new InputList<string>());
+            set => _scriptLines = value;
+        }
+
         [Input("sinks")]
         private InputList<Inputs.DataFlowSinkArgs>? _sinks;
 

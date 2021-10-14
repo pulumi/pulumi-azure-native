@@ -65,6 +65,12 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20210801preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:ConnectedRegistry"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectedRegistry

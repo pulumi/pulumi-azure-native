@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:kubernetesconfiguration:Extension":
 		r = &Extension{}
+	case "azure-native:kubernetesconfiguration:FluxConfiguration":
+		r = &FluxConfiguration{}
 	case "azure-native:kubernetesconfiguration:SourceControlConfiguration":
 		r = &SourceControlConfiguration{}
 	default:

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Data flow properties.
         /// </summary>
-        public readonly Union<Outputs.MappingDataFlowResponse, Outputs.WranglingDataFlowResponse> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.DataFactory
 
             string name,
 
-            Union<Outputs.MappingDataFlowResponse, Outputs.WranglingDataFlowResponse> properties,
+            object properties,
 
             string type)
         {

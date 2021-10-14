@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Script;
         /// <summary>
+        /// Data flow script lines.
+        /// </summary>
+        public readonly ImmutableArray<string> ScriptLines;
+        /// <summary>
         /// List of sinks in data flow.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataFlowSinkResponse> Sinks;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? script,
 
+            ImmutableArray<string> scriptLines,
+
             ImmutableArray<Outputs.DataFlowSinkResponse> sinks,
 
             ImmutableArray<Outputs.DataFlowSourceResponse> sources,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Description = description;
             Folder = folder;
             Script = script;
+            ScriptLines = scriptLines;
             Sinks = sinks;
             Sources = sources;
             Transformations = transformations;

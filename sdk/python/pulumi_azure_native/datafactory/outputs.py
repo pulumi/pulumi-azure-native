@@ -231,6 +231,7 @@ __all__ = [
     'FileSystemSinkResponse',
     'FileSystemSourceResponse',
     'FilterActivityResponse',
+    'FlowletResponse',
     'ForEachActivityResponse',
     'FtpReadSettingsResponse',
     'FtpServerLinkedServiceResponse',
@@ -22086,6 +22087,7 @@ class DataFlowSinkResponse(dict):
                  name: str,
                  dataset: Optional['outputs.DatasetReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
@@ -22093,6 +22095,7 @@ class DataFlowSinkResponse(dict):
         :param str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
+        :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         """
@@ -22101,6 +22104,8 @@ class DataFlowSinkResponse(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -22129,6 +22134,14 @@ class DataFlowSinkResponse(dict):
         Transformation description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowReferenceResponse']:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -22175,6 +22188,7 @@ class DataFlowSourceResponse(dict):
                  name: str,
                  dataset: Optional['outputs.DatasetReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
@@ -22182,6 +22196,7 @@ class DataFlowSourceResponse(dict):
         :param str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
+        :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         """
@@ -22190,6 +22205,8 @@ class DataFlowSourceResponse(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -22218,6 +22235,14 @@ class DataFlowSourceResponse(dict):
         Transformation description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowReferenceResponse']:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -30800,6 +30825,154 @@ class FilterActivityResponse(dict):
         Activity user properties.
         """
         return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
+class FlowletResponse(dict):
+    """
+    Data flow flowlet
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalProperties":
+            suggest = "additional_properties"
+        elif key == "scriptLines":
+            suggest = "script_lines"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_properties: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DataFlowResponseFolder'] = None,
+                 script: Optional[str] = None,
+                 script_lines: Optional[Sequence[str]] = None,
+                 sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
+                 sources: Optional[Sequence['outputs.DataFlowSourceResponse']] = None,
+                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None,
+                 type: Optional[str] = None):
+        """
+        Data flow flowlet
+        :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
+        :param str description: The description of the data flow.
+        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param str script: Flowlet script.
+        :param Sequence[str] script_lines: Flowlet script lines.
+        :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in Flowlet.
+        :param Sequence['DataFlowSourceResponse'] sources: List of sources in Flowlet.
+        :param Sequence['TransformationResponse'] transformations: List of transformations in Flowlet.
+        :param str type: Type of data flow.
+               Expected value is 'Flowlet'.
+        """
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
+        if sinks is not None:
+            pulumi.set(__self__, "sinks", sinks)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if transformations is not None:
+            pulumi.set(__self__, "transformations", transformations)
+        if type is not None:
+            pulumi.set(__self__, "type", 'Flowlet')
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Optional[Any]:
+        return pulumi.get(self, "additional_properties")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the data flow.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the data flow.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DataFlowResponseFolder']:
+        """
+        The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        Flowlet script.
+        """
+        return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[Sequence[str]]:
+        """
+        Flowlet script lines.
+        """
+        return pulumi.get(self, "script_lines")
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> Optional[Sequence['outputs.DataFlowSinkResponse']]:
+        """
+        List of sinks in Flowlet.
+        """
+        return pulumi.get(self, "sinks")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.DataFlowSourceResponse']]:
+        """
+        List of sources in Flowlet.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def transformations(self) -> Optional[Sequence['outputs.TransformationResponse']]:
+        """
+        List of transformations in Flowlet.
+        """
+        return pulumi.get(self, "transformations")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of data flow.
+        Expected value is 'Flowlet'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -42985,11 +43158,29 @@ class MappingDataFlowResponse(dict):
     """
     Mapping data flow.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptLines":
+            suggest = "script_lines"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MappingDataFlowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MappingDataFlowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MappingDataFlowResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
                  script: Optional[str] = None,
+                 script_lines: Optional[Sequence[str]] = None,
                  sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
                  sources: Optional[Sequence['outputs.DataFlowSourceResponse']] = None,
                  transformations: Optional[Sequence['outputs.TransformationResponse']] = None,
@@ -43000,6 +43191,7 @@ class MappingDataFlowResponse(dict):
         :param str description: The description of the data flow.
         :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param str script: DataFlow script.
+        :param Sequence[str] script_lines: Data flow script lines.
         :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in data flow.
         :param Sequence['DataFlowSourceResponse'] sources: List of sources in data flow.
         :param Sequence['TransformationResponse'] transformations: List of transformations in data flow.
@@ -43014,6 +43206,8 @@ class MappingDataFlowResponse(dict):
             pulumi.set(__self__, "folder", folder)
         if script is not None:
             pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
         if sinks is not None:
             pulumi.set(__self__, "sinks", sinks)
         if sources is not None:
@@ -43054,6 +43248,14 @@ class MappingDataFlowResponse(dict):
         DataFlow script.
         """
         return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[Sequence[str]]:
+        """
+        Data flow script lines.
+        """
+        return pulumi.get(self, "script_lines")
 
     @property
     @pulumi.getter
@@ -53231,6 +53433,7 @@ class PowerQuerySinkResponse(dict):
                  name: str,
                  dataset: Optional['outputs.DatasetReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  script: Optional[str] = None):
@@ -53239,6 +53442,7 @@ class PowerQuerySinkResponse(dict):
         :param str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
+        :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         :param str script: sink script.
@@ -53248,6 +53452,8 @@ class PowerQuerySinkResponse(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -53278,6 +53484,14 @@ class PowerQuerySinkResponse(dict):
         Transformation description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowReferenceResponse']:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -53332,6 +53546,7 @@ class PowerQuerySourceResponse(dict):
                  name: str,
                  dataset: Optional['outputs.DatasetReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  script: Optional[str] = None):
@@ -53340,6 +53555,7 @@ class PowerQuerySourceResponse(dict):
         :param str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
+        :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         :param str script: source script.
@@ -53349,6 +53565,8 @@ class PowerQuerySourceResponse(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -53379,6 +53597,14 @@ class PowerQuerySourceResponse(dict):
         Transformation description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowReferenceResponse']:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -71608,15 +71834,19 @@ class TransformationResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 description: Optional[str] = None):
+                 description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None):
         """
         A data flow transformation.
         :param str name: Transformation name.
         :param str description: Transformation description.
+        :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
 
     @property
     @pulumi.getter
@@ -71633,6 +71863,14 @@ class TransformationResponse(dict):
         Transformation description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowReferenceResponse']:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
 
 
 @pulumi.output_type

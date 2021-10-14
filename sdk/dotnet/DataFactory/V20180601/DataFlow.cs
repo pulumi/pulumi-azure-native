@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Data flow properties.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.MappingDataFlowResponse, Outputs.WranglingDataFlowResponse>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Data flow properties.
         /// </summary>
         [Input("properties", required: true)]
-        public InputUnion<Inputs.MappingDataFlowArgs, Inputs.WranglingDataFlowArgs> Properties { get; set; } = null!;
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

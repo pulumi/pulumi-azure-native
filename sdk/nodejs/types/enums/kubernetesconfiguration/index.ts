@@ -8,6 +8,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210301 from "./v20210301";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210901 from "./v20210901";
+import * as v20211101preview from "./v20211101preview";
 
 export {
     v20191101preview,
@@ -16,7 +17,19 @@ export {
     v20210301,
     v20210501preview,
     v20210901,
+    v20211101preview,
 };
+
+export const KustomizationValidationType = {
+    None: "none",
+    Client: "client",
+    Server: "server",
+} as const;
+
+/**
+ * Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+ */
+export type KustomizationValidationType = (typeof KustomizationValidationType)[keyof typeof KustomizationValidationType];
 
 export const LevelType = {
     Error: "Error",
@@ -57,3 +70,22 @@ export const ResourceIdentityType = {
  * The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const ScopeType = {
+    Cluster: "cluster",
+    Namespace: "namespace",
+} as const;
+
+/**
+ * Scope at which the operator will be installed.
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+export const SourceKindType = {
+    GitRepository: "GitRepository",
+} as const;
+
+/**
+ * Source Kind to pull the configuration data from.
+ */
+export type SourceKindType = (typeof SourceKindType)[keyof typeof SourceKindType];

@@ -228,6 +228,7 @@ __all__ = [
     'FileSystemSinkArgs',
     'FileSystemSourceArgs',
     'FilterActivityArgs',
+    'FlowletArgs',
     'ForEachActivityArgs',
     'FtpReadSettingsArgs',
     'FtpServerLinkedServiceArgs',
@@ -23105,6 +23106,7 @@ class DataFlowSinkArgs:
                  name: pulumi.Input[str],
                  dataset: Optional[pulumi.Input['DatasetReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
         """
@@ -23112,6 +23114,7 @@ class DataFlowSinkArgs:
         :param pulumi.Input[str] name: Transformation name.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Dataset reference.
         :param pulumi.Input[str] description: Transformation description.
+        :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         """
@@ -23120,6 +23123,8 @@ class DataFlowSinkArgs:
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -23160,6 +23165,18 @@ class DataFlowSinkArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowReferenceArgs']]:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
+
+    @flowlet.setter
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
+        pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
@@ -23192,6 +23209,7 @@ class DataFlowSourceArgs:
                  name: pulumi.Input[str],
                  dataset: Optional[pulumi.Input['DatasetReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
         """
@@ -23199,6 +23217,7 @@ class DataFlowSourceArgs:
         :param pulumi.Input[str] name: Transformation name.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Dataset reference.
         :param pulumi.Input[str] description: Transformation description.
+        :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         """
@@ -23207,6 +23226,8 @@ class DataFlowSourceArgs:
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -23247,6 +23268,18 @@ class DataFlowSourceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowReferenceArgs']]:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
+
+    @flowlet.setter
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
+        pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
@@ -32279,6 +32312,172 @@ class FilterActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
+
+
+@pulumi.input_type
+class FlowletArgs:
+    def __init__(__self__, *,
+                 additional_properties: Optional[Any] = None,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Data flow flowlet
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the data flow.
+        :param pulumi.Input[str] description: The description of the data flow.
+        :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param pulumi.Input[str] script: Flowlet script.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: Flowlet script lines.
+        :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in Flowlet.
+        :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in Flowlet.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]] transformations: List of transformations in Flowlet.
+        :param pulumi.Input[str] type: Type of data flow.
+               Expected value is 'Flowlet'.
+        """
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
+        if sinks is not None:
+            pulumi.set(__self__, "sinks", sinks)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if transformations is not None:
+            pulumi.set(__self__, "transformations", transformations)
+        if type is not None:
+            pulumi.set(__self__, "type", 'Flowlet')
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Optional[Any]:
+        return pulumi.get(self, "additional_properties")
+
+    @additional_properties.setter
+    def additional_properties(self, value: Optional[Any]):
+        pulumi.set(self, "additional_properties", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the data flow.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the data flow.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[pulumi.Input['DataFlowFolderArgs']]:
+        """
+        The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @folder.setter
+    def folder(self, value: Optional[pulumi.Input['DataFlowFolderArgs']]):
+        pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        Flowlet script.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Flowlet script lines.
+        """
+        return pulumi.get(self, "script_lines")
+
+    @script_lines.setter
+    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "script_lines", value)
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]]:
+        """
+        List of sinks in Flowlet.
+        """
+        return pulumi.get(self, "sinks")
+
+    @sinks.setter
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]]):
+        pulumi.set(self, "sinks", value)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]]:
+        """
+        List of sources in Flowlet.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
+
+    @property
+    @pulumi.getter
+    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]:
+        """
+        List of transformations in Flowlet.
+        """
+        return pulumi.get(self, "transformations")
+
+    @transformations.setter
+    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]):
+        pulumi.set(self, "transformations", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of data flow.
+        Expected value is 'Flowlet'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -44729,6 +44928,7 @@ class MappingDataFlowArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None,
@@ -44739,6 +44939,7 @@ class MappingDataFlowArgs:
         :param pulumi.Input[str] description: The description of the data flow.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param pulumi.Input[str] script: DataFlow script.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: Data flow script lines.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in data flow.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in data flow.
         :param pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]] transformations: List of transformations in data flow.
@@ -44753,6 +44954,8 @@ class MappingDataFlowArgs:
             pulumi.set(__self__, "folder", folder)
         if script is not None:
             pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
         if sinks is not None:
             pulumi.set(__self__, "sinks", sinks)
         if sources is not None:
@@ -44809,6 +45012,18 @@ class MappingDataFlowArgs:
     @script.setter
     def script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Data flow script lines.
+        """
+        return pulumi.get(self, "script_lines")
+
+    @script_lines.setter
+    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "script_lines", value)
 
     @property
     @pulumi.getter
@@ -55479,6 +55694,7 @@ class PowerQuerySinkArgs:
                  name: pulumi.Input[str],
                  dataset: Optional[pulumi.Input['DatasetReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None):
@@ -55487,6 +55703,7 @@ class PowerQuerySinkArgs:
         :param pulumi.Input[str] name: Transformation name.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Dataset reference.
         :param pulumi.Input[str] description: Transformation description.
+        :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         :param pulumi.Input[str] script: sink script.
@@ -55496,6 +55713,8 @@ class PowerQuerySinkArgs:
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -55538,6 +55757,18 @@ class PowerQuerySinkArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowReferenceArgs']]:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
+
+    @flowlet.setter
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
+        pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
@@ -55582,6 +55813,7 @@ class PowerQuerySourceArgs:
                  name: pulumi.Input[str],
                  dataset: Optional[pulumi.Input['DatasetReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None):
@@ -55590,6 +55822,7 @@ class PowerQuerySourceArgs:
         :param pulumi.Input[str] name: Transformation name.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Dataset reference.
         :param pulumi.Input[str] description: Transformation description.
+        :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         :param pulumi.Input[str] script: source script.
@@ -55599,6 +55832,8 @@ class PowerQuerySourceArgs:
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -55641,6 +55876,18 @@ class PowerQuerySourceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowReferenceArgs']]:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
+
+    @flowlet.setter
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
+        pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
@@ -73573,15 +73820,19 @@ class TextFormatArgs:
 class TransformationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None):
         """
         A data flow transformation.
         :param pulumi.Input[str] name: Transformation name.
         :param pulumi.Input[str] description: Transformation description.
+        :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
 
     @property
     @pulumi.getter
@@ -73606,6 +73857,18 @@ class TransformationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowReferenceArgs']]:
+        """
+        Flowlet Reference
+        """
+        return pulumi.get(self, "flowlet")
+
+    @flowlet.setter
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
+        pulumi.set(self, "flowlet", value)
 
 
 @pulumi.input_type

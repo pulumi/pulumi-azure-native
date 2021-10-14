@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Flowlet Reference
+        /// </summary>
+        public readonly Outputs.DataFlowReferenceResponse? Flowlet;
+        /// <summary>
         /// Transformation name.
         /// </summary>
         public readonly string Name;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private TransformationResponse(
             string? description,
 
+            Outputs.DataFlowReferenceResponse? flowlet,
+
             string name)
         {
             Description = description;
+            Flowlet = flowlet;
             Name = name;
         }
     }

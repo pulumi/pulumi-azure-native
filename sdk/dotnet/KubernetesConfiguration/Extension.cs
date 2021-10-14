@@ -150,6 +150,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210501preview:Extension"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210901:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:Extension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20211101preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

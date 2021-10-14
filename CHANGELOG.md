@@ -3,7 +3,18 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `kubernetesconfiguration.FluxConfiguration`
+
+#### New functions:
+
+- `kubernetesconfiguration.getFluxConfiguration`
+
+#### Enhancements:
+
+- Add replacement annotations for `containerservice.ManagedCluster`
+  [#959](https://github.com/pulumi/pulumi-azure-native/issues/959).
 
 ---
 
@@ -12,8 +23,6 @@ CHANGELOG
 #### Enhancements:
 
 - Update to `pulumi/pulumi` 3.14.0 with input/output based functions API in Node.js
-- Add replacement annotations for `containerservice.ManagedCluster`
-  [#959](https://github.com/pulumi/pulumi-azure-native/issues/959).
 
 #### Breaking Changes published by Microsoft:
 

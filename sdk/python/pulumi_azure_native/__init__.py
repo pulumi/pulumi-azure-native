@@ -4004,6 +4004,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerregistry/v20210801preview",
+  "fqn": "pulumi_azure_native.containerregistry.v20210801preview",
+  "classes": {
+   "azure-native:containerregistry/v20210801preview:ConnectedRegistry": "ConnectedRegistry",
+   "azure-native:containerregistry/v20210801preview:ExportPipeline": "ExportPipeline",
+   "azure-native:containerregistry/v20210801preview:ImportPipeline": "ImportPipeline",
+   "azure-native:containerregistry/v20210801preview:PipelineRun": "PipelineRun",
+   "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20210801preview:Registry": "Registry",
+   "azure-native:containerregistry/v20210801preview:Replication": "Replication",
+   "azure-native:containerregistry/v20210801preview:ScopeMap": "ScopeMap",
+   "azure-native:containerregistry/v20210801preview:Token": "Token",
+   "azure-native:containerregistry/v20210801preview:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerservice",
   "fqn": "pulumi_azure_native.containerservice",
   "classes": {
@@ -8471,6 +8488,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.kubernetesconfiguration",
   "classes": {
    "azure-native:kubernetesconfiguration:Extension": "Extension",
+   "azure-native:kubernetesconfiguration:FluxConfiguration": "FluxConfiguration",
    "azure-native:kubernetesconfiguration:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
@@ -8522,6 +8540,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.kubernetesconfiguration.v20210901",
   "classes": {
    "azure-native:kubernetesconfiguration/v20210901:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20211101preview",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20211101preview",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20211101preview:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration": "FluxConfiguration",
+   "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {

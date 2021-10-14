@@ -59,6 +59,12 @@ func NewToken(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:Token"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20210801preview:Token"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:Token"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Token

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Flowlet Reference
+        /// </summary>
+        [Input("flowlet")]
+        public Input<Inputs.DataFlowReferenceArgs>? Flowlet { get; set; }
+
+        /// <summary>
         /// Linked service reference.
         /// </summary>
         [Input("linkedService")]

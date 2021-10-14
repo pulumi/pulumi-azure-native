@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .extension import *
+from .flux_configuration import *
 from .get_extension import *
+from .get_flux_configuration import *
 from .get_source_control_configuration import *
 from .source_control_configuration import *
 from ._inputs import *
@@ -27,6 +29,8 @@ if typing.TYPE_CHECKING:
     v20210501preview = __v20210501preview
     import pulumi_azure_native.kubernetesconfiguration.v20210901 as __v20210901
     v20210901 = __v20210901
+    import pulumi_azure_native.kubernetesconfiguration.v20211101preview as __v20211101preview
+    v20211101preview = __v20211101preview
 else:
     v20191101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20191101preview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20200701preview')
@@ -34,4 +38,5 @@ else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210301')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210501preview')
     v20210901 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210901')
+    v20211101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20211101preview')
 

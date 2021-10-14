@@ -47,7 +47,7 @@ export class DataFlow extends pulumi.CustomResource {
     /**
      * Data flow properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.MappingDataFlowResponse | outputs.datafactory.WranglingDataFlowResponse>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.FlowletResponse | outputs.datafactory.MappingDataFlowResponse | outputs.datafactory.WranglingDataFlowResponse>;
     /**
      * The resource type.
      */
@@ -110,7 +110,7 @@ export interface DataFlowArgs {
     /**
      * Data flow properties.
      */
-    properties: pulumi.Input<inputs.datafactory.MappingDataFlowArgs | inputs.datafactory.WranglingDataFlowArgs>;
+    properties: pulumi.Input<inputs.datafactory.FlowletArgs | inputs.datafactory.MappingDataFlowArgs | inputs.datafactory.WranglingDataFlowArgs>;
     /**
      * The resource group name.
      */

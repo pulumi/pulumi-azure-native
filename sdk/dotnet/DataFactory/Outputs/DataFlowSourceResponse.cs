@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Flowlet Reference
+        /// </summary>
+        public readonly Outputs.DataFlowReferenceResponse? Flowlet;
+        /// <summary>
         /// Linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? LinkedService;
@@ -43,6 +47,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            Outputs.DataFlowReferenceResponse? flowlet,
+
             Outputs.LinkedServiceReferenceResponse? linkedService,
 
             string name,
@@ -51,6 +57,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         {
             Dataset = dataset;
             Description = description;
+            Flowlet = flowlet;
             LinkedService = linkedService;
             Name = name;
             SchemaLinkedService = schemaLinkedService;

@@ -62,6 +62,12 @@ func NewExportPipeline(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ExportPipeline"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20210801preview:ExportPipeline"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:ExportPipeline"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExportPipeline

@@ -108,7 +108,7 @@ export class ScopeMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry:ScopeMap" }, { type: "azure-nextgen:containerregistry:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210601preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20210601preview:ScopeMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry:ScopeMap" }, { type: "azure-nextgen:containerregistry:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210601preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20210601preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210801preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20210801preview:ScopeMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeMap.__pulumiType, name, inputs, opts);
     }

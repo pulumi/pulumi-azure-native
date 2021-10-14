@@ -6,7 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./extension";
+export * from "./fluxConfiguration";
 export * from "./getExtension";
+export * from "./getFluxConfiguration";
 export * from "./getSourceControlConfiguration";
 export * from "./sourceControlConfiguration";
 
@@ -20,6 +22,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210301 from "./v20210301";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210901 from "./v20210901";
+import * as v20211101preview from "./v20211101preview";
 
 export {
     v20191101preview,
@@ -28,10 +31,12 @@ export {
     v20210301,
     v20210501preview,
     v20210901,
+    v20211101preview,
 };
 
 // Import resources to register:
 import { Extension } from "./extension";
+import { FluxConfiguration } from "./fluxConfiguration";
 import { SourceControlConfiguration } from "./sourceControlConfiguration";
 
 const _module = {
@@ -40,6 +45,8 @@ const _module = {
         switch (type) {
             case "azure-native:kubernetesconfiguration:Extension":
                 return new Extension(name, <any>undefined, { urn })
+            case "azure-native:kubernetesconfiguration:FluxConfiguration":
+                return new FluxConfiguration(name, <any>undefined, { urn })
             case "azure-native:kubernetesconfiguration:SourceControlConfiguration":
                 return new SourceControlConfiguration(name, <any>undefined, { urn })
             default:
