@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.38.0 (2021-10-14)
+
 #### New resources:
 
 - `kubernetesconfiguration.FluxConfiguration`
@@ -15,8 +21,6 @@ CHANGELOG
 
 - Add replacement annotations for `containerservice.ManagedCluster`
   [#959](https://github.com/pulumi/pulumi-azure-native/issues/959).
-
----
 
 ## 1.37.0 (2021-10-12)
 
