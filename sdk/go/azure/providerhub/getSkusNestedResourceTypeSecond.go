@@ -1,0 +1,32 @@
+
+
+
+package providerhub
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSkusNestedResourceTypeSecond(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeSecondArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeSecondResult, error) {
+	var rv LookupSkusNestedResourceTypeSecondResult
+	err := ctx.Invoke("azure-native:providerhub:getSkusNestedResourceTypeSecond", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSkusNestedResourceTypeSecondArgs struct {
+	NestedResourceTypeFirst  string `pulumi:"nestedResourceTypeFirst"`
+	NestedResourceTypeSecond string `pulumi:"nestedResourceTypeSecond"`
+	ProviderNamespace        string `pulumi:"providerNamespace"`
+	ResourceType             string `pulumi:"resourceType"`
+	Sku                      string `pulumi:"sku"`
+}
+
+type LookupSkusNestedResourceTypeSecondResult struct {
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
+	Properties SkuResourceResponseProperties `pulumi:"properties"`
+	Type       string                        `pulumi:"type"`
+}
