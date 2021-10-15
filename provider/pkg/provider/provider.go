@@ -530,7 +530,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 		return failures
 	}
 
-	if prop.Ref == resources.TypeAny {
+	if prop == nil || prop.Ref == resources.TypeAny {
 		return failures
 	}
 

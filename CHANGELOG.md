@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Bug Fixes
+
+- Fix validation of untyped arrays
+  [#1224](https://github.com/pulumi/pulumi-azure-native/issues/1224).
 
 ---
 
