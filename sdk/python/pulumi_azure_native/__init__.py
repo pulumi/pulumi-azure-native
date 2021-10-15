@@ -181,6 +181,8 @@ if typing.TYPE_CHECKING:
     healthcareapis = __healthcareapis
     import pulumi_azure_native.hybridcompute as __hybridcompute
     hybridcompute = __hybridcompute
+    import pulumi_azure_native.hybridconnectivity as __hybridconnectivity
+    hybridconnectivity = __hybridconnectivity
     import pulumi_azure_native.hybriddata as __hybriddata
     hybriddata = __hybriddata
     import pulumi_azure_native.hybridnetwork as __hybridnetwork
@@ -438,6 +440,7 @@ else:
     healthbot = _utilities.lazy_import('pulumi_azure_native.healthbot')
     healthcareapis = _utilities.lazy_import('pulumi_azure_native.healthcareapis')
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
+    hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
     hybriddata = _utilities.lazy_import('pulumi_azure_native.hybriddata')
     hybridnetwork = _utilities.lazy_import('pulumi_azure_native.hybridnetwork')
     importexport = _utilities.lazy_import('pulumi_azure_native.importexport')
@@ -4319,6 +4322,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20210901",
+  "fqn": "pulumi_azure_native.containerservice.v20210901",
+  "classes": {
+   "azure-native:containerservice/v20210901:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20210901:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20210901:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20210901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20210901:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -7844,6 +7859,22 @@ _utilities.register(
    "azure-native:hybridcompute/v20210610preview:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20210610preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridconnectivity",
+  "fqn": "pulumi_azure_native.hybridconnectivity",
+  "classes": {
+   "azure-native:hybridconnectivity:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridconnectivity/v20211006preview",
+  "fqn": "pulumi_azure_native.hybridconnectivity.v20211006preview",
+  "classes": {
+   "azure-native:hybridconnectivity/v20211006preview:Endpoint": "Endpoint"
   }
  },
  {

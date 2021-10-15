@@ -3,7 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `hybridconnectivity.Endpoint`
+
+#### New functions:
+
+- `hybridconnectivity.getEndpoint`
+- `hybridconnectivity.listEndpointCredentials`
 
 ---
 

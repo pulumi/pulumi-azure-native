@@ -77,6 +77,7 @@ import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
 import * as hybridcompute from "./hybridcompute";
+import * as hybridconnectivity from "./hybridconnectivity";
 import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as importexport from "./importexport";
@@ -228,6 +229,7 @@ export {
     healthbot,
     healthcareapis,
     hybridcompute,
+    hybridconnectivity,
     hybriddata,
     hybridnetwork,
     importexport,
