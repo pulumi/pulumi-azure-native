@@ -1,0 +1,38 @@
+
+
+
+package operationalinsights
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupMachineGroup(ctx *pulumi.Context, args *LookupMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupMachineGroupResult, error) {
+	var rv LookupMachineGroupResult
+	err := ctx.Invoke("azure-native:operationalinsights:getMachineGroup", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupMachineGroupArgs struct {
+	EndTime           *string `pulumi:"endTime"`
+	MachineGroupName  string  `pulumi:"machineGroupName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	StartTime         *string `pulumi:"startTime"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
+}
+
+
+type LookupMachineGroupResult struct {
+	Count       *int                                `pulumi:"count"`
+	DisplayName string                              `pulumi:"displayName"`
+	Etag        *string                             `pulumi:"etag"`
+	GroupType   *string                             `pulumi:"groupType"`
+	Id          string                              `pulumi:"id"`
+	Kind        string                              `pulumi:"kind"`
+	Machines    []MachineReferenceWithHintsResponse `pulumi:"machines"`
+	Name        string                              `pulumi:"name"`
+	Type        string                              `pulumi:"type"`
+}

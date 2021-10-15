@@ -1,0 +1,34 @@
+
+
+
+package v20191201preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupGatewayHostnameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostnameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostnameConfigurationResult, error) {
+	var rv LookupGatewayHostnameConfigurationResult
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getGatewayHostnameConfiguration", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupGatewayHostnameConfigurationArgs struct {
+	GatewayId         string `pulumi:"gatewayId"`
+	HcId              string `pulumi:"hcId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServiceName       string `pulumi:"serviceName"`
+}
+
+
+type LookupGatewayHostnameConfigurationResult struct {
+	CertificateId              *string `pulumi:"certificateId"`
+	Hostname                   *string `pulumi:"hostname"`
+	Id                         string  `pulumi:"id"`
+	Name                       string  `pulumi:"name"`
+	NegotiateClientCertificate *bool   `pulumi:"negotiateClientCertificate"`
+	Type                       string  `pulumi:"type"`
+}

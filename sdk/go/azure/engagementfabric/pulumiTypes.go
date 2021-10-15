@@ -1,0 +1,538 @@
+
+
+
+package engagementfabric
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ChannelTypeDescriptionResponse struct {
+	ChannelDescription *string  `pulumi:"channelDescription"`
+	ChannelFunctions   []string `pulumi:"channelFunctions"`
+	ChannelType        *string  `pulumi:"channelType"`
+}
+
+
+
+
+
+type ChannelTypeDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput
+	ToChannelTypeDescriptionResponseOutputWithContext(context.Context) ChannelTypeDescriptionResponseOutput
+}
+
+type ChannelTypeDescriptionResponseArgs struct {
+	ChannelDescription pulumi.StringPtrInput   `pulumi:"channelDescription"`
+	ChannelFunctions   pulumi.StringArrayInput `pulumi:"channelFunctions"`
+	ChannelType        pulumi.StringPtrInput   `pulumi:"channelType"`
+}
+
+func (ChannelTypeDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTypeDescriptionResponse)(nil)).Elem()
+}
+
+func (i ChannelTypeDescriptionResponseArgs) ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput {
+	return i.ToChannelTypeDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i ChannelTypeDescriptionResponseArgs) ToChannelTypeDescriptionResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionResponseOutput)
+}
+
+
+
+
+
+type ChannelTypeDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput
+	ToChannelTypeDescriptionResponseArrayOutputWithContext(context.Context) ChannelTypeDescriptionResponseArrayOutput
+}
+
+type ChannelTypeDescriptionResponseArray []ChannelTypeDescriptionResponseInput
+
+func (ChannelTypeDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTypeDescriptionResponse)(nil)).Elem()
+}
+
+func (i ChannelTypeDescriptionResponseArray) ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput {
+	return i.ToChannelTypeDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTypeDescriptionResponseArray) ToChannelTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionResponseArrayOutput)
+}
+
+type ChannelTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ChannelTypeDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTypeDescriptionResponse)(nil)).Elem()
+}
+
+func (o ChannelTypeDescriptionResponseOutput) ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput {
+	return o
+}
+
+func (o ChannelTypeDescriptionResponseOutput) ToChannelTypeDescriptionResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseOutput {
+	return o
+}
+
+func (o ChannelTypeDescriptionResponseOutput) ChannelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionResponse) *string { return v.ChannelDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelTypeDescriptionResponseOutput) ChannelFunctions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionResponse) []string { return v.ChannelFunctions }).(pulumi.StringArrayOutput)
+}
+
+func (o ChannelTypeDescriptionResponseOutput) ChannelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionResponse) *string { return v.ChannelType }).(pulumi.StringPtrOutput)
+}
+
+type ChannelTypeDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTypeDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTypeDescriptionResponse)(nil)).Elem()
+}
+
+func (o ChannelTypeDescriptionResponseArrayOutput) ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ChannelTypeDescriptionResponseArrayOutput) ToChannelTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ChannelTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ChannelTypeDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTypeDescriptionResponse {
+		return vs[0].([]ChannelTypeDescriptionResponse)[vs[1].(int)]
+	}).(ChannelTypeDescriptionResponseOutput)
+}
+
+type KeyDescriptionResponse struct {
+	Name  string `pulumi:"name"`
+	Rank  string `pulumi:"rank"`
+	Value string `pulumi:"value"`
+}
+
+
+
+
+
+type KeyDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput
+	ToKeyDescriptionResponseOutputWithContext(context.Context) KeyDescriptionResponseOutput
+}
+
+type KeyDescriptionResponseArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Rank  pulumi.StringInput `pulumi:"rank"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (KeyDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDescriptionResponse)(nil)).Elem()
+}
+
+func (i KeyDescriptionResponseArgs) ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput {
+	return i.ToKeyDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i KeyDescriptionResponseArgs) ToKeyDescriptionResponseOutputWithContext(ctx context.Context) KeyDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionResponseOutput)
+}
+
+
+
+
+
+type KeyDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput
+	ToKeyDescriptionResponseArrayOutputWithContext(context.Context) KeyDescriptionResponseArrayOutput
+}
+
+type KeyDescriptionResponseArray []KeyDescriptionResponseInput
+
+func (KeyDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyDescriptionResponse)(nil)).Elem()
+}
+
+func (i KeyDescriptionResponseArray) ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput {
+	return i.ToKeyDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyDescriptionResponseArray) ToKeyDescriptionResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionResponseArrayOutput)
+}
+
+type KeyDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDescriptionResponse)(nil)).Elem()
+}
+
+func (o KeyDescriptionResponseOutput) ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput {
+	return o
+}
+
+func (o KeyDescriptionResponseOutput) ToKeyDescriptionResponseOutputWithContext(ctx context.Context) KeyDescriptionResponseOutput {
+	return o
+}
+
+func (o KeyDescriptionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KeyDescriptionResponseOutput) Rank() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Rank }).(pulumi.StringOutput)
+}
+
+func (o KeyDescriptionResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type KeyDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyDescriptionResponse)(nil)).Elem()
+}
+
+func (o KeyDescriptionResponseArrayOutput) ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o KeyDescriptionResponseArrayOutput) ToKeyDescriptionResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o KeyDescriptionResponseArrayOutput) Index(i pulumi.IntInput) KeyDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyDescriptionResponse {
+		return vs[0].([]KeyDescriptionResponse)[vs[1].(int)]
+	}).(KeyDescriptionResponseOutput)
+}
+
+type SKU struct {
+	Name string  `pulumi:"name"`
+	Tier *string `pulumi:"tier"`
+}
+
+
+
+
+
+type SKUInput interface {
+	pulumi.Input
+
+	ToSKUOutput() SKUOutput
+	ToSKUOutputWithContext(context.Context) SKUOutput
+}
+
+type SKUArgs struct {
+	Name pulumi.StringInput    `pulumi:"name"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SKUArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKU)(nil)).Elem()
+}
+
+func (i SKUArgs) ToSKUOutput() SKUOutput {
+	return i.ToSKUOutputWithContext(context.Background())
+}
+
+func (i SKUArgs) ToSKUOutputWithContext(ctx context.Context) SKUOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUOutput)
+}
+
+func (i SKUArgs) ToSKUPtrOutput() SKUPtrOutput {
+	return i.ToSKUPtrOutputWithContext(context.Background())
+}
+
+func (i SKUArgs) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUOutput).ToSKUPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SKUPtrInput interface {
+	pulumi.Input
+
+	ToSKUPtrOutput() SKUPtrOutput
+	ToSKUPtrOutputWithContext(context.Context) SKUPtrOutput
+}
+
+type skuPtrType SKUArgs
+
+func SKUPtr(v *SKUArgs) SKUPtrInput {
+	return (*skuPtrType)(v)
+}
+
+func (*skuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SKU)(nil)).Elem()
+}
+
+func (i *skuPtrType) ToSKUPtrOutput() SKUPtrOutput {
+	return i.ToSKUPtrOutputWithContext(context.Background())
+}
+
+func (i *skuPtrType) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUPtrOutput)
+}
+
+type SKUOutput struct{ *pulumi.OutputState }
+
+func (SKUOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKU)(nil)).Elem()
+}
+
+func (o SKUOutput) ToSKUOutput() SKUOutput {
+	return o
+}
+
+func (o SKUOutput) ToSKUOutputWithContext(ctx context.Context) SKUOutput {
+	return o
+}
+
+func (o SKUOutput) ToSKUPtrOutput() SKUPtrOutput {
+	return o.ToSKUPtrOutputWithContext(context.Background())
+}
+
+func (o SKUOutput) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SKU) *SKU {
+		return &v
+	}).(SKUPtrOutput)
+}
+
+func (o SKUOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SKU) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SKUOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SKU) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SKUPtrOutput struct{ *pulumi.OutputState }
+
+func (SKUPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SKU)(nil)).Elem()
+}
+
+func (o SKUPtrOutput) ToSKUPtrOutput() SKUPtrOutput {
+	return o
+}
+
+func (o SKUPtrOutput) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput {
+	return o
+}
+
+func (o SKUPtrOutput) Elem() SKUOutput {
+	return o.ApplyT(func(v *SKU) SKU {
+		if v != nil {
+			return *v
+		}
+		var ret SKU
+		return ret
+	}).(SKUOutput)
+}
+
+func (o SKUPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SKU) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SKUPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SKU) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+type SKUResponse struct {
+	Name string  `pulumi:"name"`
+	Tier *string `pulumi:"tier"`
+}
+
+
+
+
+
+type SKUResponseInput interface {
+	pulumi.Input
+
+	ToSKUResponseOutput() SKUResponseOutput
+	ToSKUResponseOutputWithContext(context.Context) SKUResponseOutput
+}
+
+type SKUResponseArgs struct {
+	Name pulumi.StringInput    `pulumi:"name"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SKUResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKUResponse)(nil)).Elem()
+}
+
+func (i SKUResponseArgs) ToSKUResponseOutput() SKUResponseOutput {
+	return i.ToSKUResponseOutputWithContext(context.Background())
+}
+
+func (i SKUResponseArgs) ToSKUResponseOutputWithContext(ctx context.Context) SKUResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUResponseOutput)
+}
+
+func (i SKUResponseArgs) ToSKUResponsePtrOutput() SKUResponsePtrOutput {
+	return i.ToSKUResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SKUResponseArgs) ToSKUResponsePtrOutputWithContext(ctx context.Context) SKUResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUResponseOutput).ToSKUResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SKUResponsePtrInput interface {
+	pulumi.Input
+
+	ToSKUResponsePtrOutput() SKUResponsePtrOutput
+	ToSKUResponsePtrOutputWithContext(context.Context) SKUResponsePtrOutput
+}
+
+type skuresponsePtrType SKUResponseArgs
+
+func SKUResponsePtr(v *SKUResponseArgs) SKUResponsePtrInput {
+	return (*skuresponsePtrType)(v)
+}
+
+func (*skuresponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SKUResponse)(nil)).Elem()
+}
+
+func (i *skuresponsePtrType) ToSKUResponsePtrOutput() SKUResponsePtrOutput {
+	return i.ToSKUResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuresponsePtrType) ToSKUResponsePtrOutputWithContext(ctx context.Context) SKUResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUResponsePtrOutput)
+}
+
+type SKUResponseOutput struct{ *pulumi.OutputState }
+
+func (SKUResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKUResponse)(nil)).Elem()
+}
+
+func (o SKUResponseOutput) ToSKUResponseOutput() SKUResponseOutput {
+	return o
+}
+
+func (o SKUResponseOutput) ToSKUResponseOutputWithContext(ctx context.Context) SKUResponseOutput {
+	return o
+}
+
+func (o SKUResponseOutput) ToSKUResponsePtrOutput() SKUResponsePtrOutput {
+	return o.ToSKUResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SKUResponseOutput) ToSKUResponsePtrOutputWithContext(ctx context.Context) SKUResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SKUResponse) *SKUResponse {
+		return &v
+	}).(SKUResponsePtrOutput)
+}
+
+func (o SKUResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SKUResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SKUResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SKUResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SKUResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SKUResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SKUResponse)(nil)).Elem()
+}
+
+func (o SKUResponsePtrOutput) ToSKUResponsePtrOutput() SKUResponsePtrOutput {
+	return o
+}
+
+func (o SKUResponsePtrOutput) ToSKUResponsePtrOutputWithContext(ctx context.Context) SKUResponsePtrOutput {
+	return o
+}
+
+func (o SKUResponsePtrOutput) Elem() SKUResponseOutput {
+	return o.ApplyT(func(v *SKUResponse) SKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SKUResponse
+		return ret
+	}).(SKUResponseOutput)
+}
+
+func (o SKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SKUResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SKUResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeDescriptionResponseInput)(nil)).Elem(), ChannelTypeDescriptionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeDescriptionResponseArrayInput)(nil)).Elem(), ChannelTypeDescriptionResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDescriptionResponseInput)(nil)).Elem(), KeyDescriptionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDescriptionResponseArrayInput)(nil)).Elem(), KeyDescriptionResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUInput)(nil)).Elem(), SKUArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUPtrInput)(nil)).Elem(), SKUArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUResponseInput)(nil)).Elem(), SKUResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SKUResponsePtrInput)(nil)).Elem(), SKUResponseArgs{})
+	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(KeyDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(SKUOutput{})
+	pulumi.RegisterOutputType(SKUPtrOutput{})
+	pulumi.RegisterOutputType(SKUResponseOutput{})
+	pulumi.RegisterOutputType(SKUResponsePtrOutput{})
+}
