@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.39.0 (2021-10-15)
+
 #### New resources:
 
 - `hybridconnectivity.Endpoint`
@@ -11,8 +17,6 @@ CHANGELOG
 
 - `hybridconnectivity.getEndpoint`
 - `hybridconnectivity.listEndpointCredentials`
-
----
 
 ## 1.38.0 (2021-10-14)
 
