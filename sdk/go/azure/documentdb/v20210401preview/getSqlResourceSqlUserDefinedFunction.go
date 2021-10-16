@@ -1,0 +1,36 @@
+
+
+
+package v20210401preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context, args *LookupSqlResourceSqlUserDefinedFunctionArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlUserDefinedFunctionResult, error) {
+	var rv LookupSqlResourceSqlUserDefinedFunctionResult
+	err := ctx.Invoke("azure-native:documentdb/v20210401preview:getSqlResourceSqlUserDefinedFunction", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSqlResourceSqlUserDefinedFunctionArgs struct {
+	AccountName             string `pulumi:"accountName"`
+	ContainerName           string `pulumi:"containerName"`
+	DatabaseName            string `pulumi:"databaseName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	UserDefinedFunctionName string `pulumi:"userDefinedFunctionName"`
+}
+
+
+type LookupSqlResourceSqlUserDefinedFunctionResult struct {
+	Id       string                                               `pulumi:"id"`
+	Identity *ManagedServiceIdentityResponse                      `pulumi:"identity"`
+	Location *string                                              `pulumi:"location"`
+	Name     string                                               `pulumi:"name"`
+	Resource *SqlUserDefinedFunctionGetPropertiesResponseResource `pulumi:"resource"`
+	Tags     map[string]string                                    `pulumi:"tags"`
+	Type     string                                               `pulumi:"type"`
+}
