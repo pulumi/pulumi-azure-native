@@ -359,7 +359,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20210601preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210101preview:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20210601preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210101preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20211101:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20211101:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-native:eventhub/v20210601preview:Namespace',
@@ -490,7 +490,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -554,7 +554,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

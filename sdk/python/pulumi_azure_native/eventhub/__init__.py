@@ -22,6 +22,7 @@ from .get_namespace_ip_filter_rule import *
 from .get_namespace_network_rule_set import *
 from .get_namespace_virtual_network_rule import *
 from .get_private_endpoint_connection import *
+from .get_schema_registry import *
 from .list_disaster_recovery_config_keys import *
 from .list_event_hub_keys import *
 from .list_namespace_keys import *
@@ -31,6 +32,7 @@ from .namespace_ip_filter_rule import *
 from .namespace_network_rule_set import *
 from .namespace_virtual_network_rule import *
 from .private_endpoint_connection import *
+from .schema_registry import *
 from ._inputs import *
 from . import outputs
 
@@ -48,6 +50,8 @@ if typing.TYPE_CHECKING:
     v20210101preview = __v20210101preview
     import pulumi_azure_native.eventhub.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
+    import pulumi_azure_native.eventhub.v20211101 as __v20211101
+    v20211101 = __v20211101
 else:
     v20140901 = _utilities.lazy_import('pulumi_azure_native.eventhub.v20140901')
     v20150801 = _utilities.lazy_import('pulumi_azure_native.eventhub.v20150801')
@@ -55,4 +59,5 @@ else:
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20180101preview')
     v20210101preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20210101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20210601preview')
+    v20211101 = _utilities.lazy_import('pulumi_azure_native.eventhub.v20211101')
 

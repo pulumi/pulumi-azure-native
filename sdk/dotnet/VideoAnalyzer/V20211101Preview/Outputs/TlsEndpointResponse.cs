@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Outputs
         /// <summary>
         /// Credentials to be presented to the endpoint.
         /// </summary>
-        public readonly Outputs.UsernamePasswordCredentialsResponse? Credentials;
+        public readonly Outputs.UsernamePasswordCredentialsResponse Credentials;
         /// <summary>
         /// List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Outputs
 
         [OutputConstructor]
         private TlsEndpointResponse(
-            Outputs.UsernamePasswordCredentialsResponse? credentials,
+            Outputs.UsernamePasswordCredentialsResponse credentials,
 
             Outputs.PemCertificateListResponse? trustedCertificates,
 

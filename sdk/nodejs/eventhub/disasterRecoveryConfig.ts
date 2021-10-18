@@ -40,7 +40,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly role!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -103,7 +103,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20210601preview:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20211101:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20211101:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }

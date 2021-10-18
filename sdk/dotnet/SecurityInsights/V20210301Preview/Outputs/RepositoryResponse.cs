@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
         /// </summary>
         public readonly string? Branch;
         /// <summary>
+        /// Url to access repository action logs.
+        /// </summary>
+        public readonly string? DeploymentLogsUrl;
+        /// <summary>
+        /// Display url of repository.
+        /// </summary>
+        public readonly string? DisplayUrl;
+        /// <summary>
         /// Dictionary of source control content type and path mapping.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContentPathMapResponse> PathMapping;
@@ -33,11 +41,17 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
         private RepositoryResponse(
             string? branch,
 
+            string? deploymentLogsUrl,
+
+            string? displayUrl,
+
             ImmutableArray<Outputs.ContentPathMapResponse> pathMapping,
 
             string? url)
         {
             Branch = branch;
+            DeploymentLogsUrl = deploymentLogsUrl;
+            DisplayUrl = displayUrl;
             PathMapping = pathMapping;
             Url = url;
         }

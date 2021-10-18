@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210601preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

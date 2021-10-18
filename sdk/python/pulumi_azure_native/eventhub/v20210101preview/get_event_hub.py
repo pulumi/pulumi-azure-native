@@ -76,7 +76,7 @@ class GetEventHubResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -92,7 +92,7 @@ class GetEventHubResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,7 +132,7 @@ class GetEventHubResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

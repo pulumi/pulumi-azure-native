@@ -7317,6 +7317,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventgrid/v20211201",
+  "fqn": "pulumi_azure_native.eventgrid.v20211201",
+  "classes": {
+   "azure-native:eventgrid/v20211201:Domain": "Domain",
+   "azure-native:eventgrid/v20211201:DomainTopic": "DomainTopic",
+   "azure-native:eventgrid/v20211201:EventSubscription": "EventSubscription",
+   "azure-native:eventgrid/v20211201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventgrid/v20211201:SystemTopic": "SystemTopic",
+   "azure-native:eventgrid/v20211201:SystemTopicEventSubscription": "SystemTopicEventSubscription",
+   "azure-native:eventgrid/v20211201:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "eventhub",
   "fqn": "pulumi_azure_native.eventhub",
   "classes": {
@@ -7330,7 +7344,8 @@ _utilities.register(
    "azure-native:eventhub:NamespaceIpFilterRule": "NamespaceIpFilterRule",
    "azure-native:eventhub:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
    "azure-native:eventhub:NamespaceVirtualNetworkRule": "NamespaceVirtualNetworkRule",
-   "azure-native:eventhub:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:eventhub:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventhub:SchemaRegistry": "SchemaRegistry"
   }
  },
  {
@@ -7418,6 +7433,23 @@ _utilities.register(
    "azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
    "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
    "azure-native:eventhub/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "eventhub/v20211101",
+  "fqn": "pulumi_azure_native.eventhub.v20211101",
+  "classes": {
+   "azure-native:eventhub/v20211101:Cluster": "Cluster",
+   "azure-native:eventhub/v20211101:ConsumerGroup": "ConsumerGroup",
+   "azure-native:eventhub/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:eventhub/v20211101:EventHub": "EventHub",
+   "azure-native:eventhub/v20211101:EventHubAuthorizationRule": "EventHubAuthorizationRule",
+   "azure-native:eventhub/v20211101:Namespace": "Namespace",
+   "azure-native:eventhub/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:eventhub/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventhub/v20211101:SchemaRegistry": "SchemaRegistry"
   }
  },
  {
@@ -8277,6 +8309,14 @@ _utilities.register(
    "azure-native:insights/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:insights/v20210701preview:PrivateLinkScope": "PrivateLinkScope",
    "azure-native:insights/v20210701preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20210901",
+  "fqn": "pulumi_azure_native.insights.v20210901",
+  "classes": {
+   "azure-native:insights/v20210901:ActionGroup": "ActionGroup"
   }
  },
  {

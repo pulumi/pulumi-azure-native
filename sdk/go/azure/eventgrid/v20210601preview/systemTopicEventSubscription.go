@@ -68,6 +68,12 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211201:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:SystemTopicEventSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SystemTopicEventSubscription

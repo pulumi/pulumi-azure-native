@@ -36,7 +36,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -56,7 +56,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.v20210101preview.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -97,7 +97,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub/v20210601preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20211101:PrivateEndpointConnection" }, { type: "azure-nextgen:eventhub/v20211101:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -3,10 +3,23 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `eventhub.SchemaRegistry`
+
+#### New functions:
+
+- `eventhub.getSchemaRegistry`
+
 #### Bug Fixes
 
 - Fix validation of untyped arrays
   [#1224](https://github.com/pulumi/pulumi-azure-native/issues/1224).
+
+#### Breaking Changes published by Microsoft:
+
+- `securityinsights.SourceControl` property `sourceControlId` renamed to `id`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16280))
 
 ---
 

@@ -65,6 +65,12 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20210601preview:DisasterRecoveryConfig"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20211101:DisasterRecoveryConfig"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:eventhub/v20211101:DisasterRecoveryConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfig

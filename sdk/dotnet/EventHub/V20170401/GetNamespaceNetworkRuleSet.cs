@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.EventHub.V20170401
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -55,11 +55,11 @@ namespace Pulumi.AzureNative.EventHub.V20170401
         /// </summary>
         public readonly ImmutableArray<Outputs.NWRuleSetIpRulesResponse> IpRules;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

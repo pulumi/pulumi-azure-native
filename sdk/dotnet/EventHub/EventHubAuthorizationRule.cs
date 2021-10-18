@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.EventHub
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.EventHub
         public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -72,6 +72,8 @@ namespace Pulumi.AzureNative.EventHub
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210601preview:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

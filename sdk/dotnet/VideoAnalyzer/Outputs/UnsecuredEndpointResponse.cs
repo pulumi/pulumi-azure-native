@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
         /// <summary>
         /// Credentials to be presented to the endpoint.
         /// </summary>
-        public readonly Outputs.UsernamePasswordCredentialsResponse? Credentials;
+        public readonly Outputs.UsernamePasswordCredentialsResponse Credentials;
         /// <summary>
         /// Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 
         [OutputConstructor]
         private UnsecuredEndpointResponse(
-            Outputs.UsernamePasswordCredentialsResponse? credentials,
+            Outputs.UsernamePasswordCredentialsResponse credentials,
 
             Outputs.SecureIotDeviceRemoteTunnelResponse? tunnel,
 

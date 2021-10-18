@@ -6029,7 +6029,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 type TlsEndpoint struct {
-	Credentials         *UsernamePasswordCredentials `pulumi:"credentials"`
+	Credentials         UsernamePasswordCredentials  `pulumi:"credentials"`
 	TrustedCertificates *PemCertificateList          `pulumi:"trustedCertificates"`
 	Tunnel              *SecureIotDeviceRemoteTunnel `pulumi:"tunnel"`
 	Type                string                       `pulumi:"type"`
@@ -6049,7 +6049,7 @@ type TlsEndpointInput interface {
 }
 
 type TlsEndpointArgs struct {
-	Credentials         UsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
+	Credentials         UsernamePasswordCredentialsInput    `pulumi:"credentials"`
 	TrustedCertificates PemCertificateListPtrInput          `pulumi:"trustedCertificates"`
 	Tunnel              SecureIotDeviceRemoteTunnelPtrInput `pulumi:"tunnel"`
 	Type                pulumi.StringInput                  `pulumi:"type"`
@@ -6083,8 +6083,8 @@ func (o TlsEndpointOutput) ToTlsEndpointOutputWithContext(ctx context.Context) T
 	return o
 }
 
-func (o TlsEndpointOutput) Credentials() UsernamePasswordCredentialsPtrOutput {
-	return o.ApplyT(func(v TlsEndpoint) *UsernamePasswordCredentials { return v.Credentials }).(UsernamePasswordCredentialsPtrOutput)
+func (o TlsEndpointOutput) Credentials() UsernamePasswordCredentialsOutput {
+	return o.ApplyT(func(v TlsEndpoint) UsernamePasswordCredentials { return v.Credentials }).(UsernamePasswordCredentialsOutput)
 }
 
 func (o TlsEndpointOutput) TrustedCertificates() PemCertificateListPtrOutput {
@@ -6108,7 +6108,7 @@ func (o TlsEndpointOutput) ValidationOptions() TlsValidationOptionsPtrOutput {
 }
 
 type TlsEndpointResponse struct {
-	Credentials         *UsernamePasswordCredentialsResponse `pulumi:"credentials"`
+	Credentials         UsernamePasswordCredentialsResponse  `pulumi:"credentials"`
 	TrustedCertificates *PemCertificateListResponse          `pulumi:"trustedCertificates"`
 	Tunnel              *SecureIotDeviceRemoteTunnelResponse `pulumi:"tunnel"`
 	Type                string                               `pulumi:"type"`
@@ -6128,7 +6128,7 @@ type TlsEndpointResponseInput interface {
 }
 
 type TlsEndpointResponseArgs struct {
-	Credentials         UsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
+	Credentials         UsernamePasswordCredentialsResponseInput    `pulumi:"credentials"`
 	TrustedCertificates PemCertificateListResponsePtrInput          `pulumi:"trustedCertificates"`
 	Tunnel              SecureIotDeviceRemoteTunnelResponsePtrInput `pulumi:"tunnel"`
 	Type                pulumi.StringInput                          `pulumi:"type"`
@@ -6162,8 +6162,8 @@ func (o TlsEndpointResponseOutput) ToTlsEndpointResponseOutputWithContext(ctx co
 	return o
 }
 
-func (o TlsEndpointResponseOutput) Credentials() UsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v TlsEndpointResponse) *UsernamePasswordCredentialsResponse { return v.Credentials }).(UsernamePasswordCredentialsResponsePtrOutput)
+func (o TlsEndpointResponseOutput) Credentials() UsernamePasswordCredentialsResponseOutput {
+	return o.ApplyT(func(v TlsEndpointResponse) UsernamePasswordCredentialsResponse { return v.Credentials }).(UsernamePasswordCredentialsResponseOutput)
 }
 
 func (o TlsEndpointResponseOutput) TrustedCertificates() PemCertificateListResponsePtrOutput {
@@ -6683,7 +6683,7 @@ func (o TokenClaimResponseArrayOutput) Index(i pulumi.IntInput) TokenClaimRespon
 }
 
 type UnsecuredEndpoint struct {
-	Credentials *UsernamePasswordCredentials `pulumi:"credentials"`
+	Credentials UsernamePasswordCredentials  `pulumi:"credentials"`
 	Tunnel      *SecureIotDeviceRemoteTunnel `pulumi:"tunnel"`
 	Type        string                       `pulumi:"type"`
 	Url         string                       `pulumi:"url"`
@@ -6701,7 +6701,7 @@ type UnsecuredEndpointInput interface {
 }
 
 type UnsecuredEndpointArgs struct {
-	Credentials UsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
+	Credentials UsernamePasswordCredentialsInput    `pulumi:"credentials"`
 	Tunnel      SecureIotDeviceRemoteTunnelPtrInput `pulumi:"tunnel"`
 	Type        pulumi.StringInput                  `pulumi:"type"`
 	Url         pulumi.StringInput                  `pulumi:"url"`
@@ -6733,8 +6733,8 @@ func (o UnsecuredEndpointOutput) ToUnsecuredEndpointOutputWithContext(ctx contex
 	return o
 }
 
-func (o UnsecuredEndpointOutput) Credentials() UsernamePasswordCredentialsPtrOutput {
-	return o.ApplyT(func(v UnsecuredEndpoint) *UsernamePasswordCredentials { return v.Credentials }).(UsernamePasswordCredentialsPtrOutput)
+func (o UnsecuredEndpointOutput) Credentials() UsernamePasswordCredentialsOutput {
+	return o.ApplyT(func(v UnsecuredEndpoint) UsernamePasswordCredentials { return v.Credentials }).(UsernamePasswordCredentialsOutput)
 }
 
 func (o UnsecuredEndpointOutput) Tunnel() SecureIotDeviceRemoteTunnelPtrOutput {
@@ -6750,7 +6750,7 @@ func (o UnsecuredEndpointOutput) Url() pulumi.StringOutput {
 }
 
 type UnsecuredEndpointResponse struct {
-	Credentials *UsernamePasswordCredentialsResponse `pulumi:"credentials"`
+	Credentials UsernamePasswordCredentialsResponse  `pulumi:"credentials"`
 	Tunnel      *SecureIotDeviceRemoteTunnelResponse `pulumi:"tunnel"`
 	Type        string                               `pulumi:"type"`
 	Url         string                               `pulumi:"url"`
@@ -6768,7 +6768,7 @@ type UnsecuredEndpointResponseInput interface {
 }
 
 type UnsecuredEndpointResponseArgs struct {
-	Credentials UsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
+	Credentials UsernamePasswordCredentialsResponseInput    `pulumi:"credentials"`
 	Tunnel      SecureIotDeviceRemoteTunnelResponsePtrInput `pulumi:"tunnel"`
 	Type        pulumi.StringInput                          `pulumi:"type"`
 	Url         pulumi.StringInput                          `pulumi:"url"`
@@ -6800,8 +6800,8 @@ func (o UnsecuredEndpointResponseOutput) ToUnsecuredEndpointResponseOutputWithCo
 	return o
 }
 
-func (o UnsecuredEndpointResponseOutput) Credentials() UsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v UnsecuredEndpointResponse) *UsernamePasswordCredentialsResponse { return v.Credentials }).(UsernamePasswordCredentialsResponsePtrOutput)
+func (o UnsecuredEndpointResponseOutput) Credentials() UsernamePasswordCredentialsResponseOutput {
+	return o.ApplyT(func(v UnsecuredEndpointResponse) UsernamePasswordCredentialsResponse { return v.Credentials }).(UsernamePasswordCredentialsResponseOutput)
 }
 
 func (o UnsecuredEndpointResponseOutput) Tunnel() SecureIotDeviceRemoteTunnelResponsePtrOutput {
@@ -6951,47 +6951,6 @@ func (i UsernamePasswordCredentialsArgs) ToUsernamePasswordCredentialsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsOutput)
 }
 
-func (i UsernamePasswordCredentialsArgs) ToUsernamePasswordCredentialsPtrOutput() UsernamePasswordCredentialsPtrOutput {
-	return i.ToUsernamePasswordCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i UsernamePasswordCredentialsArgs) ToUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsOutput).ToUsernamePasswordCredentialsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UsernamePasswordCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToUsernamePasswordCredentialsPtrOutput() UsernamePasswordCredentialsPtrOutput
-	ToUsernamePasswordCredentialsPtrOutputWithContext(context.Context) UsernamePasswordCredentialsPtrOutput
-}
-
-type usernamePasswordCredentialsPtrType UsernamePasswordCredentialsArgs
-
-func UsernamePasswordCredentialsPtr(v *UsernamePasswordCredentialsArgs) UsernamePasswordCredentialsPtrInput {
-	return (*usernamePasswordCredentialsPtrType)(v)
-}
-
-func (*usernamePasswordCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsernamePasswordCredentials)(nil)).Elem()
-}
-
-func (i *usernamePasswordCredentialsPtrType) ToUsernamePasswordCredentialsPtrOutput() UsernamePasswordCredentialsPtrOutput {
-	return i.ToUsernamePasswordCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *usernamePasswordCredentialsPtrType) ToUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsPtrOutput)
-}
-
 type UsernamePasswordCredentialsOutput struct{ *pulumi.OutputState }
 
 func (UsernamePasswordCredentialsOutput) ElementType() reflect.Type {
@@ -7006,16 +6965,6 @@ func (o UsernamePasswordCredentialsOutput) ToUsernamePasswordCredentialsOutputWi
 	return o
 }
 
-func (o UsernamePasswordCredentialsOutput) ToUsernamePasswordCredentialsPtrOutput() UsernamePasswordCredentialsPtrOutput {
-	return o.ToUsernamePasswordCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o UsernamePasswordCredentialsOutput) ToUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsernamePasswordCredentials) *UsernamePasswordCredentials {
-		return &v
-	}).(UsernamePasswordCredentialsPtrOutput)
-}
-
 func (o UsernamePasswordCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v UsernamePasswordCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -7026,57 +6975,6 @@ func (o UsernamePasswordCredentialsOutput) Type() pulumi.StringOutput {
 
 func (o UsernamePasswordCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v UsernamePasswordCredentials) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type UsernamePasswordCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (UsernamePasswordCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsernamePasswordCredentials)(nil)).Elem()
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) ToUsernamePasswordCredentialsPtrOutput() UsernamePasswordCredentialsPtrOutput {
-	return o
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) ToUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsPtrOutput {
-	return o
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) Elem() UsernamePasswordCredentialsOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentials) UsernamePasswordCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret UsernamePasswordCredentials
-		return ret
-	}).(UsernamePasswordCredentialsOutput)
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UsernamePasswordCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type UsernamePasswordCredentialsResponse struct {
@@ -7114,47 +7012,6 @@ func (i UsernamePasswordCredentialsResponseArgs) ToUsernamePasswordCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsResponseOutput)
 }
 
-func (i UsernamePasswordCredentialsResponseArgs) ToUsernamePasswordCredentialsResponsePtrOutput() UsernamePasswordCredentialsResponsePtrOutput {
-	return i.ToUsernamePasswordCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UsernamePasswordCredentialsResponseArgs) ToUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsResponseOutput).ToUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UsernamePasswordCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToUsernamePasswordCredentialsResponsePtrOutput() UsernamePasswordCredentialsResponsePtrOutput
-	ToUsernamePasswordCredentialsResponsePtrOutputWithContext(context.Context) UsernamePasswordCredentialsResponsePtrOutput
-}
-
-type usernamePasswordCredentialsResponsePtrType UsernamePasswordCredentialsResponseArgs
-
-func UsernamePasswordCredentialsResponsePtr(v *UsernamePasswordCredentialsResponseArgs) UsernamePasswordCredentialsResponsePtrInput {
-	return (*usernamePasswordCredentialsResponsePtrType)(v)
-}
-
-func (*usernamePasswordCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsernamePasswordCredentialsResponse)(nil)).Elem()
-}
-
-func (i *usernamePasswordCredentialsResponsePtrType) ToUsernamePasswordCredentialsResponsePtrOutput() UsernamePasswordCredentialsResponsePtrOutput {
-	return i.ToUsernamePasswordCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *usernamePasswordCredentialsResponsePtrType) ToUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsernamePasswordCredentialsResponsePtrOutput)
-}
-
 type UsernamePasswordCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (UsernamePasswordCredentialsResponseOutput) ElementType() reflect.Type {
@@ -7169,16 +7026,6 @@ func (o UsernamePasswordCredentialsResponseOutput) ToUsernamePasswordCredentials
 	return o
 }
 
-func (o UsernamePasswordCredentialsResponseOutput) ToUsernamePasswordCredentialsResponsePtrOutput() UsernamePasswordCredentialsResponsePtrOutput {
-	return o.ToUsernamePasswordCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UsernamePasswordCredentialsResponseOutput) ToUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsernamePasswordCredentialsResponse) *UsernamePasswordCredentialsResponse {
-		return &v
-	}).(UsernamePasswordCredentialsResponsePtrOutput)
-}
-
 func (o UsernamePasswordCredentialsResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v UsernamePasswordCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -7189,57 +7036,6 @@ func (o UsernamePasswordCredentialsResponseOutput) Type() pulumi.StringOutput {
 
 func (o UsernamePasswordCredentialsResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v UsernamePasswordCredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type UsernamePasswordCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UsernamePasswordCredentialsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UsernamePasswordCredentialsResponse)(nil)).Elem()
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) ToUsernamePasswordCredentialsResponsePtrOutput() UsernamePasswordCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) ToUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) UsernamePasswordCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) Elem() UsernamePasswordCredentialsResponseOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentialsResponse) UsernamePasswordCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UsernamePasswordCredentialsResponse
-		return ret
-	}).(UsernamePasswordCredentialsResponseOutput)
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UsernamePasswordCredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UsernamePasswordCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type VideoAnalyzerIdentity struct {
@@ -10373,9 +10169,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedManagedIdentityResponseInput)(nil)).Elem(), UserAssignedManagedIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedManagedIdentityResponseMapInput)(nil)).Elem(), UserAssignedManagedIdentityResponseMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsernamePasswordCredentialsInput)(nil)).Elem(), UsernamePasswordCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UsernamePasswordCredentialsPtrInput)(nil)).Elem(), UsernamePasswordCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsernamePasswordCredentialsResponseInput)(nil)).Elem(), UsernamePasswordCredentialsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UsernamePasswordCredentialsResponsePtrInput)(nil)).Elem(), UsernamePasswordCredentialsResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoAnalyzerIdentityInput)(nil)).Elem(), VideoAnalyzerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoAnalyzerIdentityPtrInput)(nil)).Elem(), VideoAnalyzerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoAnalyzerIdentityResponseInput)(nil)).Elem(), VideoAnalyzerIdentityResponseArgs{})
@@ -10519,9 +10313,7 @@ func init() {
 	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(UsernamePasswordCredentialsOutput{})
-	pulumi.RegisterOutputType(UsernamePasswordCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(UsernamePasswordCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(UsernamePasswordCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerIdentityResponseOutput{})

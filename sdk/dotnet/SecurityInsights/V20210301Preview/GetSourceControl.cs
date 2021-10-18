@@ -59,6 +59,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public readonly ImmutableArray<string> ContentTypes;
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        public readonly string? CreatedBy;
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        public readonly string? CreatedByType;
+        /// <summary>
         /// A description of the source control
         /// </summary>
         public readonly string? Description;
@@ -75,6 +87,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        public readonly string? LastModifiedAt;
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedByType;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
@@ -86,10 +110,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Repository metadata.
         /// </summary>
         public readonly Outputs.RepositoryResponse Repository;
-        /// <summary>
-        /// The id (a Guid) of the source control
-        /// </summary>
-        public readonly string? SourceControlId;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -103,6 +123,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         private GetSourceControlResult(
             ImmutableArray<string> contentTypes,
 
+            string? createdAt,
+
+            string? createdBy,
+
+            string? createdByType,
+
             string? description,
 
             string displayName,
@@ -111,27 +137,36 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 
             string id,
 
+            string? lastModifiedAt,
+
+            string? lastModifiedBy,
+
+            string? lastModifiedByType,
+
             string name,
 
             string repoType,
 
             Outputs.RepositoryResponse repository,
 
-            string? sourceControlId,
-
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             ContentTypes = contentTypes;
+            CreatedAt = createdAt;
+            CreatedBy = createdBy;
+            CreatedByType = createdByType;
             Description = description;
             DisplayName = displayName;
             Etag = etag;
             Id = id;
+            LastModifiedAt = lastModifiedAt;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedByType = lastModifiedByType;
             Name = name;
             RepoType = repoType;
             Repository = repository;
-            SourceControlId = sourceControlId;
             SystemData = systemData;
             Type = type;
         }

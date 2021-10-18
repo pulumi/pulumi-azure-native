@@ -1498,6 +1498,335 @@ func (in *privateLinkConnectionStatusPtr) ToPrivateLinkConnectionStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkConnectionStatusPtrOutput)
 }
 
+type SchemaCompatibility string
+
+const (
+	SchemaCompatibilityNone     = SchemaCompatibility("None")
+	SchemaCompatibilityBackward = SchemaCompatibility("Backward")
+	SchemaCompatibilityForward  = SchemaCompatibility("Forward")
+)
+
+func (SchemaCompatibility) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaCompatibility)(nil)).Elem()
+}
+
+func (e SchemaCompatibility) ToSchemaCompatibilityOutput() SchemaCompatibilityOutput {
+	return pulumi.ToOutput(e).(SchemaCompatibilityOutput)
+}
+
+func (e SchemaCompatibility) ToSchemaCompatibilityOutputWithContext(ctx context.Context) SchemaCompatibilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SchemaCompatibilityOutput)
+}
+
+func (e SchemaCompatibility) ToSchemaCompatibilityPtrOutput() SchemaCompatibilityPtrOutput {
+	return e.ToSchemaCompatibilityPtrOutputWithContext(context.Background())
+}
+
+func (e SchemaCompatibility) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
+	return SchemaCompatibility(e).ToSchemaCompatibilityOutputWithContext(ctx).ToSchemaCompatibilityPtrOutputWithContext(ctx)
+}
+
+func (e SchemaCompatibility) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchemaCompatibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchemaCompatibility) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SchemaCompatibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SchemaCompatibilityOutput struct{ *pulumi.OutputState }
+
+func (SchemaCompatibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaCompatibility)(nil)).Elem()
+}
+
+func (o SchemaCompatibilityOutput) ToSchemaCompatibilityOutput() SchemaCompatibilityOutput {
+	return o
+}
+
+func (o SchemaCompatibilityOutput) ToSchemaCompatibilityOutputWithContext(ctx context.Context) SchemaCompatibilityOutput {
+	return o
+}
+
+func (o SchemaCompatibilityOutput) ToSchemaCompatibilityPtrOutput() SchemaCompatibilityPtrOutput {
+	return o.ToSchemaCompatibilityPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaCompatibilityOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaCompatibility) *SchemaCompatibility {
+		return &v
+	}).(SchemaCompatibilityPtrOutput)
+}
+
+func (o SchemaCompatibilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SchemaCompatibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchemaCompatibility) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SchemaCompatibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaCompatibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchemaCompatibility) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaCompatibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaCompatibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaCompatibility)(nil)).Elem()
+}
+
+func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutput() SchemaCompatibilityPtrOutput {
+	return o
+}
+
+func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
+	return o
+}
+
+func (o SchemaCompatibilityPtrOutput) Elem() SchemaCompatibilityOutput {
+	return o.ApplyT(func(v *SchemaCompatibility) SchemaCompatibility {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaCompatibility
+		return ret
+	}).(SchemaCompatibilityOutput)
+}
+
+func (o SchemaCompatibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaCompatibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SchemaCompatibility) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SchemaCompatibilityInput interface {
+	pulumi.Input
+
+	ToSchemaCompatibilityOutput() SchemaCompatibilityOutput
+	ToSchemaCompatibilityOutputWithContext(context.Context) SchemaCompatibilityOutput
+}
+
+var schemaCompatibilityPtrType = reflect.TypeOf((**SchemaCompatibility)(nil)).Elem()
+
+type SchemaCompatibilityPtrInput interface {
+	pulumi.Input
+
+	ToSchemaCompatibilityPtrOutput() SchemaCompatibilityPtrOutput
+	ToSchemaCompatibilityPtrOutputWithContext(context.Context) SchemaCompatibilityPtrOutput
+}
+
+type schemaCompatibilityPtr string
+
+func SchemaCompatibilityPtr(v string) SchemaCompatibilityPtrInput {
+	return (*schemaCompatibilityPtr)(&v)
+}
+
+func (*schemaCompatibilityPtr) ElementType() reflect.Type {
+	return schemaCompatibilityPtrType
+}
+
+func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutput() SchemaCompatibilityPtrOutput {
+	return pulumi.ToOutput(in).(SchemaCompatibilityPtrOutput)
+}
+
+func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SchemaCompatibilityPtrOutput)
+}
+
+type SchemaType string
+
+const (
+	SchemaTypeUnknown = SchemaType("Unknown")
+	SchemaTypeAvro    = SchemaType("Avro")
+)
+
+func (SchemaType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaType)(nil)).Elem()
+}
+
+func (e SchemaType) ToSchemaTypeOutput() SchemaTypeOutput {
+	return pulumi.ToOutput(e).(SchemaTypeOutput)
+}
+
+func (e SchemaType) ToSchemaTypeOutputWithContext(ctx context.Context) SchemaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SchemaTypeOutput)
+}
+
+func (e SchemaType) ToSchemaTypePtrOutput() SchemaTypePtrOutput {
+	return e.ToSchemaTypePtrOutputWithContext(context.Background())
+}
+
+func (e SchemaType) ToSchemaTypePtrOutputWithContext(ctx context.Context) SchemaTypePtrOutput {
+	return SchemaType(e).ToSchemaTypeOutputWithContext(ctx).ToSchemaTypePtrOutputWithContext(ctx)
+}
+
+func (e SchemaType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchemaType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchemaType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SchemaType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SchemaTypeOutput struct{ *pulumi.OutputState }
+
+func (SchemaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaType)(nil)).Elem()
+}
+
+func (o SchemaTypeOutput) ToSchemaTypeOutput() SchemaTypeOutput {
+	return o
+}
+
+func (o SchemaTypeOutput) ToSchemaTypeOutputWithContext(ctx context.Context) SchemaTypeOutput {
+	return o
+}
+
+func (o SchemaTypeOutput) ToSchemaTypePtrOutput() SchemaTypePtrOutput {
+	return o.ToSchemaTypePtrOutputWithContext(context.Background())
+}
+
+func (o SchemaTypeOutput) ToSchemaTypePtrOutputWithContext(ctx context.Context) SchemaTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaType) *SchemaType {
+		return &v
+	}).(SchemaTypePtrOutput)
+}
+
+func (o SchemaTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SchemaTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchemaType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SchemaTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchemaType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaType)(nil)).Elem()
+}
+
+func (o SchemaTypePtrOutput) ToSchemaTypePtrOutput() SchemaTypePtrOutput {
+	return o
+}
+
+func (o SchemaTypePtrOutput) ToSchemaTypePtrOutputWithContext(ctx context.Context) SchemaTypePtrOutput {
+	return o
+}
+
+func (o SchemaTypePtrOutput) Elem() SchemaTypeOutput {
+	return o.ApplyT(func(v *SchemaType) SchemaType {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaType
+		return ret
+	}).(SchemaTypeOutput)
+}
+
+func (o SchemaTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SchemaType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SchemaTypeInput interface {
+	pulumi.Input
+
+	ToSchemaTypeOutput() SchemaTypeOutput
+	ToSchemaTypeOutputWithContext(context.Context) SchemaTypeOutput
+}
+
+var schemaTypePtrType = reflect.TypeOf((**SchemaType)(nil)).Elem()
+
+type SchemaTypePtrInput interface {
+	pulumi.Input
+
+	ToSchemaTypePtrOutput() SchemaTypePtrOutput
+	ToSchemaTypePtrOutputWithContext(context.Context) SchemaTypePtrOutput
+}
+
+type schemaTypePtr string
+
+func SchemaTypePtr(v string) SchemaTypePtrInput {
+	return (*schemaTypePtr)(&v)
+}
+
+func (*schemaTypePtr) ElementType() reflect.Type {
+	return schemaTypePtrType
+}
+
+func (in *schemaTypePtr) ToSchemaTypePtrOutput() SchemaTypePtrOutput {
+	return pulumi.ToOutput(in).(SchemaTypePtrOutput)
+}
+
+func (in *schemaTypePtr) ToSchemaTypePtrOutputWithContext(ctx context.Context) SchemaTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SchemaTypePtrOutput)
+}
+
 type SkuName string
 
 const (
@@ -1845,6 +2174,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleIPActionPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStatusPtrOutput{})
+	pulumi.RegisterOutputType(SchemaCompatibilityOutput{})
+	pulumi.RegisterOutputType(SchemaCompatibilityPtrOutput{})
+	pulumi.RegisterOutputType(SchemaTypeOutput{})
+	pulumi.RegisterOutputType(SchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(SkuNameOutput{})
 	pulumi.RegisterOutputType(SkuNamePtrOutput{})
 	pulumi.RegisterOutputType(SkuTierOutput{})

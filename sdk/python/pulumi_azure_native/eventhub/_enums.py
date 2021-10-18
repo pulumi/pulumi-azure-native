@@ -14,6 +14,8 @@ __all__ = [
     'IPAction',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'SchemaCompatibility',
+    'SchemaType',
     'SkuName',
     'SkuTier',
 ]
@@ -98,6 +100,17 @@ class PrivateLinkConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class SchemaCompatibility(str, Enum):
+    NONE = "None"
+    BACKWARD = "Backward"
+    FORWARD = "Forward"
+
+
+class SchemaType(str, Enum):
+    UNKNOWN = "Unknown"
+    AVRO = "Avro"
 
 
 class SkuName(str, Enum):

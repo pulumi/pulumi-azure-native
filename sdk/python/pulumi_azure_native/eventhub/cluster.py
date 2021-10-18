@@ -178,7 +178,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210601preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20211101:Cluster"), pulumi.Alias(type_="azure-nextgen:eventhub/v20211101:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:eventhub:Cluster',
@@ -241,7 +241,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -273,7 +273,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

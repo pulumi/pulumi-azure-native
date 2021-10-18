@@ -21,6 +21,7 @@ export * from "./getNamespaceIpFilterRule";
 export * from "./getNamespaceNetworkRuleSet";
 export * from "./getNamespaceVirtualNetworkRule";
 export * from "./getPrivateEndpointConnection";
+export * from "./getSchemaRegistry";
 export * from "./listDisasterRecoveryConfigKeys";
 export * from "./listEventHubKeys";
 export * from "./listNamespaceKeys";
@@ -30,6 +31,7 @@ export * from "./namespaceIpFilterRule";
 export * from "./namespaceNetworkRuleSet";
 export * from "./namespaceVirtualNetworkRule";
 export * from "./privateEndpointConnection";
+export * from "./schemaRegistry";
 
 // Export enums:
 export * from "../types/enums/eventhub";
@@ -41,6 +43,7 @@ import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20211101 from "./v20211101";
 
 export {
     v20140901,
@@ -49,6 +52,7 @@ export {
     v20180101preview,
     v20210101preview,
     v20210601preview,
+    v20211101,
 };
 
 // Import resources to register:
@@ -63,6 +67,7 @@ import { NamespaceIpFilterRule } from "./namespaceIpFilterRule";
 import { NamespaceNetworkRuleSet } from "./namespaceNetworkRuleSet";
 import { NamespaceVirtualNetworkRule } from "./namespaceVirtualNetworkRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { SchemaRegistry } from "./schemaRegistry";
 
 const _module = {
     version: utilities.getVersion(),
@@ -90,6 +95,8 @@ const _module = {
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:eventhub:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:eventhub:SchemaRegistry":
+                return new SchemaRegistry(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

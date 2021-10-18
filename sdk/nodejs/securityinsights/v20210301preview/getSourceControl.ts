@@ -52,6 +52,18 @@ export interface GetSourceControlResult {
      */
     readonly contentTypes: string[];
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    readonly createdAt?: string;
+    /**
+     * The identity that created the resource.
+     */
+    readonly createdBy?: string;
+    /**
+     * The type of identity that created the resource.
+     */
+    readonly createdByType?: string;
+    /**
      * A description of the source control
      */
     readonly description?: string;
@@ -68,6 +80,18 @@ export interface GetSourceControlResult {
      */
     readonly id: string;
     /**
+     * The timestamp of resource last modification (UTC)
+     */
+    readonly lastModifiedAt?: string;
+    /**
+     * The identity that last modified the resource.
+     */
+    readonly lastModifiedBy?: string;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    readonly lastModifiedByType?: string;
+    /**
      * Azure resource name
      */
     readonly name: string;
@@ -79,10 +103,6 @@ export interface GetSourceControlResult {
      * Repository metadata.
      */
     readonly repository: outputs.securityinsights.v20210301preview.RepositoryResponse;
-    /**
-     * The id (a Guid) of the source control
-     */
-    readonly sourceControlId?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

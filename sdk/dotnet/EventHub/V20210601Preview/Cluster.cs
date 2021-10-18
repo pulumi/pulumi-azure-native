@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -105,6 +105,8 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

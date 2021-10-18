@@ -25,15 +25,20 @@ type LookupSourceControlArgs struct {
 
 
 type LookupSourceControlResult struct {
-	ContentTypes    []string           `pulumi:"contentTypes"`
-	Description     *string            `pulumi:"description"`
-	DisplayName     string             `pulumi:"displayName"`
-	Etag            *string            `pulumi:"etag"`
-	Id              string             `pulumi:"id"`
-	Name            string             `pulumi:"name"`
-	RepoType        string             `pulumi:"repoType"`
-	Repository      RepositoryResponse `pulumi:"repository"`
-	SourceControlId *string            `pulumi:"sourceControlId"`
-	SystemData      SystemDataResponse `pulumi:"systemData"`
-	Type            string             `pulumi:"type"`
+	ContentTypes       []string           `pulumi:"contentTypes"`
+	CreatedAt          *string            `pulumi:"createdAt"`
+	CreatedBy          *string            `pulumi:"createdBy"`
+	CreatedByType      *string            `pulumi:"createdByType"`
+	Description        *string            `pulumi:"description"`
+	DisplayName        string             `pulumi:"displayName"`
+	Etag               *string            `pulumi:"etag"`
+	Id                 string             `pulumi:"id"`
+	LastModifiedAt     *string            `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string            `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string            `pulumi:"lastModifiedByType"`
+	Name               string             `pulumi:"name"`
+	RepoType           string             `pulumi:"repoType"`
+	Repository         RepositoryResponse `pulumi:"repository"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
 }

@@ -78,6 +78,12 @@ func NewDomainTopic(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20210601preview:DomainTopic"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211201:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:DomainTopic"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DomainTopic

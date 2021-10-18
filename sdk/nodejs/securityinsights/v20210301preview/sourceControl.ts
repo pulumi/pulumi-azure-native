@@ -40,6 +40,18 @@ export class SourceControl extends pulumi.CustomResource {
      */
     public readonly contentTypes!: pulumi.Output<string[]>;
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that created the resource.
+     */
+    public readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that created the resource.
+     */
+    public readonly createdByType!: pulumi.Output<string | undefined>;
+    /**
      * A description of the source control
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -52,6 +64,18 @@ export class SourceControl extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * The timestamp of resource last modification (UTC)
+     */
+    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that last modified the resource.
+     */
+    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
+    /**
      * Azure resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -63,10 +87,6 @@ export class SourceControl extends pulumi.CustomResource {
      * Repository metadata.
      */
     public readonly repository!: pulumi.Output<outputs.securityinsights.v20210301preview.RepositoryResponse>;
-    /**
-     * The id (a Guid) of the source control
-     */
-    public readonly sourceControlId!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -109,9 +129,16 @@ export class SourceControl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["contentTypes"] = args ? args.contentTypes : undefined;
+            inputs["createdAt"] = args ? args.createdAt : undefined;
+            inputs["createdBy"] = args ? args.createdBy : undefined;
+            inputs["createdByType"] = args ? args.createdByType : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             inputs["repoType"] = args ? args.repoType : undefined;
             inputs["repository"] = args ? args.repository : undefined;
@@ -123,13 +150,18 @@ export class SourceControl extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["contentTypes"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdByType"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["lastModifiedAt"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedByType"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["repoType"] = undefined /*out*/;
             inputs["repository"] = undefined /*out*/;
-            inputs["sourceControlId"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -151,6 +183,18 @@ export interface SourceControlArgs {
      */
     contentTypes: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20210301preview.ContentType>[]>;
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * The identity that created the resource.
+     */
+    createdBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that created the resource.
+     */
+    createdByType?: pulumi.Input<string | enums.securityinsights.v20210301preview.CreatedByType>;
+    /**
      * A description of the source control
      */
     description?: pulumi.Input<string>;
@@ -162,6 +206,22 @@ export interface SourceControlArgs {
      * Etag of the azure resource
      */
     etag?: pulumi.Input<string>;
+    /**
+     * The id (a Guid) of the source control
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    lastModifiedAt?: pulumi.Input<string>;
+    /**
+     * The identity that last modified the resource.
+     */
+    lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    lastModifiedByType?: pulumi.Input<string | enums.securityinsights.v20210301preview.CreatedByType>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
@@ -179,7 +239,7 @@ export interface SourceControlArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The id (a Guid) of the source control
+     * Source control Id
      */
     sourceControlId?: pulumi.Input<string>;
     /**

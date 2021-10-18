@@ -23,6 +23,24 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<ImmutableArray<string>> ContentTypes { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Output("createdByType")]
+        public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the source control
         /// </summary>
         [Output("description")]
@@ -41,6 +59,24 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Output("lastModifiedAt")]
+        public Output<string?> LastModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedByType")]
+        public Output<string?> LastModifiedByType { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource name
         /// </summary>
         [Output("name")]
@@ -57,12 +93,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("repository")]
         public Output<Outputs.RepositoryResponse> Repository { get; private set; } = null!;
-
-        /// <summary>
-        /// The id (a Guid) of the source control
-        /// </summary>
-        [Output("sourceControlId")]
-        public Output<string?> SourceControlId { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -140,6 +170,24 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
 
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Input("createdBy")]
+        public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Input("createdByType")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.CreatedByType>? CreatedByType { get; set; }
+
+        /// <summary>
         /// A description of the source control
         /// </summary>
         [Input("description")]
@@ -156,6 +204,30 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The id (a Guid) of the source control
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Input("lastModifiedAt")]
+        public Input<string>? LastModifiedAt { get; set; }
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedByType")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -182,7 +254,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The id (a Guid) of the source control
+        /// Source control Id
         /// </summary>
         [Input("sourceControlId")]
         public Input<string>? SourceControlId { get; set; }

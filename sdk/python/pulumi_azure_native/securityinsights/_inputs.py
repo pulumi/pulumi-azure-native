@@ -1324,16 +1324,24 @@ class OfficeDataConnectorDataTypesArgs:
 class RepositoryArgs:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input[str]] = None,
+                 deployment_logs_url: Optional[pulumi.Input[str]] = None,
+                 display_url: Optional[pulumi.Input[str]] = None,
                  path_mapping: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         metadata of a repository.
         :param pulumi.Input[str] branch: Branch name of repository.
+        :param pulumi.Input[str] deployment_logs_url: Url to access repository action logs.
+        :param pulumi.Input[str] display_url: Display url of repository.
         :param pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]] path_mapping: Dictionary of source control content type and path mapping.
         :param pulumi.Input[str] url: Url of repository.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if display_url is not None:
+            pulumi.set(__self__, "display_url", display_url)
         if path_mapping is not None:
             pulumi.set(__self__, "path_mapping", path_mapping)
         if url is not None:
@@ -1350,6 +1358,30 @@ class RepositoryArgs:
     @branch.setter
     def branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @deployment_logs_url.setter
+    def deployment_logs_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_logs_url", value)
+
+    @property
+    @pulumi.getter(name="displayUrl")
+    def display_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display url of repository.
+        """
+        return pulumi.get(self, "display_url")
+
+    @display_url.setter
+    def display_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_url", value)
 
     @property
     @pulumi.getter(name="pathMapping")

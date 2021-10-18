@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview.Inputs
         /// <summary>
         /// Credentials to be presented to the endpoint.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.UsernamePasswordCredentialsArgs>? Credentials { get; set; }
+        [Input("credentials", required: true)]
+        public Input<Inputs.UsernamePasswordCredentialsArgs> Credentials { get; set; } = null!;
 
         /// <summary>
         /// List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.

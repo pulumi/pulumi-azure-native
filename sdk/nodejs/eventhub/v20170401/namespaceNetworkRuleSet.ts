@@ -44,11 +44,11 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<outputs.eventhub.v20170401.NWRuleSetIpRulesResponse[] | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20210601preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20211101:NamespaceNetworkRuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }

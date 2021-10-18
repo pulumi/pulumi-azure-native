@@ -37,7 +37,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -45,7 +45,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly rights!: pulumi.Output<string[]>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -87,7 +87,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20210601preview:EventHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20211101:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20211101:EventHubAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

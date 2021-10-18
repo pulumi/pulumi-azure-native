@@ -1153,32 +1153,43 @@ class StorageAccountArgs:
 @pulumi.input_type
 class TlsEndpointArgs:
     def __init__(__self__, *,
+                 credentials: pulumi.Input['UsernamePasswordCredentialsArgs'],
                  type: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
                  trusted_certificates: Optional[pulumi.Input['PemCertificateListArgs']] = None,
                  tunnel: Optional[pulumi.Input['SecureIotDeviceRemoteTunnelArgs']] = None,
                  validation_options: Optional[pulumi.Input['TlsValidationOptionsArgs']] = None):
         """
         TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+        :param pulumi.Input['UsernamePasswordCredentialsArgs'] credentials: Credentials to be presented to the endpoint.
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
         :param pulumi.Input[str] url: The endpoint URL for Video Analyzer to connect to.
-        :param pulumi.Input['UsernamePasswordCredentialsArgs'] credentials: Credentials to be presented to the endpoint.
         :param pulumi.Input['PemCertificateListArgs'] trusted_certificates: List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
         :param pulumi.Input['SecureIotDeviceRemoteTunnelArgs'] tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         :param pulumi.Input['TlsValidationOptionsArgs'] validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
+        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
         pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if trusted_certificates is not None:
             pulumi.set(__self__, "trusted_certificates", trusted_certificates)
         if tunnel is not None:
             pulumi.set(__self__, "tunnel", tunnel)
         if validation_options is not None:
             pulumi.set(__self__, "validation_options", validation_options)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input['UsernamePasswordCredentialsArgs']:
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input['UsernamePasswordCredentialsArgs']):
+        pulumi.set(self, "credentials", value)
 
     @property
     @pulumi.getter
@@ -1204,18 +1215,6 @@ class TlsEndpointArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
-        """
-        Credentials to be presented to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
-
-    @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
-        pulumi.set(self, "credentials", value)
 
     @property
     @pulumi.getter(name="trustedCertificates")
@@ -1335,24 +1334,35 @@ class TokenClaimArgs:
 @pulumi.input_type
 class UnsecuredEndpointArgs:
     def __init__(__self__, *,
+                 credentials: pulumi.Input['UsernamePasswordCredentialsArgs'],
                  type: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
                  tunnel: Optional[pulumi.Input['SecureIotDeviceRemoteTunnelArgs']] = None):
         """
         Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
+        :param pulumi.Input['UsernamePasswordCredentialsArgs'] credentials: Credentials to be presented to the endpoint.
         :param pulumi.Input[str] type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
         :param pulumi.Input[str] url: The endpoint URL for Video Analyzer to connect to.
-        :param pulumi.Input['UsernamePasswordCredentialsArgs'] credentials: Credentials to be presented to the endpoint.
         :param pulumi.Input['SecureIotDeviceRemoteTunnelArgs'] tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         """
+        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
         pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if tunnel is not None:
             pulumi.set(__self__, "tunnel", tunnel)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input['UsernamePasswordCredentialsArgs']:
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input['UsernamePasswordCredentialsArgs']):
+        pulumi.set(self, "credentials", value)
 
     @property
     @pulumi.getter
@@ -1378,18 +1388,6 @@ class UnsecuredEndpointArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
-        """
-        Credentials to be presented to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
-
-    @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
-        pulumi.set(self, "credentials", value)
 
     @property
     @pulumi.getter
@@ -1532,7 +1530,7 @@ class VideoCreationPropertiesArgs:
         """
         Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
         :param pulumi.Input[str] description: Optional description provided by the user. Value can be up to 2048 characters long.
-        :param pulumi.Input[str] retention_period: Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        :param pulumi.Input[str] retention_period: Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
         :param pulumi.Input[str] segment_length: Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
         :param pulumi.Input[str] title: Optional title provided by the user. Value can be up to 256 characters long.
         """
@@ -1561,7 +1559,7 @@ class VideoCreationPropertiesArgs:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[str]]:
         """
-        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
         """
         return pulumi.get(self, "retention_period")
 

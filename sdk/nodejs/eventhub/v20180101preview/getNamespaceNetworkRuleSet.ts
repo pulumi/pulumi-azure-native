@@ -42,7 +42,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly defaultAction?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -50,7 +50,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly ipRules?: outputs.eventhub.v20180101preview.NWRuleSetIpRulesResponse[];
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -58,7 +58,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly trustedServiceAccessEnabled?: boolean;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

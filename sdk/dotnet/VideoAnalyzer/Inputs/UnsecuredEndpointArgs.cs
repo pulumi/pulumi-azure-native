@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Inputs
         /// <summary>
         /// Credentials to be presented to the endpoint.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.UsernamePasswordCredentialsArgs>? Credentials { get; set; }
+        [Input("credentials", required: true)]
+        public Input<Inputs.UsernamePasswordCredentialsArgs> Credentials { get; set; } = null!;
 
         /// <summary>
         /// Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.

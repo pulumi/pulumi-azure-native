@@ -2376,7 +2376,11 @@ class RepositoryResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "pathMapping":
+        if key == "deploymentLogsUrl":
+            suggest = "deployment_logs_url"
+        elif key == "displayUrl":
+            suggest = "display_url"
+        elif key == "pathMapping":
             suggest = "path_mapping"
 
         if suggest:
@@ -2392,16 +2396,24 @@ class RepositoryResponse(dict):
 
     def __init__(__self__, *,
                  branch: Optional[str] = None,
+                 deployment_logs_url: Optional[str] = None,
+                 display_url: Optional[str] = None,
                  path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
                  url: Optional[str] = None):
         """
         metadata of a repository.
         :param str branch: Branch name of repository.
+        :param str deployment_logs_url: Url to access repository action logs.
+        :param str display_url: Display url of repository.
         :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
         :param str url: Url of repository.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if display_url is not None:
+            pulumi.set(__self__, "display_url", display_url)
         if path_mapping is not None:
             pulumi.set(__self__, "path_mapping", path_mapping)
         if url is not None:
@@ -2414,6 +2426,22 @@ class RepositoryResponse(dict):
         Branch name of repository.
         """
         return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[str]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @property
+    @pulumi.getter(name="displayUrl")
+    def display_url(self) -> Optional[str]:
+        """
+        Display url of repository.
+        """
+        return pulumi.get(self, "display_url")
 
     @property
     @pulumi.getter(name="pathMapping")

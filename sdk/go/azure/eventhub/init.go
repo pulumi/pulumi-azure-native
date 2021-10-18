@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NamespaceVirtualNetworkRule{}
 	case "azure-native:eventhub:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
+	case "azure-native:eventhub:SchemaRegistry":
+		r = &SchemaRegistry{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

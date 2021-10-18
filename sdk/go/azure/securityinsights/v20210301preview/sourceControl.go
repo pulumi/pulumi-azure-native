@@ -14,16 +14,21 @@ import (
 type SourceControl struct {
 	pulumi.CustomResourceState
 
-	ContentTypes    pulumi.StringArrayOutput `pulumi:"contentTypes"`
-	Description     pulumi.StringPtrOutput   `pulumi:"description"`
-	DisplayName     pulumi.StringOutput      `pulumi:"displayName"`
-	Etag            pulumi.StringPtrOutput   `pulumi:"etag"`
-	Name            pulumi.StringOutput      `pulumi:"name"`
-	RepoType        pulumi.StringOutput      `pulumi:"repoType"`
-	Repository      RepositoryResponseOutput `pulumi:"repository"`
-	SourceControlId pulumi.StringPtrOutput   `pulumi:"sourceControlId"`
-	SystemData      SystemDataResponseOutput `pulumi:"systemData"`
-	Type            pulumi.StringOutput      `pulumi:"type"`
+	ContentTypes       pulumi.StringArrayOutput `pulumi:"contentTypes"`
+	CreatedAt          pulumi.StringPtrOutput   `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrOutput   `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrOutput   `pulumi:"createdByType"`
+	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	DisplayName        pulumi.StringOutput      `pulumi:"displayName"`
+	Etag               pulumi.StringPtrOutput   `pulumi:"etag"`
+	LastModifiedAt     pulumi.StringPtrOutput   `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrOutput   `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrOutput   `pulumi:"lastModifiedByType"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	RepoType           pulumi.StringOutput      `pulumi:"repoType"`
+	Repository         RepositoryResponseOutput `pulumi:"repository"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 
@@ -99,9 +104,16 @@ func (SourceControlState) ElementType() reflect.Type {
 
 type sourceControlArgs struct {
 	ContentTypes                        []string   `pulumi:"contentTypes"`
+	CreatedAt                           *string    `pulumi:"createdAt"`
+	CreatedBy                           *string    `pulumi:"createdBy"`
+	CreatedByType                       *string    `pulumi:"createdByType"`
 	Description                         *string    `pulumi:"description"`
 	DisplayName                         string     `pulumi:"displayName"`
 	Etag                                *string    `pulumi:"etag"`
+	Id                                  *string    `pulumi:"id"`
+	LastModifiedAt                      *string    `pulumi:"lastModifiedAt"`
+	LastModifiedBy                      *string    `pulumi:"lastModifiedBy"`
+	LastModifiedByType                  *string    `pulumi:"lastModifiedByType"`
 	OperationalInsightsResourceProvider string     `pulumi:"operationalInsightsResourceProvider"`
 	RepoType                            string     `pulumi:"repoType"`
 	Repository                          Repository `pulumi:"repository"`
@@ -113,9 +125,16 @@ type sourceControlArgs struct {
 
 type SourceControlArgs struct {
 	ContentTypes                        pulumi.StringArrayInput
+	CreatedAt                           pulumi.StringPtrInput
+	CreatedBy                           pulumi.StringPtrInput
+	CreatedByType                       pulumi.StringPtrInput
 	Description                         pulumi.StringPtrInput
 	DisplayName                         pulumi.StringInput
 	Etag                                pulumi.StringPtrInput
+	Id                                  pulumi.StringPtrInput
+	LastModifiedAt                      pulumi.StringPtrInput
+	LastModifiedBy                      pulumi.StringPtrInput
+	LastModifiedByType                  pulumi.StringPtrInput
 	OperationalInsightsResourceProvider pulumi.StringInput
 	RepoType                            pulumi.StringInput
 	Repository                          RepositoryInput

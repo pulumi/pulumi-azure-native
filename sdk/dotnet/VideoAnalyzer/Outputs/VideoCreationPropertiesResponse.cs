@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        /// Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
         /// </summary>
         public readonly string? RetentionPeriod;
         /// <summary>

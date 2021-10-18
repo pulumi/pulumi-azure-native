@@ -1560,32 +1560,39 @@ class TlsEndpointResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 credentials: 'outputs.UsernamePasswordCredentialsResponse',
                  type: str,
                  url: str,
-                 credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
                  trusted_certificates: Optional['outputs.PemCertificateListResponse'] = None,
                  tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None,
                  validation_options: Optional['outputs.TlsValidationOptionsResponse'] = None):
         """
         TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
         :param str url: The endpoint URL for Video Analyzer to connect to.
-        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
         :param 'PemCertificateListResponse' trusted_certificates: List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
         :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         :param 'TlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
+        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
         pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if trusted_certificates is not None:
             pulumi.set(__self__, "trusted_certificates", trusted_certificates)
         if tunnel is not None:
             pulumi.set(__self__, "tunnel", tunnel)
         if validation_options is not None:
             pulumi.set(__self__, "validation_options", validation_options)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.UsernamePasswordCredentialsResponse':
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter
@@ -1603,14 +1610,6 @@ class TlsEndpointResponse(dict):
         The endpoint URL for Video Analyzer to connect to.
         """
         return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
-        """
-        Credentials to be presented to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="trustedCertificates")
@@ -1730,24 +1729,31 @@ class UnsecuredEndpointResponse(dict):
     Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
     """
     def __init__(__self__, *,
+                 credentials: 'outputs.UsernamePasswordCredentialsResponse',
                  type: str,
                  url: str,
-                 credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
                  tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None):
         """
         Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
+        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
         :param str url: The endpoint URL for Video Analyzer to connect to.
-        :param 'UsernamePasswordCredentialsResponse' credentials: Credentials to be presented to the endpoint.
         :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         """
+        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
         pulumi.set(__self__, "url", url)
-        if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
         if tunnel is not None:
             pulumi.set(__self__, "tunnel", tunnel)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.UsernamePasswordCredentialsResponse':
+        """
+        Credentials to be presented to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter
@@ -1765,14 +1771,6 @@ class UnsecuredEndpointResponse(dict):
         The endpoint URL for Video Analyzer to connect to.
         """
         return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
-        """
-        Credentials to be presented to the endpoint.
-        """
-        return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter
@@ -2098,7 +2096,7 @@ class VideoCreationPropertiesResponse(dict):
         """
         Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
         :param str description: Optional description provided by the user. Value can be up to 2048 characters long.
-        :param str retention_period: Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        :param str retention_period: Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
         :param str segment_length: Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
         :param str title: Optional title provided by the user. Value can be up to 256 characters long.
         """
@@ -2123,7 +2121,7 @@ class VideoCreationPropertiesResponse(dict):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[str]:
         """
-        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "PT1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
         """
         return pulumi.get(self, "retention_period")
 

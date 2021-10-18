@@ -40,11 +40,11 @@ export class ConsumerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20210601preview:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20211101:ConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }

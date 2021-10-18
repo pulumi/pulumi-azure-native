@@ -11,6 +11,7 @@ __all__ = [
     'AttackTactic',
     'ConnectivityType',
     'ContentType',
+    'CreatedByType',
     'CustomEntityQueryKind',
     'DataConnectorKind',
     'DataTypeState',
@@ -118,6 +119,16 @@ class ContentType(str, Enum):
     """
     ANALYTIC_RULE = "AnalyticRule"
     WORKBOOK = "Workbook"
+
+
+class CreatedByType(str, Enum):
+    """
+    The type of identity that last modified the resource.
+    """
+    USER = "User"
+    APPLICATION = "Application"
+    MANAGED_IDENTITY = "ManagedIdentity"
+    KEY = "Key"
 
 
 class CustomEntityQueryKind(str, Enum):

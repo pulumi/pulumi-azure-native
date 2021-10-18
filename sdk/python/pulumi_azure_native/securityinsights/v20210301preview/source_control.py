@@ -23,8 +23,15 @@ class SourceControlArgs:
                  repository: pulumi.Input['RepositoryArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 last_modified_at: Optional[pulumi.Input[str]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
@@ -35,9 +42,16 @@ class SourceControlArgs:
         :param pulumi.Input['RepositoryArgs'] repository: Repository metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
+        :param pulumi.Input[str] created_by: The identity that created the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input[str] description: A description of the source control
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] source_control_id: The id (a Guid) of the source control
+        :param pulumi.Input[str] id: The id (a Guid) of the source control
+        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
+        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
+        :param pulumi.Input[str] source_control_id: Source control Id
         """
         pulumi.set(__self__, "content_types", content_types)
         pulumi.set(__self__, "display_name", display_name)
@@ -46,10 +60,24 @@ class SourceControlArgs:
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if source_control_id is not None:
             pulumi.set(__self__, "source_control_id", source_control_id)
 
@@ -138,6 +166,42 @@ class SourceControlArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_by", value)
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @created_by_type.setter
+    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
+        pulumi.set(self, "created_by_type", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -162,10 +226,58 @@ class SourceControlArgs:
         pulumi.set(self, "etag", value)
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id (a Guid) of the source control
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @last_modified_at.setter
+    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_at", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @last_modified_by.setter
+    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_by", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    @last_modified_by_type.setter
+    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
+        pulumi.set(self, "last_modified_by_type", value)
+
+    @property
     @pulumi.getter(name="sourceControlId")
     def source_control_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id (a Guid) of the source control
+        Source control Id
         """
         return pulumi.get(self, "source_control_id")
 
@@ -180,9 +292,16 @@ class SourceControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 last_modified_at: Optional[pulumi.Input[str]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
@@ -196,14 +315,21 @@ class SourceControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]] content_types: Array of source control content types.
+        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
+        :param pulumi.Input[str] created_by: The identity that created the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input[str] description: A description of the source control
         :param pulumi.Input[str] display_name: The display name of the source control
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] id: The id (a Guid) of the source control
+        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
+        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[Union[str, 'RepoType']] repo_type: The repository type of the source control
         :param pulumi.Input[pulumi.InputType['RepositoryArgs']] repository: Repository metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] source_control_id: The id (a Guid) of the source control
+        :param pulumi.Input[str] source_control_id: Source control Id
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -231,9 +357,16 @@ class SourceControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 last_modified_at: Optional[pulumi.Input[str]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
@@ -255,11 +388,18 @@ class SourceControl(pulumi.CustomResource):
             if content_types is None and not opts.urn:
                 raise TypeError("Missing required property 'content_types'")
             __props__.__dict__["content_types"] = content_types
+            __props__.__dict__["created_at"] = created_at
+            __props__.__dict__["created_by"] = created_by
+            __props__.__dict__["created_by_type"] = created_by_type
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["etag"] = etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["last_modified_at"] = last_modified_at
+            __props__.__dict__["last_modified_by"] = last_modified_by
+            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
@@ -304,13 +444,18 @@ class SourceControl(pulumi.CustomResource):
         __props__ = SourceControlArgs.__new__(SourceControlArgs)
 
         __props__.__dict__["content_types"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["created_by_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["last_modified_at"] = None
+        __props__.__dict__["last_modified_by"] = None
+        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["repo_type"] = None
         __props__.__dict__["repository"] = None
-        __props__.__dict__["source_control_id"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SourceControl(resource_name, opts=opts, __props__=__props__)
@@ -322,6 +467,30 @@ class SourceControl(pulumi.CustomResource):
         Array of source control content types.
         """
         return pulumi.get(self, "content_types")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[Optional[str]]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter
@@ -348,6 +517,30 @@ class SourceControl(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -370,14 +563,6 @@ class SourceControl(pulumi.CustomResource):
         Repository metadata.
         """
         return pulumi.get(self, "repository")
-
-    @property
-    @pulumi.getter(name="sourceControlId")
-    def source_control_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The id (a Guid) of the source control
-        """
-        return pulumi.get(self, "source_control_id")
 
     @property
     @pulumi.getter(name="systemData")

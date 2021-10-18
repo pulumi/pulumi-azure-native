@@ -8425,9 +8425,11 @@ func (o RepoResponseArrayOutput) Index(i pulumi.IntInput) RepoResponseOutput {
 }
 
 type Repository struct {
-	Branch      *string          `pulumi:"branch"`
-	PathMapping []ContentPathMap `pulumi:"pathMapping"`
-	Url         *string          `pulumi:"url"`
+	Branch            *string          `pulumi:"branch"`
+	DeploymentLogsUrl *string          `pulumi:"deploymentLogsUrl"`
+	DisplayUrl        *string          `pulumi:"displayUrl"`
+	PathMapping       []ContentPathMap `pulumi:"pathMapping"`
+	Url               *string          `pulumi:"url"`
 }
 
 
@@ -8442,9 +8444,11 @@ type RepositoryInput interface {
 }
 
 type RepositoryArgs struct {
-	Branch      pulumi.StringPtrInput    `pulumi:"branch"`
-	PathMapping ContentPathMapArrayInput `pulumi:"pathMapping"`
-	Url         pulumi.StringPtrInput    `pulumi:"url"`
+	Branch            pulumi.StringPtrInput    `pulumi:"branch"`
+	DeploymentLogsUrl pulumi.StringPtrInput    `pulumi:"deploymentLogsUrl"`
+	DisplayUrl        pulumi.StringPtrInput    `pulumi:"displayUrl"`
+	PathMapping       ContentPathMapArrayInput `pulumi:"pathMapping"`
+	Url               pulumi.StringPtrInput    `pulumi:"url"`
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -8528,6 +8532,14 @@ func (o RepositoryOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Repository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+func (o RepositoryOutput) DeploymentLogsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Repository) *string { return v.DeploymentLogsUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryOutput) DisplayUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Repository) *string { return v.DisplayUrl }).(pulumi.StringPtrOutput)
+}
+
 func (o RepositoryOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v Repository) []ContentPathMap { return v.PathMapping }).(ContentPathMapArrayOutput)
 }
@@ -8569,6 +8581,24 @@ func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o RepositoryPtrOutput) DeploymentLogsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentLogsUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryPtrOutput) DisplayUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v *Repository) []ContentPathMap {
 		if v == nil {
@@ -8588,9 +8618,11 @@ func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type RepositoryResponse struct {
-	Branch      *string                  `pulumi:"branch"`
-	PathMapping []ContentPathMapResponse `pulumi:"pathMapping"`
-	Url         *string                  `pulumi:"url"`
+	Branch            *string                  `pulumi:"branch"`
+	DeploymentLogsUrl *string                  `pulumi:"deploymentLogsUrl"`
+	DisplayUrl        *string                  `pulumi:"displayUrl"`
+	PathMapping       []ContentPathMapResponse `pulumi:"pathMapping"`
+	Url               *string                  `pulumi:"url"`
 }
 
 
@@ -8605,9 +8637,11 @@ type RepositoryResponseInput interface {
 }
 
 type RepositoryResponseArgs struct {
-	Branch      pulumi.StringPtrInput            `pulumi:"branch"`
-	PathMapping ContentPathMapResponseArrayInput `pulumi:"pathMapping"`
-	Url         pulumi.StringPtrInput            `pulumi:"url"`
+	Branch            pulumi.StringPtrInput            `pulumi:"branch"`
+	DeploymentLogsUrl pulumi.StringPtrInput            `pulumi:"deploymentLogsUrl"`
+	DisplayUrl        pulumi.StringPtrInput            `pulumi:"displayUrl"`
+	PathMapping       ContentPathMapResponseArrayInput `pulumi:"pathMapping"`
+	Url               pulumi.StringPtrInput            `pulumi:"url"`
 }
 
 func (RepositoryResponseArgs) ElementType() reflect.Type {
@@ -8691,6 +8725,14 @@ func (o RepositoryResponseOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+func (o RepositoryResponseOutput) DeploymentLogsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryResponse) *string { return v.DeploymentLogsUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryResponseOutput) DisplayUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryResponse) *string { return v.DisplayUrl }).(pulumi.StringPtrOutput)
+}
+
 func (o RepositoryResponseOutput) PathMapping() ContentPathMapResponseArrayOutput {
 	return o.ApplyT(func(v RepositoryResponse) []ContentPathMapResponse { return v.PathMapping }).(ContentPathMapResponseArrayOutput)
 }
@@ -8729,6 +8771,24 @@ func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryResponsePtrOutput) DeploymentLogsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentLogsUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryResponsePtrOutput) DisplayUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayUrl
 	}).(pulumi.StringPtrOutput)
 }
 

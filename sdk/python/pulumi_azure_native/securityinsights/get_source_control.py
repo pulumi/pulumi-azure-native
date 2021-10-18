@@ -21,10 +21,19 @@ class GetSourceControlResult:
     """
     Represents a SourceControl in Azure Security Insights.
     """
-    def __init__(__self__, content_types=None, description=None, display_name=None, etag=None, id=None, name=None, repo_type=None, repository=None, source_control_id=None, system_data=None, type=None):
+    def __init__(__self__, content_types=None, created_at=None, created_by=None, created_by_type=None, description=None, display_name=None, etag=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, repo_type=None, repository=None, system_data=None, type=None):
         if content_types and not isinstance(content_types, list):
             raise TypeError("Expected argument 'content_types' to be a list")
         pulumi.set(__self__, "content_types", content_types)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
+        if created_by_type and not isinstance(created_by_type, str):
+            raise TypeError("Expected argument 'created_by_type' to be a str")
+        pulumi.set(__self__, "created_by_type", created_by_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +46,15 @@ class GetSourceControlResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_modified_at and not isinstance(last_modified_at, str):
+            raise TypeError("Expected argument 'last_modified_at' to be a str")
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type and not isinstance(last_modified_by_type, str):
+            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
+        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,9 +64,6 @@ class GetSourceControlResult:
         if repository and not isinstance(repository, dict):
             raise TypeError("Expected argument 'repository' to be a dict")
         pulumi.set(__self__, "repository", repository)
-        if source_control_id and not isinstance(source_control_id, str):
-            raise TypeError("Expected argument 'source_control_id' to be a str")
-        pulumi.set(__self__, "source_control_id", source_control_id)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -63,6 +78,30 @@ class GetSourceControlResult:
         Array of source control content types.
         """
         return pulumi.get(self, "content_types")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter
@@ -97,6 +136,30 @@ class GetSourceControlResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -119,14 +182,6 @@ class GetSourceControlResult:
         Repository metadata.
         """
         return pulumi.get(self, "repository")
-
-    @property
-    @pulumi.getter(name="sourceControlId")
-    def source_control_id(self) -> Optional[str]:
-        """
-        The id (a Guid) of the source control
-        """
-        return pulumi.get(self, "source_control_id")
 
     @property
     @pulumi.getter(name="systemData")
@@ -152,14 +207,19 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             yield self
         return GetSourceControlResult(
             content_types=self.content_types,
+            created_at=self.created_at,
+            created_by=self.created_by,
+            created_by_type=self.created_by_type,
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
             id=self.id,
+            last_modified_at=self.last_modified_at,
+            last_modified_by=self.last_modified_by,
+            last_modified_by_type=self.last_modified_by_type,
             name=self.name,
             repo_type=self.repo_type,
             repository=self.repository,
-            source_control_id=self.source_control_id,
             system_data=self.system_data,
             type=self.type)
 
@@ -192,14 +252,19 @@ def get_source_control(operational_insights_resource_provider: Optional[str] = N
 
     return AwaitableGetSourceControlResult(
         content_types=__ret__.content_types,
+        created_at=__ret__.created_at,
+        created_by=__ret__.created_by,
+        created_by_type=__ret__.created_by_type,
         description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
+        last_modified_at=__ret__.last_modified_at,
+        last_modified_by=__ret__.last_modified_by,
+        last_modified_by_type=__ret__.last_modified_by_type,
         name=__ret__.name,
         repo_type=__ret__.repo_type,
         repository=__ret__.repository,
-        source_control_id=__ret__.source_control_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

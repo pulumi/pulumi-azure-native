@@ -295,6 +295,63 @@ namespace Pulumi.AzureNative.EventHub
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SchemaCompatibility : IEquatable<SchemaCompatibility>
+    {
+        private readonly string _value;
+
+        private SchemaCompatibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SchemaCompatibility None { get; } = new SchemaCompatibility("None");
+        public static SchemaCompatibility Backward { get; } = new SchemaCompatibility("Backward");
+        public static SchemaCompatibility Forward { get; } = new SchemaCompatibility("Forward");
+
+        public static bool operator ==(SchemaCompatibility left, SchemaCompatibility right) => left.Equals(right);
+        public static bool operator !=(SchemaCompatibility left, SchemaCompatibility right) => !left.Equals(right);
+
+        public static explicit operator string(SchemaCompatibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchemaCompatibility other && Equals(other);
+        public bool Equals(SchemaCompatibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SchemaType : IEquatable<SchemaType>
+    {
+        private readonly string _value;
+
+        private SchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SchemaType Unknown { get; } = new SchemaType("Unknown");
+        public static SchemaType Avro { get; } = new SchemaType("Avro");
+
+        public static bool operator ==(SchemaType left, SchemaType right) => left.Equals(right);
+        public static bool operator !=(SchemaType left, SchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(SchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchemaType other && Equals(other);
+        public bool Equals(SchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Name of this SKU.
     /// </summary>
