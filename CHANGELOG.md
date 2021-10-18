@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.40.0 (2021-10-18)
+
 #### New resources:
 
 - `eventhub.SchemaRegistry`
@@ -20,8 +26,6 @@ CHANGELOG
 
 - `securityinsights.SourceControl` property `sourceControlId` renamed to `id`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16280))
-
----
 
 ## 1.39.0 (2021-10-15)
 
