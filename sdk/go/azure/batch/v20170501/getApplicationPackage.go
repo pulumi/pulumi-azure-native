@@ -1,0 +1,35 @@
+
+
+
+package v20170501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackageArgs, opts ...pulumi.InvokeOption) (*LookupApplicationPackageResult, error) {
+	var rv LookupApplicationPackageResult
+	err := ctx.Invoke("azure-native:batch/v20170501:getApplicationPackage", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupApplicationPackageArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	ApplicationId     string `pulumi:"applicationId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Version           string `pulumi:"version"`
+}
+
+
+type LookupApplicationPackageResult struct {
+	Format             string `pulumi:"format"`
+	Id                 string `pulumi:"id"`
+	LastActivationTime string `pulumi:"lastActivationTime"`
+	State              string `pulumi:"state"`
+	StorageUrl         string `pulumi:"storageUrl"`
+	StorageUrlExpiry   string `pulumi:"storageUrlExpiry"`
+	Version            string `pulumi:"version"`
+}
