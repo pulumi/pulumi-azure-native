@@ -1,0 +1,30 @@
+
+
+
+package v20200301preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupCostAllocationRule(ctx *pulumi.Context, args *LookupCostAllocationRuleArgs, opts ...pulumi.InvokeOption) (*LookupCostAllocationRuleResult, error) {
+	var rv LookupCostAllocationRuleResult
+	err := ctx.Invoke("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupCostAllocationRuleArgs struct {
+	BillingAccountId string `pulumi:"billingAccountId"`
+	RuleName         string `pulumi:"ruleName"`
+}
+
+
+type LookupCostAllocationRuleResult struct {
+	Id         string                               `pulumi:"id"`
+	Name       string                               `pulumi:"name"`
+	Properties CostAllocationRulePropertiesResponse `pulumi:"properties"`
+	Type       string                               `pulumi:"type"`
+}

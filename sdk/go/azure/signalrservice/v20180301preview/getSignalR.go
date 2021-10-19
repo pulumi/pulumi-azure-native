@@ -1,0 +1,39 @@
+
+
+
+package v20180301preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSignalR(ctx *pulumi.Context, args *LookupSignalRArgs, opts ...pulumi.InvokeOption) (*LookupSignalRResult, error) {
+	var rv LookupSignalRResult
+	err := ctx.Invoke("azure-native:signalrservice/v20180301preview:getSignalR", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSignalRArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceName      string `pulumi:"resourceName"`
+}
+
+
+type LookupSignalRResult struct {
+	ExternalIP        string               `pulumi:"externalIP"`
+	HostName          string               `pulumi:"hostName"`
+	HostNamePrefix    *string              `pulumi:"hostNamePrefix"`
+	Id                string               `pulumi:"id"`
+	Location          *string              `pulumi:"location"`
+	Name              string               `pulumi:"name"`
+	ProvisioningState string               `pulumi:"provisioningState"`
+	PublicPort        int                  `pulumi:"publicPort"`
+	ServerPort        int                  `pulumi:"serverPort"`
+	Sku               *ResourceSkuResponse `pulumi:"sku"`
+	Tags              map[string]string    `pulumi:"tags"`
+	Type              string               `pulumi:"type"`
+	Version           *string              `pulumi:"version"`
+}

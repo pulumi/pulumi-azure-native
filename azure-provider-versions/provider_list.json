@@ -60391,17 +60391,7 @@
           "Switzerland North",
           "Germany West Central",
           "East US 2 EUAP",
-          "Australia Central",
-          "Australia Central 2",
-          "Brazil Southeast",
-          "France South",
-          "Germany North",
-          "Norway West",
-          "South Africa West",
-          "Sweden Central",
-          "Switzerland West",
-          "UAE Central",
-          "West US 3"
+          "Australia Central"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -60434,12 +60424,8 @@
           "West US",
           "West US 2",
           "Australia Central",
-          "Australia Central 2",
           "Brazil South",
-          "Brazil Southeast",
           "East Asia",
-          "France South",
-          "Germany North",
           "Germany West Central",
           "West India",
           "Japan West",
@@ -60448,17 +60434,12 @@
           "North Central US",
           "North Europe",
           "Norway East",
-          "Norway West",
           "South Africa North",
-          "South Africa West",
-          "Sweden Central",
           "Switzerland North",
-          "Switzerland West",
-          "UAE Central",
           "UAE North",
           "UK West",
           "West Central US",
-          "West US 3"
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "SqlMigrationServices"
@@ -60491,12 +60472,8 @@
           "West US",
           "West US 2",
           "Australia Central",
-          "Australia Central 2",
           "Brazil South",
-          "Brazil Southeast",
           "East Asia",
-          "France South",
-          "Germany North",
           "Germany West Central",
           "West India",
           "Japan West",
@@ -60505,17 +60482,12 @@
           "North Central US",
           "North Europe",
           "Norway East",
-          "Norway West",
           "South Africa North",
-          "South Africa West",
-          "Sweden Central",
           "Switzerland North",
-          "Switzerland West",
-          "UAE Central",
           "UAE North",
           "UK West",
           "West Central US",
-          "West US 3"
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "DatabaseMigrations"
@@ -60548,12 +60520,8 @@
           "West US",
           "West US 2",
           "Australia Central",
-          "Australia Central 2",
           "Brazil South",
-          "Brazil Southeast",
           "East Asia",
-          "France South",
-          "Germany North",
           "Germany West Central",
           "West India",
           "Japan West",
@@ -60562,20 +60530,63 @@
           "North Central US",
           "North Europe",
           "Norway East",
-          "Norway West",
           "South Africa North",
-          "South Africa West",
-          "Sweden Central",
           "Switzerland North",
-          "Switzerland West",
-          "UAE Central",
           "UAE North",
           "UK West",
           "West Central US",
-          "West US 3"
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "Locations/OperationTypes"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-09-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-09-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US 2",
+          "East US",
+          "Canada Central",
+          "Central US",
+          "Canada East",
+          "West Europe",
+          "Australia East",
+          "Australia Southeast",
+          "France Central",
+          "Central India",
+          "South India",
+          "Japan East",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "West US",
+          "West US 2",
+          "Australia Central",
+          "Brazil South",
+          "East Asia",
+          "Germany West Central",
+          "West India",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "North Central US",
+          "North Europe",
+          "Norway East",
+          "South Africa North",
+          "Switzerland North",
+          "UAE North",
+          "UK West",
+          "West Central US",
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/sqlMigrationServiceOperationResults"
       }
     ]
   },
@@ -94004,6 +94015,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-23-preview",
           "2021-06-24-preview",
           "2020-06-23-preview"
         ],
@@ -94020,6 +94032,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-23-preview",
           "2021-06-24-preview",
           "2020-06-23-preview"
         ],
@@ -94037,6 +94050,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-23-preview",
           "2021-06-24-preview",
           "2020-06-23-preview"
         ],
@@ -94051,6 +94065,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-23-preview",
           "2021-06-24-preview",
           "2020-06-23-preview"
         ],
@@ -94065,6 +94080,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-08-23-preview",
           "2021-06-24-preview",
           "2020-06-23-preview"
         ],
