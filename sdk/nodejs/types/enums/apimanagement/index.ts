@@ -14,6 +14,7 @@ import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210401preview from "./v20210401preview";
+import * as v20210801 from "./v20210801";
 
 export {
     v20160707,
@@ -28,6 +29,7 @@ export {
     v20201201,
     v20210101preview,
     v20210401preview,
+    v20210801,
 };
 
 export const AlwaysLog = {

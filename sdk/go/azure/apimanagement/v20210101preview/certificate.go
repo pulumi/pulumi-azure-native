@@ -111,6 +111,12 @@ func NewCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Certificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210801:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Certificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Certificate

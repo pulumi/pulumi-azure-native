@@ -44,6 +44,12 @@ func NewPrivateEndpointConnectionByName(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:PrivateEndpointConnectionByName"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:PrivateEndpointConnectionByName"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionByName

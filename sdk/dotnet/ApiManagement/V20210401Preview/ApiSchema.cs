@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:ApiSchema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

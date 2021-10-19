@@ -131,6 +131,12 @@ func NewApi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Api"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210801:Api"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Api"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Api

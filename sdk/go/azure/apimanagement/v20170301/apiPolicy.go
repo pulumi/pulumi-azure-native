@@ -102,6 +102,12 @@ func NewApiPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiPolicy

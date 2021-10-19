@@ -119,6 +119,12 @@ func NewProductApi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ProductApi"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210801:ProductApi"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ProductApi"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProductApi
