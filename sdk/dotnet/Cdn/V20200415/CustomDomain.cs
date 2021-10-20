@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Cdn.V20200415
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Certificate parameters for securing custom HTTPS
+        /// </summary>
+        [Output("customHttpsParameters")]
+        public Output<Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>?> CustomHttpsParameters { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         [Output("customHttpsProvisioningState")]

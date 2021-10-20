@@ -78,9 +78,17 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The list of private endpoint connections to the environment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
@@ -126,7 +134,11 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SkuResponse sku,
 
@@ -149,7 +161,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
             Kind = kind;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Status = status;
             StorageConfiguration = storageConfiguration;

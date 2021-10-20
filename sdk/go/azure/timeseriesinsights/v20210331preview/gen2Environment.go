@@ -14,20 +14,22 @@ import (
 type Gen2Environment struct {
 	pulumi.CustomResourceState
 
-	CreationTime           pulumi.StringOutput                               `pulumi:"creationTime"`
-	DataAccessFqdn         pulumi.StringOutput                               `pulumi:"dataAccessFqdn"`
-	DataAccessId           pulumi.StringOutput                               `pulumi:"dataAccessId"`
-	Kind                   pulumi.StringOutput                               `pulumi:"kind"`
-	Location               pulumi.StringOutput                               `pulumi:"location"`
-	Name                   pulumi.StringOutput                               `pulumi:"name"`
-	ProvisioningState      pulumi.StringOutput                               `pulumi:"provisioningState"`
-	Sku                    SkuResponseOutput                                 `pulumi:"sku"`
-	Status                 EnvironmentStatusResponseOutput                   `pulumi:"status"`
-	StorageConfiguration   Gen2StorageConfigurationOutputResponseOutput      `pulumi:"storageConfiguration"`
-	Tags                   pulumi.StringMapOutput                            `pulumi:"tags"`
-	TimeSeriesIdProperties TimeSeriesIdPropertyResponseArrayOutput           `pulumi:"timeSeriesIdProperties"`
-	Type                   pulumi.StringOutput                               `pulumi:"type"`
-	WarmStoreConfiguration WarmStoreConfigurationPropertiesResponsePtrOutput `pulumi:"warmStoreConfiguration"`
+	CreationTime               pulumi.StringOutput                               `pulumi:"creationTime"`
+	DataAccessFqdn             pulumi.StringOutput                               `pulumi:"dataAccessFqdn"`
+	DataAccessId               pulumi.StringOutput                               `pulumi:"dataAccessId"`
+	Kind                       pulumi.StringOutput                               `pulumi:"kind"`
+	Location                   pulumi.StringOutput                               `pulumi:"location"`
+	Name                       pulumi.StringOutput                               `pulumi:"name"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput      `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringOutput                               `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                            `pulumi:"publicNetworkAccess"`
+	Sku                        SkuResponseOutput                                 `pulumi:"sku"`
+	Status                     EnvironmentStatusResponseOutput                   `pulumi:"status"`
+	StorageConfiguration       Gen2StorageConfigurationOutputResponseOutput      `pulumi:"storageConfiguration"`
+	Tags                       pulumi.StringMapOutput                            `pulumi:"tags"`
+	TimeSeriesIdProperties     TimeSeriesIdPropertyResponseArrayOutput           `pulumi:"timeSeriesIdProperties"`
+	Type                       pulumi.StringOutput                               `pulumi:"type"`
+	WarmStoreConfiguration     WarmStoreConfigurationPropertiesResponsePtrOutput `pulumi:"warmStoreConfiguration"`
 }
 
 

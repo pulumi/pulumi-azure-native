@@ -14,6 +14,7 @@ import (
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
+	CustomHttpsParameters           pulumi.AnyOutput       `pulumi:"customHttpsParameters"`
 	CustomHttpsProvisioningState    pulumi.StringOutput    `pulumi:"customHttpsProvisioningState"`
 	CustomHttpsProvisioningSubstate pulumi.StringOutput    `pulumi:"customHttpsProvisioningSubstate"`
 	HostName                        pulumi.StringOutput    `pulumi:"hostName"`

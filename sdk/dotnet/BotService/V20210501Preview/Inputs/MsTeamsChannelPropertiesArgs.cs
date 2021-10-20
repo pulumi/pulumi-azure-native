@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<bool>? EnableCalling { get; set; }
 
         /// <summary>
+        /// Webhook for Microsoft Teams channel calls
+        /// </summary>
+        [Input("incomingCallRoute")]
+        public Input<string>? IncomingCallRoute { get; set; }
+
+        /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
         [Input("isEnabled", required: true)]

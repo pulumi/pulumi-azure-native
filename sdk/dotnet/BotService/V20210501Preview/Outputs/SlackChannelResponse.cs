@@ -22,6 +22,14 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
+        /// Location of the resource
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to Slack channel resource
         /// </summary>
         public readonly Outputs.SlackChannelPropertiesResponse? Properties;
@@ -30,9 +38,15 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         private SlackChannelResponse(
             string channelName,
 
+            string? etag,
+
+            string? location,
+
             Outputs.SlackChannelPropertiesResponse? properties)
         {
             ChannelName = channelName;
+            Etag = etag;
+            Location = location;
             Properties = properties;
         }
     }

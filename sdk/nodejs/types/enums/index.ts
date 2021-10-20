@@ -146,6 +146,7 @@ import * as synapse from "./synapse";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as videoanalyzer from "./videoanalyzer";
+import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -298,6 +299,7 @@ export {
     testbase,
     timeseriesinsights,
     videoanalyzer,
+    videoindexer,
     virtualmachineimages,
     visualstudio,
     vmwarecloudsimple,

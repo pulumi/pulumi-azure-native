@@ -21,7 +21,7 @@ class ListBotConnectionWithSecretsResult:
     """
     Bot channel resource definition
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -49,6 +49,9 @@ class ListBotConnectionWithSecretsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -122,6 +125,14 @@ class ListBotConnectionWithSecretsResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        Entity zones
+        """
+        return pulumi.get(self, "zones")
+
 
 class AwaitableListBotConnectionWithSecretsResult(ListBotConnectionWithSecretsResult):
     # pylint: disable=using-constant-test
@@ -137,7 +148,8 @@ class AwaitableListBotConnectionWithSecretsResult(ListBotConnectionWithSecretsRe
             properties=self.properties,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            zones=self.zones)
 
 
 def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
@@ -171,7 +183,8 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
         properties=__ret__.properties,
         sku=__ret__.sku,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(list_bot_connection_with_secrets)

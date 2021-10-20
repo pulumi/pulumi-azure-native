@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
     public sealed class DirectLineChannelPropertiesResponse
     {
         /// <summary>
+        /// Direct Line embed code of the resource
+        /// </summary>
+        public readonly string? DirectLineEmbedCode;
+        /// <summary>
         /// The list of Direct Line sites
         /// </summary>
         public readonly ImmutableArray<Outputs.DirectLineSiteResponse> Sites;
 
         [OutputConstructor]
-        private DirectLineChannelPropertiesResponse(ImmutableArray<Outputs.DirectLineSiteResponse> sites)
+        private DirectLineChannelPropertiesResponse(
+            string? directLineEmbedCode,
+
+            ImmutableArray<Outputs.DirectLineSiteResponse> sites)
         {
+            DirectLineEmbedCode = directLineEmbedCode;
             Sites = sites;
         }
     }

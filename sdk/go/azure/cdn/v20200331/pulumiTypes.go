@@ -266,6 +266,61 @@ func (o CacheKeyQueryStringActionParametersResponseOutput) QueryStringBehavior()
 	return o.ApplyT(func(v CacheKeyQueryStringActionParametersResponse) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
+type CdnCertificateSourceParametersResponse struct {
+	CertificateType string `pulumi:"certificateType"`
+	OdataType       string `pulumi:"odataType"`
+}
+
+
+
+
+
+type CdnCertificateSourceParametersResponseInput interface {
+	pulumi.Input
+
+	ToCdnCertificateSourceParametersResponseOutput() CdnCertificateSourceParametersResponseOutput
+	ToCdnCertificateSourceParametersResponseOutputWithContext(context.Context) CdnCertificateSourceParametersResponseOutput
+}
+
+type CdnCertificateSourceParametersResponseArgs struct {
+	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	OdataType       pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CdnCertificateSourceParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnCertificateSourceParametersResponse)(nil)).Elem()
+}
+
+func (i CdnCertificateSourceParametersResponseArgs) ToCdnCertificateSourceParametersResponseOutput() CdnCertificateSourceParametersResponseOutput {
+	return i.ToCdnCertificateSourceParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CdnCertificateSourceParametersResponseArgs) ToCdnCertificateSourceParametersResponseOutputWithContext(ctx context.Context) CdnCertificateSourceParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CdnCertificateSourceParametersResponseOutput)
+}
+
+type CdnCertificateSourceParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CdnCertificateSourceParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnCertificateSourceParametersResponse)(nil)).Elem()
+}
+
+func (o CdnCertificateSourceParametersResponseOutput) ToCdnCertificateSourceParametersResponseOutput() CdnCertificateSourceParametersResponseOutput {
+	return o
+}
+
+func (o CdnCertificateSourceParametersResponseOutput) ToCdnCertificateSourceParametersResponseOutputWithContext(ctx context.Context) CdnCertificateSourceParametersResponseOutput {
+	return o
+}
+
+func (o CdnCertificateSourceParametersResponseOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v CdnCertificateSourceParametersResponse) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+func (o CdnCertificateSourceParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CdnCertificateSourceParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 type CdnEndpointResponse struct {
 	Id *string `pulumi:"id"`
 }
@@ -358,6 +413,75 @@ func (o CdnEndpointResponseArrayOutput) Index(i pulumi.IntInput) CdnEndpointResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CdnEndpointResponse {
 		return vs[0].([]CdnEndpointResponse)[vs[1].(int)]
 	}).(CdnEndpointResponseOutput)
+}
+
+type CdnManagedHttpsParametersResponse struct {
+	CertificateSource           string                                 `pulumi:"certificateSource"`
+	CertificateSourceParameters CdnCertificateSourceParametersResponse `pulumi:"certificateSourceParameters"`
+	MinimumTlsVersion           *string                                `pulumi:"minimumTlsVersion"`
+	ProtocolType                string                                 `pulumi:"protocolType"`
+}
+
+
+
+
+
+type CdnManagedHttpsParametersResponseInput interface {
+	pulumi.Input
+
+	ToCdnManagedHttpsParametersResponseOutput() CdnManagedHttpsParametersResponseOutput
+	ToCdnManagedHttpsParametersResponseOutputWithContext(context.Context) CdnManagedHttpsParametersResponseOutput
+}
+
+type CdnManagedHttpsParametersResponseArgs struct {
+	CertificateSource           pulumi.StringInput                          `pulumi:"certificateSource"`
+	CertificateSourceParameters CdnCertificateSourceParametersResponseInput `pulumi:"certificateSourceParameters"`
+	MinimumTlsVersion           pulumi.StringPtrInput                       `pulumi:"minimumTlsVersion"`
+	ProtocolType                pulumi.StringInput                          `pulumi:"protocolType"`
+}
+
+func (CdnManagedHttpsParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnManagedHttpsParametersResponse)(nil)).Elem()
+}
+
+func (i CdnManagedHttpsParametersResponseArgs) ToCdnManagedHttpsParametersResponseOutput() CdnManagedHttpsParametersResponseOutput {
+	return i.ToCdnManagedHttpsParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CdnManagedHttpsParametersResponseArgs) ToCdnManagedHttpsParametersResponseOutputWithContext(ctx context.Context) CdnManagedHttpsParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CdnManagedHttpsParametersResponseOutput)
+}
+
+type CdnManagedHttpsParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CdnManagedHttpsParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnManagedHttpsParametersResponse)(nil)).Elem()
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) ToCdnManagedHttpsParametersResponseOutput() CdnManagedHttpsParametersResponseOutput {
+	return o
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) ToCdnManagedHttpsParametersResponseOutputWithContext(ctx context.Context) CdnManagedHttpsParametersResponseOutput {
+	return o
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) CertificateSource() pulumi.StringOutput {
+	return o.ApplyT(func(v CdnManagedHttpsParametersResponse) string { return v.CertificateSource }).(pulumi.StringOutput)
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) CertificateSourceParameters() CdnCertificateSourceParametersResponseOutput {
+	return o.ApplyT(func(v CdnManagedHttpsParametersResponse) CdnCertificateSourceParametersResponse {
+		return v.CertificateSourceParameters
+	}).(CdnCertificateSourceParametersResponseOutput)
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CdnManagedHttpsParametersResponse) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o CdnManagedHttpsParametersResponseOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v CdnManagedHttpsParametersResponse) string { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
 type CookiesMatchConditionParameters struct {
@@ -5518,6 +5642,97 @@ func (o IsDeviceMatchConditionParametersResponseOutput) Operator() pulumi.String
 
 func (o IsDeviceMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type KeyVaultCertificateSourceParametersResponse struct {
+	DeleteRule        string  `pulumi:"deleteRule"`
+	OdataType         string  `pulumi:"odataType"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SecretName        string  `pulumi:"secretName"`
+	SecretVersion     *string `pulumi:"secretVersion"`
+	SubscriptionId    string  `pulumi:"subscriptionId"`
+	UpdateRule        string  `pulumi:"updateRule"`
+	VaultName         string  `pulumi:"vaultName"`
+}
+
+
+
+
+
+type KeyVaultCertificateSourceParametersResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput
+	ToKeyVaultCertificateSourceParametersResponseOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponseOutput
+}
+
+type KeyVaultCertificateSourceParametersResponseArgs struct {
+	DeleteRule        pulumi.StringInput    `pulumi:"deleteRule"`
+	OdataType         pulumi.StringInput    `pulumi:"odataType"`
+	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
+	SecretName        pulumi.StringInput    `pulumi:"secretName"`
+	SecretVersion     pulumi.StringPtrInput `pulumi:"secretVersion"`
+	SubscriptionId    pulumi.StringInput    `pulumi:"subscriptionId"`
+	UpdateRule        pulumi.StringInput    `pulumi:"updateRule"`
+	VaultName         pulumi.StringInput    `pulumi:"vaultName"`
+}
+
+func (KeyVaultCertificateSourceParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
+}
+
+func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput {
+	return i.ToKeyVaultCertificateSourceParametersResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponseOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseOutput)
+}
+
+type KeyVaultCertificateSourceParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCertificateSourceParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput {
+	return o
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponseOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseOutput {
+	return o
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) DeleteRule() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.DeleteRule }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) UpdateRule() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.UpdateRule }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultCertificateSourceParametersResponseOutput) VaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.VaultName }).(pulumi.StringOutput)
 }
 
 type KeyVaultSigningKeyParameters struct {
@@ -11488,13 +11703,84 @@ func (o UrlSigningParamIdentifierResponseArrayOutput) Index(i pulumi.IntInput) U
 	}).(UrlSigningParamIdentifierResponseOutput)
 }
 
+type UserManagedHttpsParametersResponse struct {
+	CertificateSource           string                                      `pulumi:"certificateSource"`
+	CertificateSourceParameters KeyVaultCertificateSourceParametersResponse `pulumi:"certificateSourceParameters"`
+	MinimumTlsVersion           *string                                     `pulumi:"minimumTlsVersion"`
+	ProtocolType                string                                      `pulumi:"protocolType"`
+}
+
+
+
+
+
+type UserManagedHttpsParametersResponseInput interface {
+	pulumi.Input
+
+	ToUserManagedHttpsParametersResponseOutput() UserManagedHttpsParametersResponseOutput
+	ToUserManagedHttpsParametersResponseOutputWithContext(context.Context) UserManagedHttpsParametersResponseOutput
+}
+
+type UserManagedHttpsParametersResponseArgs struct {
+	CertificateSource           pulumi.StringInput                               `pulumi:"certificateSource"`
+	CertificateSourceParameters KeyVaultCertificateSourceParametersResponseInput `pulumi:"certificateSourceParameters"`
+	MinimumTlsVersion           pulumi.StringPtrInput                            `pulumi:"minimumTlsVersion"`
+	ProtocolType                pulumi.StringInput                               `pulumi:"protocolType"`
+}
+
+func (UserManagedHttpsParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserManagedHttpsParametersResponse)(nil)).Elem()
+}
+
+func (i UserManagedHttpsParametersResponseArgs) ToUserManagedHttpsParametersResponseOutput() UserManagedHttpsParametersResponseOutput {
+	return i.ToUserManagedHttpsParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UserManagedHttpsParametersResponseArgs) ToUserManagedHttpsParametersResponseOutputWithContext(ctx context.Context) UserManagedHttpsParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserManagedHttpsParametersResponseOutput)
+}
+
+type UserManagedHttpsParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UserManagedHttpsParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserManagedHttpsParametersResponse)(nil)).Elem()
+}
+
+func (o UserManagedHttpsParametersResponseOutput) ToUserManagedHttpsParametersResponseOutput() UserManagedHttpsParametersResponseOutput {
+	return o
+}
+
+func (o UserManagedHttpsParametersResponseOutput) ToUserManagedHttpsParametersResponseOutputWithContext(ctx context.Context) UserManagedHttpsParametersResponseOutput {
+	return o
+}
+
+func (o UserManagedHttpsParametersResponseOutput) CertificateSource() pulumi.StringOutput {
+	return o.ApplyT(func(v UserManagedHttpsParametersResponse) string { return v.CertificateSource }).(pulumi.StringOutput)
+}
+
+func (o UserManagedHttpsParametersResponseOutput) CertificateSourceParameters() KeyVaultCertificateSourceParametersResponseOutput {
+	return o.ApplyT(func(v UserManagedHttpsParametersResponse) KeyVaultCertificateSourceParametersResponse {
+		return v.CertificateSourceParameters
+	}).(KeyVaultCertificateSourceParametersResponseOutput)
+}
+
+func (o UserManagedHttpsParametersResponseOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserManagedHttpsParametersResponse) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o UserManagedHttpsParametersResponseOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserManagedHttpsParametersResponse) string { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheExpirationActionParametersInput)(nil)).Elem(), CacheExpirationActionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheExpirationActionParametersResponseInput)(nil)).Elem(), CacheExpirationActionParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheKeyQueryStringActionParametersInput)(nil)).Elem(), CacheKeyQueryStringActionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheKeyQueryStringActionParametersResponseInput)(nil)).Elem(), CacheKeyQueryStringActionParametersResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CdnCertificateSourceParametersResponseInput)(nil)).Elem(), CdnCertificateSourceParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CdnEndpointResponseInput)(nil)).Elem(), CdnEndpointResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CdnEndpointResponseArrayInput)(nil)).Elem(), CdnEndpointResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CdnManagedHttpsParametersResponseInput)(nil)).Elem(), CdnManagedHttpsParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CookiesMatchConditionParametersInput)(nil)).Elem(), CookiesMatchConditionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CookiesMatchConditionParametersResponseInput)(nil)).Elem(), CookiesMatchConditionParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomRuleInput)(nil)).Elem(), CustomRuleArgs{})
@@ -11579,6 +11865,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HttpVersionMatchConditionParametersResponseInput)(nil)).Elem(), HttpVersionMatchConditionParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IsDeviceMatchConditionParametersInput)(nil)).Elem(), IsDeviceMatchConditionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IsDeviceMatchConditionParametersResponseInput)(nil)).Elem(), IsDeviceMatchConditionParametersResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultCertificateSourceParametersResponseInput)(nil)).Elem(), KeyVaultCertificateSourceParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultSigningKeyParametersInput)(nil)).Elem(), KeyVaultSigningKeyParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultSigningKeyParametersResponseInput)(nil)).Elem(), KeyVaultSigningKeyParametersResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedRuleGroupOverrideInput)(nil)).Elem(), ManagedRuleGroupOverrideArgs{})
@@ -11669,12 +11956,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlSigningParamIdentifierArrayInput)(nil)).Elem(), UrlSigningParamIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlSigningParamIdentifierResponseInput)(nil)).Elem(), UrlSigningParamIdentifierResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlSigningParamIdentifierResponseArrayInput)(nil)).Elem(), UrlSigningParamIdentifierResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserManagedHttpsParametersResponseInput)(nil)).Elem(), UserManagedHttpsParametersResponseArgs{})
 	pulumi.RegisterOutputType(CacheExpirationActionParametersOutput{})
 	pulumi.RegisterOutputType(CacheExpirationActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(CdnCertificateSourceParametersResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseArrayOutput{})
+	pulumi.RegisterOutputType(CdnManagedHttpsParametersResponseOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleOutput{})
@@ -11759,6 +12049,7 @@ func init() {
 	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersOutput{})
 	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideOutput{})
@@ -11849,4 +12140,5 @@ func init() {
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserManagedHttpsParametersResponseOutput{})
 }

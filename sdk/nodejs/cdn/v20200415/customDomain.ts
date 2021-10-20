@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -34,6 +35,10 @@ export class CustomDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomDomain.__pulumiType;
     }
 
+    /**
+     * Certificate parameters for securing custom HTTPS
+     */
+    public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.v20200415.CdnManagedHttpsParametersResponse | outputs.cdn.v20200415.UserManagedHttpsParametersResponse | undefined>;
     /**
      * Provisioning status of Custom Https of the custom domain.
      */
@@ -95,6 +100,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["customHttpsParameters"] = undefined /*out*/;
             inputs["customHttpsProvisioningState"] = undefined /*out*/;
             inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -103,6 +109,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validationData"] = undefined /*out*/;
         } else {
+            inputs["customHttpsParameters"] = undefined /*out*/;
             inputs["customHttpsProvisioningState"] = undefined /*out*/;
             inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;

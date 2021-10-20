@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string>? GroupsMode { get; set; }
 
         /// <summary>
+        /// Incoming call route for Skype channel
+        /// </summary>
+        [Input("incomingCallRoute")]
+        public Input<string>? IncomingCallRoute { get; set; }
+
+        /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
         [Input("isEnabled", required: true)]

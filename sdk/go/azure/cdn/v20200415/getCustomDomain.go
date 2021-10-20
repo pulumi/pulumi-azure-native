@@ -25,13 +25,14 @@ type LookupCustomDomainArgs struct {
 
 
 type LookupCustomDomainResult struct {
-	CustomHttpsProvisioningState    string  `pulumi:"customHttpsProvisioningState"`
-	CustomHttpsProvisioningSubstate string  `pulumi:"customHttpsProvisioningSubstate"`
-	HostName                        string  `pulumi:"hostName"`
-	Id                              string  `pulumi:"id"`
-	Name                            string  `pulumi:"name"`
-	ProvisioningState               string  `pulumi:"provisioningState"`
-	ResourceState                   string  `pulumi:"resourceState"`
-	Type                            string  `pulumi:"type"`
-	ValidationData                  *string `pulumi:"validationData"`
+	CustomHttpsParameters           interface{} `pulumi:"customHttpsParameters"`
+	CustomHttpsProvisioningState    string      `pulumi:"customHttpsProvisioningState"`
+	CustomHttpsProvisioningSubstate string      `pulumi:"customHttpsProvisioningSubstate"`
+	HostName                        string      `pulumi:"hostName"`
+	Id                              string      `pulumi:"id"`
+	Name                            string      `pulumi:"name"`
+	ProvisioningState               string      `pulumi:"provisioningState"`
+	ResourceState                   string      `pulumi:"resourceState"`
+	Type                            string      `pulumi:"type"`
+	ValidationData                  *string     `pulumi:"validationData"`
 }

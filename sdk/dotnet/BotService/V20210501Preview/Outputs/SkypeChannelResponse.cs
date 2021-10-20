@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// The set of properties specific to Skype channel resource
         /// </summary>
         public readonly Outputs.SkypeChannelPropertiesResponse? Properties;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         private SkypeChannelResponse(
             string channelName,
 
+            string? etag,
+
             Outputs.SkypeChannelPropertiesResponse? properties)
         {
             ChannelName = channelName;
+            Etag = etag;
             Properties = properties;
         }
     }

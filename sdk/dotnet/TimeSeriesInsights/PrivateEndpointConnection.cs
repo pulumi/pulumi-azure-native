@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -35,7 +41,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
+        /// Provisioning state of the private endpoint connection.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -102,6 +108,18 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
+
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource

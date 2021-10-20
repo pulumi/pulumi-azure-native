@@ -33,4 +33,5 @@ type ListBotConnectionWithSecretsResult struct {
 	Sku        *SkuResponse                        `pulumi:"sku"`
 	Tags       map[string]string                   `pulumi:"tags"`
 	Type       string                              `pulumi:"type"`
+	Zones      []string                            `pulumi:"zones"`
 }

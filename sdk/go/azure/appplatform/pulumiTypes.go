@@ -4475,6 +4475,525 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StorageAccount struct {
+	AccountKey  string `pulumi:"accountKey"`
+	AccountName string `pulumi:"accountName"`
+	StorageType string `pulumi:"storageType"`
+}
+
+
+
+
+
+type StorageAccountInput interface {
+	pulumi.Input
+
+	ToStorageAccountOutput() StorageAccountOutput
+	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
+}
+
+type StorageAccountArgs struct {
+	AccountKey  pulumi.StringInput `pulumi:"accountKey"`
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (StorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+}
+
+func (i StorageAccountArgs) ToStorageAccountOutput() StorageAccountOutput {
+	return i.ToStorageAccountOutputWithContext(context.Background())
+}
+
+func (i StorageAccountArgs) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
+}
+
+func (i StorageAccountArgs) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
+	return i.ToStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountArgs) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput).ToStorageAccountPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type StorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountPtrOutput() StorageAccountPtrOutput
+	ToStorageAccountPtrOutputWithContext(context.Context) StorageAccountPtrOutput
+}
+
+type storageAccountPtrType StorageAccountArgs
+
+func StorageAccountPtr(v *StorageAccountArgs) StorageAccountPtrInput {
+	return (*storageAccountPtrType)(v)
+}
+
+func (*storageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
+}
+
+func (i *storageAccountPtrType) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
+	return i.ToStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountPtrType) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPtrOutput)
+}
+
+type StorageAccountOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {
+	return o
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return o
+}
+
+func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
+	return o.ToStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
+		return &v
+	}).(StorageAccountPtrOutput)
+}
+
+func (o StorageAccountOutput) AccountKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccount) string { return v.AccountKey }).(pulumi.StringOutput)
+}
+
+func (o StorageAccountOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+func (o StorageAccountOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccount) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type StorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
+}
+
+func (o StorageAccountPtrOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutput {
+	return o
+}
+
+func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
+	return o
+}
+
+func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
+}
+
+func (o StorageAccountPtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageAccountPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageAccountPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountResponse struct {
+	AccountName string `pulumi:"accountName"`
+	StorageType string `pulumi:"storageType"`
+}
+
+
+
+
+
+type StorageAccountResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountResponseOutput() StorageAccountResponseOutput
+	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
+}
+
+type StorageAccountResponseArgs struct {
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (StorageAccountResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
+	return i.ToStorageAccountResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput)
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
+	return i.ToStorageAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput).ToStorageAccountResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type StorageAccountResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput
+	ToStorageAccountResponsePtrOutputWithContext(context.Context) StorageAccountResponsePtrOutput
+}
+
+type storageAccountResponsePtrType StorageAccountResponseArgs
+
+func StorageAccountResponsePtr(v *StorageAccountResponseArgs) StorageAccountResponsePtrInput {
+	return (*storageAccountResponsePtrType)(v)
+}
+
+func (*storageAccountResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountResponse)(nil)).Elem()
+}
+
+func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
+	return i.ToStorageAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponsePtrOutput)
+}
+
+type StorageAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
+	return o
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
+	return o
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
+	return o.ToStorageAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
+		return &v
+	}).(StorageAccountResponsePtrOutput)
+}
+
+func (o StorageAccountResponseOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+func (o StorageAccountResponseOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type StorageAccountResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
+}
+
+func (o StorageAccountResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageAccountResponsePtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+
+
+
+
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemporaryDisk struct {
 	MountPath *string `pulumi:"mountPath"`
 	SizeInGB  *int    `pulumi:"sizeInGB"`
@@ -5178,6 +5697,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountInput)(nil)).Elem(), StorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPtrInput)(nil)).Elem(), StorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponseInput)(nil)).Elem(), StorageAccountResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponsePtrInput)(nil)).Elem(), StorageAccountResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemporaryDiskInput)(nil)).Elem(), TemporaryDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemporaryDiskPtrInput)(nil)).Elem(), TemporaryDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemporaryDiskResponseInput)(nil)).Elem(), TemporaryDiskResponseArgs{})
@@ -5236,6 +5761,12 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountOutput{})
+	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskPtrOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskResponseOutput{})

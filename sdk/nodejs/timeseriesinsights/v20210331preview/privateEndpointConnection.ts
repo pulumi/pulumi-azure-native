@@ -36,6 +36,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -48,7 +52,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.PrivateLinkServiceConnectionStateResponse>;
     /**
-     * The provisioning state of the private endpoint connection resource.
+     * Provisioning state of the private endpoint connection.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -77,6 +81,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
+            inputs["groupIds"] = args ? args.groupIds : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -85,6 +90,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["groupIds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -108,6 +114,10 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     environmentName: pulumi.Input<string>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */

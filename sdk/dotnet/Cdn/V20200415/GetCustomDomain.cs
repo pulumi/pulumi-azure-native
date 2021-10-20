@@ -55,6 +55,10 @@ namespace Pulumi.AzureNative.Cdn.V20200415
     public sealed class GetCustomDomainResult
     {
         /// <summary>
+        /// Certificate parameters for securing custom HTTPS
+        /// </summary>
+        public readonly Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>? CustomHttpsParameters;
+        /// <summary>
         /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         public readonly string CustomHttpsProvisioningState;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.Cdn.V20200415
 
         [OutputConstructor]
         private GetCustomDomainResult(
+            Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>? customHttpsParameters,
+
             string customHttpsProvisioningState,
 
             string customHttpsProvisioningSubstate,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415
 
             string? validationData)
         {
+            CustomHttpsParameters = customHttpsParameters;
             CustomHttpsProvisioningState = customHttpsProvisioningState;
             CustomHttpsProvisioningSubstate = customHttpsProvisioningSubstate;
             HostName = hostName;

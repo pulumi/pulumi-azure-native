@@ -6,12 +6,14 @@ import * as v20190501preview from "./v20190501preview";
 import * as v20200701 from "./v20200701";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20190501preview,
     v20200701,
     v20201101preview,
     v20210601preview,
+    v20210901preview,
 };
 
 export const ManagedIdentityType = {

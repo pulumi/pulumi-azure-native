@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Deployment{}
 	case "azure-native:appplatform:Service":
 		r = &Service{}
+	case "azure-native:appplatform:Storage":
+		r = &Storage{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

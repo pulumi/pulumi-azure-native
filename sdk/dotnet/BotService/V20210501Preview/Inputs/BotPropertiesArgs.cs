@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<bool>? IsCmekEnabled { get; set; }
 
         /// <summary>
+        /// Whether the bot is developerAppInsightsApiKey set
+        /// </summary>
+        [Input("isDeveloperAppInsightsApiKeySet")]
+        public Input<bool>? IsDeveloperAppInsightsApiKeySet { get; set; }
+
+        /// <summary>
         /// Whether the bot is in an isolated network
         /// </summary>
         [Input("isIsolated")]

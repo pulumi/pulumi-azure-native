@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
     /// </summary>
     public sealed class DirectLineChannelPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Direct Line embed code of the resource
+        /// </summary>
+        [Input("directLineEmbedCode")]
+        public Input<string>? DirectLineEmbedCode { get; set; }
+
         [Input("sites")]
         private InputList<Inputs.DirectLineSiteArgs>? _sites;
 

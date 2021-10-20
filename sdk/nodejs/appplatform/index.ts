@@ -18,8 +18,10 @@ export * from "./getCustomDomain";
 export * from "./getDeployment";
 export * from "./getDeploymentLogFileUrl";
 export * from "./getService";
+export * from "./getStorage";
 export * from "./listServiceTestKeys";
 export * from "./service";
+export * from "./storage";
 
 // Export enums:
 export * from "../types/enums/appplatform";
@@ -29,12 +31,14 @@ import * as v20190501preview from "./v20190501preview";
 import * as v20200701 from "./v20200701";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20190501preview,
     v20200701,
     v20201101preview,
     v20210601preview,
+    v20210901preview,
 };
 
 // Import resources to register:
@@ -44,6 +48,7 @@ import { Certificate } from "./certificate";
 import { CustomDomain } from "./customDomain";
 import { Deployment } from "./deployment";
 import { Service } from "./service";
+import { Storage } from "./storage";
 
 const _module = {
     version: utilities.getVersion(),
@@ -61,6 +66,8 @@ const _module = {
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:appplatform:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure-native:appplatform:Storage":
+                return new Storage(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

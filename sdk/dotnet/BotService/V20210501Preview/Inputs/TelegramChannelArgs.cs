@@ -23,10 +23,22 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// The set of properties specific to Telegram channel resource
         /// </summary>
         [Input("properties")]
         public Input<Inputs.TelegramChannelPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public TelegramChannelArgs()
         {

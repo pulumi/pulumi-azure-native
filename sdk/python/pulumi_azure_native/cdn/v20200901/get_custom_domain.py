@@ -21,7 +21,10 @@ class GetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, id=None, name=None, provisioning_state=None, resource_state=None, system_data=None, type=None, validation_data=None):
+    def __init__(__self__, custom_https_parameters=None, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, id=None, name=None, provisioning_state=None, resource_state=None, system_data=None, type=None, validation_data=None):
+        if custom_https_parameters and not isinstance(custom_https_parameters, dict):
+            raise TypeError("Expected argument 'custom_https_parameters' to be a dict")
+        pulumi.set(__self__, "custom_https_parameters", custom_https_parameters)
         if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
             raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -52,6 +55,14 @@ class GetCustomDomainResult:
         if validation_data and not isinstance(validation_data, str):
             raise TypeError("Expected argument 'validation_data' to be a str")
         pulumi.set(__self__, "validation_data", validation_data)
+
+    @property
+    @pulumi.getter(name="customHttpsParameters")
+    def custom_https_parameters(self) -> Optional[Any]:
+        """
+        Certificate parameters for securing custom HTTPS
+        """
+        return pulumi.get(self, "custom_https_parameters")
 
     @property
     @pulumi.getter(name="customHttpsProvisioningState")
@@ -140,6 +151,7 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         if False:
             yield self
         return GetCustomDomainResult(
+            custom_https_parameters=self.custom_https_parameters,
             custom_https_provisioning_state=self.custom_https_provisioning_state,
             custom_https_provisioning_substate=self.custom_https_provisioning_substate,
             host_name=self.host_name,
@@ -178,6 +190,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20200901:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult).value
 
     return AwaitableGetCustomDomainResult(
+        custom_https_parameters=__ret__.custom_https_parameters,
         custom_https_provisioning_state=__ret__.custom_https_provisioning_state,
         custom_https_provisioning_substate=__ret__.custom_https_provisioning_substate,
         host_name=__ret__.host_name,

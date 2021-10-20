@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210901preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

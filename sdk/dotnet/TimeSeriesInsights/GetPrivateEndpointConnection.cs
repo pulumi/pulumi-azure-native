@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -66,7 +70,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
+        /// Provisioning state of the private endpoint connection.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

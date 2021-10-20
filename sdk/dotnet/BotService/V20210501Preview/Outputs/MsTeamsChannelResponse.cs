@@ -22,18 +22,32 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// The set of properties specific to Microsoft Teams channel resource
         /// </summary>
         public readonly Outputs.MsTeamsChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private MsTeamsChannelResponse(
             string channelName,
 
-            Outputs.MsTeamsChannelPropertiesResponse? properties)
+            string? etag,
+
+            Outputs.MsTeamsChannelPropertiesResponse? properties,
+
+            string? provisioningState)
         {
             ChannelName = channelName;
+            Etag = etag;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

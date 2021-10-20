@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -46,6 +47,10 @@ export interface GetCustomDomainArgs {
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */
 export interface GetCustomDomainResult {
+    /**
+     * Certificate parameters for securing custom HTTPS
+     */
+    readonly customHttpsParameters?: outputs.cdn.v20200331.CdnManagedHttpsParametersResponse | outputs.cdn.v20200331.UserManagedHttpsParametersResponse;
     /**
      * Provisioning status of Custom Https of the custom domain.
      */

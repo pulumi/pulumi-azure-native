@@ -25,6 +25,7 @@ type LookupCustomDomainArgs struct {
 
 
 type LookupCustomDomainResult struct {
+	CustomHttpsParameters           interface{}        `pulumi:"customHttpsParameters"`
 	CustomHttpsProvisioningState    string             `pulumi:"customHttpsProvisioningState"`
 	CustomHttpsProvisioningSubstate string             `pulumi:"customHttpsProvisioningSubstate"`
 	HostName                        string             `pulumi:"hostName"`

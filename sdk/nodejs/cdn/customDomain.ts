@@ -37,6 +37,10 @@ export class CustomDomain extends pulumi.CustomResource {
     }
 
     /**
+     * Certificate parameters for securing custom HTTPS
+     */
+    public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse | undefined>;
+    /**
      * Provisioning status of Custom Https of the custom domain.
      */
     public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["customHttpsParameters"] = undefined /*out*/;
             inputs["customHttpsProvisioningState"] = undefined /*out*/;
             inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validationData"] = undefined /*out*/;
         } else {
+            inputs["customHttpsParameters"] = undefined /*out*/;
             inputs["customHttpsProvisioningState"] = undefined /*out*/;
             inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;

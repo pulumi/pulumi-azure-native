@@ -61,9 +61,17 @@ export class Gen2Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The list of private endpoint connections to the environment.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.timeseriesinsights.v20210331preview.PrivateEndpointConnectionResponse[]>;
+    /**
      * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
@@ -133,6 +141,7 @@ export class Gen2Environment extends pulumi.CustomResource {
             inputs["dataAccessFqdn"] = undefined /*out*/;
             inputs["dataAccessId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -143,7 +152,9 @@ export class Gen2Environment extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageConfiguration"] = undefined /*out*/;

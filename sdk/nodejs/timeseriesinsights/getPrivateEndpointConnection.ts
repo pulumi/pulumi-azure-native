@@ -44,6 +44,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly groupIds?: string[];
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -60,7 +64,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly privateLinkServiceConnectionState: outputs.timeseriesinsights.PrivateLinkServiceConnectionStateResponse;
     /**
-     * The provisioning state of the private endpoint connection resource.
+     * Provisioning state of the private endpoint connection.
      */
     readonly provisioningState: string;
     /**

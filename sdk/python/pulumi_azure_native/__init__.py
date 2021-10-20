@@ -339,6 +339,8 @@ if typing.TYPE_CHECKING:
     timeseriesinsights = __timeseriesinsights
     import pulumi_azure_native.videoanalyzer as __videoanalyzer
     videoanalyzer = __videoanalyzer
+    import pulumi_azure_native.videoindexer as __videoindexer
+    videoindexer = __videoindexer
     import pulumi_azure_native.virtualmachineimages as __virtualmachineimages
     virtualmachineimages = __virtualmachineimages
     import pulumi_azure_native.visualstudio as __visualstudio
@@ -519,6 +521,7 @@ else:
     testbase = _utilities.lazy_import('pulumi_azure_native.testbase')
     timeseriesinsights = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights')
     videoanalyzer = _utilities.lazy_import('pulumi_azure_native.videoanalyzer')
+    videoindexer = _utilities.lazy_import('pulumi_azure_native.videoindexer')
     virtualmachineimages = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages')
     visualstudio = _utilities.lazy_import('pulumi_azure_native.visualstudio')
     vmwarecloudsimple = _utilities.lazy_import('pulumi_azure_native.vmwarecloudsimple')
@@ -1505,7 +1508,8 @@ _utilities.register(
    "azure-native:appplatform:Certificate": "Certificate",
    "azure-native:appplatform:CustomDomain": "CustomDomain",
    "azure-native:appplatform:Deployment": "Deployment",
-   "azure-native:appplatform:Service": "Service"
+   "azure-native:appplatform:Service": "Service",
+   "azure-native:appplatform:Storage": "Storage"
   }
  },
  {
@@ -1558,6 +1562,20 @@ _utilities.register(
    "azure-native:appplatform/v20210601preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20210601preview:Deployment": "Deployment",
    "azure-native:appplatform/v20210601preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "appplatform/v20210901preview",
+  "fqn": "pulumi_azure_native.appplatform.v20210901preview",
+  "classes": {
+   "azure-native:appplatform/v20210901preview:App": "App",
+   "azure-native:appplatform/v20210901preview:Binding": "Binding",
+   "azure-native:appplatform/v20210901preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20210901preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20210901preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20210901preview:Service": "Service",
+   "azure-native:appplatform/v20210901preview:Storage": "Storage"
   }
  },
  {
@@ -16362,6 +16380,22 @@ _utilities.register(
    "azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:videoanalyzer/v20211101preview:Video": "Video",
    "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer": "VideoAnalyzer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "videoindexer",
+  "fqn": "pulumi_azure_native.videoindexer",
+  "classes": {
+   "azure-native:videoindexer:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "videoindexer/v20211018preview",
+  "fqn": "pulumi_azure_native.videoindexer.v20211018preview",
+  "classes": {
+   "azure-native:videoindexer/v20211018preview:Account": "Account"
   }
  },
  {

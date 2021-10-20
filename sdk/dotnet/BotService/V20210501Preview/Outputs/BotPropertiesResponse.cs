@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly bool? IsCmekEnabled;
         /// <summary>
+        /// Whether the bot is developerAppInsightsApiKey set
+        /// </summary>
+        public readonly bool? IsDeveloperAppInsightsApiKeySet;
+        /// <summary>
         /// Whether the bot is in an isolated network
         /// </summary>
         public readonly bool? IsIsolated;
@@ -84,6 +88,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// The LUIS Key
         /// </summary>
         public readonly string? LuisKey;
+        /// <summary>
+        /// Token used to migrate non Azure bot to azure subscription
+        /// </summary>
+        public readonly string MigrationToken;
         /// <summary>
         /// Microsoft App Id for the bot
         /// </summary>
@@ -143,11 +151,15 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             bool? isCmekEnabled,
 
+            bool? isDeveloperAppInsightsApiKeySet,
+
             bool? isIsolated,
 
             ImmutableArray<string> luisAppIds,
 
             string? luisKey,
+
+            string migrationToken,
 
             string msaAppId,
 
@@ -177,9 +189,11 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             EndpointVersion = endpointVersion;
             IconUrl = iconUrl;
             IsCmekEnabled = isCmekEnabled;
+            IsDeveloperAppInsightsApiKeySet = isDeveloperAppInsightsApiKeySet;
             IsIsolated = isIsolated;
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
+            MigrationToken = migrationToken;
             MsaAppId = msaAppId;
             MsaAppMSIResourceId = msaAppMSIResourceId;
             MsaAppTenantId = msaAppTenantId;

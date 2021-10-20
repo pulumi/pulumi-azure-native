@@ -24,19 +24,21 @@ type LookupGen2EnvironmentArgs struct {
 
 
 type LookupGen2EnvironmentResult struct {
-	CreationTime           string                                    `pulumi:"creationTime"`
-	DataAccessFqdn         string                                    `pulumi:"dataAccessFqdn"`
-	DataAccessId           string                                    `pulumi:"dataAccessId"`
-	Id                     string                                    `pulumi:"id"`
-	Kind                   string                                    `pulumi:"kind"`
-	Location               string                                    `pulumi:"location"`
-	Name                   string                                    `pulumi:"name"`
-	ProvisioningState      string                                    `pulumi:"provisioningState"`
-	Sku                    SkuResponse                               `pulumi:"sku"`
-	Status                 EnvironmentStatusResponse                 `pulumi:"status"`
-	StorageConfiguration   Gen2StorageConfigurationOutputResponse    `pulumi:"storageConfiguration"`
-	Tags                   map[string]string                         `pulumi:"tags"`
-	TimeSeriesIdProperties []TimeSeriesIdPropertyResponse            `pulumi:"timeSeriesIdProperties"`
-	Type                   string                                    `pulumi:"type"`
-	WarmStoreConfiguration *WarmStoreConfigurationPropertiesResponse `pulumi:"warmStoreConfiguration"`
+	CreationTime               string                                    `pulumi:"creationTime"`
+	DataAccessFqdn             string                                    `pulumi:"dataAccessFqdn"`
+	DataAccessId               string                                    `pulumi:"dataAccessId"`
+	Id                         string                                    `pulumi:"id"`
+	Kind                       string                                    `pulumi:"kind"`
+	Location                   string                                    `pulumi:"location"`
+	Name                       string                                    `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse       `pulumi:"privateEndpointConnections"`
+	ProvisioningState          string                                    `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                   `pulumi:"publicNetworkAccess"`
+	Sku                        SkuResponse                               `pulumi:"sku"`
+	Status                     EnvironmentStatusResponse                 `pulumi:"status"`
+	StorageConfiguration       Gen2StorageConfigurationOutputResponse    `pulumi:"storageConfiguration"`
+	Tags                       map[string]string                         `pulumi:"tags"`
+	TimeSeriesIdProperties     []TimeSeriesIdPropertyResponse            `pulumi:"timeSeriesIdProperties"`
+	Type                       string                                    `pulumi:"type"`
+	WarmStoreConfiguration     *WarmStoreConfigurationPropertiesResponse `pulumi:"warmStoreConfiguration"`
 }

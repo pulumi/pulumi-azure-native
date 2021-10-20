@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly bool? EnableCalling;
         /// <summary>
+        /// Webhook for Microsoft Teams channel calls
+        /// </summary>
+        public readonly string? IncomingCallRoute;
+        /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
         public readonly bool IsEnabled;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             bool? enableCalling,
 
+            string? incomingCallRoute,
+
             bool isEnabled)
         {
             CallingWebHook = callingWebHook;
             EnableCalling = enableCalling;
+            IncomingCallRoute = incomingCallRoute;
             IsEnabled = isEnabled;
         }
     }

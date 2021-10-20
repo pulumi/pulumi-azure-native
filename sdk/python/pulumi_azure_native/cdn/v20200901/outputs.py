@@ -14,7 +14,9 @@ __all__ = [
     'AFDDomainHttpsParametersResponse',
     'CacheExpirationActionParametersResponse',
     'CacheKeyQueryStringActionParametersResponse',
+    'CdnCertificateSourceParametersResponse',
     'CdnEndpointResponse',
+    'CdnManagedHttpsParametersResponse',
     'CompressionSettingsResponse',
     'CookiesMatchConditionParametersResponse',
     'CustomRuleListResponse',
@@ -50,6 +52,7 @@ __all__ = [
     'HttpErrorRangeParametersResponse',
     'HttpVersionMatchConditionParametersResponse',
     'IsDeviceMatchConditionParametersResponse',
+    'KeyVaultCertificateSourceParametersResponse',
     'KeyVaultSigningKeyParametersResponse',
     'LoadBalancingSettingsParametersResponse',
     'ManagedCertificateParametersResponse',
@@ -90,6 +93,7 @@ __all__ = [
     'UrlSigningKeyParametersResponse',
     'UrlSigningKeyResponse',
     'UrlSigningParamIdentifierResponse',
+    'UserManagedHttpsParametersResponse',
 ]
 
 @pulumi.output_type
@@ -295,6 +299,54 @@ class CacheKeyQueryStringActionParametersResponse(dict):
 
 
 @pulumi.output_type
+class CdnCertificateSourceParametersResponse(dict):
+    """
+    Defines the parameters for using CDN managed certificate for securing custom domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateType":
+            suggest = "certificate_type"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CdnCertificateSourceParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CdnCertificateSourceParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CdnCertificateSourceParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_type: str,
+                 odata_type: str):
+        """
+        Defines the parameters for using CDN managed certificate for securing custom domain.
+        :param str certificate_type: Type of certificate used
+        """
+        pulumi.set(__self__, "certificate_type", certificate_type)
+        pulumi.set(__self__, "odata_type", odata_type)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> str:
+        """
+        Type of certificate used
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+
+@pulumi.output_type
 class CdnEndpointResponse(dict):
     """
     Defines the ARM Resource ID for the linked endpoints
@@ -315,6 +367,87 @@ class CdnEndpointResponse(dict):
         ARM Resource ID string.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CdnManagedHttpsParametersResponse(dict):
+    """
+    Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateSourceParameters":
+            suggest = "certificate_source_parameters"
+        elif key == "protocolType":
+            suggest = "protocol_type"
+        elif key == "minimumTlsVersion":
+            suggest = "minimum_tls_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CdnManagedHttpsParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CdnManagedHttpsParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CdnManagedHttpsParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_source: str,
+                 certificate_source_parameters: 'outputs.CdnCertificateSourceParametersResponse',
+                 protocol_type: str,
+                 minimum_tls_version: Optional[str] = None):
+        """
+        Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+        :param str certificate_source: Defines the source of the SSL certificate.
+               Expected value is 'Cdn'.
+        :param 'CdnCertificateSourceParametersResponse' certificate_source_parameters: Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+        :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery.
+        :param str minimum_tls_version: TLS protocol version that will be used for Https
+        """
+        pulumi.set(__self__, "certificate_source", 'Cdn')
+        pulumi.set(__self__, "certificate_source_parameters", certificate_source_parameters)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> str:
+        """
+        Defines the source of the SSL certificate.
+        Expected value is 'Cdn'.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateSourceParameters")
+    def certificate_source_parameters(self) -> 'outputs.CdnCertificateSourceParametersResponse':
+        """
+        Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+        """
+        return pulumi.get(self, "certificate_source_parameters")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> str:
+        """
+        Defines the TLS extension protocol that is used for secure delivery.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        TLS protocol version that will be used for Https
+        """
+        return pulumi.get(self, "minimum_tls_version")
 
 
 @pulumi.output_type
@@ -2167,6 +2300,133 @@ class IsDeviceMatchConditionParametersResponse(dict):
         List of transforms
         """
         return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class KeyVaultCertificateSourceParametersResponse(dict):
+    """
+    Describes the parameters for using a user's KeyVault certificate for securing custom domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteRule":
+            suggest = "delete_rule"
+        elif key == "odataType":
+            suggest = "odata_type"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "updateRule":
+            suggest = "update_rule"
+        elif key == "vaultName":
+            suggest = "vault_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultCertificateSourceParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultCertificateSourceParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultCertificateSourceParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_rule: str,
+                 odata_type: str,
+                 resource_group_name: str,
+                 secret_name: str,
+                 subscription_id: str,
+                 update_rule: str,
+                 vault_name: str,
+                 secret_version: Optional[str] = None):
+        """
+        Describes the parameters for using a user's KeyVault certificate for securing custom domain.
+        :param str delete_rule: Describes the action that shall be taken when the certificate is removed from Key Vault.
+        :param str resource_group_name: Resource group of the user's Key Vault containing the SSL certificate
+        :param str secret_name: The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
+        :param str subscription_id: Subscription Id of the user's Key Vault containing the SSL certificate
+        :param str update_rule: Describes the action that shall be taken when the certificate is updated in Key Vault.
+        :param str vault_name: The name of the user's Key Vault containing the SSL certificate
+        :param str secret_version: The version(GUID) of Key Vault Secret in Key Vault.
+        """
+        pulumi.set(__self__, "delete_rule", delete_rule)
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "update_rule", update_rule)
+        pulumi.set(__self__, "vault_name", vault_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="deleteRule")
+    def delete_rule(self) -> str:
+        """
+        Describes the action that shall be taken when the certificate is removed from Key Vault.
+        """
+        return pulumi.get(self, "delete_rule")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Resource group of the user's Key Vault containing the SSL certificate
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription Id of the user's Key Vault containing the SSL certificate
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="updateRule")
+    def update_rule(self) -> str:
+        """
+        Describes the action that shall be taken when the certificate is updated in Key Vault.
+        """
+        return pulumi.get(self, "update_rule")
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> str:
+        """
+        The name of the user's Key Vault containing the SSL certificate
+        """
+        return pulumi.get(self, "vault_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        The version(GUID) of Key Vault Secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
 
 
 @pulumi.output_type
@@ -4929,5 +5189,86 @@ class UrlSigningParamIdentifierResponse(dict):
         Parameter name
         """
         return pulumi.get(self, "param_name")
+
+
+@pulumi.output_type
+class UserManagedHttpsParametersResponse(dict):
+    """
+    Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateSourceParameters":
+            suggest = "certificate_source_parameters"
+        elif key == "protocolType":
+            suggest = "protocol_type"
+        elif key == "minimumTlsVersion":
+            suggest = "minimum_tls_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserManagedHttpsParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserManagedHttpsParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserManagedHttpsParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_source: str,
+                 certificate_source_parameters: 'outputs.KeyVaultCertificateSourceParametersResponse',
+                 protocol_type: str,
+                 minimum_tls_version: Optional[str] = None):
+        """
+        Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+        :param str certificate_source: Defines the source of the SSL certificate.
+               Expected value is 'AzureKeyVault'.
+        :param 'KeyVaultCertificateSourceParametersResponse' certificate_source_parameters: Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+        :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery.
+        :param str minimum_tls_version: TLS protocol version that will be used for Https
+        """
+        pulumi.set(__self__, "certificate_source", 'AzureKeyVault')
+        pulumi.set(__self__, "certificate_source_parameters", certificate_source_parameters)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> str:
+        """
+        Defines the source of the SSL certificate.
+        Expected value is 'AzureKeyVault'.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateSourceParameters")
+    def certificate_source_parameters(self) -> 'outputs.KeyVaultCertificateSourceParametersResponse':
+        """
+        Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+        """
+        return pulumi.get(self, "certificate_source_parameters")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> str:
+        """
+        Defines the TLS extension protocol that is used for secure delivery.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        TLS protocol version that will be used for Https
+        """
+        return pulumi.get(self, "minimum_tls_version")
 
 

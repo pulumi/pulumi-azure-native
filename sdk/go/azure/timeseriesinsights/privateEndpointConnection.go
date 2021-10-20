@@ -14,6 +14,7 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	GroupIds                          pulumi.StringArrayOutput                        `pulumi:"groupIds"`
 	Name                              pulumi.StringOutput                             `pulumi:"name"`
 	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
@@ -82,6 +83,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	EnvironmentName                   string                            `pulumi:"environmentName"`
+	GroupIds                          []string                          `pulumi:"groupIds"`
 	PrivateEndpointConnectionName     *string                           `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	ResourceGroupName                 string                            `pulumi:"resourceGroupName"`
@@ -90,6 +92,7 @@ type privateEndpointConnectionArgs struct {
 
 type PrivateEndpointConnectionArgs struct {
 	EnvironmentName                   pulumi.StringInput
+	GroupIds                          pulumi.StringArrayInput
 	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	ResourceGroupName                 pulumi.StringInput

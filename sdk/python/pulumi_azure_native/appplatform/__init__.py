@@ -19,8 +19,10 @@ from .get_custom_domain import *
 from .get_deployment import *
 from .get_deployment_log_file_url import *
 from .get_service import *
+from .get_storage import *
 from .list_service_test_keys import *
 from .service import *
+from .storage import *
 from ._inputs import *
 from . import outputs
 
@@ -34,9 +36,12 @@ if typing.TYPE_CHECKING:
     v20201101preview = __v20201101preview
     import pulumi_azure_native.appplatform.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
+    import pulumi_azure_native.appplatform.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
 else:
     v20190501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20190501preview')
     v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210901preview')
 

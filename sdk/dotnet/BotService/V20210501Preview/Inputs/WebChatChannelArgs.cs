@@ -23,6 +23,18 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Location of the resource
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The set of properties specific to Web Chat channel resource
         /// </summary>
         [Input("properties")]

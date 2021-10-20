@@ -171,6 +171,7 @@ class CustomDomain(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["custom_https_parameters"] = None
             __props__.__dict__["custom_https_provisioning_state"] = None
             __props__.__dict__["custom_https_provisioning_substate"] = None
             __props__.__dict__["name"] = None
@@ -203,6 +204,7 @@ class CustomDomain(pulumi.CustomResource):
 
         __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
+        __props__.__dict__["custom_https_parameters"] = None
         __props__.__dict__["custom_https_provisioning_state"] = None
         __props__.__dict__["custom_https_provisioning_substate"] = None
         __props__.__dict__["host_name"] = None
@@ -213,6 +215,14 @@ class CustomDomain(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["validation_data"] = None
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customHttpsParameters")
+    def custom_https_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Certificate parameters for securing custom HTTPS
+        """
+        return pulumi.get(self, "custom_https_parameters")
 
     @property
     @pulumi.getter(name="customHttpsProvisioningState")

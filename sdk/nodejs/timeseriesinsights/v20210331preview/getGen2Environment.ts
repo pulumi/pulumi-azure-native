@@ -72,9 +72,17 @@ export interface GetGen2EnvironmentResult {
      */
     readonly name: string;
     /**
+     * The list of private endpoint connections to the environment.
+     */
+    readonly privateEndpointConnections: outputs.timeseriesinsights.v20210331preview.PrivateEndpointConnectionResponse[];
+    /**
      * Provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
