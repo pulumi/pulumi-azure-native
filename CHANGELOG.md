@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `appplatform.Storage`
+- `videoindexer.Account`
+
+#### New functions:
+
+- `appplatform.getStorage`
+- `videoindexer.getAccount`
 
 ---
 
