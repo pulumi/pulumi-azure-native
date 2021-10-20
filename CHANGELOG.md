@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.41.0 (2021-10-20)
+
 #### New resources:
 
 - `appplatform.Storage`
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `appplatform.getStorage`
 - `videoindexer.getAccount`
-
----
 
 ## 1.40.0 (2021-10-18)
 
