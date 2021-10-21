@@ -3,7 +3,19 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `chaos.Capability`
+- `chaos.Experiment`
+- `chaos.Target`
+- `deviceupdate.PrivateEndpointConnectionProxy`
+
+#### New functions:
+
+- `chaos.getCapability`
+- `chaos.getExperiment`
+- `chaos.getTarget`
+- `deviceupdate.getPrivateEndpointConnectionProxy`
 
 ---
 
