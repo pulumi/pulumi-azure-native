@@ -1,0 +1,37 @@
+
+
+
+package v20181101preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupADLSGen2FileSystemDataSet(ctx *pulumi.Context, args *LookupADLSGen2FileSystemDataSetArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2FileSystemDataSetResult, error) {
+	var rv LookupADLSGen2FileSystemDataSetResult
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:getADLSGen2FileSystemDataSet", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupADLSGen2FileSystemDataSetArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ShareName         string `pulumi:"shareName"`
+}
+
+
+type LookupADLSGen2FileSystemDataSetResult struct {
+	DataSetId          string `pulumi:"dataSetId"`
+	FileSystem         string `pulumi:"fileSystem"`
+	Id                 string `pulumi:"id"`
+	Kind               string `pulumi:"kind"`
+	Name               string `pulumi:"name"`
+	ResourceGroup      string `pulumi:"resourceGroup"`
+	StorageAccountName string `pulumi:"storageAccountName"`
+	SubscriptionId     string `pulumi:"subscriptionId"`
+	Type               string `pulumi:"type"`
+}

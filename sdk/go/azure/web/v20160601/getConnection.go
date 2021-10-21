@@ -1,0 +1,34 @@
+
+
+
+package v20160601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
+	var rv LookupConnectionResult
+	err := ctx.Invoke("azure-native:web/v20160601:getConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupConnectionArgs struct {
+	ConnectionName    string  `pulumi:"connectionName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+}
+
+
+type LookupConnectionResult struct {
+	Etag       *string                                   `pulumi:"etag"`
+	Id         string                                    `pulumi:"id"`
+	Location   *string                                   `pulumi:"location"`
+	Name       string                                    `pulumi:"name"`
+	Properties ApiConnectionDefinitionResponseProperties `pulumi:"properties"`
+	Tags       map[string]string                         `pulumi:"tags"`
+	Type       string                                    `pulumi:"type"`
+}

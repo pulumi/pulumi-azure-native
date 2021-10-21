@@ -1,0 +1,223 @@
+
+
+
+package v20210601
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type BlobContainer struct {
+	pulumi.CustomResourceState
+
+	DefaultEncryptionScope         pulumi.StringPtrOutput                          `pulumi:"defaultEncryptionScope"`
+	Deleted                        pulumi.BoolOutput                               `pulumi:"deleted"`
+	DeletedTime                    pulumi.StringOutput                             `pulumi:"deletedTime"`
+	DenyEncryptionScopeOverride    pulumi.BoolPtrOutput                            `pulumi:"denyEncryptionScopeOverride"`
+	EnableNfsV3AllSquash           pulumi.BoolPtrOutput                            `pulumi:"enableNfsV3AllSquash"`
+	EnableNfsV3RootSquash          pulumi.BoolPtrOutput                            `pulumi:"enableNfsV3RootSquash"`
+	Etag                           pulumi.StringOutput                             `pulumi:"etag"`
+	HasImmutabilityPolicy          pulumi.BoolOutput                               `pulumi:"hasImmutabilityPolicy"`
+	HasLegalHold                   pulumi.BoolOutput                               `pulumi:"hasLegalHold"`
+	ImmutabilityPolicy             ImmutabilityPolicyPropertiesResponseOutput      `pulumi:"immutabilityPolicy"`
+	ImmutableStorageWithVersioning ImmutableStorageWithVersioningResponsePtrOutput `pulumi:"immutableStorageWithVersioning"`
+	LastModifiedTime               pulumi.StringOutput                             `pulumi:"lastModifiedTime"`
+	LeaseDuration                  pulumi.StringOutput                             `pulumi:"leaseDuration"`
+	LeaseState                     pulumi.StringOutput                             `pulumi:"leaseState"`
+	LeaseStatus                    pulumi.StringOutput                             `pulumi:"leaseStatus"`
+	LegalHold                      LegalHoldPropertiesResponseOutput               `pulumi:"legalHold"`
+	Metadata                       pulumi.StringMapOutput                          `pulumi:"metadata"`
+	Name                           pulumi.StringOutput                             `pulumi:"name"`
+	PublicAccess                   pulumi.StringPtrOutput                          `pulumi:"publicAccess"`
+	RemainingRetentionDays         pulumi.IntOutput                                `pulumi:"remainingRetentionDays"`
+	Type                           pulumi.StringOutput                             `pulumi:"type"`
+	Version                        pulumi.StringOutput                             `pulumi:"version"`
+}
+
+
+func NewBlobContainer(ctx *pulumi.Context,
+	name string, args *BlobContainerArgs, opts ...pulumi.ResourceOption) (*BlobContainer, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20180201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180301preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20180301preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180701:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20181101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210401:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobContainer"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource BlobContainer
+	err := ctx.RegisterResource("azure-native:storage/v20210601:BlobContainer", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetBlobContainer(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *BlobContainerState, opts ...pulumi.ResourceOption) (*BlobContainer, error) {
+	var resource BlobContainer
+	err := ctx.ReadResource("azure-native:storage/v20210601:BlobContainer", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type blobContainerState struct {
+}
+
+type BlobContainerState struct {
+}
+
+func (BlobContainerState) ElementType() reflect.Type {
+	return reflect.TypeOf((*blobContainerState)(nil)).Elem()
+}
+
+type blobContainerArgs struct {
+	AccountName                    string                          `pulumi:"accountName"`
+	ContainerName                  *string                         `pulumi:"containerName"`
+	DefaultEncryptionScope         *string                         `pulumi:"defaultEncryptionScope"`
+	DenyEncryptionScopeOverride    *bool                           `pulumi:"denyEncryptionScopeOverride"`
+	EnableNfsV3AllSquash           *bool                           `pulumi:"enableNfsV3AllSquash"`
+	EnableNfsV3RootSquash          *bool                           `pulumi:"enableNfsV3RootSquash"`
+	ImmutableStorageWithVersioning *ImmutableStorageWithVersioning `pulumi:"immutableStorageWithVersioning"`
+	Metadata                       map[string]string               `pulumi:"metadata"`
+	PublicAccess                   *PublicAccess                   `pulumi:"publicAccess"`
+	ResourceGroupName              string                          `pulumi:"resourceGroupName"`
+}
+
+
+type BlobContainerArgs struct {
+	AccountName                    pulumi.StringInput
+	ContainerName                  pulumi.StringPtrInput
+	DefaultEncryptionScope         pulumi.StringPtrInput
+	DenyEncryptionScopeOverride    pulumi.BoolPtrInput
+	EnableNfsV3AllSquash           pulumi.BoolPtrInput
+	EnableNfsV3RootSquash          pulumi.BoolPtrInput
+	ImmutableStorageWithVersioning ImmutableStorageWithVersioningPtrInput
+	Metadata                       pulumi.StringMapInput
+	PublicAccess                   PublicAccessPtrInput
+	ResourceGroupName              pulumi.StringInput
+}
+
+func (BlobContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*blobContainerArgs)(nil)).Elem()
+}
+
+type BlobContainerInput interface {
+	pulumi.Input
+
+	ToBlobContainerOutput() BlobContainerOutput
+	ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput
+}
+
+func (*BlobContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainer)(nil))
+}
+
+func (i *BlobContainer) ToBlobContainerOutput() BlobContainerOutput {
+	return i.ToBlobContainerOutputWithContext(context.Background())
+}
+
+func (i *BlobContainer) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerOutput)
+}
+
+type BlobContainerOutput struct{ *pulumi.OutputState }
+
+func (BlobContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainer)(nil))
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutput() BlobContainerOutput {
+	return o
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobContainerOutput{})
+}
