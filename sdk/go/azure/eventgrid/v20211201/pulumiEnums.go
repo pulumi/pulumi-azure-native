@@ -845,6 +845,170 @@ func (in *eventDeliverySchemaPtr) ToEventDeliverySchemaPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(EventDeliverySchemaPtrOutput)
 }
 
+type EventSubscriptionIdentityType string
+
+const (
+	EventSubscriptionIdentityTypeSystemAssigned = EventSubscriptionIdentityType("SystemAssigned")
+	EventSubscriptionIdentityTypeUserAssigned   = EventSubscriptionIdentityType("UserAssigned")
+)
+
+func (EventSubscriptionIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityType)(nil)).Elem()
+}
+
+func (e EventSubscriptionIdentityType) ToEventSubscriptionIdentityTypeOutput() EventSubscriptionIdentityTypeOutput {
+	return pulumi.ToOutput(e).(EventSubscriptionIdentityTypeOutput)
+}
+
+func (e EventSubscriptionIdentityType) ToEventSubscriptionIdentityTypeOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSubscriptionIdentityTypeOutput)
+}
+
+func (e EventSubscriptionIdentityType) ToEventSubscriptionIdentityTypePtrOutput() EventSubscriptionIdentityTypePtrOutput {
+	return e.ToEventSubscriptionIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventSubscriptionIdentityType) ToEventSubscriptionIdentityTypePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypePtrOutput {
+	return EventSubscriptionIdentityType(e).ToEventSubscriptionIdentityTypeOutputWithContext(ctx).ToEventSubscriptionIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e EventSubscriptionIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSubscriptionIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSubscriptionIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSubscriptionIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSubscriptionIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityType)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToEventSubscriptionIdentityTypeOutput() EventSubscriptionIdentityTypeOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToEventSubscriptionIdentityTypeOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypeOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToEventSubscriptionIdentityTypePtrOutput() EventSubscriptionIdentityTypePtrOutput {
+	return o.ToEventSubscriptionIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToEventSubscriptionIdentityTypePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionIdentityType) *EventSubscriptionIdentityType {
+		return &v
+	}).(EventSubscriptionIdentityTypePtrOutput)
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentityType)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityTypePtrOutput) ToEventSubscriptionIdentityTypePtrOutput() EventSubscriptionIdentityTypePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityTypePtrOutput) ToEventSubscriptionIdentityTypePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityTypePtrOutput) Elem() EventSubscriptionIdentityTypeOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityType) EventSubscriptionIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionIdentityType
+		return ret
+	}).(EventSubscriptionIdentityTypeOutput)
+}
+
+func (o EventSubscriptionIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSubscriptionIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EventSubscriptionIdentityTypeInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityTypeOutput() EventSubscriptionIdentityTypeOutput
+	ToEventSubscriptionIdentityTypeOutputWithContext(context.Context) EventSubscriptionIdentityTypeOutput
+}
+
+var eventSubscriptionIdentityTypePtrType = reflect.TypeOf((**EventSubscriptionIdentityType)(nil)).Elem()
+
+type EventSubscriptionIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityTypePtrOutput() EventSubscriptionIdentityTypePtrOutput
+	ToEventSubscriptionIdentityTypePtrOutputWithContext(context.Context) EventSubscriptionIdentityTypePtrOutput
+}
+
+type eventSubscriptionIdentityTypePtr string
+
+func EventSubscriptionIdentityTypePtr(v string) EventSubscriptionIdentityTypePtrInput {
+	return (*eventSubscriptionIdentityTypePtr)(&v)
+}
+
+func (*eventSubscriptionIdentityTypePtr) ElementType() reflect.Type {
+	return eventSubscriptionIdentityTypePtrType
+}
+
+func (in *eventSubscriptionIdentityTypePtr) ToEventSubscriptionIdentityTypePtrOutput() EventSubscriptionIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(EventSubscriptionIdentityTypePtrOutput)
+}
+
+func (in *eventSubscriptionIdentityTypePtr) ToEventSubscriptionIdentityTypePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionIdentityTypePtrOutput)
+}
+
 type IdentityType string
 
 const (
@@ -2011,6 +2175,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(EventDeliverySchemaOutput{})
 	pulumi.RegisterOutputType(EventDeliverySchemaPtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityTypeOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})
 	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(InputSchemaOutput{})

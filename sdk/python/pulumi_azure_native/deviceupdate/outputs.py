@@ -11,14 +11,109 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectionDetailsResponse',
     'DiagnosticStoragePropertiesResponse',
+    'GroupConnectivityInformationResponse',
     'IotHubSettingsResponse',
     'ManagedServiceIdentityResponse',
     'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PrivateLinkServiceProxyResponse',
+    'PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection',
+    'RemotePrivateEndpointResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ConnectionDetailsResponse(dict):
+    """
+    Private endpoint connection proxy object properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "memberName":
+            suggest = "member_name"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 id: str,
+                 link_identifier: str,
+                 member_name: str,
+                 private_ip_address: str):
+        """
+        Private endpoint connection proxy object properties.
+        :param str group_id: Group ID.
+        :param str id: Connection details ID.
+        :param str link_identifier: Link ID.
+        :param str member_name: Member name.
+        :param str private_ip_address: Private IP address.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        pulumi.set(__self__, "member_name", member_name)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        Group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Connection details ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
+        """
+        Link ID.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> str:
+        """
+        Member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        Private IP address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
 
 @pulumi.output_type
 class DiagnosticStoragePropertiesResponse(dict):
@@ -84,6 +179,85 @@ class DiagnosticStoragePropertiesResponse(dict):
         ConnectionString of the diagnostic storage account
         """
         return pulumi.get(self, "connection_string")
+
+
+@pulumi.output_type
+class GroupConnectivityInformationResponse(dict):
+    """
+    Group connectivity details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "internalFqdn":
+            suggest = "internal_fqdn"
+        elif key == "memberName":
+            suggest = "member_name"
+        elif key == "customerVisibleFqdns":
+            suggest = "customer_visible_fqdns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupConnectivityInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupConnectivityInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupConnectivityInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 internal_fqdn: str,
+                 member_name: str,
+                 customer_visible_fqdns: Optional[Sequence[str]] = None):
+        """
+        Group connectivity details.
+        :param str group_id: Group ID.
+        :param str internal_fqdn: Internal FQDN.
+        :param str member_name: Member name.
+        :param Sequence[str] customer_visible_fqdns: List of customer visible FQDNs.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+        pulumi.set(__self__, "member_name", member_name)
+        if customer_visible_fqdns is not None:
+            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        Group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="internalFqdn")
+    def internal_fqdn(self) -> str:
+        """
+        Internal FQDN.
+        """
+        return pulumi.get(self, "internal_fqdn")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> str:
+        """
+        Member name.
+        """
+        return pulumi.get(self, "member_name")
+
+    @property
+    @pulumi.getter(name="customerVisibleFqdns")
+    def customer_visible_fqdns(self) -> Optional[Sequence[str]]:
+        """
+        List of customer visible FQDNs.
+        """
+        return pulumi.get(self, "customer_visible_fqdns")
 
 
 @pulumi.output_type
@@ -253,6 +427,72 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
+class PrivateLinkServiceConnectionResponse(dict):
+    """
+    Private link service connection details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 request_message: Optional[str] = None):
+        """
+        Private link service connection details.
+        :param Sequence[str] group_ids: List of group IDs.
+        :param str name: Private link service connection name.
+        :param str request_message: Request message.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Private link service connection name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        Request message.
+        """
+        return pulumi.get(self, "request_message")
+
+
+@pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
@@ -314,6 +554,215 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PrivateLinkServiceProxyResponse(dict):
+    """
+    Private link service proxy details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupConnectivityInformation":
+            suggest = "group_connectivity_information"
+        elif key == "remotePrivateEndpointConnection":
+            suggest = "remote_private_endpoint_connection"
+        elif key == "remotePrivateLinkServiceConnectionState":
+            suggest = "remote_private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceProxyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceProxyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceProxyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_connectivity_information: Optional[Sequence['outputs.GroupConnectivityInformationResponse']] = None,
+                 id: Optional[str] = None,
+                 remote_private_endpoint_connection: Optional['outputs.PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection'] = None,
+                 remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private link service proxy details.
+        :param Sequence['GroupConnectivityInformationResponse'] group_connectivity_information: Group connectivity information.
+        :param str id: NRP resource ID.
+        :param 'PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection' remote_private_endpoint_connection: Remote private endpoint connection details.
+        :param 'PrivateLinkServiceConnectionStateResponse' remote_private_link_service_connection_state: Remote private link service connection state
+        """
+        if group_connectivity_information is not None:
+            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if remote_private_endpoint_connection is not None:
+            pulumi.set(__self__, "remote_private_endpoint_connection", remote_private_endpoint_connection)
+        if remote_private_link_service_connection_state is not None:
+            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupConnectivityInformation")
+    def group_connectivity_information(self) -> Optional[Sequence['outputs.GroupConnectivityInformationResponse']]:
+        """
+        Group connectivity information.
+        """
+        return pulumi.get(self, "group_connectivity_information")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        NRP resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="remotePrivateEndpointConnection")
+    def remote_private_endpoint_connection(self) -> Optional['outputs.PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection']:
+        """
+        Remote private endpoint connection details.
+        """
+        return pulumi.get(self, "remote_private_endpoint_connection")
+
+    @property
+    @pulumi.getter(name="remotePrivateLinkServiceConnectionState")
+    def remote_private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Remote private link service connection state
+        """
+        return pulumi.get(self, "remote_private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection(dict):
+    """
+    Remote private endpoint connection details.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Remote private endpoint connection details.
+        :param str id: Remote private endpoint connection ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Remote private endpoint connection ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RemotePrivateEndpointResponse(dict):
+    """
+    Remote private endpoint details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vnetTrafficTag":
+            suggest = "vnet_traffic_tag"
+        elif key == "connectionDetails":
+            suggest = "connection_details"
+        elif key == "manualPrivateLinkServiceConnections":
+            suggest = "manual_private_link_service_connections"
+        elif key == "privateLinkServiceConnections":
+            suggest = "private_link_service_connections"
+        elif key == "privateLinkServiceProxies":
+            suggest = "private_link_service_proxies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vnet_traffic_tag: str,
+                 connection_details: Optional[Sequence['outputs.ConnectionDetailsResponse']] = None,
+                 id: Optional[str] = None,
+                 manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None):
+        """
+        Remote private endpoint details.
+        :param str vnet_traffic_tag: Virtual network traffic tag.
+        :param Sequence['ConnectionDetailsResponse'] connection_details: List of connection details.
+        :param str id: Remote endpoint resource ID.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: List of private link service connections that need manual approval.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: List of automatically approved private link service connections.
+        :param Sequence['PrivateLinkServiceProxyResponse'] private_link_service_proxies: List of private link service proxies.
+        """
+        pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
+        if connection_details is not None:
+            pulumi.set(__self__, "connection_details", connection_details)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_link_service_connections is not None:
+            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if private_link_service_proxies is not None:
+            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+
+    @property
+    @pulumi.getter(name="vnetTrafficTag")
+    def vnet_traffic_tag(self) -> str:
+        """
+        Virtual network traffic tag.
+        """
+        return pulumi.get(self, "vnet_traffic_tag")
+
+    @property
+    @pulumi.getter(name="connectionDetails")
+    def connection_details(self) -> Optional[Sequence['outputs.ConnectionDetailsResponse']]:
+        """
+        List of connection details.
+        """
+        return pulumi.get(self, "connection_details")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Remote endpoint resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        List of private link service connections that need manual approval.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnections")
+    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        List of automatically approved private link service connections.
+        """
+        return pulumi.get(self, "private_link_service_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceProxies")
+    def private_link_service_proxies(self) -> Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']]:
+        """
+        List of private link service proxies.
+        """
+        return pulumi.get(self, "private_link_service_proxies")
 
 
 @pulumi.output_type

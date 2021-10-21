@@ -19,6 +19,7 @@ from .get_integration_runtime_status import *
 from .get_iot_hub_data_connection import *
 from .get_ip_firewall_rule import *
 from .get_key import *
+from .get_kusto_pool import *
 from .get_kusto_pool_attached_database_configuration import *
 from .get_kusto_pool_data_connection import *
 from .get_kusto_pool_database import *
@@ -38,7 +39,6 @@ from .get_workspace import *
 from .get_workspace_aad_admin import *
 from .get_workspace_managed_sql_server_vulnerability_assessment import *
 from .get_workspace_sql_aad_admin import *
-from .getkusto_pool import *
 from .integration_runtime import *
 from .iot_hub_data_connection import *
 from .ip_firewall_rule import *

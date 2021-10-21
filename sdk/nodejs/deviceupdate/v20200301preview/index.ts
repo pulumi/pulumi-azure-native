@@ -9,8 +9,10 @@ export * from "./account";
 export * from "./getAccount";
 export * from "./getInstance";
 export * from "./getPrivateEndpointConnection";
+export * from "./getPrivateEndpointConnectionProxy";
 export * from "./instance";
 export * from "./privateEndpointConnection";
+export * from "./privateEndpointConnectionProxy";
 
 // Export enums:
 export * from "../../types/enums/deviceupdate/v20200301preview";
@@ -19,6 +21,7 @@ export * from "../../types/enums/deviceupdate/v20200301preview";
 import { Account } from "./account";
 import { Instance } from "./instance";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { PrivateEndpointConnectionProxy } from "./privateEndpointConnectionProxy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,6 +33,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy":
+                return new PrivateEndpointConnectionProxy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

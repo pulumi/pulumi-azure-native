@@ -47,6 +47,16 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         /// </summary>
         public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
         /// <summary>
+        /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        public readonly Outputs.DeadLetterWithResourceIdentityResponse? DeadLetterWithResourceIdentity;
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        public readonly Outputs.DeliveryWithResourceIdentityResponse? DeliveryWithResourceIdentity;
+        /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         public readonly object? Destination;
@@ -99,6 +109,10 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         private GetEventSubscriptionResult(
             Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
+            Outputs.DeadLetterWithResourceIdentityResponse? deadLetterWithResourceIdentity,
+
+            Outputs.DeliveryWithResourceIdentityResponse? deliveryWithResourceIdentity,
+
             object? destination,
 
             string? eventDeliverySchema,
@@ -124,6 +138,8 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
             string type)
         {
             DeadLetterDestination = deadLetterDestination;
+            DeadLetterWithResourceIdentity = deadLetterWithResourceIdentity;
+            DeliveryWithResourceIdentity = deliveryWithResourceIdentity;
             Destination = destination;
             EventDeliverySchema = eventDeliverySchema;
             ExpirationTimeUtc = expirationTimeUtc;

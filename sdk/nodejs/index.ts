@@ -38,6 +38,7 @@ import * as cache from "./cache";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
+import * as chaos from "./chaos";
 import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as compute from "./compute";
@@ -214,6 +215,7 @@ export {
     cdn,
     certificateregistration,
     changeanalysis,
+    chaos,
     cognitiveservices,
     communication,
     compute,

@@ -21,7 +21,7 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
@@ -31,6 +31,9 @@ class GetTopicResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
             raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
         pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
@@ -91,6 +94,14 @@ class GetTopicResult:
         Fully qualified identifier of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityInfoResponse']:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -196,6 +207,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
             id=self.id,
+            identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
@@ -233,6 +245,7 @@ def get_topic(resource_group_name: Optional[str] = None,
         disable_local_auth=__ret__.disable_local_auth,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
+        identity=__ret__.identity,
         inbound_ip_rules=__ret__.inbound_ip_rules,
         input_schema=__ret__.input_schema,
         input_schema_mapping=__ret__.input_schema_mapping,

@@ -26,6 +26,7 @@ type LookupTopicResult struct {
 	DisableLocalAuth           *bool                               `pulumi:"disableLocalAuth"`
 	Endpoint                   string                              `pulumi:"endpoint"`
 	Id                         string                              `pulumi:"id"`
+	Identity                   *IdentityInfoResponse               `pulumi:"identity"`
 	InboundIpRules             []InboundIpRuleResponse             `pulumi:"inboundIpRules"`
 	InputSchema                *string                             `pulumi:"inputSchema"`
 	InputSchemaMapping         *JsonInputSchemaMappingResponse     `pulumi:"inputSchemaMapping"`

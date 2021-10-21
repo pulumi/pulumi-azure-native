@@ -18,6 +18,7 @@ export * from "./getIntegrationRuntimeStatus";
 export * from "./getIotHubDataConnection";
 export * from "./getIpFirewallRule";
 export * from "./getKey";
+export * from "./getKustoPool";
 export * from "./getKustoPoolAttachedDatabaseConfiguration";
 export * from "./getKustoPoolDataConnection";
 export * from "./getKustoPoolDatabase";
@@ -37,7 +38,6 @@ export * from "./getWorkspace";
 export * from "./getWorkspaceAadAdmin";
 export * from "./getWorkspaceManagedSqlServerVulnerabilityAssessment";
 export * from "./getWorkspaceSqlAadAdmin";
-export * from "./getkustoPool";
 export * from "./integrationRuntime";
 export * from "./iotHubDataConnection";
 export * from "./ipFirewallRule";
@@ -77,6 +77,7 @@ import { IntegrationRuntime } from "./integrationRuntime";
 import { IotHubDataConnection } from "./iotHubDataConnection";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
+import { KustoPool } from "./kustoPool";
 import { KustoPoolAttachedDatabaseConfiguration } from "./kustoPoolAttachedDatabaseConfiguration";
 import { KustoPoolDataConnection } from "./kustoPoolDataConnection";
 import { KustoPoolDatabase } from "./kustoPoolDatabase";
@@ -96,7 +97,6 @@ import { Workspace } from "./workspace";
 import { WorkspaceAadAdmin } from "./workspaceAadAdmin";
 import { WorkspaceManagedSqlServerVulnerabilityAssessment } from "./workspaceManagedSqlServerVulnerabilityAssessment";
 import { WorkspaceSqlAadAdmin } from "./workspaceSqlAadAdmin";
-import { KustoPool } from "./kustoPool";
 
 const _module = {
     version: utilities.getVersion(),
@@ -116,6 +116,8 @@ const _module = {
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:KustoPool":
+                return new KustoPool(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration":
                 return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolDataConnection":
@@ -154,8 +156,6 @@ const _module = {
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:kustoPool":
-                return new KustoPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

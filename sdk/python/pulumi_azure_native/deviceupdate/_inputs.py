@@ -11,9 +11,13 @@ from ._enums import *
 
 __all__ = [
     'DiagnosticStoragePropertiesArgs',
+    'GroupConnectivityInformationArgs',
     'IotHubSettingsArgs',
     'ManagedServiceIdentityArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionArgs',
+    'PrivateLinkServiceProxyArgs',
+    'RemotePrivateEndpointArgs',
 ]
 
 @pulumi.input_type
@@ -68,6 +72,30 @@ class DiagnosticStoragePropertiesArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+
+@pulumi.input_type
+class GroupConnectivityInformationArgs:
+    def __init__(__self__, *,
+                 customer_visible_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Group connectivity details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_visible_fqdns: List of customer visible FQDNs.
+        """
+        if customer_visible_fqdns is not None:
+            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+
+    @property
+    @pulumi.getter(name="customerVisibleFqdns")
+    def customer_visible_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of customer visible FQDNs.
+        """
+        return pulumi.get(self, "customer_visible_fqdns")
+
+    @customer_visible_fqdns.setter
+    def customer_visible_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "customer_visible_fqdns", value)
 
 
 @pulumi.input_type
@@ -218,5 +246,189 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionArgs:
+    def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 request_message: Optional[pulumi.Input[str]] = None):
+        """
+        Private link service connection details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: List of group IDs.
+        :param pulumi.Input[str] name: Private link service connection name.
+        :param pulumi.Input[str] request_message: Request message.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private link service connection name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Request message.
+        """
+        return pulumi.get(self, "request_message")
+
+    @request_message.setter
+    def request_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_message", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceProxyArgs:
+    def __init__(__self__, *,
+                 group_connectivity_information: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 remote_private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Private link service proxy details.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]] group_connectivity_information: Group connectivity information.
+        :param pulumi.Input[str] id: NRP resource ID.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] remote_private_link_service_connection_state: Remote private link service connection state
+        """
+        if group_connectivity_information is not None:
+            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if remote_private_link_service_connection_state is not None:
+            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupConnectivityInformation")
+    def group_connectivity_information(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]]:
+        """
+        Group connectivity information.
+        """
+        return pulumi.get(self, "group_connectivity_information")
+
+    @group_connectivity_information.setter
+    def group_connectivity_information(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]]):
+        pulumi.set(self, "group_connectivity_information", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        NRP resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="remotePrivateLinkServiceConnectionState")
+    def remote_private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Remote private link service connection state
+        """
+        return pulumi.get(self, "remote_private_link_service_connection_state")
+
+    @remote_private_link_service_connection_state.setter
+    def remote_private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "remote_private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class RemotePrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_link_service_proxies: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]] = None):
+        """
+        Remote private endpoint details.
+        :param pulumi.Input[str] id: Remote endpoint resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: List of private link service connections that need manual approval.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: List of automatically approved private link service connections.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]] private_link_service_proxies: List of private link service proxies.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_link_service_connections is not None:
+            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if private_link_service_proxies is not None:
+            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Remote endpoint resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+        """
+        List of private link service connections that need manual approval.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @manual_private_link_service_connections.setter
+    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+        pulumi.set(self, "manual_private_link_service_connections", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnections")
+    def private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+        """
+        List of automatically approved private link service connections.
+        """
+        return pulumi.get(self, "private_link_service_connections")
+
+    @private_link_service_connections.setter
+    def private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+        pulumi.set(self, "private_link_service_connections", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceProxies")
+    def private_link_service_proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]]:
+        """
+        List of private link service proxies.
+        """
+        return pulumi.get(self, "private_link_service_proxies")
+
+    @private_link_service_proxies.setter
+    def private_link_service_proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]]):
+        pulumi.set(self, "private_link_service_proxies", value)
 
 

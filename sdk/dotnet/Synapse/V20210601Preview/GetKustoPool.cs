@@ -9,17 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
-    public static class GetkustoPool
+    public static class GetKustoPool
     {
         /// <summary>
         /// Class representing a Kusto kusto pool.
         /// </summary>
-        public static Task<GetkustoPoolResult> InvokeAsync(GetkustoPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetkustoPoolResult>("azure-native:synapse/v20210601preview:getkustoPool", args ?? new GetkustoPoolArgs(), options.WithVersion());
+        public static Task<GetKustoPoolResult> InvokeAsync(GetKustoPoolArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolResult>("azure-native:synapse/v20210601preview:getKustoPool", args ?? new GetKustoPoolArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetkustoPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetKustoPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Kusto pool.
@@ -39,14 +39,14 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public GetkustoPoolArgs()
+        public GetKustoPoolArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetkustoPoolResult
+    public sealed class GetKustoPoolResult
     {
         /// <summary>
         /// The Kusto Pool data ingestion URI.
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public readonly string? WorkspaceUID;
 
         [OutputConstructor]
-        private GetkustoPoolResult(
+        private GetKustoPoolResult(
             string dataIngestionUri,
 
             bool? enablePurge,

@@ -10,14 +10,14 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetkustoPoolResult',
-    'AwaitableGetkustoPoolResult',
-    'getkusto_pool',
-    'getkusto_pool_output',
+    'GetKustoPoolResult',
+    'AwaitableGetKustoPoolResult',
+    'get_kusto_pool',
+    'get_kusto_pool_output',
 ]
 
 @pulumi.output_type
-class GetkustoPoolResult:
+class GetKustoPoolResult:
     """
     Class representing a Kusto kusto pool.
     """
@@ -222,12 +222,12 @@ class GetkustoPoolResult:
         return pulumi.get(self, "workspace_uid")
 
 
-class AwaitableGetkustoPoolResult(GetkustoPoolResult):
+class AwaitableGetKustoPoolResult(GetKustoPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetkustoPoolResult(
+        return GetKustoPoolResult(
             data_ingestion_uri=self.data_ingestion_uri,
             enable_purge=self.enable_purge,
             enable_streaming_ingest=self.enable_streaming_ingest,
@@ -248,10 +248,10 @@ class AwaitableGetkustoPoolResult(GetkustoPoolResult):
             workspace_uid=self.workspace_uid)
 
 
-def getkusto_pool(kusto_pool_name: Optional[str] = None,
-                  resource_group_name: Optional[str] = None,
-                  workspace_name: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetkustoPoolResult:
+def get_kusto_pool(kusto_pool_name: Optional[str] = None,
+                   resource_group_name: Optional[str] = None,
+                   workspace_name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolResult:
     """
     Class representing a Kusto kusto pool.
 
@@ -268,9 +268,9 @@ def getkusto_pool(kusto_pool_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getkustoPool', __args__, opts=opts, typ=GetkustoPoolResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getKustoPool', __args__, opts=opts, typ=GetKustoPoolResult).value
 
-    return AwaitableGetkustoPoolResult(
+    return AwaitableGetKustoPoolResult(
         data_ingestion_uri=__ret__.data_ingestion_uri,
         enable_purge=__ret__.enable_purge,
         enable_streaming_ingest=__ret__.enable_streaming_ingest,
@@ -291,11 +291,11 @@ def getkusto_pool(kusto_pool_name: Optional[str] = None,
         workspace_uid=__ret__.workspace_uid)
 
 
-@_utilities.lift_output_func(getkusto_pool)
-def getkusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
-                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                         workspace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetkustoPoolResult]:
+@_utilities.lift_output_func(get_kusto_pool)
+def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
+                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                          workspace_name: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolResult]:
     """
     Class representing a Kusto kusto pool.
 

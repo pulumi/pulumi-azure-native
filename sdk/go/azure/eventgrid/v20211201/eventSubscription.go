@@ -14,18 +14,20 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
-	Destination           pulumi.AnyOutput                                  `pulumi:"destination"`
-	EventDeliverySchema   pulumi.StringPtrOutput                            `pulumi:"eventDeliverySchema"`
-	ExpirationTimeUtc     pulumi.StringPtrOutput                            `pulumi:"expirationTimeUtc"`
-	Filter                EventSubscriptionFilterResponsePtrOutput          `pulumi:"filter"`
-	Labels                pulumi.StringArrayOutput                          `pulumi:"labels"`
-	Name                  pulumi.StringOutput                               `pulumi:"name"`
-	ProvisioningState     pulumi.StringOutput                               `pulumi:"provisioningState"`
-	RetryPolicy           RetryPolicyResponsePtrOutput                      `pulumi:"retryPolicy"`
-	SystemData            SystemDataResponseOutput                          `pulumi:"systemData"`
-	Topic                 pulumi.StringOutput                               `pulumi:"topic"`
-	Type                  pulumi.StringOutput                               `pulumi:"type"`
+	DeadLetterDestination          StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityResponsePtrOutput     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    pulumi.AnyOutput                                  `pulumi:"destination"`
+	EventDeliverySchema            pulumi.StringPtrOutput                            `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              pulumi.StringPtrOutput                            `pulumi:"expirationTimeUtc"`
+	Filter                         EventSubscriptionFilterResponsePtrOutput          `pulumi:"filter"`
+	Labels                         pulumi.StringArrayOutput                          `pulumi:"labels"`
+	Name                           pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput                               `pulumi:"provisioningState"`
+	RetryPolicy                    RetryPolicyResponsePtrOutput                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponseOutput                          `pulumi:"systemData"`
+	Topic                          pulumi.StringOutput                               `pulumi:"topic"`
+	Type                           pulumi.StringOutput                               `pulumi:"type"`
 }
 
 
@@ -163,28 +165,32 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
-	Destination           interface{}                       `pulumi:"destination"`
-	EventDeliverySchema   *string                           `pulumi:"eventDeliverySchema"`
-	EventSubscriptionName *string                           `pulumi:"eventSubscriptionName"`
-	ExpirationTimeUtc     *string                           `pulumi:"expirationTimeUtc"`
-	Filter                *EventSubscriptionFilter          `pulumi:"filter"`
-	Labels                []string                          `pulumi:"labels"`
-	RetryPolicy           *RetryPolicy                      `pulumi:"retryPolicy"`
-	Scope                 string                            `pulumi:"scope"`
+	DeadLetterDestination          *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentity     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                       `pulumi:"destination"`
+	EventDeliverySchema            *string                           `pulumi:"eventDeliverySchema"`
+	EventSubscriptionName          *string                           `pulumi:"eventSubscriptionName"`
+	ExpirationTimeUtc              *string                           `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilter          `pulumi:"filter"`
+	Labels                         []string                          `pulumi:"labels"`
+	RetryPolicy                    *RetryPolicy                      `pulumi:"retryPolicy"`
+	Scope                          string                            `pulumi:"scope"`
 }
 
 
 type EventSubscriptionArgs struct {
-	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput
-	Destination           pulumi.Input
-	EventDeliverySchema   pulumi.StringPtrInput
-	EventSubscriptionName pulumi.StringPtrInput
-	ExpirationTimeUtc     pulumi.StringPtrInput
-	Filter                EventSubscriptionFilterPtrInput
-	Labels                pulumi.StringArrayInput
-	RetryPolicy           RetryPolicyPtrInput
-	Scope                 pulumi.StringInput
+	DeadLetterDestination          StorageBlobDeadLetterDestinationPtrInput
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityPtrInput
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityPtrInput
+	Destination                    pulumi.Input
+	EventDeliverySchema            pulumi.StringPtrInput
+	EventSubscriptionName          pulumi.StringPtrInput
+	ExpirationTimeUtc              pulumi.StringPtrInput
+	Filter                         EventSubscriptionFilterPtrInput
+	Labels                         pulumi.StringArrayInput
+	RetryPolicy                    RetryPolicyPtrInput
+	Scope                          pulumi.StringInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {

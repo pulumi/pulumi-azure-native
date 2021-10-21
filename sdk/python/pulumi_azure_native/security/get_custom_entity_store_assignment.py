@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCustomEntityStoreAssignmentResult',
@@ -20,7 +21,7 @@ class GetCustomEntityStoreAssignmentResult:
     """
     Custom entity store assignment
     """
-    def __init__(__self__, entity_store_database_link=None, id=None, name=None, principal=None, type=None):
+    def __init__(__self__, entity_store_database_link=None, id=None, name=None, principal=None, system_data=None, type=None):
         if entity_store_database_link and not isinstance(entity_store_database_link, str):
             raise TypeError("Expected argument 'entity_store_database_link' to be a str")
         pulumi.set(__self__, "entity_store_database_link", entity_store_database_link)
@@ -33,6 +34,9 @@ class GetCustomEntityStoreAssignmentResult:
         if principal and not isinstance(principal, str):
             raise TypeError("Expected argument 'principal' to be a str")
         pulumi.set(__self__, "principal", principal)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -70,6 +74,14 @@ class GetCustomEntityStoreAssignmentResult:
         return pulumi.get(self, "principal")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -88,6 +100,7 @@ class AwaitableGetCustomEntityStoreAssignmentResult(GetCustomEntityStoreAssignme
             id=self.id,
             name=self.name,
             principal=self.principal,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -116,6 +129,7 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
         id=__ret__.id,
         name=__ret__.name,
         principal=__ret__.principal,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 

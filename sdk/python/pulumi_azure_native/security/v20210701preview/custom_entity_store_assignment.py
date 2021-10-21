@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = ['CustomEntityStoreAssignmentArgs', 'CustomEntityStoreAssignment']
 
@@ -129,6 +130,7 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["entity_store_database_link"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20210701preview:CustomEntityStoreAssignment"), pulumi.Alias(type_="azure-native:security:CustomEntityStoreAssignment"), pulumi.Alias(type_="azure-nextgen:security:CustomEntityStoreAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -157,6 +159,7 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
         __props__.__dict__["entity_store_database_link"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CustomEntityStoreAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -183,6 +186,14 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
         The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
         """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

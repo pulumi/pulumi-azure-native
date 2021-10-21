@@ -36,6 +36,10 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
     }
 
     /**
+     * The assessment metadata key used when an assessment is generated for this assessment automation.
+     */
+    public /*out*/ readonly assessmentKey!: pulumi.Output<string | undefined>;
+    /**
      * GZip encoded KQL query representing the assessment automation results required.
      */
     public readonly compressedQuery!: pulumi.Output<string | undefined>;
@@ -63,6 +67,10 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
      * Relevant cloud for the custom assessment automation.
      */
     public readonly supportedCloud!: pulumi.Output<string | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.v20210701preview.SystemDataResponse>;
     /**
      * Resource type
      */
@@ -95,9 +103,12 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
             inputs["severity"] = args ? args.severity : undefined;
             inputs["supportedCloud"] = args ? args.supportedCloud : undefined;
             inputs["userImpact"] = args ? args.userImpact : undefined;
+            inputs["assessmentKey"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["assessmentKey"] = undefined /*out*/;
             inputs["compressedQuery"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["implementationEffort"] = undefined /*out*/;
@@ -105,6 +116,7 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
             inputs["remediationDescription"] = undefined /*out*/;
             inputs["severity"] = undefined /*out*/;
             inputs["supportedCloud"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userImpact"] = undefined /*out*/;
         }
@@ -122,7 +134,7 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
  */
 export interface CustomAssessmentAutomationArgs {
     /**
-     * GZip encoded KQL query representing the assessment automation results required.
+     * Base 64 encoded KQL query representing the assessment automation results required.
      */
     compressedQuery?: pulumi.Input<string>;
     /**

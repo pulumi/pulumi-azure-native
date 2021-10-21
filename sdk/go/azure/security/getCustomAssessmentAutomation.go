@@ -23,14 +23,16 @@ type LookupCustomAssessmentAutomationArgs struct {
 
 
 type LookupCustomAssessmentAutomationResult struct {
-	CompressedQuery        *string `pulumi:"compressedQuery"`
-	Description            *string `pulumi:"description"`
-	Id                     string  `pulumi:"id"`
-	ImplementationEffort   *string `pulumi:"implementationEffort"`
-	Name                   string  `pulumi:"name"`
-	RemediationDescription *string `pulumi:"remediationDescription"`
-	Severity               *string `pulumi:"severity"`
-	SupportedCloud         *string `pulumi:"supportedCloud"`
-	Type                   string  `pulumi:"type"`
-	UserImpact             *string `pulumi:"userImpact"`
+	AssessmentKey          *string            `pulumi:"assessmentKey"`
+	CompressedQuery        *string            `pulumi:"compressedQuery"`
+	Description            *string            `pulumi:"description"`
+	Id                     string             `pulumi:"id"`
+	ImplementationEffort   *string            `pulumi:"implementationEffort"`
+	Name                   string             `pulumi:"name"`
+	RemediationDescription *string            `pulumi:"remediationDescription"`
+	Severity               *string            `pulumi:"severity"`
+	SupportedCloud         *string            `pulumi:"supportedCloud"`
+	SystemData             SystemDataResponse `pulumi:"systemData"`
+	Type                   string             `pulumi:"type"`
+	UserImpact             *string            `pulumi:"userImpact"`
 }

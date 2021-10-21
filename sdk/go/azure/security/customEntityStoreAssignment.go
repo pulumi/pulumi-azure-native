@@ -14,10 +14,11 @@ import (
 type CustomEntityStoreAssignment struct {
 	pulumi.CustomResourceState
 
-	EntityStoreDatabaseLink pulumi.StringPtrOutput `pulumi:"entityStoreDatabaseLink"`
-	Name                    pulumi.StringOutput    `pulumi:"name"`
-	Principal               pulumi.StringPtrOutput `pulumi:"principal"`
-	Type                    pulumi.StringOutput    `pulumi:"type"`
+	EntityStoreDatabaseLink pulumi.StringPtrOutput   `pulumi:"entityStoreDatabaseLink"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	Principal               pulumi.StringPtrOutput   `pulumi:"principal"`
+	SystemData              SystemDataResponseOutput `pulumi:"systemData"`
+	Type                    pulumi.StringOutput      `pulumi:"type"`
 }
 
 

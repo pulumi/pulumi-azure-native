@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCustomAssessmentAutomationResult',
@@ -20,7 +21,10 @@ class GetCustomAssessmentAutomationResult:
     """
     Custom Assessment Automation
     """
-    def __init__(__self__, compressed_query=None, description=None, id=None, implementation_effort=None, name=None, remediation_description=None, severity=None, supported_cloud=None, type=None, user_impact=None):
+    def __init__(__self__, assessment_key=None, compressed_query=None, description=None, id=None, implementation_effort=None, name=None, remediation_description=None, severity=None, supported_cloud=None, system_data=None, type=None, user_impact=None):
+        if assessment_key and not isinstance(assessment_key, str):
+            raise TypeError("Expected argument 'assessment_key' to be a str")
+        pulumi.set(__self__, "assessment_key", assessment_key)
         if compressed_query and not isinstance(compressed_query, str):
             raise TypeError("Expected argument 'compressed_query' to be a str")
         pulumi.set(__self__, "compressed_query", compressed_query)
@@ -45,12 +49,23 @@ class GetCustomAssessmentAutomationResult:
         if supported_cloud and not isinstance(supported_cloud, str):
             raise TypeError("Expected argument 'supported_cloud' to be a str")
         pulumi.set(__self__, "supported_cloud", supported_cloud)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
         if user_impact and not isinstance(user_impact, str):
             raise TypeError("Expected argument 'user_impact' to be a str")
         pulumi.set(__self__, "user_impact", user_impact)
+
+    @property
+    @pulumi.getter(name="assessmentKey")
+    def assessment_key(self) -> Optional[str]:
+        """
+        The assessment metadata key used when an assessment is generated for this assessment automation.
+        """
+        return pulumi.get(self, "assessment_key")
 
     @property
     @pulumi.getter(name="compressedQuery")
@@ -117,6 +132,14 @@ class GetCustomAssessmentAutomationResult:
         return pulumi.get(self, "supported_cloud")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -139,6 +162,7 @@ class AwaitableGetCustomAssessmentAutomationResult(GetCustomAssessmentAutomation
         if False:
             yield self
         return GetCustomAssessmentAutomationResult(
+            assessment_key=self.assessment_key,
             compressed_query=self.compressed_query,
             description=self.description,
             id=self.id,
@@ -147,6 +171,7 @@ class AwaitableGetCustomAssessmentAutomationResult(GetCustomAssessmentAutomation
             remediation_description=self.remediation_description,
             severity=self.severity,
             supported_cloud=self.supported_cloud,
+            system_data=self.system_data,
             type=self.type,
             user_impact=self.user_impact)
 
@@ -172,6 +197,7 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
     __ret__ = pulumi.runtime.invoke('azure-native:security:getCustomAssessmentAutomation', __args__, opts=opts, typ=GetCustomAssessmentAutomationResult).value
 
     return AwaitableGetCustomAssessmentAutomationResult(
+        assessment_key=__ret__.assessment_key,
         compressed_query=__ret__.compressed_query,
         description=__ret__.description,
         id=__ret__.id,
@@ -180,6 +206,7 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
         remediation_description=__ret__.remediation_description,
         severity=__ret__.severity,
         supported_cloud=__ret__.supported_cloud,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         user_impact=__ret__.user_impact)
 

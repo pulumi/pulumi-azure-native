@@ -22,6 +22,20 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         public Output<Outputs.StorageBlobDeadLetterDestinationResponse?> DeadLetterDestination { get; private set; } = null!;
 
         /// <summary>
+        /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        [Output("deadLetterWithResourceIdentity")]
+        public Output<Outputs.DeadLetterWithResourceIdentityResponse?> DeadLetterWithResourceIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        [Output("deliveryWithResourceIdentity")]
+        public Output<Outputs.DeliveryWithResourceIdentityResponse?> DeliveryWithResourceIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
@@ -169,6 +183,20 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         /// </summary>
         [Input("deadLetterDestination")]
         public Input<Inputs.StorageBlobDeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
+
+        /// <summary>
+        /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        [Input("deadLetterWithResourceIdentity")]
+        public Input<Inputs.DeadLetterWithResourceIdentityArgs>? DeadLetterWithResourceIdentity { get; set; }
+
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        [Input("deliveryWithResourceIdentity")]
+        public Input<Inputs.DeliveryWithResourceIdentityArgs>? DeliveryWithResourceIdentity { get; set; }
 
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.

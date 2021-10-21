@@ -50,6 +50,10 @@ export interface GetTopicResult {
      */
     readonly id: string;
     /**
+     * Identity information for the resource.
+     */
+    readonly identity?: outputs.eventgrid.v20211201.IdentityInfoResponse;
+    /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
     readonly inboundIpRules?: outputs.eventgrid.v20211201.InboundIpRuleResponse[];

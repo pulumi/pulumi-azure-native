@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +39,10 @@ export interface GetCustomAssessmentAutomationArgs {
  */
 export interface GetCustomAssessmentAutomationResult {
     /**
+     * The assessment metadata key used when an assessment is generated for this assessment automation.
+     */
+    readonly assessmentKey?: string;
+    /**
      * GZip encoded KQL query representing the assessment automation results required.
      */
     readonly compressedQuery?: string;
@@ -69,6 +74,10 @@ export interface GetCustomAssessmentAutomationResult {
      * Relevant cloud for the custom assessment automation.
      */
     readonly supportedCloud?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.SystemDataResponse;
     /**
      * Resource type
      */

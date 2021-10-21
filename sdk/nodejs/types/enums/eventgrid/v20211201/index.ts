@@ -67,6 +67,16 @@ export const EventDeliverySchema = {
  */
 export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof EventDeliverySchema];
 
+export const EventSubscriptionIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+ */
+export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",

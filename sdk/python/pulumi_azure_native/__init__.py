@@ -69,6 +69,8 @@ if typing.TYPE_CHECKING:
     certificateregistration = __certificateregistration
     import pulumi_azure_native.changeanalysis as __changeanalysis
     changeanalysis = __changeanalysis
+    import pulumi_azure_native.chaos as __chaos
+    chaos = __chaos
     import pulumi_azure_native.cognitiveservices as __cognitiveservices
     cognitiveservices = __cognitiveservices
     import pulumi_azure_native.communication as __communication
@@ -386,6 +388,7 @@ else:
     cdn = _utilities.lazy_import('pulumi_azure_native.cdn')
     certificateregistration = _utilities.lazy_import('pulumi_azure_native.certificateregistration')
     changeanalysis = _utilities.lazy_import('pulumi_azure_native.changeanalysis')
+    chaos = _utilities.lazy_import('pulumi_azure_native.chaos')
     cognitiveservices = _utilities.lazy_import('pulumi_azure_native.cognitiveservices')
     communication = _utilities.lazy_import('pulumi_azure_native.communication')
     compute = _utilities.lazy_import('pulumi_azure_native.compute')
@@ -3093,6 +3096,26 @@ _utilities.register(
   "fqn": "pulumi_azure_native.changeanalysis.v20200401preview",
   "classes": {
    "azure-native:changeanalysis/v20200401preview:ConfigurationProfile": "ConfigurationProfile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos",
+  "fqn": "pulumi_azure_native.chaos",
+  "classes": {
+   "azure-native:chaos:Capability": "Capability",
+   "azure-native:chaos:Experiment": "Experiment",
+   "azure-native:chaos:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos/v20210915preview",
+  "fqn": "pulumi_azure_native.chaos.v20210915preview",
+  "classes": {
+   "azure-native:chaos/v20210915preview:Capability": "Capability",
+   "azure-native:chaos/v20210915preview:Experiment": "Experiment",
+   "azure-native:chaos/v20210915preview:Target": "Target"
   }
  },
  {
@@ -6392,7 +6415,8 @@ _utilities.register(
   "classes": {
    "azure-native:deviceupdate:Account": "Account",
    "azure-native:deviceupdate:Instance": "Instance",
-   "azure-native:deviceupdate:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:deviceupdate:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:deviceupdate:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
   }
  },
  {
@@ -6402,7 +6426,8 @@ _utilities.register(
   "classes": {
    "azure-native:deviceupdate/v20200301preview:Account": "Account",
    "azure-native:deviceupdate/v20200301preview:Instance": "Instance",
-   "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
   }
  },
  {
@@ -16194,6 +16219,7 @@ _utilities.register(
    "azure-native:synapse/v20210601preview:IotHubDataConnection": "IotHubDataConnection",
    "azure-native:synapse/v20210601preview:IpFirewallRule": "IpFirewallRule",
    "azure-native:synapse/v20210601preview:Key": "Key",
+   "azure-native:synapse/v20210601preview:KustoPool": "KustoPool",
    "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration": "KustoPoolAttachedDatabaseConfiguration",
    "azure-native:synapse/v20210601preview:KustoPoolDataConnection": "KustoPoolDataConnection",
    "azure-native:synapse/v20210601preview:KustoPoolDatabase": "KustoPoolDatabase",
@@ -16212,8 +16238,7 @@ _utilities.register(
    "azure-native:synapse/v20210601preview:Workspace": "Workspace",
    "azure-native:synapse/v20210601preview:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210601preview:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
-   "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin",
-   "azure-native:synapse/v20210601preview:kustoPool": "KustoPool"
+   "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {

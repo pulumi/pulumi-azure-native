@@ -21,10 +21,16 @@ class GetSystemTopicEventSubscriptionResult:
     """
     Event Subscription
     """
-    def __init__(__self__, dead_letter_destination=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
+    def __init__(__self__, dead_letter_destination=None, dead_letter_with_resource_identity=None, delivery_with_resource_identity=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
             raise TypeError("Expected argument 'dead_letter_destination' to be a dict")
         pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+        if dead_letter_with_resource_identity and not isinstance(dead_letter_with_resource_identity, dict):
+            raise TypeError("Expected argument 'dead_letter_with_resource_identity' to be a dict")
+        pulumi.set(__self__, "dead_letter_with_resource_identity", dead_letter_with_resource_identity)
+        if delivery_with_resource_identity and not isinstance(delivery_with_resource_identity, dict):
+            raise TypeError("Expected argument 'delivery_with_resource_identity' to be a dict")
+        pulumi.set(__self__, "delivery_with_resource_identity", delivery_with_resource_identity)
         if destination and not isinstance(destination, dict):
             raise TypeError("Expected argument 'destination' to be a dict")
         pulumi.set(__self__, "destination", destination)
@@ -69,6 +75,24 @@ class GetSystemTopicEventSubscriptionResult:
         The DeadLetter destination of the event subscription.
         """
         return pulumi.get(self, "dead_letter_destination")
+
+    @property
+    @pulumi.getter(name="deadLetterWithResourceIdentity")
+    def dead_letter_with_resource_identity(self) -> Optional['outputs.DeadLetterWithResourceIdentityResponse']:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_with_resource_identity")
+
+    @property
+    @pulumi.getter(name="deliveryWithResourceIdentity")
+    def delivery_with_resource_identity(self) -> Optional['outputs.DeliveryWithResourceIdentityResponse']:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "delivery_with_resource_identity")
 
     @property
     @pulumi.getter
@@ -174,6 +198,8 @@ class AwaitableGetSystemTopicEventSubscriptionResult(GetSystemTopicEventSubscrip
             yield self
         return GetSystemTopicEventSubscriptionResult(
             dead_letter_destination=self.dead_letter_destination,
+            dead_letter_with_resource_identity=self.dead_letter_with_resource_identity,
+            delivery_with_resource_identity=self.delivery_with_resource_identity,
             destination=self.destination,
             event_delivery_schema=self.event_delivery_schema,
             expiration_time_utc=self.expiration_time_utc,
@@ -212,6 +238,8 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
 
     return AwaitableGetSystemTopicEventSubscriptionResult(
         dead_letter_destination=__ret__.dead_letter_destination,
+        dead_letter_with_resource_identity=__ret__.dead_letter_with_resource_identity,
+        delivery_with_resource_identity=__ret__.delivery_with_resource_identity,
         destination=__ret__.destination,
         event_delivery_schema=__ret__.event_delivery_schema,
         expiration_time_utc=__ret__.expiration_time_utc,

@@ -40,6 +40,16 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20211201.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deadLetterWithResourceIdentity!: pulumi.Output<outputs.eventgrid.v20211201.DeadLetterWithResourceIdentityResponse | undefined>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deliveryWithResourceIdentity!: pulumi.Output<outputs.eventgrid.v20211201.DeliveryWithResourceIdentityResponse | undefined>;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
     public readonly destination!: pulumi.Output<outputs.eventgrid.v20211201.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20211201.WebHookEventSubscriptionDestinationResponse | undefined>;
@@ -102,6 +112,8 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'systemTopicName'");
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
+            inputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
+            inputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
             inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
@@ -118,6 +130,8 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["deadLetterDestination"] = undefined /*out*/;
+            inputs["deadLetterWithResourceIdentity"] = undefined /*out*/;
+            inputs["deliveryWithResourceIdentity"] = undefined /*out*/;
             inputs["destination"] = undefined /*out*/;
             inputs["eventDeliverySchema"] = undefined /*out*/;
             inputs["expirationTimeUtc"] = undefined /*out*/;
@@ -147,6 +161,16 @@ export interface SystemTopicEventSubscriptionArgs {
      * The DeadLetter destination of the event subscription.
      */
     deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20211201.StorageBlobDeadLetterDestinationArgs>;
+    /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20211201.DeadLetterWithResourceIdentityArgs>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20211201.DeliveryWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */

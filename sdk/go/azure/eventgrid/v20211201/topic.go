@@ -16,6 +16,7 @@ type Topic struct {
 
 	DisableLocalAuth           pulumi.BoolPtrOutput                         `pulumi:"disableLocalAuth"`
 	Endpoint                   pulumi.StringOutput                          `pulumi:"endpoint"`
+	Identity                   IdentityInfoResponsePtrOutput                `pulumi:"identity"`
 	InboundIpRules             InboundIpRuleResponseArrayOutput             `pulumi:"inboundIpRules"`
 	InputSchema                pulumi.StringPtrOutput                       `pulumi:"inputSchema"`
 	InputSchemaMapping         JsonInputSchemaMappingResponsePtrOutput      `pulumi:"inputSchemaMapping"`
@@ -172,6 +173,7 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	DisableLocalAuth    *bool                   `pulumi:"disableLocalAuth"`
+	Identity            *IdentityInfo           `pulumi:"identity"`
 	InboundIpRules      []InboundIpRule         `pulumi:"inboundIpRules"`
 	InputSchema         *string                 `pulumi:"inputSchema"`
 	InputSchemaMapping  *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
@@ -185,6 +187,7 @@ type topicArgs struct {
 
 type TopicArgs struct {
 	DisableLocalAuth    pulumi.BoolPtrInput
+	Identity            IdentityInfoPtrInput
 	InboundIpRules      InboundIpRuleArrayInput
 	InputSchema         pulumi.StringPtrInput
 	InputSchemaMapping  JsonInputSchemaMappingPtrInput

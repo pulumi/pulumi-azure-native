@@ -10,6 +10,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConnectionDetailsResponse struct {
+	GroupId          string `pulumi:"groupId"`
+	Id               string `pulumi:"id"`
+	LinkIdentifier   string `pulumi:"linkIdentifier"`
+	MemberName       string `pulumi:"memberName"`
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+
+
+
+
+type ConnectionDetailsResponseInput interface {
+	pulumi.Input
+
+	ToConnectionDetailsResponseOutput() ConnectionDetailsResponseOutput
+	ToConnectionDetailsResponseOutputWithContext(context.Context) ConnectionDetailsResponseOutput
+}
+
+type ConnectionDetailsResponseArgs struct {
+	GroupId          pulumi.StringInput `pulumi:"groupId"`
+	Id               pulumi.StringInput `pulumi:"id"`
+	LinkIdentifier   pulumi.StringInput `pulumi:"linkIdentifier"`
+	MemberName       pulumi.StringInput `pulumi:"memberName"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (ConnectionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i ConnectionDetailsResponseArgs) ToConnectionDetailsResponseOutput() ConnectionDetailsResponseOutput {
+	return i.ToConnectionDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionDetailsResponseArgs) ToConnectionDetailsResponseOutputWithContext(ctx context.Context) ConnectionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionDetailsResponseOutput)
+}
+
+
+
+
+
+type ConnectionDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToConnectionDetailsResponseArrayOutput() ConnectionDetailsResponseArrayOutput
+	ToConnectionDetailsResponseArrayOutputWithContext(context.Context) ConnectionDetailsResponseArrayOutput
+}
+
+type ConnectionDetailsResponseArray []ConnectionDetailsResponseInput
+
+func (ConnectionDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i ConnectionDetailsResponseArray) ToConnectionDetailsResponseArrayOutput() ConnectionDetailsResponseArrayOutput {
+	return i.ToConnectionDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionDetailsResponseArray) ToConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ConnectionDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionDetailsResponseArrayOutput)
+}
+
+type ConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ConnectionDetailsResponseOutput) ToConnectionDetailsResponseOutput() ConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o ConnectionDetailsResponseOutput) ToConnectionDetailsResponseOutputWithContext(ctx context.Context) ConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o ConnectionDetailsResponseOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionDetailsResponse) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o ConnectionDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o ConnectionDetailsResponseOutput) LinkIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionDetailsResponse) string { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ConnectionDetailsResponseOutput) MemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionDetailsResponse) string { return v.MemberName }).(pulumi.StringOutput)
+}
+
+func (o ConnectionDetailsResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionDetailsResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type ConnectionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ConnectionDetailsResponseArrayOutput) ToConnectionDetailsResponseArrayOutput() ConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ConnectionDetailsResponseArrayOutput) ToConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput) ConnectionDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionDetailsResponse {
+		return vs[0].([]ConnectionDetailsResponse)[vs[1].(int)]
+	}).(ConnectionDetailsResponseOutput)
+}
+
 type DiagnosticStorageProperties struct {
 	AuthenticationType string  `pulumi:"authenticationType"`
 	ConnectionString   *string `pulumi:"connectionString"`
@@ -334,6 +452,212 @@ func (o DiagnosticStoragePropertiesResponsePtrOutput) ResourceId() pulumi.String
 		}
 		return &v.ResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+type GroupConnectivityInformation struct {
+	CustomerVisibleFqdns []string `pulumi:"customerVisibleFqdns"`
+}
+
+
+
+
+
+type GroupConnectivityInformationInput interface {
+	pulumi.Input
+
+	ToGroupConnectivityInformationOutput() GroupConnectivityInformationOutput
+	ToGroupConnectivityInformationOutputWithContext(context.Context) GroupConnectivityInformationOutput
+}
+
+type GroupConnectivityInformationArgs struct {
+	CustomerVisibleFqdns pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
+}
+
+func (GroupConnectivityInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConnectivityInformation)(nil)).Elem()
+}
+
+func (i GroupConnectivityInformationArgs) ToGroupConnectivityInformationOutput() GroupConnectivityInformationOutput {
+	return i.ToGroupConnectivityInformationOutputWithContext(context.Background())
+}
+
+func (i GroupConnectivityInformationArgs) ToGroupConnectivityInformationOutputWithContext(ctx context.Context) GroupConnectivityInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConnectivityInformationOutput)
+}
+
+
+
+
+
+type GroupConnectivityInformationArrayInput interface {
+	pulumi.Input
+
+	ToGroupConnectivityInformationArrayOutput() GroupConnectivityInformationArrayOutput
+	ToGroupConnectivityInformationArrayOutputWithContext(context.Context) GroupConnectivityInformationArrayOutput
+}
+
+type GroupConnectivityInformationArray []GroupConnectivityInformationInput
+
+func (GroupConnectivityInformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConnectivityInformation)(nil)).Elem()
+}
+
+func (i GroupConnectivityInformationArray) ToGroupConnectivityInformationArrayOutput() GroupConnectivityInformationArrayOutput {
+	return i.ToGroupConnectivityInformationArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConnectivityInformationArray) ToGroupConnectivityInformationArrayOutputWithContext(ctx context.Context) GroupConnectivityInformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConnectivityInformationArrayOutput)
+}
+
+type GroupConnectivityInformationOutput struct{ *pulumi.OutputState }
+
+func (GroupConnectivityInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConnectivityInformation)(nil)).Elem()
+}
+
+func (o GroupConnectivityInformationOutput) ToGroupConnectivityInformationOutput() GroupConnectivityInformationOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationOutput) ToGroupConnectivityInformationOutputWithContext(ctx context.Context) GroupConnectivityInformationOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationOutput) CustomerVisibleFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupConnectivityInformation) []string { return v.CustomerVisibleFqdns }).(pulumi.StringArrayOutput)
+}
+
+type GroupConnectivityInformationArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConnectivityInformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConnectivityInformation)(nil)).Elem()
+}
+
+func (o GroupConnectivityInformationArrayOutput) ToGroupConnectivityInformationArrayOutput() GroupConnectivityInformationArrayOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationArrayOutput) ToGroupConnectivityInformationArrayOutputWithContext(ctx context.Context) GroupConnectivityInformationArrayOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationArrayOutput) Index(i pulumi.IntInput) GroupConnectivityInformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConnectivityInformation {
+		return vs[0].([]GroupConnectivityInformation)[vs[1].(int)]
+	}).(GroupConnectivityInformationOutput)
+}
+
+type GroupConnectivityInformationResponse struct {
+	CustomerVisibleFqdns []string `pulumi:"customerVisibleFqdns"`
+	GroupId              string   `pulumi:"groupId"`
+	InternalFqdn         string   `pulumi:"internalFqdn"`
+	MemberName           string   `pulumi:"memberName"`
+}
+
+
+
+
+
+type GroupConnectivityInformationResponseInput interface {
+	pulumi.Input
+
+	ToGroupConnectivityInformationResponseOutput() GroupConnectivityInformationResponseOutput
+	ToGroupConnectivityInformationResponseOutputWithContext(context.Context) GroupConnectivityInformationResponseOutput
+}
+
+type GroupConnectivityInformationResponseArgs struct {
+	CustomerVisibleFqdns pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
+	GroupId              pulumi.StringInput      `pulumi:"groupId"`
+	InternalFqdn         pulumi.StringInput      `pulumi:"internalFqdn"`
+	MemberName           pulumi.StringInput      `pulumi:"memberName"`
+}
+
+func (GroupConnectivityInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConnectivityInformationResponse)(nil)).Elem()
+}
+
+func (i GroupConnectivityInformationResponseArgs) ToGroupConnectivityInformationResponseOutput() GroupConnectivityInformationResponseOutput {
+	return i.ToGroupConnectivityInformationResponseOutputWithContext(context.Background())
+}
+
+func (i GroupConnectivityInformationResponseArgs) ToGroupConnectivityInformationResponseOutputWithContext(ctx context.Context) GroupConnectivityInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConnectivityInformationResponseOutput)
+}
+
+
+
+
+
+type GroupConnectivityInformationResponseArrayInput interface {
+	pulumi.Input
+
+	ToGroupConnectivityInformationResponseArrayOutput() GroupConnectivityInformationResponseArrayOutput
+	ToGroupConnectivityInformationResponseArrayOutputWithContext(context.Context) GroupConnectivityInformationResponseArrayOutput
+}
+
+type GroupConnectivityInformationResponseArray []GroupConnectivityInformationResponseInput
+
+func (GroupConnectivityInformationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConnectivityInformationResponse)(nil)).Elem()
+}
+
+func (i GroupConnectivityInformationResponseArray) ToGroupConnectivityInformationResponseArrayOutput() GroupConnectivityInformationResponseArrayOutput {
+	return i.ToGroupConnectivityInformationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConnectivityInformationResponseArray) ToGroupConnectivityInformationResponseArrayOutputWithContext(ctx context.Context) GroupConnectivityInformationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConnectivityInformationResponseArrayOutput)
+}
+
+type GroupConnectivityInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (GroupConnectivityInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConnectivityInformationResponse)(nil)).Elem()
+}
+
+func (o GroupConnectivityInformationResponseOutput) ToGroupConnectivityInformationResponseOutput() GroupConnectivityInformationResponseOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationResponseOutput) ToGroupConnectivityInformationResponseOutputWithContext(ctx context.Context) GroupConnectivityInformationResponseOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationResponseOutput) CustomerVisibleFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) []string { return v.CustomerVisibleFqdns }).(pulumi.StringArrayOutput)
+}
+
+func (o GroupConnectivityInformationResponseOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o GroupConnectivityInformationResponseOutput) InternalFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) string { return v.InternalFqdn }).(pulumi.StringOutput)
+}
+
+func (o GroupConnectivityInformationResponseOutput) MemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) string { return v.MemberName }).(pulumi.StringOutput)
+}
+
+type GroupConnectivityInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConnectivityInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConnectivityInformationResponse)(nil)).Elem()
+}
+
+func (o GroupConnectivityInformationResponseArrayOutput) ToGroupConnectivityInformationResponseArrayOutput() GroupConnectivityInformationResponseArrayOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationResponseArrayOutput) ToGroupConnectivityInformationResponseArrayOutputWithContext(ctx context.Context) GroupConnectivityInformationResponseArrayOutput {
+	return o
+}
+
+func (o GroupConnectivityInformationResponseArrayOutput) Index(i pulumi.IntInput) GroupConnectivityInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConnectivityInformationResponse {
+		return vs[0].([]GroupConnectivityInformationResponse)[vs[1].(int)]
+	}).(GroupConnectivityInformationResponseOutput)
 }
 
 type IotHubSettings struct {
@@ -1009,6 +1333,218 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateLinkServiceConnection struct {
+	GroupIds       []string `pulumi:"groupIds"`
+	Name           *string  `pulumi:"name"`
+	RequestMessage *string  `pulumi:"requestMessage"`
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionOutput() PrivateLinkServiceConnectionOutput
+	ToPrivateLinkServiceConnectionOutputWithContext(context.Context) PrivateLinkServiceConnectionOutput
+}
+
+type PrivateLinkServiceConnectionArgs struct {
+	GroupIds       pulumi.StringArrayInput `pulumi:"groupIds"`
+	Name           pulumi.StringPtrInput   `pulumi:"name"`
+	RequestMessage pulumi.StringPtrInput   `pulumi:"requestMessage"`
+}
+
+func (PrivateLinkServiceConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnection)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionArgs) ToPrivateLinkServiceConnectionOutput() PrivateLinkServiceConnectionOutput {
+	return i.ToPrivateLinkServiceConnectionOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionArgs) ToPrivateLinkServiceConnectionOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionOutput)
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionArrayOutput() PrivateLinkServiceConnectionArrayOutput
+	ToPrivateLinkServiceConnectionArrayOutputWithContext(context.Context) PrivateLinkServiceConnectionArrayOutput
+}
+
+type PrivateLinkServiceConnectionArray []PrivateLinkServiceConnectionInput
+
+func (PrivateLinkServiceConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnection)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionArray) ToPrivateLinkServiceConnectionArrayOutput() PrivateLinkServiceConnectionArrayOutput {
+	return i.ToPrivateLinkServiceConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionArray) ToPrivateLinkServiceConnectionArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionArrayOutput)
+}
+
+type PrivateLinkServiceConnectionOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnection)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionOutput) ToPrivateLinkServiceConnectionOutput() PrivateLinkServiceConnectionOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionOutput) ToPrivateLinkServiceConnectionOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnection) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o PrivateLinkServiceConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnection)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionArrayOutput) ToPrivateLinkServiceConnectionArrayOutput() PrivateLinkServiceConnectionArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionArrayOutput) ToPrivateLinkServiceConnectionArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionArrayOutput) Index(i pulumi.IntInput) PrivateLinkServiceConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkServiceConnection {
+		return vs[0].([]PrivateLinkServiceConnection)[vs[1].(int)]
+	}).(PrivateLinkServiceConnectionOutput)
+}
+
+type PrivateLinkServiceConnectionResponse struct {
+	GroupIds       []string `pulumi:"groupIds"`
+	Name           *string  `pulumi:"name"`
+	RequestMessage *string  `pulumi:"requestMessage"`
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionResponseOutput() PrivateLinkServiceConnectionResponseOutput
+	ToPrivateLinkServiceConnectionResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionResponseOutput
+}
+
+type PrivateLinkServiceConnectionResponseArgs struct {
+	GroupIds       pulumi.StringArrayInput `pulumi:"groupIds"`
+	Name           pulumi.StringPtrInput   `pulumi:"name"`
+	RequestMessage pulumi.StringPtrInput   `pulumi:"requestMessage"`
+}
+
+func (PrivateLinkServiceConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionResponseArgs) ToPrivateLinkServiceConnectionResponseOutput() PrivateLinkServiceConnectionResponseOutput {
+	return i.ToPrivateLinkServiceConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionResponseArgs) ToPrivateLinkServiceConnectionResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionResponseOutput)
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionResponseArrayOutput() PrivateLinkServiceConnectionResponseArrayOutput
+	ToPrivateLinkServiceConnectionResponseArrayOutputWithContext(context.Context) PrivateLinkServiceConnectionResponseArrayOutput
+}
+
+type PrivateLinkServiceConnectionResponseArray []PrivateLinkServiceConnectionResponseInput
+
+func (PrivateLinkServiceConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionResponseArray) ToPrivateLinkServiceConnectionResponseArrayOutput() PrivateLinkServiceConnectionResponseArrayOutput {
+	return i.ToPrivateLinkServiceConnectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionResponseArray) ToPrivateLinkServiceConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+type PrivateLinkServiceConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) ToPrivateLinkServiceConnectionResponseOutput() PrivateLinkServiceConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) ToPrivateLinkServiceConnectionResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionResponseOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionResponseArrayOutput) ToPrivateLinkServiceConnectionResponseArrayOutput() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionResponseArrayOutput) ToPrivateLinkServiceConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkServiceConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkServiceConnectionResponse {
+		return vs[0].([]PrivateLinkServiceConnectionResponse)[vs[1].(int)]
+	}).(PrivateLinkServiceConnectionResponseOutput)
+}
+
 type PrivateLinkServiceConnectionState struct {
 	ActionsRequired *string `pulumi:"actionsRequired"`
 	Description     *string `pulumi:"description"`
@@ -1335,6 +1871,759 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateLinkServiceProxy struct {
+	GroupConnectivityInformation            []GroupConnectivityInformation     `pulumi:"groupConnectivityInformation"`
+	Id                                      *string                            `pulumi:"id"`
+	RemotePrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"remotePrivateLinkServiceConnectionState"`
+}
+
+
+
+
+
+type PrivateLinkServiceProxyInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyOutput() PrivateLinkServiceProxyOutput
+	ToPrivateLinkServiceProxyOutputWithContext(context.Context) PrivateLinkServiceProxyOutput
+}
+
+type PrivateLinkServiceProxyArgs struct {
+	GroupConnectivityInformation            GroupConnectivityInformationArrayInput    `pulumi:"groupConnectivityInformation"`
+	Id                                      pulumi.StringPtrInput                     `pulumi:"id"`
+	RemotePrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"remotePrivateLinkServiceConnectionState"`
+}
+
+func (PrivateLinkServiceProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxy)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceProxyArgs) ToPrivateLinkServiceProxyOutput() PrivateLinkServiceProxyOutput {
+	return i.ToPrivateLinkServiceProxyOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyArgs) ToPrivateLinkServiceProxyOutputWithContext(ctx context.Context) PrivateLinkServiceProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyOutput)
+}
+
+
+
+
+
+type PrivateLinkServiceProxyArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyArrayOutput() PrivateLinkServiceProxyArrayOutput
+	ToPrivateLinkServiceProxyArrayOutputWithContext(context.Context) PrivateLinkServiceProxyArrayOutput
+}
+
+type PrivateLinkServiceProxyArray []PrivateLinkServiceProxyInput
+
+func (PrivateLinkServiceProxyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceProxy)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceProxyArray) ToPrivateLinkServiceProxyArrayOutput() PrivateLinkServiceProxyArrayOutput {
+	return i.ToPrivateLinkServiceProxyArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyArray) ToPrivateLinkServiceProxyArrayOutputWithContext(ctx context.Context) PrivateLinkServiceProxyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyArrayOutput)
+}
+
+type PrivateLinkServiceProxyOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxy)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyOutput) ToPrivateLinkServiceProxyOutput() PrivateLinkServiceProxyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyOutput) ToPrivateLinkServiceProxyOutputWithContext(ctx context.Context) PrivateLinkServiceProxyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyOutput) GroupConnectivityInformation() GroupConnectivityInformationArrayOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxy) []GroupConnectivityInformation { return v.GroupConnectivityInformation }).(GroupConnectivityInformationArrayOutput)
+}
+
+func (o PrivateLinkServiceProxyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxy) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceProxyOutput) RemotePrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxy) *PrivateLinkServiceConnectionState {
+		return v.RemotePrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+type PrivateLinkServiceProxyArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceProxy)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyArrayOutput) ToPrivateLinkServiceProxyArrayOutput() PrivateLinkServiceProxyArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyArrayOutput) ToPrivateLinkServiceProxyArrayOutputWithContext(ctx context.Context) PrivateLinkServiceProxyArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyArrayOutput) Index(i pulumi.IntInput) PrivateLinkServiceProxyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkServiceProxy {
+		return vs[0].([]PrivateLinkServiceProxy)[vs[1].(int)]
+	}).(PrivateLinkServiceProxyOutput)
+}
+
+type PrivateLinkServiceProxyResponse struct {
+	GroupConnectivityInformation            []GroupConnectivityInformationResponse                          `pulumi:"groupConnectivityInformation"`
+	Id                                      *string                                                         `pulumi:"id"`
+	RemotePrivateEndpointConnection         *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection `pulumi:"remotePrivateEndpointConnection"`
+	RemotePrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse                      `pulumi:"remotePrivateLinkServiceConnectionState"`
+}
+
+
+
+
+
+type PrivateLinkServiceProxyResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyResponseOutput() PrivateLinkServiceProxyResponseOutput
+	ToPrivateLinkServiceProxyResponseOutputWithContext(context.Context) PrivateLinkServiceProxyResponseOutput
+}
+
+type PrivateLinkServiceProxyResponseArgs struct {
+	GroupConnectivityInformation            GroupConnectivityInformationResponseArrayInput                         `pulumi:"groupConnectivityInformation"`
+	Id                                      pulumi.StringPtrInput                                                  `pulumi:"id"`
+	RemotePrivateEndpointConnection         PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrInput `pulumi:"remotePrivateEndpointConnection"`
+	RemotePrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput                      `pulumi:"remotePrivateLinkServiceConnectionState"`
+}
+
+func (PrivateLinkServiceProxyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxyResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceProxyResponseArgs) ToPrivateLinkServiceProxyResponseOutput() PrivateLinkServiceProxyResponseOutput {
+	return i.ToPrivateLinkServiceProxyResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyResponseArgs) ToPrivateLinkServiceProxyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyResponseOutput)
+}
+
+
+
+
+
+type PrivateLinkServiceProxyResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyResponseArrayOutput() PrivateLinkServiceProxyResponseArrayOutput
+	ToPrivateLinkServiceProxyResponseArrayOutputWithContext(context.Context) PrivateLinkServiceProxyResponseArrayOutput
+}
+
+type PrivateLinkServiceProxyResponseArray []PrivateLinkServiceProxyResponseInput
+
+func (PrivateLinkServiceProxyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceProxyResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceProxyResponseArray) ToPrivateLinkServiceProxyResponseArrayOutput() PrivateLinkServiceProxyResponseArrayOutput {
+	return i.ToPrivateLinkServiceProxyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyResponseArray) ToPrivateLinkServiceProxyResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyResponseArrayOutput)
+}
+
+type PrivateLinkServiceProxyResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxyResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) ToPrivateLinkServiceProxyResponseOutput() PrivateLinkServiceProxyResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) ToPrivateLinkServiceProxyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) GroupConnectivityInformation() GroupConnectivityInformationResponseArrayOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxyResponse) []GroupConnectivityInformationResponse {
+		return v.GroupConnectivityInformation
+	}).(GroupConnectivityInformationResponseArrayOutput)
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) RemotePrivateEndpointConnection() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxyResponse) *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection {
+		return v.RemotePrivateEndpointConnection
+	}).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput)
+}
+
+func (o PrivateLinkServiceProxyResponseOutput) RemotePrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxyResponse) *PrivateLinkServiceConnectionStateResponse {
+		return v.RemotePrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+type PrivateLinkServiceProxyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceProxyResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyResponseArrayOutput) ToPrivateLinkServiceProxyResponseArrayOutput() PrivateLinkServiceProxyResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseArrayOutput) ToPrivateLinkServiceProxyResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkServiceProxyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkServiceProxyResponse {
+		return vs[0].([]PrivateLinkServiceProxyResponse)[vs[1].(int)]
+	}).(PrivateLinkServiceProxyResponseOutput)
+}
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection struct {
+	Id string `pulumi:"id"`
+}
+
+
+
+
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput
+	ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutputWithContext(context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput
+}
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput {
+	return i.ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput)
+}
+
+func (i PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return i.ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput).ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput
+	ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput
+}
+
+type privateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrType PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs
+
+func PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtr(v *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrInput {
+	return (*privateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrType)(v)
+}
+
+func (*privateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i *privateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrType) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return i.ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrType) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput)
+}
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return o.ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection) *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection {
+		return &v
+	}).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput)
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput) ToPrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput) Elem() PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection) PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection
+		return ret
+	}).(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput)
+}
+
+func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceProxyResponseRemotePrivateEndpointConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type RemotePrivateEndpoint struct {
+	Id                                  *string                        `pulumi:"id"`
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
+	PrivateLinkServiceConnections       []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
+	PrivateLinkServiceProxies           []PrivateLinkServiceProxy      `pulumi:"privateLinkServiceProxies"`
+}
+
+
+
+
+
+type RemotePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointOutput() RemotePrivateEndpointOutput
+	ToRemotePrivateEndpointOutputWithContext(context.Context) RemotePrivateEndpointOutput
+}
+
+type RemotePrivateEndpointArgs struct {
+	Id                                  pulumi.StringPtrInput                  `pulumi:"id"`
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput `pulumi:"manualPrivateLinkServiceConnections"`
+	PrivateLinkServiceConnections       PrivateLinkServiceConnectionArrayInput `pulumi:"privateLinkServiceConnections"`
+	PrivateLinkServiceProxies           PrivateLinkServiceProxyArrayInput      `pulumi:"privateLinkServiceProxies"`
+}
+
+func (RemotePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpoint)(nil)).Elem()
+}
+
+func (i RemotePrivateEndpointArgs) ToRemotePrivateEndpointOutput() RemotePrivateEndpointOutput {
+	return i.ToRemotePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointArgs) ToRemotePrivateEndpointOutputWithContext(ctx context.Context) RemotePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointOutput)
+}
+
+func (i RemotePrivateEndpointArgs) ToRemotePrivateEndpointPtrOutput() RemotePrivateEndpointPtrOutput {
+	return i.ToRemotePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointArgs) ToRemotePrivateEndpointPtrOutputWithContext(ctx context.Context) RemotePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointOutput).ToRemotePrivateEndpointPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type RemotePrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointPtrOutput() RemotePrivateEndpointPtrOutput
+	ToRemotePrivateEndpointPtrOutputWithContext(context.Context) RemotePrivateEndpointPtrOutput
+}
+
+type remotePrivateEndpointPtrType RemotePrivateEndpointArgs
+
+func RemotePrivateEndpointPtr(v *RemotePrivateEndpointArgs) RemotePrivateEndpointPtrInput {
+	return (*remotePrivateEndpointPtrType)(v)
+}
+
+func (*remotePrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpoint)(nil)).Elem()
+}
+
+func (i *remotePrivateEndpointPtrType) ToRemotePrivateEndpointPtrOutput() RemotePrivateEndpointPtrOutput {
+	return i.ToRemotePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *remotePrivateEndpointPtrType) ToRemotePrivateEndpointPtrOutputWithContext(ctx context.Context) RemotePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointPtrOutput)
+}
+
+type RemotePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpoint)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointOutput) ToRemotePrivateEndpointOutput() RemotePrivateEndpointOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointOutput) ToRemotePrivateEndpointOutputWithContext(ctx context.Context) RemotePrivateEndpointOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointOutput) ToRemotePrivateEndpointPtrOutput() RemotePrivateEndpointPtrOutput {
+	return o.ToRemotePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o RemotePrivateEndpointOutput) ToRemotePrivateEndpointPtrOutputWithContext(ctx context.Context) RemotePrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemotePrivateEndpoint) *RemotePrivateEndpoint {
+		return &v
+	}).(RemotePrivateEndpointPtrOutput)
+}
+
+func (o RemotePrivateEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o RemotePrivateEndpointOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) []PrivateLinkServiceConnection {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionArrayOutput)
+}
+
+func (o RemotePrivateEndpointOutput) PrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) []PrivateLinkServiceConnection { return v.PrivateLinkServiceConnections }).(PrivateLinkServiceConnectionArrayOutput)
+}
+
+func (o RemotePrivateEndpointOutput) PrivateLinkServiceProxies() PrivateLinkServiceProxyArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) []PrivateLinkServiceProxy { return v.PrivateLinkServiceProxies }).(PrivateLinkServiceProxyArrayOutput)
+}
+
+type RemotePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpoint)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointPtrOutput) ToRemotePrivateEndpointPtrOutput() RemotePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointPtrOutput) ToRemotePrivateEndpointPtrOutputWithContext(ctx context.Context) RemotePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointPtrOutput) Elem() RemotePrivateEndpointOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) RemotePrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret RemotePrivateEndpoint
+		return ret
+	}).(RemotePrivateEndpointOutput)
+}
+
+func (o RemotePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RemotePrivateEndpointPtrOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) []PrivateLinkServiceConnection {
+		if v == nil {
+			return nil
+		}
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionArrayOutput)
+}
+
+func (o RemotePrivateEndpointPtrOutput) PrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) []PrivateLinkServiceConnection {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionArrayOutput)
+}
+
+func (o RemotePrivateEndpointPtrOutput) PrivateLinkServiceProxies() PrivateLinkServiceProxyArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) []PrivateLinkServiceProxy {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceProxies
+	}).(PrivateLinkServiceProxyArrayOutput)
+}
+
+type RemotePrivateEndpointResponse struct {
+	ConnectionDetails                   []ConnectionDetailsResponse            `pulumi:"connectionDetails"`
+	Id                                  *string                                `pulumi:"id"`
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
+	PrivateLinkServiceConnections       []PrivateLinkServiceConnectionResponse `pulumi:"privateLinkServiceConnections"`
+	PrivateLinkServiceProxies           []PrivateLinkServiceProxyResponse      `pulumi:"privateLinkServiceProxies"`
+	VnetTrafficTag                      string                                 `pulumi:"vnetTrafficTag"`
+}
+
+
+
+
+
+type RemotePrivateEndpointResponseInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointResponseOutput() RemotePrivateEndpointResponseOutput
+	ToRemotePrivateEndpointResponseOutputWithContext(context.Context) RemotePrivateEndpointResponseOutput
+}
+
+type RemotePrivateEndpointResponseArgs struct {
+	ConnectionDetails                   ConnectionDetailsResponseArrayInput            `pulumi:"connectionDetails"`
+	Id                                  pulumi.StringPtrInput                          `pulumi:"id"`
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayInput `pulumi:"manualPrivateLinkServiceConnections"`
+	PrivateLinkServiceConnections       PrivateLinkServiceConnectionResponseArrayInput `pulumi:"privateLinkServiceConnections"`
+	PrivateLinkServiceProxies           PrivateLinkServiceProxyResponseArrayInput      `pulumi:"privateLinkServiceProxies"`
+	VnetTrafficTag                      pulumi.StringInput                             `pulumi:"vnetTrafficTag"`
+}
+
+func (RemotePrivateEndpointResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i RemotePrivateEndpointResponseArgs) ToRemotePrivateEndpointResponseOutput() RemotePrivateEndpointResponseOutput {
+	return i.ToRemotePrivateEndpointResponseOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointResponseArgs) ToRemotePrivateEndpointResponseOutputWithContext(ctx context.Context) RemotePrivateEndpointResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointResponseOutput)
+}
+
+func (i RemotePrivateEndpointResponseArgs) ToRemotePrivateEndpointResponsePtrOutput() RemotePrivateEndpointResponsePtrOutput {
+	return i.ToRemotePrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RemotePrivateEndpointResponseArgs) ToRemotePrivateEndpointResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointResponseOutput).ToRemotePrivateEndpointResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type RemotePrivateEndpointResponsePtrInput interface {
+	pulumi.Input
+
+	ToRemotePrivateEndpointResponsePtrOutput() RemotePrivateEndpointResponsePtrOutput
+	ToRemotePrivateEndpointResponsePtrOutputWithContext(context.Context) RemotePrivateEndpointResponsePtrOutput
+}
+
+type remotePrivateEndpointResponsePtrType RemotePrivateEndpointResponseArgs
+
+func RemotePrivateEndpointResponsePtr(v *RemotePrivateEndpointResponseArgs) RemotePrivateEndpointResponsePtrInput {
+	return (*remotePrivateEndpointResponsePtrType)(v)
+}
+
+func (*remotePrivateEndpointResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i *remotePrivateEndpointResponsePtrType) ToRemotePrivateEndpointResponsePtrOutput() RemotePrivateEndpointResponsePtrOutput {
+	return i.ToRemotePrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *remotePrivateEndpointResponsePtrType) ToRemotePrivateEndpointResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePrivateEndpointResponsePtrOutput)
+}
+
+type RemotePrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointResponseOutput) ToRemotePrivateEndpointResponseOutput() RemotePrivateEndpointResponseOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointResponseOutput) ToRemotePrivateEndpointResponseOutputWithContext(ctx context.Context) RemotePrivateEndpointResponseOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointResponseOutput) ToRemotePrivateEndpointResponsePtrOutput() RemotePrivateEndpointResponsePtrOutput {
+	return o.ToRemotePrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RemotePrivateEndpointResponseOutput) ToRemotePrivateEndpointResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemotePrivateEndpointResponse) *RemotePrivateEndpointResponse {
+		return &v
+	}).(RemotePrivateEndpointResponsePtrOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) ConnectionDetails() ConnectionDetailsResponseArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) []ConnectionDetailsResponse { return v.ConnectionDetails }).(ConnectionDetailsResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) PrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
+		return v.PrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) PrivateLinkServiceProxies() PrivateLinkServiceProxyResponseArrayOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) []PrivateLinkServiceProxyResponse {
+		return v.PrivateLinkServiceProxies
+	}).(PrivateLinkServiceProxyResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponseOutput) VnetTrafficTag() pulumi.StringOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) string { return v.VnetTrafficTag }).(pulumi.StringOutput)
+}
+
+type RemotePrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RemotePrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) ToRemotePrivateEndpointResponsePtrOutput() RemotePrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) ToRemotePrivateEndpointResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) Elem() RemotePrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) RemotePrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RemotePrivateEndpointResponse
+		return ret
+	}).(RemotePrivateEndpointResponseOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) ConnectionDetails() ConnectionDetailsResponseArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) []ConnectionDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDetails
+	}).(ConnectionDetailsResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) PrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) PrivateLinkServiceProxies() PrivateLinkServiceProxyResponseArrayOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) []PrivateLinkServiceProxyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceProxies
+	}).(PrivateLinkServiceProxyResponseArrayOutput)
+}
+
+func (o RemotePrivateEndpointResponsePtrOutput) VnetTrafficTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VnetTrafficTag
+	}).(pulumi.StringPtrOutput)
+}
+
 type SystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -1644,10 +2933,16 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionDetailsResponseInput)(nil)).Elem(), ConnectionDetailsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionDetailsResponseArrayInput)(nil)).Elem(), ConnectionDetailsResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticStoragePropertiesInput)(nil)).Elem(), DiagnosticStoragePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticStoragePropertiesPtrInput)(nil)).Elem(), DiagnosticStoragePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticStoragePropertiesResponseInput)(nil)).Elem(), DiagnosticStoragePropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticStoragePropertiesResponsePtrInput)(nil)).Elem(), DiagnosticStoragePropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConnectivityInformationInput)(nil)).Elem(), GroupConnectivityInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConnectivityInformationArrayInput)(nil)).Elem(), GroupConnectivityInformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConnectivityInformationResponseInput)(nil)).Elem(), GroupConnectivityInformationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConnectivityInformationResponseArrayInput)(nil)).Elem(), GroupConnectivityInformationResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubSettingsInput)(nil)).Elem(), IotHubSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubSettingsArrayInput)(nil)).Elem(), IotHubSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubSettingsResponseInput)(nil)).Elem(), IotHubSettingsResponseArgs{})
@@ -1658,18 +2953,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityResponsePtrInput)(nil)).Elem(), ManagedServiceIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponseInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponsePtrInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionInput)(nil)).Elem(), PrivateLinkServiceConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionArrayInput)(nil)).Elem(), PrivateLinkServiceConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionResponseInput)(nil)).Elem(), PrivateLinkServiceConnectionResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionResponseArrayInput)(nil)).Elem(), PrivateLinkServiceConnectionResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponseInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponsePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyInput)(nil)).Elem(), PrivateLinkServiceProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyArrayInput)(nil)).Elem(), PrivateLinkServiceProxyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyResponseInput)(nil)).Elem(), PrivateLinkServiceProxyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyResponseArrayInput)(nil)).Elem(), PrivateLinkServiceProxyResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionInput)(nil)).Elem(), PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrInput)(nil)).Elem(), PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePrivateEndpointInput)(nil)).Elem(), RemotePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePrivateEndpointPtrInput)(nil)).Elem(), RemotePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePrivateEndpointResponseInput)(nil)).Elem(), RemotePrivateEndpointResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePrivateEndpointResponsePtrInput)(nil)).Elem(), RemotePrivateEndpointResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseInput)(nil)).Elem(), UserAssignedIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseMapInput)(nil)).Elem(), UserAssignedIdentityResponseMap{})
+	pulumi.RegisterOutputType(ConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticStoragePropertiesOutput{})
 	pulumi.RegisterOutputType(DiagnosticStoragePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticStoragePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticStoragePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GroupConnectivityInformationOutput{})
+	pulumi.RegisterOutputType(GroupConnectivityInformationArrayOutput{})
+	pulumi.RegisterOutputType(GroupConnectivityInformationResponseOutput{})
+	pulumi.RegisterOutputType(GroupConnectivityInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(IotHubSettingsOutput{})
 	pulumi.RegisterOutputType(IotHubSettingsArrayOutput{})
 	pulumi.RegisterOutputType(IotHubSettingsResponseOutput{})
@@ -1680,10 +2995,24 @@ func init() {
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(RemotePrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})

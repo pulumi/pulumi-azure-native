@@ -14,15 +14,17 @@ import (
 type CustomAssessmentAutomation struct {
 	pulumi.CustomResourceState
 
-	CompressedQuery        pulumi.StringPtrOutput `pulumi:"compressedQuery"`
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
-	ImplementationEffort   pulumi.StringPtrOutput `pulumi:"implementationEffort"`
-	Name                   pulumi.StringOutput    `pulumi:"name"`
-	RemediationDescription pulumi.StringPtrOutput `pulumi:"remediationDescription"`
-	Severity               pulumi.StringPtrOutput `pulumi:"severity"`
-	SupportedCloud         pulumi.StringPtrOutput `pulumi:"supportedCloud"`
-	Type                   pulumi.StringOutput    `pulumi:"type"`
-	UserImpact             pulumi.StringPtrOutput `pulumi:"userImpact"`
+	AssessmentKey          pulumi.StringPtrOutput   `pulumi:"assessmentKey"`
+	CompressedQuery        pulumi.StringPtrOutput   `pulumi:"compressedQuery"`
+	Description            pulumi.StringPtrOutput   `pulumi:"description"`
+	ImplementationEffort   pulumi.StringPtrOutput   `pulumi:"implementationEffort"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	RemediationDescription pulumi.StringPtrOutput   `pulumi:"remediationDescription"`
+	Severity               pulumi.StringPtrOutput   `pulumi:"severity"`
+	SupportedCloud         pulumi.StringPtrOutput   `pulumi:"supportedCloud"`
+	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
+	UserImpact             pulumi.StringPtrOutput   `pulumi:"userImpact"`
 }
 
 

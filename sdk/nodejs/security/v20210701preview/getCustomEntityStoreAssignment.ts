@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -52,6 +53,10 @@ export interface GetCustomEntityStoreAssignmentResult {
      * The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
      */
     readonly principal?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.v20210701preview.SystemDataResponse;
     /**
      * Resource type
      */

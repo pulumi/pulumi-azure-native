@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetCustomAssessmentAutomationResult
     {
         /// <summary>
+        /// The assessment metadata key used when an assessment is generated for this assessment automation.
+        /// </summary>
+        public readonly string? AssessmentKey;
+        /// <summary>
         /// GZip encoded KQL query representing the assessment automation results required.
         /// </summary>
         public readonly string? CompressedQuery;
@@ -76,6 +80,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? SupportedCloud;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -86,6 +94,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetCustomAssessmentAutomationResult(
+            string? assessmentKey,
+
             string? compressedQuery,
 
             string? description,
@@ -102,10 +112,13 @@ namespace Pulumi.AzureNative.Security
 
             string? supportedCloud,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? userImpact)
         {
+            AssessmentKey = assessmentKey;
             CompressedQuery = compressedQuery;
             Description = description;
             Id = id;
@@ -114,6 +127,7 @@ namespace Pulumi.AzureNative.Security
             RemediationDescription = remediationDescription;
             Severity = severity;
             SupportedCloud = supportedCloud;
+            SystemData = systemData;
             Type = type;
             UserImpact = userImpact;
         }

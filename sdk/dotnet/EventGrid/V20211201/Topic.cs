@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityInfoResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
         [Output("inboundIpRules")]
@@ -179,6 +185,12 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         /// </summary>
         [Input("disableLocalAuth")]
         public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityInfoArgs>? Identity { get; set; }
 
         [Input("inboundIpRules")]
         private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;

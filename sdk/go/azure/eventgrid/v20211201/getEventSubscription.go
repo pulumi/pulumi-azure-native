@@ -23,17 +23,19 @@ type LookupEventSubscriptionArgs struct {
 
 
 type LookupEventSubscriptionResult struct {
-	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
-	Destination           interface{}                               `pulumi:"destination"`
-	EventDeliverySchema   *string                                   `pulumi:"eventDeliverySchema"`
-	ExpirationTimeUtc     *string                                   `pulumi:"expirationTimeUtc"`
-	Filter                *EventSubscriptionFilterResponse          `pulumi:"filter"`
-	Id                    string                                    `pulumi:"id"`
-	Labels                []string                                  `pulumi:"labels"`
-	Name                  string                                    `pulumi:"name"`
-	ProvisioningState     string                                    `pulumi:"provisioningState"`
-	RetryPolicy           *RetryPolicyResponse                      `pulumi:"retryPolicy"`
-	SystemData            SystemDataResponse                        `pulumi:"systemData"`
-	Topic                 string                                    `pulumi:"topic"`
-	Type                  string                                    `pulumi:"type"`
+	DeadLetterDestination          *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityResponse   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentityResponse     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                               `pulumi:"destination"`
+	EventDeliverySchema            *string                                   `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              *string                                   `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilterResponse          `pulumi:"filter"`
+	Id                             string                                    `pulumi:"id"`
+	Labels                         []string                                  `pulumi:"labels"`
+	Name                           string                                    `pulumi:"name"`
+	ProvisioningState              string                                    `pulumi:"provisioningState"`
+	RetryPolicy                    *RetryPolicyResponse                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponse                        `pulumi:"systemData"`
+	Topic                          string                                    `pulumi:"topic"`
+	Type                           string                                    `pulumi:"type"`
 }

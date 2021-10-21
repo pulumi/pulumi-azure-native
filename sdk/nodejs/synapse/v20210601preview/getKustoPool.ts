@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Kusto kusto pool.
  */
-export function getkustoPool(args: GetkustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetkustoPoolResult> {
+export function getKustoPool(args: GetKustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -16,14 +16,14 @@ export function getkustoPool(args: GetkustoPoolArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getkustoPool", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPool", {
         "kustoPoolName": args.kustoPoolName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
-export interface GetkustoPoolArgs {
+export interface GetKustoPoolArgs {
     /**
      * The name of the Kusto pool.
      */
@@ -41,7 +41,7 @@ export interface GetkustoPoolArgs {
 /**
  * Class representing a Kusto kusto pool.
  */
-export interface GetkustoPoolResult {
+export interface GetKustoPoolResult {
     /**
      * The Kusto Pool data ingestion URI.
      */
@@ -116,11 +116,11 @@ export interface GetkustoPoolResult {
     readonly workspaceUID?: string;
 }
 
-export function getkustoPoolOutput(args: GetkustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetkustoPoolResult> {
-    return pulumi.output(args).apply(a => getkustoPool(a, opts))
+export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
+    return pulumi.output(args).apply(a => getKustoPool(a, opts))
 }
 
-export interface GetkustoPoolOutputArgs {
+export interface GetKustoPoolOutputArgs {
     /**
      * The name of the Kusto pool.
      */

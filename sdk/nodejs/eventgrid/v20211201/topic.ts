@@ -44,6 +44,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Identity information for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.v20211201.IdentityInfoResponse | undefined>;
+    /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.v20211201.InboundIpRuleResponse[] | undefined>;
@@ -105,6 +109,7 @@ export class Topic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
@@ -123,6 +128,7 @@ export class Topic extends pulumi.CustomResource {
         } else {
             inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["inboundIpRules"] = undefined /*out*/;
             inputs["inputSchema"] = undefined /*out*/;
             inputs["inputSchemaMapping"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface TopicArgs {
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
      */
     disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * Identity information for the resource.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.v20211201.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */

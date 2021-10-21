@@ -181,6 +181,37 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
     /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
     /// </summary>
     [EnumType]
+    public readonly struct EventSubscriptionIdentityType : IEquatable<EventSubscriptionIdentityType>
+    {
+        private readonly string _value;
+
+        private EventSubscriptionIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSubscriptionIdentityType SystemAssigned { get; } = new EventSubscriptionIdentityType("SystemAssigned");
+        public static EventSubscriptionIdentityType UserAssigned { get; } = new EventSubscriptionIdentityType("UserAssigned");
+
+        public static bool operator ==(EventSubscriptionIdentityType left, EventSubscriptionIdentityType right) => left.Equals(right);
+        public static bool operator !=(EventSubscriptionIdentityType left, EventSubscriptionIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSubscriptionIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSubscriptionIdentityType other && Equals(other);
+        public bool Equals(EventSubscriptionIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    /// </summary>
+    [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
     {
         private readonly string _value;

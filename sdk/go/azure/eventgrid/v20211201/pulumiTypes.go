@@ -606,6 +606,602 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeadLetterWithResourceIdentity struct {
+	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	Identity              *EventSubscriptionIdentity        `pulumi:"identity"`
+}
+
+
+
+
+
+type DeadLetterWithResourceIdentityInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput
+	ToDeadLetterWithResourceIdentityOutputWithContext(context.Context) DeadLetterWithResourceIdentityOutput
+}
+
+type DeadLetterWithResourceIdentityArgs struct {
+	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput `pulumi:"deadLetterDestination"`
+	Identity              EventSubscriptionIdentityPtrInput        `pulumi:"identity"`
+}
+
+func (DeadLetterWithResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput {
+	return i.ToDeadLetterWithResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityOutput)
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return i.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityOutput).ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeadLetterWithResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput
+	ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Context) DeadLetterWithResourceIdentityPtrOutput
+}
+
+type deadLetterWithResourceIdentityPtrType DeadLetterWithResourceIdentityArgs
+
+func DeadLetterWithResourceIdentityPtr(v *DeadLetterWithResourceIdentityArgs) DeadLetterWithResourceIdentityPtrInput {
+	return (*deadLetterWithResourceIdentityPtrType)(v)
+}
+
+func (*deadLetterWithResourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (i *deadLetterWithResourceIdentityPtrType) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return i.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *deadLetterWithResourceIdentityPtrType) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityPtrOutput)
+}
+
+type DeadLetterWithResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return o.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeadLetterWithResourceIdentity) *DeadLetterWithResourceIdentity {
+		return &v
+	}).(DeadLetterWithResourceIdentityPtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentity) *StorageBlobDeadLetterDestination {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentity) *EventSubscriptionIdentity { return v.Identity }).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeadLetterWithResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) Elem() DeadLetterWithResourceIdentityOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) DeadLetterWithResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DeadLetterWithResourceIdentity
+		return ret
+	}).(DeadLetterWithResourceIdentityOutput)
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) *StorageBlobDeadLetterDestination {
+		if v == nil {
+			return nil
+		}
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) *EventSubscriptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeadLetterWithResourceIdentityResponse struct {
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	Identity              *EventSubscriptionIdentityResponse        `pulumi:"identity"`
+}
+
+
+
+
+
+type DeadLetterWithResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput
+	ToDeadLetterWithResourceIdentityResponseOutputWithContext(context.Context) DeadLetterWithResourceIdentityResponseOutput
+}
+
+type DeadLetterWithResourceIdentityResponseArgs struct {
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrInput `pulumi:"deadLetterDestination"`
+	Identity              EventSubscriptionIdentityResponsePtrInput        `pulumi:"identity"`
+}
+
+func (DeadLetterWithResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput {
+	return i.ToDeadLetterWithResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponseOutput)
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return i.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponseOutput).ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeadLetterWithResourceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput
+	ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Context) DeadLetterWithResourceIdentityResponsePtrOutput
+}
+
+type deadLetterWithResourceIdentityResponsePtrType DeadLetterWithResourceIdentityResponseArgs
+
+func DeadLetterWithResourceIdentityResponsePtr(v *DeadLetterWithResourceIdentityResponseArgs) DeadLetterWithResourceIdentityResponsePtrInput {
+	return (*deadLetterWithResourceIdentityResponsePtrType)(v)
+}
+
+func (*deadLetterWithResourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i *deadLetterWithResourceIdentityResponsePtrType) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return i.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deadLetterWithResourceIdentityResponsePtrType) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+type DeadLetterWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeadLetterWithResourceIdentityResponse) *DeadLetterWithResourceIdentityResponse {
+		return &v
+	}).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentityResponse) *StorageBlobDeadLetterDestinationResponse {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentityResponse) *EventSubscriptionIdentityResponse { return v.Identity }).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type DeadLetterWithResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) Elem() DeadLetterWithResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) DeadLetterWithResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeadLetterWithResourceIdentityResponse
+		return ret
+	}).(DeadLetterWithResourceIdentityResponseOutput)
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) *StorageBlobDeadLetterDestinationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) *EventSubscriptionIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type DeliveryWithResourceIdentity struct {
+	Destination interface{}                `pulumi:"destination"`
+	Identity    *EventSubscriptionIdentity `pulumi:"identity"`
+}
+
+
+
+
+
+type DeliveryWithResourceIdentityInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput
+	ToDeliveryWithResourceIdentityOutputWithContext(context.Context) DeliveryWithResourceIdentityOutput
+}
+
+type DeliveryWithResourceIdentityArgs struct {
+	Destination pulumi.Input                      `pulumi:"destination"`
+	Identity    EventSubscriptionIdentityPtrInput `pulumi:"identity"`
+}
+
+func (DeliveryWithResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput {
+	return i.ToDeliveryWithResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityOutput)
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return i.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityOutput).ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeliveryWithResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput
+	ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Context) DeliveryWithResourceIdentityPtrOutput
+}
+
+type deliveryWithResourceIdentityPtrType DeliveryWithResourceIdentityArgs
+
+func DeliveryWithResourceIdentityPtr(v *DeliveryWithResourceIdentityArgs) DeliveryWithResourceIdentityPtrInput {
+	return (*deliveryWithResourceIdentityPtrType)(v)
+}
+
+func (*deliveryWithResourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (i *deliveryWithResourceIdentityPtrType) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return i.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryWithResourceIdentityPtrType) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityPtrOutput)
+}
+
+type DeliveryWithResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return o.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryWithResourceIdentity) *DeliveryWithResourceIdentity {
+		return &v
+	}).(DeliveryWithResourceIdentityPtrOutput)
+}
+
+func (o DeliveryWithResourceIdentityOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentity) interface{} { return v.Destination }).(pulumi.AnyOutput)
+}
+
+func (o DeliveryWithResourceIdentityOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentity) *EventSubscriptionIdentity { return v.Identity }).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeliveryWithResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) Elem() DeliveryWithResourceIdentityOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) DeliveryWithResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryWithResourceIdentity
+		return ret
+	}).(DeliveryWithResourceIdentityOutput)
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.AnyOutput)
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) *EventSubscriptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeliveryWithResourceIdentityResponse struct {
+	Destination interface{}                        `pulumi:"destination"`
+	Identity    *EventSubscriptionIdentityResponse `pulumi:"identity"`
+}
+
+
+
+
+
+type DeliveryWithResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput
+	ToDeliveryWithResourceIdentityResponseOutputWithContext(context.Context) DeliveryWithResourceIdentityResponseOutput
+}
+
+type DeliveryWithResourceIdentityResponseArgs struct {
+	Destination pulumi.Input                              `pulumi:"destination"`
+	Identity    EventSubscriptionIdentityResponsePtrInput `pulumi:"identity"`
+}
+
+func (DeliveryWithResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput {
+	return i.ToDeliveryWithResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponseOutput)
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return i.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponseOutput).ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeliveryWithResourceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput
+	ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Context) DeliveryWithResourceIdentityResponsePtrOutput
+}
+
+type deliveryWithResourceIdentityResponsePtrType DeliveryWithResourceIdentityResponseArgs
+
+func DeliveryWithResourceIdentityResponsePtr(v *DeliveryWithResourceIdentityResponseArgs) DeliveryWithResourceIdentityResponsePtrInput {
+	return (*deliveryWithResourceIdentityResponsePtrType)(v)
+}
+
+func (*deliveryWithResourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i *deliveryWithResourceIdentityResponsePtrType) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return i.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryWithResourceIdentityResponsePtrType) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+type DeliveryWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryWithResourceIdentityResponse) *DeliveryWithResourceIdentityResponse {
+		return &v
+	}).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentityResponse) interface{} { return v.Destination }).(pulumi.AnyOutput)
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentityResponse) *EventSubscriptionIdentityResponse { return v.Identity }).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type DeliveryWithResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Elem() DeliveryWithResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) DeliveryWithResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryWithResourceIdentityResponse
+		return ret
+	}).(DeliveryWithResourceIdentityResponseOutput)
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.AnyOutput)
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) *EventSubscriptionIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
 type DynamicDeliveryAttributeMapping struct {
 	Name        *string `pulumi:"name"`
 	SourceField *string `pulumi:"sourceField"`
@@ -1263,6 +1859,302 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 			return nil
 		}
 		return v.SubjectEndsWith
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentity struct {
+	Type                 *string `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+
+
+
+
+type EventSubscriptionIdentityInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput
+	ToEventSubscriptionIdentityOutputWithContext(context.Context) EventSubscriptionIdentityOutput
+}
+
+type EventSubscriptionIdentityArgs struct {
+	Type                 pulumi.StringPtrInput `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EventSubscriptionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput {
+	return i.ToEventSubscriptionIdentityOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityOutputWithContext(ctx context.Context) EventSubscriptionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityOutput)
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return i.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityOutput).ToEventSubscriptionIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type EventSubscriptionIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput
+	ToEventSubscriptionIdentityPtrOutputWithContext(context.Context) EventSubscriptionIdentityPtrOutput
+}
+
+type eventSubscriptionIdentityPtrType EventSubscriptionIdentityArgs
+
+func EventSubscriptionIdentityPtr(v *EventSubscriptionIdentityArgs) EventSubscriptionIdentityPtrInput {
+	return (*eventSubscriptionIdentityPtrType)(v)
+}
+
+func (*eventSubscriptionIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (i *eventSubscriptionIdentityPtrType) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return i.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSubscriptionIdentityPtrType) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityPtrOutput)
+}
+
+type EventSubscriptionIdentityOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityOutputWithContext(ctx context.Context) EventSubscriptionIdentityOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return o.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionIdentity) *EventSubscriptionIdentity {
+		return &v
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+func (o EventSubscriptionIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o EventSubscriptionIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityPtrOutput) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityPtrOutput) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityPtrOutput) Elem() EventSubscriptionIdentityOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) EventSubscriptionIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionIdentity
+		return ret
+	}).(EventSubscriptionIdentityOutput)
+}
+
+func (o EventSubscriptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventSubscriptionIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityResponse struct {
+	Type                 *string `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+
+
+
+
+type EventSubscriptionIdentityResponseInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput
+	ToEventSubscriptionIdentityResponseOutputWithContext(context.Context) EventSubscriptionIdentityResponseOutput
+}
+
+type EventSubscriptionIdentityResponseArgs struct {
+	Type                 pulumi.StringPtrInput `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EventSubscriptionIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput {
+	return i.ToEventSubscriptionIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponseOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponseOutput)
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return i.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponseOutput).ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type EventSubscriptionIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput
+	ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Context) EventSubscriptionIdentityResponsePtrOutput
+}
+
+type eventSubscriptionIdentityResponsePtrType EventSubscriptionIdentityResponseArgs
+
+func EventSubscriptionIdentityResponsePtr(v *EventSubscriptionIdentityResponseArgs) EventSubscriptionIdentityResponsePtrInput {
+	return (*eventSubscriptionIdentityResponsePtrType)(v)
+}
+
+func (*eventSubscriptionIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (i *eventSubscriptionIdentityResponsePtrType) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return i.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventSubscriptionIdentityResponsePtrType) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type EventSubscriptionIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponseOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponseOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionIdentityResponse) *EventSubscriptionIdentityResponse {
+		return &v
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+func (o EventSubscriptionIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o EventSubscriptionIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) Elem() EventSubscriptionIdentityResponseOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) EventSubscriptionIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionIdentityResponse
+		return ret
+	}).(EventSubscriptionIdentityResponseOutput)
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6431,6 +7323,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStatePtrInput)(nil)).Elem(), ConnectionStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStateResponseInput)(nil)).Elem(), ConnectionStateResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStateResponsePtrInput)(nil)).Elem(), ConnectionStateResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterWithResourceIdentityInput)(nil)).Elem(), DeadLetterWithResourceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterWithResourceIdentityPtrInput)(nil)).Elem(), DeadLetterWithResourceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterWithResourceIdentityResponseInput)(nil)).Elem(), DeadLetterWithResourceIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterWithResourceIdentityResponsePtrInput)(nil)).Elem(), DeadLetterWithResourceIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryWithResourceIdentityInput)(nil)).Elem(), DeliveryWithResourceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryWithResourceIdentityPtrInput)(nil)).Elem(), DeliveryWithResourceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryWithResourceIdentityResponseInput)(nil)).Elem(), DeliveryWithResourceIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryWithResourceIdentityResponsePtrInput)(nil)).Elem(), DeliveryWithResourceIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DynamicDeliveryAttributeMappingInput)(nil)).Elem(), DynamicDeliveryAttributeMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DynamicDeliveryAttributeMappingResponseInput)(nil)).Elem(), DynamicDeliveryAttributeMappingResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHubEventSubscriptionDestinationInput)(nil)).Elem(), EventHubEventSubscriptionDestinationArgs{})
@@ -6439,6 +7339,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterPtrInput)(nil)).Elem(), EventSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponseInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponsePtrInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionIdentityInput)(nil)).Elem(), EventSubscriptionIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionIdentityPtrInput)(nil)).Elem(), EventSubscriptionIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionIdentityResponseInput)(nil)).Elem(), EventSubscriptionIdentityResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionIdentityResponsePtrInput)(nil)).Elem(), EventSubscriptionIdentityResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationInput)(nil)).Elem(), HybridConnectionEventSubscriptionDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationResponseInput)(nil)).Elem(), HybridConnectionEventSubscriptionDestinationResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityInfoInput)(nil)).Elem(), IdentityInfoArgs{})
@@ -6521,6 +7425,14 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(DynamicDeliveryAttributeMappingOutput{})
 	pulumi.RegisterOutputType(DynamicDeliveryAttributeMappingResponseOutput{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
@@ -6529,6 +7441,10 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityResponseOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(IdentityInfoOutput{})

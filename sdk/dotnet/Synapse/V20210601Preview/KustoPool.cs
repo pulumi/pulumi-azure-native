@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     /// <summary>
     /// Class representing a Kusto kusto pool.
     /// </summary>
-    [AzureNativeResourceType("azure-native:synapse/v20210601preview:kustoPool")]
+    [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPool")]
     public partial class KustoPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -126,12 +126,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KustoPool(string name, KustoPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:synapse/v20210601preview:kustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20210601preview:KustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KustoPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:synapse/v20210601preview:kustoPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20210601preview:KustoPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -142,11 +142,11 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:kustoPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse:kustoPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:kustoPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:kustoPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:KustoPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

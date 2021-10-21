@@ -23,9 +23,10 @@ type LookupCustomEntityStoreAssignmentArgs struct {
 
 
 type LookupCustomEntityStoreAssignmentResult struct {
-	EntityStoreDatabaseLink *string `pulumi:"entityStoreDatabaseLink"`
-	Id                      string  `pulumi:"id"`
-	Name                    string  `pulumi:"name"`
-	Principal               *string `pulumi:"principal"`
-	Type                    string  `pulumi:"type"`
+	EntityStoreDatabaseLink *string            `pulumi:"entityStoreDatabaseLink"`
+	Id                      string             `pulumi:"id"`
+	Name                    string             `pulumi:"name"`
+	Principal               *string            `pulumi:"principal"`
+	SystemData              SystemDataResponse `pulumi:"systemData"`
+	Type                    string             `pulumi:"type"`
 }

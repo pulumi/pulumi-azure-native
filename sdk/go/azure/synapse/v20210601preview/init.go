@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpFirewallRule{}
 	case "azure-native:synapse/v20210601preview:Key":
 		r = &Key{}
+	case "azure-native:synapse/v20210601preview:KustoPool":
+		r = &KustoPool{}
 	case "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration":
 		r = &KustoPoolAttachedDatabaseConfiguration{}
 	case "azure-native:synapse/v20210601preview:KustoPoolDataConnection":
@@ -73,8 +75,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceManagedSqlServerVulnerabilityAssessment{}
 	case "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin":
 		r = &WorkspaceSqlAadAdmin{}
-	case "azure-native:synapse/v20210601preview:kustoPool":
-		r = &KustoPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

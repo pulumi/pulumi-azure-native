@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         /// </summary>
         public readonly string? Principal;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -73,12 +77,15 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
 
             string? principal,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             EntityStoreDatabaseLink = entityStoreDatabaseLink;
             Id = id;
             Name = name;
             Principal = principal;
+            SystemData = systemData;
             Type = type;
         }
     }

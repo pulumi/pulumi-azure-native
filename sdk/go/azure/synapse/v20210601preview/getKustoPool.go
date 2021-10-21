@@ -7,23 +7,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetkustoPool(ctx *pulumi.Context, args *GetkustoPoolArgs, opts ...pulumi.InvokeOption) (*GetkustoPoolResult, error) {
-	var rv GetkustoPoolResult
-	err := ctx.Invoke("azure-native:synapse/v20210601preview:getkustoPool", args, &rv, opts...)
+func LookupKustoPool(ctx *pulumi.Context, args *LookupKustoPoolArgs, opts ...pulumi.InvokeOption) (*LookupKustoPoolResult, error) {
+	var rv LookupKustoPoolResult
+	err := ctx.Invoke("azure-native:synapse/v20210601preview:getKustoPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type GetkustoPoolArgs struct {
+type LookupKustoPoolArgs struct {
 	KustoPoolName     string `pulumi:"kustoPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 
-type GetkustoPoolResult struct {
+type LookupKustoPoolResult struct {
 	DataIngestionUri      string                         `pulumi:"dataIngestionUri"`
 	EnablePurge           *bool                          `pulumi:"enablePurge"`
 	EnableStreamingIngest *bool                          `pulumi:"enableStreamingIngest"`
