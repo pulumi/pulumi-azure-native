@@ -242,6 +242,7 @@ var lockedTypeVersions = map[string]string{
 	"network:VirtualNetwork":                              "v20201101",
 	"network:VirtualNetworkGateway":                       "v20201101",
 	"network:VirtualNetworkGatewayConnection":             "v20201101",
+	"network:VirtualNetworkGatewayNatRule":                "v20210301",
 	"network:VirtualNetworkPeering":                       "v20201101",
 	"network:VirtualNetworkTap":                           "v20201101",
 	"network:VirtualWan":                                  "v20201101",
