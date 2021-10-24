@@ -177,6 +177,11 @@ var lockedTypeVersions = map[string]string{
 
 	"insights:Component": "v20150501",
 
+	"machinelearningservices:ACIService":             "v20210101",
+	"machinelearningservices:AKSService":             "v20210101",
+	"machinelearningservices:EndpointVariant":        "v20210101",
+	"machinelearningservices:MachineLearningService": "v20210101",
+
 	"maintenance:MaintenanceConfiguration":    "v20200401",
 	"maintenance:getMaintenanceConfiguration": "v20200401",
 
