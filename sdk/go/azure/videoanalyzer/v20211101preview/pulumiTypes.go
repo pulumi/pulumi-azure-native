@@ -8655,8 +8655,141 @@ func (o VideoFlagsResponsePtrOutput) IsInUse() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type VideoMediaInfo struct {
+	SegmentLength *string `pulumi:"segmentLength"`
+}
+
+
+
+
+
+type VideoMediaInfoInput interface {
+	pulumi.Input
+
+	ToVideoMediaInfoOutput() VideoMediaInfoOutput
+	ToVideoMediaInfoOutputWithContext(context.Context) VideoMediaInfoOutput
+}
+
+type VideoMediaInfoArgs struct {
+	SegmentLength pulumi.StringPtrInput `pulumi:"segmentLength"`
+}
+
+func (VideoMediaInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoMediaInfo)(nil)).Elem()
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoOutput() VideoMediaInfoOutput {
+	return i.ToVideoMediaInfoOutputWithContext(context.Background())
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoOutputWithContext(ctx context.Context) VideoMediaInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoOutput)
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return i.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (i VideoMediaInfoArgs) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoOutput).ToVideoMediaInfoPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type VideoMediaInfoPtrInput interface {
+	pulumi.Input
+
+	ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput
+	ToVideoMediaInfoPtrOutputWithContext(context.Context) VideoMediaInfoPtrOutput
+}
+
+type videoMediaInfoPtrType VideoMediaInfoArgs
+
+func VideoMediaInfoPtr(v *VideoMediaInfoArgs) VideoMediaInfoPtrInput {
+	return (*videoMediaInfoPtrType)(v)
+}
+
+func (*videoMediaInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoMediaInfo)(nil)).Elem()
+}
+
+func (i *videoMediaInfoPtrType) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return i.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *videoMediaInfoPtrType) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoPtrOutput)
+}
+
+type VideoMediaInfoOutput struct{ *pulumi.OutputState }
+
+func (VideoMediaInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoMediaInfo)(nil)).Elem()
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoOutput() VideoMediaInfoOutput {
+	return o
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoOutputWithContext(ctx context.Context) VideoMediaInfoOutput {
+	return o
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return o.ToVideoMediaInfoPtrOutputWithContext(context.Background())
+}
+
+func (o VideoMediaInfoOutput) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoMediaInfo) *VideoMediaInfo {
+		return &v
+	}).(VideoMediaInfoPtrOutput)
+}
+
+func (o VideoMediaInfoOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoMediaInfo) *string { return v.SegmentLength }).(pulumi.StringPtrOutput)
+}
+
+type VideoMediaInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (VideoMediaInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoMediaInfo)(nil)).Elem()
+}
+
+func (o VideoMediaInfoPtrOutput) ToVideoMediaInfoPtrOutput() VideoMediaInfoPtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoPtrOutput) ToVideoMediaInfoPtrOutputWithContext(ctx context.Context) VideoMediaInfoPtrOutput {
+	return o
+}
+
+func (o VideoMediaInfoPtrOutput) Elem() VideoMediaInfoOutput {
+	return o.ApplyT(func(v *VideoMediaInfo) VideoMediaInfo {
+		if v != nil {
+			return *v
+		}
+		var ret VideoMediaInfo
+		return ret
+	}).(VideoMediaInfoOutput)
+}
+
+func (o VideoMediaInfoPtrOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoMediaInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentLength
+	}).(pulumi.StringPtrOutput)
+}
+
 type VideoMediaInfoResponse struct {
-	SegmentLength string `pulumi:"segmentLength"`
+	SegmentLength *string `pulumi:"segmentLength"`
 }
 
 
@@ -8671,7 +8804,7 @@ type VideoMediaInfoResponseInput interface {
 }
 
 type VideoMediaInfoResponseArgs struct {
-	SegmentLength pulumi.StringInput `pulumi:"segmentLength"`
+	SegmentLength pulumi.StringPtrInput `pulumi:"segmentLength"`
 }
 
 func (VideoMediaInfoResponseArgs) ElementType() reflect.Type {
@@ -8751,8 +8884,8 @@ func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponsePtrOutputWithConte
 	}).(VideoMediaInfoResponsePtrOutput)
 }
 
-func (o VideoMediaInfoResponseOutput) SegmentLength() pulumi.StringOutput {
-	return o.ApplyT(func(v VideoMediaInfoResponse) string { return v.SegmentLength }).(pulumi.StringOutput)
+func (o VideoMediaInfoResponseOutput) SegmentLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoMediaInfoResponse) *string { return v.SegmentLength }).(pulumi.StringPtrOutput)
 }
 
 type VideoMediaInfoResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8784,7 +8917,7 @@ func (o VideoMediaInfoResponsePtrOutput) SegmentLength() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return &v.SegmentLength
+		return v.SegmentLength
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10190,6 +10323,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoEncoderH264ResponsePtrInput)(nil)).Elem(), VideoEncoderH264ResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoFlagsResponseInput)(nil)).Elem(), VideoFlagsResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoFlagsResponsePtrInput)(nil)).Elem(), VideoFlagsResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoMediaInfoInput)(nil)).Elem(), VideoMediaInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoMediaInfoPtrInput)(nil)).Elem(), VideoMediaInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoMediaInfoResponseInput)(nil)).Elem(), VideoMediaInfoResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoMediaInfoResponsePtrInput)(nil)).Elem(), VideoMediaInfoResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPreviewImageUrlsResponseInput)(nil)).Elem(), VideoPreviewImageUrlsResponseArgs{})
@@ -10334,6 +10469,8 @@ func init() {
 	pulumi.RegisterOutputType(VideoEncoderH264ResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoFlagsResponseOutput{})
 	pulumi.RegisterOutputType(VideoFlagsResponsePtrOutput{})
+	pulumi.RegisterOutputType(VideoMediaInfoOutput{})
+	pulumi.RegisterOutputType(VideoMediaInfoPtrOutput{})
 	pulumi.RegisterOutputType(VideoMediaInfoResponseOutput{})
 	pulumi.RegisterOutputType(VideoMediaInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(VideoPreviewImageUrlsResponseOutput{})

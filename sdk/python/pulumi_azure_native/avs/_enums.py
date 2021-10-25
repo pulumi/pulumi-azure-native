@@ -6,9 +6,12 @@ from enum import Enum
 
 __all__ = [
     'AddonType',
+    'AffinityType',
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
     'InternetEnum',
+    'PlacementPolicyState',
+    'PlacementPolicyType',
     'PortMirroringDirectionEnum',
     'ScriptExecutionParameterType',
     'SslEnum',
@@ -21,6 +24,14 @@ class AddonType(str, Enum):
     """
     SRM = "SRM"
     VR = "VR"
+
+
+class AffinityType(str, Enum):
+    """
+    placement policy affinity type
+    """
+    AFFINITY = "Affinity"
+    ANTI_AFFINITY = "AntiAffinity"
 
 
 class DhcpTypeEnum(str, Enum):
@@ -47,6 +58,22 @@ class InternetEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class PlacementPolicyState(str, Enum):
+    """
+    Whether the placement policy is enabled or disabled
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class PlacementPolicyType(str, Enum):
+    """
+    placement policy type
+    """
+    VM_VM = "VmVm"
+    VM_HOST = "VmHost"
 
 
 class PortMirroringDirectionEnum(str, Enum):

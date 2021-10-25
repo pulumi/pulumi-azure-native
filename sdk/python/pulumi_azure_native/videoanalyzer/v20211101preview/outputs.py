@@ -2309,16 +2309,17 @@ class VideoMediaInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 segment_length: str):
+                 segment_length: Optional[str] = None):
         """
         Contains information about the video and audio content.
         :param str segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
-        pulumi.set(__self__, "segment_length", segment_length)
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
 
     @property
     @pulumi.getter(name="segmentLength")
-    def segment_length(self) -> str:
+    def segment_length(self) -> Optional[str]:
         """
         Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """

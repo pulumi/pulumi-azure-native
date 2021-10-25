@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// Contains information about the video and audio content.
         /// </summary>
         [Output("mediaInfo")]
-        public Output<Outputs.VideoMediaInfoResponse> MediaInfo { get; private set; } = null!;
+        public Output<Outputs.VideoMediaInfoResponse?> MediaInfo { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -139,6 +139,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Contains information about the video and audio content.
+        /// </summary>
+        [Input("mediaInfo")]
+        public Input<Inputs.VideoMediaInfoArgs>? MediaInfo { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

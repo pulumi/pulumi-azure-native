@@ -95,7 +95,7 @@ class GetVideoResult:
 
     @property
     @pulumi.getter(name="mediaInfo")
-    def media_info(self) -> 'outputs.VideoMediaInfoResponse':
+    def media_info(self) -> Optional['outputs.VideoMediaInfoResponse']:
         """
         Contains information about the video and audio content.
         """

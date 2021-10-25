@@ -34249,6 +34249,106 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FilterItems struct {
+	Field  *string  `pulumi:"field"`
+	Values []string `pulumi:"values"`
+}
+
+
+
+
+
+type FilterItemsInput interface {
+	pulumi.Input
+
+	ToFilterItemsOutput() FilterItemsOutput
+	ToFilterItemsOutputWithContext(context.Context) FilterItemsOutput
+}
+
+type FilterItemsArgs struct {
+	Field  pulumi.StringPtrInput   `pulumi:"field"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (FilterItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterItems)(nil)).Elem()
+}
+
+func (i FilterItemsArgs) ToFilterItemsOutput() FilterItemsOutput {
+	return i.ToFilterItemsOutputWithContext(context.Background())
+}
+
+func (i FilterItemsArgs) ToFilterItemsOutputWithContext(ctx context.Context) FilterItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterItemsOutput)
+}
+
+
+
+
+
+type FilterItemsArrayInput interface {
+	pulumi.Input
+
+	ToFilterItemsArrayOutput() FilterItemsArrayOutput
+	ToFilterItemsArrayOutputWithContext(context.Context) FilterItemsArrayOutput
+}
+
+type FilterItemsArray []FilterItemsInput
+
+func (FilterItemsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterItems)(nil)).Elem()
+}
+
+func (i FilterItemsArray) ToFilterItemsArrayOutput() FilterItemsArrayOutput {
+	return i.ToFilterItemsArrayOutputWithContext(context.Background())
+}
+
+func (i FilterItemsArray) ToFilterItemsArrayOutputWithContext(ctx context.Context) FilterItemsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterItemsArrayOutput)
+}
+
+type FilterItemsOutput struct{ *pulumi.OutputState }
+
+func (FilterItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterItems)(nil)).Elem()
+}
+
+func (o FilterItemsOutput) ToFilterItemsOutput() FilterItemsOutput {
+	return o
+}
+
+func (o FilterItemsOutput) ToFilterItemsOutputWithContext(ctx context.Context) FilterItemsOutput {
+	return o
+}
+
+func (o FilterItemsOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilterItems) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o FilterItemsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterItems) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type FilterItemsArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterItemsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterItems)(nil)).Elem()
+}
+
+func (o FilterItemsArrayOutput) ToFilterItemsArrayOutput() FilterItemsArrayOutput {
+	return o
+}
+
+func (o FilterItemsArrayOutput) ToFilterItemsArrayOutputWithContext(ctx context.Context) FilterItemsArrayOutput {
+	return o
+}
+
+func (o FilterItemsArrayOutput) Index(i pulumi.IntInput) FilterItemsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterItems {
+		return vs[0].([]FilterItems)[vs[1].(int)]
+	}).(FilterItemsOutput)
+}
+
 type FirewallPolicyCertificateAuthority struct {
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	Name             *string `pulumi:"name"`
@@ -58068,6 +58168,154 @@ func (o Office365PolicyPropertiesResponsePtrOutput) BreakOutCategories() BreakOu
 	}).(BreakOutCategoryPoliciesResponsePtrOutput)
 }
 
+type OrderBy struct {
+	Field *string `pulumi:"field"`
+	Order *string `pulumi:"order"`
+}
+
+
+
+
+
+type OrderByInput interface {
+	pulumi.Input
+
+	ToOrderByOutput() OrderByOutput
+	ToOrderByOutputWithContext(context.Context) OrderByOutput
+}
+
+type OrderByArgs struct {
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (OrderByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderBy)(nil)).Elem()
+}
+
+func (i OrderByArgs) ToOrderByOutput() OrderByOutput {
+	return i.ToOrderByOutputWithContext(context.Background())
+}
+
+func (i OrderByArgs) ToOrderByOutputWithContext(ctx context.Context) OrderByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderByOutput)
+}
+
+func (i OrderByArgs) ToOrderByPtrOutput() OrderByPtrOutput {
+	return i.ToOrderByPtrOutputWithContext(context.Background())
+}
+
+func (i OrderByArgs) ToOrderByPtrOutputWithContext(ctx context.Context) OrderByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderByOutput).ToOrderByPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type OrderByPtrInput interface {
+	pulumi.Input
+
+	ToOrderByPtrOutput() OrderByPtrOutput
+	ToOrderByPtrOutputWithContext(context.Context) OrderByPtrOutput
+}
+
+type orderByPtrType OrderByArgs
+
+func OrderByPtr(v *OrderByArgs) OrderByPtrInput {
+	return (*orderByPtrType)(v)
+}
+
+func (*orderByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderBy)(nil)).Elem()
+}
+
+func (i *orderByPtrType) ToOrderByPtrOutput() OrderByPtrOutput {
+	return i.ToOrderByPtrOutputWithContext(context.Background())
+}
+
+func (i *orderByPtrType) ToOrderByPtrOutputWithContext(ctx context.Context) OrderByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderByPtrOutput)
+}
+
+type OrderByOutput struct{ *pulumi.OutputState }
+
+func (OrderByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderBy)(nil)).Elem()
+}
+
+func (o OrderByOutput) ToOrderByOutput() OrderByOutput {
+	return o
+}
+
+func (o OrderByOutput) ToOrderByOutputWithContext(ctx context.Context) OrderByOutput {
+	return o
+}
+
+func (o OrderByOutput) ToOrderByPtrOutput() OrderByPtrOutput {
+	return o.ToOrderByPtrOutputWithContext(context.Background())
+}
+
+func (o OrderByOutput) ToOrderByPtrOutputWithContext(ctx context.Context) OrderByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderBy) *OrderBy {
+		return &v
+	}).(OrderByPtrOutput)
+}
+
+func (o OrderByOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrderBy) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o OrderByOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrderBy) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type OrderByPtrOutput struct{ *pulumi.OutputState }
+
+func (OrderByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderBy)(nil)).Elem()
+}
+
+func (o OrderByPtrOutput) ToOrderByPtrOutput() OrderByPtrOutput {
+	return o
+}
+
+func (o OrderByPtrOutput) ToOrderByPtrOutputWithContext(ctx context.Context) OrderByPtrOutput {
+	return o
+}
+
+func (o OrderByPtrOutput) Elem() OrderByOutput {
+	return o.ApplyT(func(v *OrderBy) OrderBy {
+		if v != nil {
+			return *v
+		}
+		var ret OrderBy
+		return ret
+	}).(OrderByOutput)
+}
+
+func (o OrderByPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderBy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrderByPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderBy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
 type OutboundRule struct {
 	AllocatedOutboundPorts   *int          `pulumi:"allocatedOutboundPorts"`
 	BackendAddressPool       SubResource   `pulumi:"backendAddressPool"`
@@ -69321,6 +69569,218 @@ func (o RoutingConfigurationResponsePtrOutput) VnetRoutes() VnetRouteResponsePtr
 	}).(VnetRouteResponsePtrOutput)
 }
 
+type RoutingPolicy struct {
+	Destinations []string `pulumi:"destinations"`
+	Name         string   `pulumi:"name"`
+	NextHop      string   `pulumi:"nextHop"`
+}
+
+
+
+
+
+type RoutingPolicyInput interface {
+	pulumi.Input
+
+	ToRoutingPolicyOutput() RoutingPolicyOutput
+	ToRoutingPolicyOutputWithContext(context.Context) RoutingPolicyOutput
+}
+
+type RoutingPolicyArgs struct {
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	NextHop      pulumi.StringInput      `pulumi:"nextHop"`
+}
+
+func (RoutingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingPolicy)(nil)).Elem()
+}
+
+func (i RoutingPolicyArgs) ToRoutingPolicyOutput() RoutingPolicyOutput {
+	return i.ToRoutingPolicyOutputWithContext(context.Background())
+}
+
+func (i RoutingPolicyArgs) ToRoutingPolicyOutputWithContext(ctx context.Context) RoutingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingPolicyOutput)
+}
+
+
+
+
+
+type RoutingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToRoutingPolicyArrayOutput() RoutingPolicyArrayOutput
+	ToRoutingPolicyArrayOutputWithContext(context.Context) RoutingPolicyArrayOutput
+}
+
+type RoutingPolicyArray []RoutingPolicyInput
+
+func (RoutingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingPolicy)(nil)).Elem()
+}
+
+func (i RoutingPolicyArray) ToRoutingPolicyArrayOutput() RoutingPolicyArrayOutput {
+	return i.ToRoutingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingPolicyArray) ToRoutingPolicyArrayOutputWithContext(ctx context.Context) RoutingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingPolicyArrayOutput)
+}
+
+type RoutingPolicyOutput struct{ *pulumi.OutputState }
+
+func (RoutingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingPolicy)(nil)).Elem()
+}
+
+func (o RoutingPolicyOutput) ToRoutingPolicyOutput() RoutingPolicyOutput {
+	return o
+}
+
+func (o RoutingPolicyOutput) ToRoutingPolicyOutputWithContext(ctx context.Context) RoutingPolicyOutput {
+	return o
+}
+
+func (o RoutingPolicyOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingPolicy) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+func (o RoutingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RoutingPolicyOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingPolicy) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+type RoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingPolicy)(nil)).Elem()
+}
+
+func (o RoutingPolicyArrayOutput) ToRoutingPolicyArrayOutput() RoutingPolicyArrayOutput {
+	return o
+}
+
+func (o RoutingPolicyArrayOutput) ToRoutingPolicyArrayOutputWithContext(ctx context.Context) RoutingPolicyArrayOutput {
+	return o
+}
+
+func (o RoutingPolicyArrayOutput) Index(i pulumi.IntInput) RoutingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingPolicy {
+		return vs[0].([]RoutingPolicy)[vs[1].(int)]
+	}).(RoutingPolicyOutput)
+}
+
+type RoutingPolicyResponse struct {
+	Destinations []string `pulumi:"destinations"`
+	Name         string   `pulumi:"name"`
+	NextHop      string   `pulumi:"nextHop"`
+}
+
+
+
+
+
+type RoutingPolicyResponseInput interface {
+	pulumi.Input
+
+	ToRoutingPolicyResponseOutput() RoutingPolicyResponseOutput
+	ToRoutingPolicyResponseOutputWithContext(context.Context) RoutingPolicyResponseOutput
+}
+
+type RoutingPolicyResponseArgs struct {
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	NextHop      pulumi.StringInput      `pulumi:"nextHop"`
+}
+
+func (RoutingPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingPolicyResponse)(nil)).Elem()
+}
+
+func (i RoutingPolicyResponseArgs) ToRoutingPolicyResponseOutput() RoutingPolicyResponseOutput {
+	return i.ToRoutingPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i RoutingPolicyResponseArgs) ToRoutingPolicyResponseOutputWithContext(ctx context.Context) RoutingPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingPolicyResponseOutput)
+}
+
+
+
+
+
+type RoutingPolicyResponseArrayInput interface {
+	pulumi.Input
+
+	ToRoutingPolicyResponseArrayOutput() RoutingPolicyResponseArrayOutput
+	ToRoutingPolicyResponseArrayOutputWithContext(context.Context) RoutingPolicyResponseArrayOutput
+}
+
+type RoutingPolicyResponseArray []RoutingPolicyResponseInput
+
+func (RoutingPolicyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingPolicyResponse)(nil)).Elem()
+}
+
+func (i RoutingPolicyResponseArray) ToRoutingPolicyResponseArrayOutput() RoutingPolicyResponseArrayOutput {
+	return i.ToRoutingPolicyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingPolicyResponseArray) ToRoutingPolicyResponseArrayOutputWithContext(ctx context.Context) RoutingPolicyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingPolicyResponseArrayOutput)
+}
+
+type RoutingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (RoutingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingPolicyResponse)(nil)).Elem()
+}
+
+func (o RoutingPolicyResponseOutput) ToRoutingPolicyResponseOutput() RoutingPolicyResponseOutput {
+	return o
+}
+
+func (o RoutingPolicyResponseOutput) ToRoutingPolicyResponseOutputWithContext(ctx context.Context) RoutingPolicyResponseOutput {
+	return o
+}
+
+func (o RoutingPolicyResponseOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingPolicyResponse) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+func (o RoutingPolicyResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RoutingPolicyResponseOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingPolicyResponse) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+type RoutingPolicyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingPolicyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingPolicyResponse)(nil)).Elem()
+}
+
+func (o RoutingPolicyResponseArrayOutput) ToRoutingPolicyResponseArrayOutput() RoutingPolicyResponseArrayOutput {
+	return o
+}
+
+func (o RoutingPolicyResponseArrayOutput) ToRoutingPolicyResponseArrayOutputWithContext(ctx context.Context) RoutingPolicyResponseArrayOutput {
+	return o
+}
+
+func (o RoutingPolicyResponseArrayOutput) Index(i pulumi.IntInput) RoutingPolicyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingPolicyResponse {
+		return vs[0].([]RoutingPolicyResponse)[vs[1].(int)]
+	}).(RoutingPolicyResponseOutput)
+}
+
 type RoutingRule struct {
 	AcceptedProtocols                []string                                                     `pulumi:"acceptedProtocols"`
 	EnabledState                     *string                                                      `pulumi:"enabledState"`
@@ -72071,6 +72531,160 @@ func (o ServiceEndpointPropertiesFormatResponseArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointPropertiesFormatResponse {
 		return vs[0].([]ServiceEndpointPropertiesFormatResponse)[vs[1].(int)]
 	}).(ServiceEndpointPropertiesFormatResponseOutput)
+}
+
+type SingleQueryResultResponse struct {
+	Description               *string  `pulumi:"description"`
+	DestinationPorts          []string `pulumi:"destinationPorts"`
+	Direction                 *int     `pulumi:"direction"`
+	Group                     *string  `pulumi:"group"`
+	InheritedFromParentPolicy *bool    `pulumi:"inheritedFromParentPolicy"`
+	LastUpdated               *string  `pulumi:"lastUpdated"`
+	Mode                      *int     `pulumi:"mode"`
+	Protocol                  *string  `pulumi:"protocol"`
+	Severity                  *int     `pulumi:"severity"`
+	SignatureId               *int     `pulumi:"signatureId"`
+	SourcePorts               []string `pulumi:"sourcePorts"`
+}
+
+
+
+
+
+type SingleQueryResultResponseInput interface {
+	pulumi.Input
+
+	ToSingleQueryResultResponseOutput() SingleQueryResultResponseOutput
+	ToSingleQueryResultResponseOutputWithContext(context.Context) SingleQueryResultResponseOutput
+}
+
+type SingleQueryResultResponseArgs struct {
+	Description               pulumi.StringPtrInput   `pulumi:"description"`
+	DestinationPorts          pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	Direction                 pulumi.IntPtrInput      `pulumi:"direction"`
+	Group                     pulumi.StringPtrInput   `pulumi:"group"`
+	InheritedFromParentPolicy pulumi.BoolPtrInput     `pulumi:"inheritedFromParentPolicy"`
+	LastUpdated               pulumi.StringPtrInput   `pulumi:"lastUpdated"`
+	Mode                      pulumi.IntPtrInput      `pulumi:"mode"`
+	Protocol                  pulumi.StringPtrInput   `pulumi:"protocol"`
+	Severity                  pulumi.IntPtrInput      `pulumi:"severity"`
+	SignatureId               pulumi.IntPtrInput      `pulumi:"signatureId"`
+	SourcePorts               pulumi.StringArrayInput `pulumi:"sourcePorts"`
+}
+
+func (SingleQueryResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingleQueryResultResponse)(nil)).Elem()
+}
+
+func (i SingleQueryResultResponseArgs) ToSingleQueryResultResponseOutput() SingleQueryResultResponseOutput {
+	return i.ToSingleQueryResultResponseOutputWithContext(context.Background())
+}
+
+func (i SingleQueryResultResponseArgs) ToSingleQueryResultResponseOutputWithContext(ctx context.Context) SingleQueryResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SingleQueryResultResponseOutput)
+}
+
+
+
+
+
+type SingleQueryResultResponseArrayInput interface {
+	pulumi.Input
+
+	ToSingleQueryResultResponseArrayOutput() SingleQueryResultResponseArrayOutput
+	ToSingleQueryResultResponseArrayOutputWithContext(context.Context) SingleQueryResultResponseArrayOutput
+}
+
+type SingleQueryResultResponseArray []SingleQueryResultResponseInput
+
+func (SingleQueryResultResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SingleQueryResultResponse)(nil)).Elem()
+}
+
+func (i SingleQueryResultResponseArray) ToSingleQueryResultResponseArrayOutput() SingleQueryResultResponseArrayOutput {
+	return i.ToSingleQueryResultResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SingleQueryResultResponseArray) ToSingleQueryResultResponseArrayOutputWithContext(ctx context.Context) SingleQueryResultResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SingleQueryResultResponseArrayOutput)
+}
+
+type SingleQueryResultResponseOutput struct{ *pulumi.OutputState }
+
+func (SingleQueryResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingleQueryResultResponse)(nil)).Elem()
+}
+
+func (o SingleQueryResultResponseOutput) ToSingleQueryResultResponseOutput() SingleQueryResultResponseOutput {
+	return o
+}
+
+func (o SingleQueryResultResponseOutput) ToSingleQueryResultResponseOutputWithContext(ctx context.Context) SingleQueryResultResponseOutput {
+	return o
+}
+
+func (o SingleQueryResultResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+func (o SingleQueryResultResponseOutput) Direction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *int { return v.Direction }).(pulumi.IntPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) InheritedFromParentPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *bool { return v.InheritedFromParentPolicy }).(pulumi.BoolPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) Mode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *int { return v.Mode }).(pulumi.IntPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) Severity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *int { return v.Severity }).(pulumi.IntPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) SignatureId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) *int { return v.SignatureId }).(pulumi.IntPtrOutput)
+}
+
+func (o SingleQueryResultResponseOutput) SourcePorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SingleQueryResultResponse) []string { return v.SourcePorts }).(pulumi.StringArrayOutput)
+}
+
+type SingleQueryResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SingleQueryResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SingleQueryResultResponse)(nil)).Elem()
+}
+
+func (o SingleQueryResultResponseArrayOutput) ToSingleQueryResultResponseArrayOutput() SingleQueryResultResponseArrayOutput {
+	return o
+}
+
+func (o SingleQueryResultResponseArrayOutput) ToSingleQueryResultResponseArrayOutputWithContext(ctx context.Context) SingleQueryResultResponseArrayOutput {
+	return o
+}
+
+func (o SingleQueryResultResponseArrayOutput) Index(i pulumi.IntInput) SingleQueryResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SingleQueryResultResponse {
+		return vs[0].([]SingleQueryResultResponse)[vs[1].(int)]
+	}).(SingleQueryResultResponseOutput)
 }
 
 type Sku struct {
@@ -85672,6 +86286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtendedLocationPtrInput)(nil)).Elem(), ExtendedLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtendedLocationResponseInput)(nil)).Elem(), ExtendedLocationResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtendedLocationResponsePtrInput)(nil)).Elem(), ExtendedLocationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterItemsInput)(nil)).Elem(), FilterItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterItemsArrayInput)(nil)).Elem(), FilterItemsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCertificateAuthorityInput)(nil)).Elem(), FirewallPolicyCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCertificateAuthorityPtrInput)(nil)).Elem(), FirewallPolicyCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCertificateAuthorityResponseInput)(nil)).Elem(), FirewallPolicyCertificateAuthorityResponseArgs{})
@@ -86003,6 +86619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Office365PolicyPropertiesPtrInput)(nil)).Elem(), Office365PolicyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Office365PolicyPropertiesResponseInput)(nil)).Elem(), Office365PolicyPropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Office365PolicyPropertiesResponsePtrInput)(nil)).Elem(), Office365PolicyPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderByInput)(nil)).Elem(), OrderByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderByPtrInput)(nil)).Elem(), OrderByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleInput)(nil)).Elem(), OutboundRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleArrayInput)(nil)).Elem(), OutboundRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleResponseInput)(nil)).Elem(), OutboundRuleResponseArgs{})
@@ -86152,6 +86770,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingConfigurationPtrInput)(nil)).Elem(), RoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingConfigurationResponseInput)(nil)).Elem(), RoutingConfigurationResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingConfigurationResponsePtrInput)(nil)).Elem(), RoutingConfigurationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingPolicyInput)(nil)).Elem(), RoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingPolicyArrayInput)(nil)).Elem(), RoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingPolicyResponseInput)(nil)).Elem(), RoutingPolicyResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingPolicyResponseArrayInput)(nil)).Elem(), RoutingPolicyResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleInput)(nil)).Elem(), RoutingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleArrayInput)(nil)).Elem(), RoutingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleLinkResponseInput)(nil)).Elem(), RoutingRuleLinkResponseArgs{})
@@ -86194,6 +86816,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPropertiesFormatArrayInput)(nil)).Elem(), ServiceEndpointPropertiesFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPropertiesFormatResponseInput)(nil)).Elem(), ServiceEndpointPropertiesFormatResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPropertiesFormatResponseArrayInput)(nil)).Elem(), ServiceEndpointPropertiesFormatResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleQueryResultResponseInput)(nil)).Elem(), SingleQueryResultResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleQueryResultResponseArrayInput)(nil)).Elem(), SingleQueryResultResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
@@ -86842,6 +87466,8 @@ func init() {
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FilterItemsOutput{})
+	pulumi.RegisterOutputType(FilterItemsArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCertificateAuthorityResponseOutput{})
@@ -87173,6 +87799,8 @@ func init() {
 	pulumi.RegisterOutputType(Office365PolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(Office365PolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(Office365PolicyPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(OrderByOutput{})
+	pulumi.RegisterOutputType(OrderByPtrOutput{})
 	pulumi.RegisterOutputType(OutboundRuleOutput{})
 	pulumi.RegisterOutputType(OutboundRuleArrayOutput{})
 	pulumi.RegisterOutputType(OutboundRuleResponseOutput{})
@@ -87322,6 +87950,10 @@ func init() {
 	pulumi.RegisterOutputType(RoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RoutingConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(RoutingConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(RoutingPolicyOutput{})
+	pulumi.RegisterOutputType(RoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RoutingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(RoutingPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(RoutingRuleOutput{})
 	pulumi.RegisterOutputType(RoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(RoutingRuleLinkResponseOutput{})
@@ -87364,6 +87996,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPropertiesFormatResponseArrayOutput{})
+	pulumi.RegisterOutputType(SingleQueryResultResponseOutput{})
+	pulumi.RegisterOutputType(SingleQueryResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

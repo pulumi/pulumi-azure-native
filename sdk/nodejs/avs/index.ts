@@ -17,6 +17,7 @@ export * from "./getCluster";
 export * from "./getDatastore";
 export * from "./getGlobalReachConnection";
 export * from "./getHcxEnterpriseSite";
+export * from "./getPlacementPolicy";
 export * from "./getPrivateCloud";
 export * from "./getScriptExecution";
 export * from "./getScriptExecutionLogs";
@@ -30,6 +31,7 @@ export * from "./getWorkloadNetworkVMGroup";
 export * from "./globalReachConnection";
 export * from "./hcxEnterpriseSite";
 export * from "./listPrivateCloudAdminCredentials";
+export * from "./placementPolicy";
 export * from "./privateCloud";
 export * from "./scriptExecution";
 export * from "./workloadNetworkDhcp";
@@ -48,12 +50,14 @@ import * as v20200320 from "./v20200320";
 import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601 from "./v20210601";
+import * as v20211201 from "./v20211201";
 
 export {
     v20200320,
     v20200717preview,
     v20210101preview,
     v20210601,
+    v20211201,
 };
 
 // Import resources to register:
@@ -64,6 +68,7 @@ import { Cluster } from "./cluster";
 import { Datastore } from "./datastore";
 import { GlobalReachConnection } from "./globalReachConnection";
 import { HcxEnterpriseSite } from "./hcxEnterpriseSite";
+import { PlacementPolicy } from "./placementPolicy";
 import { PrivateCloud } from "./privateCloud";
 import { ScriptExecution } from "./scriptExecution";
 import { WorkloadNetworkDhcp } from "./workloadNetworkDhcp";
@@ -92,6 +97,8 @@ const _module = {
                 return new GlobalReachConnection(name, <any>undefined, { urn })
             case "azure-native:avs:HcxEnterpriseSite":
                 return new HcxEnterpriseSite(name, <any>undefined, { urn })
+            case "azure-native:avs:PlacementPolicy":
+                return new PlacementPolicy(name, <any>undefined, { urn })
             case "azure-native:avs:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
             case "azure-native:avs:ScriptExecution":

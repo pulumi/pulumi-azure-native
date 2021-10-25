@@ -14,15 +14,15 @@ import (
 type Video struct {
 	pulumi.CustomResourceState
 
-	Archival    VideoArchivalResponsePtrOutput `pulumi:"archival"`
-	ContentUrls VideoContentUrlsResponseOutput `pulumi:"contentUrls"`
-	Description pulumi.StringPtrOutput         `pulumi:"description"`
-	Flags       VideoFlagsResponseOutput       `pulumi:"flags"`
-	MediaInfo   VideoMediaInfoResponseOutput   `pulumi:"mediaInfo"`
-	Name        pulumi.StringOutput            `pulumi:"name"`
-	SystemData  SystemDataResponseOutput       `pulumi:"systemData"`
-	Title       pulumi.StringPtrOutput         `pulumi:"title"`
-	Type        pulumi.StringOutput            `pulumi:"type"`
+	Archival    VideoArchivalResponsePtrOutput  `pulumi:"archival"`
+	ContentUrls VideoContentUrlsResponseOutput  `pulumi:"contentUrls"`
+	Description pulumi.StringPtrOutput          `pulumi:"description"`
+	Flags       VideoFlagsResponseOutput        `pulumi:"flags"`
+	MediaInfo   VideoMediaInfoResponsePtrOutput `pulumi:"mediaInfo"`
+	Name        pulumi.StringOutput             `pulumi:"name"`
+	SystemData  SystemDataResponseOutput        `pulumi:"systemData"`
+	Title       pulumi.StringPtrOutput          `pulumi:"title"`
+	Type        pulumi.StringOutput             `pulumi:"type"`
 }
 
 
@@ -88,12 +88,13 @@ func (VideoState) ElementType() reflect.Type {
 }
 
 type videoArgs struct {
-	AccountName       string         `pulumi:"accountName"`
-	Archival          *VideoArchival `pulumi:"archival"`
-	Description       *string        `pulumi:"description"`
-	ResourceGroupName string         `pulumi:"resourceGroupName"`
-	Title             *string        `pulumi:"title"`
-	VideoName         *string        `pulumi:"videoName"`
+	AccountName       string          `pulumi:"accountName"`
+	Archival          *VideoArchival  `pulumi:"archival"`
+	Description       *string         `pulumi:"description"`
+	MediaInfo         *VideoMediaInfo `pulumi:"mediaInfo"`
+	ResourceGroupName string          `pulumi:"resourceGroupName"`
+	Title             *string         `pulumi:"title"`
+	VideoName         *string         `pulumi:"videoName"`
 }
 
 
@@ -101,6 +102,7 @@ type VideoArgs struct {
 	AccountName       pulumi.StringInput
 	Archival          VideoArchivalPtrInput
 	Description       pulumi.StringPtrInput
+	MediaInfo         VideoMediaInfoPtrInput
 	ResourceGroupName pulumi.StringInput
 	Title             pulumi.StringPtrInput
 	VideoName         pulumi.StringPtrInput

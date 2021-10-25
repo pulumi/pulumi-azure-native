@@ -18,6 +18,7 @@ from .get_cluster import *
 from .get_datastore import *
 from .get_global_reach_connection import *
 from .get_hcx_enterprise_site import *
+from .get_placement_policy import *
 from .get_private_cloud import *
 from .get_script_execution import *
 from .get_script_execution_logs import *
@@ -31,6 +32,7 @@ from .get_workload_network_vm_group import *
 from .global_reach_connection import *
 from .hcx_enterprise_site import *
 from .list_private_cloud_admin_credentials import *
+from .placement_policy import *
 from .private_cloud import *
 from .script_execution import *
 from .workload_network_dhcp import *
@@ -53,9 +55,12 @@ if typing.TYPE_CHECKING:
     v20210101preview = __v20210101preview
     import pulumi_azure_native.avs.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.avs.v20211201 as __v20211201
+    v20211201 = __v20211201
 else:
     v20200320 = _utilities.lazy_import('pulumi_azure_native.avs.v20200320')
     v20200717preview = _utilities.lazy_import('pulumi_azure_native.avs.v20200717preview')
     v20210101preview = _utilities.lazy_import('pulumi_azure_native.avs.v20210101preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.avs.v20210601')
+    v20211201 = _utilities.lazy_import('pulumi_azure_native.avs.v20211201')
 

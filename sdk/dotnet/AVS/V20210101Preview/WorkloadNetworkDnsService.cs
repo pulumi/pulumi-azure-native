@@ -107,6 +107,8 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:WorkloadNetworkDnsService"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:WorkloadNetworkDnsService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

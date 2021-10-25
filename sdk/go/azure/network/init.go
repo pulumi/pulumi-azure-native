@@ -157,6 +157,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteFilterRule{}
 	case "azure-native:network:RouteTable":
 		r = &RouteTable{}
+	case "azure-native:network:RoutingIntent":
+		r = &RoutingIntent{}
 	case "azure-native:network:RulesEngine":
 		r = &RulesEngine{}
 	case "azure-native:network:SecurityAdminConfiguration":

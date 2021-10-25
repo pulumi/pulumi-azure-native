@@ -41,6 +41,7 @@ __all__ = [
     'VideoArchivalArgs',
     'VideoCreationPropertiesArgs',
     'VideoEncoderH264Args',
+    'VideoMediaInfoArgs',
     'VideoPublishingOptionsArgs',
     'VideoScaleArgs',
     'VideoSequenceAbsoluteTimeMarkersArgs',
@@ -1663,6 +1664,30 @@ class VideoEncoderH264Args:
     @scale.setter
     def scale(self, value: Optional[pulumi.Input['VideoScaleArgs']]):
         pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
+class VideoMediaInfoArgs:
+    def __init__(__self__, *,
+                 segment_length: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about the video and audio content.
+        :param pulumi.Input[str] segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+        """
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
+
+    @property
+    @pulumi.getter(name="segmentLength")
+    def segment_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+        """
+        return pulumi.get(self, "segment_length")
+
+    @segment_length.setter
+    def segment_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_length", value)
 
 
 @pulumi.input_type

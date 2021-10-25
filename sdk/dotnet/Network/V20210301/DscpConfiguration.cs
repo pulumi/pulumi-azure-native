@@ -149,6 +149,8 @@ namespace Pulumi.AzureNative.Network.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

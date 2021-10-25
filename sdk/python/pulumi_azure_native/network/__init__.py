@@ -110,6 +110,7 @@ from .get_route import *
 from .get_route_filter import *
 from .get_route_filter_rule import *
 from .get_route_table import *
+from .get_routing_intent import *
 from .get_rules_engine import *
 from .get_security_admin_configuration import *
 from .get_security_partner_provider import *
@@ -158,6 +159,8 @@ from .list_active_security_user_rule import *
 from .list_effective_connectivity_configuration import *
 from .list_effective_virtual_network_by_network_group import *
 from .list_effective_virtual_network_by_network_manager import *
+from .list_firewall_policy_idps_signature import *
+from .list_firewall_policy_idps_signatures_filter_value import *
 from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_security_admin_rule import *
 from .load_balancer import *
@@ -193,6 +196,7 @@ from .route import *
 from .route_filter import *
 from .route_filter_rule import *
 from .route_table import *
+from .routing_intent import *
 from .rules_engine import *
 from .security_admin_configuration import *
 from .security_partner_provider import *
@@ -336,6 +340,8 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.network.v20210301preview as __v20210301preview
     v20210301preview = __v20210301preview
+    import pulumi_azure_native.network.v20210501 as __v20210501
+    v20210501 = __v20210501
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
     v20150504preview = _utilities.lazy_import('pulumi_azure_native.network.v20150504preview')
@@ -390,4 +396,5 @@ else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.network.v20210201preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.network.v20210301')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.network.v20210301preview')
+    v20210501 = _utilities.lazy_import('pulumi_azure_native.network.v20210501')
 

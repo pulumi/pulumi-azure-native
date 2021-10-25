@@ -109,6 +109,7 @@ export * from "./getRoute";
 export * from "./getRouteFilter";
 export * from "./getRouteFilterRule";
 export * from "./getRouteTable";
+export * from "./getRoutingIntent";
 export * from "./getRulesEngine";
 export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityPartnerProvider";
@@ -157,6 +158,8 @@ export * from "./listActiveSecurityUserRule";
 export * from "./listEffectiveConnectivityConfiguration";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
+export * from "./listFirewallPolicyIdpsSignature";
+export * from "./listFirewallPolicyIdpsSignaturesFilterValue";
 export * from "./listNetworkManagerDeploymentStatus";
 export * from "./listNetworkManagerEffectiveSecurityAdminRule";
 export * from "./loadBalancer";
@@ -192,6 +195,7 @@ export * from "./route";
 export * from "./routeFilter";
 export * from "./routeFilterRule";
 export * from "./routeTable";
+export * from "./routingIntent";
 export * from "./rulesEngine";
 export * from "./securityAdminConfiguration";
 export * from "./securityPartnerProvider";
@@ -282,6 +286,7 @@ import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
 import * as v20210301preview from "./v20210301preview";
+import * as v20210501 from "./v20210501";
 
 export {
     v20150501preview,
@@ -337,6 +342,7 @@ export {
     v20210201preview,
     v20210301,
     v20210301preview,
+    v20210501,
 };
 
 // Import resources to register:
@@ -408,6 +414,7 @@ import { Route } from "./route";
 import { RouteFilter } from "./routeFilter";
 import { RouteFilterRule } from "./routeFilterRule";
 import { RouteTable } from "./routeTable";
+import { RoutingIntent } from "./routingIntent";
 import { RulesEngine } from "./rulesEngine";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
@@ -581,6 +588,8 @@ const _module = {
                 return new RouteFilterRule(name, <any>undefined, { urn })
             case "azure-native:network:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
+            case "azure-native:network:RoutingIntent":
+                return new RoutingIntent(name, <any>undefined, { urn })
             case "azure-native:network:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
             case "azure-native:network:SecurityAdminConfiguration":

@@ -276,6 +276,7 @@ __all__ = [
     'RouteResponse',
     'RouteTableResponse',
     'RoutingConfigurationResponse',
+    'RoutingPolicyResponse',
     'RoutingRuleLinkResponse',
     'RoutingRuleResponse',
     'RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink',
@@ -289,6 +290,7 @@ __all__ = [
     'ServiceEndpointPolicyDefinitionResponse',
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
+    'SingleQueryResultResponse',
     'SkuResponse',
     'SoaRecordResponse',
     'SrvRecordResponse',
@@ -25651,6 +25653,67 @@ class RoutingConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class RoutingPolicyResponse(dict):
+    """
+    The routing policy object used in a RoutingIntent resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextHop":
+            suggest = "next_hop"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destinations: Sequence[str],
+                 name: str,
+                 next_hop: str):
+        """
+        The routing policy object used in a RoutingIntent resource.
+        :param Sequence[str] destinations: List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
+        :param str name: The unique name for the routing policy.
+        :param str next_hop: The next hop resource id on which this routing policy is applicable to.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop", next_hop)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence[str]:
+        """
+        List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The unique name for the routing policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> str:
+        """
+        The next hop resource id on which this routing policy is applicable to.
+        """
+        return pulumi.get(self, "next_hop")
+
+
+@pulumi.output_type
 class RoutingRuleLinkResponse(dict):
     """
     Defines the Resource ID for a Routing Rule.
@@ -26983,6 +27046,145 @@ class ServiceEndpointPropertiesFormatResponse(dict):
         The type of the endpoint service.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class SingleQueryResultResponse(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 direction: Optional[int] = None,
+                 group: Optional[str] = None,
+                 inherited_from_parent_policy: Optional[bool] = None,
+                 last_updated: Optional[str] = None,
+                 mode: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 severity: Optional[int] = None,
+                 signature_id: Optional[int] = None,
+                 source_ports: Optional[Sequence[str]] = None):
+        """
+        :param str description: Describes what is the signature enforces
+        :param Sequence[str] destination_ports: Describes the list of destination ports related to this signature
+        :param int direction: Describes in which direction signature is being enforced: 0 - Inbound, 1 - OutBound, 2 - Bidirectional
+        :param str group: Describes the groups the signature belongs to
+        :param bool inherited_from_parent_policy: Describes if this override is inherited from base policy or not
+        :param str last_updated: Describes the last updated time of the signature (provided from 3rd party vendor)
+        :param int mode: The current mode enforced, 0 - Disabled, 1 - Alert, 2 -Deny
+        :param str protocol: Describes the protocol the signatures is being enforced in
+        :param int severity: Describes the severity of signature: 1 - Low, 2 - Medium, 3 - High
+        :param int signature_id: The ID of the signature
+        :param Sequence[str] source_ports: Describes the list of source ports related to this signature
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if inherited_from_parent_policy is not None:
+            pulumi.set(__self__, "inherited_from_parent_policy", inherited_from_parent_policy)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if signature_id is not None:
+            pulumi.set(__self__, "signature_id", signature_id)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Describes what is the signature enforces
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        """
+        Describes the list of destination ports related to this signature
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[int]:
+        """
+        Describes in which direction signature is being enforced: 0 - Inbound, 1 - OutBound, 2 - Bidirectional
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[str]:
+        """
+        Describes the groups the signature belongs to
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="inheritedFromParentPolicy")
+    def inherited_from_parent_policy(self) -> Optional[bool]:
+        """
+        Describes if this override is inherited from base policy or not
+        """
+        return pulumi.get(self, "inherited_from_parent_policy")
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[str]:
+        """
+        Describes the last updated time of the signature (provided from 3rd party vendor)
+        """
+        return pulumi.get(self, "last_updated")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[int]:
+        """
+        The current mode enforced, 0 - Disabled, 1 - Alert, 2 -Deny
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Describes the protocol the signatures is being enforced in
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[int]:
+        """
+        Describes the severity of signature: 1 - Low, 2 - Medium, 3 - High
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="signatureId")
+    def signature_id(self) -> Optional[int]:
+        """
+        The ID of the signature
+        """
+        return pulumi.get(self, "signature_id")
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[str]]:
+        """
+        Describes the list of source ports related to this signature
+        """
+        return pulumi.get(self, "source_ports")
 
 
 @pulumi.output_type

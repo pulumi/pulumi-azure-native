@@ -29,7 +29,7 @@ type LookupVideoResult struct {
 	Description *string                  `pulumi:"description"`
 	Flags       VideoFlagsResponse       `pulumi:"flags"`
 	Id          string                   `pulumi:"id"`
-	MediaInfo   VideoMediaInfoResponse   `pulumi:"mediaInfo"`
+	MediaInfo   *VideoMediaInfoResponse  `pulumi:"mediaInfo"`
 	Name        string                   `pulumi:"name"`
 	SystemData  SystemDataResponse       `pulumi:"systemData"`
 	Title       *string                  `pulumi:"title"`

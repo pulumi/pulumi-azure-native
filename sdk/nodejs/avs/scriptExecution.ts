@@ -167,7 +167,7 @@ export class ScriptExecution extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:ScriptExecution" }, { type: "azure-native:avs/v20210601:ScriptExecution" }, { type: "azure-nextgen:avs/v20210601:ScriptExecution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:ScriptExecution" }, { type: "azure-native:avs/v20210601:ScriptExecution" }, { type: "azure-nextgen:avs/v20210601:ScriptExecution" }, { type: "azure-native:avs/v20211201:ScriptExecution" }, { type: "azure-nextgen:avs/v20211201:ScriptExecution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScriptExecution.__pulumiType, name, inputs, opts);
     }

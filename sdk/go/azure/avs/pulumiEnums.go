@@ -174,6 +174,170 @@ func (in *addonTypePtr) ToAddonTypePtrOutputWithContext(ctx context.Context) Add
 	return pulumi.ToOutputWithContext(ctx, in).(AddonTypePtrOutput)
 }
 
+type AffinityType string
+
+const (
+	AffinityTypeAffinity     = AffinityType("Affinity")
+	AffinityTypeAntiAffinity = AffinityType("AntiAffinity")
+)
+
+func (AffinityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AffinityType)(nil)).Elem()
+}
+
+func (e AffinityType) ToAffinityTypeOutput() AffinityTypeOutput {
+	return pulumi.ToOutput(e).(AffinityTypeOutput)
+}
+
+func (e AffinityType) ToAffinityTypeOutputWithContext(ctx context.Context) AffinityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AffinityTypeOutput)
+}
+
+func (e AffinityType) ToAffinityTypePtrOutput() AffinityTypePtrOutput {
+	return e.ToAffinityTypePtrOutputWithContext(context.Background())
+}
+
+func (e AffinityType) ToAffinityTypePtrOutputWithContext(ctx context.Context) AffinityTypePtrOutput {
+	return AffinityType(e).ToAffinityTypeOutputWithContext(ctx).ToAffinityTypePtrOutputWithContext(ctx)
+}
+
+func (e AffinityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AffinityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AffinityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AffinityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AffinityTypeOutput struct{ *pulumi.OutputState }
+
+func (AffinityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AffinityType)(nil)).Elem()
+}
+
+func (o AffinityTypeOutput) ToAffinityTypeOutput() AffinityTypeOutput {
+	return o
+}
+
+func (o AffinityTypeOutput) ToAffinityTypeOutputWithContext(ctx context.Context) AffinityTypeOutput {
+	return o
+}
+
+func (o AffinityTypeOutput) ToAffinityTypePtrOutput() AffinityTypePtrOutput {
+	return o.ToAffinityTypePtrOutputWithContext(context.Background())
+}
+
+func (o AffinityTypeOutput) ToAffinityTypePtrOutputWithContext(ctx context.Context) AffinityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AffinityType) *AffinityType {
+		return &v
+	}).(AffinityTypePtrOutput)
+}
+
+func (o AffinityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AffinityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AffinityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AffinityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AffinityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AffinityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AffinityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AffinityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AffinityType)(nil)).Elem()
+}
+
+func (o AffinityTypePtrOutput) ToAffinityTypePtrOutput() AffinityTypePtrOutput {
+	return o
+}
+
+func (o AffinityTypePtrOutput) ToAffinityTypePtrOutputWithContext(ctx context.Context) AffinityTypePtrOutput {
+	return o
+}
+
+func (o AffinityTypePtrOutput) Elem() AffinityTypeOutput {
+	return o.ApplyT(func(v *AffinityType) AffinityType {
+		if v != nil {
+			return *v
+		}
+		var ret AffinityType
+		return ret
+	}).(AffinityTypeOutput)
+}
+
+func (o AffinityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AffinityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AffinityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type AffinityTypeInput interface {
+	pulumi.Input
+
+	ToAffinityTypeOutput() AffinityTypeOutput
+	ToAffinityTypeOutputWithContext(context.Context) AffinityTypeOutput
+}
+
+var affinityTypePtrType = reflect.TypeOf((**AffinityType)(nil)).Elem()
+
+type AffinityTypePtrInput interface {
+	pulumi.Input
+
+	ToAffinityTypePtrOutput() AffinityTypePtrOutput
+	ToAffinityTypePtrOutputWithContext(context.Context) AffinityTypePtrOutput
+}
+
+type affinityTypePtr string
+
+func AffinityTypePtr(v string) AffinityTypePtrInput {
+	return (*affinityTypePtr)(&v)
+}
+
+func (*affinityTypePtr) ElementType() reflect.Type {
+	return affinityTypePtrType
+}
+
+func (in *affinityTypePtr) ToAffinityTypePtrOutput() AffinityTypePtrOutput {
+	return pulumi.ToOutput(in).(AffinityTypePtrOutput)
+}
+
+func (in *affinityTypePtr) ToAffinityTypePtrOutputWithContext(ctx context.Context) AffinityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AffinityTypePtrOutput)
+}
+
 type DhcpTypeEnum string
 
 const (
@@ -666,6 +830,334 @@ func (in *internetEnumPtr) ToInternetEnumPtrOutput() InternetEnumPtrOutput {
 
 func (in *internetEnumPtr) ToInternetEnumPtrOutputWithContext(ctx context.Context) InternetEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InternetEnumPtrOutput)
+}
+
+type PlacementPolicyStateEnum string
+
+const (
+	PlacementPolicyStateEnumEnabled  = PlacementPolicyStateEnum("Enabled")
+	PlacementPolicyStateEnumDisabled = PlacementPolicyStateEnum("Disabled")
+)
+
+func (PlacementPolicyStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementPolicyStateEnum)(nil)).Elem()
+}
+
+func (e PlacementPolicyStateEnum) ToPlacementPolicyStateEnumOutput() PlacementPolicyStateEnumOutput {
+	return pulumi.ToOutput(e).(PlacementPolicyStateEnumOutput)
+}
+
+func (e PlacementPolicyStateEnum) ToPlacementPolicyStateEnumOutputWithContext(ctx context.Context) PlacementPolicyStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlacementPolicyStateEnumOutput)
+}
+
+func (e PlacementPolicyStateEnum) ToPlacementPolicyStateEnumPtrOutput() PlacementPolicyStateEnumPtrOutput {
+	return e.ToPlacementPolicyStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e PlacementPolicyStateEnum) ToPlacementPolicyStateEnumPtrOutputWithContext(ctx context.Context) PlacementPolicyStateEnumPtrOutput {
+	return PlacementPolicyStateEnum(e).ToPlacementPolicyStateEnumOutputWithContext(ctx).ToPlacementPolicyStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e PlacementPolicyStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlacementPolicyStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlacementPolicyStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlacementPolicyStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlacementPolicyStateEnumOutput struct{ *pulumi.OutputState }
+
+func (PlacementPolicyStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementPolicyStateEnum)(nil)).Elem()
+}
+
+func (o PlacementPolicyStateEnumOutput) ToPlacementPolicyStateEnumOutput() PlacementPolicyStateEnumOutput {
+	return o
+}
+
+func (o PlacementPolicyStateEnumOutput) ToPlacementPolicyStateEnumOutputWithContext(ctx context.Context) PlacementPolicyStateEnumOutput {
+	return o
+}
+
+func (o PlacementPolicyStateEnumOutput) ToPlacementPolicyStateEnumPtrOutput() PlacementPolicyStateEnumPtrOutput {
+	return o.ToPlacementPolicyStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyStateEnumOutput) ToPlacementPolicyStateEnumPtrOutputWithContext(ctx context.Context) PlacementPolicyStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementPolicyStateEnum) *PlacementPolicyStateEnum {
+		return &v
+	}).(PlacementPolicyStateEnumPtrOutput)
+}
+
+func (o PlacementPolicyStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementPolicyStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlacementPolicyStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementPolicyStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlacementPolicyStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (PlacementPolicyStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlacementPolicyStateEnum)(nil)).Elem()
+}
+
+func (o PlacementPolicyStateEnumPtrOutput) ToPlacementPolicyStateEnumPtrOutput() PlacementPolicyStateEnumPtrOutput {
+	return o
+}
+
+func (o PlacementPolicyStateEnumPtrOutput) ToPlacementPolicyStateEnumPtrOutputWithContext(ctx context.Context) PlacementPolicyStateEnumPtrOutput {
+	return o
+}
+
+func (o PlacementPolicyStateEnumPtrOutput) Elem() PlacementPolicyStateEnumOutput {
+	return o.ApplyT(func(v *PlacementPolicyStateEnum) PlacementPolicyStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret PlacementPolicyStateEnum
+		return ret
+	}).(PlacementPolicyStateEnumOutput)
+}
+
+func (o PlacementPolicyStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlacementPolicyStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PlacementPolicyStateEnumInput interface {
+	pulumi.Input
+
+	ToPlacementPolicyStateEnumOutput() PlacementPolicyStateEnumOutput
+	ToPlacementPolicyStateEnumOutputWithContext(context.Context) PlacementPolicyStateEnumOutput
+}
+
+var placementPolicyStateEnumPtrType = reflect.TypeOf((**PlacementPolicyStateEnum)(nil)).Elem()
+
+type PlacementPolicyStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToPlacementPolicyStateEnumPtrOutput() PlacementPolicyStateEnumPtrOutput
+	ToPlacementPolicyStateEnumPtrOutputWithContext(context.Context) PlacementPolicyStateEnumPtrOutput
+}
+
+type placementPolicyStateEnumPtr string
+
+func PlacementPolicyStateEnumPtr(v string) PlacementPolicyStateEnumPtrInput {
+	return (*placementPolicyStateEnumPtr)(&v)
+}
+
+func (*placementPolicyStateEnumPtr) ElementType() reflect.Type {
+	return placementPolicyStateEnumPtrType
+}
+
+func (in *placementPolicyStateEnumPtr) ToPlacementPolicyStateEnumPtrOutput() PlacementPolicyStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(PlacementPolicyStateEnumPtrOutput)
+}
+
+func (in *placementPolicyStateEnumPtr) ToPlacementPolicyStateEnumPtrOutputWithContext(ctx context.Context) PlacementPolicyStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlacementPolicyStateEnumPtrOutput)
+}
+
+type PlacementPolicyType string
+
+const (
+	PlacementPolicyTypeVmVm   = PlacementPolicyType("VmVm")
+	PlacementPolicyTypeVmHost = PlacementPolicyType("VmHost")
+)
+
+func (PlacementPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementPolicyType)(nil)).Elem()
+}
+
+func (e PlacementPolicyType) ToPlacementPolicyTypeOutput() PlacementPolicyTypeOutput {
+	return pulumi.ToOutput(e).(PlacementPolicyTypeOutput)
+}
+
+func (e PlacementPolicyType) ToPlacementPolicyTypeOutputWithContext(ctx context.Context) PlacementPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlacementPolicyTypeOutput)
+}
+
+func (e PlacementPolicyType) ToPlacementPolicyTypePtrOutput() PlacementPolicyTypePtrOutput {
+	return e.ToPlacementPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e PlacementPolicyType) ToPlacementPolicyTypePtrOutputWithContext(ctx context.Context) PlacementPolicyTypePtrOutput {
+	return PlacementPolicyType(e).ToPlacementPolicyTypeOutputWithContext(ctx).ToPlacementPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e PlacementPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlacementPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlacementPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlacementPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlacementPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PlacementPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementPolicyType)(nil)).Elem()
+}
+
+func (o PlacementPolicyTypeOutput) ToPlacementPolicyTypeOutput() PlacementPolicyTypeOutput {
+	return o
+}
+
+func (o PlacementPolicyTypeOutput) ToPlacementPolicyTypeOutputWithContext(ctx context.Context) PlacementPolicyTypeOutput {
+	return o
+}
+
+func (o PlacementPolicyTypeOutput) ToPlacementPolicyTypePtrOutput() PlacementPolicyTypePtrOutput {
+	return o.ToPlacementPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyTypeOutput) ToPlacementPolicyTypePtrOutputWithContext(ctx context.Context) PlacementPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementPolicyType) *PlacementPolicyType {
+		return &v
+	}).(PlacementPolicyTypePtrOutput)
+}
+
+func (o PlacementPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlacementPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlacementPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PlacementPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlacementPolicyType)(nil)).Elem()
+}
+
+func (o PlacementPolicyTypePtrOutput) ToPlacementPolicyTypePtrOutput() PlacementPolicyTypePtrOutput {
+	return o
+}
+
+func (o PlacementPolicyTypePtrOutput) ToPlacementPolicyTypePtrOutputWithContext(ctx context.Context) PlacementPolicyTypePtrOutput {
+	return o
+}
+
+func (o PlacementPolicyTypePtrOutput) Elem() PlacementPolicyTypeOutput {
+	return o.ApplyT(func(v *PlacementPolicyType) PlacementPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret PlacementPolicyType
+		return ret
+	}).(PlacementPolicyTypeOutput)
+}
+
+func (o PlacementPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlacementPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PlacementPolicyTypeInput interface {
+	pulumi.Input
+
+	ToPlacementPolicyTypeOutput() PlacementPolicyTypeOutput
+	ToPlacementPolicyTypeOutputWithContext(context.Context) PlacementPolicyTypeOutput
+}
+
+var placementPolicyTypePtrType = reflect.TypeOf((**PlacementPolicyType)(nil)).Elem()
+
+type PlacementPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToPlacementPolicyTypePtrOutput() PlacementPolicyTypePtrOutput
+	ToPlacementPolicyTypePtrOutputWithContext(context.Context) PlacementPolicyTypePtrOutput
+}
+
+type placementPolicyTypePtr string
+
+func PlacementPolicyTypePtr(v string) PlacementPolicyTypePtrInput {
+	return (*placementPolicyTypePtr)(&v)
+}
+
+func (*placementPolicyTypePtr) ElementType() reflect.Type {
+	return placementPolicyTypePtrType
+}
+
+func (in *placementPolicyTypePtr) ToPlacementPolicyTypePtrOutput() PlacementPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(PlacementPolicyTypePtrOutput)
+}
+
+func (in *placementPolicyTypePtr) ToPlacementPolicyTypePtrOutputWithContext(ctx context.Context) PlacementPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlacementPolicyTypePtrOutput)
 }
 
 type PortMirroringDirectionEnum string
@@ -1163,12 +1655,18 @@ func (in *sslEnumPtr) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnum
 func init() {
 	pulumi.RegisterOutputType(AddonTypeOutput{})
 	pulumi.RegisterOutputType(AddonTypePtrOutput{})
+	pulumi.RegisterOutputType(AffinityTypeOutput{})
+	pulumi.RegisterOutputType(AffinityTypePtrOutput{})
 	pulumi.RegisterOutputType(DhcpTypeEnumOutput{})
 	pulumi.RegisterOutputType(DhcpTypeEnumPtrOutput{})
 	pulumi.RegisterOutputType(DnsServiceLogLevelEnumOutput{})
 	pulumi.RegisterOutputType(DnsServiceLogLevelEnumPtrOutput{})
 	pulumi.RegisterOutputType(InternetEnumOutput{})
 	pulumi.RegisterOutputType(InternetEnumPtrOutput{})
+	pulumi.RegisterOutputType(PlacementPolicyStateEnumOutput{})
+	pulumi.RegisterOutputType(PlacementPolicyStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(PlacementPolicyTypeOutput{})
+	pulumi.RegisterOutputType(PlacementPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(PortMirroringDirectionEnumOutput{})
 	pulumi.RegisterOutputType(PortMirroringDirectionEnumPtrOutput{})
 	pulumi.RegisterOutputType(ScriptExecutionParameterTypeOutput{})

@@ -120,6 +120,7 @@ import * as quantum from "./quantum";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
+import * as resourceconnector from "./resourceconnector";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
@@ -274,6 +275,7 @@ export {
     recoveryservices,
     redhatopenshift,
     relay,
+    resourceconnector,
     resources,
     saas,
     scheduler,

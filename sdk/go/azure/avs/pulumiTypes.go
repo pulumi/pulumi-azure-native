@@ -2194,6 +2194,322 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VmHostPlacementPolicyProperties struct {
+	AffinityType string   `pulumi:"affinityType"`
+	DisplayName  *string  `pulumi:"displayName"`
+	HostMembers  []string `pulumi:"hostMembers"`
+	State        *string  `pulumi:"state"`
+	Type         string   `pulumi:"type"`
+	VmMembers    []string `pulumi:"vmMembers"`
+}
+
+
+
+
+
+type VmHostPlacementPolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToVmHostPlacementPolicyPropertiesOutput() VmHostPlacementPolicyPropertiesOutput
+	ToVmHostPlacementPolicyPropertiesOutputWithContext(context.Context) VmHostPlacementPolicyPropertiesOutput
+}
+
+type VmHostPlacementPolicyPropertiesArgs struct {
+	AffinityType pulumi.StringInput      `pulumi:"affinityType"`
+	DisplayName  pulumi.StringPtrInput   `pulumi:"displayName"`
+	HostMembers  pulumi.StringArrayInput `pulumi:"hostMembers"`
+	State        pulumi.StringPtrInput   `pulumi:"state"`
+	Type         pulumi.StringInput      `pulumi:"type"`
+	VmMembers    pulumi.StringArrayInput `pulumi:"vmMembers"`
+}
+
+func (VmHostPlacementPolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmHostPlacementPolicyProperties)(nil)).Elem()
+}
+
+func (i VmHostPlacementPolicyPropertiesArgs) ToVmHostPlacementPolicyPropertiesOutput() VmHostPlacementPolicyPropertiesOutput {
+	return i.ToVmHostPlacementPolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i VmHostPlacementPolicyPropertiesArgs) ToVmHostPlacementPolicyPropertiesOutputWithContext(ctx context.Context) VmHostPlacementPolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmHostPlacementPolicyPropertiesOutput)
+}
+
+type VmHostPlacementPolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VmHostPlacementPolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmHostPlacementPolicyProperties)(nil)).Elem()
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) ToVmHostPlacementPolicyPropertiesOutput() VmHostPlacementPolicyPropertiesOutput {
+	return o
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) ToVmHostPlacementPolicyPropertiesOutputWithContext(ctx context.Context) VmHostPlacementPolicyPropertiesOutput {
+	return o
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) AffinityType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) string { return v.AffinityType }).(pulumi.StringOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) HostMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) []string { return v.HostMembers }).(pulumi.StringArrayOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesOutput) VmMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyProperties) []string { return v.VmMembers }).(pulumi.StringArrayOutput)
+}
+
+type VmHostPlacementPolicyPropertiesResponse struct {
+	AffinityType      string   `pulumi:"affinityType"`
+	DisplayName       *string  `pulumi:"displayName"`
+	HostMembers       []string `pulumi:"hostMembers"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	State             *string  `pulumi:"state"`
+	Type              string   `pulumi:"type"`
+	VmMembers         []string `pulumi:"vmMembers"`
+}
+
+
+
+
+
+type VmHostPlacementPolicyPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToVmHostPlacementPolicyPropertiesResponseOutput() VmHostPlacementPolicyPropertiesResponseOutput
+	ToVmHostPlacementPolicyPropertiesResponseOutputWithContext(context.Context) VmHostPlacementPolicyPropertiesResponseOutput
+}
+
+type VmHostPlacementPolicyPropertiesResponseArgs struct {
+	AffinityType      pulumi.StringInput      `pulumi:"affinityType"`
+	DisplayName       pulumi.StringPtrInput   `pulumi:"displayName"`
+	HostMembers       pulumi.StringArrayInput `pulumi:"hostMembers"`
+	ProvisioningState pulumi.StringInput      `pulumi:"provisioningState"`
+	State             pulumi.StringPtrInput   `pulumi:"state"`
+	Type              pulumi.StringInput      `pulumi:"type"`
+	VmMembers         pulumi.StringArrayInput `pulumi:"vmMembers"`
+}
+
+func (VmHostPlacementPolicyPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmHostPlacementPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (i VmHostPlacementPolicyPropertiesResponseArgs) ToVmHostPlacementPolicyPropertiesResponseOutput() VmHostPlacementPolicyPropertiesResponseOutput {
+	return i.ToVmHostPlacementPolicyPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i VmHostPlacementPolicyPropertiesResponseArgs) ToVmHostPlacementPolicyPropertiesResponseOutputWithContext(ctx context.Context) VmHostPlacementPolicyPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmHostPlacementPolicyPropertiesResponseOutput)
+}
+
+type VmHostPlacementPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VmHostPlacementPolicyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmHostPlacementPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) ToVmHostPlacementPolicyPropertiesResponseOutput() VmHostPlacementPolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) ToVmHostPlacementPolicyPropertiesResponseOutputWithContext(ctx context.Context) VmHostPlacementPolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) AffinityType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) string { return v.AffinityType }).(pulumi.StringOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) HostMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) []string { return v.HostMembers }).(pulumi.StringArrayOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VmHostPlacementPolicyPropertiesResponseOutput) VmMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmHostPlacementPolicyPropertiesResponse) []string { return v.VmMembers }).(pulumi.StringArrayOutput)
+}
+
+type VmVmPlacementPolicyProperties struct {
+	AffinityType string   `pulumi:"affinityType"`
+	DisplayName  *string  `pulumi:"displayName"`
+	State        *string  `pulumi:"state"`
+	Type         string   `pulumi:"type"`
+	VmMembers    []string `pulumi:"vmMembers"`
+}
+
+
+
+
+
+type VmVmPlacementPolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToVmVmPlacementPolicyPropertiesOutput() VmVmPlacementPolicyPropertiesOutput
+	ToVmVmPlacementPolicyPropertiesOutputWithContext(context.Context) VmVmPlacementPolicyPropertiesOutput
+}
+
+type VmVmPlacementPolicyPropertiesArgs struct {
+	AffinityType pulumi.StringInput      `pulumi:"affinityType"`
+	DisplayName  pulumi.StringPtrInput   `pulumi:"displayName"`
+	State        pulumi.StringPtrInput   `pulumi:"state"`
+	Type         pulumi.StringInput      `pulumi:"type"`
+	VmMembers    pulumi.StringArrayInput `pulumi:"vmMembers"`
+}
+
+func (VmVmPlacementPolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmVmPlacementPolicyProperties)(nil)).Elem()
+}
+
+func (i VmVmPlacementPolicyPropertiesArgs) ToVmVmPlacementPolicyPropertiesOutput() VmVmPlacementPolicyPropertiesOutput {
+	return i.ToVmVmPlacementPolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i VmVmPlacementPolicyPropertiesArgs) ToVmVmPlacementPolicyPropertiesOutputWithContext(ctx context.Context) VmVmPlacementPolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmVmPlacementPolicyPropertiesOutput)
+}
+
+type VmVmPlacementPolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VmVmPlacementPolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmVmPlacementPolicyProperties)(nil)).Elem()
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) ToVmVmPlacementPolicyPropertiesOutput() VmVmPlacementPolicyPropertiesOutput {
+	return o
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) ToVmVmPlacementPolicyPropertiesOutputWithContext(ctx context.Context) VmVmPlacementPolicyPropertiesOutput {
+	return o
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) AffinityType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyProperties) string { return v.AffinityType }).(pulumi.StringOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyProperties) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesOutput) VmMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyProperties) []string { return v.VmMembers }).(pulumi.StringArrayOutput)
+}
+
+type VmVmPlacementPolicyPropertiesResponse struct {
+	AffinityType      string   `pulumi:"affinityType"`
+	DisplayName       *string  `pulumi:"displayName"`
+	ProvisioningState string   `pulumi:"provisioningState"`
+	State             *string  `pulumi:"state"`
+	Type              string   `pulumi:"type"`
+	VmMembers         []string `pulumi:"vmMembers"`
+}
+
+
+
+
+
+type VmVmPlacementPolicyPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToVmVmPlacementPolicyPropertiesResponseOutput() VmVmPlacementPolicyPropertiesResponseOutput
+	ToVmVmPlacementPolicyPropertiesResponseOutputWithContext(context.Context) VmVmPlacementPolicyPropertiesResponseOutput
+}
+
+type VmVmPlacementPolicyPropertiesResponseArgs struct {
+	AffinityType      pulumi.StringInput      `pulumi:"affinityType"`
+	DisplayName       pulumi.StringPtrInput   `pulumi:"displayName"`
+	ProvisioningState pulumi.StringInput      `pulumi:"provisioningState"`
+	State             pulumi.StringPtrInput   `pulumi:"state"`
+	Type              pulumi.StringInput      `pulumi:"type"`
+	VmMembers         pulumi.StringArrayInput `pulumi:"vmMembers"`
+}
+
+func (VmVmPlacementPolicyPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmVmPlacementPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (i VmVmPlacementPolicyPropertiesResponseArgs) ToVmVmPlacementPolicyPropertiesResponseOutput() VmVmPlacementPolicyPropertiesResponseOutput {
+	return i.ToVmVmPlacementPolicyPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i VmVmPlacementPolicyPropertiesResponseArgs) ToVmVmPlacementPolicyPropertiesResponseOutputWithContext(ctx context.Context) VmVmPlacementPolicyPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmVmPlacementPolicyPropertiesResponseOutput)
+}
+
+type VmVmPlacementPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VmVmPlacementPolicyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmVmPlacementPolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) ToVmVmPlacementPolicyPropertiesResponseOutput() VmVmPlacementPolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) ToVmVmPlacementPolicyPropertiesResponseOutputWithContext(ctx context.Context) VmVmPlacementPolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) AffinityType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) string { return v.AffinityType }).(pulumi.StringOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VmVmPlacementPolicyPropertiesResponseOutput) VmMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmVmPlacementPolicyPropertiesResponse) []string { return v.VmMembers }).(pulumi.StringArrayOutput)
+}
+
 type WorkloadNetworkSegmentPortVifResponse struct {
 	PortName *string `pulumi:"portName"`
 }
@@ -2615,6 +2931,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmHostPlacementPolicyPropertiesInput)(nil)).Elem(), VmHostPlacementPolicyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmHostPlacementPolicyPropertiesResponseInput)(nil)).Elem(), VmHostPlacementPolicyPropertiesResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmVmPlacementPolicyPropertiesInput)(nil)).Elem(), VmVmPlacementPolicyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmVmPlacementPolicyPropertiesResponseInput)(nil)).Elem(), VmVmPlacementPolicyPropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkSegmentPortVifResponseInput)(nil)).Elem(), WorkloadNetworkSegmentPortVifResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkSegmentPortVifResponseArrayInput)(nil)).Elem(), WorkloadNetworkSegmentPortVifResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkSegmentSubnetInput)(nil)).Elem(), WorkloadNetworkSegmentSubnetArgs{})
@@ -2651,6 +2971,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(VmHostPlacementPolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(VmHostPlacementPolicyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(VmVmPlacementPolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(VmVmPlacementPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentPortVifResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentPortVifResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentSubnetOutput{})

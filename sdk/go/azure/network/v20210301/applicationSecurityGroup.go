@@ -211,6 +211,12 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20210201:ApplicationSecurityGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210501:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210501:ApplicationSecurityGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationSecurityGroup

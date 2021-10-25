@@ -101,6 +101,8 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPortMirroring"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:WorkloadNetworkPortMirroring"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

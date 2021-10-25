@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.AVS
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:Authorization"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

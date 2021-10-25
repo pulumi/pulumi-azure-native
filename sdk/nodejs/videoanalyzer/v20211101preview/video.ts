@@ -54,7 +54,7 @@ export class Video extends pulumi.CustomResource {
     /**
      * Contains information about the video and audio content.
      */
-    public /*out*/ readonly mediaInfo!: pulumi.Output<outputs.videoanalyzer.v20211101preview.VideoMediaInfoResponse>;
+    public readonly mediaInfo!: pulumi.Output<outputs.videoanalyzer.v20211101preview.VideoMediaInfoResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -92,12 +92,12 @@ export class Video extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["archival"] = args ? args.archival : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["mediaInfo"] = args ? args.mediaInfo : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["videoName"] = args ? args.videoName : undefined;
             inputs["contentUrls"] = undefined /*out*/;
             inputs["flags"] = undefined /*out*/;
-            inputs["mediaInfo"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -137,6 +137,10 @@ export interface VideoArgs {
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Contains information about the video and audio content.
+     */
+    mediaInfo?: pulumi.Input<inputs.videoanalyzer.v20211101preview.VideoMediaInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

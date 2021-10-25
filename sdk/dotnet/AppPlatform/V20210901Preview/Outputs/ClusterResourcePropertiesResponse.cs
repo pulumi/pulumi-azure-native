@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
+        /// Power state of the Service
+        /// </summary>
+        public readonly string PowerState;
+        /// <summary>
         /// Provisioning state of the Service
         /// </summary>
         public readonly string ProvisioningState;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         private ClusterResourcePropertiesResponse(
             Outputs.NetworkProfileResponse? networkProfile,
 
+            string powerState,
+
             string provisioningState,
 
             string serviceId,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
             int version)
         {
             NetworkProfile = networkProfile;
+            PowerState = powerState;
             ProvisioningState = provisioningState;
             ServiceId = serviceId;
             Version = version;

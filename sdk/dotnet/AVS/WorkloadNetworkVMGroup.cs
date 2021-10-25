@@ -90,6 +90,8 @@ namespace Pulumi.AzureNative.AVS
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkVMGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:WorkloadNetworkVMGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

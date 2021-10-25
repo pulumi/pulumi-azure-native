@@ -6,12 +6,14 @@ import * as v20200320 from "./v20200320";
 import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601 from "./v20210601";
+import * as v20211201 from "./v20211201";
 
 export {
     v20200320,
     v20200717preview,
     v20210101preview,
     v20210601,
+    v20211201,
 };
 
 export const AddonType = {
@@ -23,6 +25,16 @@ export const AddonType = {
  * The type of private cloud addon
  */
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
+
+export const AffinityType = {
+    Affinity: "Affinity",
+    AntiAffinity: "AntiAffinity",
+} as const;
+
+/**
+ * placement policy affinity type
+ */
+export type AffinityType = (typeof AffinityType)[keyof typeof AffinityType];
 
 export const DhcpTypeEnum = {
     SERVER_RELAY: "SERVER, RELAY",
@@ -55,6 +67,26 @@ export const InternetEnum = {
  * Connectivity to internet is enabled or disabled
  */
 export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
+
+export const PlacementPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether the placement policy is enabled or disabled
+ */
+export type PlacementPolicyState = (typeof PlacementPolicyState)[keyof typeof PlacementPolicyState];
+
+export const PlacementPolicyType = {
+    VmVm: "VmVm",
+    VmHost: "VmHost",
+} as const;
+
+/**
+ * placement policy type
+ */
+export type PlacementPolicyType = (typeof PlacementPolicyType)[keyof typeof PlacementPolicyType];
 
 export const PortMirroringDirectionEnum = {
     INGRESS_EGRESS_BIDIRECTIONAL: "INGRESS, EGRESS, BIDIRECTIONAL",

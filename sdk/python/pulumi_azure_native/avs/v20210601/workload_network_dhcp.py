@@ -152,7 +152,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-nextgen:avs/v20211201:WorkloadNetworkDhcp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkDhcp, __self__).__init__(
             'azure-native:avs/v20210601:WorkloadNetworkDhcp',

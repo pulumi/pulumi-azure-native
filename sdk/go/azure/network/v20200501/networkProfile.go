@@ -165,6 +165,12 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20210301:NetworkProfile"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210501:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210501:NetworkProfile"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkProfile

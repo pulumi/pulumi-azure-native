@@ -65,7 +65,7 @@ export interface GetVideoResult {
     /**
      * Contains information about the video and audio content.
      */
-    readonly mediaInfo: outputs.videoanalyzer.v20211101preview.VideoMediaInfoResponse;
+    readonly mediaInfo?: outputs.videoanalyzer.v20211101preview.VideoMediaInfoResponse;
     /**
      * The name of the resource
      */

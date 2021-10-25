@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlobalReachConnection{}
 	case "azure-native:avs:HcxEnterpriseSite":
 		r = &HcxEnterpriseSite{}
+	case "azure-native:avs:PlacementPolicy":
+		r = &PlacementPolicy{}
 	case "azure-native:avs:PrivateCloud":
 		r = &PrivateCloud{}
 	case "azure-native:avs:ScriptExecution":

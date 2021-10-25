@@ -457,7 +457,9 @@ class ClusterResourcePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "serviceId":
             suggest = "service_id"
@@ -476,22 +478,33 @@ class ClusterResourcePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 power_state: str,
                  provisioning_state: str,
                  service_id: str,
                  version: int,
                  network_profile: Optional['outputs.NetworkProfileResponse'] = None):
         """
         Service properties payload
+        :param str power_state: Power state of the Service
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
         :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         """
+        pulumi.set(__self__, "power_state", power_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
         pulumi.set(__self__, "version", version)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        Power state of the Service
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="provisioningState")

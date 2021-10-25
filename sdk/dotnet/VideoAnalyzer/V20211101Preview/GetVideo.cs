@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// <summary>
         /// Contains information about the video and audio content.
         /// </summary>
-        public readonly Outputs.VideoMediaInfoResponse MediaInfo;
+        public readonly Outputs.VideoMediaInfoResponse? MediaInfo;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 
             string id,
 
-            Outputs.VideoMediaInfoResponse mediaInfo,
+            Outputs.VideoMediaInfoResponse? mediaInfo,
 
             string name,
 

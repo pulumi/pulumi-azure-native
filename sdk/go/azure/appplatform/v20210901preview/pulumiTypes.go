@@ -1485,6 +1485,7 @@ func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOu
 
 type ClusterResourcePropertiesResponse struct {
 	NetworkProfile    *NetworkProfileResponse `pulumi:"networkProfile"`
+	PowerState        string                  `pulumi:"powerState"`
 	ProvisioningState string                  `pulumi:"provisioningState"`
 	ServiceId         string                  `pulumi:"serviceId"`
 	Version           int                     `pulumi:"version"`
@@ -1503,6 +1504,7 @@ type ClusterResourcePropertiesResponseInput interface {
 
 type ClusterResourcePropertiesResponseArgs struct {
 	NetworkProfile    NetworkProfileResponsePtrInput `pulumi:"networkProfile"`
+	PowerState        pulumi.StringInput             `pulumi:"powerState"`
 	ProvisioningState pulumi.StringInput             `pulumi:"provisioningState"`
 	ServiceId         pulumi.StringInput             `pulumi:"serviceId"`
 	Version           pulumi.IntInput                `pulumi:"version"`
@@ -1589,6 +1591,10 @@ func (o ClusterResourcePropertiesResponseOutput) NetworkProfile() NetworkProfile
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
 }
 
+func (o ClusterResourcePropertiesResponseOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesResponse) string { return v.PowerState }).(pulumi.StringOutput)
+}
+
 func (o ClusterResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1632,6 +1638,15 @@ func (o ClusterResourcePropertiesResponsePtrOutput) NetworkProfile() NetworkProf
 		}
 		return v.NetworkProfile
 	}).(NetworkProfileResponsePtrOutput)
+}
+
+func (o ClusterResourcePropertiesResponsePtrOutput) PowerState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PowerState
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {

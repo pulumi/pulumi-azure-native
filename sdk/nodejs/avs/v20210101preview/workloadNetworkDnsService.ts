@@ -121,7 +121,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20210601:WorkloadNetworkDnsService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20210601:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20211201:WorkloadNetworkDnsService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDnsService.__pulumiType, name, inputs, opts);
     }

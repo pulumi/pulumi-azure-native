@@ -163,6 +163,8 @@ namespace Pulumi.AzureNative.Network.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
+    /// placement policy affinity type
+    /// </summary>
+    [EnumType]
+    public readonly struct AffinityType : IEquatable<AffinityType>
+    {
+        private readonly string _value;
+
+        private AffinityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AffinityType Affinity { get; } = new AffinityType("Affinity");
+        public static AffinityType AntiAffinity { get; } = new AffinityType("AntiAffinity");
+
+        public static bool operator ==(AffinityType left, AffinityType right) => left.Equals(right);
+        public static bool operator !=(AffinityType left, AffinityType right) => !left.Equals(right);
+
+        public static explicit operator string(AffinityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AffinityType other && Equals(other);
+        public bool Equals(AffinityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of DHCP: SERVER or RELAY.
     /// </summary>
     [EnumType]
@@ -126,6 +157,68 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InternetEnum other && Equals(other);
         public bool Equals(InternetEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the placement policy is enabled or disabled
+    /// </summary>
+    [EnumType]
+    public readonly struct PlacementPolicyState : IEquatable<PlacementPolicyState>
+    {
+        private readonly string _value;
+
+        private PlacementPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlacementPolicyState Enabled { get; } = new PlacementPolicyState("Enabled");
+        public static PlacementPolicyState Disabled { get; } = new PlacementPolicyState("Disabled");
+
+        public static bool operator ==(PlacementPolicyState left, PlacementPolicyState right) => left.Equals(right);
+        public static bool operator !=(PlacementPolicyState left, PlacementPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(PlacementPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlacementPolicyState other && Equals(other);
+        public bool Equals(PlacementPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// placement policy type
+    /// </summary>
+    [EnumType]
+    public readonly struct PlacementPolicyType : IEquatable<PlacementPolicyType>
+    {
+        private readonly string _value;
+
+        private PlacementPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlacementPolicyType VmVm { get; } = new PlacementPolicyType("VmVm");
+        public static PlacementPolicyType VmHost { get; } = new PlacementPolicyType("VmHost");
+
+        public static bool operator ==(PlacementPolicyType left, PlacementPolicyType right) => left.Equals(right);
+        public static bool operator !=(PlacementPolicyType left, PlacementPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(PlacementPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlacementPolicyType other && Equals(other);
+        public bool Equals(PlacementPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

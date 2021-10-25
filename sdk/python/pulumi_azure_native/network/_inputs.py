@@ -119,6 +119,7 @@ __all__ = [
     'ExpressRouteLinkMacSecConfigArgs',
     'ExpressRouteLinkArgs',
     'ExtendedLocationArgs',
+    'FilterItems',
     'FirewallPolicyCertificateAuthorityArgs',
     'FirewallPolicyFilterRuleActionArgs',
     'FirewallPolicyFilterRuleCollectionActionArgs',
@@ -200,6 +201,7 @@ __all__ = [
     'O365BreakOutCategoryPoliciesArgs',
     'O365PolicyPropertiesArgs',
     'Office365PolicyPropertiesArgs',
+    'OrderBy',
     'OutboundRuleArgs',
     'OwaspCrsExclusionEntryArgs',
     'P2SConnectionConfigurationArgs',
@@ -234,6 +236,7 @@ __all__ = [
     'RouteTableArgs',
     'RouteArgs',
     'RoutingConfigurationArgs',
+    'RoutingPolicyArgs',
     'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs',
     'RoutingRuleArgs',
     'RulesEngineActionArgs',
@@ -8525,6 +8528,46 @@ class ExtendedLocationArgs:
 
 
 @pulumi.input_type
+class FilterItems:
+    def __init__(__self__, *,
+                 field: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        Will contain the filter name and values to operate on
+        :param str field: The name of the field we would like to filter
+        :param Sequence[str] values: List of values to filter the current field by
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The name of the field we would like to filter
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[str]):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        List of values to filter the current field by
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class FirewallPolicyCertificateAuthorityArgs:
     def __init__(__self__, *,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -14170,6 +14213,46 @@ class Office365PolicyPropertiesArgs:
 
 
 @pulumi.input_type
+class OrderBy:
+    def __init__(__self__, *,
+                 field: Optional[str] = None,
+                 order: Optional[str] = None):
+        """
+        Describes a column to sort
+        :param str field: Describes the actual column name to sort by
+        :param str order: Describes if results should be in ascending/descending order
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        Describes the actual column name to sort by
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[str]):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        """
+        Describes if results should be in ascending/descending order
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[str]):
+        pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
 class OutboundRuleArgs:
     def __init__(__self__, *,
                  backend_address_pool: pulumi.Input['SubResourceArgs'],
@@ -16847,6 +16930,59 @@ class RoutingConfigurationArgs:
     @vnet_routes.setter
     def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
         pulumi.set(self, "vnet_routes", value)
+
+
+@pulumi.input_type
+class RoutingPolicyArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 next_hop: pulumi.Input[str]):
+        """
+        The routing policy object used in a RoutingIntent resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
+        :param pulumi.Input[str] name: The unique name for the routing policy.
+        :param pulumi.Input[str] next_hop: The next hop resource id on which this routing policy is applicable to.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop", next_hop)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The unique name for the routing policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> pulumi.Input[str]:
+        """
+        The next hop resource id on which this routing policy is applicable to.
+        """
+        return pulumi.get(self, "next_hop")
+
+    @next_hop.setter
+    def next_hop(self, value: pulumi.Input[str]):
+        pulumi.set(self, "next_hop", value)
 
 
 @pulumi.input_type

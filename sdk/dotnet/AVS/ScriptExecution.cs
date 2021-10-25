@@ -146,6 +146,8 @@ namespace Pulumi.AzureNative.AVS
                     new Pulumi.Alias { Type = "azure-nextgen:avs:ScriptExecution"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:ScriptExecution"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:ScriptExecution"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20211201:ScriptExecution"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:ScriptExecution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
