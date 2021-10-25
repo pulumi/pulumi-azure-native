@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.42.0 (2021-10-25)
+
 #### New resources:
 
 - `avs.PlacementPolicy`
@@ -25,8 +31,6 @@ CHANGELOG
 - `network.listFirewallPolicyIdpsSignaturesFilterValue`
 - `resourceconnector.getAppliance`
 - `resourceconnector.listApplianceClusterUserCredential`
-
----
 
 ## 1.41.0 (2021-10-20)
 
