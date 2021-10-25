@@ -5,17 +5,26 @@ CHANGELOG
 
 #### New resources:
 
+- `avs.PlacementPolicy`
 - `chaos.Capability`
 - `chaos.Experiment`
 - `chaos.Target`
 - `deviceupdate.PrivateEndpointConnectionProxy`
+- `network.RoutingIntent`
+- `resourceconnector.Appliance`
 
 #### New functions:
 
+- `avs.getPlacementPolicy`
 - `chaos.getCapability`
 - `chaos.getExperiment`
 - `chaos.getTarget`
 - `deviceupdate.getPrivateEndpointConnectionProxy`
+- `network.getRoutingIntent`
+- `network.listFirewallPolicyIdpsSignature`
+- `network.listFirewallPolicyIdpsSignaturesFilterValue`
+- `resourceconnector.getAppliance`
+- `resourceconnector.listApplianceClusterUserCredential`
 
 ---
 
