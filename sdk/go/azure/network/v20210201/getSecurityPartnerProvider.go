@@ -1,0 +1,36 @@
+
+
+
+package v20210201
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPartnerProviderArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPartnerProviderResult, error) {
+	var rv LookupSecurityPartnerProviderResult
+	err := ctx.Invoke("azure-native:network/v20210201:getSecurityPartnerProvider", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSecurityPartnerProviderArgs struct {
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	SecurityPartnerProviderName string `pulumi:"securityPartnerProviderName"`
+}
+
+
+type LookupSecurityPartnerProviderResult struct {
+	ConnectionStatus     string               `pulumi:"connectionStatus"`
+	Etag                 string               `pulumi:"etag"`
+	Id                   *string              `pulumi:"id"`
+	Location             *string              `pulumi:"location"`
+	Name                 string               `pulumi:"name"`
+	ProvisioningState    string               `pulumi:"provisioningState"`
+	SecurityProviderName *string              `pulumi:"securityProviderName"`
+	Tags                 map[string]string    `pulumi:"tags"`
+	Type                 string               `pulumi:"type"`
+	VirtualHub           *SubResourceResponse `pulumi:"virtualHub"`
+}

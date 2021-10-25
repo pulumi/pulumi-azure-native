@@ -1,0 +1,31 @@
+
+
+
+package v20190801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListStaticSiteFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSiteFunctionAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteFunctionAppSettingsResult, error) {
+	var rv ListStaticSiteFunctionAppSettingsResult
+	err := ctx.Invoke("azure-native:web/v20190801:listStaticSiteFunctionAppSettings", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListStaticSiteFunctionAppSettingsArgs struct {
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type ListStaticSiteFunctionAppSettingsResult struct {
+	Id         string            `pulumi:"id"`
+	Kind       *string           `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
+	Properties map[string]string `pulumi:"properties"`
+	Type       string            `pulumi:"type"`
+}
