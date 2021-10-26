@@ -1,0 +1,29 @@
+
+
+
+package v20210301
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, opts ...pulumi.InvokeOption) (*GetMonitorDefaultKeyResult, error) {
+	var rv GetMonitorDefaultKeyResult
+	err := ctx.Invoke("azure-native:datadog/v20210301:getMonitorDefaultKey", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type GetMonitorDefaultKeyArgs struct {
+	MonitorName       string `pulumi:"monitorName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+type GetMonitorDefaultKeyResult struct {
+	Created   *string `pulumi:"created"`
+	CreatedBy *string `pulumi:"createdBy"`
+	Key       string  `pulumi:"key"`
+	Name      *string `pulumi:"name"`
+}

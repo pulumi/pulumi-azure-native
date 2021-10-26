@@ -1,0 +1,33 @@
+
+
+
+package v20210125
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationHCRPAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationHCRPAssignmentResult, error) {
+	var rv LookupGuestConfigurationHCRPAssignmentResult
+	err := ctx.Invoke("azure-native:guestconfiguration/v20210125:getGuestConfigurationHCRPAssignment", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupGuestConfigurationHCRPAssignmentArgs struct {
+	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
+	MachineName                      string `pulumi:"machineName"`
+	ResourceGroupName                string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupGuestConfigurationHCRPAssignmentResult struct {
+	Id         string                                         `pulumi:"id"`
+	Location   *string                                        `pulumi:"location"`
+	Name       *string                                        `pulumi:"name"`
+	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
+	SystemData SystemDataResponse                             `pulumi:"systemData"`
+	Type       string                                         `pulumi:"type"`
+}

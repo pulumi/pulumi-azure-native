@@ -1,0 +1,45 @@
+
+
+
+package notificationhubs
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
+	var rv LookupNamespaceResult
+	err := ctx.Invoke("azure-native:notificationhubs:getNamespace", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupNamespaceArgs struct {
+	NamespaceName     string `pulumi:"namespaceName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupNamespaceResult struct {
+	CreatedAt          *string           `pulumi:"createdAt"`
+	Critical           *bool             `pulumi:"critical"`
+	DataCenter         *string           `pulumi:"dataCenter"`
+	Enabled            *bool             `pulumi:"enabled"`
+	Id                 string            `pulumi:"id"`
+	Location           *string           `pulumi:"location"`
+	MetricId           string            `pulumi:"metricId"`
+	Name               string            `pulumi:"name"`
+	NamespaceType      *string           `pulumi:"namespaceType"`
+	ProvisioningState  *string           `pulumi:"provisioningState"`
+	Region             *string           `pulumi:"region"`
+	ScaleUnit          *string           `pulumi:"scaleUnit"`
+	ServiceBusEndpoint *string           `pulumi:"serviceBusEndpoint"`
+	Sku                *SkuResponse      `pulumi:"sku"`
+	Status             *string           `pulumi:"status"`
+	SubscriptionId     *string           `pulumi:"subscriptionId"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
+	UpdatedAt          *string           `pulumi:"updatedAt"`
+}
