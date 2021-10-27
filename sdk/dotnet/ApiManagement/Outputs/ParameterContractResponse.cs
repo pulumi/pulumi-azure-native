@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Exampled defined for the parameter.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? Examples;
-        /// <summary>
         /// Parameter name.
         /// </summary>
         public readonly string Name;
@@ -37,17 +33,9 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly bool? Required;
         /// <summary>
-        /// Schema identifier.
-        /// </summary>
-        public readonly string? SchemaId;
-        /// <summary>
         /// Parameter type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Type name defined by the schema.
-        /// </summary>
-        public readonly string? TypeName;
         /// <summary>
         /// Parameter values.
         /// </summary>
@@ -59,28 +47,19 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? examples,
-
             string name,
 
             bool? required,
 
-            string? schemaId,
-
             string type,
-
-            string? typeName,
 
             ImmutableArray<string> values)
         {
             DefaultValue = defaultValue;
             Description = description;
-            Examples = examples;
             Name = name;
             Required = required;
-            SchemaId = schemaId;
             Type = type;
-            TypeName = typeName;
             Values = values;
         }
     }

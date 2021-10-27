@@ -10,20 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
-    /// API details.
-    /// API Version: 2021-08-01.
+    /// Api details.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Api")]
     public partial class Api : Pulumi.CustomResource
     {
         /// <summary>
-        /// Describes the revision of the API. If no value is provided, default revision 1 is created
+        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
         /// </summary>
         [Output("apiRevision")]
         public Output<string?> ApiRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the API Revision.
+        /// Description of the Api Revision.
         /// </summary>
         [Output("apiRevisionDescription")]
         public Output<string?> ApiRevisionDescription { get; private set; } = null!;
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the version identifier of the API if the API is versioned
+        /// Indicates the Version identifier of the API if the API is versioned
         /// </summary>
         [Output("apiVersion")]
         public Output<string?> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the API Version.
+        /// Description of the Api Version.
         /// </summary>
         [Output("apiVersionDescription")]
         public Output<string?> ApiVersionDescription { get; private set; } = null!;
@@ -63,12 +63,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("authenticationSettings")]
         public Output<Outputs.AuthenticationSettingsContractResponse?> AuthenticationSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// Contact information for the API.
-        /// </summary>
-        [Output("contact")]
-        public Output<Outputs.ApiContactInformationResponse?> Contact { get; private set; } = null!;
 
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
@@ -95,13 +89,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool> IsOnline { get; private set; } = null!;
 
         /// <summary>
-        /// License information for the API.
-        /// </summary>
-        [Output("license")]
-        public Output<Outputs.ApiLicenseInformationResponse?> License { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,13 +131,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
-        ///  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-        /// </summary>
-        [Output("termsOfServiceUrl")]
-        public Output<string?> TermsOfServiceUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -236,13 +218,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// Describes the revision of the API. If no value is provided, default revision 1 is created
+        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
         /// </summary>
         [Input("apiRevision")]
         public Input<string>? ApiRevision { get; set; }
 
         /// <summary>
-        /// Description of the API Revision.
+        /// Description of the Api Revision.
         /// </summary>
         [Input("apiRevisionDescription")]
         public Input<string>? ApiRevisionDescription { get; set; }
@@ -254,13 +236,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.ApiType>? ApiType { get; set; }
 
         /// <summary>
-        /// Indicates the version identifier of the API if the API is versioned
+        /// Indicates the Version identifier of the API if the API is versioned
         /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
-        /// Description of the API Version.
+        /// Description of the Api Version.
         /// </summary>
         [Input("apiVersionDescription")]
         public Input<string>? ApiVersionDescription { get; set; }
@@ -282,12 +264,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("authenticationSettings")]
         public Input<Inputs.AuthenticationSettingsContractArgs>? AuthenticationSettings { get; set; }
-
-        /// <summary>
-        /// Contact information for the API.
-        /// </summary>
-        [Input("contact")]
-        public Input<Inputs.ApiContactInformationArgs>? Contact { get; set; }
 
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
@@ -314,26 +290,20 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<bool>? IsCurrent { get; set; }
 
         /// <summary>
-        /// License information for the API.
-        /// </summary>
-        [Input("license")]
-        public Input<Inputs.ApiLicenseInformationArgs>? License { get; set; }
-
-        /// <summary>
         /// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         [Input("protocols")]
-        private InputList<Union<string, Pulumi.AzureNative.ApiManagement.Protocol>>? _protocols;
+        private InputList<Pulumi.AzureNative.ApiManagement.Protocol>? _protocols;
 
         /// <summary>
         /// Describes on which protocols the operations in this API can be invoked.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.ApiManagement.Protocol>> Protocols
+        public InputList<Pulumi.AzureNative.ApiManagement.Protocol> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<Union<string, Pulumi.AzureNative.ApiManagement.Protocol>>());
+            get => _protocols ?? (_protocols = new InputList<Pulumi.AzureNative.ApiManagement.Protocol>());
             set => _protocols = value;
         }
 
@@ -356,11 +326,9 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
-        /// Type of API to create. 
-        ///  * `http` creates a REST API 
-        ///  * `soap` creates a SOAP pass-through API  
-        ///  * `websocket` creates websocket API 
-        ///  * `graphql` creates GraphQL API.
+        /// Type of Api to create. 
+        ///  * `http` creates a SOAP to REST API 
+        ///  * `soap` creates a SOAP pass-through API .
         /// </summary>
         [Input("soapApiType")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.SoapApiType>? SoapApiType { get; set; }
@@ -382,12 +350,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
-
-        /// <summary>
-        ///  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-        /// </summary>
-        [Input("termsOfServiceUrl")]
-        public Input<string>? TermsOfServiceUrl { get; set; }
 
         /// <summary>
         /// Content value when Importing an API.

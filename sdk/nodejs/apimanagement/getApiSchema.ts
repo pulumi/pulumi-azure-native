@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema Contract details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
     if (!opts) {
@@ -48,27 +48,23 @@ export interface GetApiSchemaArgs {
  */
 export interface GetApiSchemaResult {
     /**
-     * Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
-     */
-    readonly components?: any;
-    /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
     readonly contentType: string;
     /**
-     * Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
      */
     readonly definitions?: any;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     readonly type: string;
     /**

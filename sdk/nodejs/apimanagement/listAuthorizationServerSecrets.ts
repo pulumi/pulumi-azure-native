@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * OAuth Server Secrets Contract.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
     if (!opts) {

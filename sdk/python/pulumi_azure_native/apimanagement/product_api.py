@@ -91,8 +91,8 @@ class ProductApi(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API details.
-        API Version: 2021-08-01.
+        Api details.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,8 +108,8 @@ class ProductApi(pulumi.CustomResource):
                  args: ProductApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API details.
-        API Version: 2021-08-01.
+        Api details.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param ProductApiArgs args: The arguments to use to populate this resource's properties.
@@ -160,12 +160,10 @@ class ProductApi(pulumi.CustomResource):
             __props__.__dict__["api_version_set"] = None
             __props__.__dict__["api_version_set_id"] = None
             __props__.__dict__["authentication_settings"] = None
-            __props__.__dict__["contact"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["display_name"] = None
             __props__.__dict__["is_current"] = None
             __props__.__dict__["is_online"] = None
-            __props__.__dict__["license"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["path"] = None
             __props__.__dict__["protocols"] = None
@@ -173,7 +171,6 @@ class ProductApi(pulumi.CustomResource):
             __props__.__dict__["source_api_id"] = None
             __props__.__dict__["subscription_key_parameter_names"] = None
             __props__.__dict__["subscription_required"] = None
-            __props__.__dict__["terms_of_service_url"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210401preview:ProductApi"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210801:ProductApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -207,12 +204,10 @@ class ProductApi(pulumi.CustomResource):
         __props__.__dict__["api_version_set"] = None
         __props__.__dict__["api_version_set_id"] = None
         __props__.__dict__["authentication_settings"] = None
-        __props__.__dict__["contact"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["is_current"] = None
         __props__.__dict__["is_online"] = None
-        __props__.__dict__["license"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["path"] = None
         __props__.__dict__["protocols"] = None
@@ -220,7 +215,6 @@ class ProductApi(pulumi.CustomResource):
         __props__.__dict__["source_api_id"] = None
         __props__.__dict__["subscription_key_parameter_names"] = None
         __props__.__dict__["subscription_required"] = None
-        __props__.__dict__["terms_of_service_url"] = None
         __props__.__dict__["type"] = None
         return ProductApi(resource_name, opts=opts, __props__=__props__)
 
@@ -228,7 +222,7 @@ class ProductApi(pulumi.CustomResource):
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes the revision of the API. If no value is provided, default revision 1 is created
+        Describes the Revision of the Api. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -236,7 +230,7 @@ class ProductApi(pulumi.CustomResource):
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the API Revision.
+        Description of the Api Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -252,7 +246,7 @@ class ProductApi(pulumi.CustomResource):
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates the version identifier of the API if the API is versioned
+        Indicates the Version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -260,7 +254,7 @@ class ProductApi(pulumi.CustomResource):
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the API Version.
+        Description of the Api Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -287,14 +281,6 @@ class ProductApi(pulumi.CustomResource):
         Collection of authentication settings included into this API.
         """
         return pulumi.get(self, "authentication_settings")
-
-    @property
-    @pulumi.getter
-    def contact(self) -> pulumi.Output[Optional['outputs.ApiContactInformationResponse']]:
-        """
-        Contact information for the API.
-        """
-        return pulumi.get(self, "contact")
 
     @property
     @pulumi.getter
@@ -330,17 +316,9 @@ class ProductApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def license(self) -> pulumi.Output[Optional['outputs.ApiLicenseInformationResponse']]:
-        """
-        License information for the API.
-        """
-        return pulumi.get(self, "license")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -393,18 +371,10 @@ class ProductApi(pulumi.CustomResource):
         return pulumi.get(self, "subscription_required")
 
     @property
-    @pulumi.getter(name="termsOfServiceUrl")
-    def terms_of_service_url(self) -> pulumi.Output[Optional[str]]:
-        """
-         A URL to the Terms of Service for the API. MUST be in the format of a URL.
-        """
-        return pulumi.get(self, "terms_of_service_url")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
@@ -48,7 +48,7 @@ export interface GetCertificateResult {
      */
     readonly expirationDate: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
@@ -56,7 +56,7 @@ export interface GetCertificateResult {
      */
     readonly keyVault?: outputs.apimanagement.KeyVaultContractPropertiesResponse;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -68,7 +68,7 @@ export interface GetCertificateResult {
      */
     readonly thumbprint: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     readonly type: string;
 }

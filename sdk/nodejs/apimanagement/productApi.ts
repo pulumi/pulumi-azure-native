@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API details.
- * API Version: 2021-08-01.
+ * Api details.
+ * API Version: 2020-12-01.
  */
 export class ProductApi extends pulumi.CustomResource {
     /**
@@ -37,11 +37,11 @@ export class ProductApi extends pulumi.CustomResource {
     }
 
     /**
-     * Describes the revision of the API. If no value is provided, default revision 1 is created
+     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */
     public /*out*/ readonly apiRevision!: pulumi.Output<string | undefined>;
     /**
-     * Description of the API Revision.
+     * Description of the Api Revision.
      */
     public /*out*/ readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -49,11 +49,11 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates the version identifier of the API if the API is versioned
+     * Indicates the Version identifier of the API if the API is versioned
      */
     public /*out*/ readonly apiVersion!: pulumi.Output<string | undefined>;
     /**
-     * Description of the API Version.
+     * Description of the Api Version.
      */
     public /*out*/ readonly apiVersionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -68,10 +68,6 @@ export class ProductApi extends pulumi.CustomResource {
      * Collection of authentication settings included into this API.
      */
     public /*out*/ readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
-    /**
-     * Contact information for the API.
-     */
-    public /*out*/ readonly contact!: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -89,11 +85,7 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
     /**
-     * License information for the API.
-     */
-    public /*out*/ readonly license!: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
-    /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -121,11 +113,7 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
-     *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-     */
-    public /*out*/ readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -161,12 +149,10 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["apiVersionSet"] = undefined /*out*/;
             inputs["apiVersionSetId"] = undefined /*out*/;
             inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
-            inputs["license"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
             inputs["protocols"] = undefined /*out*/;
@@ -174,7 +160,6 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["sourceApiId"] = undefined /*out*/;
             inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["termsOfServiceUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["apiRevision"] = undefined /*out*/;
@@ -185,12 +170,10 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["apiVersionSet"] = undefined /*out*/;
             inputs["apiVersionSetId"] = undefined /*out*/;
             inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
-            inputs["license"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
             inputs["protocols"] = undefined /*out*/;
@@ -198,7 +181,6 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["sourceApiId"] = undefined /*out*/;
             inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["termsOfServiceUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

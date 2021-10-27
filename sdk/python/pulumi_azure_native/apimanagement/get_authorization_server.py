@@ -172,7 +172,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -180,7 +180,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -228,7 +228,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -266,7 +266,7 @@ def get_authorization_server(authsid: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -312,7 +312,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     External OAuth authorization server settings.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str authsid: Identifier of the authorization server.

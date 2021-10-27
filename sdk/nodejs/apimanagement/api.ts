@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API details.
- * API Version: 2021-08-01.
+ * Api details.
+ * API Version: 2020-12-01.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -37,11 +37,11 @@ export class Api extends pulumi.CustomResource {
     }
 
     /**
-     * Describes the revision of the API. If no value is provided, default revision 1 is created
+     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */
     public readonly apiRevision!: pulumi.Output<string | undefined>;
     /**
-     * Description of the API Revision.
+     * Description of the Api Revision.
      */
     public readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -49,11 +49,11 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly apiType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates the version identifier of the API if the API is versioned
+     * Indicates the Version identifier of the API if the API is versioned
      */
     public readonly apiVersion!: pulumi.Output<string | undefined>;
     /**
-     * Description of the API Version.
+     * Description of the Api Version.
      */
     public readonly apiVersionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -68,10 +68,6 @@ export class Api extends pulumi.CustomResource {
      * Collection of authentication settings included into this API.
      */
     public readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
-    /**
-     * Contact information for the API.
-     */
-    public readonly contact!: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -89,11 +85,7 @@ export class Api extends pulumi.CustomResource {
      */
     public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
     /**
-     * License information for the API.
-     */
-    public readonly license!: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
-    /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -121,11 +113,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
-     *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-     */
-    public readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -158,12 +146,10 @@ export class Api extends pulumi.CustomResource {
             inputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
             inputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
             inputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
-            inputs["contact"] = args ? args.contact : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["isCurrent"] = args ? args.isCurrent : undefined;
-            inputs["license"] = args ? args.license : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -173,7 +159,6 @@ export class Api extends pulumi.CustomResource {
             inputs["sourceApiId"] = args ? args.sourceApiId : undefined;
             inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
             inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            inputs["termsOfServiceUrl"] = args ? args.termsOfServiceUrl : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
             inputs["isOnline"] = undefined /*out*/;
@@ -188,12 +173,10 @@ export class Api extends pulumi.CustomResource {
             inputs["apiVersionSet"] = undefined /*out*/;
             inputs["apiVersionSetId"] = undefined /*out*/;
             inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
-            inputs["license"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
             inputs["protocols"] = undefined /*out*/;
@@ -201,7 +184,6 @@ export class Api extends pulumi.CustomResource {
             inputs["sourceApiId"] = undefined /*out*/;
             inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["termsOfServiceUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -222,11 +204,11 @@ export interface ApiArgs {
      */
     apiId?: pulumi.Input<string>;
     /**
-     * Describes the revision of the API. If no value is provided, default revision 1 is created
+     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */
     apiRevision?: pulumi.Input<string>;
     /**
-     * Description of the API Revision.
+     * Description of the Api Revision.
      */
     apiRevisionDescription?: pulumi.Input<string>;
     /**
@@ -234,11 +216,11 @@ export interface ApiArgs {
      */
     apiType?: pulumi.Input<string | enums.apimanagement.ApiType>;
     /**
-     * Indicates the version identifier of the API if the API is versioned
+     * Indicates the Version identifier of the API if the API is versioned
      */
     apiVersion?: pulumi.Input<string>;
     /**
-     * Description of the API Version.
+     * Description of the Api Version.
      */
     apiVersionDescription?: pulumi.Input<string>;
     /**
@@ -253,10 +235,6 @@ export interface ApiArgs {
      * Collection of authentication settings included into this API.
      */
     authenticationSettings?: pulumi.Input<inputs.apimanagement.AuthenticationSettingsContractArgs>;
-    /**
-     * Contact information for the API.
-     */
-    contact?: pulumi.Input<inputs.apimanagement.ApiContactInformationArgs>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -274,17 +252,13 @@ export interface ApiArgs {
      */
     isCurrent?: pulumi.Input<boolean>;
     /**
-     * License information for the API.
-     */
-    license?: pulumi.Input<inputs.apimanagement.ApiLicenseInformationArgs>;
-    /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
     path: pulumi.Input<string>;
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    protocols?: pulumi.Input<pulumi.Input<string | enums.apimanagement.Protocol>[]>;
+    protocols?: pulumi.Input<pulumi.Input<enums.apimanagement.Protocol>[]>;
     /**
      * The name of the resource group.
      */
@@ -298,11 +272,9 @@ export interface ApiArgs {
      */
     serviceUrl?: pulumi.Input<string>;
     /**
-     * Type of API to create. 
-     *  * `http` creates a REST API 
-     *  * `soap` creates a SOAP pass-through API  
-     *  * `websocket` creates websocket API 
-     *  * `graphql` creates GraphQL API.
+     * Type of Api to create. 
+     *  * `http` creates a SOAP to REST API 
+     *  * `soap` creates a SOAP pass-through API .
      */
     soapApiType?: pulumi.Input<string | enums.apimanagement.SoapApiType>;
     /**
@@ -317,10 +289,6 @@ export interface ApiArgs {
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
     subscriptionRequired?: pulumi.Input<boolean>;
-    /**
-     *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-     */
-    termsOfServiceUrl?: pulumi.Input<string>;
     /**
      * Content value when Importing an API.
      */

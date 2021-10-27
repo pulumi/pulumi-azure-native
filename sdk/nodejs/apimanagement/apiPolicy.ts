@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy Contract details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export class ApiPolicy extends pulumi.CustomResource {
     /**
@@ -41,11 +41,11 @@ export class ApiPolicy extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

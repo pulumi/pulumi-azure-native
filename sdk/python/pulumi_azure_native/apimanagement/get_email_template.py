@@ -70,7 +70,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -78,7 +78,7 @@ class GetEmailTemplateResult:
     @pulumi.getter(name="isDefault")
     def is_default(self) -> bool:
         """
-        Whether the template is the default template provided by API Management or has been edited.
+        Whether the template is the default template provided by Api Management or has been edited.
         """
         return pulumi.get(self, "is_default")
 
@@ -86,7 +86,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -118,7 +118,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -146,7 +146,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
     Email Template details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -182,7 +182,7 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailTemplateResult]:
     """
     Email Template details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.

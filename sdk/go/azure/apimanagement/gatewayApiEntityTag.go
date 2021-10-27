@@ -22,12 +22,10 @@ type GatewayApiEntityTag struct {
 	ApiVersionSet                 ApiVersionSetContractDetailsResponsePtrOutput          `pulumi:"apiVersionSet"`
 	ApiVersionSetId               pulumi.StringPtrOutput                                 `pulumi:"apiVersionSetId"`
 	AuthenticationSettings        AuthenticationSettingsContractResponsePtrOutput        `pulumi:"authenticationSettings"`
-	Contact                       ApiContactInformationResponsePtrOutput                 `pulumi:"contact"`
 	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
 	DisplayName                   pulumi.StringPtrOutput                                 `pulumi:"displayName"`
 	IsCurrent                     pulumi.BoolPtrOutput                                   `pulumi:"isCurrent"`
 	IsOnline                      pulumi.BoolOutput                                      `pulumi:"isOnline"`
-	License                       ApiLicenseInformationResponsePtrOutput                 `pulumi:"license"`
 	Name                          pulumi.StringOutput                                    `pulumi:"name"`
 	Path                          pulumi.StringOutput                                    `pulumi:"path"`
 	Protocols                     pulumi.StringArrayOutput                               `pulumi:"protocols"`
@@ -35,7 +33,6 @@ type GatewayApiEntityTag struct {
 	SourceApiId                   pulumi.StringPtrOutput                                 `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
 	SubscriptionRequired          pulumi.BoolPtrOutput                                   `pulumi:"subscriptionRequired"`
-	TermsOfServiceUrl             pulumi.StringPtrOutput                                 `pulumi:"termsOfServiceUrl"`
 	Type                          pulumi.StringOutput                                    `pulumi:"type"`
 }
 

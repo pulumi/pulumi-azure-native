@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Email Template details.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
@@ -58,15 +58,15 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether the template is the default template provided by API Management or has been edited.
+        /// Whether the template is the default template provided by Api Management or has been edited.
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
 

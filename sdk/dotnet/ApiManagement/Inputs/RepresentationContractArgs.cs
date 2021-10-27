@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        [Input("examples")]
-        private InputMap<Inputs.ParameterExampleContractArgs>? _examples;
-
-        /// <summary>
-        /// Exampled defined for the representation.
-        /// </summary>
-        public InputMap<Inputs.ParameterExampleContractArgs> Examples
-        {
-            get => _examples ?? (_examples = new InputMap<Inputs.ParameterExampleContractArgs>());
-            set => _examples = value;
-        }
-
         [Input("formParameters")]
         private InputList<Inputs.ParameterContractArgs>? _formParameters;
 
@@ -44,6 +32,12 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
             get => _formParameters ?? (_formParameters = new InputList<Inputs.ParameterContractArgs>());
             set => _formParameters = value;
         }
+
+        /// <summary>
+        /// An example of the representation.
+        /// </summary>
+        [Input("sample")]
+        public Input<string>? Sample { get; set; }
 
         /// <summary>
         /// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.

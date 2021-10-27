@@ -27,18 +27,6 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("examples")]
-        private InputMap<Inputs.ParameterExampleContractArgs>? _examples;
-
-        /// <summary>
-        /// Exampled defined for the parameter.
-        /// </summary>
-        public InputMap<Inputs.ParameterExampleContractArgs> Examples
-        {
-            get => _examples ?? (_examples = new InputMap<Inputs.ParameterExampleContractArgs>());
-            set => _examples = value;
-        }
-
         /// <summary>
         /// Parameter name.
         /// </summary>
@@ -52,22 +40,10 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// Schema identifier.
-        /// </summary>
-        [Input("schemaId")]
-        public Input<string>? SchemaId { get; set; }
-
-        /// <summary>
         /// Parameter type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// Type name defined by the schema.
-        /// </summary>
-        [Input("typeName")]
-        public Input<string>? TypeName { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

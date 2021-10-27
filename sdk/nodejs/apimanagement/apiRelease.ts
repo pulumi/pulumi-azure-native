@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ApiRelease details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**
@@ -44,7 +44,7 @@ export class ApiRelease extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -52,7 +52,7 @@ export class ApiRelease extends pulumi.CustomResource {
      */
     public readonly notes!: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

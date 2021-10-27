@@ -22,12 +22,10 @@ type Api struct {
 	ApiVersionSet                 ApiVersionSetContractDetailsResponsePtrOutput          `pulumi:"apiVersionSet"`
 	ApiVersionSetId               pulumi.StringPtrOutput                                 `pulumi:"apiVersionSetId"`
 	AuthenticationSettings        AuthenticationSettingsContractResponsePtrOutput        `pulumi:"authenticationSettings"`
-	Contact                       ApiContactInformationResponsePtrOutput                 `pulumi:"contact"`
 	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
 	DisplayName                   pulumi.StringPtrOutput                                 `pulumi:"displayName"`
 	IsCurrent                     pulumi.BoolPtrOutput                                   `pulumi:"isCurrent"`
 	IsOnline                      pulumi.BoolOutput                                      `pulumi:"isOnline"`
-	License                       ApiLicenseInformationResponsePtrOutput                 `pulumi:"license"`
 	Name                          pulumi.StringOutput                                    `pulumi:"name"`
 	Path                          pulumi.StringOutput                                    `pulumi:"path"`
 	Protocols                     pulumi.StringArrayOutput                               `pulumi:"protocols"`
@@ -35,7 +33,6 @@ type Api struct {
 	SourceApiId                   pulumi.StringPtrOutput                                 `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
 	SubscriptionRequired          pulumi.BoolPtrOutput                                   `pulumi:"subscriptionRequired"`
-	TermsOfServiceUrl             pulumi.StringPtrOutput                                 `pulumi:"termsOfServiceUrl"`
 	Type                          pulumi.StringOutput                                    `pulumi:"type"`
 }
 
@@ -180,14 +177,12 @@ type apiArgs struct {
 	ApiVersionSet                 *ApiVersionSetContractDetails            `pulumi:"apiVersionSet"`
 	ApiVersionSetId               *string                                  `pulumi:"apiVersionSetId"`
 	AuthenticationSettings        *AuthenticationSettingsContract          `pulumi:"authenticationSettings"`
-	Contact                       *ApiContactInformation                   `pulumi:"contact"`
 	Description                   *string                                  `pulumi:"description"`
 	DisplayName                   *string                                  `pulumi:"displayName"`
 	Format                        *string                                  `pulumi:"format"`
 	IsCurrent                     *bool                                    `pulumi:"isCurrent"`
-	License                       *ApiLicenseInformation                   `pulumi:"license"`
 	Path                          string                                   `pulumi:"path"`
-	Protocols                     []string                                 `pulumi:"protocols"`
+	Protocols                     []Protocol                               `pulumi:"protocols"`
 	ResourceGroupName             string                                   `pulumi:"resourceGroupName"`
 	ServiceName                   string                                   `pulumi:"serviceName"`
 	ServiceUrl                    *string                                  `pulumi:"serviceUrl"`
@@ -195,7 +190,6 @@ type apiArgs struct {
 	SourceApiId                   *string                                  `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract   `pulumi:"subscriptionKeyParameterNames"`
 	SubscriptionRequired          *bool                                    `pulumi:"subscriptionRequired"`
-	TermsOfServiceUrl             *string                                  `pulumi:"termsOfServiceUrl"`
 	Value                         *string                                  `pulumi:"value"`
 	WsdlSelector                  *ApiCreateOrUpdatePropertiesWsdlSelector `pulumi:"wsdlSelector"`
 }
@@ -211,14 +205,12 @@ type ApiArgs struct {
 	ApiVersionSet                 ApiVersionSetContractDetailsPtrInput
 	ApiVersionSetId               pulumi.StringPtrInput
 	AuthenticationSettings        AuthenticationSettingsContractPtrInput
-	Contact                       ApiContactInformationPtrInput
 	Description                   pulumi.StringPtrInput
 	DisplayName                   pulumi.StringPtrInput
 	Format                        pulumi.StringPtrInput
 	IsCurrent                     pulumi.BoolPtrInput
-	License                       ApiLicenseInformationPtrInput
 	Path                          pulumi.StringInput
-	Protocols                     pulumi.StringArrayInput
+	Protocols                     ProtocolArrayInput
 	ResourceGroupName             pulumi.StringInput
 	ServiceName                   pulumi.StringInput
 	ServiceUrl                    pulumi.StringPtrInput
@@ -226,7 +218,6 @@ type ApiArgs struct {
 	SourceApiId                   pulumi.StringPtrInput
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput
 	SubscriptionRequired          pulumi.BoolPtrInput
-	TermsOfServiceUrl             pulumi.StringPtrInput
 	Value                         pulumi.StringPtrInput
 	WsdlSelector                  ApiCreateOrUpdatePropertiesWsdlSelectorPtrInput
 }

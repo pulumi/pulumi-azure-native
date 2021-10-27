@@ -82,7 +82,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -90,7 +90,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -106,7 +106,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -134,7 +134,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
     Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -172,7 +172,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

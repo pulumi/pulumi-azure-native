@@ -25,7 +25,6 @@ type LookupApiSchemaArgs struct {
 
 
 type LookupApiSchemaResult struct {
-	Components  interface{} `pulumi:"components"`
 	ContentType string      `pulumi:"contentType"`
 	Definitions interface{} `pulumi:"definitions"`
 	Id          string      `pulumi:"id"`

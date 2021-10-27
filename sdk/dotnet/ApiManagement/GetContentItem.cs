@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Content type contract details.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
@@ -56,11 +56,11 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetContentItemResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly object Properties;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
 

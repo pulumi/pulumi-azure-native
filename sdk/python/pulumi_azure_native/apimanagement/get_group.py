@@ -79,7 +79,7 @@ class GetGroupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -87,7 +87,7 @@ class GetGroupResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +95,7 @@ class GetGroupResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -121,7 +121,7 @@ def get_group(group_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -155,7 +155,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.

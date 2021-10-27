@@ -155,7 +155,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  __props__=None):
         """
         Issue Attachment Contract details.
-        API Version: 2021-08-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +176,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Issue Attachment Contract details.
-        API Version: 2021-08-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param ApiIssueAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -288,7 +288,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -304,7 +304,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 

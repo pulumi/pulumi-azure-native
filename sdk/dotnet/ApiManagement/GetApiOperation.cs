@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiOperation
     {
         /// <summary>
-        /// API Operation details.
-        /// API Version: 2021-08-01.
+        /// Api Operation details.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiOperationResult> InvokeAsync(GetApiOperationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationResult>("azure-native:apimanagement:getApiOperation", args ?? new GetApiOperationArgs(), options.WithVersion());
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string Method;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly ImmutableArray<Outputs.ParameterContractResponse> TemplateParameters;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
         /// <summary>

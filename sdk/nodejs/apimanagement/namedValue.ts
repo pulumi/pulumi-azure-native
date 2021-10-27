@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NamedValue details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export class NamedValue extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class NamedValue extends pulumi.CustomResource {
      */
     public readonly keyVault!: pulumi.Output<outputs.apimanagement.KeyVaultContractPropertiesResponse | undefined>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class NamedValue extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

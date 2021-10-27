@@ -48,7 +48,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceSsoTokenResult:
     """
     The response of the GetSsoToken operation.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -73,7 +73,7 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
     """
     The response of the GetSsoToken operation.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.

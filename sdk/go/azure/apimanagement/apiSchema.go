@@ -14,7 +14,6 @@ import (
 type ApiSchema struct {
 	pulumi.CustomResourceState
 
-	Components  pulumi.AnyOutput       `pulumi:"components"`
 	ContentType pulumi.StringOutput    `pulumi:"contentType"`
 	Definitions pulumi.AnyOutput       `pulumi:"definitions"`
 	Name        pulumi.StringOutput    `pulumi:"name"`
@@ -146,7 +145,6 @@ func (ApiSchemaState) ElementType() reflect.Type {
 
 type apiSchemaArgs struct {
 	ApiId             string      `pulumi:"apiId"`
-	Components        interface{} `pulumi:"components"`
 	ContentType       string      `pulumi:"contentType"`
 	Definitions       interface{} `pulumi:"definitions"`
 	ResourceGroupName string      `pulumi:"resourceGroupName"`
@@ -158,7 +156,6 @@ type apiSchemaArgs struct {
 
 type ApiSchemaArgs struct {
 	ApiId             pulumi.StringInput
-	Components        pulumi.Input
 	ContentType       pulumi.StringInput
 	Definitions       pulumi.Input
 	ResourceGroupName pulumi.StringInput

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Cache details.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheArgs(), options.WithVersion());
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
         /// <summary>

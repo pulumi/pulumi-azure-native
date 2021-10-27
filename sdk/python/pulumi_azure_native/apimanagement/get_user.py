@@ -84,7 +84,7 @@ class GetUserResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +108,7 @@ class GetUserResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -140,7 +140,7 @@ class GetUserResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -170,7 +170,7 @@ def get_user(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     User details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -208,7 +208,7 @@ def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     User details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.

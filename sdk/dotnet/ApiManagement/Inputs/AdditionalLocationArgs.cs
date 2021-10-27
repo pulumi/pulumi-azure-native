@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
         [Input("sku", required: true)]

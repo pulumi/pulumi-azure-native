@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**
@@ -105,17 +105,9 @@ export class ApiManagementService extends pulumi.CustomResource {
      */
     public readonly notificationSenderEmail!: pulumi.Output<string | undefined>;
     /**
-     * Compute Platform Version running the service in this location.
-     */
-    public /*out*/ readonly platformVersion!: pulumi.Output<string>;
-    /**
      * Publisher portal endpoint Url of the API Management service.
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
-    /**
-     * List of Private Endpoint Connections of this service.
-     */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.apimanagement.RemotePrivateEndpointConnectionWrapperResponse[] | undefined>;
     /**
      * Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
      */
@@ -128,14 +120,6 @@ export class ApiManagementService extends pulumi.CustomResource {
      * Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
      */
     public /*out*/ readonly publicIPAddresses!: pulumi.Output<string[]>;
-    /**
-     * Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-     */
-    public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
-    /**
-     * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-     */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Publisher email.
      */
@@ -156,10 +140,6 @@ export class ApiManagementService extends pulumi.CustomResource {
      * SKU properties of the API Management service.
      */
     public readonly sku!: pulumi.Output<outputs.apimanagement.ApiManagementServiceSkuPropertiesResponse>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apimanagement.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -218,9 +198,6 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -238,13 +215,11 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["gatewayUrl"] = undefined /*out*/;
             inputs["managementApiUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
             inputs["portalUrl"] = undefined /*out*/;
             inputs["privateIPAddresses"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["targetProvisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -265,20 +240,15 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["managementApiUrl"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["notificationSenderEmail"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
             inputs["portalUrl"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["privateIPAddresses"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddresses"] = undefined /*out*/;
-            inputs["publicIpAddressId"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["publisherEmail"] = undefined /*out*/;
             inputs["publisherName"] = undefined /*out*/;
             inputs["restore"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetProvisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -339,18 +309,6 @@ export interface ApiManagementServiceArgs {
      * Email address from which the notification will be sent.
      */
     notificationSenderEmail?: pulumi.Input<string>;
-    /**
-     * List of Private Endpoint Connections of this service.
-     */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.apimanagement.RemotePrivateEndpointConnectionWrapperArgs>[]>;
-    /**
-     * Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-     */
-    publicIpAddressId?: pulumi.Input<string>;
-    /**
-     * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-     */
-    publicNetworkAccess?: pulumi.Input<string | enums.apimanagement.PublicNetworkAccess>;
     /**
      * Publisher email.
      */

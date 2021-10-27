@@ -14,43 +14,38 @@ import (
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 
-	AdditionalLocations         AdditionalLocationResponseArrayOutput                     `pulumi:"additionalLocations"`
-	ApiVersionConstraint        ApiVersionConstraintResponsePtrOutput                     `pulumi:"apiVersionConstraint"`
-	Certificates                CertificateConfigurationResponseArrayOutput               `pulumi:"certificates"`
-	CreatedAtUtc                pulumi.StringOutput                                       `pulumi:"createdAtUtc"`
-	CustomProperties            pulumi.StringMapOutput                                    `pulumi:"customProperties"`
-	DeveloperPortalUrl          pulumi.StringOutput                                       `pulumi:"developerPortalUrl"`
-	DisableGateway              pulumi.BoolPtrOutput                                      `pulumi:"disableGateway"`
-	EnableClientCertificate     pulumi.BoolPtrOutput                                      `pulumi:"enableClientCertificate"`
-	Etag                        pulumi.StringOutput                                       `pulumi:"etag"`
-	GatewayRegionalUrl          pulumi.StringOutput                                       `pulumi:"gatewayRegionalUrl"`
-	GatewayUrl                  pulumi.StringOutput                                       `pulumi:"gatewayUrl"`
-	HostnameConfigurations      HostnameConfigurationResponseArrayOutput                  `pulumi:"hostnameConfigurations"`
-	Identity                    ApiManagementServiceIdentityResponsePtrOutput             `pulumi:"identity"`
-	Location                    pulumi.StringOutput                                       `pulumi:"location"`
-	ManagementApiUrl            pulumi.StringOutput                                       `pulumi:"managementApiUrl"`
-	Name                        pulumi.StringOutput                                       `pulumi:"name"`
-	NotificationSenderEmail     pulumi.StringPtrOutput                                    `pulumi:"notificationSenderEmail"`
-	PlatformVersion             pulumi.StringOutput                                       `pulumi:"platformVersion"`
-	PortalUrl                   pulumi.StringOutput                                       `pulumi:"portalUrl"`
-	PrivateEndpointConnections  RemotePrivateEndpointConnectionWrapperResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	PrivateIPAddresses          pulumi.StringArrayOutput                                  `pulumi:"privateIPAddresses"`
-	ProvisioningState           pulumi.StringOutput                                       `pulumi:"provisioningState"`
-	PublicIPAddresses           pulumi.StringArrayOutput                                  `pulumi:"publicIPAddresses"`
-	PublicIpAddressId           pulumi.StringPtrOutput                                    `pulumi:"publicIpAddressId"`
-	PublicNetworkAccess         pulumi.StringPtrOutput                                    `pulumi:"publicNetworkAccess"`
-	PublisherEmail              pulumi.StringOutput                                       `pulumi:"publisherEmail"`
-	PublisherName               pulumi.StringOutput                                       `pulumi:"publisherName"`
-	Restore                     pulumi.BoolPtrOutput                                      `pulumi:"restore"`
-	ScmUrl                      pulumi.StringOutput                                       `pulumi:"scmUrl"`
-	Sku                         ApiManagementServiceSkuPropertiesResponseOutput           `pulumi:"sku"`
-	SystemData                  SystemDataResponseOutput                                  `pulumi:"systemData"`
-	Tags                        pulumi.StringMapOutput                                    `pulumi:"tags"`
-	TargetProvisioningState     pulumi.StringOutput                                       `pulumi:"targetProvisioningState"`
-	Type                        pulumi.StringOutput                                       `pulumi:"type"`
-	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrOutput              `pulumi:"virtualNetworkConfiguration"`
-	VirtualNetworkType          pulumi.StringPtrOutput                                    `pulumi:"virtualNetworkType"`
-	Zones                       pulumi.StringArrayOutput                                  `pulumi:"zones"`
+	AdditionalLocations         AdditionalLocationResponseArrayOutput           `pulumi:"additionalLocations"`
+	ApiVersionConstraint        ApiVersionConstraintResponsePtrOutput           `pulumi:"apiVersionConstraint"`
+	Certificates                CertificateConfigurationResponseArrayOutput     `pulumi:"certificates"`
+	CreatedAtUtc                pulumi.StringOutput                             `pulumi:"createdAtUtc"`
+	CustomProperties            pulumi.StringMapOutput                          `pulumi:"customProperties"`
+	DeveloperPortalUrl          pulumi.StringOutput                             `pulumi:"developerPortalUrl"`
+	DisableGateway              pulumi.BoolPtrOutput                            `pulumi:"disableGateway"`
+	EnableClientCertificate     pulumi.BoolPtrOutput                            `pulumi:"enableClientCertificate"`
+	Etag                        pulumi.StringOutput                             `pulumi:"etag"`
+	GatewayRegionalUrl          pulumi.StringOutput                             `pulumi:"gatewayRegionalUrl"`
+	GatewayUrl                  pulumi.StringOutput                             `pulumi:"gatewayUrl"`
+	HostnameConfigurations      HostnameConfigurationResponseArrayOutput        `pulumi:"hostnameConfigurations"`
+	Identity                    ApiManagementServiceIdentityResponsePtrOutput   `pulumi:"identity"`
+	Location                    pulumi.StringOutput                             `pulumi:"location"`
+	ManagementApiUrl            pulumi.StringOutput                             `pulumi:"managementApiUrl"`
+	Name                        pulumi.StringOutput                             `pulumi:"name"`
+	NotificationSenderEmail     pulumi.StringPtrOutput                          `pulumi:"notificationSenderEmail"`
+	PortalUrl                   pulumi.StringOutput                             `pulumi:"portalUrl"`
+	PrivateIPAddresses          pulumi.StringArrayOutput                        `pulumi:"privateIPAddresses"`
+	ProvisioningState           pulumi.StringOutput                             `pulumi:"provisioningState"`
+	PublicIPAddresses           pulumi.StringArrayOutput                        `pulumi:"publicIPAddresses"`
+	PublisherEmail              pulumi.StringOutput                             `pulumi:"publisherEmail"`
+	PublisherName               pulumi.StringOutput                             `pulumi:"publisherName"`
+	Restore                     pulumi.BoolPtrOutput                            `pulumi:"restore"`
+	ScmUrl                      pulumi.StringOutput                             `pulumi:"scmUrl"`
+	Sku                         ApiManagementServiceSkuPropertiesResponseOutput `pulumi:"sku"`
+	Tags                        pulumi.StringMapOutput                          `pulumi:"tags"`
+	TargetProvisioningState     pulumi.StringOutput                             `pulumi:"targetProvisioningState"`
+	Type                        pulumi.StringOutput                             `pulumi:"type"`
+	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrOutput    `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkType          pulumi.StringPtrOutput                          `pulumi:"virtualNetworkType"`
+	Zones                       pulumi.StringArrayOutput                        `pulumi:"zones"`
 }
 
 
@@ -200,29 +195,26 @@ func (ApiManagementServiceState) ElementType() reflect.Type {
 }
 
 type apiManagementServiceArgs struct {
-	AdditionalLocations         []AdditionalLocation                     `pulumi:"additionalLocations"`
-	ApiVersionConstraint        *ApiVersionConstraint                    `pulumi:"apiVersionConstraint"`
-	Certificates                []CertificateConfiguration               `pulumi:"certificates"`
-	CustomProperties            map[string]string                        `pulumi:"customProperties"`
-	DisableGateway              *bool                                    `pulumi:"disableGateway"`
-	EnableClientCertificate     *bool                                    `pulumi:"enableClientCertificate"`
-	HostnameConfigurations      []HostnameConfiguration                  `pulumi:"hostnameConfigurations"`
-	Identity                    *ApiManagementServiceIdentity            `pulumi:"identity"`
-	Location                    *string                                  `pulumi:"location"`
-	NotificationSenderEmail     *string                                  `pulumi:"notificationSenderEmail"`
-	PrivateEndpointConnections  []RemotePrivateEndpointConnectionWrapper `pulumi:"privateEndpointConnections"`
-	PublicIpAddressId           *string                                  `pulumi:"publicIpAddressId"`
-	PublicNetworkAccess         *string                                  `pulumi:"publicNetworkAccess"`
-	PublisherEmail              string                                   `pulumi:"publisherEmail"`
-	PublisherName               string                                   `pulumi:"publisherName"`
-	ResourceGroupName           string                                   `pulumi:"resourceGroupName"`
-	Restore                     *bool                                    `pulumi:"restore"`
-	ServiceName                 *string                                  `pulumi:"serviceName"`
-	Sku                         ApiManagementServiceSkuProperties        `pulumi:"sku"`
-	Tags                        map[string]string                        `pulumi:"tags"`
-	VirtualNetworkConfiguration *VirtualNetworkConfiguration             `pulumi:"virtualNetworkConfiguration"`
-	VirtualNetworkType          *string                                  `pulumi:"virtualNetworkType"`
-	Zones                       []string                                 `pulumi:"zones"`
+	AdditionalLocations         []AdditionalLocation              `pulumi:"additionalLocations"`
+	ApiVersionConstraint        *ApiVersionConstraint             `pulumi:"apiVersionConstraint"`
+	Certificates                []CertificateConfiguration        `pulumi:"certificates"`
+	CustomProperties            map[string]string                 `pulumi:"customProperties"`
+	DisableGateway              *bool                             `pulumi:"disableGateway"`
+	EnableClientCertificate     *bool                             `pulumi:"enableClientCertificate"`
+	HostnameConfigurations      []HostnameConfiguration           `pulumi:"hostnameConfigurations"`
+	Identity                    *ApiManagementServiceIdentity     `pulumi:"identity"`
+	Location                    *string                           `pulumi:"location"`
+	NotificationSenderEmail     *string                           `pulumi:"notificationSenderEmail"`
+	PublisherEmail              string                            `pulumi:"publisherEmail"`
+	PublisherName               string                            `pulumi:"publisherName"`
+	ResourceGroupName           string                            `pulumi:"resourceGroupName"`
+	Restore                     *bool                             `pulumi:"restore"`
+	ServiceName                 *string                           `pulumi:"serviceName"`
+	Sku                         ApiManagementServiceSkuProperties `pulumi:"sku"`
+	Tags                        map[string]string                 `pulumi:"tags"`
+	VirtualNetworkConfiguration *VirtualNetworkConfiguration      `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkType          *string                           `pulumi:"virtualNetworkType"`
+	Zones                       []string                          `pulumi:"zones"`
 }
 
 
@@ -237,9 +229,6 @@ type ApiManagementServiceArgs struct {
 	Identity                    ApiManagementServiceIdentityPtrInput
 	Location                    pulumi.StringPtrInput
 	NotificationSenderEmail     pulumi.StringPtrInput
-	PrivateEndpointConnections  RemotePrivateEndpointConnectionWrapperArrayInput
-	PublicIpAddressId           pulumi.StringPtrInput
-	PublicNetworkAccess         pulumi.StringPtrInput
 	PublisherEmail              pulumi.StringInput
 	PublisherName               pulumi.StringInput
 	ResourceGroupName           pulumi.StringInput

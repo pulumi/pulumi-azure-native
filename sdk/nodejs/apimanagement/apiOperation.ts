@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Operation details.
- * API Version: 2021-08-01.
+ * Api Operation details.
+ * API Version: 2020-12-01.
  */
 export class ApiOperation extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly method!: pulumi.Output<string>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly templateParameters!: pulumi.Output<outputs.apimanagement.ParameterContractResponse[] | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

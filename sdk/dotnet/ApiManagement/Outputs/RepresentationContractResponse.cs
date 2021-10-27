@@ -21,13 +21,13 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Exampled defined for the representation.
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? Examples;
-        /// <summary>
         /// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         /// </summary>
         public readonly ImmutableArray<Outputs.ParameterContractResponse> FormParameters;
+        /// <summary>
+        /// An example of the representation.
+        /// </summary>
+        public readonly string? Sample;
         /// <summary>
         /// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         /// </summary>
@@ -41,17 +41,17 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         private RepresentationContractResponse(
             string contentType,
 
-            ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? examples,
-
             ImmutableArray<Outputs.ParameterContractResponse> formParameters,
+
+            string? sample,
 
             string? schemaId,
 
             string? typeName)
         {
             ContentType = contentType;
-            Examples = examples;
             FormParameters = formParameters;
+            Sample = sample;
             SchemaId = schemaId;
             TypeName = typeName;
         }

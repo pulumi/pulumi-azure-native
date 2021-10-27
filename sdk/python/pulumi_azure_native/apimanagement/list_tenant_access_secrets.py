@@ -97,7 +97,7 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessSecretsResult:
     """
     Tenant access information contract of the API Management service.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str access_name: The identifier of the Access configuration.
@@ -129,7 +129,7 @@ def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[str]] =
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTenantAccessSecretsResult]:
     """
     Tenant access information contract of the API Management service.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str access_name: The identifier of the Access configuration.

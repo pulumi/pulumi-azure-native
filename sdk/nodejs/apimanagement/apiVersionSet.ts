@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version Set Contract details.
- * API Version: 2021-08-01.
+ * Api Version Set Contract details.
+ * API Version: 2020-12-01.
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**
@@ -45,11 +45,11 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

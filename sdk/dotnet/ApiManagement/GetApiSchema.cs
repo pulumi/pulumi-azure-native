@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Schema Contract details.
-        /// API Version: 2021-08-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
@@ -56,27 +56,23 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetApiSchemaResult
     {
         /// <summary>
-        /// Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
-        /// </summary>
-        public readonly object? Components;
-        /// <summary>
         /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
         public readonly object? Definitions;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -86,8 +82,6 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetApiSchemaResult(
-            object? components,
-
             string contentType,
 
             object? definitions,
@@ -100,7 +94,6 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? value)
         {
-            Components = components;
             ContentType = contentType;
             Definitions = definitions;
             Id = id;

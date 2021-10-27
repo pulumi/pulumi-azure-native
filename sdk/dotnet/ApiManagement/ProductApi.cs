@@ -10,20 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
-    /// API details.
-    /// API Version: 2021-08-01.
+    /// Api details.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ProductApi")]
     public partial class ProductApi : Pulumi.CustomResource
     {
         /// <summary>
-        /// Describes the revision of the API. If no value is provided, default revision 1 is created
+        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
         /// </summary>
         [Output("apiRevision")]
         public Output<string?> ApiRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the API Revision.
+        /// Description of the Api Revision.
         /// </summary>
         [Output("apiRevisionDescription")]
         public Output<string?> ApiRevisionDescription { get; private set; } = null!;
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the version identifier of the API if the API is versioned
+        /// Indicates the Version identifier of the API if the API is versioned
         /// </summary>
         [Output("apiVersion")]
         public Output<string?> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the API Version.
+        /// Description of the Api Version.
         /// </summary>
         [Output("apiVersionDescription")]
         public Output<string?> ApiVersionDescription { get; private set; } = null!;
@@ -63,12 +63,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("authenticationSettings")]
         public Output<Outputs.AuthenticationSettingsContractResponse?> AuthenticationSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// Contact information for the API.
-        /// </summary>
-        [Output("contact")]
-        public Output<Outputs.ApiContactInformationResponse?> Contact { get; private set; } = null!;
 
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
@@ -95,13 +89,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool> IsOnline { get; private set; } = null!;
 
         /// <summary>
-        /// License information for the API.
-        /// </summary>
-        [Output("license")]
-        public Output<Outputs.ApiLicenseInformationResponse?> License { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,13 +131,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
-        ///  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-        /// </summary>
-        [Output("termsOfServiceUrl")]
-        public Output<string?> TermsOfServiceUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

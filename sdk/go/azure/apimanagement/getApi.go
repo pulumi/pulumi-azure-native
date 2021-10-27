@@ -32,13 +32,11 @@ type LookupApiResult struct {
 	ApiVersionSet                 *ApiVersionSetContractDetailsResponse          `pulumi:"apiVersionSet"`
 	ApiVersionSetId               *string                                        `pulumi:"apiVersionSetId"`
 	AuthenticationSettings        *AuthenticationSettingsContractResponse        `pulumi:"authenticationSettings"`
-	Contact                       *ApiContactInformationResponse                 `pulumi:"contact"`
 	Description                   *string                                        `pulumi:"description"`
 	DisplayName                   *string                                        `pulumi:"displayName"`
 	Id                            string                                         `pulumi:"id"`
 	IsCurrent                     *bool                                          `pulumi:"isCurrent"`
 	IsOnline                      bool                                           `pulumi:"isOnline"`
-	License                       *ApiLicenseInformationResponse                 `pulumi:"license"`
 	Name                          string                                         `pulumi:"name"`
 	Path                          string                                         `pulumi:"path"`
 	Protocols                     []string                                       `pulumi:"protocols"`
@@ -46,6 +44,5 @@ type LookupApiResult struct {
 	SourceApiId                   *string                                        `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
 	SubscriptionRequired          *bool                                          `pulumi:"subscriptionRequired"`
-	TermsOfServiceUrl             *string                                        `pulumi:"termsOfServiceUrl"`
 	Type                          string                                         `pulumi:"type"`
 }

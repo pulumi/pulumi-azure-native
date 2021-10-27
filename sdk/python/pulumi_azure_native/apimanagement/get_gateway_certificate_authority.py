@@ -38,7 +38,7 @@ class GetGatewayCertificateAuthorityResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -54,7 +54,7 @@ class GetGatewayCertificateAuthorityResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class GetGatewayCertificateAuthorityResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -86,7 +86,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCertificateAuthorityResult:
     """
     Gateway certificate authority details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -120,7 +120,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCertificateAuthorityResult]:
     """
     Gateway certificate authority details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

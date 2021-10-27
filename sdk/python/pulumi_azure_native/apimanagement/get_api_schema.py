@@ -20,10 +20,7 @@ class GetApiSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
-        if components and not isinstance(components, dict):
-            raise TypeError("Expected argument 'components' to be a dict")
-        pulumi.set(__self__, "components", components)
+    def __init__(__self__, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -44,14 +41,6 @@ class GetApiSchemaResult:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter
-    def components(self) -> Optional[Any]:
-        """
-        Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
-        """
-        return pulumi.get(self, "components")
-
-    @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
         """
@@ -63,7 +52,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def definitions(self) -> Optional[Any]:
         """
-        Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         """
         return pulumi.get(self, "definitions")
 
@@ -71,7 +60,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -79,7 +68,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -87,7 +76,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -106,7 +95,6 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
         if False:
             yield self
         return GetApiSchemaResult(
-            components=self.components,
             content_type=self.content_type,
             definitions=self.definitions,
             id=self.id,
@@ -122,7 +110,7 @@ def get_api_schema(api_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSchemaResult:
     """
     Schema Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -142,7 +130,6 @@ def get_api_schema(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult).value
 
     return AwaitableGetApiSchemaResult(
-        components=__ret__.components,
         content_type=__ret__.content_type,
         definitions=__ret__.definitions,
         id=__ret__.id,
@@ -159,7 +146,7 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiSchemaResult]:
     """
     Schema Contract details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

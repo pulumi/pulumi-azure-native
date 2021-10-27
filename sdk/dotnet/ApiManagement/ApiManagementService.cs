@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
-    /// API Version: 2021-08-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiManagementService")]
     public partial class ApiManagementService : Pulumi.CustomResource
@@ -119,22 +119,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> NotificationSenderEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Compute Platform Version running the service in this location.
-        /// </summary>
-        [Output("platformVersion")]
-        public Output<string> PlatformVersion { get; private set; } = null!;
-
-        /// <summary>
         /// Publisher portal endpoint Url of the API Management service.
         /// </summary>
         [Output("portalUrl")]
         public Output<string> PortalUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// List of Private Endpoint Connections of this service.
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.RemotePrivateEndpointConnectionWrapperResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
@@ -153,18 +141,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("publicIPAddresses")]
         public Output<ImmutableArray<string>> PublicIPAddresses { get; private set; } = null!;
-
-        /// <summary>
-        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        /// </summary>
-        [Output("publicIpAddressId")]
-        public Output<string?> PublicIpAddressId { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Publisher email.
@@ -195,12 +171,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ApiManagementServiceSkuPropertiesResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -396,30 +366,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
-
-        [Input("privateEndpointConnections")]
-        private InputList<Inputs.RemotePrivateEndpointConnectionWrapperArgs>? _privateEndpointConnections;
-
-        /// <summary>
-        /// List of Private Endpoint Connections of this service.
-        /// </summary>
-        public InputList<Inputs.RemotePrivateEndpointConnectionWrapperArgs> PrivateEndpointConnections
-        {
-            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.RemotePrivateEndpointConnectionWrapperArgs>());
-            set => _privateEndpointConnections = value;
-        }
-
-        /// <summary>
-        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.ApiManagement.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Publisher email.

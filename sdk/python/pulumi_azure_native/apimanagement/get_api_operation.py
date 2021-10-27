@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiOperationResult:
     """
-    API Operation details.
+    Api Operation details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
         if description and not isinstance(description, str):
@@ -76,7 +76,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -92,7 +92,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -132,7 +132,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -170,8 +170,8 @@ def get_api_operation(api_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
-    API Operation details.
-    API Version: 2021-08-01.
+    Api Operation details.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -211,8 +211,8 @@ def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationResult]:
     """
-    API Operation details.
-    API Version: 2021-08-01.
+    Api Operation details.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

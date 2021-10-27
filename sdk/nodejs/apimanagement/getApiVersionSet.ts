@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * API Version Set Contract details.
- * API Version: 2021-08-01.
+ * Api Version Set Contract details.
+ * API Version: 2020-12-01.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface GetApiVersionSetArgs {
 }
 
 /**
- * API Version Set Contract details.
+ * Api Version Set Contract details.
  */
 export interface GetApiVersionSetResult {
     /**
@@ -51,15 +51,15 @@ export interface GetApiVersionSetResult {
      */
     readonly displayName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     readonly type: string;
     /**

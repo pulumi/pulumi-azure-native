@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NamedValue details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
     if (!opts) {
@@ -48,7 +48,7 @@ export interface GetNamedValueResult {
      */
     readonly displayName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
@@ -56,7 +56,7 @@ export interface GetNamedValueResult {
      */
     readonly keyVault?: outputs.apimanagement.KeyVaultContractPropertiesResponse;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -68,7 +68,7 @@ export interface GetNamedValueResult {
      */
     readonly tags?: string[];
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     readonly type: string;
     /**

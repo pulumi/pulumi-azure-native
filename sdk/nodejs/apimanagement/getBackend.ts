@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backend details.
- * API Version: 2021-08-01.
+ * API Version: 2020-12-01.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
     if (!opts) {
@@ -52,11 +52,11 @@ export interface GetBackendResult {
      */
     readonly description?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -72,7 +72,7 @@ export interface GetBackendResult {
      */
     readonly proxy?: outputs.apimanagement.BackendProxyContractResponse;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
      */
     readonly resourceId?: string;
     /**
@@ -84,7 +84,7 @@ export interface GetBackendResult {
      */
     readonly tls?: outputs.apimanagement.BackendTlsPropertiesResponse;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type for API Management resource.
      */
     readonly type: string;
     /**

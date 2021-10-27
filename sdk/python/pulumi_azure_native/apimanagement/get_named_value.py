@@ -59,7 +59,7 @@ class GetNamedValueResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -75,7 +75,7 @@ class GetNamedValueResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +99,7 @@ class GetNamedValueResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
 
@@ -134,7 +134,7 @@ def get_named_value(named_value_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedValueResult:
     """
     NamedValue details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -169,7 +169,7 @@ def get_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedValueResult]:
     """
     NamedValue details.
-    API Version: 2021-08-01.
+    API Version: 2020-12-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.
