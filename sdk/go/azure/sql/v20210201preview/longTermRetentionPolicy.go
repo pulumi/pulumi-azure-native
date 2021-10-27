@@ -172,5 +172,6 @@ func (o LongTermRetentionPolicyOutput) ToLongTermRetentionPolicyOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LongTermRetentionPolicyInput)(nil)).Elem(), &LongTermRetentionPolicy{})
 	pulumi.RegisterOutputType(LongTermRetentionPolicyOutput{})
 }

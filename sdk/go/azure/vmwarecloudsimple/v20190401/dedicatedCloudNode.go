@@ -172,5 +172,6 @@ func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCloudNodeInput)(nil)).Elem(), &DedicatedCloudNode{})
 	pulumi.RegisterOutputType(DedicatedCloudNodeOutput{})
 }

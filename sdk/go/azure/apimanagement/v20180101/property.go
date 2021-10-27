@@ -173,5 +173,6 @@ func (o PropertyOutput) ToPropertyOutputWithContext(ctx context.Context) Propert
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertyInput)(nil)).Elem(), &Property{})
 	pulumi.RegisterOutputType(PropertyOutput{})
 }

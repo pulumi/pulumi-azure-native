@@ -160,5 +160,6 @@ func (o OperationalizationClusterOutput) ToOperationalizationClusterOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationalizationClusterInput)(nil)).Elem(), &OperationalizationCluster{})
 	pulumi.RegisterOutputType(OperationalizationClusterOutput{})
 }

@@ -166,5 +166,6 @@ func (o JobTargetGroupOutput) ToJobTargetGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupInput)(nil)).Elem(), &JobTargetGroup{})
 	pulumi.RegisterOutputType(JobTargetGroupOutput{})
 }

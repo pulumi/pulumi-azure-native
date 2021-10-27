@@ -119,5 +119,6 @@ func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsInput)(nil)).Elem(), &UserSettings{})
 	pulumi.RegisterOutputType(UserSettingsOutput{})
 }

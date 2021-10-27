@@ -224,5 +224,6 @@ func (o WebAppHostNameBindingSlotOutput) ToWebAppHostNameBindingSlotOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppHostNameBindingSlotInput)(nil)).Elem(), &WebAppHostNameBindingSlot{})
 	pulumi.RegisterOutputType(WebAppHostNameBindingSlotOutput{})
 }

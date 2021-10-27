@@ -338,6 +338,10 @@ func (in *healthStateNamePtr) ToHealthStateNamePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthAlertsNamespaceInput)(nil)).Elem(), HealthAlertsNamespace("GuestVmHealth"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthAlertsNamespacePtrInput)(nil)).Elem(), HealthAlertsNamespace("GuestVmHealth"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthStateNameInput)(nil)).Elem(), HealthStateName("Warning"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthStateNamePtrInput)(nil)).Elem(), HealthStateName("Warning"))
 	pulumi.RegisterOutputType(HealthAlertsNamespaceOutput{})
 	pulumi.RegisterOutputType(HealthAlertsNamespacePtrOutput{})
 	pulumi.RegisterOutputType(HealthStateNameOutput{})

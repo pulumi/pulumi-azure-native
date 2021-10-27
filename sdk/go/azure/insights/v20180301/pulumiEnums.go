@@ -1004,6 +1004,18 @@ func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) Opera
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregationTypeEnumInput)(nil)).Elem(), AggregationTypeEnum("Average"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregationTypeEnumPtrInput)(nil)).Elem(), AggregationTypeEnum("Average"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CriterionTypeInput)(nil)).Elem(), CriterionType("StaticThresholdCriterion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CriterionTypePtrInput)(nil)).Elem(), CriterionType("StaticThresholdCriterion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicThresholdOperatorInput)(nil)).Elem(), DynamicThresholdOperator("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicThresholdOperatorPtrInput)(nil)).Elem(), DynamicThresholdOperator("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicThresholdSensitivityInput)(nil)).Elem(), DynamicThresholdSensitivity("Low"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicThresholdSensitivityPtrInput)(nil)).Elem(), DynamicThresholdSensitivity("Low"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdatatypeInput)(nil)).Elem(), Odatatype("Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdatatypePtrInput)(nil)).Elem(), Odatatype("Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorInput)(nil)).Elem(), Operator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorPtrInput)(nil)).Elem(), Operator("Equals"))
 	pulumi.RegisterOutputType(AggregationTypeEnumOutput{})
 	pulumi.RegisterOutputType(AggregationTypeEnumPtrOutput{})
 	pulumi.RegisterOutputType(CriterionTypeOutput{})

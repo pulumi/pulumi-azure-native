@@ -150,5 +150,6 @@ func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationDefinitionInput)(nil)).Elem(), &RegistrationDefinition{})
 	pulumi.RegisterOutputType(RegistrationDefinitionOutput{})
 }

@@ -175,6 +175,8 @@ func (in *templateSpecArtifactKindPtr) ToTemplateSpecArtifactKindPtrOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecArtifactKindInput)(nil)).Elem(), TemplateSpecArtifactKind("template"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecArtifactKindPtrInput)(nil)).Elem(), TemplateSpecArtifactKind("template"))
 	pulumi.RegisterOutputType(TemplateSpecArtifactKindOutput{})
 	pulumi.RegisterOutputType(TemplateSpecArtifactKindPtrOutput{})
 }

@@ -184,5 +184,6 @@ func (o GatewayHostnameConfigurationOutput) ToGatewayHostnameConfigurationOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayHostnameConfigurationInput)(nil)).Elem(), &GatewayHostnameConfiguration{})
 	pulumi.RegisterOutputType(GatewayHostnameConfigurationOutput{})
 }

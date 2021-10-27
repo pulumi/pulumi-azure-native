@@ -164,5 +164,6 @@ func (o DataExportOutput) ToDataExportOutputWithContext(ctx context.Context) Dat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataExportInput)(nil)).Elem(), &DataExport{})
 	pulumi.RegisterOutputType(DataExportOutput{})
 }

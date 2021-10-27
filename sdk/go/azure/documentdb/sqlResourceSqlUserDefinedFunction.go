@@ -233,5 +233,6 @@ func (o SqlResourceSqlUserDefinedFunctionOutput) ToSqlResourceSqlUserDefinedFunc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionInput)(nil)).Elem(), &SqlResourceSqlUserDefinedFunction{})
 	pulumi.RegisterOutputType(SqlResourceSqlUserDefinedFunctionOutput{})
 }

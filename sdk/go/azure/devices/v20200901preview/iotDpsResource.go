@@ -174,5 +174,6 @@ func (o IotDpsResourceOutput) ToIotDpsResourceOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotDpsResourceInput)(nil)).Elem(), &IotDpsResource{})
 	pulumi.RegisterOutputType(IotDpsResourceOutput{})
 }

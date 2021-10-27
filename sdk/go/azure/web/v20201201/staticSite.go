@@ -205,5 +205,6 @@ func (o StaticSiteOutput) ToStaticSiteOutputWithContext(ctx context.Context) Sta
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteInput)(nil)).Elem(), &StaticSite{})
 	pulumi.RegisterOutputType(StaticSiteOutput{})
 }

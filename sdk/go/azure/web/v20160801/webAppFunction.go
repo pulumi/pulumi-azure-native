@@ -213,5 +213,6 @@ func (o WebAppFunctionOutput) ToWebAppFunctionOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppFunctionInput)(nil)).Elem(), &WebAppFunction{})
 	pulumi.RegisterOutputType(WebAppFunctionOutput{})
 }

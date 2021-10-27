@@ -534,6 +534,12 @@ func (in *openShiftContainerServiceVMSizePtr) ToOpenShiftContainerServiceVMSizeP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypeInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypePtrInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftAgentPoolProfileRoleInput)(nil)).Elem(), OpenShiftAgentPoolProfileRole("compute"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftAgentPoolProfileRolePtrInput)(nil)).Elem(), OpenShiftAgentPoolProfileRole("compute"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftContainerServiceVMSizeInput)(nil)).Elem(), OpenShiftContainerServiceVMSize("Standard_D2s_v3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftContainerServiceVMSizePtrInput)(nil)).Elem(), OpenShiftContainerServiceVMSize("Standard_D2s_v3"))
 	pulumi.RegisterOutputType(OSTypeOutput{})
 	pulumi.RegisterOutputType(OSTypePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftAgentPoolProfileRoleOutput{})

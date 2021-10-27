@@ -178,5 +178,6 @@ func (o DedicatedHostGroupOutput) ToDedicatedHostGroupOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostGroupInput)(nil)).Elem(), &DedicatedHostGroup{})
 	pulumi.RegisterOutputType(DedicatedHostGroupOutput{})
 }

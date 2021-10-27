@@ -171,5 +171,6 @@ func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueAuthorizationRuleInput)(nil)).Elem(), &QueueAuthorizationRule{})
 	pulumi.RegisterOutputType(QueueAuthorizationRuleOutput{})
 }

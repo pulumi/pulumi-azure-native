@@ -153,5 +153,6 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookInput)(nil)).Elem(), &Webhook{})
 	pulumi.RegisterOutputType(WebhookOutput{})
 }

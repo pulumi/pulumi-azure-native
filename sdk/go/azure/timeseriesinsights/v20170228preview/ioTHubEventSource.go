@@ -202,5 +202,6 @@ func (o IoTHubEventSourceOutput) ToIoTHubEventSourceOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubEventSourceInput)(nil)).Elem(), &IoTHubEventSource{})
 	pulumi.RegisterOutputType(IoTHubEventSourceOutput{})
 }

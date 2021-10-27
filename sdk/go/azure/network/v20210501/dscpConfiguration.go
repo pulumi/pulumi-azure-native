@@ -190,5 +190,6 @@ func (o DscpConfigurationOutput) ToDscpConfigurationOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DscpConfigurationInput)(nil)).Elem(), &DscpConfiguration{})
 	pulumi.RegisterOutputType(DscpConfigurationOutput{})
 }

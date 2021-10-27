@@ -202,5 +202,6 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiSchemaInput)(nil)).Elem(), &ApiSchema{})
 	pulumi.RegisterOutputType(ApiSchemaOutput{})
 }

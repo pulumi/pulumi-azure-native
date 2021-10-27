@@ -316,5 +316,6 @@ func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) Vir
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubInput)(nil)).Elem(), &VirtualHub{})
 	pulumi.RegisterOutputType(VirtualHubOutput{})
 }

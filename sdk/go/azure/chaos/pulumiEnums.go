@@ -504,6 +504,12 @@ func (in *targetReferenceTypePtr) ToTargetReferenceTypePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectorTypeInput)(nil)).Elem(), SelectorType("Percent"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectorTypePtrInput)(nil)).Elem(), SelectorType("Percent"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetReferenceTypeInput)(nil)).Elem(), TargetReferenceType("ChaosTarget"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetReferenceTypePtrInput)(nil)).Elem(), TargetReferenceType("ChaosTarget"))
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(SelectorTypeOutput{})

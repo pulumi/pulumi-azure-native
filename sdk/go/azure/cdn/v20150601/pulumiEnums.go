@@ -341,6 +341,10 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryStringCachingBehaviorInput)(nil)).Elem(), QueryStringCachingBehavior("IgnoreQueryString"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryStringCachingBehaviorPtrInput)(nil)).Elem(), QueryStringCachingBehavior("IgnoreQueryString"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard"))
 	pulumi.RegisterOutputType(QueryStringCachingBehaviorOutput{})
 	pulumi.RegisterOutputType(QueryStringCachingBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(SkuNameOutput{})

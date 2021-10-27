@@ -303,5 +303,6 @@ func (o WebAppAuthSettingsOutput) ToWebAppAuthSettingsOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppAuthSettingsInput)(nil)).Elem(), &WebAppAuthSettings{})
 	pulumi.RegisterOutputType(WebAppAuthSettingsOutput{})
 }

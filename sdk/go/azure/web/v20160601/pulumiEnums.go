@@ -512,6 +512,12 @@ func (in *wsdlImportMethodPtr) ToWsdlImportMethodPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiTypeInput)(nil)).Elem(), ApiType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiTypePtrInput)(nil)).Elem(), ApiType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterTypeInput)(nil)).Elem(), ConnectionParameterType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterTypePtrInput)(nil)).Elem(), ConnectionParameterType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WsdlImportMethodInput)(nil)).Elem(), WsdlImportMethod("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WsdlImportMethodPtrInput)(nil)).Elem(), WsdlImportMethod("NotSpecified"))
 	pulumi.RegisterOutputType(ApiTypeOutput{})
 	pulumi.RegisterOutputType(ApiTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterTypeOutput{})

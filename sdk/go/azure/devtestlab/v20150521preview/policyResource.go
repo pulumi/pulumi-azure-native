@@ -173,5 +173,6 @@ func (o PolicyResourceOutput) ToPolicyResourceOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceInput)(nil)).Elem(), &PolicyResource{})
 	pulumi.RegisterOutputType(PolicyResourceOutput{})
 }

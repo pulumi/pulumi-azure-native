@@ -254,5 +254,6 @@ func (o DatabaseAccountGremlinDatabaseOutput) ToDatabaseAccountGremlinDatabaseOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountGremlinDatabaseInput)(nil)).Elem(), &DatabaseAccountGremlinDatabase{})
 	pulumi.RegisterOutputType(DatabaseAccountGremlinDatabaseOutput{})
 }

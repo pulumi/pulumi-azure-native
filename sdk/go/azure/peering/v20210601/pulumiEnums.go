@@ -676,6 +676,14 @@ func (in *sessionAddressProviderPtr) ToSessionAddressProviderPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectPeeringTypeInput)(nil)).Elem(), DirectPeeringType("Edge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectPeeringTypePtrInput)(nil)).Elem(), DirectPeeringType("Edge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("Direct"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("Direct"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleInput)(nil)).Elem(), Role("Noc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePtrInput)(nil)).Elem(), Role("Noc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionAddressProviderInput)(nil)).Elem(), SessionAddressProvider("Microsoft"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionAddressProviderPtrInput)(nil)).Elem(), SessionAddressProvider("Microsoft"))
 	pulumi.RegisterOutputType(DirectPeeringTypeOutput{})
 	pulumi.RegisterOutputType(DirectPeeringTypePtrOutput{})
 	pulumi.RegisterOutputType(KindOutput{})

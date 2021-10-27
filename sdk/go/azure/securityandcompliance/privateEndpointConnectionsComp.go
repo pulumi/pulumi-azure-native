@@ -140,5 +140,6 @@ func (o PrivateEndpointConnectionsCompOutput) ToPrivateEndpointConnectionsCompOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionsCompInput)(nil)).Elem(), &PrivateEndpointConnectionsComp{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsCompOutput{})
 }

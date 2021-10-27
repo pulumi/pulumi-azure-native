@@ -131,5 +131,6 @@ func (o ServerCollectorOutput) ToServerCollectorOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCollectorInput)(nil)).Elem(), &ServerCollector{})
 	pulumi.RegisterOutputType(ServerCollectorOutput{})
 }

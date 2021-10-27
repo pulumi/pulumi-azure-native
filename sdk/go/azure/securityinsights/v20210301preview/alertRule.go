@@ -153,5 +153,6 @@ func (o AlertRuleOutput) ToAlertRuleOutputWithContext(ctx context.Context) Alert
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleInput)(nil)).Elem(), &AlertRule{})
 	pulumi.RegisterOutputType(AlertRuleOutput{})
 }

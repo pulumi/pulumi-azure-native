@@ -166,5 +166,6 @@ func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubInput)(nil)).Elem(), &PrivateLinkHub{})
 	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
 }

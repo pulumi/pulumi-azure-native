@@ -148,5 +148,6 @@ func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionInput)(nil)).Elem(), &IntegrationAccountSession{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionOutput{})
 }

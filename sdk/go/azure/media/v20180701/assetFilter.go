@@ -151,5 +151,6 @@ func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterInput)(nil)).Elem(), &AssetFilter{})
 	pulumi.RegisterOutputType(AssetFilterOutput{})
 }

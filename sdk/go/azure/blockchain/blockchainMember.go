@@ -159,5 +159,6 @@ func (o BlockchainMemberOutput) ToBlockchainMemberOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainMemberInput)(nil)).Elem(), &BlockchainMember{})
 	pulumi.RegisterOutputType(BlockchainMemberOutput{})
 }

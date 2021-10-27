@@ -165,5 +165,6 @@ func (o ScriptExecutionOutput) ToScriptExecutionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptExecutionInput)(nil)).Elem(), &ScriptExecution{})
 	pulumi.RegisterOutputType(ScriptExecutionOutput{})
 }

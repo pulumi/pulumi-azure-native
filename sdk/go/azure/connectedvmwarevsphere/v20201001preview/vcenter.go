@@ -152,5 +152,6 @@ func (o VCenterOutput) ToVCenterOutputWithContext(ctx context.Context) VCenterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VCenterInput)(nil)).Elem(), &VCenter{})
 	pulumi.RegisterOutputType(VCenterOutput{})
 }

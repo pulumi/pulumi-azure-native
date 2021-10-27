@@ -506,6 +506,12 @@ func (in *suppressionTypePtr) ToSuppressionTypePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleStatusInput)(nil)).Elem(), ActionRuleStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleStatusPtrInput)(nil)).Elem(), ActionRuleStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypeInput)(nil)).Elem(), ScopeType("ResourceGroup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypePtrInput)(nil)).Elem(), ScopeType("ResourceGroup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SuppressionTypeInput)(nil)).Elem(), SuppressionType("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SuppressionTypePtrInput)(nil)).Elem(), SuppressionType("Always"))
 	pulumi.RegisterOutputType(ActionRuleStatusOutput{})
 	pulumi.RegisterOutputType(ActionRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(ScopeTypeOutput{})

@@ -150,5 +150,6 @@ func (o TemplateArtifactOutput) ToTemplateArtifactOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArtifactInput)(nil)).Elem(), &TemplateArtifact{})
 	pulumi.RegisterOutputType(TemplateArtifactOutput{})
 }

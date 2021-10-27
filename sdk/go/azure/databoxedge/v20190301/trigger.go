@@ -192,5 +192,6 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerInput)(nil)).Elem(), &Trigger{})
 	pulumi.RegisterOutputType(TriggerOutput{})
 }

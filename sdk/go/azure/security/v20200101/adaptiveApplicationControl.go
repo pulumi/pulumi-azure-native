@@ -143,5 +143,6 @@ func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdaptiveApplicationControlInput)(nil)).Elem(), &AdaptiveApplicationControl{})
 	pulumi.RegisterOutputType(AdaptiveApplicationControlOutput{})
 }

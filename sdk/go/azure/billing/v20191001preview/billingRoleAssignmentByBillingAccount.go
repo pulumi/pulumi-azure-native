@@ -140,5 +140,6 @@ func (o BillingRoleAssignmentByBillingAccountOutput) ToBillingRoleAssignmentByBi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingRoleAssignmentByBillingAccountInput)(nil)).Elem(), &BillingRoleAssignmentByBillingAccount{})
 	pulumi.RegisterOutputType(BillingRoleAssignmentByBillingAccountOutput{})
 }

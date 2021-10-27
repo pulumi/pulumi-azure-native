@@ -177,6 +177,8 @@ func (in *resourceDiscoveryModePtr) ToResourceDiscoveryModePtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDiscoveryModeInput)(nil)).Elem(), ResourceDiscoveryMode("ExistingNonCompliant"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDiscoveryModePtrInput)(nil)).Elem(), ResourceDiscoveryMode("ExistingNonCompliant"))
 	pulumi.RegisterOutputType(ResourceDiscoveryModeOutput{})
 	pulumi.RegisterOutputType(ResourceDiscoveryModePtrOutput{})
 }

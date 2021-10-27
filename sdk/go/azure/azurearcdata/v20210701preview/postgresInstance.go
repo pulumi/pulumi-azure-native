@@ -145,5 +145,6 @@ func (o PostgresInstanceOutput) ToPostgresInstanceOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceInput)(nil)).Elem(), &PostgresInstance{})
 	pulumi.RegisterOutputType(PostgresInstanceOutput{})
 }

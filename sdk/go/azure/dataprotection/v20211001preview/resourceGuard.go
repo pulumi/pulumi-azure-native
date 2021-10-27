@@ -140,5 +140,6 @@ func (o ResourceGuardOutput) ToResourceGuardOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGuardInput)(nil)).Elem(), &ResourceGuard{})
 	pulumi.RegisterOutputType(ResourceGuardOutput{})
 }

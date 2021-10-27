@@ -180,5 +180,6 @@ func (o ScheduledTriggerOutput) ToScheduledTriggerOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledTriggerInput)(nil)).Elem(), &ScheduledTrigger{})
 	pulumi.RegisterOutputType(ScheduledTriggerOutput{})
 }

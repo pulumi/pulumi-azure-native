@@ -189,5 +189,6 @@ func (o GatewayApiEntityTagOutput) ToGatewayApiEntityTagOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayApiEntityTagInput)(nil)).Elem(), &GatewayApiEntityTag{})
 	pulumi.RegisterOutputType(GatewayApiEntityTagOutput{})
 }

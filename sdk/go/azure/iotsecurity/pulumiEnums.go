@@ -505,6 +505,12 @@ func (in *sensorTypePtr) ToSensorTypePtrOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MdeIntegrationInput)(nil)).Elem(), MdeIntegration("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MdeIntegrationPtrInput)(nil)).Elem(), MdeIntegration("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnboardingKindInput)(nil)).Elem(), OnboardingKind("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnboardingKindPtrInput)(nil)).Elem(), OnboardingKind("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SensorTypeInput)(nil)).Elem(), SensorType("Ot"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SensorTypePtrInput)(nil)).Elem(), SensorType("Ot"))
 	pulumi.RegisterOutputType(MdeIntegrationOutput{})
 	pulumi.RegisterOutputType(MdeIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(OnboardingKindOutput{})

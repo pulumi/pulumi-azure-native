@@ -229,5 +229,6 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderInput)(nil)).Elem(), &IdentityProvider{})
 	pulumi.RegisterOutputType(IdentityProviderOutput{})
 }

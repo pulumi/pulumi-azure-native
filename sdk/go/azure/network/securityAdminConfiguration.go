@@ -140,5 +140,6 @@ func (o SecurityAdminConfigurationOutput) ToSecurityAdminConfigurationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityAdminConfigurationInput)(nil)).Elem(), &SecurityAdminConfiguration{})
 	pulumi.RegisterOutputType(SecurityAdminConfigurationOutput{})
 }

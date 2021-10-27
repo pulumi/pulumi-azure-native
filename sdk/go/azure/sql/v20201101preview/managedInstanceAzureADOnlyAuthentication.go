@@ -155,5 +155,6 @@ func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureAD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthenticationInput)(nil)).Elem(), &ManagedInstanceAzureADOnlyAuthentication{})
 	pulumi.RegisterOutputType(ManagedInstanceAzureADOnlyAuthenticationOutput{})
 }

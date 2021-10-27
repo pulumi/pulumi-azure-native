@@ -143,5 +143,6 @@ func (o NetworkGroupOutput) ToNetworkGroupOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGroupInput)(nil)).Elem(), &NetworkGroup{})
 	pulumi.RegisterOutputType(NetworkGroupOutput{})
 }

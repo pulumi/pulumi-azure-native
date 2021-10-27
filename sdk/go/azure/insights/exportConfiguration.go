@@ -160,5 +160,6 @@ func (o ExportConfigurationOutput) ToExportConfigurationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportConfigurationInput)(nil)).Elem(), &ExportConfiguration{})
 	pulumi.RegisterOutputType(ExportConfigurationOutput{})
 }

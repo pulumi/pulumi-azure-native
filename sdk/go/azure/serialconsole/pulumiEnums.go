@@ -175,6 +175,8 @@ func (in *serialPortStateEnumPtr) ToSerialPortStateEnumPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SerialPortStateEnumInput)(nil)).Elem(), SerialPortStateEnum("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SerialPortStateEnumPtrInput)(nil)).Elem(), SerialPortStateEnum("enabled"))
 	pulumi.RegisterOutputType(SerialPortStateEnumOutput{})
 	pulumi.RegisterOutputType(SerialPortStateEnumPtrOutput{})
 }

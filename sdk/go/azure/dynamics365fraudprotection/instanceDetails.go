@@ -131,5 +131,6 @@ func (o InstanceDetailsOutput) ToInstanceDetailsOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceDetailsInput)(nil)).Elem(), &InstanceDetails{})
 	pulumi.RegisterOutputType(InstanceDetailsOutput{})
 }

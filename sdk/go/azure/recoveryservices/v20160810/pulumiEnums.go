@@ -934,6 +934,18 @@ func (in *setMultiVmSyncStatusPtr) ToSetMultiVmSyncStatusPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverDeploymentModelInput)(nil)).Elem(), FailoverDeploymentModel("NotApplicable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverDeploymentModelPtrInput)(nil)).Elem(), FailoverDeploymentModel("NotApplicable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PossibleOperationsDirectionsInput)(nil)).Elem(), PossibleOperationsDirections("PrimaryToRecovery"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PossibleOperationsDirectionsPtrInput)(nil)).Elem(), PossibleOperationsDirections("PrimaryToRecovery"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PossibleOperationsDirectionsArrayInput)(nil)).Elem(), PossibleOperationsDirectionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryPlanGroupTypeInput)(nil)).Elem(), RecoveryPlanGroupType("Shutdown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryPlanGroupTypePtrInput)(nil)).Elem(), RecoveryPlanGroupType("Shutdown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationProtectedItemOperationInput)(nil)).Elem(), ReplicationProtectedItemOperation("ReverseReplicate"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationProtectedItemOperationPtrInput)(nil)).Elem(), ReplicationProtectedItemOperation("ReverseReplicate"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationProtectedItemOperationArrayInput)(nil)).Elem(), ReplicationProtectedItemOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SetMultiVmSyncStatusInput)(nil)).Elem(), SetMultiVmSyncStatus("Enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SetMultiVmSyncStatusPtrInput)(nil)).Elem(), SetMultiVmSyncStatus("Enable"))
 	pulumi.RegisterOutputType(FailoverDeploymentModelOutput{})
 	pulumi.RegisterOutputType(FailoverDeploymentModelPtrOutput{})
 	pulumi.RegisterOutputType(PossibleOperationsDirectionsOutput{})

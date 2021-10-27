@@ -172,5 +172,6 @@ func (o ObjectReplicationPolicyOutput) ToObjectReplicationPolicyOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectReplicationPolicyInput)(nil)).Elem(), &ObjectReplicationPolicy{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyOutput{})
 }

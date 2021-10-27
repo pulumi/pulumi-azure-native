@@ -138,5 +138,6 @@ func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilityGroupListenerInput)(nil)).Elem(), &AvailabilityGroupListener{})
 	pulumi.RegisterOutputType(AvailabilityGroupListenerOutput{})
 }

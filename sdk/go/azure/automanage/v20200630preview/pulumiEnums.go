@@ -831,6 +831,16 @@ func (in *scanTypePtr) ToScanTypePtrOutputWithContext(ctx context.Context) ScanT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileInput)(nil)).Elem(), ConfigurationProfile("Azure virtual machine best practices – Dev/Test"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfilePtrInput)(nil)).Elem(), ConfigurationProfile("Azure virtual machine best practices – Dev/Test"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnableRealTimeProtectionInput)(nil)).Elem(), EnableRealTimeProtection("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnableRealTimeProtectionPtrInput)(nil)).Elem(), EnableRealTimeProtection("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RunScheduledScanInput)(nil)).Elem(), RunScheduledScan("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RunScheduledScanPtrInput)(nil)).Elem(), RunScheduledScan("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScanTypeInput)(nil)).Elem(), ScanType("Quick"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScanTypePtrInput)(nil)).Elem(), ScanType("Quick"))
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePtrOutput{})
 	pulumi.RegisterOutputType(EnableRealTimeProtectionOutput{})

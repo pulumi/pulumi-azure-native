@@ -233,5 +233,6 @@ func (o WebAppInstanceFunctionSlotOutput) ToWebAppInstanceFunctionSlotOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppInstanceFunctionSlotInput)(nil)).Elem(), &WebAppInstanceFunctionSlot{})
 	pulumi.RegisterOutputType(WebAppInstanceFunctionSlotOutput{})
 }

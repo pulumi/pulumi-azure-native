@@ -254,5 +254,6 @@ func (o SqlResourceSqlDatabaseOutput) ToSqlResourceSqlDatabaseOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlDatabaseInput)(nil)).Elem(), &SqlResourceSqlDatabase{})
 	pulumi.RegisterOutputType(SqlResourceSqlDatabaseOutput{})
 }

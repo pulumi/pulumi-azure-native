@@ -123,5 +123,6 @@ func (o TenantConfigurationOutput) ToTenantConfigurationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantConfigurationInput)(nil)).Elem(), &TenantConfiguration{})
 	pulumi.RegisterOutputType(TenantConfigurationOutput{})
 }

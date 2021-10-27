@@ -191,5 +191,6 @@ func (o TagByApiOutput) ToTagByApiOutputWithContext(ctx context.Context) TagByAp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagByApiInput)(nil)).Elem(), &TagByApi{})
 	pulumi.RegisterOutputType(TagByApiOutput{})
 }

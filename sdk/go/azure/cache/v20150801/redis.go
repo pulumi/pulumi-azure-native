@@ -203,5 +203,6 @@ func (o RedisOutput) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisInput)(nil)).Elem(), &Redis{})
 	pulumi.RegisterOutputType(RedisOutput{})
 }

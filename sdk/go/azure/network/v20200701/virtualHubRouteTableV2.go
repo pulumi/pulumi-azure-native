@@ -208,5 +208,6 @@ func (o VirtualHubRouteTableV2Output) ToVirtualHubRouteTableV2OutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableV2Input)(nil)).Elem(), &VirtualHubRouteTableV2{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableV2Output{})
 }

@@ -116,5 +116,6 @@ func (o StorageAccountStaticWebsiteOutput) ToStorageAccountStaticWebsiteOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountStaticWebsiteInput)(nil)).Elem(), &StorageAccountStaticWebsite{})
 	pulumi.RegisterOutputType(StorageAccountStaticWebsiteOutput{})
 }

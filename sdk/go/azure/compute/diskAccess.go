@@ -153,5 +153,6 @@ func (o DiskAccessOutput) ToDiskAccessOutputWithContext(ctx context.Context) Dis
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessInput)(nil)).Elem(), &DiskAccess{})
 	pulumi.RegisterOutputType(DiskAccessOutput{})
 }

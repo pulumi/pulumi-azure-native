@@ -187,5 +187,6 @@ func (o BlobContainerDataSetOutput) ToBlobContainerDataSetOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobContainerDataSetInput)(nil)).Elem(), &BlobContainerDataSet{})
 	pulumi.RegisterOutputType(BlobContainerDataSetOutput{})
 }

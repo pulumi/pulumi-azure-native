@@ -177,5 +177,6 @@ func (o ShareSubscriptionOutput) ToShareSubscriptionOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareSubscriptionInput)(nil)).Elem(), &ShareSubscription{})
 	pulumi.RegisterOutputType(ShareSubscriptionOutput{})
 }

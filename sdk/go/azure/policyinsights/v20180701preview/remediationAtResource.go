@@ -141,5 +141,6 @@ func (o RemediationAtResourceOutput) ToRemediationAtResourceOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationAtResourceInput)(nil)).Elem(), &RemediationAtResource{})
 	pulumi.RegisterOutputType(RemediationAtResourceOutput{})
 }

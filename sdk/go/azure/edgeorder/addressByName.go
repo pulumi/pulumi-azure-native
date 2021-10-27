@@ -136,5 +136,6 @@ func (o AddressByNameOutput) ToAddressByNameOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AddressByNameInput)(nil)).Elem(), &AddressByName{})
 	pulumi.RegisterOutputType(AddressByNameOutput{})
 }

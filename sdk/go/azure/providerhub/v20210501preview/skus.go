@@ -146,5 +146,6 @@ func (o SkusOutput) ToSkusOutputWithContext(ctx context.Context) SkusOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SkusInput)(nil)).Elem(), &Skus{})
 	pulumi.RegisterOutputType(SkusOutput{})
 }

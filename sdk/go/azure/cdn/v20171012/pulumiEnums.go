@@ -677,6 +677,14 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterActionsInput)(nil)).Elem(), GeoFilterActions("Block"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoFilterActionsPtrInput)(nil)).Elem(), GeoFilterActions("Block"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OptimizationTypeInput)(nil)).Elem(), OptimizationType("GeneralWebDelivery"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OptimizationTypePtrInput)(nil)).Elem(), OptimizationType("GeneralWebDelivery"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryStringCachingBehaviorInput)(nil)).Elem(), QueryStringCachingBehavior("IgnoreQueryString"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryStringCachingBehaviorPtrInput)(nil)).Elem(), QueryStringCachingBehavior("IgnoreQueryString"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard_Verizon"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard_Verizon"))
 	pulumi.RegisterOutputType(GeoFilterActionsOutput{})
 	pulumi.RegisterOutputType(GeoFilterActionsPtrOutput{})
 	pulumi.RegisterOutputType(OptimizationTypeOutput{})

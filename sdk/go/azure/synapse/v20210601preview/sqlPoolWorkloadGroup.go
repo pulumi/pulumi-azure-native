@@ -193,5 +193,6 @@ func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadGroupInput)(nil)).Elem(), &SqlPoolWorkloadGroup{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadGroupOutput{})
 }

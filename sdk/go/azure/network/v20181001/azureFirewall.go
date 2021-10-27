@@ -286,5 +286,6 @@ func (o AzureFirewallOutput) ToAzureFirewallOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureFirewallInput)(nil)).Elem(), &AzureFirewall{})
 	pulumi.RegisterOutputType(AzureFirewallOutput{})
 }

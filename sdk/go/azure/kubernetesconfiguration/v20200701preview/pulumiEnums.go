@@ -667,6 +667,14 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LevelTypeInput)(nil)).Elem(), LevelType("Error"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LevelTypePtrInput)(nil)).Elem(), LevelType("Error"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypeInput)(nil)).Elem(), OperatorScopeType("cluster"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypePtrInput)(nil)).Elem(), OperatorScopeType("cluster"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("Flux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("Flux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(LevelTypeOutput{})
 	pulumi.RegisterOutputType(LevelTypePtrOutput{})
 	pulumi.RegisterOutputType(OperatorScopeTypeOutput{})

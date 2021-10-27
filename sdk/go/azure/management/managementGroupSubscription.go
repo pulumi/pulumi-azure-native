@@ -136,5 +136,6 @@ func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupSubscriptionInput)(nil)).Elem(), &ManagementGroupSubscription{})
 	pulumi.RegisterOutputType(ManagementGroupSubscriptionOutput{})
 }

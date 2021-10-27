@@ -138,5 +138,6 @@ func (o BlobOutput) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInput)(nil)).Elem(), &Blob{})
 	pulumi.RegisterOutputType(BlobOutput{})
 }

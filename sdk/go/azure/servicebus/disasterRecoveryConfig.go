@@ -152,5 +152,6 @@ func (o DisasterRecoveryConfigOutput) ToDisasterRecoveryConfigOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DisasterRecoveryConfigInput)(nil)).Elem(), &DisasterRecoveryConfig{})
 	pulumi.RegisterOutputType(DisasterRecoveryConfigOutput{})
 }

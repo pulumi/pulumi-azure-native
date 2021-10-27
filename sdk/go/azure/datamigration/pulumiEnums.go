@@ -999,6 +999,18 @@ func (in *sqlSourcePlatformPtr) ToSqlSourcePlatformPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypeInput)(nil)).Elem(), AuthenticationType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypePtrInput)(nil)).Elem(), AuthenticationType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupModeInput)(nil)).Elem(), BackupMode("CreateBackup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupModePtrInput)(nil)).Elem(), BackupMode("CreateBackup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePlatformInput)(nil)).Elem(), ProjectSourcePlatform("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePlatformPtrInput)(nil)).Elem(), ProjectSourcePlatform("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTargetPlatformInput)(nil)).Elem(), ProjectTargetPlatform("SQLDB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTargetPlatformPtrInput)(nil)).Elem(), ProjectTargetPlatform("SQLDB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerLevelPermissionsGroupInput)(nil)).Elem(), ServerLevelPermissionsGroup("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerLevelPermissionsGroupPtrInput)(nil)).Elem(), ServerLevelPermissionsGroup("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlSourcePlatformInput)(nil)).Elem(), SqlSourcePlatform("SqlOnPrem"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlSourcePlatformPtrInput)(nil)).Elem(), SqlSourcePlatform("SqlOnPrem"))
 	pulumi.RegisterOutputType(AuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(AuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupModeOutput{})

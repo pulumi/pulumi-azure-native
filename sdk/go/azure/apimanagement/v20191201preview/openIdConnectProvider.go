@@ -221,5 +221,6 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenIdConnectProviderInput)(nil)).Elem(), &OpenIdConnectProvider{})
 	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
 }

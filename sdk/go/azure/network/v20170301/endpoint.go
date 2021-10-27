@@ -199,5 +199,6 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
 	pulumi.RegisterOutputType(EndpointOutput{})
 }

@@ -191,5 +191,6 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientUserInput)(nil)).Elem(), &NotificationRecipientUser{})
 	pulumi.RegisterOutputType(NotificationRecipientUserOutput{})
 }

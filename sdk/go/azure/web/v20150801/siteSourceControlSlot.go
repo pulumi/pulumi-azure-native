@@ -222,5 +222,6 @@ func (o SiteSourceControlSlotOutput) ToSiteSourceControlSlotOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSourceControlSlotInput)(nil)).Elem(), &SiteSourceControlSlot{})
 	pulumi.RegisterOutputType(SiteSourceControlSlotOutput{})
 }

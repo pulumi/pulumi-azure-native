@@ -212,5 +212,6 @@ func (o MSIXPackageOutput) ToMSIXPackageOutputWithContext(ctx context.Context) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MSIXPackageInput)(nil)).Elem(), &MSIXPackage{})
 	pulumi.RegisterOutputType(MSIXPackageOutput{})
 }

@@ -195,5 +195,6 @@ func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupInput)(nil)).Elem(), &ActionGroup{})
 	pulumi.RegisterOutputType(ActionGroupOutput{})
 }

@@ -164,5 +164,6 @@ func (o MTPDataConnectorOutput) ToMTPDataConnectorOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MTPDataConnectorInput)(nil)).Elem(), &MTPDataConnector{})
 	pulumi.RegisterOutputType(MTPDataConnectorOutput{})
 }

@@ -187,5 +187,6 @@ func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HubVirtualNetworkConnectionInput)(nil)).Elem(), &HubVirtualNetworkConnection{})
 	pulumi.RegisterOutputType(HubVirtualNetworkConnectionOutput{})
 }

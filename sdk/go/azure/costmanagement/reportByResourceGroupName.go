@@ -139,5 +139,6 @@ func (o ReportByResourceGroupNameOutput) ToReportByResourceGroupNameOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportByResourceGroupNameInput)(nil)).Elem(), &ReportByResourceGroupName{})
 	pulumi.RegisterOutputType(ReportByResourceGroupNameOutput{})
 }

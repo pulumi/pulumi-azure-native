@@ -155,5 +155,6 @@ func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) ToStaticSiteUserPr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSiteInput)(nil)).Elem(), &StaticSiteUserProvidedFunctionAppForStaticSite{})
 	pulumi.RegisterOutputType(StaticSiteUserProvidedFunctionAppForStaticSiteOutput{})
 }

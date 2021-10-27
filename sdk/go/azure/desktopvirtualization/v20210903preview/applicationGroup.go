@@ -239,5 +239,6 @@ func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGroupInput)(nil)).Elem(), &ApplicationGroup{})
 	pulumi.RegisterOutputType(ApplicationGroupOutput{})
 }

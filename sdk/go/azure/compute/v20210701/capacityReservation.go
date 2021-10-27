@@ -151,5 +151,6 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationInput)(nil)).Elem(), &CapacityReservation{})
 	pulumi.RegisterOutputType(CapacityReservationOutput{})
 }

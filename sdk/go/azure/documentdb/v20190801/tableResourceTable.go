@@ -256,5 +256,6 @@ func (o TableResourceTableOutput) ToTableResourceTableOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableResourceTableInput)(nil)).Elem(), &TableResourceTable{})
 	pulumi.RegisterOutputType(TableResourceTableOutput{})
 }

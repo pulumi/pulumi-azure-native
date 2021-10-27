@@ -221,5 +221,6 @@ func (o ServerFarmOutput) ToServerFarmOutputWithContext(ctx context.Context) Ser
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerFarmInput)(nil)).Elem(), &ServerFarm{})
 	pulumi.RegisterOutputType(ServerFarmOutput{})
 }

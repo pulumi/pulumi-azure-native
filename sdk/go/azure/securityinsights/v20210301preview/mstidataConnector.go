@@ -165,5 +165,6 @@ func (o MSTIDataConnectorOutput) ToMSTIDataConnectorOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MSTIDataConnectorInput)(nil)).Elem(), &MSTIDataConnector{})
 	pulumi.RegisterOutputType(MSTIDataConnectorOutput{})
 }

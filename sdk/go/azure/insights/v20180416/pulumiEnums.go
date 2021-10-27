@@ -999,6 +999,18 @@ func (in *queryTypePtr) ToQueryTypePtrOutputWithContext(ctx context.Context) Que
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSeverityInput)(nil)).Elem(), AlertSeverity("0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSeverityPtrInput)(nil)).Elem(), AlertSeverity("0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalOperatorInput)(nil)).Elem(), ConditionalOperator("GreaterThanOrEqual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalOperatorPtrInput)(nil)).Elem(), ConditionalOperator("GreaterThanOrEqual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnabledInput)(nil)).Elem(), Enabled("true"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnabledPtrInput)(nil)).Elem(), Enabled("true"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTriggerTypeInput)(nil)).Elem(), MetricTriggerType("Consecutive"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTriggerTypePtrInput)(nil)).Elem(), MetricTriggerType("Consecutive"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorInput)(nil)).Elem(), Operator("Include"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorPtrInput)(nil)).Elem(), Operator("Include"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryTypeInput)(nil)).Elem(), QueryType("ResultCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryTypePtrInput)(nil)).Elem(), QueryType("ResultCount"))
 	pulumi.RegisterOutputType(AlertSeverityOutput{})
 	pulumi.RegisterOutputType(AlertSeverityPtrOutput{})
 	pulumi.RegisterOutputType(ConditionalOperatorOutput{})

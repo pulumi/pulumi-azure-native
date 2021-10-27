@@ -222,5 +222,6 @@ func (o SiteBackupConfigurationSlotOutput) ToSiteBackupConfigurationSlotOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteBackupConfigurationSlotInput)(nil)).Elem(), &SiteBackupConfigurationSlot{})
 	pulumi.RegisterOutputType(SiteBackupConfigurationSlotOutput{})
 }

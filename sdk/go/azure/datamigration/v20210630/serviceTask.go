@@ -132,5 +132,6 @@ func (o ServiceTaskOutput) ToServiceTaskOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTaskInput)(nil)).Elem(), &ServiceTask{})
 	pulumi.RegisterOutputType(ServiceTaskOutput{})
 }

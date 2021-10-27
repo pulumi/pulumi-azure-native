@@ -151,5 +151,6 @@ func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetInput)(nil)).Elem(), &NamespaceNetworkRuleSet{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetOutput{})
 }

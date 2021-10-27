@@ -141,5 +141,6 @@ func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionInput)(nil)).Elem(), &RoleDefinition{})
 	pulumi.RegisterOutputType(RoleDefinitionOutput{})
 }

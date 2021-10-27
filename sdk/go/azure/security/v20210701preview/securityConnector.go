@@ -145,5 +145,6 @@ func (o SecurityConnectorOutput) ToSecurityConnectorOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConnectorInput)(nil)).Elem(), &SecurityConnector{})
 	pulumi.RegisterOutputType(SecurityConnectorOutput{})
 }

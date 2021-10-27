@@ -347,6 +347,10 @@ func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterTypeInput)(nil)).Elem(), ConnectionParameterType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterTypePtrInput)(nil)).Elem(), ConnectionParameterType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalTypeInput)(nil)).Elem(), PrincipalType("ActiveDirectory"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalTypePtrInput)(nil)).Elem(), PrincipalType("ActiveDirectory"))
 	pulumi.RegisterOutputType(ConnectionParameterTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(PrincipalTypeOutput{})

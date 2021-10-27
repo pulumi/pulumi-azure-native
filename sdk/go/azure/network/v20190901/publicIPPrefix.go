@@ -281,5 +281,6 @@ func (o PublicIPPrefixOutput) ToPublicIPPrefixOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicIPPrefixInput)(nil)).Elem(), &PublicIPPrefix{})
 	pulumi.RegisterOutputType(PublicIPPrefixOutput{})
 }

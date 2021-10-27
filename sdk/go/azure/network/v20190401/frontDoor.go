@@ -177,5 +177,6 @@ func (o FrontDoorOutput) ToFrontDoorOutputWithContext(ctx context.Context) Front
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorInput)(nil)).Elem(), &FrontDoor{})
 	pulumi.RegisterOutputType(FrontDoorOutput{})
 }

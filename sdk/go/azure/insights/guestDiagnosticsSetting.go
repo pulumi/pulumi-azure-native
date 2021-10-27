@@ -135,5 +135,6 @@ func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuestDiagnosticsSettingInput)(nil)).Elem(), &GuestDiagnosticsSetting{})
 	pulumi.RegisterOutputType(GuestDiagnosticsSettingOutput{})
 }

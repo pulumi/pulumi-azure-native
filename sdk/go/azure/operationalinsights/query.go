@@ -153,5 +153,6 @@ func (o QueryOutput) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryInput)(nil)).Elem(), &Query{})
 	pulumi.RegisterOutputType(QueryOutput{})
 }

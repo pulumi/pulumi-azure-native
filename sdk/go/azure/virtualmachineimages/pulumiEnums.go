@@ -339,6 +339,10 @@ func (in *sharedImageStorageAccountTypePtr) ToSharedImageStorageAccountTypePtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("UserAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("UserAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageStorageAccountTypeInput)(nil)).Elem(), SharedImageStorageAccountType("Standard_LRS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageStorageAccountTypePtrInput)(nil)).Elem(), SharedImageStorageAccountType("Standard_LRS"))
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(SharedImageStorageAccountTypeOutput{})

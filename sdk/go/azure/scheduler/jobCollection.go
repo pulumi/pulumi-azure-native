@@ -143,5 +143,6 @@ func (o JobCollectionOutput) ToJobCollectionOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCollectionInput)(nil)).Elem(), &JobCollection{})
 	pulumi.RegisterOutputType(JobCollectionOutput{})
 }

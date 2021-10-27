@@ -142,5 +142,6 @@ func (o AttestationAtSubscriptionOutput) ToAttestationAtSubscriptionOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttestationAtSubscriptionInput)(nil)).Elem(), &AttestationAtSubscription{})
 	pulumi.RegisterOutputType(AttestationAtSubscriptionOutput{})
 }

@@ -194,5 +194,6 @@ func (o AzurePowerShellScriptOutput) ToAzurePowerShellScriptOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzurePowerShellScriptInput)(nil)).Elem(), &AzurePowerShellScript{})
 	pulumi.RegisterOutputType(AzurePowerShellScriptOutput{})
 }

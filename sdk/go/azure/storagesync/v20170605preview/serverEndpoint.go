@@ -244,5 +244,6 @@ func (o ServerEndpointOutput) ToServerEndpointOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointInput)(nil)).Elem(), &ServerEndpoint{})
 	pulumi.RegisterOutputType(ServerEndpointOutput{})
 }

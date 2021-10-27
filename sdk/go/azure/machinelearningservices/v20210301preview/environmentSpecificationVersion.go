@@ -137,5 +137,6 @@ func (o EnvironmentSpecificationVersionOutput) ToEnvironmentSpecificationVersion
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSpecificationVersionInput)(nil)).Elem(), &EnvironmentSpecificationVersion{})
 	pulumi.RegisterOutputType(EnvironmentSpecificationVersionOutput{})
 }

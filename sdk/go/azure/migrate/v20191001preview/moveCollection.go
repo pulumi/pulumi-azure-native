@@ -139,5 +139,6 @@ func (o MoveCollectionOutput) ToMoveCollectionOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MoveCollectionInput)(nil)).Elem(), &MoveCollection{})
 	pulumi.RegisterOutputType(MoveCollectionOutput{})
 }

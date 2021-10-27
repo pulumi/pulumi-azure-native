@@ -225,5 +225,6 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionInput)(nil)).Elem(), &EventSubscription{})
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})
 }

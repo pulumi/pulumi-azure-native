@@ -107,5 +107,6 @@ func (o TrafficManagerUserMetricsKeyOutput) ToTrafficManagerUserMetricsKeyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerUserMetricsKeyInput)(nil)).Elem(), &TrafficManagerUserMetricsKey{})
 	pulumi.RegisterOutputType(TrafficManagerUserMetricsKeyOutput{})
 }

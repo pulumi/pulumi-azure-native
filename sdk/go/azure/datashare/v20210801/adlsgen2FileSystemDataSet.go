@@ -187,5 +187,6 @@ func (o ADLSGen2FileSystemDataSetOutput) ToADLSGen2FileSystemDataSetOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ADLSGen2FileSystemDataSetInput)(nil)).Elem(), &ADLSGen2FileSystemDataSet{})
 	pulumi.RegisterOutputType(ADLSGen2FileSystemDataSetOutput{})
 }

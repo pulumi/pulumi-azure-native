@@ -182,5 +182,6 @@ func (o ApplianceOutput) ToApplianceOutputWithContext(ctx context.Context) Appli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplianceInput)(nil)).Elem(), &Appliance{})
 	pulumi.RegisterOutputType(ApplianceOutput{})
 }

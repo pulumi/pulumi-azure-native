@@ -145,5 +145,6 @@ func (o EnterprisePolicyOutput) ToEnterprisePolicyOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterprisePolicyInput)(nil)).Elem(), &EnterprisePolicy{})
 	pulumi.RegisterOutputType(EnterprisePolicyOutput{})
 }

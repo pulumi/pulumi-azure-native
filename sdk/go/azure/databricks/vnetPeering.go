@@ -160,5 +160,6 @@ func (o VNetPeeringOutput) ToVNetPeeringOutputWithContext(ctx context.Context) V
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VNetPeeringInput)(nil)).Elem(), &VNetPeering{})
 	pulumi.RegisterOutputType(VNetPeeringOutput{})
 }

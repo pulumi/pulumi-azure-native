@@ -137,5 +137,6 @@ func (o AccessControlRecordOutput) ToAccessControlRecordOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessControlRecordInput)(nil)).Elem(), &AccessControlRecord{})
 	pulumi.RegisterOutputType(AccessControlRecordOutput{})
 }

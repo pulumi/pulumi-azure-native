@@ -191,5 +191,6 @@ func (o TiTaxiiDataConnectorOutput) ToTiTaxiiDataConnectorOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TiTaxiiDataConnectorInput)(nil)).Elem(), &TiTaxiiDataConnector{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorOutput{})
 }

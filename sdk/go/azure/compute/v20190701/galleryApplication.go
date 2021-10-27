@@ -176,5 +176,6 @@ func (o GalleryApplicationOutput) ToGalleryApplicationOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationInput)(nil)).Elem(), &GalleryApplication{})
 	pulumi.RegisterOutputType(GalleryApplicationOutput{})
 }

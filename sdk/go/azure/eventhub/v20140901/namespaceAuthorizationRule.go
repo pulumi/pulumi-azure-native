@@ -172,5 +172,6 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceAuthorizationRuleInput)(nil)).Elem(), &NamespaceAuthorizationRule{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 }

@@ -156,5 +156,6 @@ func (o CodelessUiDataConnectorOutput) ToCodelessUiDataConnectorOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodelessUiDataConnectorInput)(nil)).Elem(), &CodelessUiDataConnector{})
 	pulumi.RegisterOutputType(CodelessUiDataConnectorOutput{})
 }

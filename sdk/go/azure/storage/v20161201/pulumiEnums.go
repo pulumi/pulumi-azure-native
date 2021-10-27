@@ -1006,6 +1006,18 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTierInput)(nil)).Elem(), AccessTier("Hot"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTierPtrInput)(nil)).Elem(), AccessTier("Hot"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpProtocolInput)(nil)).Elem(), HttpProtocol("https,http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpProtocolPtrInput)(nil)).Elem(), HttpProtocol("https,http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("Storage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("Storage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsInput)(nil)).Elem(), Permissions("r"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsPtrInput)(nil)).Elem(), Permissions("r"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SignedResourceInput)(nil)).Elem(), SignedResource("b"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SignedResourcePtrInput)(nil)).Elem(), SignedResource("b"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard_LRS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard_LRS"))
 	pulumi.RegisterOutputType(AccessTierOutput{})
 	pulumi.RegisterOutputType(AccessTierPtrOutput{})
 	pulumi.RegisterOutputType(HttpProtocolOutput{})

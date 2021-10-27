@@ -131,5 +131,6 @@ func (o LinkerOutput) ToLinkerOutputWithContext(ctx context.Context) LinkerOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkerInput)(nil)).Elem(), &Linker{})
 	pulumi.RegisterOutputType(LinkerOutput{})
 }

@@ -154,5 +154,6 @@ func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationBy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationByNameInput)(nil)).Elem(), &SoftwareUpdateConfigurationByName{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationByNameOutput{})
 }

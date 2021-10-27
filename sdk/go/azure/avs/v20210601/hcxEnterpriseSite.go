@@ -151,5 +151,6 @@ func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HcxEnterpriseSiteInput)(nil)).Elem(), &HcxEnterpriseSite{})
 	pulumi.RegisterOutputType(HcxEnterpriseSiteOutput{})
 }

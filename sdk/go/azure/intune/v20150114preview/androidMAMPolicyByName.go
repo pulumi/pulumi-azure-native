@@ -222,5 +222,6 @@ func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AndroidMAMPolicyByNameInput)(nil)).Elem(), &AndroidMAMPolicyByName{})
 	pulumi.RegisterOutputType(AndroidMAMPolicyByNameOutput{})
 }

@@ -135,5 +135,6 @@ func (o ServiceTopologyOutput) ToServiceTopologyOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTopologyInput)(nil)).Elem(), &ServiceTopology{})
 	pulumi.RegisterOutputType(ServiceTopologyOutput{})
 }

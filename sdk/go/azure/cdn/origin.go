@@ -200,5 +200,6 @@ func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginInput)(nil)).Elem(), &Origin{})
 	pulumi.RegisterOutputType(OriginOutput{})
 }

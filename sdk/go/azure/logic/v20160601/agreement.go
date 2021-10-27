@@ -190,5 +190,6 @@ func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) Agree
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementInput)(nil)).Elem(), &Agreement{})
 	pulumi.RegisterOutputType(AgreementOutput{})
 }

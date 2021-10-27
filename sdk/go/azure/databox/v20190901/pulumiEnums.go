@@ -1187,6 +1187,20 @@ func (in *transportShipmentTypesPtr) ToTransportShipmentTypesPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypeInput)(nil)).Elem(), AddressType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypePtrInput)(nil)).Elem(), AddressType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassDiscriminatorInput)(nil)).Elem(), ClassDiscriminator("DataBox"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassDiscriminatorPtrInput)(nil)).Elem(), ClassDiscriminator("DataBox"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDestinationTypeInput)(nil)).Elem(), DataDestinationType("StorageAccount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDestinationTypePtrInput)(nil)).Elem(), DataDestinationType("StorageAccount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDeliveryTypeInput)(nil)).Elem(), JobDeliveryType("NonScheduled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDeliveryTypePtrInput)(nil)).Elem(), JobDeliveryType("NonScheduled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNameInput)(nil)).Elem(), NotificationStageName("DevicePrepared"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNamePtrInput)(nil)).Elem(), NotificationStageName("DevicePrepared"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("DataBox"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("DataBox"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransportShipmentTypesInput)(nil)).Elem(), TransportShipmentTypes("CustomerManaged"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransportShipmentTypesPtrInput)(nil)).Elem(), TransportShipmentTypes("CustomerManaged"))
 	pulumi.RegisterOutputType(AddressTypeOutput{})
 	pulumi.RegisterOutputType(AddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ClassDiscriminatorOutput{})

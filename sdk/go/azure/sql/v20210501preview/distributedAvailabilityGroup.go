@@ -145,5 +145,6 @@ func (o DistributedAvailabilityGroupOutput) ToDistributedAvailabilityGroupOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributedAvailabilityGroupInput)(nil)).Elem(), &DistributedAvailabilityGroup{})
 	pulumi.RegisterOutputType(DistributedAvailabilityGroupOutput{})
 }

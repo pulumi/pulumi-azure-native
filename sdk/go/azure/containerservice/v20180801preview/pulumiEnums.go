@@ -1002,6 +1002,16 @@ func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolTypeInput)(nil)).Elem(), AgentPoolType("VirtualMachineScaleSets"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolTypePtrInput)(nil)).Elem(), AgentPoolType("VirtualMachineScaleSets"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesPtrInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPluginInput)(nil)).Elem(), NetworkPlugin("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPluginPtrInput)(nil)).Elem(), NetworkPlugin("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPolicyInput)(nil)).Elem(), NetworkPolicy("calico"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPolicyPtrInput)(nil)).Elem(), NetworkPolicy("calico"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypeInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypePtrInput)(nil)).Elem(), OSType("Linux"))
 	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
 	pulumi.RegisterOutputType(AgentPoolTypePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})

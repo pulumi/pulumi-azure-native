@@ -220,5 +220,6 @@ func (o WebAppBackupConfigurationSlotOutput) ToWebAppBackupConfigurationSlotOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppBackupConfigurationSlotInput)(nil)).Elem(), &WebAppBackupConfigurationSlot{})
 	pulumi.RegisterOutputType(WebAppBackupConfigurationSlotOutput{})
 }

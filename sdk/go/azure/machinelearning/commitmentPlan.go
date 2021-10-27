@@ -133,5 +133,6 @@ func (o CommitmentPlanOutput) ToCommitmentPlanOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CommitmentPlanInput)(nil)).Elem(), &CommitmentPlan{})
 	pulumi.RegisterOutputType(CommitmentPlanOutput{})
 }

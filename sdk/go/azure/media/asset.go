@@ -166,5 +166,6 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetInput)(nil)).Elem(), &Asset{})
 	pulumi.RegisterOutputType(AssetOutput{})
 }

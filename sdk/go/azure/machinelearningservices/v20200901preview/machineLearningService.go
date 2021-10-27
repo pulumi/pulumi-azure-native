@@ -172,5 +172,6 @@ func (o MachineLearningServiceOutput) ToMachineLearningServiceOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MachineLearningServiceInput)(nil)).Elem(), &MachineLearningService{})
 	pulumi.RegisterOutputType(MachineLearningServiceOutput{})
 }

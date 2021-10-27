@@ -151,5 +151,6 @@ func (o CloudConnectorOutput) ToCloudConnectorOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorInput)(nil)).Elem(), &CloudConnector{})
 	pulumi.RegisterOutputType(CloudConnectorOutput{})
 }

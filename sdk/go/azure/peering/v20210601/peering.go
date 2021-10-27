@@ -184,5 +184,6 @@ func (o PeeringOutput) ToPeeringOutputWithContext(ctx context.Context) PeeringOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringInput)(nil)).Elem(), &Peering{})
 	pulumi.RegisterOutputType(PeeringOutput{})
 }

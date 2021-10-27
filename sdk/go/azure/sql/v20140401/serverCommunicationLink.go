@@ -134,5 +134,6 @@ func (o ServerCommunicationLinkOutput) ToServerCommunicationLinkOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCommunicationLinkInput)(nil)).Elem(), &ServerCommunicationLink{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkOutput{})
 }

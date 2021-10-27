@@ -222,5 +222,6 @@ func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IoMAMPolicyByNameInput)(nil)).Elem(), &IoMAMPolicyByName{})
 	pulumi.RegisterOutputType(IoMAMPolicyByNameOutput{})
 }

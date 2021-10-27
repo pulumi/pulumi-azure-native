@@ -365,5 +365,6 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableInput)(nil)).Elem(), &RouteTable{})
 	pulumi.RegisterOutputType(RouteTableOutput{})
 }

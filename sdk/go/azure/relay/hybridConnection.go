@@ -140,5 +140,6 @@ func (o HybridConnectionOutput) ToHybridConnectionOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionInput)(nil)).Elem(), &HybridConnection{})
 	pulumi.RegisterOutputType(HybridConnectionOutput{})
 }

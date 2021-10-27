@@ -258,5 +258,6 @@ func (o DatabaseAccountCassandraTableOutput) ToDatabaseAccountCassandraTableOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountCassandraTableInput)(nil)).Elem(), &DatabaseAccountCassandraTable{})
 	pulumi.RegisterOutputType(DatabaseAccountCassandraTableOutput{})
 }

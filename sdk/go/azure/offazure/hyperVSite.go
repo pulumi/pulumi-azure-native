@@ -140,5 +140,6 @@ func (o HyperVSiteOutput) ToHyperVSiteOutputWithContext(ctx context.Context) Hyp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HyperVSiteInput)(nil)).Elem(), &HyperVSite{})
 	pulumi.RegisterOutputType(HyperVSiteOutput{})
 }

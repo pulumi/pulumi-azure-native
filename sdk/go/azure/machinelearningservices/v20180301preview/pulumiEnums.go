@@ -341,6 +341,10 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeTypeInput)(nil)).Elem(), ComputeType("AKS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeTypePtrInput)(nil)).Elem(), ComputeType("AKS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(ComputeTypeOutput{})
 	pulumi.RegisterOutputType(ComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

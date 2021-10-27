@@ -188,5 +188,6 @@ func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobServicePropertiesInput)(nil)).Elem(), &BlobServiceProperties{})
 	pulumi.RegisterOutputType(BlobServicePropertiesOutput{})
 }

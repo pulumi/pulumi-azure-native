@@ -169,5 +169,6 @@ func (o EncryptionProtectorOutput) ToEncryptionProtectorOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionProtectorInput)(nil)).Elem(), &EncryptionProtector{})
 	pulumi.RegisterOutputType(EncryptionProtectorOutput{})
 }

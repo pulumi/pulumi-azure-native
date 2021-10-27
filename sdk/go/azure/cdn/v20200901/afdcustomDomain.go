@@ -142,5 +142,6 @@ func (o AFDCustomDomainOutput) ToAFDCustomDomainOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AFDCustomDomainInput)(nil)).Elem(), &AFDCustomDomain{})
 	pulumi.RegisterOutputType(AFDCustomDomainOutput{})
 }

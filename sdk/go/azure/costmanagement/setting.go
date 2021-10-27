@@ -128,5 +128,6 @@ func (o SettingOutput) ToSettingOutputWithContext(ctx context.Context) SettingOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingInput)(nil)).Elem(), &Setting{})
 	pulumi.RegisterOutputType(SettingOutput{})
 }

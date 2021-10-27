@@ -345,6 +345,10 @@ func (in *resourceProvisioningStatePtr) ToResourceProvisioningStatePtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PersistedConnectionStatusInput)(nil)).Elem(), PersistedConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PersistedConnectionStatusPtrInput)(nil)).Elem(), PersistedConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProvisioningStateInput)(nil)).Elem(), ResourceProvisioningState("Creating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProvisioningStatePtrInput)(nil)).Elem(), ResourceProvisioningState("Creating"))
 	pulumi.RegisterOutputType(PersistedConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PersistedConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResourceProvisioningStateOutput{})

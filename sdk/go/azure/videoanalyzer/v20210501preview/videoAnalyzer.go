@@ -149,5 +149,6 @@ func (o VideoAnalyzerOutput) ToVideoAnalyzerOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoAnalyzerInput)(nil)).Elem(), &VideoAnalyzer{})
 	pulumi.RegisterOutputType(VideoAnalyzerOutput{})
 }

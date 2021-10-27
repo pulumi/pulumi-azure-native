@@ -138,5 +138,6 @@ func (o CapacityReservationGroupOutput) ToCapacityReservationGroupOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationGroupInput)(nil)).Elem(), &CapacityReservationGroup{})
 	pulumi.RegisterOutputType(CapacityReservationGroupOutput{})
 }

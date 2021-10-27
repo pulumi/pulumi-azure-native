@@ -132,5 +132,6 @@ func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowInput)(nil)).Elem(), &DataFlow{})
 	pulumi.RegisterOutputType(DataFlowOutput{})
 }

@@ -263,5 +263,6 @@ func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteInput)(nil)).Elem(), &Site{})
 	pulumi.RegisterOutputType(SiteOutput{})
 }

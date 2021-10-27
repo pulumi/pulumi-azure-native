@@ -157,5 +157,6 @@ func (o FhirServiceOutput) ToFhirServiceOutputWithContext(ctx context.Context) F
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceInput)(nil)).Elem(), &FhirService{})
 	pulumi.RegisterOutputType(FhirServiceOutput{})
 }

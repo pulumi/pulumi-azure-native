@@ -874,6 +874,16 @@ func (in *systemServicesPtr) ToSystemServicesPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentVMSizeTypesInput)(nil)).Elem(), AgentVMSizeTypes("Standard_A0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentVMSizeTypesPtrInput)(nil)).Elem(), AgentVMSizeTypes("Standard_A0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTypeInput)(nil)).Elem(), ClusterType("ACS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTypePtrInput)(nil)).Elem(), ClusterType("ACS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorInput)(nil)).Elem(), Orchestrator("Kubernetes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorPtrInput)(nil)).Elem(), Orchestrator("Kubernetes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusInput)(nil)).Elem(), Status("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusPtrInput)(nil)).Elem(), Status("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemServicesInput)(nil)).Elem(), SystemServices("Scoring"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemServicesPtrInput)(nil)).Elem(), SystemServices("Scoring"))
 	pulumi.RegisterOutputType(AgentVMSizeTypesOutput{})
 	pulumi.RegisterOutputType(AgentVMSizeTypesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTypeOutput{})

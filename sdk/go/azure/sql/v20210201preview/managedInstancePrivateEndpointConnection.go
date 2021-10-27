@@ -156,5 +156,6 @@ func (o ManagedInstancePrivateEndpointConnectionOutput) ToManagedInstancePrivate
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstancePrivateEndpointConnectionInput)(nil)).Elem(), &ManagedInstancePrivateEndpointConnection{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointConnectionOutput{})
 }

@@ -163,5 +163,6 @@ func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), &Action{})
 	pulumi.RegisterOutputType(ActionOutput{})
 }

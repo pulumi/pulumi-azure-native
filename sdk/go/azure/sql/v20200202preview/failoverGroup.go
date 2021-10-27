@@ -179,5 +179,6 @@ func (o FailoverGroupOutput) ToFailoverGroupOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupInput)(nil)).Elem(), &FailoverGroup{})
 	pulumi.RegisterOutputType(FailoverGroupOutput{})
 }

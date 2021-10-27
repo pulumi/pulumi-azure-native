@@ -136,5 +136,6 @@ func (o MigrateProjectsControllerMigrateProjectOutput) ToMigrateProjectsControll
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrateProjectsControllerMigrateProjectInput)(nil)).Elem(), &MigrateProjectsControllerMigrateProject{})
 	pulumi.RegisterOutputType(MigrateProjectsControllerMigrateProjectOutput{})
 }

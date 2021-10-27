@@ -161,5 +161,6 @@ func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingInput)(nil)).Elem(), &EnvironmentSetting{})
 	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 }

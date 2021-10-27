@@ -180,5 +180,6 @@ func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyInput)(nil)).Elem(), &ServerSecurityAlertPolicy{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyOutput{})
 }

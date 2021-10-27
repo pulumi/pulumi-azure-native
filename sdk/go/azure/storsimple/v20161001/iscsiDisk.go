@@ -164,5 +164,6 @@ func (o IscsiDiskOutput) ToIscsiDiskOutputWithContext(ctx context.Context) Iscsi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IscsiDiskInput)(nil)).Elem(), &IscsiDisk{})
 	pulumi.RegisterOutputType(IscsiDiskOutput{})
 }

@@ -159,5 +159,6 @@ func (o NetworkFunctionOutput) ToNetworkFunctionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkFunctionInput)(nil)).Elem(), &NetworkFunction{})
 	pulumi.RegisterOutputType(NetworkFunctionOutput{})
 }

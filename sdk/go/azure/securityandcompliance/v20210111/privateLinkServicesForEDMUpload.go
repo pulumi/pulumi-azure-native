@@ -148,5 +148,6 @@ func (o PrivateLinkServicesForEDMUploadOutput) ToPrivateLinkServicesForEDMUpload
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicesForEDMUploadInput)(nil)).Elem(), &PrivateLinkServicesForEDMUpload{})
 	pulumi.RegisterOutputType(PrivateLinkServicesForEDMUploadOutput{})
 }

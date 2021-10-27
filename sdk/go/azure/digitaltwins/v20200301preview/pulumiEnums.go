@@ -339,6 +339,10 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuInput)(nil)).Elem(), DigitalTwinsSku("F1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsSkuPtrInput)(nil)).Elem(), DigitalTwinsSku("F1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("EventHub"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("EventHub"))
 	pulumi.RegisterOutputType(DigitalTwinsSkuOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuPtrOutput{})
 	pulumi.RegisterOutputType(EndpointTypeOutput{})

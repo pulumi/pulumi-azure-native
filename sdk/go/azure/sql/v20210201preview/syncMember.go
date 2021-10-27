@@ -198,5 +198,6 @@ func (o SyncMemberOutput) ToSyncMemberOutputWithContext(ctx context.Context) Syn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncMemberInput)(nil)).Elem(), &SyncMember{})
 	pulumi.RegisterOutputType(SyncMemberOutput{})
 }

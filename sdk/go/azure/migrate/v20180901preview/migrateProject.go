@@ -138,5 +138,6 @@ func (o MigrateProjectOutput) ToMigrateProjectOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrateProjectInput)(nil)).Elem(), &MigrateProject{})
 	pulumi.RegisterOutputType(MigrateProjectOutput{})
 }

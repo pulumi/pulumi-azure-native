@@ -161,5 +161,6 @@ func (o WebPubSubSharedPrivateLinkResourceOutput) ToWebPubSubSharedPrivateLinkRe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubSharedPrivateLinkResourceInput)(nil)).Elem(), &WebPubSubSharedPrivateLinkResource{})
 	pulumi.RegisterOutputType(WebPubSubSharedPrivateLinkResourceOutput{})
 }

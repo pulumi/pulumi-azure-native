@@ -141,5 +141,6 @@ func (o FluidRelayServerOutput) ToFluidRelayServerOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FluidRelayServerInput)(nil)).Elem(), &FluidRelayServer{})
 	pulumi.RegisterOutputType(FluidRelayServerOutput{})
 }

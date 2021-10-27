@@ -503,6 +503,12 @@ func (in *tokenStatusPtr) ToTokenStatusPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenCertificateNameInput)(nil)).Elem(), TokenCertificateName("certificate1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenCertificateNamePtrInput)(nil)).Elem(), TokenCertificateName("certificate1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordNameInput)(nil)).Elem(), TokenPasswordName("password1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordNamePtrInput)(nil)).Elem(), TokenPasswordName("password1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenStatusInput)(nil)).Elem(), TokenStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenStatusPtrInput)(nil)).Elem(), TokenStatus("enabled"))
 	pulumi.RegisterOutputType(TokenCertificateNameOutput{})
 	pulumi.RegisterOutputType(TokenCertificateNamePtrOutput{})
 	pulumi.RegisterOutputType(TokenPasswordNameOutput{})

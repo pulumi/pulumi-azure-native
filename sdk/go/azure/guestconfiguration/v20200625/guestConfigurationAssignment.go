@@ -151,5 +151,6 @@ func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationAssignmentInput)(nil)).Elem(), &GuestConfigurationAssignment{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentOutput{})
 }

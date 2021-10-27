@@ -148,5 +148,6 @@ func (o CassandraResourceCassandraViewOutput) ToCassandraResourceCassandraViewOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraResourceCassandraViewInput)(nil)).Elem(), &CassandraResourceCassandraView{})
 	pulumi.RegisterOutputType(CassandraResourceCassandraViewOutput{})
 }

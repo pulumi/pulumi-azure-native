@@ -165,5 +165,6 @@ func (o RelationshipOutput) ToRelationshipOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RelationshipInput)(nil)).Elem(), &Relationship{})
 	pulumi.RegisterOutputType(RelationshipOutput{})
 }

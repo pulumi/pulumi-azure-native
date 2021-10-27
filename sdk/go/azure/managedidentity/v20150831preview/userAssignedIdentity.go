@@ -136,5 +136,6 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityInput)(nil)).Elem(), &UserAssignedIdentity{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 }

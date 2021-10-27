@@ -206,5 +206,6 @@ func (o ApiVersionSetOutput) ToApiVersionSetOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiVersionSetInput)(nil)).Elem(), &ApiVersionSet{})
 	pulumi.RegisterOutputType(ApiVersionSetOutput{})
 }

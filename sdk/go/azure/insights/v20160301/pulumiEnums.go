@@ -344,6 +344,10 @@ func (in *timeAggregationOperatorPtr) ToTimeAggregationOperatorPtrOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionOperatorInput)(nil)).Elem(), ConditionOperator("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionOperatorPtrInput)(nil)).Elem(), ConditionOperator("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeAggregationOperatorInput)(nil)).Elem(), TimeAggregationOperator("Average"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeAggregationOperatorPtrInput)(nil)).Elem(), TimeAggregationOperator("Average"))
 	pulumi.RegisterOutputType(ConditionOperatorOutput{})
 	pulumi.RegisterOutputType(ConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(TimeAggregationOperatorOutput{})

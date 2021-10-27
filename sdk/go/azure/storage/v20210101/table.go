@@ -156,5 +156,6 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableInput)(nil)).Elem(), &Table{})
 	pulumi.RegisterOutputType(TableOutput{})
 }

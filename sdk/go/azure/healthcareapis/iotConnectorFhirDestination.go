@@ -155,5 +155,6 @@ func (o IotConnectorFhirDestinationOutput) ToIotConnectorFhirDestinationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotConnectorFhirDestinationInput)(nil)).Elem(), &IotConnectorFhirDestination{})
 	pulumi.RegisterOutputType(IotConnectorFhirDestinationOutput{})
 }

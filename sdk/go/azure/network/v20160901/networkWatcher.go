@@ -336,5 +336,6 @@ func (o NetworkWatcherOutput) ToNetworkWatcherOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherInput)(nil)).Elem(), &NetworkWatcher{})
 	pulumi.RegisterOutputType(NetworkWatcherOutput{})
 }

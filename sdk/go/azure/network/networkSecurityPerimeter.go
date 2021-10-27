@@ -144,5 +144,6 @@ func (o NetworkSecurityPerimeterOutput) ToNetworkSecurityPerimeterOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityPerimeterInput)(nil)).Elem(), &NetworkSecurityPerimeter{})
 	pulumi.RegisterOutputType(NetworkSecurityPerimeterOutput{})
 }

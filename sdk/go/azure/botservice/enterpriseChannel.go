@@ -138,5 +138,6 @@ func (o EnterpriseChannelOutput) ToEnterpriseChannelOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseChannelInput)(nil)).Elem(), &EnterpriseChannel{})
 	pulumi.RegisterOutputType(EnterpriseChannelOutput{})
 }

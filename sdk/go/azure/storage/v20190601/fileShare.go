@@ -185,5 +185,6 @@ func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileShareInput)(nil)).Elem(), &FileShare{})
 	pulumi.RegisterOutputType(FileShareOutput{})
 }

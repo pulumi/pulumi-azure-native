@@ -230,5 +230,6 @@ func (o ContainerGroupOutput) ToContainerGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupInput)(nil)).Elem(), &ContainerGroup{})
 	pulumi.RegisterOutputType(ContainerGroupOutput{})
 }

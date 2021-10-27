@@ -132,5 +132,6 @@ func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAss
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuestDiagnosticsSettingsAssociationInput)(nil)).Elem(), &GuestDiagnosticsSettingsAssociation{})
 	pulumi.RegisterOutputType(GuestDiagnosticsSettingsAssociationOutput{})
 }

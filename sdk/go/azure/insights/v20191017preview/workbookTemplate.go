@@ -153,5 +153,6 @@ func (o WorkbookTemplateOutput) ToWorkbookTemplateOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateInput)(nil)).Elem(), &WorkbookTemplate{})
 	pulumi.RegisterOutputType(WorkbookTemplateOutput{})
 }

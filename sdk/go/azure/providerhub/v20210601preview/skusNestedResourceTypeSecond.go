@@ -157,5 +157,6 @@ func (o SkusNestedResourceTypeSecondOutput) ToSkusNestedResourceTypeSecondOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SkusNestedResourceTypeSecondInput)(nil)).Elem(), &SkusNestedResourceTypeSecond{})
 	pulumi.RegisterOutputType(SkusNestedResourceTypeSecondOutput{})
 }

@@ -176,5 +176,6 @@ func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSchemaInput)(nil)).Elem(), &IntegrationAccountSchema{})
 	pulumi.RegisterOutputType(IntegrationAccountSchemaOutput{})
 }

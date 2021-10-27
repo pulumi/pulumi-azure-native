@@ -217,5 +217,6 @@ func (o SiteSourceControlOutput) ToSiteSourceControlOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSourceControlInput)(nil)).Elem(), &SiteSourceControl{})
 	pulumi.RegisterOutputType(SiteSourceControlOutput{})
 }

@@ -170,5 +170,6 @@ func (o EventSourceOutput) ToEventSourceOutputWithContext(ctx context.Context) E
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceInput)(nil)).Elem(), &EventSource{})
 	pulumi.RegisterOutputType(EventSourceOutput{})
 }

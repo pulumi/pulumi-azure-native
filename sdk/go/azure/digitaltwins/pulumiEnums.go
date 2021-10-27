@@ -834,6 +834,16 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypeInput)(nil)).Elem(), AuthenticationType("KeyBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypePtrInput)(nil)).Elem(), AuthenticationType("KeyBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsIdentityTypeInput)(nil)).Elem(), DigitalTwinsIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsIdentityTypePtrInput)(nil)).Elem(), DigitalTwinsIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("EventHub"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("EventHub"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
 	pulumi.RegisterOutputType(AuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(AuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsIdentityTypeOutput{})

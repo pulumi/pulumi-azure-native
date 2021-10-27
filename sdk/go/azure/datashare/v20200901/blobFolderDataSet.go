@@ -193,5 +193,6 @@ func (o BlobFolderDataSetOutput) ToBlobFolderDataSetOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobFolderDataSetInput)(nil)).Elem(), &BlobFolderDataSet{})
 	pulumi.RegisterOutputType(BlobFolderDataSetOutput{})
 }

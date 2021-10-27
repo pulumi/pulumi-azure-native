@@ -145,5 +145,6 @@ func (o RegistrationOutput) ToRegistrationOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInput)(nil)).Elem(), &Registration{})
 	pulumi.RegisterOutputType(RegistrationOutput{})
 }

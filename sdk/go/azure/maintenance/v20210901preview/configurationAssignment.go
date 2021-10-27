@@ -151,5 +151,6 @@ func (o ConfigurationAssignmentOutput) ToConfigurationAssignmentOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssignmentInput)(nil)).Elem(), &ConfigurationAssignment{})
 	pulumi.RegisterOutputType(ConfigurationAssignmentOutput{})
 }

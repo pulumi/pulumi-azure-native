@@ -192,5 +192,6 @@ func (o JobStepOutput) ToJobStepOutputWithContext(ctx context.Context) JobStepOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobStepInput)(nil)).Elem(), &JobStep{})
 	pulumi.RegisterOutputType(JobStepOutput{})
 }

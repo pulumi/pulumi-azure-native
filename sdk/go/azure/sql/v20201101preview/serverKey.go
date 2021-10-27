@@ -168,5 +168,6 @@ func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) Serve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyInput)(nil)).Elem(), &ServerKey{})
 	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

@@ -144,5 +144,6 @@ func (o HanaInstanceOutput) ToHanaInstanceOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HanaInstanceInput)(nil)).Elem(), &HanaInstance{})
 	pulumi.RegisterOutputType(HanaInstanceOutput{})
 }

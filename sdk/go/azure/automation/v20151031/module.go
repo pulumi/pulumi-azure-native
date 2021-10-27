@@ -162,5 +162,6 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleInput)(nil)).Elem(), &Module{})
 	pulumi.RegisterOutputType(ModuleOutput{})
 }

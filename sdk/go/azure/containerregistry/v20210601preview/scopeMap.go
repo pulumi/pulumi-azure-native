@@ -155,5 +155,6 @@ func (o ScopeMapOutput) ToScopeMapOutputWithContext(ctx context.Context) ScopeMa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeMapInput)(nil)).Elem(), &ScopeMap{})
 	pulumi.RegisterOutputType(ScopeMapOutput{})
 }

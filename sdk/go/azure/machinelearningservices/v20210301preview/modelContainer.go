@@ -132,5 +132,6 @@ func (o ModelContainerOutput) ToModelContainerOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerInput)(nil)).Elem(), &ModelContainer{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 }

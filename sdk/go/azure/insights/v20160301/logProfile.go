@@ -145,5 +145,6 @@ func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) Log
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileInput)(nil)).Elem(), &LogProfile{})
 	pulumi.RegisterOutputType(LogProfileOutput{})
 }

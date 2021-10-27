@@ -159,5 +159,6 @@ func (o SshPublicKeyOutput) ToSshPublicKeyOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SshPublicKeyInput)(nil)).Elem(), &SshPublicKey{})
 	pulumi.RegisterOutputType(SshPublicKeyOutput{})
 }

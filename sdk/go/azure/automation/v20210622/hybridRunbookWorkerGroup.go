@@ -131,5 +131,6 @@ func (o HybridRunbookWorkerGroupOutput) ToHybridRunbookWorkerGroupOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridRunbookWorkerGroupInput)(nil)).Elem(), &HybridRunbookWorkerGroup{})
 	pulumi.RegisterOutputType(HybridRunbookWorkerGroupOutput{})
 }

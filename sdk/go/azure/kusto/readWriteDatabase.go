@@ -204,5 +204,6 @@ func (o ReadWriteDatabaseOutput) ToReadWriteDatabaseOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadWriteDatabaseInput)(nil)).Elem(), &ReadWriteDatabase{})
 	pulumi.RegisterOutputType(ReadWriteDatabaseOutput{})
 }

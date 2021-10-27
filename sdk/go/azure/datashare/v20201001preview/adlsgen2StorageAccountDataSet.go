@@ -176,5 +176,6 @@ func (o ADLSGen2StorageAccountDataSetOutput) ToADLSGen2StorageAccountDataSetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ADLSGen2StorageAccountDataSetInput)(nil)).Elem(), &ADLSGen2StorageAccountDataSet{})
 	pulumi.RegisterOutputType(ADLSGen2StorageAccountDataSetOutput{})
 }

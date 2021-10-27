@@ -153,5 +153,6 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountInput)(nil)).Elem(), &IntegrationAccount{})
 	pulumi.RegisterOutputType(IntegrationAccountOutput{})
 }

@@ -145,5 +145,6 @@ func (o IotConnectorOutput) ToIotConnectorOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotConnectorInput)(nil)).Elem(), &IotConnector{})
 	pulumi.RegisterOutputType(IotConnectorOutput{})
 }

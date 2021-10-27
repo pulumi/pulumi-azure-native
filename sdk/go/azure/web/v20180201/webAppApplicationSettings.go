@@ -195,5 +195,6 @@ func (o WebAppApplicationSettingsOutput) ToWebAppApplicationSettingsOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppApplicationSettingsInput)(nil)).Elem(), &WebAppApplicationSettings{})
 	pulumi.RegisterOutputType(WebAppApplicationSettingsOutput{})
 }

@@ -125,5 +125,6 @@ func (o CustomEntityStoreAssignmentOutput) ToCustomEntityStoreAssignmentOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomEntityStoreAssignmentInput)(nil)).Elem(), &CustomEntityStoreAssignment{})
 	pulumi.RegisterOutputType(CustomEntityStoreAssignmentOutput{})
 }

@@ -135,5 +135,6 @@ func (o BandwidthSettingOutput) ToBandwidthSettingOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthSettingInput)(nil)).Elem(), &BandwidthSetting{})
 	pulumi.RegisterOutputType(BandwidthSettingOutput{})
 }

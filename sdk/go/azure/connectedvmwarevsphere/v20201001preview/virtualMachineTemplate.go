@@ -158,5 +158,6 @@ func (o VirtualMachineTemplateOutput) ToVirtualMachineTemplateOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineTemplateInput)(nil)).Elem(), &VirtualMachineTemplate{})
 	pulumi.RegisterOutputType(VirtualMachineTemplateOutput{})
 }

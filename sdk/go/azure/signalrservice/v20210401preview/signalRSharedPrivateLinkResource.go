@@ -155,5 +155,6 @@ func (o SignalRSharedPrivateLinkResourceOutput) ToSignalRSharedPrivateLinkResour
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalRSharedPrivateLinkResourceInput)(nil)).Elem(), &SignalRSharedPrivateLinkResource{})
 	pulumi.RegisterOutputType(SignalRSharedPrivateLinkResourceOutput{})
 }

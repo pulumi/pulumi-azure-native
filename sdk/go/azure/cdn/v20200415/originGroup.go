@@ -165,5 +165,6 @@ func (o OriginGroupOutput) ToOriginGroupOutputWithContext(ctx context.Context) O
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginGroupInput)(nil)).Elem(), &OriginGroup{})
 	pulumi.RegisterOutputType(OriginGroupOutput{})
 }

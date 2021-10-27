@@ -162,5 +162,6 @@ func (o AwsCloudTrailDataConnectorOutput) ToAwsCloudTrailDataConnectorOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsCloudTrailDataConnectorInput)(nil)).Elem(), &AwsCloudTrailDataConnector{})
 	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorOutput{})
 }

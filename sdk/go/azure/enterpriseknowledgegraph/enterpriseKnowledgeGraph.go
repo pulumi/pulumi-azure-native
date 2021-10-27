@@ -132,5 +132,6 @@ func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseKnowledgeGraphInput)(nil)).Elem(), &EnterpriseKnowledgeGraph{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphOutput{})
 }

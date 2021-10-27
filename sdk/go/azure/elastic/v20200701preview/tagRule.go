@@ -135,5 +135,6 @@ func (o TagRuleOutput) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleInput)(nil)).Elem(), &TagRule{})
 	pulumi.RegisterOutputType(TagRuleOutput{})
 }

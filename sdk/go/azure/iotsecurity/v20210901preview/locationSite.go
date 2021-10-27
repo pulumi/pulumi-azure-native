@@ -130,5 +130,6 @@ func (o LocationSiteOutput) ToLocationSiteOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSiteInput)(nil)).Elem(), &LocationSite{})
 	pulumi.RegisterOutputType(LocationSiteOutput{})
 }

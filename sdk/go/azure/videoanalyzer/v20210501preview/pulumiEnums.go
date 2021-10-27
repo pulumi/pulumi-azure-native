@@ -677,6 +677,14 @@ func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEccAlgoInput)(nil)).Elem(), AccessPolicyEccAlgo("ES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEccAlgoPtrInput)(nil)).Elem(), AccessPolicyEccAlgo("ES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRoleInput)(nil)).Elem(), AccessPolicyRole("Reader"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRolePtrInput)(nil)).Elem(), AccessPolicyRole("Reader"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRsaAlgoInput)(nil)).Elem(), AccessPolicyRsaAlgo("RS256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRsaAlgoPtrInput)(nil)).Elem(), AccessPolicyRsaAlgo("RS256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionKeyTypeInput)(nil)).Elem(), AccountEncryptionKeyType("SystemKey"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionKeyTypePtrInput)(nil)).Elem(), AccountEncryptionKeyType("SystemKey"))
 	pulumi.RegisterOutputType(AccessPolicyEccAlgoOutput{})
 	pulumi.RegisterOutputType(AccessPolicyEccAlgoPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyRoleOutput{})

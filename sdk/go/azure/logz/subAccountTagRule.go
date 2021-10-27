@@ -140,5 +140,6 @@ func (o SubAccountTagRuleOutput) ToSubAccountTagRuleOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubAccountTagRuleInput)(nil)).Elem(), &SubAccountTagRule{})
 	pulumi.RegisterOutputType(SubAccountTagRuleOutput{})
 }

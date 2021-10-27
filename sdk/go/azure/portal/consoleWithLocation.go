@@ -119,5 +119,6 @@ func (o ConsoleWithLocationOutput) ToConsoleWithLocationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsoleWithLocationInput)(nil)).Elem(), &ConsoleWithLocation{})
 	pulumi.RegisterOutputType(ConsoleWithLocationOutput{})
 }

@@ -144,5 +144,6 @@ func (o BatchEndpointOutput) ToBatchEndpointOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BatchEndpointInput)(nil)).Elem(), &BatchEndpoint{})
 	pulumi.RegisterOutputType(BatchEndpointOutput{})
 }

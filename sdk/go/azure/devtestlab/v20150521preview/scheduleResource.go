@@ -168,5 +168,6 @@ func (o ScheduleResourceOutput) ToScheduleResourceOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleResourceInput)(nil)).Elem(), &ScheduleResource{})
 	pulumi.RegisterOutputType(ScheduleResourceOutput{})
 }

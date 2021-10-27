@@ -849,6 +849,16 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypeInput)(nil)).Elem(), AuthenticationType("awsCreds"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypePtrInput)(nil)).Elem(), AuthenticationType("awsCreds"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisionInput)(nil)).Elem(), AutoProvision("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisionPtrInput)(nil)).Elem(), AutoProvision("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MinimalSeverityInput)(nil)).Elem(), MinimalSeverity("High"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MinimalSeverityPtrInput)(nil)).Elem(), MinimalSeverity("High"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RolesInput)(nil)).Elem(), Roles("AccountAdmin"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RolesPtrInput)(nil)).Elem(), Roles("AccountAdmin"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("On"))
 	pulumi.RegisterOutputType(AuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(AuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(AutoProvisionOutput{})

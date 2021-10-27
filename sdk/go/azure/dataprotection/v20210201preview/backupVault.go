@@ -163,5 +163,6 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultInput)(nil)).Elem(), &BackupVault{})
 	pulumi.RegisterOutputType(BackupVaultOutput{})
 }

@@ -154,5 +154,6 @@ func (o VirtualNetworkLinkOutput) ToVirtualNetworkLinkOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkLinkInput)(nil)).Elem(), &VirtualNetworkLink{})
 	pulumi.RegisterOutputType(VirtualNetworkLinkOutput{})
 }

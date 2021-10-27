@@ -505,6 +505,12 @@ func (in *notificationsStatePtr) ToNotificationsStatePtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeDetailsModeInput)(nil)).Elem(), ChangeDetailsMode("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeDetailsModePtrInput)(nil)).Elem(), ChangeDetailsMode("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesInput)(nil)).Elem(), ManagedIdentityTypes("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesPtrInput)(nil)).Elem(), ManagedIdentityTypes("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsStateInput)(nil)).Elem(), NotificationsState("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationsStatePtrInput)(nil)).Elem(), NotificationsState("None"))
 	pulumi.RegisterOutputType(ChangeDetailsModeOutput{})
 	pulumi.RegisterOutputType(ChangeDetailsModePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityTypesOutput{})

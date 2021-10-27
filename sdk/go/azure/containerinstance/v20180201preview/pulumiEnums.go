@@ -831,6 +831,16 @@ func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupIpAddressTypeInput)(nil)).Elem(), ContainerGroupIpAddressType("Public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupIpAddressTypePtrInput)(nil)).Elem(), ContainerGroupIpAddressType("Public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupNetworkProtocolInput)(nil)).Elem(), ContainerGroupNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupNetworkProtocolPtrInput)(nil)).Elem(), ContainerGroupNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupRestartPolicyInput)(nil)).Elem(), ContainerGroupRestartPolicy("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupRestartPolicyPtrInput)(nil)).Elem(), ContainerGroupRestartPolicy("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerNetworkProtocolInput)(nil)).Elem(), ContainerNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerNetworkProtocolPtrInput)(nil)).Elem(), ContainerNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesPtrInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
 	pulumi.RegisterOutputType(ContainerGroupIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupNetworkProtocolOutput{})

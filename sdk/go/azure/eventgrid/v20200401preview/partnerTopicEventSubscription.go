@@ -170,5 +170,6 @@ func (o PartnerTopicEventSubscriptionOutput) ToPartnerTopicEventSubscriptionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerTopicEventSubscriptionInput)(nil)).Elem(), &PartnerTopicEventSubscription{})
 	pulumi.RegisterOutputType(PartnerTopicEventSubscriptionOutput{})
 }

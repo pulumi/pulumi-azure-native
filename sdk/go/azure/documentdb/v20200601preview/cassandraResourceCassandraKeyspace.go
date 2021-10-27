@@ -260,5 +260,6 @@ func (o CassandraResourceCassandraKeyspaceOutput) ToCassandraResourceCassandraKe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraResourceCassandraKeyspaceInput)(nil)).Elem(), &CassandraResourceCassandraKeyspace{})
 	pulumi.RegisterOutputType(CassandraResourceCassandraKeyspaceOutput{})
 }

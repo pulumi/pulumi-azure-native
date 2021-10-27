@@ -145,5 +145,6 @@ func (o DiskAccessAPrivateEndpointConnectionOutput) ToDiskAccessAPrivateEndpoint
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessAPrivateEndpointConnectionInput)(nil)).Elem(), &DiskAccessAPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(DiskAccessAPrivateEndpointConnectionOutput{})
 }

@@ -179,5 +179,6 @@ func (o ServerGroupOutput) ToServerGroupOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupInput)(nil)).Elem(), &ServerGroup{})
 	pulumi.RegisterOutputType(ServerGroupOutput{})
 }

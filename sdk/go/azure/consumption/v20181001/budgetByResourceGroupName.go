@@ -172,5 +172,6 @@ func (o BudgetByResourceGroupNameOutput) ToBudgetByResourceGroupNameOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetByResourceGroupNameInput)(nil)).Elem(), &BudgetByResourceGroupName{})
 	pulumi.RegisterOutputType(BudgetByResourceGroupNameOutput{})
 }

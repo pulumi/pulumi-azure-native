@@ -142,5 +142,6 @@ func (o SiteSensorOutput) ToSiteSensorOutputWithContext(ctx context.Context) Sit
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteSensorInput)(nil)).Elem(), &SiteSensor{})
 	pulumi.RegisterOutputType(SiteSensorOutput{})
 }

@@ -344,6 +344,10 @@ func (in *encryptionKekTypePtr) ToEncryptionKekTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DriveStateInput)(nil)).Elem(), DriveState("Specified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DriveStatePtrInput)(nil)).Elem(), DriveState("Specified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKekTypeInput)(nil)).Elem(), EncryptionKekType("MicrosoftManaged"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKekTypePtrInput)(nil)).Elem(), EncryptionKekType("MicrosoftManaged"))
 	pulumi.RegisterOutputType(DriveStateOutput{})
 	pulumi.RegisterOutputType(DriveStatePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionKekTypeOutput{})

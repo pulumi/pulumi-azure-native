@@ -162,5 +162,6 @@ func (o VirtualNetworkResourceOutput) ToVirtualNetworkResourceOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkResourceInput)(nil)).Elem(), &VirtualNetworkResource{})
 	pulumi.RegisterOutputType(VirtualNetworkResourceOutput{})
 }

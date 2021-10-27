@@ -192,5 +192,6 @@ func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBackendAddressPoolInput)(nil)).Elem(), &LoadBalancerBackendAddressPool{})
 	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolOutput{})
 }

@@ -142,5 +142,6 @@ func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerRegistrationInput)(nil)).Elem(), &SqlServerRegistration{})
 	pulumi.RegisterOutputType(SqlServerRegistrationOutput{})
 }

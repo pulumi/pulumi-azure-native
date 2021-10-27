@@ -150,5 +150,6 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
 	pulumi.RegisterOutputType(DashboardOutput{})
 }

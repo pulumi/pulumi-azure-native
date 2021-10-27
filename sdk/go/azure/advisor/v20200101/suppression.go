@@ -150,5 +150,6 @@ func (o SuppressionOutput) ToSuppressionOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SuppressionInput)(nil)).Elem(), &Suppression{})
 	pulumi.RegisterOutputType(SuppressionOutput{})
 }

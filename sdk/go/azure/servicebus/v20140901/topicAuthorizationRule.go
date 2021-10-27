@@ -188,5 +188,6 @@ func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorizationRuleInput)(nil)).Elem(), &TopicAuthorizationRule{})
 	pulumi.RegisterOutputType(TopicAuthorizationRuleOutput{})
 }

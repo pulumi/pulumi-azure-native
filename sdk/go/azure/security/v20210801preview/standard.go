@@ -146,5 +146,6 @@ func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) Standar
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardInput)(nil)).Elem(), &Standard{})
 	pulumi.RegisterOutputType(StandardOutput{})
 }

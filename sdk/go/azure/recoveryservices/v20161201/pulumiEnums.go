@@ -878,6 +878,16 @@ func (in *workloadTypePtr) ToWorkloadTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupItemTypeInput)(nil)).Elem(), BackupItemType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupItemTypePtrInput)(nil)).Elem(), BackupItemType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupManagementTypeInput)(nil)).Elem(), BackupManagementType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupManagementTypePtrInput)(nil)).Elem(), BackupManagementType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTypeInput)(nil)).Elem(), ContainerType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTypePtrInput)(nil)).Elem(), ContainerType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationTypeInput)(nil)).Elem(), OperationType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationTypePtrInput)(nil)).Elem(), OperationType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadTypeInput)(nil)).Elem(), WorkloadType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadTypePtrInput)(nil)).Elem(), WorkloadType("Invalid"))
 	pulumi.RegisterOutputType(BackupItemTypeOutput{})
 	pulumi.RegisterOutputType(BackupItemTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupManagementTypeOutput{})

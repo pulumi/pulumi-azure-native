@@ -129,5 +129,6 @@ func (o GuestUsageOutput) ToGuestUsageOutputWithContext(ctx context.Context) Gue
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuestUsageInput)(nil)).Elem(), &GuestUsage{})
 	pulumi.RegisterOutputType(GuestUsageOutput{})
 }

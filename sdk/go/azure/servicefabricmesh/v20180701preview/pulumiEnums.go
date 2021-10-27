@@ -839,6 +839,16 @@ func (in *volumeProviderPtr) ToVolumeProviderPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticsSinkKindInput)(nil)).Elem(), DiagnosticsSinkKind("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticsSinkKindPtrInput)(nil)).Elem(), DiagnosticsSinkKind("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthStateInput)(nil)).Elem(), HealthState("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthStatePtrInput)(nil)).Elem(), HealthState("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressQoSLevelInput)(nil)).Elem(), IngressQoSLevel("Bronze"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressQoSLevelPtrInput)(nil)).Elem(), IngressQoSLevel("Bronze"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesInput)(nil)).Elem(), OperatingSystemTypes("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesPtrInput)(nil)).Elem(), OperatingSystemTypes("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeProviderInput)(nil)).Elem(), VolumeProvider("SFAzureFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeProviderPtrInput)(nil)).Elem(), VolumeProvider("SFAzureFile"))
 	pulumi.RegisterOutputType(DiagnosticsSinkKindOutput{})
 	pulumi.RegisterOutputType(DiagnosticsSinkKindPtrOutput{})
 	pulumi.RegisterOutputType(HealthStateOutput{})

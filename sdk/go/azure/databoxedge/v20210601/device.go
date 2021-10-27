@@ -220,5 +220,6 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceInput)(nil)).Elem(), &Device{})
 	pulumi.RegisterOutputType(DeviceOutput{})
 }

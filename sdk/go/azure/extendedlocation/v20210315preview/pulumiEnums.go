@@ -174,6 +174,8 @@ func (in *hostTypePtr) ToHostTypePtrOutputWithContext(ctx context.Context) HostT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostTypeInput)(nil)).Elem(), HostType("Kubernetes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostTypePtrInput)(nil)).Elem(), HostType("Kubernetes"))
 	pulumi.RegisterOutputType(HostTypeOutput{})
 	pulumi.RegisterOutputType(HostTypePtrOutput{})
 }

@@ -177,5 +177,6 @@ func (o KustoTableDataSetMappingOutput) ToKustoTableDataSetMappingOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KustoTableDataSetMappingInput)(nil)).Elem(), &KustoTableDataSetMapping{})
 	pulumi.RegisterOutputType(KustoTableDataSetMappingOutput{})
 }

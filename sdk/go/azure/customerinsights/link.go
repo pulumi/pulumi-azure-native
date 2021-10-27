@@ -179,5 +179,6 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkInput)(nil)).Elem(), &Link{})
 	pulumi.RegisterOutputType(LinkOutput{})
 }

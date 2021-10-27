@@ -179,5 +179,6 @@ func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) Nam
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueInput)(nil)).Elem(), &NamedValue{})
 	pulumi.RegisterOutputType(NamedValueOutput{})
 }

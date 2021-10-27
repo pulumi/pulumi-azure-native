@@ -205,5 +205,6 @@ func (o SiteMetadataOutput) ToSiteMetadataOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteMetadataInput)(nil)).Elem(), &SiteMetadata{})
 	pulumi.RegisterOutputType(SiteMetadataOutput{})
 }

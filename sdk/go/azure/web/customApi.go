@@ -134,5 +134,6 @@ func (o CustomApiOutput) ToCustomApiOutputWithContext(ctx context.Context) Custo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomApiInput)(nil)).Elem(), &CustomApi{})
 	pulumi.RegisterOutputType(CustomApiOutput{})
 }

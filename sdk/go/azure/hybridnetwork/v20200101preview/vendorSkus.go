@@ -145,5 +145,6 @@ func (o VendorSkusOutput) ToVendorSkusOutputWithContext(ctx context.Context) Ven
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VendorSkusInput)(nil)).Elem(), &VendorSkus{})
 	pulumi.RegisterOutputType(VendorSkusOutput{})
 }

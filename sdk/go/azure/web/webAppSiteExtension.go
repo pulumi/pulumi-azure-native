@@ -206,5 +206,6 @@ func (o WebAppSiteExtensionOutput) ToWebAppSiteExtensionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSiteExtensionInput)(nil)).Elem(), &WebAppSiteExtension{})
 	pulumi.RegisterOutputType(WebAppSiteExtensionOutput{})
 }

@@ -339,6 +339,10 @@ func (in *sslEnumPtr) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetEnumInput)(nil)).Elem(), InternetEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetEnumPtrInput)(nil)).Elem(), InternetEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SslEnumInput)(nil)).Elem(), SslEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SslEnumPtrInput)(nil)).Elem(), SslEnum("Enabled"))
 	pulumi.RegisterOutputType(InternetEnumOutput{})
 	pulumi.RegisterOutputType(InternetEnumPtrOutput{})
 	pulumi.RegisterOutputType(SslEnumOutput{})

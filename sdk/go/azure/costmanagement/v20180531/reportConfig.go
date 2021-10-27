@@ -128,5 +128,6 @@ func (o ReportConfigOutput) ToReportConfigOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportConfigInput)(nil)).Elem(), &ReportConfig{})
 	pulumi.RegisterOutputType(ReportConfigOutput{})
 }

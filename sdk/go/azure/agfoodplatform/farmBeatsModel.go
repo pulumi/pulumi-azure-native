@@ -129,5 +129,6 @@ func (o FarmBeatsModelOutput) ToFarmBeatsModelOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FarmBeatsModelInput)(nil)).Elem(), &FarmBeatsModel{})
 	pulumi.RegisterOutputType(FarmBeatsModelOutput{})
 }

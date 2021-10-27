@@ -155,5 +155,6 @@ func (o GlobalReachConnectionOutput) ToGlobalReachConnectionOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReachConnectionInput)(nil)).Elem(), &GlobalReachConnection{})
 	pulumi.RegisterOutputType(GlobalReachConnectionOutput{})
 }

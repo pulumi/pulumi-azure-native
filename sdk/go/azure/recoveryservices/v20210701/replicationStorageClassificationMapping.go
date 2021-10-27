@@ -187,5 +187,6 @@ func (o ReplicationStorageClassificationMappingOutput) ToReplicationStorageClass
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationStorageClassificationMappingInput)(nil)).Elem(), &ReplicationStorageClassificationMapping{})
 	pulumi.RegisterOutputType(ReplicationStorageClassificationMappingOutput{})
 }

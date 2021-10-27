@@ -848,6 +848,16 @@ func (in *recurrenceTypePtr) ToRecurrenceTypePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionTypeInput)(nil)).Elem(), ActionType("AddActionGroups"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionTypePtrInput)(nil)).Elem(), ActionType("AddActionGroups"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DaysOfWeekInput)(nil)).Elem(), DaysOfWeek("Sunday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DaysOfWeekPtrInput)(nil)).Elem(), DaysOfWeek("Sunday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldInput)(nil)).Elem(), Field("Severity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldPtrInput)(nil)).Elem(), Field("Severity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorInput)(nil)).Elem(), Operator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorPtrInput)(nil)).Elem(), Operator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceTypeInput)(nil)).Elem(), RecurrenceType("Daily"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceTypePtrInput)(nil)).Elem(), RecurrenceType("Daily"))
 	pulumi.RegisterOutputType(ActionTypeOutput{})
 	pulumi.RegisterOutputType(ActionTypePtrOutput{})
 	pulumi.RegisterOutputType(DaysOfWeekOutput{})

@@ -316,5 +316,6 @@ func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCrossConnectionPeeringInput)(nil)).Elem(), &ExpressRouteCrossConnectionPeering{})
 	pulumi.RegisterOutputType(ExpressRouteCrossConnectionPeeringOutput{})
 }

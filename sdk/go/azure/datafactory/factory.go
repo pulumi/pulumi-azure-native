@@ -151,5 +151,6 @@ func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FactoryInput)(nil)).Elem(), &Factory{})
 	pulumi.RegisterOutputType(FactoryOutput{})
 }

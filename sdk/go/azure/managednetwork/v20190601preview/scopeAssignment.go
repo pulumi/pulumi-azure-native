@@ -128,5 +128,6 @@ func (o ScopeAssignmentOutput) ToScopeAssignmentOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeAssignmentInput)(nil)).Elem(), &ScopeAssignment{})
 	pulumi.RegisterOutputType(ScopeAssignmentOutput{})
 }

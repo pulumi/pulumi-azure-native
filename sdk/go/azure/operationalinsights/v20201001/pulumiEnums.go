@@ -1008,6 +1008,18 @@ func (in *workspaceSkuNameEnumPtr) ToWorkspaceSkuNameEnumPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingTypeInput)(nil)).Elem(), BillingType("Cluster"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingTypePtrInput)(nil)).Elem(), BillingType("Cluster"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuNameEnumInput)(nil)).Elem(), ClusterSkuNameEnum("CapacityReservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuNameEnumPtrInput)(nil)).Elem(), ClusterSkuNameEnum("CapacityReservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypeInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypePtrInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEntityStatusInput)(nil)).Elem(), WorkspaceEntityStatus("Creating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEntityStatusPtrInput)(nil)).Elem(), WorkspaceEntityStatus("Creating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSkuNameEnumInput)(nil)).Elem(), WorkspaceSkuNameEnum("Free"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSkuNameEnumPtrInput)(nil)).Elem(), WorkspaceSkuNameEnum("Free"))
 	pulumi.RegisterOutputType(BillingTypeOutput{})
 	pulumi.RegisterOutputType(BillingTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuNameEnumOutput{})

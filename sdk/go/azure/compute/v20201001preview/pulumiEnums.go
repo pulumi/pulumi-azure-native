@@ -176,6 +176,8 @@ func (in *cloudServiceUpgradeModePtr) ToCloudServiceUpgradeModePtrOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServiceUpgradeModeInput)(nil)).Elem(), CloudServiceUpgradeMode("Auto"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServiceUpgradeModePtrInput)(nil)).Elem(), CloudServiceUpgradeMode("Auto"))
 	pulumi.RegisterOutputType(CloudServiceUpgradeModeOutput{})
 	pulumi.RegisterOutputType(CloudServiceUpgradeModePtrOutput{})
 }

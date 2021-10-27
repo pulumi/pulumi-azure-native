@@ -266,5 +266,6 @@ func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteGatewayInput)(nil)).Elem(), &ExpressRouteGateway{})
 	pulumi.RegisterOutputType(ExpressRouteGatewayOutput{})
 }

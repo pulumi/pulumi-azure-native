@@ -182,5 +182,6 @@ func (o StorageSyncServiceOutput) ToStorageSyncServiceOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSyncServiceInput)(nil)).Elem(), &StorageSyncService{})
 	pulumi.RegisterOutputType(StorageSyncServiceOutput{})
 }

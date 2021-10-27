@@ -136,5 +136,6 @@ func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerInput)(nil)).Elem(), &Ledger{})
 	pulumi.RegisterOutputType(LedgerOutput{})
 }

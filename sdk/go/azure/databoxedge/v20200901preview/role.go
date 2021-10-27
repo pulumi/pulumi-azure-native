@@ -193,5 +193,6 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleInput)(nil)).Elem(), &Role{})
 	pulumi.RegisterOutputType(RoleOutput{})
 }

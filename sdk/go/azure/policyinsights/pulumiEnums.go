@@ -345,6 +345,10 @@ func (in *resourceDiscoveryModePtr) ToResourceDiscoveryModePtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComplianceStateInput)(nil)).Elem(), ComplianceState("Compliant"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComplianceStatePtrInput)(nil)).Elem(), ComplianceState("Compliant"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDiscoveryModeInput)(nil)).Elem(), ResourceDiscoveryMode("ExistingNonCompliant"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDiscoveryModePtrInput)(nil)).Elem(), ResourceDiscoveryMode("ExistingNonCompliant"))
 	pulumi.RegisterOutputType(ComplianceStateOutput{})
 	pulumi.RegisterOutputType(ComplianceStatePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDiscoveryModeOutput{})

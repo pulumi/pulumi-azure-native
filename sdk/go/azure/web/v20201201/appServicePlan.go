@@ -250,5 +250,6 @@ func (o AppServicePlanOutput) ToAppServicePlanOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppServicePlanInput)(nil)).Elem(), &AppServicePlan{})
 	pulumi.RegisterOutputType(AppServicePlanOutput{})
 }

@@ -176,5 +176,6 @@ func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), &ApplicationType{})
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 }

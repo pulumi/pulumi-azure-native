@@ -174,5 +174,6 @@ func (o ServerAdvisorOutput) ToServerAdvisorOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdvisorInput)(nil)).Elem(), &ServerAdvisor{})
 	pulumi.RegisterOutputType(ServerAdvisorOutput{})
 }

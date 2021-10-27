@@ -508,6 +508,12 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationMethodInput)(nil)).Elem(), AuthenticationMethod("Token"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationMethodPtrInput)(nil)).Elem(), AuthenticationMethod("Token"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateInput)(nil)).Elem(), ProvisioningState("Succeeded"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStatePtrInput)(nil)).Elem(), ProvisioningState("Succeeded"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("None"))
 	pulumi.RegisterOutputType(AuthenticationMethodOutput{})
 	pulumi.RegisterOutputType(AuthenticationMethodPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningStateOutput{})

@@ -1162,6 +1162,20 @@ func (in *webhookStatusPtr) ToWebhookStatusPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultActionInput)(nil)).Elem(), DefaultAction("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultActionPtrInput)(nil)).Elem(), DefaultAction("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatusInput)(nil)).Elem(), PolicyStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatusPtrInput)(nil)).Elem(), PolicyStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Classic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Classic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustPolicyTypeInput)(nil)).Elem(), TrustPolicyType("Notary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustPolicyTypePtrInput)(nil)).Elem(), TrustPolicyType("Notary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookActionInput)(nil)).Elem(), WebhookAction("push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookActionPtrInput)(nil)).Elem(), WebhookAction("push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookStatusInput)(nil)).Elem(), WebhookStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookStatusPtrInput)(nil)).Elem(), WebhookStatus("enabled"))
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
 	pulumi.RegisterOutputType(DefaultActionOutput{})

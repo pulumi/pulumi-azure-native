@@ -134,5 +134,6 @@ func (o ConnectionGatewayOutput) ToConnectionGatewayOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGatewayInput)(nil)).Elem(), &ConnectionGateway{})
 	pulumi.RegisterOutputType(ConnectionGatewayOutput{})
 }

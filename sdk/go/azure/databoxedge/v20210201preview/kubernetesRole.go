@@ -219,5 +219,6 @@ func (o KubernetesRoleOutput) ToKubernetesRoleOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesRoleInput)(nil)).Elem(), &KubernetesRole{})
 	pulumi.RegisterOutputType(KubernetesRoleOutput{})
 }

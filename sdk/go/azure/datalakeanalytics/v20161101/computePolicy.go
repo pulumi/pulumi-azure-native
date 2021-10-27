@@ -155,5 +155,6 @@ func (o ComputePolicyOutput) ToComputePolicyOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputePolicyInput)(nil)).Elem(), &ComputePolicy{})
 	pulumi.RegisterOutputType(ComputePolicyOutput{})
 }

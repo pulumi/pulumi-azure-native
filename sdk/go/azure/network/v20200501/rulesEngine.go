@@ -141,5 +141,6 @@ func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineInput)(nil)).Elem(), &RulesEngine{})
 	pulumi.RegisterOutputType(RulesEngineOutput{})
 }
