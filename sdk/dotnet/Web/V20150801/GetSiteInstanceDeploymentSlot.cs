@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteInstanceDeploymentSlotResult> InvokeAsync(GetSiteInstanceDeploymentSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentSlotResult>("azure-native:web/v20150801:getSiteInstanceDeploymentSlot", args ?? new GetSiteInstanceDeploymentSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
+        public static Output<GetSiteInstanceDeploymentSlotResult> Invoke(GetSiteInstanceDeploymentSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteInstanceDeploymentSlotResult>("azure-native:web/v20150801:getSiteInstanceDeploymentSlot", args ?? new GetSiteInstanceDeploymentSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteInstanceDeploymentSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteInstanceDeploymentSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Id of web app instance
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteInstanceDeploymentSlotInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20200901
         /// </summary>
         public static Task<ListWebAppBackupConfigurationResult> InvokeAsync(ListWebAppBackupConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationResult>("azure-native:web/v20200901:listWebAppBackupConfiguration", args ?? new ListWebAppBackupConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of a backup which will be performed.
+        /// </summary>
+        public static Output<ListWebAppBackupConfigurationResult> Invoke(ListWebAppBackupConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppBackupConfigurationResult>("azure-native:web/v20200901:listWebAppBackupConfiguration", args ?? new ListWebAppBackupConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWebAppBackupConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppBackupConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWebAppBackupConfigurationInvokeArgs()
         {
         }
     }

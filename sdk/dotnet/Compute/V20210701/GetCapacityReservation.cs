@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute/v20210701:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the capacity reservation.
+        /// </summary>
+        public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute/v20210701:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCapacityReservationArgs()
+        {
+        }
+    }
+
+    public sealed class GetCapacityReservationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the capacity reservation group.
+        /// </summary>
+        [Input("capacityReservationGroupName", required: true)]
+        public Input<string> CapacityReservationGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the capacity reservation.
+        /// </summary>
+        [Input("capacityReservationName", required: true)]
+        public Input<string> CapacityReservationName { get; set; } = null!;
+
+        /// <summary>
+        /// The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCapacityReservationInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignaturesFilterValueResult> InvokeAsync(ListFirewallPolicyIdpsSignaturesFilterValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the list of all possible values for a specific filter value
+        /// API Version: 2021-05-01.
+        /// </summary>
+        public static Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> Invoke(ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public ListFirewallPolicyIdpsSignaturesFilterValueArgs()
+        {
+        }
+    }
+
+    public sealed class ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Describes the name of the column which values will be returned
+        /// </summary>
+        [Input("filterName")]
+        public Input<string>? FilterName { get; set; }
+
+        /// <summary>
+        /// The name of the Firewall Policy.
+        /// </summary>
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs()
         {
         }
     }

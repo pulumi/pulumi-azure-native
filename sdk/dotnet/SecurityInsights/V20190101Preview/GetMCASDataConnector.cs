@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetMCASDataConnectorResult> InvokeAsync(GetMCASDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents MCAS (Microsoft Cloud App Security) data connector.
+        /// </summary>
+        public static Output<GetMCASDataConnectorResult> Invoke(GetMCASDataConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetMCASDataConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMCASDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMCASDataConnectorInvokeArgs()
         {
         }
     }

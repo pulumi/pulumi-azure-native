@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         /// </summary>
         public static Task<ListObjectAnchorsAccountKeysResult> InvokeAsync(ListObjectAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Developer Keys of account
+        /// </summary>
+        public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListObjectAnchorsAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListObjectAnchorsAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of an Mixed Reality Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListObjectAnchorsAccountKeysInvokeArgs()
         {
         }
     }

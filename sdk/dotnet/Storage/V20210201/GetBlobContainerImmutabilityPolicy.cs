@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20210201
         /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20210201:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+        /// </summary>
+        public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20210201:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Storage.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBlobContainerImmutabilityPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobContainerImmutabilityPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
+        /// </summary>
+        [Input("immutabilityPolicyName", required: true)]
+        public Input<string> ImmutabilityPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBlobContainerImmutabilityPolicyInvokeArgs()
         {
         }
     }

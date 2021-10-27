@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VpnConnection Resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVpnConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpnConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the vpn connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the gateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the VpnGateway.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVpnConnectionInvokeArgs()
         {
         }
     }

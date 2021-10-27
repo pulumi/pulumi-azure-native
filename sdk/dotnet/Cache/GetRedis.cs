@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A single Redis item in List or Get Operation.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Cache
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRedisArgs()
+        {
+        }
+    }
+
+    public sealed class GetRedisInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Redis cache.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRedisInvokeArgs()
         {
         }
     }

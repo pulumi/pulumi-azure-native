@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CertificateRegistration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SSL certificate purchase order.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<GetAppServiceCertificateOrderResult> Invoke(GetAppServiceCertificateOrderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.CertificateRegistration
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAppServiceCertificateOrderArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppServiceCertificateOrderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the certificate order..
+        /// </summary>
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAppServiceCertificateOrderInvokeArgs()
         {
         }
     }

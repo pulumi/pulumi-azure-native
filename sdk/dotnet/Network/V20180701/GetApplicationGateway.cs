@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180701
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network/v20180701:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Application gateway resource
+        /// </summary>
+        public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure-native:network/v20180701:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20180701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application gateway.
+        /// </summary>
+        [Input("applicationGatewayName", required: true)]
+        public Input<string> ApplicationGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationGatewayInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AnalysisServices.V20170714
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170714
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Status of gateway is live
+        /// </summary>
+        public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170714
         public string ServerName { get; set; } = null!;
 
         public ListServerGatewayStatusArgs()
+        {
+        }
+    }
+
+    public sealed class ListServerGatewayStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public ListServerGatewayStatusInvokeArgs()
         {
         }
     }

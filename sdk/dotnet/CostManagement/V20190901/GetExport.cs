@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20190901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement/v20190901:getExport", args ?? new GetExportArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A export resource.
+        /// </summary>
+        public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20190901:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CostManagement.V20190901
         public string Scope { get; set; } = null!;
 
         public GetExportArgs()
+        {
+        }
+    }
+
+    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Export Name.
+        /// </summary>
+        [Input("exportName", required: true)]
+        public Input<string> ExportName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetExportInvokeArgs()
         {
         }
     }

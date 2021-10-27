@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Task<GetDatabaseThreatDetectionPolicyResult> InvokeAsync(GetDatabaseThreatDetectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contains information about a database Threat Detection policy.
+        /// </summary>
+        public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public string ServerName { get; set; } = null!;
 
         public GetDatabaseThreatDetectionPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseThreatDetectionPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database for which database Threat Detection policy is defined.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the security alert policy.
+        /// </summary>
+        [Input("securityAlertPolicyName", required: true)]
+        public Input<string> SecurityAlertPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDatabaseThreatDetectionPolicyInvokeArgs()
         {
         }
     }

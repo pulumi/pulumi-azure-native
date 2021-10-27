@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// </summary>
         public static Task<GetStaticSitePrivateEndpointConnectionResult> InvokeAsync(GetStaticSitePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210201:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Remote Private Endpoint Connection ARM resource.
+        /// </summary>
+        public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210201:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStaticSitePrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetStaticSitePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the static site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private endpoint connection.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStaticSitePrivateEndpointConnectionInvokeArgs()
         {
         }
     }

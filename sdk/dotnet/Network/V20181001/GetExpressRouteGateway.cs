@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20181001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20181001
         /// </summary>
         public static Task<GetExpressRouteGatewayResult> InvokeAsync(GetExpressRouteGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network/v20181001:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ExpressRoute gateway resource.
+        /// </summary>
+        public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network/v20181001:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20181001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ExpressRoute gateway.
+        /// </summary>
+        [Input("expressRouteGatewayName", required: true)]
+        public Input<string> ExpressRouteGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteGatewayInvokeArgs()
         {
         }
     }

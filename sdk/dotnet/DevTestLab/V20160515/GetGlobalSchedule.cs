@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-native:devtestlab/v20160515:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A schedule.
+        /// </summary>
+        public static Output<GetGlobalScheduleResult> Invoke(GetGlobalScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab/v20160515:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGlobalScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=status)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGlobalScheduleInvokeArgs()
         {
         }
     }

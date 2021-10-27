@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights/v20200101:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data connector.
+        /// </summary>
+        public static Output<GetDataConnectorResult> Invoke(GetDataConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:securityinsights/v20200101:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +48,31 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public string WorkspaceName { get; set; } = null!;
 
         public GetDataConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDataConnectorInvokeArgs()
         {
         }
     }

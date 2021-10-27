@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OffAzure
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Site REST Resource.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.OffAzure
         public string SiteName { get; set; } = null!;
 
         public GetSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
+
+        public GetSiteInvokeArgs()
         {
         }
     }

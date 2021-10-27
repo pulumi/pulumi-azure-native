@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network/v20210501:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A DDoS protection plan in a resource group.
+        /// </summary>
+        public static Output<GetDdosProtectionPlanResult> Invoke(GetDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDdosProtectionPlanResult>("azure-native:network/v20210501:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20210501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDdosProtectionPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetDdosProtectionPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DDoS protection plan.
+        /// </summary>
+        [Input("ddosProtectionPlanName", required: true)]
+        public Input<string> DdosProtectionPlanName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDdosProtectionPlanInvokeArgs()
         {
         }
     }

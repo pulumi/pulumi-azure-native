@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBI
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PowerBI
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:powerbi:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:powerbi:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.PowerBI
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure resource.
+        /// </summary>
+        [Input("azureResourceName", required: true)]
+        public Input<string> AzureResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint.
+        /// </summary>
+        [Input("privateEndpointName", required: true)]
+        public Input<string> PrivateEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

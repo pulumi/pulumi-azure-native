@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListWebAppSitePushSettingsSlotResult> InvokeAsync(ListWebAppSitePushSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-native:web:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Push settings for the App.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListWebAppSitePushSettingsSlotResult> Invoke(ListWebAppSitePushSettingsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsSlotResult>("azure-native:web:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string Slot { get; set; } = null!;
 
         public ListWebAppSitePushSettingsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppSitePushSettingsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppSitePushSettingsSlotInvokeArgs()
         {
         }
     }

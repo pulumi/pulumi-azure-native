@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Role management policy
+        /// </summary>
+        public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         public string Scope { get; set; } = null!;
 
         public GetRoleManagementPolicyAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleManagementPolicyAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of format {guid_guid} the role management policy assignment to get.
+        /// </summary>
+        [Input("roleManagementPolicyAssignmentName", required: true)]
+        public Input<string> RoleManagementPolicyAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the role management policy.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetRoleManagementPolicyAssignmentInvokeArgs()
         {
         }
     }

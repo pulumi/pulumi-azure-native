@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a scope map for a container registry.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string ScopeMapName { get; set; } = null!;
 
         public GetScopeMapArgs()
+        {
+        }
+    }
+
+    public sealed class GetScopeMapInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the scope map.
+        /// </summary>
+        [Input("scopeMapName", required: true)]
+        public Input<string> ScopeMapName { get; set; } = null!;
+
+        public GetScopeMapInvokeArgs()
         {
         }
     }

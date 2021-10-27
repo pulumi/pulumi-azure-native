@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByHostPoolResult> InvokeAsync(GetPrivateEndpointConnectionByHostPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionByHostPoolResult> Invoke(GetPrivateEndpointConnectionByHostPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionByHostPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionByHostPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the host pool within the specified resource group
+        /// </summary>
+        [Input("hostPoolName", required: true)]
+        public Input<string> HostPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionByHostPoolInvokeArgs()
         {
         }
     }

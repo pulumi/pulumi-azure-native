@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch.V20170101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Batch.V20170101
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch/v20170101:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contains information about an application in a Batch account.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch/v20170101:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Batch.V20170101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the application.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the Batch account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationInvokeArgs()
         {
         }
     }

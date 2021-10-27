@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Task<GetBuildLogLinkResult> InvokeAsync(GetBuildLogLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-native:containerregistry:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The result of get log link operation.
+        /// API Version: 2018-02-01-preview.
+        /// </summary>
+        public static Output<GetBuildLogLinkResult> Invoke(GetBuildLogLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBuildLogLinkResult>("azure-native:containerregistry:getBuildLogLink", args ?? new GetBuildLogLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBuildLogLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetBuildLogLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The build ID.
+        /// </summary>
+        [Input("buildId", required: true)]
+        public Input<string> BuildId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBuildLogLinkInvokeArgs()
         {
         }
     }

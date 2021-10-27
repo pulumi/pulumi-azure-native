@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         public static Task<GetManagedInstanceKeyResult> InvokeAsync(GetManagedInstanceKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-native:sql/v20210201preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A managed instance key.
+        /// </summary>
+        public static Output<GetManagedInstanceKeyResult> Invoke(GetManagedInstanceKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceKeyResult>("azure-native:sql/v20210201preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedInstanceKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedInstanceKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the managed instance key to be retrieved.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedInstanceKeyInvokeArgs()
         {
         }
     }

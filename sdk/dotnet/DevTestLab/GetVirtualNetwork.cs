@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:devtestlab:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A virtual network.
+        /// API Version: 2018-09-15.
+        /// </summary>
+        public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:devtestlab:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DevTestLab
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualNetworkArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($expand=externalSubnets)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualNetworkInvokeArgs()
         {
         }
     }

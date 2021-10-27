@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Billing.V20191001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         /// </summary>
         public static Task<GetBillingRoleAssignmentByEnrollmentAccountResult> InvokeAsync(GetBillingRoleAssignmentByEnrollmentAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The role assignment
+        /// </summary>
+        public static Output<GetBillingRoleAssignmentByEnrollmentAccountResult> Invoke(GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
         public string EnrollmentAccountName { get; set; } = null!;
 
         public GetBillingRoleAssignmentByEnrollmentAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID that uniquely identifies a billing account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID that uniquely identifies a role assignment.
+        /// </summary>
+        [Input("billingRoleAssignmentName", required: true)]
+        public Input<string> BillingRoleAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID that uniquely identifies an enrollment account.
+        /// </summary>
+        [Input("enrollmentAccountName", required: true)]
+        public Input<string> EnrollmentAccountName { get; set; } = null!;
+
+        public GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs()
         {
         }
     }

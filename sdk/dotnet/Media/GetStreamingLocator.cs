@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Streaming Locator resource
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Media
         public string StreamingLocatorName { get; set; } = null!;
 
         public GetStreamingLocatorArgs()
+        {
+        }
+    }
+
+    public sealed class GetStreamingLocatorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Streaming Locator name.
+        /// </summary>
+        [Input("streamingLocatorName", required: true)]
+        public Input<string> StreamingLocatorName { get; set; } = null!;
+
+        public GetStreamingLocatorInvokeArgs()
         {
         }
     }

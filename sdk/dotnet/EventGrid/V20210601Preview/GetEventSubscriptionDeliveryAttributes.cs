@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         /// </summary>
         public static Task<GetEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the Get delivery attributes operation.
+        /// </summary>
+        public static Output<GetEventSubscriptionDeliveryAttributesResult> Invoke(GetEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getEventSubscriptionDeliveryAttributes", args ?? new GetEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         public string Scope { get; set; } = null!;
 
         public GetEventSubscriptionDeliveryAttributesArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventSubscriptionDeliveryAttributesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the event subscription.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetEventSubscriptionDeliveryAttributesInvokeArgs()
         {
         }
     }

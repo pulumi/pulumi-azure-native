@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public static Task<GetServerGroupResult> InvokeAsync(GetServerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a server group for create.
+        /// </summary>
+        public static Output<GetServerGroupResult> Invoke(GetServerGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public string ServerGroupName { get; set; } = null!;
 
         public GetServerGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server group.
+        /// </summary>
+        [Input("serverGroupName", required: true)]
+        public Input<string> ServerGroupName { get; set; } = null!;
+
+        public GetServerGroupInvokeArgs()
         {
         }
     }

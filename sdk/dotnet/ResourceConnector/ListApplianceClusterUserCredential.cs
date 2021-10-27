@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ResourceConnector
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public static Task<ListApplianceClusterUserCredentialResult> InvokeAsync(ListApplianceClusterUserCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterUserCredential", args ?? new ListApplianceClusterUserCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The List Cluster User Credential appliance.
+        /// API Version: 2021-10-31-preview.
+        /// </summary>
+        public static Output<ListApplianceClusterUserCredentialResult> Invoke(ListApplianceClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListApplianceClusterUserCredentialResult>("azure-native:resourceconnector:listApplianceClusterUserCredential", args ?? new ListApplianceClusterUserCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ResourceConnector
         public string ResourceName { get; set; } = null!;
 
         public ListApplianceClusterUserCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class ListApplianceClusterUserCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Appliances name.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListApplianceClusterUserCredentialInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190401
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry/v20190401:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The task that has the ARM resource and task properties. 
+        /// The task will have all information to schedule a run against it.
+        /// </summary>
+        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry/v20190401:getTask", args ?? new GetTaskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         public string TaskName { get; set; } = null!;
 
         public GetTaskArgs()
+        {
+        }
+    }
+
+    public sealed class GetTaskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry task.
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
+
+        public GetTaskInvokeArgs()
         {
         }
     }

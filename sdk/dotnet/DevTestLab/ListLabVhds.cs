@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response of a list operation.
+        /// API Version: 2018-09-15.
+        /// </summary>
+        public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DevTestLab
         public string ResourceGroupName { get; set; } = null!;
 
         public ListLabVhdsArgs()
+        {
+        }
+    }
+
+    public sealed class ListLabVhdsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListLabVhdsInvokeArgs()
         {
         }
     }

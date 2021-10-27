@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20200501preview:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Trigger details.
+        /// </summary>
+        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20200501preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +48,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetTriggerArgs()
+        {
+        }
+    }
+
+    public sealed class GetTriggerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The trigger name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetTriggerInvokeArgs()
         {
         }
     }

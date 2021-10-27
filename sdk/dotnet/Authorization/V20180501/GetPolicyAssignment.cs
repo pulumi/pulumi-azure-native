@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20180501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20180501
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-native:authorization/v20180501:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The policy assignment.
+        /// </summary>
+        public static Output<GetPolicyAssignmentResult> Invoke(GetPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentResult>("azure-native:authorization/v20180501:getPolicyAssignment", args ?? new GetPolicyAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20180501
         public string Scope { get; set; } = null!;
 
         public GetPolicyAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the policy assignment to get.
+        /// </summary>
+        [Input("policyAssignmentName", required: true)]
+        public Input<string> PolicyAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetPolicyAssignmentInvokeArgs()
         {
         }
     }

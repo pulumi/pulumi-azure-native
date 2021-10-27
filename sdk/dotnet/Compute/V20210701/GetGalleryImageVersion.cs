@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute/v20210701:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the gallery image version that you want to create or update.
+        /// </summary>
+        public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute/v20210701:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGalleryImageVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryImageVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the gallery image definition in which the Image Version resides.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public Input<string> GalleryImageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the gallery image version to be retrieved.
+        /// </summary>
+        [Input("galleryImageVersionName", required: true)]
+        public Input<string> GalleryImageVersionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Image Gallery in which the Image Definition resides.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGalleryImageVersionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// disk encryption set resource.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDiskEncryptionSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetDiskEncryptionSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// </summary>
+        [Input("diskEncryptionSetName", required: true)]
+        public Input<string> DiskEncryptionSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDiskEncryptionSetInvokeArgs()
         {
         }
     }

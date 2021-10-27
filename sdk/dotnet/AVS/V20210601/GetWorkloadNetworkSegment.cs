@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210601:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX Segment
+        /// </summary>
+        public static Output<GetWorkloadNetworkSegmentResult> Invoke(GetWorkloadNetworkSegmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20210601:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public string SegmentId { get; set; } = null!;
 
         public GetWorkloadNetworkSegmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkSegmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// NSX Segment identifier. Generally the same as the Segment's display name
+        /// </summary>
+        [Input("segmentId", required: true)]
+        public Input<string> SegmentId { get; set; } = null!;
+
+        public GetWorkloadNetworkSegmentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-native:synapse/v20210501:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IP firewall rule
+        /// </summary>
+        public static Output<GetIpFirewallRuleResult> Invoke(GetIpFirewallRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIpFirewallRuleResult>("azure-native:synapse/v20210501:getIpFirewallRule", args ?? new GetIpFirewallRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public string WorkspaceName { get; set; } = null!;
 
         public GetIpFirewallRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetIpFirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The IP firewall rule name
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIpFirewallRuleInvokeArgs()
         {
         }
     }

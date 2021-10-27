@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForSCCPowershellResult> InvokeAsync(GetPrivateEndpointConnectionsForSCCPowershellArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// API Version: 2021-03-08.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionsForSCCPowershellResult> Invoke(GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         public string ResourceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionsForSCCPowershellArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs()
         {
         }
     }

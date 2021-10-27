@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// </summary>
         public static Task<GetVirtualNetworkTapResult> InvokeAsync(GetVirtualNetworkTapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-native:network/v20210501:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Network Tap resource.
+        /// </summary>
+        public static Output<GetVirtualNetworkTapResult> Invoke(GetVirtualNetworkTapInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkTapResult>("azure-native:network/v20210501:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20210501
         public string TapName { get; set; } = null!;
 
         public GetVirtualNetworkTapArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkTapInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of virtual network tap.
+        /// </summary>
+        [Input("tapName", required: true)]
+        public Input<string> TapName { get; set; } = null!;
+
+        public GetVirtualNetworkTapInvokeArgs()
         {
         }
     }

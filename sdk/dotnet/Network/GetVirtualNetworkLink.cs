@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a link to virtual network for a Private DNS zone.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string VirtualNetworkLinkName { get; set; } = null!;
 
         public GetVirtualNetworkLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Private DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("privateZoneName", required: true)]
+        public Input<string> PrivateZoneName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network link.
+        /// </summary>
+        [Input("virtualNetworkLinkName", required: true)]
+        public Input<string> VirtualNetworkLinkName { get; set; } = null!;
+
+        public GetVirtualNetworkLinkInvokeArgs()
         {
         }
     }

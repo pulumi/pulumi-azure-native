@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Devices.V20200301
         /// </summary>
         public static Task<ListIotDpsResourceKeysForKeyNameResult> InvokeAsync(ListIotDpsResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20200301:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of the shared access key.
+        /// </summary>
+        public static Output<ListIotDpsResourceKeysForKeyNameResult> Invoke(ListIotDpsResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20200301:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Devices.V20200301
         public string ResourceGroupName { get; set; } = null!;
 
         public ListIotDpsResourceKeysForKeyNameArgs()
+        {
+        }
+    }
+
+    public sealed class ListIotDpsResourceKeysForKeyNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Logical key name to get key-values for.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the provisioning service.
+        /// </summary>
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the provisioning service.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListIotDpsResourceKeysForKeyNameInvokeArgs()
         {
         }
     }

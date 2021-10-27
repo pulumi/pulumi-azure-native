@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Extension Instance object.
+        /// API Version: 2020-07-01-preview.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the kubernetes cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterResourceName", required: true)]
+        public Input<string> ClusterResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterRp", required: true)]
+        public Input<string> ClusterRp { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an instance of the Extension.
+        /// </summary>
+        [Input("extensionInstanceName", required: true)]
+        public Input<string> ExtensionInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExtensionInvokeArgs()
         {
         }
     }

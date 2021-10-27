@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Task<GetTriggerEventSubscriptionStatusResult> InvokeAsync(GetTriggerEventSubscriptionStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the response of a trigger subscription operation.
+        /// </summary>
+        public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public string TriggerName { get; set; } = null!;
 
         public GetTriggerEventSubscriptionStatusArgs()
+        {
+        }
+    }
+
+    public sealed class GetTriggerEventSubscriptionStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
+
+        public GetTriggerEventSubscriptionStatusInvokeArgs()
         {
         }
     }

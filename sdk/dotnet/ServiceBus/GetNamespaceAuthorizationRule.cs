@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceBus
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNamespaceAuthorizationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNamespaceAuthorizationRuleInvokeArgs()
         {
         }
     }

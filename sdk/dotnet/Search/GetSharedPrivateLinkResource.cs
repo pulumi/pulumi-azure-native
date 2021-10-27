@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
+        public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Search
         public string SharedPrivateLinkResourceName { get; set; } = null!;
 
         public GetSharedPrivateLinkResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetSharedPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// </summary>
+        [Input("searchServiceName", required: true)]
+        public Input<string> SearchServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+        /// </summary>
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
+
+        public GetSharedPrivateLinkResourceInvokeArgs()
         {
         }
     }

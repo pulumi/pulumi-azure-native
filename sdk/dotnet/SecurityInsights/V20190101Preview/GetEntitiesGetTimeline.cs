@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetEntitiesGetTimelineResult> InvokeAsync(GetEntitiesGetTimelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights/v20190101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The entity timeline result operation response.
+        /// </summary>
+        public static Output<GetEntitiesGetTimelineResult> Invoke(GetEntitiesGetTimelineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEntitiesGetTimelineResult>("azure-native:securityinsights/v20190101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -76,6 +83,67 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetEntitiesGetTimelineArgs()
+        {
+        }
+    }
+
+    public sealed class GetEntitiesGetTimelineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The end timeline date, so the results returned are before this date.
+        /// </summary>
+        [Input("endTime", required: true)]
+        public Input<string> EndTime { get; set; } = null!;
+
+        /// <summary>
+        /// entity ID
+        /// </summary>
+        [Input("entityId", required: true)]
+        public Input<string> EntityId { get; set; } = null!;
+
+        [Input("kinds")]
+        private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>>? _kinds;
+
+        /// <summary>
+        /// Array of timeline Item kinds.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>> Kinds
+        {
+            get => _kinds ?? (_kinds = new InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>>());
+            set => _kinds = value;
+        }
+
+        /// <summary>
+        /// The number of bucket for timeline queries aggregation.
+        /// </summary>
+        [Input("numberOfBucket")]
+        public Input<int>? NumberOfBucket { get; set; }
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The start timeline date, so the results returned are after this date.
+        /// </summary>
+        [Input("startTime", required: true)]
+        public Input<string> StartTime { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetEntitiesGetTimelineInvokeArgs()
         {
         }
     }

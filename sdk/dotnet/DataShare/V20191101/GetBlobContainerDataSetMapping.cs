@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public static Task<GetBlobContainerDataSetMappingResult> InvokeAsync(GetBlobContainerDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Blob container data set mapping.
+        /// </summary>
+        public static Output<GetBlobContainerDataSetMappingResult> Invoke(GetBlobContainerDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerDataSetMappingResult>("azure-native:datashare/v20191101:getBlobContainerDataSetMapping", args ?? new GetBlobContainerDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetBlobContainerDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobContainerDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetBlobContainerDataSetMappingInvokeArgs()
         {
         }
     }

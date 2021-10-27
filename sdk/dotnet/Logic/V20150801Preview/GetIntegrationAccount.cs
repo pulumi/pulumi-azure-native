@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
     {
         public static Task<GetIntegrationAccountResult> InvokeAsync(GetIntegrationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-native:logic/v20150801preview:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithVersion());
+
+        public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure-native:logic/v20150801preview:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationAccountInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Task<GetRegistryBuildSourceUploadUrlResult> InvokeAsync(GetRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of a response to source upload request.
+        /// API Version: 2018-02-01-preview.
+        /// </summary>
+        public static Output<GetRegistryBuildSourceUploadUrlResult> Invoke(GetRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegistryBuildSourceUploadUrlArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistryBuildSourceUploadUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegistryBuildSourceUploadUrlInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-native:recoveryservices/v20210401:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// vCenter definition.
+        /// </summary>
+        public static Output<GetReplicationvCenterResult> Invoke(GetReplicationvCenterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationvCenterResult>("azure-native:recoveryservices/v20210401:getReplicationvCenter", args ?? new GetReplicationvCenterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         public string VcenterName { get; set; } = null!;
 
         public GetReplicationvCenterArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationvCenterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// vcenter name.
+        /// </summary>
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
+
+        public GetReplicationvCenterInvokeArgs()
         {
         }
     }

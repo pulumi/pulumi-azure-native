@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         /// </summary>
         public static Task<ListCognitiveServicesAccountKeysResult> InvokeAsync(ListCognitiveServicesAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The access keys for the cognitive services account.
+        /// </summary>
+        public static Output<ListCognitiveServicesAccountKeysResult> Invoke(ListCognitiveServicesAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListCognitiveServicesAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListCognitiveServicesAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListCognitiveServicesAccountKeysInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management.V20180101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/v20180101preview:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the result of the request to view entities.
+        /// </summary>
+        public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20180101preview:getEntity", args ?? new GetEntityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +42,26 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         public string? Skiptoken { get; set; }
 
         public GetEntityArgs()
+        {
+        }
+    }
+
+    public sealed class GetEntityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A filter which allows the call to be filtered for a specific group.
+        /// </summary>
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// Page continuation token is only used if a previous operation returned a partial result. 
+        /// If a previous response contains a nextLink element, the value of the nextLink element will include a token parameter that specifies a starting point to use for subsequent calls.
+        /// </summary>
+        [Input("skiptoken")]
+        public Input<string>? Skiptoken { get; set; }
+
+        public GetEntityInvokeArgs()
         {
         }
     }

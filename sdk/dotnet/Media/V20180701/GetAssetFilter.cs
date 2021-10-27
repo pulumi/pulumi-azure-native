@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20180701
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media/v20180701:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Asset Filter.
+        /// </summary>
+        public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20180701:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Media.V20180701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAssetFilterArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssetFilterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Asset name.
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        /// <summary>
+        /// The Asset Filter name
+        /// </summary>
+        [Input("filterName", required: true)]
+        public Input<string> FilterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAssetFilterInvokeArgs()
         {
         }
     }

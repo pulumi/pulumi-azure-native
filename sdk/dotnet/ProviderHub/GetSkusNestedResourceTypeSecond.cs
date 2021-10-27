@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public static Task<GetSkusNestedResourceTypeSecondResult> InvokeAsync(GetSkusNestedResourceTypeSecondArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-11-20.
+        /// </summary>
+        public static Output<GetSkusNestedResourceTypeSecondResult> Invoke(GetSkusNestedResourceTypeSecondInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.ProviderHub
         public string Sku { get; set; } = null!;
 
         public GetSkusNestedResourceTypeSecondArgs()
+        {
+        }
+    }
+
+    public sealed class GetSkusNestedResourceTypeSecondInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The first child resource type.
+        /// </summary>
+        [Input("nestedResourceTypeFirst", required: true)]
+        public Input<string> NestedResourceTypeFirst { get; set; } = null!;
+
+        /// <summary>
+        /// The second child resource type.
+        /// </summary>
+        [Input("nestedResourceTypeSecond", required: true)]
+        public Input<string> NestedResourceTypeSecond { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource provider hosted within ProviderHub.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The resource type.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        /// <summary>
+        /// The SKU.
+        /// </summary>
+        [Input("sku", required: true)]
+        public Input<string> Sku { get; set; } = null!;
+
+        public GetSkusNestedResourceTypeSecondInvokeArgs()
         {
         }
     }

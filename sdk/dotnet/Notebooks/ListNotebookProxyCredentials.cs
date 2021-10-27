@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Notebooks
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Notebooks
         /// </summary>
         public static Task<ListNotebookProxyCredentialsResult> InvokeAsync(ListNotebookProxyCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookProxyCredentialsResult>("azure-native:notebooks:listNotebookProxyCredentials", args ?? new ListNotebookProxyCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Credentials and other properties of NotebookProxy resource
+        /// API Version: 2019-10-11-preview.
+        /// </summary>
+        public static Output<ListNotebookProxyCredentialsResult> Invoke(ListNotebookProxyCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNotebookProxyCredentialsResult>("azure-native:notebooks:listNotebookProxyCredentials", args ?? new ListNotebookProxyCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Notebooks
         public string ResourceName { get; set; } = null!;
 
         public ListNotebookProxyCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListNotebookProxyCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListNotebookProxyCredentialsInvokeArgs()
         {
         }
     }

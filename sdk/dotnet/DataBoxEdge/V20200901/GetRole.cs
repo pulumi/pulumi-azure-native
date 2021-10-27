@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge/v20200901:getRole", args ?? new GetRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Compute role.
+        /// </summary>
+        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:databoxedge/v20200901:getRole", args ?? new GetRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +48,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRoleInvokeArgs()
         {
         }
     }

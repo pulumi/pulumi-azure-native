@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of a orchestrator.
+        /// </summary>
+        public static Output<GetOrchestratorInstanceServiceDetailsResult> Invoke(GetOrchestratorInstanceServiceDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork/v20210315:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public string ResourceName { get; set; } = null!;
 
         public GetOrchestratorInstanceServiceDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrchestratorInstanceServiceDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetOrchestratorInstanceServiceDetailsInvokeArgs()
         {
         }
     }

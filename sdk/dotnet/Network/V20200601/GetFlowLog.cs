@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-native:network/v20200601:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A flow log resource.
+        /// </summary>
+        public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("azure-native:network/v20200601:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFlowLogArgs()
+        {
+        }
+    }
+
+    public sealed class GetFlowLogInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the flow log resource.
+        /// </summary>
+        [Input("flowLogName", required: true)]
+        public Input<string> FlowLogName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network watcher.
+        /// </summary>
+        [Input("networkWatcherName", required: true)]
+        public Input<string> NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFlowLogInvokeArgs()
         {
         }
     }

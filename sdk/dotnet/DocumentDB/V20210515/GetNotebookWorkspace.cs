@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210515
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-native:documentdb/v20210515:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A notebook workspace resource
+        /// </summary>
+        public static Output<GetNotebookWorkspaceResult> Invoke(GetNotebookWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNotebookWorkspaceResult>("azure-native:documentdb/v20210515:getNotebookWorkspace", args ?? new GetNotebookWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNotebookWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNotebookWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the notebook workspace resource.
+        /// </summary>
+        [Input("notebookWorkspaceName", required: true)]
+        public Input<string> NotebookWorkspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNotebookWorkspaceInvokeArgs()
         {
         }
     }

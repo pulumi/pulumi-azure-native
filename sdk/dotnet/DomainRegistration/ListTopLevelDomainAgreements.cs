@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of top-level domain legal agreements.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DomainRegistration
         public string Name { get; set; } = null!;
 
         public ListTopLevelDomainAgreementsArgs()
+        {
+        }
+    }
+
+    public sealed class ListTopLevelDomainAgreementsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, then the list of agreements will include agreements for domain transfer as well; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("forTransfer")]
+        public Input<bool>? ForTransfer { get; set; }
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, then the list of agreements will include agreements for domain privacy as well; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("includePrivacy")]
+        public Input<bool>? IncludePrivacy { get; set; }
+
+        /// <summary>
+        /// Name of the top-level domain.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public ListTopLevelDomainAgreementsInvokeArgs()
         {
         }
     }

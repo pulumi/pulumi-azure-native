@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// </summary>
         public static Task<GetprivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetprivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
+        public static Output<GetprivateLinkServicesForMIPPolicySyncResult> Invoke(GetprivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         public string ResourceName { get; set; } = null!;
 
         public GetprivateLinkServicesForMIPPolicySyncArgs()
+        {
+        }
+    }
+
+    public sealed class GetprivateLinkServicesForMIPPolicySyncInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetprivateLinkServicesForMIPPolicySyncInvokeArgs()
         {
         }
     }

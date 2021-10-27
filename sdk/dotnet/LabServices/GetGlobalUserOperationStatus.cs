@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetGlobalUserOperationStatusResult> InvokeAsync(GetGlobalUserOperationStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Status Details of the long running operation for an environment
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetGlobalUserOperationStatusResult> Invoke(GetGlobalUserOperationStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationStatusResult>("azure-native:labservices:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.LabServices
         public string UserName { get; set; } = null!;
 
         public GetGlobalUserOperationStatusArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalUserOperationStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The operation url of long running operation
+        /// </summary>
+        [Input("operationUrl", required: true)]
+        public Input<string> OperationUrl { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetGlobalUserOperationStatusInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql/v20200202preview:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL managed instance.
+        /// </summary>
+        public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql/v20200202preview:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedInstanceInvokeArgs()
         {
         }
     }

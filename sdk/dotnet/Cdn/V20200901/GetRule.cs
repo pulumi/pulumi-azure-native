@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:cdn/v20200901:getRule", args ?? new GetRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Friendly Rules name mapping to the any Rules or secret related information.
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn/v20200901:getRule", args ?? new GetRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string RuleSetName { get; set; } = null!;
 
         public GetRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the delivery rule which is unique within the endpoint.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the rule set under the profile.
+        /// </summary>
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
+
+        public GetRuleInvokeArgs()
         {
         }
     }

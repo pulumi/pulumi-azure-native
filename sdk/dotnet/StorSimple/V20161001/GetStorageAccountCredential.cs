@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:storsimple/v20161001:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The storage account credential
+        /// </summary>
+        public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:storsimple/v20161001:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStorageAccountCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageAccountCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of storage account credential to be fetched.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStorageAccountCredentialInvokeArgs()
         {
         }
     }

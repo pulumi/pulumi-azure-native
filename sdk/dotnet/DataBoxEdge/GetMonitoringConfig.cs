@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The metric setting details for the role
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string RoleName { get; set; } = null!;
 
         public GetMonitoringConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitoringConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
+
+        public GetMonitoringConfigInvokeArgs()
         {
         }
     }

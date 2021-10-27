@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string WorkspaceName { get; set; } = null!;
 
         public ListStorageAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListStorageAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListStorageAccountKeysInvokeArgs()
         {
         }
     }

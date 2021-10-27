@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network/v20200601:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IpAllocation resource.
+        /// </summary>
+        public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20200601:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIpAllocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetIpAllocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the IpAllocation.
+        /// </summary>
+        [Input("ipAllocationName", required: true)]
+        public Input<string> IpAllocationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIpAllocationInvokeArgs()
         {
         }
     }

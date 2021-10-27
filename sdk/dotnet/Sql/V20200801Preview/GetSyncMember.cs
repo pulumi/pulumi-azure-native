@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public static Task<GetSyncMemberResult> InvokeAsync(GetSyncMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql/v20200801preview:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL Database sync member.
+        /// </summary>
+        public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20200801preview:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         public string SyncMemberName { get; set; } = null!;
 
         public GetSyncMemberArgs()
+        {
+        }
+    }
+
+    public sealed class GetSyncMemberInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database on which the sync group is hosted.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the sync group on which the sync member is hosted.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the sync member.
+        /// </summary>
+        [Input("syncMemberName", required: true)]
+        public Input<string> SyncMemberName { get; set; } = null!;
+
+        public GetSyncMemberInvokeArgs()
         {
         }
     }

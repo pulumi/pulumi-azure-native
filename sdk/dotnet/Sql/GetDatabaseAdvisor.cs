@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetDatabaseAdvisorResult> InvokeAsync(GetDatabaseAdvisorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAdvisorResult>("azure-native:sql:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Database, Server or Elastic Pool Advisor.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetDatabaseAdvisorResult> Invoke(GetDatabaseAdvisorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAdvisorResult>("azure-native:sql:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetDatabaseAdvisorArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAdvisorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Database Advisor.
+        /// </summary>
+        [Input("advisorName", required: true)]
+        public Input<string> AdvisorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDatabaseAdvisorInvokeArgs()
         {
         }
     }

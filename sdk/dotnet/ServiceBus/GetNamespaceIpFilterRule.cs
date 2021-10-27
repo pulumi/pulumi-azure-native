@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:servicebus:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single item in a List or Get IpFilterRules operation
+        /// API Version: 2018-01-01-preview.
+        /// </summary>
+        public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:servicebus:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceBus
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNamespaceIpFilterRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceIpFilterRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The IP Filter Rule name.
+        /// </summary>
+        [Input("ipFilterRuleName", required: true)]
+        public Input<string> IpFilterRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNamespaceIpFilterRuleInvokeArgs()
         {
         }
     }

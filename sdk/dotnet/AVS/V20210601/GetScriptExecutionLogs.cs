@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// </summary>
         public static Task<GetScriptExecutionLogsResult> InvokeAsync(GetScriptExecutionLogsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionLogsResult>("azure-native:avs/v20210601:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An instance of a script executed by a user - custom or AVS
+        /// </summary>
+        public static Output<GetScriptExecutionLogsResult> Invoke(GetScriptExecutionLogsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionLogsResult>("azure-native:avs/v20210601:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public string ScriptExecutionName { get; set; } = null!;
 
         public GetScriptExecutionLogsArgs()
+        {
+        }
+    }
+
+    public sealed class GetScriptExecutionLogsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the user-invoked script execution resource
+        /// </summary>
+        [Input("scriptExecutionName", required: true)]
+        public Input<string> ScriptExecutionName { get; set; } = null!;
+
+        public GetScriptExecutionLogsInvokeArgs()
         {
         }
     }

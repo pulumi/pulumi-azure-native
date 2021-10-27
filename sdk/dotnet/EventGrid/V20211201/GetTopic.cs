@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20211201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid/v20211201:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// EventGrid Topic
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid/v20211201:getTopic", args ?? new GetTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         public string TopicName { get; set; } = null!;
 
         public GetTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the topic.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
+
+        public GetTopicInvokeArgs()
         {
         }
     }

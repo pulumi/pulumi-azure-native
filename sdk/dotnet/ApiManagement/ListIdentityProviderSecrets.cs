@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<ListIdentityProviderSecretsResult> InvokeAsync(ListIdentityProviderSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-native:apimanagement:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListIdentityProviderSecretsResult> Invoke(ListIdentityProviderSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIdentityProviderSecretsResult>("azure-native:apimanagement:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public ListIdentityProviderSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListIdentityProviderSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identity Provider Type identifier.
+        /// </summary>
+        [Input("identityProviderName", required: true)]
+        public Input<string> IdentityProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListIdentityProviderSecretsInvokeArgs()
         {
         }
     }

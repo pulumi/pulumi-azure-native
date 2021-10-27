@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azure-native:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response body for a ListKeys API.
+        /// API Version: 2015-10-01.
+        /// </summary>
+        public static Output<ListMediaServiceKeysResult> Invoke(ListMediaServiceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMediaServiceKeysResult>("azure-native:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Media
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMediaServiceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListMediaServiceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Media Service.
+        /// </summary>
+        [Input("mediaServiceName", required: true)]
+        public Input<string> MediaServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMediaServiceKeysInvokeArgs()
         {
         }
     }

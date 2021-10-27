@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:logic/v20160601:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account partner.
+        /// </summary>
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:logic/v20160601:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPartnerArgs()
+        {
+        }
+    }
+
+    public sealed class GetPartnerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account partner name.
+        /// </summary>
+        [Input("partnerName", required: true)]
+        public Input<string> PartnerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPartnerInvokeArgs()
         {
         }
     }

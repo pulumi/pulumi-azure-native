@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of the EventHubConsumerGroupInfo object.
+        /// API Version: 2020-08-31.
+        /// </summary>
+        public static Output<GetIotHubResourceEventHubConsumerGroupResult> Invoke(GetIotHubResourceEventHubConsumerGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Devices
         public string ResourceName { get; set; } = null!;
 
         public GetIotHubResourceEventHubConsumerGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotHubResourceEventHubConsumerGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Event Hub-compatible endpoint in the IoT hub.
+        /// </summary>
+        [Input("eventHubEndpointName", required: true)]
+        public Input<string> EventHubEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the consumer group to retrieve.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the IoT hub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetIotHubResourceEventHubConsumerGroupInvokeArgs()
         {
         }
     }

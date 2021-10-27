@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network/v20210201preview:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The network manager connectivity configuration resource
+        /// </summary>
+        public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network/v20210201preview:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectivityConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectivityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager connectivity configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectivityConfigurationInvokeArgs()
         {
         }
     }

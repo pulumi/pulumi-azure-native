@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:logz/v20201001preview:getTagRule", args ?? new GetTagRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Capture logs and metrics of Azure resources based on ARM tags.
+        /// </summary>
+        public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:logz/v20201001preview:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +44,28 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public string RuleSetName { get; set; } = null!;
 
         public GetTagRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetTagRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
+
+        public GetTagRuleInvokeArgs()
         {
         }
     }

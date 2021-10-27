@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:servicefabric/v20170701preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The cluster resource
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:servicefabric/v20170701preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
         public string? SubscriptionId { get; set; }
 
         public GetClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster resource
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The customer subscription identifier
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetClusterInvokeArgs()
         {
         }
     }

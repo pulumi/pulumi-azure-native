@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleResult>("azure-native:network/v20210201preview:getUserRule", args ?? new GetUserRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network base rule.
+        /// </summary>
+        public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network/v20210201preview:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +60,43 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string RuleName { get; set; } = null!;
 
         public GetUserRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager security Configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetUserRuleInvokeArgs()
         {
         }
     }

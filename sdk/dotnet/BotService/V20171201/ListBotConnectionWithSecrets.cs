@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService.V20171201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.BotService.V20171201
         /// </summary>
         public static Task<ListBotConnectionWithSecretsResult> InvokeAsync(ListBotConnectionWithSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionWithSecretsResult>("azure-native:botservice/v20171201:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot channel resource definition
+        /// </summary>
+        public static Output<ListBotConnectionWithSecretsResult> Invoke(ListBotConnectionWithSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListBotConnectionWithSecretsResult>("azure-native:botservice/v20171201:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.BotService.V20171201
         public string ResourceName { get; set; } = null!;
 
         public ListBotConnectionWithSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListBotConnectionWithSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bot Service Connection Setting resource
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListBotConnectionWithSecretsInvokeArgs()
         {
         }
     }

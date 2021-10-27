@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource representation of a service in a service topology.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DeploymentManager
         public string ServiceTopologyName { get; set; } = null!;
 
         public GetServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service topology .
+        /// </summary>
+        [Input("serviceTopologyName", required: true)]
+        public Input<string> ServiceTopologyName { get; set; } = null!;
+
+        public GetServiceInvokeArgs()
         {
         }
     }

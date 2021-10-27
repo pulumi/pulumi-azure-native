@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public static Task<ListManagedClusterAccessProfileResult> InvokeAsync(ListManagedClusterAccessProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Managed cluster Access Profile.
+        /// API Version: 2020-03-01.
+        /// </summary>
+        public static Output<ListManagedClusterAccessProfileResult> Invoke(ListManagedClusterAccessProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerService
         public string RoleName { get; set; } = null!;
 
         public ListManagedClusterAccessProfileArgs()
+        {
+        }
+    }
+
+    public sealed class ListManagedClusterAccessProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the role for managed cluster accessProfile resource.
+        /// </summary>
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
+
+        public ListManagedClusterAccessProfileInvokeArgs()
         {
         }
     }

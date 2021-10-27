@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-native:migrate:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2019-10-01.
+        /// </summary>
+        public static Output<GetHyperVCollectorResult> Invoke(GetHyperVCollectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHyperVCollectorResult>("azure-native:migrate:getHyperVCollector", args ?? new GetHyperVCollectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Migrate
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHyperVCollectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetHyperVCollectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Unique name of a Hyper-V collector within a project.
+        /// </summary>
+        [Input("hyperVCollectorName", required: true)]
+        public Input<string> HyperVCollectorName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHyperVCollectorInvokeArgs()
         {
         }
     }

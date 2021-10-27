@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetWebAppDeploymentResult> Invoke(GetWebAppDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebAppDeploymentArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppDeploymentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Deployment ID.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebAppDeploymentInvokeArgs()
         {
         }
     }

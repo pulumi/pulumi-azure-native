@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public static Task<ListEdgeModuleProvisioningTokenResult> InvokeAsync(ListEdgeModuleProvisioningTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEdgeModuleProvisioningTokenResult>("azure-native:videoanalyzer:listEdgeModuleProvisioningToken", args ?? new ListEdgeModuleProvisioningTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
+        /// API Version: 2021-05-01-preview.
+        /// </summary>
+        public static Output<ListEdgeModuleProvisioningTokenResult> Invoke(ListEdgeModuleProvisioningTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListEdgeModuleProvisioningTokenResult>("azure-native:videoanalyzer:listEdgeModuleProvisioningToken", args ?? new ListEdgeModuleProvisioningTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public string ResourceGroupName { get; set; } = null!;
 
         public ListEdgeModuleProvisioningTokenArgs()
+        {
+        }
+    }
+
+    public sealed class ListEdgeModuleProvisioningTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the edge module used to create a new provisioning token.
+        /// </summary>
+        [Input("edgeModuleName", required: true)]
+        public Input<string> EdgeModuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
+        /// </summary>
+        [Input("expirationDate", required: true)]
+        public Input<string> ExpirationDate { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListEdgeModuleProvisioningTokenInvokeArgs()
         {
         }
     }

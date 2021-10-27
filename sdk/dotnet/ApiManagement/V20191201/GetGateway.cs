@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20191201:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Gateway details.
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement/v20191201:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public string ServiceName { get; set; } = null!;
 
         public GetGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        /// </summary>
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetGatewayInvokeArgs()
         {
         }
     }

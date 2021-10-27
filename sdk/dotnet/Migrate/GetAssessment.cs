@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An assessment created for a group in the Migration project.
+        /// API Version: 2019-10-01.
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Migrate
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAssessmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssessmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Unique name of an assessment within a project.
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name of a group within a project.
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAssessmentInvokeArgs()
         {
         }
     }

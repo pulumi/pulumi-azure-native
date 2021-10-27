@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A common class for general resource information.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLocalNetworkGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocalNetworkGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the local network gateway.
+        /// </summary>
+        [Input("localNetworkGatewayName", required: true)]
+        public Input<string> LocalNetworkGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLocalNetworkGatewayInvokeArgs()
         {
         }
     }

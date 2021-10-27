@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute/v20190802preview:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Machine Extension.
+        /// </summary>
+        public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute/v20190802preview:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMachineExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the machine extension.
+        /// </summary>
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine containing the extension.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMachineExtensionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20201020
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20201020
         /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-native:insights/v20201020:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Application Insights workbook definition.
+        /// </summary>
+        public static Output<GetWorkbookResult> Invoke(GetWorkbookInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkbookResult>("azure-native:insights/v20201020:getWorkbook", args ?? new GetWorkbookInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20201020
         public string ResourceName { get; set; } = null!;
 
         public GetWorkbookArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkbookInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetWorkbookInvokeArgs()
         {
         }
     }

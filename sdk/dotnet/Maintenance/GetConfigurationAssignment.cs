@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maintenance
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public static Task<GetConfigurationAssignmentResult> InvokeAsync(GetConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentResult>("azure-native:maintenance:getConfigurationAssignment", args ?? new GetConfigurationAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configuration Assignment
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetConfigurationAssignmentResult> Invoke(GetConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentResult>("azure-native:maintenance:getConfigurationAssignment", args ?? new GetConfigurationAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.Maintenance
         public string ResourceType { get; set; } = null!;
 
         public GetConfigurationAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Configuration assignment name
+        /// </summary>
+        [Input("configurationAssignmentName", required: true)]
+        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource provider name
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identifier
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        public GetConfigurationAssignmentInvokeArgs()
         {
         }
     }

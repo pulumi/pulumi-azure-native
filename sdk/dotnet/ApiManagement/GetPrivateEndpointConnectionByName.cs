@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByNameResult> InvokeAsync(GetPrivateEndpointConnectionByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionByNameResult> Invoke(GetPrivateEndpointConnectionByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private endpoint connection.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionByNameInvokeArgs()
         {
         }
     }

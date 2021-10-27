@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<GetScriptExecutionResult> InvokeAsync(GetScriptExecutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An instance of a script executed by a user - custom or AVS
+        /// API Version: 2021-06-01.
+        /// </summary>
+        public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AVS
         public string ScriptExecutionName { get; set; } = null!;
 
         public GetScriptExecutionArgs()
+        {
+        }
+    }
+
+    public sealed class GetScriptExecutionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the user-invoked script execution resource
+        /// </summary>
+        [Input("scriptExecutionName", required: true)]
+        public Input<string> ScriptExecutionName { get; set; } = null!;
+
+        public GetScriptExecutionInvokeArgs()
         {
         }
     }

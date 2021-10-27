@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql/v20140401:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A database geo backup policy.
+        /// </summary>
+        public static Output<GetGeoBackupPolicyResult> Invoke(GetGeoBackupPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGeoBackupPolicyResult>("azure-native:sql/v20140401:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public string ServerName { get; set; } = null!;
 
         public GetGeoBackupPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetGeoBackupPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the geo backup policy.
+        /// </summary>
+        [Input("geoBackupPolicyName", required: true)]
+        public Input<string> GeoBackupPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetGeoBackupPolicyInvokeArgs()
         {
         }
     }

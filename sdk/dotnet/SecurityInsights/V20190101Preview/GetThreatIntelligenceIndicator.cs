@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetThreatIntelligenceIndicatorResult> InvokeAsync(GetThreatIntelligenceIndicatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Threat intelligence information object.
+        /// </summary>
+        public static Output<GetThreatIntelligenceIndicatorResult> Invoke(GetThreatIntelligenceIndicatorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetThreatIntelligenceIndicatorArgs()
+        {
+        }
+    }
+
+    public sealed class GetThreatIntelligenceIndicatorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Threat intelligence indicator name field.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetThreatIntelligenceIndicatorInvokeArgs()
         {
         }
     }

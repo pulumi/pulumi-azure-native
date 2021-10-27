@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization/v20190123preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Schema for Application properties.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization/v20190123preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application group
+        /// </summary>
+        [Input("applicationGroupName", required: true)]
+        public Input<string> ApplicationGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the application within the specified application group
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationInvokeArgs()
         {
         }
     }

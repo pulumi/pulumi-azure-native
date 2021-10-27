@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetPolicyPricingResult> InvokeAsync(GetPolicyPricingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyPricingResult>("azure-native:authorization:getPolicyPricing", args ?? new GetPolicyPricingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The policy pricing.
+        /// API Version: 2021-07-01.
+        /// </summary>
+        public static Output<GetPolicyPricingResult> Invoke(GetPolicyPricingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyPricingResult>("azure-native:authorization:getPolicyPricing", args ?? new GetPolicyPricingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Authorization
         public string Scope { get; set; } = null!;
 
         public GetPolicyPricingArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyPricingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the policy pricing.
+        /// </summary>
+        [Input("policyPricingName", required: true)]
+        public Input<string> PolicyPricingName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the policy pricing. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}') or subscription (format: '/subscriptions/{subscriptionId}')
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetPolicyPricingInvokeArgs()
         {
         }
     }

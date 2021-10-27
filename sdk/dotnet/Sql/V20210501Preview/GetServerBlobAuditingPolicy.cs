@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// </summary>
         public static Task<GetServerBlobAuditingPolicyResult> InvokeAsync(GetServerBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerBlobAuditingPolicyResult>("azure-native:sql/v20210501preview:getServerBlobAuditingPolicy", args ?? new GetServerBlobAuditingPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A server blob auditing policy.
+        /// </summary>
+        public static Output<GetServerBlobAuditingPolicyResult> Invoke(GetServerBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerBlobAuditingPolicyResult>("azure-native:sql/v20210501preview:getServerBlobAuditingPolicy", args ?? new GetServerBlobAuditingPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public string ServerName { get; set; } = null!;
 
         public GetServerBlobAuditingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerBlobAuditingPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the blob auditing policy.
+        /// </summary>
+        [Input("blobAuditingPolicyName", required: true)]
+        public Input<string> BlobAuditingPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerBlobAuditingPolicyInvokeArgs()
         {
         }
     }

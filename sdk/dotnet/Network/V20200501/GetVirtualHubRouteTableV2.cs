@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// </summary>
         public static Task<GetVirtualHubRouteTableV2Result> InvokeAsync(GetVirtualHubRouteTableV2Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubRouteTableV2Result>("azure-native:network/v20200501:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2Args(), options.WithVersion());
+
+        /// <summary>
+        /// VirtualHubRouteTableV2 Resource.
+        /// </summary>
+        public static Output<GetVirtualHubRouteTableV2Result> Invoke(GetVirtualHubRouteTableV2InvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableV2Result>("azure-native:network/v20200501:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2InvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200501
         public string VirtualHubName { get; set; } = null!;
 
         public GetVirtualHubRouteTableV2Args()
+        {
+        }
+    }
+
+    public sealed class GetVirtualHubRouteTableV2InvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name of the VirtualHubRouteTableV2.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHubRouteTableV2.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
+
+        public GetVirtualHubRouteTableV2InvokeArgs()
         {
         }
     }

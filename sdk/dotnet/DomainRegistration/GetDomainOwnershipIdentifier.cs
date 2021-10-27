@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Domain ownership Identifier.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DomainRegistration
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDomainOwnershipIdentifierArgs()
+        {
+        }
+    }
+
+    public sealed class GetDomainOwnershipIdentifierInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of domain.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of identifier.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDomainOwnershipIdentifierInvokeArgs()
         {
         }
     }

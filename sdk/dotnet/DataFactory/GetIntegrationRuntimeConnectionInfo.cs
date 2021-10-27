@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Connection information for encrypting the on-premises data source credentials.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeConnectionInfoResult> Invoke(GetIntegrationRuntimeConnectionInfoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:datafactory:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataFactory
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationRuntimeConnectionInfoArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationRuntimeConnectionInfoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration runtime name.
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationRuntimeConnectionInfoInvokeArgs()
         {
         }
     }

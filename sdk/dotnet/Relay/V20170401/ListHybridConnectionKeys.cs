@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay.V20170401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Relay.V20170401
         /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-native:relay/v20170401:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// </summary>
+        public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay/v20170401:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Relay.V20170401
         public string ResourceGroupName { get; set; } = null!;
 
         public ListHybridConnectionKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The hybrid connection name.
+        /// </summary>
+        [Input("hybridConnectionName", required: true)]
+        public Input<string> HybridConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListHybridConnectionKeysInvokeArgs()
         {
         }
     }

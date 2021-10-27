@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     {
         public static Task<GetOnlineDeploymentLogsResult> InvokeAsync(GetOnlineDeploymentLogsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithVersion());
+
+        public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +59,49 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetOnlineDeploymentLogsArgs()
+        {
+        }
+    }
+
+    public sealed class GetOnlineDeploymentLogsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The type of container to retrieve logs from.
+        /// </summary>
+        [Input("containerType")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20210301Preview.ContainerType>? ContainerType { get; set; }
+
+        /// <summary>
+        /// The name and identifier for the endpoint.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// Inference endpoint name.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum number of lines to tail.
+        /// </summary>
+        [Input("tail")]
+        public Input<int>? Tail { get; set; }
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetOnlineDeploymentLogsInvokeArgs()
         {
         }
     }

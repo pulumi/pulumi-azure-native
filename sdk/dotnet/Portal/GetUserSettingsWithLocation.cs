@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Task<GetUserSettingsWithLocationResult> InvokeAsync(GetUserSettingsWithLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response to get user settings
+        /// API Version: 2018-10-01.
+        /// </summary>
+        public static Output<GetUserSettingsWithLocationResult> Invoke(GetUserSettingsWithLocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Portal
         public string UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsWithLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserSettingsWithLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The provider location
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the user settings
+        /// </summary>
+        [Input("userSettingsName", required: true)]
+        public Input<string> UserSettingsName { get; set; } = null!;
+
+        public GetUserSettingsWithLocationInvokeArgs()
         {
         }
     }

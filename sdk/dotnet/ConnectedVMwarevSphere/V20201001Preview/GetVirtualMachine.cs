@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the virtualMachine.
+        /// </summary>
+        public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public string VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual machine resource.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
+
+        public GetVirtualMachineInvokeArgs()
         {
         }
     }

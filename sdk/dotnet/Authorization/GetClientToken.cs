@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetClientTokenResult> InvokeAsync(GetClientTokenArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClientTokenResult>("azure-native:authorization:getClientToken", args ?? new GetClientTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this function to get an Azure authentication token for the current login context.
+        /// </summary>
+        public static Output<GetClientTokenResult> Invoke(GetClientTokenInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClientTokenResult>("azure-native:authorization:getClientToken", args ?? new GetClientTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Authorization
         public string? Endpoint { get; set; }
 
         public GetClientTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetClientTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
+
+        public GetClientTokenInvokeArgs()
         {
         }
     }

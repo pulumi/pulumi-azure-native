@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Application Insights component billing features
+        /// API Version: 2015-05-01.
+        /// </summary>
+        public static Output<GetComponentCurrentBillingFeatureResult> Invoke(GetComponentCurrentBillingFeatureInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceName { get; set; } = null!;
 
         public GetComponentCurrentBillingFeatureArgs()
+        {
+        }
+    }
+
+    public sealed class GetComponentCurrentBillingFeatureInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetComponentCurrentBillingFeatureInvokeArgs()
         {
         }
     }

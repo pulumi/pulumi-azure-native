@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The connector mapping resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
+        public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.CustomerInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectorMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectorMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connector.
+        /// </summary>
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the connector mapping.
+        /// </summary>
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectorMappingInvokeArgs()
         {
         }
     }

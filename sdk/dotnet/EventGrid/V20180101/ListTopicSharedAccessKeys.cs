@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20180101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20180101
         /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180101:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Shared access keys of the Topic
+        /// </summary>
+        public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20180101:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20180101
         public string TopicName { get; set; } = null!;
 
         public ListTopicSharedAccessKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListTopicSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the topic
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
+
+        public ListTopicSharedAccessKeysInvokeArgs()
         {
         }
     }

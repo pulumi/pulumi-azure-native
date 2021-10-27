@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         /// </summary>
         public static Task<ListMonitorUserRolesResult> InvokeAsync(ListMonitorUserRolesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorUserRolesResult>("azure-native:logz/v20201001preview:listMonitorUserRoles", args ?? new ListMonitorUserRolesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response for list of user's role for Logz.io account.
+        /// </summary>
+        public static Output<ListMonitorUserRolesResult> Invoke(ListMonitorUserRolesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorUserRolesResult>("azure-native:logz/v20201001preview:listMonitorUserRoles", args ?? new ListMonitorUserRolesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMonitorUserRolesArgs()
+        {
+        }
+    }
+
+    public sealed class ListMonitorUserRolesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Email of the user used by Logz for contacting them if needed
+        /// </summary>
+        [Input("emailAddress")]
+        public Input<string>? EmailAddress { get; set; }
+
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMonitorUserRolesInvokeArgs()
         {
         }
     }

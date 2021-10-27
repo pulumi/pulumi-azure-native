@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
         /// </summary>
         public static Task<GetInstanceDetailsResult> InvokeAsync(GetInstanceDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of a DFP instance resource.
+        /// </summary>
+        public static Output<GetInstanceDetailsResult> Invoke(GetInstanceDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInstanceDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("instanceName", required: true)]
+        public Input<string> InstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInstanceDetailsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -18,6 +19,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Task<GetTaskRunResult> InvokeAsync(GetTaskRunArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskRunResult>("azure-native:containerregistry:getTaskRun", args ?? new GetTaskRunArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The task run that has the ARM resource and properties. 
+        /// The task run will have the information of request and result of a run.
+        /// API Version: 2019-06-01-preview.
+        /// </summary>
+        public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithVersion());
     }
 
 
@@ -42,6 +51,31 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string TaskRunName { get; set; } = null!;
 
         public GetTaskRunArgs()
+        {
+        }
+    }
+
+    public sealed class GetTaskRunInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the task run.
+        /// </summary>
+        [Input("taskRunName", required: true)]
+        public Input<string> TaskRunName { get; set; } = null!;
+
+        public GetTaskRunInvokeArgs()
         {
         }
     }

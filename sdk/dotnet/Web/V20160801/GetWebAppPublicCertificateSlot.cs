@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public static Task<GetWebAppPublicCertificateSlotResult> InvokeAsync(GetWebAppPublicCertificateSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateSlotResult>("azure-native:web/v20160801:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Public certificate object
+        /// </summary>
+        public static Output<GetWebAppPublicCertificateSlotResult> Invoke(GetWebAppPublicCertificateSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateSlotResult>("azure-native:web/v20160801:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20160801
         public string Slot { get; set; } = null!;
 
         public GetWebAppPublicCertificateSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppPublicCertificateSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Public certificate name.
+        /// </summary>
+        [Input("publicCertificateName", required: true)]
+        public Input<string> PublicCertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppPublicCertificateSlotInvokeArgs()
         {
         }
     }

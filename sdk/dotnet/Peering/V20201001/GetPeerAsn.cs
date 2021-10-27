@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Peering.V20201001
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The essential information related to the peer's ASN.
+        /// </summary>
+        public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering/v20201001:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Peering.V20201001
         public string PeerAsnName { get; set; } = null!;
 
         public GetPeerAsnArgs()
+        {
+        }
+    }
+
+    public sealed class GetPeerAsnInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The peer ASN name.
+        /// </summary>
+        [Input("peerAsnName", required: true)]
+        public Input<string> PeerAsnName { get; set; } = null!;
+
+        public GetPeerAsnInvokeArgs()
         {
         }
     }

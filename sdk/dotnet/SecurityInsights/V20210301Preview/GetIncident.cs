@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights/v20210301preview:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an incident in Azure Security Insights.
+        /// </summary>
+        public static Output<GetIncidentResult> Invoke(GetIncidentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights/v20210301preview:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetIncidentArgs()
+        {
+        }
+    }
+
+    public sealed class GetIncidentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Incident ID
+        /// </summary>
+        [Input("incidentId", required: true)]
+        public Input<string> IncidentId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIncidentInvokeArgs()
         {
         }
     }

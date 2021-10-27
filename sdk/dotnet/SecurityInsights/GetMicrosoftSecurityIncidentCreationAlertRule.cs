@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents MicrosoftSecurityIncidentCreation rule.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetMicrosoftSecurityIncidentCreationAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:connectedvmwarevsphere/v20201001preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetClusterInvokeArgs()
         {
         }
     }

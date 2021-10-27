@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:insights:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The alert rule resource.
+        /// API Version: 2016-03-01.
+        /// </summary>
+        public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure-native:insights:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Insights
         public string RuleName { get; set; } = null!;
 
         public GetAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetAlertRuleInvokeArgs()
         {
         }
     }

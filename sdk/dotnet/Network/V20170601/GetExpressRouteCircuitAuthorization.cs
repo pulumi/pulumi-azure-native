@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20170601
         /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170601:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Authorization in an ExpressRouteCircuit resource.
+        /// </summary>
+        public static Output<GetExpressRouteCircuitAuthorizationResult> Invoke(GetExpressRouteCircuitAuthorizationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20170601:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20170601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteCircuitAuthorizationArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteCircuitAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the authorization.
+        /// </summary>
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the express route circuit.
+        /// </summary>
+        [Input("circuitName", required: true)]
+        public Input<string> CircuitName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteCircuitAuthorizationInvokeArgs()
         {
         }
     }

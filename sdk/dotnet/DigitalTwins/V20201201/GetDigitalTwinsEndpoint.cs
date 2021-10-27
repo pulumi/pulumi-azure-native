@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201201:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// DigitalTwinsInstance endpoint resource.
+        /// </summary>
+        public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201201:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
         public string ResourceName { get; set; } = null!;
 
         public GetDigitalTwinsEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetDigitalTwinsEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of Endpoint Resource.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the DigitalTwinsInstance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DigitalTwinsInstance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetDigitalTwinsEndpointInvokeArgs()
         {
         }
     }

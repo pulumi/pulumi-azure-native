@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response of a list operation.
+        /// API Version: 2018-09-15.
+        /// </summary>
+        public static Output<ListScheduleApplicableResult> Invoke(ListScheduleApplicableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DevTestLab
         public string ResourceGroupName { get; set; } = null!;
 
         public ListScheduleApplicableArgs()
+        {
+        }
+    }
+
+    public sealed class ListScheduleApplicableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListScheduleApplicableInvokeArgs()
         {
         }
     }

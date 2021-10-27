@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20201101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         public static Task<GetVirtualRouterPeeringResult> InvokeAsync(GetVirtualRouterPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-native:network/v20201101:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Router Peering resource.
+        /// </summary>
+        public static Output<GetVirtualRouterPeeringResult> Invoke(GetVirtualRouterPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterPeeringResult>("azure-native:network/v20201101:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20201101
         public string VirtualRouterName { get; set; } = null!;
 
         public GetVirtualRouterPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualRouterPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Virtual Router Peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Virtual Router.
+        /// </summary>
+        [Input("virtualRouterName", required: true)]
+        public Input<string> VirtualRouterName { get; set; } = null!;
+
+        public GetVirtualRouterPeeringInvokeArgs()
         {
         }
     }

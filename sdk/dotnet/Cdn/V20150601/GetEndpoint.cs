@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20150601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20150601
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:cdn/v20150601:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format &lt;endpointname&gt;.azureedge.net by default, but custom domains can also be created.
+        /// </summary>
+        public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:cdn/v20150601:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cdn.V20150601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the endpoint within the CDN profile.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEndpointInvokeArgs()
         {
         }
     }

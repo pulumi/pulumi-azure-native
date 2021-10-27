@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20180416
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20180416
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights/v20180416:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Log Search Rule resource.
+        /// </summary>
+        public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights/v20180416:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20180416
         public string RuleName { get; set; } = null!;
 
         public GetScheduledQueryRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduledQueryRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetScheduledQueryRuleInvokeArgs()
         {
         }
     }

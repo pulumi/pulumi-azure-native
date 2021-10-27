@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20210801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datashare/v20210801:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An account data transfer object.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datashare/v20210801:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccountInvokeArgs()
         {
         }
     }

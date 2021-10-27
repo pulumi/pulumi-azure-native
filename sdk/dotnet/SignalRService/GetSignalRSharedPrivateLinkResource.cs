@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SignalRService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public static Task<GetSignalRSharedPrivateLinkResourceResult> InvokeAsync(GetSignalRSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Shared Private Link Resource
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetSignalRSharedPrivateLinkResourceResult> Invoke(GetSignalRSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.SignalRService
         public string SharedPrivateLinkResourceName { get; set; } = null!;
 
         public GetSignalRSharedPrivateLinkResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetSignalRSharedPrivateLinkResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shared private link resource
+        /// </summary>
+        [Input("sharedPrivateLinkResourceName", required: true)]
+        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
+
+        public GetSignalRSharedPrivateLinkResourceInvokeArgs()
         {
         }
     }

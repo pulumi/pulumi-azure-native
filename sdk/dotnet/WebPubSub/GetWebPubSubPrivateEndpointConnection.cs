@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public static Task<GetWebPubSubPrivateEndpointConnectionResult> InvokeAsync(GetWebPubSubPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A private endpoint connection to an azure resource
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetWebPubSubPrivateEndpointConnectionResult> Invoke(GetWebPubSubPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.WebPubSub
         public string ResourceName { get; set; } = null!;
 
         public GetWebPubSubPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebPubSubPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetWebPubSubPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

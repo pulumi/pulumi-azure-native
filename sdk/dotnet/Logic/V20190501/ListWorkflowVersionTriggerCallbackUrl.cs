@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Task<ListWorkflowVersionTriggerCallbackUrlResult> InvokeAsync(ListWorkflowVersionTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic/v20190501:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// </summary>
+        public static Output<ListWorkflowVersionTriggerCallbackUrlResult> Invoke(ListWorkflowVersionTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic/v20190501:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public string WorkflowName { get; set; } = null!;
 
         public ListWorkflowVersionTriggerCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkflowVersionTriggerCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The key type.
+        /// </summary>
+        [Input("keyType")]
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.KeyType>? KeyType { get; set; }
+
+        /// <summary>
+        /// The expiry time.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow versionId.
+        /// </summary>
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public ListWorkflowVersionTriggerCallbackUrlInvokeArgs()
         {
         }
     }

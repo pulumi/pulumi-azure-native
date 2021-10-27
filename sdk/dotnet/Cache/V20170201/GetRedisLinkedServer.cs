@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20170201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cache.V20170201
         /// </summary>
         public static Task<GetRedisLinkedServerResult> InvokeAsync(GetRedisLinkedServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response to put/get linked server (with properties) for Redis cache.
+        /// </summary>
+        public static Output<GetRedisLinkedServerResult> Invoke(GetRedisLinkedServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cache.V20170201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRedisLinkedServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetRedisLinkedServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the linked server.
+        /// </summary>
+        [Input("linkedServerName", required: true)]
+        public Input<string> LinkedServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the redis cache.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRedisLinkedServerInvokeArgs()
         {
         }
     }

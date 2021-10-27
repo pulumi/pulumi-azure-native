@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:healthcareapis/v20210601preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workspace resource.
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:healthcareapis/v20210601preview:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of workspace resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWorkspaceInvokeArgs()
         {
         }
     }

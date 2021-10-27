@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis/v20210601preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis/v20210601preview:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public string ResourceName { get; set; } = null!;
 
         public GetServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetServiceInvokeArgs()
         {
         }
     }

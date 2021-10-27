@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<GetAgreementResult> InvokeAsync(GetAgreementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account agreement.
+        /// </summary>
+        public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAgreementArgs()
+        {
+        }
+    }
+
+    public sealed class GetAgreementInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account agreement name.
+        /// </summary>
+        [Input("agreementName", required: true)]
+        public Input<string> AgreementName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAgreementInvokeArgs()
         {
         }
     }

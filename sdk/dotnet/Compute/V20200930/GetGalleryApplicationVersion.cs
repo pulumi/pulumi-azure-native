@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20200930
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20200930
         /// </summary>
         public static Task<GetGalleryApplicationVersionResult> InvokeAsync(GetGalleryApplicationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the gallery Application Version that you want to create or update.
+        /// </summary>
+        public static Output<GetGalleryApplicationVersionResult> Invoke(GetGalleryApplicationVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGalleryApplicationVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryApplicationVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the gallery Application Definition in which the Application Version resides.
+        /// </summary>
+        [Input("galleryApplicationName", required: true)]
+        public Input<string> GalleryApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the gallery Application Version to be retrieved.
+        /// </summary>
+        [Input("galleryApplicationVersionName", required: true)]
+        public Input<string> GalleryApplicationVersionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Application Gallery in which the Application Definition resides.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGalleryApplicationVersionInvokeArgs()
         {
         }
     }

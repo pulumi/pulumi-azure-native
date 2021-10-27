@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The shared dashboard resource definition.
+        /// API Version: 2020-09-01-preview.
+        /// </summary>
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Portal
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDashboardArgs()
+        {
+        }
+    }
+
+    public sealed class GetDashboardInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
+        [Input("dashboardName", required: true)]
+        public Input<string> DashboardName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDashboardInvokeArgs()
         {
         }
     }

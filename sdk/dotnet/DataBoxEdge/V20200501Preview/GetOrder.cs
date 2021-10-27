@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge/v20200501preview:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The order details.
+        /// </summary>
+        public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge/v20200501preview:getOrder", args ?? new GetOrderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOrderArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOrderInvokeArgs()
         {
         }
     }

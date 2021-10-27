@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         /// </summary>
         public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-native:security/v20190101preview:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the suppression rule
+        /// </summary>
+        public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security/v20190101preview:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public string AlertsSuppressionRuleName { get; set; } = null!;
 
         public GetAlertsSuppressionRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertsSuppressionRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The unique name of the suppression alert rule
+        /// </summary>
+        [Input("alertsSuppressionRuleName", required: true)]
+        public Input<string> AlertsSuppressionRuleName { get; set; } = null!;
+
+        public GetAlertsSuppressionRuleInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         /// </summary>
         public static Task<GetKustoClusterDataSetResult> InvokeAsync(GetKustoClusterDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetResult>("azure-native:datashare/v20200901:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A kusto cluster data set.
+        /// </summary>
+        public static Output<GetKustoClusterDataSetResult> Invoke(GetKustoClusterDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKustoClusterDataSetResult>("azure-native:datashare/v20200901:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20200901
         public string ShareName { get; set; } = null!;
 
         public GetKustoClusterDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetKustoClusterDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetKustoClusterDataSetInvokeArgs()
         {
         }
     }

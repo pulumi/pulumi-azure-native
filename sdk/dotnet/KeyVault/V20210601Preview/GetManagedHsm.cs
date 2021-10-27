@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault/v20210601preview:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource information with extended details.
+        /// </summary>
+        public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20210601preview:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedHsmArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedHsmInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the managed HSM Pool.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group that contains the managed HSM pool.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedHsmInvokeArgs()
         {
         }
     }

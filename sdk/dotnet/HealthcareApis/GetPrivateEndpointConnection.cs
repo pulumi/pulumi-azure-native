@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// API Version: 2020-03-30.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.HealthcareApis
         public string ResourceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

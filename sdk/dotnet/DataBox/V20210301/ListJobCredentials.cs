@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBox.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBox.V20210301
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox/v20210301:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of unencrypted credentials for accessing device.
+        /// </summary>
+        public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox/v20210301:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DataBox.V20210301
         public string ResourceGroupName { get; set; } = null!;
 
         public ListJobCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListJobCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListJobCredentialsInvokeArgs()
         {
         }
     }

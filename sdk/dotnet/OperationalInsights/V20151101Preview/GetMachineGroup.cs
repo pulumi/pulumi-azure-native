@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public static Task<GetMachineGroupResult> InvokeAsync(GetMachineGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A user-defined logical grouping of machines.
+        /// </summary>
+        public static Output<GetMachineGroupResult> Invoke(GetMachineGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetMachineGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
+        /// </summary>
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
+
+        /// <summary>
+        /// Machine Group resource name.
+        /// </summary>
+        [Input("machineGroupName", required: true)]
+        public Input<string> MachineGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name within the specified subscriptionId.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// OMS workspace containing the resources of interest.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMachineGroupInvokeArgs()
         {
         }
     }

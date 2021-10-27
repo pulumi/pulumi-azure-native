@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Marketplace.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         /// </summary>
         public static Task<GetPrivateStoreCollectionResult> InvokeAsync(GetPrivateStoreCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20210601:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Collection data structure.
+        /// </summary>
+        public static Output<GetPrivateStoreCollectionResult> Invoke(GetPrivateStoreCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionResult>("azure-native:marketplace/v20210601:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         public string PrivateStoreId { get; set; } = null!;
 
         public GetPrivateStoreCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateStoreCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The collection ID
+        /// </summary>
+        [Input("collectionId", required: true)]
+        public Input<string> CollectionId { get; set; } = null!;
+
+        /// <summary>
+        /// The store ID - must use the tenant ID
+        /// </summary>
+        [Input("privateStoreId", required: true)]
+        public Input<string> PrivateStoreId { get; set; } = null!;
+
+        public GetPrivateStoreCollectionInvokeArgs()
         {
         }
     }

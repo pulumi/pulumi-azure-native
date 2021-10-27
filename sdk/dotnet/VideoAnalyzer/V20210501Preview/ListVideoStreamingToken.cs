@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// </summary>
         public static Task<ListVideoStreamingTokenResult> InvokeAsync(ListVideoStreamingTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+        /// </summary>
+        public static Output<ListVideoStreamingTokenResult> Invoke(ListVideoStreamingTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public string VideoName { get; set; } = null!;
 
         public ListVideoStreamingTokenArgs()
+        {
+        }
+    }
+
+    public sealed class ListVideoStreamingTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the video to generate a token for playback.
+        /// </summary>
+        [Input("videoName", required: true)]
+        public Input<string> VideoName { get; set; } = null!;
+
+        public ListVideoStreamingTokenInvokeArgs()
         {
         }
     }

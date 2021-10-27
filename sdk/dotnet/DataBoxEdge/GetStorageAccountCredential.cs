@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The storage account credential.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountCredentialResult>("azure-native:databoxedge:getStorageAccountCredential", args ?? new GetStorageAccountCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStorageAccountCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageAccountCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account credential name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStorageAccountCredentialInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         /// </summary>
         public static Task<GetStandardResult> InvokeAsync(GetStandardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure-native:security/v20210801preview:getStandard", args ?? new GetStandardArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security Standard on a resource
+        /// </summary>
+        public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure-native:security/v20210801preview:getStandard", args ?? new GetStandardInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public string StandardId { get; set; } = null!;
 
         public GetStandardArgs()
+        {
+        }
+    }
+
+    public sealed class GetStandardInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Security Standard key - unique key for the standard type
+        /// </summary>
+        [Input("standardId", required: true)]
+        public Input<string> StandardId { get; set; } = null!;
+
+        public GetStandardInvokeArgs()
         {
         }
     }

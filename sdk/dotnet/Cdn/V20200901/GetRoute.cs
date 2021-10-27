@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:cdn/v20200901:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Friendly Routes name mapping to the any Routes or secret related information.
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn/v20200901:getRoute", args ?? new GetRouteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string RouteName { get; set; } = null!;
 
         public GetRouteArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the endpoint under the profile which is unique globally.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the routing rule.
+        /// </summary>
+        [Input("routeName", required: true)]
+        public Input<string> RouteName { get; set; } = null!;
+
+        public GetRouteInvokeArgs()
         {
         }
     }

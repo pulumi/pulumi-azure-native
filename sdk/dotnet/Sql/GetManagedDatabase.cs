@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A managed database resource.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedDatabaseInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Solutions.V20190701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions/v20190701:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about managed application definition.
+        /// </summary>
+        public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions/v20190701:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the managed application definition.
+        /// </summary>
+        [Input("applicationDefinitionName", required: true)]
+        public Input<string> ApplicationDefinitionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationDefinitionInvokeArgs()
         {
         }
     }

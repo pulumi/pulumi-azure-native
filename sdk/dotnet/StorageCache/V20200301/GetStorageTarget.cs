@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageCache.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageCache.V20200301
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache/v20200301:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20200301:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorageCache.V20200301
         public string StorageTargetName { get; set; } = null!;
 
         public GetStorageTargetArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageTargetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// </summary>
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
+
+        /// <summary>
+        /// Target resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+        /// </summary>
+        [Input("storageTargetName", required: true)]
+        public Input<string> StorageTargetName { get; set; } = null!;
+
+        public GetStorageTargetInvokeArgs()
         {
         }
     }

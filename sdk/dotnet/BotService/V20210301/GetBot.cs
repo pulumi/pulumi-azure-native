@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.BotService.V20210301
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:botservice/v20210301:getBot", args ?? new GetBotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot resource definition
+        /// </summary>
+        public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:botservice/v20210301:getBot", args ?? new GetBotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.BotService.V20210301
         public string ResourceName { get; set; } = null!;
 
         public GetBotArgs()
+        {
+        }
+    }
+
+    public sealed class GetBotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetBotInvokeArgs()
         {
         }
     }

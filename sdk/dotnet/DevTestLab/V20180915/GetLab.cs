@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:devtestlab/v20180915:getLab", args ?? new GetLabArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A lab.
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:devtestlab/v20180915:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabInvokeArgs()
         {
         }
     }

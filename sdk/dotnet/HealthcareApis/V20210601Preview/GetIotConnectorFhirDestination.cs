@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// </summary>
         public static Task<GetIotConnectorFhirDestinationResult> InvokeAsync(GetIotConnectorFhirDestinationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT Connector FHIR destination definition.
+        /// </summary>
+        public static Output<GetIotConnectorFhirDestinationResult> Invoke(GetIotConnectorFhirDestinationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetIotConnectorFhirDestinationArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotConnectorFhirDestinationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of IoT Connector FHIR destination resource.
+        /// </summary>
+        [Input("fhirDestinationName", required: true)]
+        public Input<string> FhirDestinationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of IoT Connector resource.
+        /// </summary>
+        [Input("iotConnectorName", required: true)]
+        public Input<string> IotConnectorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of workspace resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIotConnectorFhirDestinationInvokeArgs()
         {
         }
     }

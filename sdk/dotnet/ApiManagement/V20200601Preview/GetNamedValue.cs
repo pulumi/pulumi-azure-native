@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20200601preview:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NamedValue details.
+        /// </summary>
+        public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement/v20200601preview:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         public string ServiceName { get; set; } = null!;
 
         public GetNamedValueArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamedValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the NamedValue.
+        /// </summary>
+        [Input("namedValueId", required: true)]
+        public Input<string> NamedValueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetNamedValueInvokeArgs()
         {
         }
     }

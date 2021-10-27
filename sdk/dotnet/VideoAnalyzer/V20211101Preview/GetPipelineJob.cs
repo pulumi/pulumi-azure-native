@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// </summary>
         public static Task<GetPipelineJobResult> InvokeAsync(GetPipelineJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineJobResult>("azure-native:videoanalyzer/v20211101preview:getPipelineJob", args ?? new GetPipelineJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
+        /// </summary>
+        public static Output<GetPipelineJobResult> Invoke(GetPipelineJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineJobResult>("azure-native:videoanalyzer/v20211101preview:getPipelineJob", args ?? new GetPipelineJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPipelineJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetPipelineJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The pipeline job name.
+        /// </summary>
+        [Input("pipelineJobName", required: true)]
+        public Input<string> PipelineJobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPipelineJobInvokeArgs()
         {
         }
     }

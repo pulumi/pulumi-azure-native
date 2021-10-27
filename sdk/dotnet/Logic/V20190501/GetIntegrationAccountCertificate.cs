@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Task<GetIntegrationAccountCertificateResult> InvokeAsync(GetIntegrationAccountCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-native:logic/v20190501:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account certificate.
+        /// </summary>
+        public static Output<GetIntegrationAccountCertificateResult> Invoke(GetIntegrationAccountCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountCertificateResult>("azure-native:logic/v20190501:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationAccountCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account certificate name.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationAccountCertificateInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMariaDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a server.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DBforMariaDB
         public string ServerName { get; set; } = null!;
 
         public GetServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerInvokeArgs()
         {
         }
     }

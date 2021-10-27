@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot channel resource definition
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.BotService
         public string ResourceName { get; set; } = null!;
 
         public ListChannelWithKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListChannelWithKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Channel resource.
+        /// </summary>
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListChannelWithKeysInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20200113Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation/v20200113preview:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the job schedule.
+        /// </summary>
+        public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation/v20200113preview:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJobScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The job schedule name.
+        /// </summary>
+        [Input("jobScheduleId", required: true)]
+        public Input<string> JobScheduleId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJobScheduleInvokeArgs()
         {
         }
     }

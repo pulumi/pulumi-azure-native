@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20190801:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The connection strings for the given database account.
+        /// </summary>
+        public static Output<ListDatabaseAccountConnectionStringsResult> Invoke(ListDatabaseAccountConnectionStringsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20190801:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDatabaseAccountConnectionStringsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDatabaseAccountConnectionStringsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDatabaseAccountConnectionStringsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190401
         /// </summary>
         public static Task<GetP2sVpnServerConfigurationResult> InvokeAsync(GetP2sVpnServerConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-native:network/v20190401:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// P2SVpnServerConfiguration Resource.
+        /// </summary>
+        public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network/v20190401:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190401
         public string VirtualWanName { get; set; } = null!;
 
         public GetP2sVpnServerConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetP2sVpnServerConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the P2SVpnServerConfiguration.
+        /// </summary>
+        [Input("p2SVpnServerConfigurationName", required: true)]
+        public Input<string> P2SVpnServerConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the P2SVpnServerConfiguration.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualWan.
+        /// </summary>
+        [Input("virtualWanName", required: true)]
+        public Input<string> VirtualWanName { get; set; } = null!;
+
+        public GetP2sVpnServerConfigurationInvokeArgs()
         {
         }
     }

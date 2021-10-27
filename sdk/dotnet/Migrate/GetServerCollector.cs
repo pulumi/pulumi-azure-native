@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetServerCollectorResult> InvokeAsync(GetServerCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCollectorResult>("azure-native:migrate:getServerCollector", args ?? new GetServerCollectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2019-10-01.
+        /// </summary>
+        public static Output<GetServerCollectorResult> Invoke(GetServerCollectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerCollectorResult>("azure-native:migrate:getServerCollector", args ?? new GetServerCollectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Migrate
         public string ServerCollectorName { get; set; } = null!;
 
         public GetServerCollectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerCollectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name of a Server collector within a project.
+        /// </summary>
+        [Input("serverCollectorName", required: true)]
+        public Input<string> ServerCollectorName { get; set; } = null!;
+
+        public GetServerCollectorInvokeArgs()
         {
         }
     }

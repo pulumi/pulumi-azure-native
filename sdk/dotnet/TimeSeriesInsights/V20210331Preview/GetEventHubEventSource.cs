@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         /// </summary>
         public static Task<GetEventHubEventSourceResult> InvokeAsync(GetEventHubEventSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An event source that receives its data from an Azure EventHub.
+        /// </summary>
+        public static Output<GetEventHubEventSourceResult> Invoke(GetEventHubEventSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubEventSourceResult>("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", args ?? new GetEventHubEventSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventHubEventSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventHubEventSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Time Series Insights event source associated with the specified environment.
+        /// </summary>
+        [Input("eventSourceName", required: true)]
+        public Input<string> EventSourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventHubEventSourceInvokeArgs()
         {
         }
     }

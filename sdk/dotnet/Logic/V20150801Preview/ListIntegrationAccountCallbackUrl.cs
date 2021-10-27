@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
     {
         public static Task<ListIntegrationAccountCallbackUrlResult> InvokeAsync(ListIntegrationAccountCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20150801preview:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithVersion());
+
+        public static Output<ListIntegrationAccountCallbackUrlResult> Invoke(ListIntegrationAccountCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20150801preview:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListIntegrationAccountCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListIntegrationAccountCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The expiry time.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListIntegrationAccountCallbackUrlInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// </summary>
         public static Task<ListIntegrationAccountSchemaContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountSchemaContentCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountSchemaContentCallbackUrlResult>("azure-native:logic/v20180701preview:listIntegrationAccountSchemaContentCallbackUrl", args ?? new ListIntegrationAccountSchemaContentCallbackUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// </summary>
+        public static Output<ListIntegrationAccountSchemaContentCallbackUrlResult> Invoke(ListIntegrationAccountSchemaContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountSchemaContentCallbackUrlResult>("azure-native:logic/v20180701preview:listIntegrationAccountSchemaContentCallbackUrl", args ?? new ListIntegrationAccountSchemaContentCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public string SchemaName { get; set; } = null!;
 
         public ListIntegrationAccountSchemaContentCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListIntegrationAccountSchemaContentCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The key type.
+        /// </summary>
+        [Input("keyType")]
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20180701Preview.KeyType>? KeyType { get; set; }
+
+        /// <summary>
+        /// The expiry time.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account schema name.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        public ListIntegrationAccountSchemaContentCallbackUrlInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Task<GetGlobalUserPersonalPreferencesResult> InvokeAsync(GetGlobalUserPersonalPreferencesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the PersonalPreferences for the user
+        /// </summary>
+        public static Output<GetGlobalUserPersonalPreferencesResult> Invoke(GetGlobalUserPersonalPreferencesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public string UserName { get; set; } = null!;
 
         public GetGlobalUserPersonalPreferencesArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalUserPersonalPreferencesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Enum indicating if user is adding or removing a favorite lab
+        /// </summary>
+        [Input("addRemove")]
+        public InputUnion<string, Pulumi.AzureNative.LabServices.V20181015.AddRemove>? AddRemove { get; set; }
+
+        /// <summary>
+        /// Resource Id of the lab account
+        /// </summary>
+        [Input("labAccountResourceId")]
+        public Input<string>? LabAccountResourceId { get; set; }
+
+        /// <summary>
+        /// Resource Id of the lab to add/remove from the favorites list
+        /// </summary>
+        [Input("labResourceId")]
+        public Input<string>? LabResourceId { get; set; }
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetGlobalUserPersonalPreferencesInvokeArgs()
         {
         }
     }

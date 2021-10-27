@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<ListWorkflowTriggerCallbackUrlResult> InvokeAsync(ListWorkflowTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowTriggerCallbackUrlResult>("azure-native:logic:listWorkflowTriggerCallbackUrl", args ?? new ListWorkflowTriggerCallbackUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<ListWorkflowTriggerCallbackUrlResult> Invoke(ListWorkflowTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowTriggerCallbackUrlResult>("azure-native:logic:listWorkflowTriggerCallbackUrl", args ?? new ListWorkflowTriggerCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logic
         public string WorkflowName { get; set; } = null!;
 
         public ListWorkflowTriggerCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkflowTriggerCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public ListWorkflowTriggerCallbackUrlInvokeArgs()
         {
         }
     }

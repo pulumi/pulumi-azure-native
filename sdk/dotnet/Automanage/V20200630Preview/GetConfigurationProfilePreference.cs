@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         /// </summary>
         public static Task<GetConfigurationProfilePreferenceResult> InvokeAsync(GetConfigurationProfilePreferenceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilePreferenceResult>("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the configuration profile preference.
+        /// </summary>
+        public static Output<GetConfigurationProfilePreferenceResult> Invoke(GetConfigurationProfilePreferenceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilePreferenceResult>("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConfigurationProfilePreferenceArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationProfilePreferenceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The configuration profile preference name.
+        /// </summary>
+        [Input("configurationProfilePreferenceName", required: true)]
+        public Input<string> ConfigurationProfilePreferenceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConfigurationProfilePreferenceInvokeArgs()
         {
         }
     }

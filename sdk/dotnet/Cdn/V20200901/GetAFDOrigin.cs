@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn/v20200901:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
+
+        /// <summary>
+        /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        /// </summary>
+        public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn/v20200901:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAFDOriginArgs()
+        {
+        }
+    }
+
+    public sealed class GetAFDOriginInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the origin group which is unique within the profile.
+        /// </summary>
+        [Input("originGroupName", required: true)]
+        public Input<string> OriginGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the origin which is unique within the profile.
+        /// </summary>
+        [Input("originName", required: true)]
+        public Input<string> OriginName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAFDOriginInvokeArgs()
         {
         }
     }

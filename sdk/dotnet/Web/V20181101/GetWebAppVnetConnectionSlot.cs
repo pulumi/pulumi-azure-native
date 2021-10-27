@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20181101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20181101:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Network information contract.
+        /// </summary>
+        public static Output<GetWebAppVnetConnectionSlotResult> Invoke(GetWebAppVnetConnectionSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20181101:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20181101
         public string VnetName { get; set; } = null!;
 
         public GetWebAppVnetConnectionSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppVnetConnectionSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual network.
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
+
+        public GetWebAppVnetConnectionSlotInvokeArgs()
         {
         }
     }

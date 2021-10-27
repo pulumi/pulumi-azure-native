@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20190501:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow type.
+        /// </summary>
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic/v20190501:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public string WorkflowName { get; set; } = null!;
 
         public GetWorkflowArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkflowInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public GetWorkflowInvokeArgs()
         {
         }
     }

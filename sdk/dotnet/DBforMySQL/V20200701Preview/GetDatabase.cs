@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformysql/v20200701preview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Database.
+        /// </summary>
+        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbformysql/v20200701preview:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         public string ServerName { get; set; } = null!;
 
         public GetDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDatabaseInvokeArgs()
         {
         }
     }

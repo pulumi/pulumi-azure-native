@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automanage
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automanage
         /// </summary>
         public static Task<GetConfigurationProfilePreferenceResult> InvokeAsync(GetConfigurationProfilePreferenceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the configuration profile preference.
+        /// API Version: 2020-06-30-preview.
+        /// </summary>
+        public static Output<GetConfigurationProfilePreferenceResult> Invoke(GetConfigurationProfilePreferenceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilePreferenceResult>("azure-native:automanage:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Automanage
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConfigurationProfilePreferenceArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationProfilePreferenceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The configuration profile preference name.
+        /// </summary>
+        [Input("configurationProfilePreferenceName", required: true)]
+        public Input<string> ConfigurationProfilePreferenceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConfigurationProfilePreferenceInvokeArgs()
         {
         }
     }

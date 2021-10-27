@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20180531
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         /// </summary>
         public static Task<GetReportConfigByResourceGroupNameResult> InvokeAsync(GetReportConfigByResourceGroupNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigByResourceGroupNameResult>("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A report config resource.
+        /// </summary>
+        public static Output<GetReportConfigByResourceGroupNameResult> Invoke(GetReportConfigByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReportConfigByResourceGroupNameResult>("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         public string ResourceGroupName { get; set; } = null!;
 
         public GetReportConfigByResourceGroupNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetReportConfigByResourceGroupNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Report Config Name.
+        /// </summary>
+        [Input("reportConfigName", required: true)]
+        public Input<string> ReportConfigName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetReportConfigByResourceGroupNameInvokeArgs()
         {
         }
     }

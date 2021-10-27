@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a lab.
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.LabServices
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabInvokeArgs()
         {
         }
     }

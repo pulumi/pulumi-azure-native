@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric/v20210501:getNodeType", args ?? new GetNodeTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+        /// </summary>
+        public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric/v20210501:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNodeTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetNodeTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the node type.
+        /// </summary>
+        [Input("nodeTypeName", required: true)]
+        public Input<string> NodeTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNodeTypeInvokeArgs()
         {
         }
     }

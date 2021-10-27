@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetBlobDataSetMappingResult> InvokeAsync(GetBlobDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Blob data set mapping.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetBlobDataSetMappingResult> Invoke(GetBlobDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataShare
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetBlobDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetBlobDataSetMappingInvokeArgs()
         {
         }
     }

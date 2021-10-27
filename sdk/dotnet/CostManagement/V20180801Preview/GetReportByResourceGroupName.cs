@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         /// </summary>
         public static Task<GetReportByResourceGroupNameResult> InvokeAsync(GetReportByResourceGroupNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportByResourceGroupNameResult>("azure-native:costmanagement/v20180801preview:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A report resource.
+        /// </summary>
+        public static Output<GetReportByResourceGroupNameResult> Invoke(GetReportByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReportByResourceGroupNameResult>("azure-native:costmanagement/v20180801preview:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetReportByResourceGroupNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetReportByResourceGroupNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Report Name.
+        /// </summary>
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetReportByResourceGroupNameInvokeArgs()
         {
         }
     }

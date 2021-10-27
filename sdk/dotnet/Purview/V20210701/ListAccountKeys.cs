@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Purview.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Purview.V20210701
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:purview/v20210701:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Account access keys.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:purview/v20210701:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Purview.V20210701
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAccountKeysInvokeArgs()
         {
         }
     }

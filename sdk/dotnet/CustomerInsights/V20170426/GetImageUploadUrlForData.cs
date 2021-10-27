@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Task<GetImageUploadUrlForDataResult> InvokeAsync(GetImageUploadUrlForDataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForDataResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The image definition.
+        /// </summary>
+        public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForDataResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public string ResourceGroupName { get; set; } = null!;
 
         public GetImageUploadUrlForDataArgs()
+        {
+        }
+    }
+
+    public sealed class GetImageUploadUrlForDataInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Type of entity. Can be Profile or Interaction.
+        /// </summary>
+        [Input("entityType")]
+        public Input<string>? EntityType { get; set; }
+
+        /// <summary>
+        /// Name of the entity type.
+        /// </summary>
+        [Input("entityTypeName")]
+        public Input<string>? EntityTypeName { get; set; }
+
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// Relative path of the image.
+        /// </summary>
+        [Input("relativePath")]
+        public Input<string>? RelativePath { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetImageUploadUrlForDataInvokeArgs()
         {
         }
     }

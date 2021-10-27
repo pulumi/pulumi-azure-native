@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights/v20191017preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Monitor PrivateLinkScope definition.
+        /// </summary>
+        public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights/v20191017preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
         public string ScopeName { get; set; } = null!;
 
         public GetPrivateLinkScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateLinkScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Monitor PrivateLinkScope resource.
+        /// </summary>
+        [Input("scopeName", required: true)]
+        public Input<string> ScopeName { get; set; } = null!;
+
+        public GetPrivateLinkScopeInvokeArgs()
         {
         }
     }

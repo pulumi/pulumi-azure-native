@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform/v20200701:getApp", args ?? new GetAppArgs(), options.WithVersion());
+
+        /// <summary>
+        /// App resource payload
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:appplatform/v20200701:getApp", args ?? new GetAppInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
         public string? SyncStatus { get; set; }
 
         public GetAppArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App resource.
+        /// </summary>
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether sync status
+        /// </summary>
+        [Input("syncStatus")]
+        public Input<string>? SyncStatus { get; set; }
+
+        public GetAppInvokeArgs()
         {
         }
     }

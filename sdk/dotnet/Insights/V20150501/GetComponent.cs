@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights/v20150501:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Application Insights component definition.
+        /// </summary>
+        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20150501:getComponent", args ?? new GetComponentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public string ResourceName { get; set; } = null!;
 
         public GetComponentArgs()
+        {
+        }
+    }
+
+    public sealed class GetComponentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetComponentInvokeArgs()
         {
         }
     }

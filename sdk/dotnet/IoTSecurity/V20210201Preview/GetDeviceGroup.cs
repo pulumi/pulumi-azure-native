@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// </summary>
         public static Task<GetDeviceGroupResult> InvokeAsync(GetDeviceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Device group
+        /// </summary>
+        public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public string IotDefenderLocation { get; set; } = null!;
 
         public GetDeviceGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeviceGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Device group name
+        /// </summary>
+        [Input("deviceGroupName", required: true)]
+        public Input<string> DeviceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Defender for IoT location
+        /// </summary>
+        [Input("iotDefenderLocation", required: true)]
+        public Input<string> IotDefenderLocation { get; set; } = null!;
+
+        public GetDeviceGroupInvokeArgs()
         {
         }
     }

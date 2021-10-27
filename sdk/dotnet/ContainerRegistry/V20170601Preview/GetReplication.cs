@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
         /// </summary>
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a replication for a container registry.
+        /// </summary>
+        public static Output<GetReplicationResult> Invoke(GetReplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetReplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the replication.
+        /// </summary>
+        [Input("replicationName", required: true)]
+        public Input<string> ReplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetReplicationInvokeArgs()
         {
         }
     }

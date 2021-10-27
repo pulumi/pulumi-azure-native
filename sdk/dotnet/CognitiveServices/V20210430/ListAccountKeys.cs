@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20210430
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:cognitiveservices/v20210430:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The access keys for the cognitive services account.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:cognitiveservices/v20210430:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CognitiveServices.V20210430
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of Cognitive Services account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAccountKeysInvokeArgs()
         {
         }
     }

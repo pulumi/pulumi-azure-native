@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210615
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615
         /// </summary>
         public static Task<ListNotebookWorkspaceConnectionInfoResult> InvokeAsync(ListNotebookWorkspaceConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210615:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The connection info for the given notebook workspace
+        /// </summary>
+        public static Output<ListNotebookWorkspaceConnectionInfoResult> Invoke(ListNotebookWorkspaceConnectionInfoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210615:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615
         public string ResourceGroupName { get; set; } = null!;
 
         public ListNotebookWorkspaceConnectionInfoArgs()
+        {
+        }
+    }
+
+    public sealed class ListNotebookWorkspaceConnectionInfoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the notebook workspace resource.
+        /// </summary>
+        [Input("notebookWorkspaceName", required: true)]
+        public Input<string> NotebookWorkspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListNotebookWorkspaceConnectionInfoInvokeArgs()
         {
         }
     }

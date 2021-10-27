@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         public string TransformName { get; set; } = null!;
 
         public GetJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Job name.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Transform name.
+        /// </summary>
+        [Input("transformName", required: true)]
+        public Input<string> TransformName { get; set; } = null!;
+
+        public GetJobInvokeArgs()
         {
         }
     }

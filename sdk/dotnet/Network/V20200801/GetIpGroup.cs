@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200801
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-native:network/v20200801:getIpGroup", args ?? new GetIpGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The IpGroups resource information.
+        /// </summary>
+        public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network/v20200801:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIpGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetIpGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the ipGroups.
+        /// </summary>
+        [Input("ipGroupsName", required: true)]
+        public Input<string> IpGroupsName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIpGroupInvokeArgs()
         {
         }
     }

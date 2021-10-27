@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetLoadBalancerBackendAddressPoolResult> InvokeAsync(GetLoadBalancerBackendAddressPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Pool of backend IP addresses.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetLoadBalancerBackendAddressPoolResult> Invoke(GetLoadBalancerBackendAddressPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLoadBalancerBackendAddressPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetLoadBalancerBackendAddressPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the backend address pool.
+        /// </summary>
+        [Input("backendAddressPoolName", required: true)]
+        public Input<string> BackendAddressPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the load balancer.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLoadBalancerBackendAddressPoolInvokeArgs()
         {
         }
     }

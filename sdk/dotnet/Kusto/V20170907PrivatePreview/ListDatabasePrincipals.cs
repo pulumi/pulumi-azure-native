@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// </summary>
+        public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDatabasePrincipalsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDatabasePrincipalsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDatabasePrincipalsInvokeArgs()
         {
         }
     }

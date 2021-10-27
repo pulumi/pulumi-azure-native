@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthBot.V20201020
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         /// </summary>
         public static Task<GetgetbotResult> InvokeAsync(GetgetbotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot resource definition
+        /// </summary>
+        public static Output<GetgetbotResult> Invoke(GetgetbotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         public string ResourceName { get; set; } = null!;
 
         public GetgetbotArgs()
+        {
+        }
+    }
+
+    public sealed class GetgetbotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetgetbotInvokeArgs()
         {
         }
     }

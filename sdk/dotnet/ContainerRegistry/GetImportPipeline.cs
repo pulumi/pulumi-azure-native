@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents an import pipeline for a container registry.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string ResourceGroupName { get; set; } = null!;
 
         public GetImportPipelineArgs()
+        {
+        }
+    }
+
+    public sealed class GetImportPipelineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the import pipeline.
+        /// </summary>
+        [Input("importPipelineName", required: true)]
+        public Input<string> ImportPipelineName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetImportPipelineInvokeArgs()
         {
         }
     }

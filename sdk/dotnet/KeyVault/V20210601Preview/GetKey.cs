@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault/v20210601preview:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The key resource.
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault/v20210601preview:getKey", args ?? new GetKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public string VaultName { get; set; } = null!;
 
         public GetKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the key to be retrieved.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group which contains the specified key vault.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vault which contains the key to be retrieved.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetKeyInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         /// </summary>
         public static Task<GetApiPolicyResult> InvokeAsync(GetApiPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiPolicyResult>("azure-native:apimanagement/v20191201preview:getApiPolicy", args ?? new GetApiPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Policy Contract details.
+        /// </summary>
+        public static Output<GetApiPolicyResult> Invoke(GetApiPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiPolicyResult>("azure-native:apimanagement/v20191201preview:getApiPolicy", args ?? new GetApiPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public string ServiceName { get; set; } = null!;
 
         public GetApiPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Policy Export Format.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// The identifier of the Policy.
+        /// </summary>
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiPolicyInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync/v20170605preview:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Registered Server resource.
+        /// </summary>
+        public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync/v20170605preview:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
         public string StorageSyncServiceName { get; set; } = null!;
 
         public GetRegisteredServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegisteredServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// GUID identifying the on-premises server.
+        /// </summary>
+        [Input("serverId", required: true)]
+        public Input<string> ServerId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
+
+        public GetRegisteredServerInvokeArgs()
         {
         }
     }

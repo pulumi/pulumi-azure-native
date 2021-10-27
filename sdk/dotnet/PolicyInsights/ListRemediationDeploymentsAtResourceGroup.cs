@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of deployments for a remediation.
+        /// API Version: 2019-07-01.
+        /// </summary>
+        public static Output<ListRemediationDeploymentsAtResourceGroupResult> Invoke(ListRemediationDeploymentsAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.PolicyInsights
         public int? Top { get; set; }
 
         public ListRemediationDeploymentsAtResourceGroupArgs()
+        {
+        }
+    }
+
+    public sealed class ListRemediationDeploymentsAtResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
+
+        public ListRemediationDeploymentsAtResourceGroupInvokeArgs()
         {
         }
     }

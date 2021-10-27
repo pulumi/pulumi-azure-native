@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20151001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20151001
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media/v20151001:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of a Media Service resource.
+        /// </summary>
+        public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media/v20151001:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Media.V20151001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMediaServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetMediaServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Media Service.
+        /// </summary>
+        [Input("mediaServiceName", required: true)]
+        public Input<string> MediaServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMediaServiceInvokeArgs()
         {
         }
     }

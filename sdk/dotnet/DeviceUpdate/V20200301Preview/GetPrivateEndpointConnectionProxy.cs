@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         /// </summary>
         public static Task<GetPrivateEndpointConnectionProxyResult> InvokeAsync(GetPrivateEndpointConnectionProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate/v20200301preview:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Private endpoint connection proxy details.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionProxyResult> Invoke(GetPrivateEndpointConnectionProxyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate/v20200301preview:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionProxyArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionProxyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the private endpoint connection proxy object.
+        /// </summary>
+        [Input("privateEndpointConnectionProxyId", required: true)]
+        public Input<string> PrivateEndpointConnectionProxyId { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionProxyInvokeArgs()
         {
         }
     }

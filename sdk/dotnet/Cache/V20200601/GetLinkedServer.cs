@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cache.V20200601
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache/v20200601:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response to put/get linked server (with properties) for Redis cache.
+        /// </summary>
+        public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache/v20200601:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cache.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLinkedServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkedServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the linked server.
+        /// </summary>
+        [Input("linkedServerName", required: true)]
+        public Input<string> LinkedServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the redis cache.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLinkedServerInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure ML commitment plan resource.
+        /// API Version: 2016-05-01-preview.
+        /// </summary>
+        public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.MachineLearning
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCommitmentPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetCommitmentPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure ML commitment plan name.
+        /// </summary>
+        [Input("commitmentPlanName", required: true)]
+        public Input<string> CommitmentPlanName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCommitmentPlanInvokeArgs()
         {
         }
     }

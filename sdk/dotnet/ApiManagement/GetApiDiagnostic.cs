@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetApiDiagnosticResult> InvokeAsync(GetApiDiagnosticArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azure-native:apimanagement:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Diagnostic details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetApiDiagnosticResult> Invoke(GetApiDiagnosticInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiDiagnosticResult>("azure-native:apimanagement:getApiDiagnostic", args ?? new GetApiDiagnosticInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetApiDiagnosticArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiDiagnosticInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Diagnostic identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("diagnosticId", required: true)]
+        public Input<string> DiagnosticId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiDiagnosticInvokeArgs()
         {
         }
     }

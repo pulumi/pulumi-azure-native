@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus/v20180101preview:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// </summary>
+        public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus/v20180101preview:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public string TopicName { get; set; } = null!;
 
         public ListTopicKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListTopicKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The topic name.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
+
+        public ListTopicKeysInvokeArgs()
         {
         }
     }

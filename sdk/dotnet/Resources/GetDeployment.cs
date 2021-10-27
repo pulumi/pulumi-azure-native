@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:resources:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Deployment information.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:resources:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Resources
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDeploymentArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeploymentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the deployment.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDeploymentInvokeArgs()
         {
         }
     }

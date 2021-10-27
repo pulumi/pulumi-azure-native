@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
+
+        /// <summary>
+        /// EnterpriseKnowledgeGraph resource definition
+        /// API Version: 2018-12-03.
+        /// </summary>
+        public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
         public string ResourceName { get; set; } = null!;
 
         public GetEnterpriseKnowledgeGraphArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnterpriseKnowledgeGraphInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the EnterpriseKnowledgeGraph resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetEnterpriseKnowledgeGraphInvokeArgs()
         {
         }
     }

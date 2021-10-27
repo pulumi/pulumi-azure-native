@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public static Task<GetCassandraDataCenterResult> InvokeAsync(GetCassandraDataCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraDataCenterResult>("azure-native:documentdb:getCassandraDataCenter", args ?? new GetCassandraDataCenterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A managed Cassandra data center.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetCassandraDataCenterResult> Invoke(GetCassandraDataCenterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraDataCenterResult>("azure-native:documentdb:getCassandraDataCenter", args ?? new GetCassandraDataCenterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DocumentDB
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCassandraDataCenterArgs()
+        {
+        }
+    }
+
+    public sealed class GetCassandraDataCenterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Managed Cassandra cluster name.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Data center name in a managed Cassandra cluster.
+        /// </summary>
+        [Input("dataCenterName", required: true)]
+        public Input<string> DataCenterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCassandraDataCenterInvokeArgs()
         {
         }
     }

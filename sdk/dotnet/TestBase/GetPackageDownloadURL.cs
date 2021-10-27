@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Task<GetPackageDownloadURLResult> InvokeAsync(GetPackageDownloadURLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response of getting a download URL.
+        /// API Version: 2020-12-16-preview.
+        /// </summary>
+        public static Output<GetPackageDownloadURLResult> Invoke(GetPackageDownloadURLInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.TestBase
         public string TestBaseAccountName { get; set; } = null!;
 
         public GetPackageDownloadURLArgs()
+        {
+        }
+    }
+
+    public sealed class GetPackageDownloadURLInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name of the Test Base Package.
+        /// </summary>
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        public GetPackageDownloadURLInvokeArgs()
         {
         }
     }

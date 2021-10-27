@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<GetIntegrationAccountAgreementResult> InvokeAsync(GetIntegrationAccountAgreementArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAgreementResult>("azure-native:logic:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account agreement.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<GetIntegrationAccountAgreementResult> Invoke(GetIntegrationAccountAgreementInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAgreementResult>("azure-native:logic:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logic
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationAccountAgreementArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountAgreementInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account agreement name.
+        /// </summary>
+        [Input("agreementName", required: true)]
+        public Input<string> AgreementName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationAccountAgreementInvokeArgs()
         {
         }
     }

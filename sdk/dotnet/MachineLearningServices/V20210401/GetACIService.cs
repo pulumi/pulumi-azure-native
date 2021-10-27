@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         /// </summary>
         public static Task<GetACIServiceResult> InvokeAsync(GetACIServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning service object wrapped into ARM resource envelope.
+        /// </summary>
+        public static Output<GetACIServiceResult> Invoke(GetACIServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         public string WorkspaceName { get; set; } = null!;
 
         public GetACIServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetACIServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Set to True to include Model details.
+        /// </summary>
+        [Input("expand")]
+        public Input<bool>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Machine Learning service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetACIServiceInvokeArgs()
         {
         }
     }

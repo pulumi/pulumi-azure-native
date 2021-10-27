@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190801
         /// </summary>
         public static Task<GetFirewallPolicyRuleGroupResult> InvokeAsync(GetFirewallPolicyRuleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20190801:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Rule Group resource.
+        /// </summary>
+        public static Output<GetFirewallPolicyRuleGroupResult> Invoke(GetFirewallPolicyRuleGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleGroupResult>("azure-native:network/v20190801:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190801
         public string RuleGroupName { get; set; } = null!;
 
         public GetFirewallPolicyRuleGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirewallPolicyRuleGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Firewall Policy.
+        /// </summary>
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the FirewallPolicyRuleGroup.
+        /// </summary>
+        [Input("ruleGroupName", required: true)]
+        public Input<string> RuleGroupName { get; set; } = null!;
+
+        public GetFirewallPolicyRuleGroupInvokeArgs()
         {
         }
     }

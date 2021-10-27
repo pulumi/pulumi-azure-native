@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20190301
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute/v20190301:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Disk resource.
+        /// </summary>
+        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute/v20190301:getDisk", args ?? new GetDiskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDiskArgs()
+        {
+        }
+    }
+
+    public sealed class GetDiskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// </summary>
+        [Input("diskName", required: true)]
+        public Input<string> DiskName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDiskInvokeArgs()
         {
         }
     }

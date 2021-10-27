@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A custom API
+        /// </summary>
+        public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20160601
         public string? SubscriptionId { get; set; }
 
         public GetCustomApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API name
+        /// </summary>
+        [Input("apiName", required: true)]
+        public Input<string> ApiName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetCustomApiInvokeArgs()
         {
         }
     }

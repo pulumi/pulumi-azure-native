@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account schema.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logic
         public string SchemaName { get; set; } = null!;
 
         public GetIntegrationAccountSchemaArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountSchemaInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account schema name.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        public GetIntegrationAccountSchemaInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:domainregistration/v20200901:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about a domain.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration/v20200901:getDomain", args ?? new GetDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDomainInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20200701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic/v20200701:getTagRule", args ?? new GetTagRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Capture logs and metrics of Azure resources based on ARM tags.
+        /// </summary>
+        public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic/v20200701:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         public string RuleSetName { get; set; } = null!;
 
         public GetTagRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetTagRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the Elastic resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag Rule Set resource name
+        /// </summary>
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
+
+        public GetTagRuleInvokeArgs()
         {
         }
     }

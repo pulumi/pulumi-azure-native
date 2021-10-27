@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<GetWorkloadNetworkPublicIPResult> InvokeAsync(GetWorkloadNetworkPublicIPArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX Public IP Block
+        /// API Version: 2021-06-01.
+        /// </summary>
+        public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkloadNetworkPublicIPArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkPublicIPInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        /// </summary>
+        [Input("publicIPId", required: true)]
+        public Input<string> PublicIPId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkloadNetworkPublicIPInvokeArgs()
         {
         }
     }

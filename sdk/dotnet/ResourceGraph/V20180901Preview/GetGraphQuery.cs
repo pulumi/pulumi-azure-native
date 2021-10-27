@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
         /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Graph Query entity definition.
+        /// </summary>
+        public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
         public string ResourceName { get; set; } = null!;
 
         public GetGraphQueryArgs()
+        {
+        }
+    }
+
+    public sealed class GetGraphQueryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Graph Query resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetGraphQueryInvokeArgs()
         {
         }
     }

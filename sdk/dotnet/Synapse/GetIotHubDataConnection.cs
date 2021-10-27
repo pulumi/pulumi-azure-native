@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:synapse:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an iot hub data connection.
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:synapse:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.Synapse
         public string WorkspaceName { get; set; } = null!;
 
         public GetIotHubDataConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotHubDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the data connection.
+        /// </summary>
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto pool.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIotHubDataConnectionInvokeArgs()
         {
         }
     }

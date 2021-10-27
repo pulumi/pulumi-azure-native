@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-native:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Integration runtime status response.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeStatusResult> Invoke(GetIntegrationRuntimeStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataFactory
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationRuntimeStatusArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationRuntimeStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration runtime name.
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationRuntimeStatusInvokeArgs()
         {
         }
     }

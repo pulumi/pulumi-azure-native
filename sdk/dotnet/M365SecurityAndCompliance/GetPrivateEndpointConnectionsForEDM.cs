@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForEDMResult> InvokeAsync(GetPrivateEndpointConnectionsForEDMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForEDMResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// API Version: 2021-03-25-preview.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionsForEDMResult> Invoke(GetPrivateEndpointConnectionsForEDMInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForEDMResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public string ResourceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionsForEDMArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionsForEDMInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionsForEDMInvokeArgs()
         {
         }
     }

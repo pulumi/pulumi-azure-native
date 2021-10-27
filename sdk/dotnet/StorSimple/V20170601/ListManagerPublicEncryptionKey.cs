@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Task<ListManagerPublicEncryptionKeyResult> InvokeAsync(ListManagerPublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the secrets encrypted using Symmetric Encryption Key.
+        /// </summary>
+        public static Output<ListManagerPublicEncryptionKeyResult> Invoke(ListManagerPublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public string ResourceGroupName { get; set; } = null!;
 
         public ListManagerPublicEncryptionKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListManagerPublicEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListManagerPublicEncryptionKeyInvokeArgs()
         {
         }
     }

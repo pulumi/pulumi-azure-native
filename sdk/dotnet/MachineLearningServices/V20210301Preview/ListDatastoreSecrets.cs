@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<ListDatastoreSecretsResult> InvokeAsync(ListDatastoreSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Base definition for datastore secrets.
+        /// </summary>
+        public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListDatastoreSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDatastoreSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Datastore name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListDatastoreSecretsInvokeArgs()
         {
         }
     }

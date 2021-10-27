@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NetApp account resource
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.NetApp
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccountInvokeArgs()
         {
         }
     }

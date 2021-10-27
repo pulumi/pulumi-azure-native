@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20191001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
         /// </summary>
         public static Task<GetAzureCliScriptResult> InvokeAsync(GetAzureCliScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Object model for the Azure CLI script.
+        /// </summary>
+        public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20191001preview:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
         public string ScriptName { get; set; } = null!;
 
         public GetAzureCliScriptArgs()
+        {
+        }
+    }
+
+    public sealed class GetAzureCliScriptInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment script.
+        /// </summary>
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
+
+        public GetAzureCliScriptInvokeArgs()
         {
         }
     }

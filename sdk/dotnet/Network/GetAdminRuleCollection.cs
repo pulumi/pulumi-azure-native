@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetAdminRuleCollectionResult> InvokeAsync(GetAdminRuleCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the rule collection.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetAdminRuleCollectionResult> Invoke(GetAdminRuleCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Network
         public string RuleCollectionName { get; set; } = null!;
 
         public GetAdminRuleCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetAdminRuleCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager security Configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
+
+        public GetAdminRuleCollectionInvokeArgs()
         {
         }
     }

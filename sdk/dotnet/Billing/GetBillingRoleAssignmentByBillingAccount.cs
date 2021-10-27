@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Billing
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Billing
         /// </summary>
         public static Task<GetBillingRoleAssignmentByBillingAccountResult> InvokeAsync(GetBillingRoleAssignmentByBillingAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The role assignment
+        /// API Version: 2019-10-01-preview.
+        /// </summary>
+        public static Output<GetBillingRoleAssignmentByBillingAccountResult> Invoke(GetBillingRoleAssignmentByBillingAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Billing
         public string BillingRoleAssignmentName { get; set; } = null!;
 
         public GetBillingRoleAssignmentByBillingAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetBillingRoleAssignmentByBillingAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID that uniquely identifies a billing account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID that uniquely identifies a role assignment.
+        /// </summary>
+        [Input("billingRoleAssignmentName", required: true)]
+        public Input<string> BillingRoleAssignmentName { get; set; } = null!;
+
+        public GetBillingRoleAssignmentByBillingAccountInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ArcSetting details.
+        /// </summary>
+        public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetArcSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetArcSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the proxy resource holding details of HCI ArcSetting information.
+        /// </summary>
+        [Input("arcSettingName", required: true)]
+        public Input<string> ArcSettingName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetArcSettingInvokeArgs()
         {
         }
     }

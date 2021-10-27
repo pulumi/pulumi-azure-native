@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<GetKustoPoolAttachedDatabaseConfigurationResult> InvokeAsync(GetKustoPoolAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an attached database configuration.
+        /// </summary>
+        public static Output<GetKustoPoolAttachedDatabaseConfigurationResult> Invoke(GetKustoPoolAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetKustoPoolAttachedDatabaseConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetKustoPoolAttachedDatabaseConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the attached database configuration.
+        /// </summary>
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetKustoPoolAttachedDatabaseConfigurationInvokeArgs()
         {
         }
     }

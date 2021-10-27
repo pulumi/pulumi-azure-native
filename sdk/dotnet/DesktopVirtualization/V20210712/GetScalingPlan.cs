@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a scaling plan definition.
+        /// </summary>
+        public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         public string ScalingPlanName { get; set; } = null!;
 
         public GetScalingPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetScalingPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the scaling plan.
+        /// </summary>
+        [Input("scalingPlanName", required: true)]
+        public Input<string> ScalingPlanName { get; set; } = null!;
+
+        public GetScalingPlanInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:costmanagement:getView", args ?? new GetViewArgs(), options.WithVersion());
+
+        /// <summary>
+        /// States and configurations of Cost Analysis.
+        /// API Version: 2019-11-01.
+        /// </summary>
+        public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:costmanagement:getView", args ?? new GetViewInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.CostManagement
         public string ViewName { get; set; } = null!;
 
         public GetViewArgs()
+        {
+        }
+    }
+
+    public sealed class GetViewInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// View name
+        /// </summary>
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
+
+        public GetViewInvokeArgs()
         {
         }
     }

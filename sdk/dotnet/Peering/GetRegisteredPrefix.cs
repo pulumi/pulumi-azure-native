@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The customer's prefix that is registered by the peering service provider.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Peering
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegisteredPrefixArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegisteredPrefixInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the registered prefix.
+        /// </summary>
+        [Input("registeredPrefixName", required: true)]
+        public Input<string> RegisteredPrefixName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegisteredPrefixInvokeArgs()
         {
         }
     }

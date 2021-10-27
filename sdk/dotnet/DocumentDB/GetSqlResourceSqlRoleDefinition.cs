@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public static Task<GetSqlResourceSqlRoleDefinitionResult> InvokeAsync(GetSqlResourceSqlRoleDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleDefinitionResult>("azure-native:documentdb:getSqlResourceSqlRoleDefinition", args ?? new GetSqlResourceSqlRoleDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB SQL Role Definition.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetSqlResourceSqlRoleDefinitionResult> Invoke(GetSqlResourceSqlRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlRoleDefinitionResult>("azure-native:documentdb:getSqlResourceSqlRoleDefinition", args ?? new GetSqlResourceSqlRoleDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DocumentDB
         public string RoleDefinitionId { get; set; } = null!;
 
         public GetSqlResourceSqlRoleDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlResourceSqlRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The GUID for the Role Definition.
+        /// </summary>
+        [Input("roleDefinitionId", required: true)]
+        public Input<string> RoleDefinitionId { get; set; } = null!;
+
+        public GetSqlResourceSqlRoleDefinitionInvokeArgs()
         {
         }
     }

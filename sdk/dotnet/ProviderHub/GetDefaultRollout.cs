@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Default rollout definition.
+        /// API Version: 2020-11-20.
+        /// </summary>
+        public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ProviderHub
         public string RolloutName { get; set; } = null!;
 
         public GetDefaultRolloutArgs()
+        {
+        }
+    }
+
+    public sealed class GetDefaultRolloutInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource provider hosted within ProviderHub.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The rollout name.
+        /// </summary>
+        [Input("rolloutName", required: true)]
+        public Input<string> RolloutName { get; set; } = null!;
+
+        public GetDefaultRolloutInvokeArgs()
         {
         }
     }

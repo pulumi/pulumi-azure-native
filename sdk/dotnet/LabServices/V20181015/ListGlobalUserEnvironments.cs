@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Task<ListGlobalUserEnvironmentsResult> InvokeAsync(ListGlobalUserEnvironmentsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-native:labservices/v20181015:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the list of environments owned by a user
+        /// </summary>
+        public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListGlobalUserEnvironmentsResult>("azure-native:labservices/v20181015:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public string UserName { get; set; } = null!;
 
         public ListGlobalUserEnvironmentsArgs()
+        {
+        }
+    }
+
+    public sealed class ListGlobalUserEnvironmentsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource Id of the lab
+        /// </summary>
+        [Input("labId")]
+        public Input<string>? LabId { get; set; }
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public ListGlobalUserEnvironmentsInvokeArgs()
         {
         }
     }

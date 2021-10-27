@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20200701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:elastic/v20200701preview:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Monitor resource.
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:elastic/v20200701preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the Elastic resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMonitorInvokeArgs()
         {
         }
     }

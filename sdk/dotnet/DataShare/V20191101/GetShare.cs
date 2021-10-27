@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20191101:getShare", args ?? new GetShareArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A share data transfer object.
+        /// </summary>
+        public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20191101:getShare", args ?? new GetShareInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         public string ShareName { get; set; } = null!;
 
         public GetShareArgs()
+        {
+        }
+    }
+
+    public sealed class GetShareInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share to retrieve.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetShareInvokeArgs()
         {
         }
     }

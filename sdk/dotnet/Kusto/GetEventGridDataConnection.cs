@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Task<GetEventGridDataConnectionResult> InvokeAsync(GetEventGridDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an Event Grid data connection.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Kusto
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventGridDataConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventGridDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the data connection.
+        /// </summary>
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventGridDataConnectionInvokeArgs()
         {
         }
     }

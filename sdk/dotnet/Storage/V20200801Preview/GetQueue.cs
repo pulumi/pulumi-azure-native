@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20200801Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     {
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage/v20200801preview:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage/v20200801preview:getQueue", args ?? new GetQueueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetQueueArgs()
+        {
+        }
+    }
+
+    public sealed class GetQueueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
+        /// </summary>
+        [Input("queueName", required: true)]
+        public Input<string> QueueName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetQueueInvokeArgs()
         {
         }
     }

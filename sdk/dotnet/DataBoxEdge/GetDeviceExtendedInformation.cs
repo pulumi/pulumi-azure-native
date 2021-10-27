@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The extended Info of the Data Box Edge/Gateway device.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetDeviceExtendedInformationResult> Invoke(GetDeviceExtendedInformationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDeviceExtendedInformationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeviceExtendedInformationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDeviceExtendedInformationInvokeArgs()
         {
         }
     }

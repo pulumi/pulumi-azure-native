@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:apimanagement/v20170301:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Policy Contract details.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:apimanagement/v20170301:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public string ServiceName { get; set; } = null!;
 
         public GetPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier of the Policy.
+        /// </summary>
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetPolicyInvokeArgs()
         {
         }
     }

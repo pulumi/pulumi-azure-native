@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Task<GetDataFlowResult> InvokeAsync(GetDataFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data flow resource type.
+        /// </summary>
+        public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataFlowArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataFlowInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The data flow name.
+        /// </summary>
+        [Input("dataFlowName", required: true)]
+        public Input<string> DataFlowName { get; set; } = null!;
+
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataFlowInvokeArgs()
         {
         }
     }

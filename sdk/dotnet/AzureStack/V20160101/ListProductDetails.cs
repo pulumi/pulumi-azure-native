@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20160101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Extended description about the product required for installing it into Azure Stack.
+        /// </summary>
+        public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         public string ResourceGroup { get; set; } = null!;
 
         public ListProductDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class ListProductDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the product.
+        /// </summary>
+        [Input("productName", required: true)]
+        public Input<string> ProductName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Stack registration.
+        /// </summary>
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public ListProductDetailsInvokeArgs()
         {
         }
     }

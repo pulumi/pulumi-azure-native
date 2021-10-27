@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AadIam
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AadIam
         /// </summary>
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
+
+        /// <summary>
+        /// AzureADMetrics resource.
+        /// API Version: 2020-07-01-preview.
+        /// </summary>
+        public static Output<GetazureADMetricResult> Invoke(GetazureADMetricInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AadIam
         public string ResourceGroupName { get; set; } = null!;
 
         public GetazureADMetricArgs()
+        {
+        }
+    }
+
+    public sealed class GetazureADMetricInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the azureADMetrics instance.
+        /// </summary>
+        [Input("azureADMetricsName", required: true)]
+        public Input<string> AzureADMetricsName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetazureADMetricInvokeArgs()
         {
         }
     }

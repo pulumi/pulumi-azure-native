@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteConnectionStringsSlotResult> InvokeAsync(ListSiteConnectionStringsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
+        public static Output<ListSiteConnectionStringsSlotResult> Invoke(ListSiteConnectionStringsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public ListSiteConnectionStringsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteConnectionStringsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListSiteConnectionStringsSlotInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20190301
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute/v20190301:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Virtual Machine Scale Set.
+        /// </summary>
+        public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute/v20190301:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineScaleSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
+
+        public GetVirtualMachineScaleSetInvokeArgs()
         {
         }
     }

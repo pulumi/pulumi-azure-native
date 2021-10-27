@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Task<GetAnomaliesResult> InvokeAsync(GetAnomaliesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Settings with single toggle.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetAnomaliesArgs()
+        {
+        }
+    }
+
+    public sealed class GetAnomaliesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+        /// </summary>
+        [Input("settingsName", required: true)]
+        public Input<string> SettingsName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetAnomaliesInvokeArgs()
         {
         }
     }

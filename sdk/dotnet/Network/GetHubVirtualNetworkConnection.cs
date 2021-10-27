@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetHubVirtualNetworkConnectionResult> InvokeAsync(GetHubVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// HubVirtualNetworkConnection Resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetHubVirtualNetworkConnectionResult> Invoke(GetHubVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string VirtualHubName { get; set; } = null!;
 
         public GetHubVirtualNetworkConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetHubVirtualNetworkConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the vpn connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the VirtualHub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
+
+        public GetHubVirtualNetworkConnectionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedIdentity.V20181130
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20181130
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes an identity resource.
+        /// </summary>
+        public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20181130
         public string ResourceName { get; set; } = null!;
 
         public GetUserAssignedIdentityArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserAssignedIdentityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Resource Group to which the identity belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the identity resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetUserAssignedIdentityInvokeArgs()
         {
         }
     }

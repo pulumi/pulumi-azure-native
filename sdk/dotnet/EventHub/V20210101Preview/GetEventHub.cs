@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20210101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub/v20210101preview:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single item in List or Get Event Hub operation
+        /// </summary>
+        public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20210101preview:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Event Hub name
+        /// </summary>
+        [Input("eventHubName", required: true)]
+        public Input<string> EventHubName { get; set; } = null!;
+
+        /// <summary>
+        /// The Namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventHubInvokeArgs()
         {
         }
     }

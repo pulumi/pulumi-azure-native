@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:securityinsights/v20190101preview:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Alert rule.
+        /// </summary>
+        public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure-native:securityinsights/v20190101preview:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +54,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetAlertRuleInvokeArgs()
         {
         }
     }

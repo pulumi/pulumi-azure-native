@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the certificate.
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:automation/v20190601:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of certificate.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCertificateInvokeArgs()
         {
         }
     }

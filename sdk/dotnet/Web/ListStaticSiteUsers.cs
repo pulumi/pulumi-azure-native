@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of static site custom users.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListStaticSiteUsersResult> Invoke(ListStaticSiteUsersInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public ListStaticSiteUsersArgs()
+        {
+        }
+    }
+
+    public sealed class ListStaticSiteUsersInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The auth provider for the users.
+        /// </summary>
+        [Input("authprovider", required: true)]
+        public Input<string> Authprovider { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the static site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListStaticSiteUsersInvokeArgs()
         {
         }
     }

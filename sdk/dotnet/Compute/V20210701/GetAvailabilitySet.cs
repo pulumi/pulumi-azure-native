@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:compute/v20210701:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        /// </summary>
+        public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute/v20210701:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAvailabilitySetArgs()
+        {
+        }
+    }
+
+    public sealed class GetAvailabilitySetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the availability set.
+        /// </summary>
+        [Input("availabilitySetName", required: true)]
+        public Input<string> AvailabilitySetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAvailabilitySetInvokeArgs()
         {
         }
     }

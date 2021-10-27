@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-native:documentdb/v20190801:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB database account.
+        /// </summary>
+        public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb/v20190801:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountInvokeArgs()
         {
         }
     }

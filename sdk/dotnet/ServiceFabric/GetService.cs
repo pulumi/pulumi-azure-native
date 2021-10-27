@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The service resource.
+        /// API Version: 2020-03-01.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.ServiceFabric
         public string ServiceName { get; set; } = null!;
 
         public GetServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application resource.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service resource in the format of {applicationName}~{serviceName}.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetServiceInvokeArgs()
         {
         }
     }

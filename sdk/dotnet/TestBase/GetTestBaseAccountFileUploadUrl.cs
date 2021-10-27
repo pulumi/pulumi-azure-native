@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Task<GetTestBaseAccountFileUploadUrlResult> InvokeAsync(GetTestBaseAccountFileUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The URL response
+        /// API Version: 2020-12-16-preview.
+        /// </summary>
+        public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.TestBase
         public string TestBaseAccountName { get; set; } = null!;
 
         public GetTestBaseAccountFileUploadUrlArgs()
+        {
+        }
+    }
+
+    public sealed class GetTestBaseAccountFileUploadUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The custom file name of the uploaded blob.
+        /// </summary>
+        [Input("blobName")]
+        public Input<string>? BlobName { get; set; }
+
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        public GetTestBaseAccountFileUploadUrlInvokeArgs()
         {
         }
     }

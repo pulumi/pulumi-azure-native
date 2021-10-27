@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the host.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHostArgs()
+        {
+        }
+    }
+
+    public sealed class GetHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the host.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHostInvokeArgs()
         {
         }
     }

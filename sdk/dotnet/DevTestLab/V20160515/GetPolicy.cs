@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Policy.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:devtestlab/v20160515:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=description)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the policy.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the policy set.
+        /// </summary>
+        [Input("policySetName", required: true)]
+        public Input<string> PolicySetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPolicyInvokeArgs()
         {
         }
     }

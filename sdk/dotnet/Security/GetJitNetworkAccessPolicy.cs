@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-native:security:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetJitNetworkAccessPolicyResult> Invoke(GetJitNetworkAccessPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJitNetworkAccessPolicyResult>("azure-native:security:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Security
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJitNetworkAccessPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetJitNetworkAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        /// </summary>
+        [Input("ascLocation", required: true)]
+        public Input<string> AscLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Name of a Just-in-Time access configuration policy.
+        /// </summary>
+        [Input("jitNetworkAccessPolicyName", required: true)]
+        public Input<string> JitNetworkAccessPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJitNetworkAccessPolicyInvokeArgs()
         {
         }
     }

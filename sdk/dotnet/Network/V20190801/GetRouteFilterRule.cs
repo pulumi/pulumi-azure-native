@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190801
         /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-native:network/v20190801:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Route Filter Rule Resource.
+        /// </summary>
+        public static Output<GetRouteFilterRuleResult> Invoke(GetRouteFilterRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteFilterRuleResult>("azure-native:network/v20190801:getRouteFilterRule", args ?? new GetRouteFilterRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190801
         public string RuleName { get; set; } = null!;
 
         public GetRouteFilterRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteFilterRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route filter.
+        /// </summary>
+        [Input("routeFilterName", required: true)]
+        public Input<string> RouteFilterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetRouteFilterRuleInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workspace connection.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetWorkspaceConnectionResult> Invoke(GetWorkspaceConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Friendly name of the workspace connection
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWorkspaceConnectionInvokeArgs()
         {
         }
     }

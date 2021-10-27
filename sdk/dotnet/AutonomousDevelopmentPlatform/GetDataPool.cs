@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ADP Data Pool
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetDataPoolResult> Invoke(GetDataPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ADP account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Data Pool
+        /// </summary>
+        [Input("dataPoolName", required: true)]
+        public Input<string> DataPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataPoolInvokeArgs()
         {
         }
     }

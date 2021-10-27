@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-native:datashare:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List response for get ShareSynchronization.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<ListShareSynchronizationsResult> Invoke(ListShareSynchronizationsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListShareSynchronizationsResult>("azure-native:datashare:listShareSynchronizations", args ?? new ListShareSynchronizationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +67,49 @@ namespace Pulumi.AzureNative.DataShare
         public string? SkipToken { get; set; }
 
         public ListShareSynchronizationsArgs()
+        {
+        }
+    }
+
+    public sealed class ListShareSynchronizationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Filters the results using OData syntax.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// Sorts the results using OData syntax.
+        /// </summary>
+        [Input("orderby")]
+        public Input<string>? Orderby { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// Continuation token
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListShareSynchronizationsInvokeArgs()
         {
         }
     }

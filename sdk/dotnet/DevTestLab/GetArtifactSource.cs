@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:devtestlab:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties of an artifact source.
+        /// API Version: 2018-09-15.
+        /// </summary>
+        public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:devtestlab:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DevTestLab
         public string ResourceGroupName { get; set; } = null!;
 
         public GetArtifactSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetArtifactSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=displayName)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the artifact source.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetArtifactSourceInvokeArgs()
         {
         }
     }

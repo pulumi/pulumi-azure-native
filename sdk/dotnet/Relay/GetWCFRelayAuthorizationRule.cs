@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public static Task<GetWCFRelayAuthorizationRuleResult> InvokeAsync(GetWCFRelayAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayAuthorizationRuleResult>("azure-native:relay:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetWCFRelayAuthorizationRuleResult> Invoke(GetWCFRelayAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWCFRelayAuthorizationRuleResult>("azure-native:relay:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Relay
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWCFRelayAuthorizationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetWCFRelayAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWCFRelayAuthorizationRuleInvokeArgs()
         {
         }
     }

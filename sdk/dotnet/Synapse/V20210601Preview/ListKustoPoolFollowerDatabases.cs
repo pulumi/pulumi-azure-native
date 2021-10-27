@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<ListKustoPoolFollowerDatabasesResult> InvokeAsync(ListKustoPoolFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// </summary>
+        public static Output<ListKustoPoolFollowerDatabasesResult> Invoke(ListKustoPoolFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListKustoPoolFollowerDatabasesArgs()
+        {
+        }
+    }
+
+    public sealed class ListKustoPoolFollowerDatabasesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListKustoPoolFollowerDatabasesInvokeArgs()
         {
         }
     }

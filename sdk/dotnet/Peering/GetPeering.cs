@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetPeeringResult> Invoke(GetPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Peering
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPeeringInvokeArgs()
         {
         }
     }

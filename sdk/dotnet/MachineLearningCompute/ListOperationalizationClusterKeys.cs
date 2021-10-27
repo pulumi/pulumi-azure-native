@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningCompute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Credentials to resources in the cluster.
+        /// API Version: 2017-08-01-preview.
+        /// </summary>
+        public static Output<ListOperationalizationClusterKeysResult> Invoke(ListOperationalizationClusterKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         public string ResourceGroupName { get; set; } = null!;
 
         public ListOperationalizationClusterKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListOperationalizationClusterKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which the cluster is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListOperationalizationClusterKeysInvokeArgs()
         {
         }
     }

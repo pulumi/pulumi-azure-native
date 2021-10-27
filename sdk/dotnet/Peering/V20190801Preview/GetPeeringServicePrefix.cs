@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20190801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview
         /// </summary>
         public static Task<GetPeeringServicePrefixResult> InvokeAsync(GetPeeringServicePrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServicePrefixResult>("azure-native:peering/v20190801preview:getPeeringServicePrefix", args ?? new GetPeeringServicePrefixArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The peering service prefix class.
+        /// </summary>
+        public static Output<GetPeeringServicePrefixResult> Invoke(GetPeeringServicePrefixInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPeeringServicePrefixResult>("azure-native:peering/v20190801preview:getPeeringServicePrefix", args ?? new GetPeeringServicePrefixInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPeeringServicePrefixArgs()
+        {
+        }
+    }
+
+    public sealed class GetPeeringServicePrefixInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The peering service name.
+        /// </summary>
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The prefix name.
+        /// </summary>
+        [Input("prefixName", required: true)]
+        public Input<string> PrefixName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPeeringServicePrefixInvokeArgs()
         {
         }
     }

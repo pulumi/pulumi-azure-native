@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210301
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute/v20210301:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Virtual Machine.
+        /// </summary>
+        public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute/v20210301:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public string VmName { get; set; } = null!;
 
         public GetVirtualMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
+
+        public GetVirtualMachineInvokeArgs()
         {
         }
     }

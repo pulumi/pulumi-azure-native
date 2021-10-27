@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// </summary>
         public static Task<GetFormulaResourceResult> InvokeAsync(GetFormulaResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A formula.
+        /// </summary>
+        public static Output<GetFormulaResourceResult> Invoke(GetFormulaResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFormulaResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetFormulaResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the formula.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFormulaResourceInvokeArgs()
         {
         }
     }

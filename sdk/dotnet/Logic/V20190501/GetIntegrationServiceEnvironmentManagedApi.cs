@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration service environment managed api.
+        /// </summary>
+        public static Output<GetIntegrationServiceEnvironmentManagedApiResult> Invoke(GetIntegrationServiceEnvironmentManagedApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentManagedApiResult>("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public string ResourceGroup { get; set; } = null!;
 
         public GetIntegrationServiceEnvironmentManagedApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationServiceEnvironmentManagedApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The api name.
+        /// </summary>
+        [Input("apiName", required: true)]
+        public Input<string> ApiName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration service environment name.
+        /// </summary>
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetIntegrationServiceEnvironmentManagedApiInvokeArgs()
         {
         }
     }

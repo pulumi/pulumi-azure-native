@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetApplicationGatewayPrivateEndpointConnectionResult> InvokeAsync(GetApplicationGatewayPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Private Endpoint connection on an application gateway.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetApplicationGatewayPrivateEndpointConnectionResult> Invoke(GetApplicationGatewayPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationGatewayPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationGatewayPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application gateway.
+        /// </summary>
+        [Input("applicationGatewayName", required: true)]
+        public Input<string> ApplicationGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the application gateway private endpoint connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationGatewayPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

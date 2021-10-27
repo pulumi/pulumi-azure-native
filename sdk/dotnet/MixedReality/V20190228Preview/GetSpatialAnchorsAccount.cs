@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality.V20190228Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MixedReality.V20190228Preview
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality/v20190228preview:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SpatialAnchorsAccount Response.
+        /// </summary>
+        public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality/v20190228preview:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.MixedReality.V20190228Preview
         public string SpatialAnchorsAccountName { get; set; } = null!;
 
         public GetSpatialAnchorsAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetSpatialAnchorsAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Mixed Reality Spatial Anchors Account.
+        /// </summary>
+        [Input("spatialAnchorsAccountName", required: true)]
+        public Input<string> SpatialAnchorsAccountName { get; set; } = null!;
+
+        public GetSpatialAnchorsAccountInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// </summary>
         public static Task<GetFavoriteProcessResult> InvokeAsync(GetFavoriteProcessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteProcessResult>("azure-native:testbase/v20201216preview:getFavoriteProcess", args ?? new GetFavoriteProcessArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A favorite process identifier.
+        /// </summary>
+        public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase/v20201216preview:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public string TestBaseAccountName { get; set; } = null!;
 
         public GetFavoriteProcessArgs()
+        {
+        }
+    }
+
+    public sealed class GetFavoriteProcessInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+        /// </summary>
+        [Input("favoriteProcessResourceName", required: true)]
+        public Input<string> FavoriteProcessResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Package.
+        /// </summary>
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        public GetFavoriteProcessInvokeArgs()
         {
         }
     }

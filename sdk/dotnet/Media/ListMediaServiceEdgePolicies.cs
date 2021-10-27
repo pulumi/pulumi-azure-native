@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Media
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMediaServiceEdgePoliciesArgs()
+        {
+        }
+    }
+
+    public sealed class ListMediaServiceEdgePoliciesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique identifier of the edge device.
+        /// </summary>
+        [Input("deviceId")]
+        public Input<string>? DeviceId { get; set; }
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMediaServiceEdgePoliciesInvokeArgs()
         {
         }
     }

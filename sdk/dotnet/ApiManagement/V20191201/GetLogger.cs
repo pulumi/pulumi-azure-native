@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Logger details.
+        /// </summary>
+        public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement/v20191201:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public string ServiceName { get; set; } = null!;
 
         public GetLoggerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLoggerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Logger identifier. Must be unique in the API Management service instance.
+        /// </summary>
+        [Input("loggerId", required: true)]
+        public Input<string> LoggerId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetLoggerInvokeArgs()
         {
         }
     }

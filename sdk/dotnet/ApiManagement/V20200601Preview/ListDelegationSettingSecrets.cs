@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement/v20200601preview:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// </summary>
+        public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement/v20200601preview:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         public string ServiceName { get; set; } = null!;
 
         public ListDelegationSettingSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDelegationSettingSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListDelegationSettingSecretsInvokeArgs()
         {
         }
     }

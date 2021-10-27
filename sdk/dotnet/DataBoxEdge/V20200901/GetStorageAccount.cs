@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge/v20200901:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Storage Account on the  Data Box Edge/Gateway device.
+        /// </summary>
+        public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge/v20200901:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         public string StorageAccountName { get; set; } = null!;
 
         public GetStorageAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account name.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        public GetStorageAccountInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Shared access keys of the Domain.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<ListDomainSharedAccessKeysResult> Invoke(ListDomainSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDomainSharedAccessKeysResult>("azure-native:eventgrid:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.EventGrid
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDomainSharedAccessKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListDomainSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDomainSharedAccessKeysInvokeArgs()
         {
         }
     }

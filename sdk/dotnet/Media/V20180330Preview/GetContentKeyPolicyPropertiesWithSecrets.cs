@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// </summary>
         public static Task<GetContentKeyPolicyPropertiesWithSecretsResult> InvokeAsync(GetContentKeyPolicyPropertiesWithSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of the Content Key Policy.
+        /// </summary>
+        public static Output<GetContentKeyPolicyPropertiesWithSecretsResult> Invoke(GetContentKeyPolicyPropertiesWithSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetContentKeyPolicyPropertiesWithSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class GetContentKeyPolicyPropertiesWithSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Content Key Policy name.
+        /// </summary>
+        [Input("contentKeyPolicyName", required: true)]
+        public Input<string> ContentKeyPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetContentKeyPolicyPropertiesWithSecretsInvokeArgs()
         {
         }
     }

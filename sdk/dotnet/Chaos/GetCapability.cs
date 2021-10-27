@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Chaos
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         public static Task<GetCapabilityResult> InvokeAsync(GetCapabilityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Model that represents a Capability resource.
+        /// API Version: 2021-09-15-preview.
+        /// </summary>
+        public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +67,49 @@ namespace Pulumi.AzureNative.Chaos
         public string TargetName { get; set; } = null!;
 
         public GetCapabilityArgs()
+        {
+        }
+    }
+
+    public sealed class GetCapabilityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// String that represents a Capability resource name.
+        /// </summary>
+        [Input("capabilityName", required: true)]
+        public Input<string> CapabilityName { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents a resource provider namespace.
+        /// </summary>
+        [Input("parentProviderNamespace", required: true)]
+        public Input<string> ParentProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents a resource name.
+        /// </summary>
+        [Input("parentResourceName", required: true)]
+        public Input<string> ParentResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents a resource type.
+        /// </summary>
+        [Input("parentResourceType", required: true)]
+        public Input<string> ParentResourceType { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents a Target resource name.
+        /// </summary>
+        [Input("targetName", required: true)]
+        public Input<string> TargetName { get; set; } = null!;
+
+        public GetCapabilityInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20200801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The top level data export resource container.
+        /// </summary>
+        public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public string WorkspaceName { get; set; } = null!;
 
         public GetDataExportArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataExportInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The data export rule name.
+        /// </summary>
+        [Input("dataExportName", required: true)]
+        public Input<string> DataExportName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDataExportInvokeArgs()
         {
         }
     }

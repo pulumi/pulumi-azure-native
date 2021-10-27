@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a HostPool definition.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHostPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetHostPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the host pool within the specified resource group
+        /// </summary>
+        [Input("hostPoolName", required: true)]
+        public Input<string> HostPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHostPoolInvokeArgs()
         {
         }
     }

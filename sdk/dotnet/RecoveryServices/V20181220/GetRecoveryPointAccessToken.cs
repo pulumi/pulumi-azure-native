@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20181220
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20181220
     {
         public static Task<GetRecoveryPointAccessTokenResult> InvokeAsync(GetRecoveryPointAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithVersion());
+
+        public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -85,6 +89,79 @@ namespace Pulumi.AzureNative.RecoveryServices.V20181220
         public string VaultName { get; set; } = null!;
 
         public GetRecoveryPointAccessTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetRecoveryPointAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the container.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Optional ETag.
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// Fabric name associated with the container.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// AADPropertiesResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.AADPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Name of the Protected Item.
+        /// </summary>
+        [Input("protectedItemName", required: true)]
+        public Input<string> ProtectedItemName { get; set; } = null!;
+
+        /// <summary>
+        /// Recovery Point Id
+        /// </summary>
+        [Input("recoveryPointId", required: true)]
+        public Input<string> RecoveryPointId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetRecoveryPointAccessTokenInvokeArgs()
         {
         }
     }

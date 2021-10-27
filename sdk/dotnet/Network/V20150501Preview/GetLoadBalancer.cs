@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/v20150501preview:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// LoadBalancer resource
+        /// </summary>
+        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network/v20150501preview:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLoadBalancerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the loadBalancer.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLoadBalancerInvokeArgs()
         {
         }
     }

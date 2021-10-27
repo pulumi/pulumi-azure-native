@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ImportExport.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ImportExport.V20210101
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport/v20210101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// GetBitLockerKeys response
+        /// </summary>
+        public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport/v20210101:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ImportExport.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public ListBitLockerKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListBitLockerKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the import/export job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name uniquely identifies the resource group within the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListBitLockerKeyInvokeArgs()
         {
         }
     }

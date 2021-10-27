@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Databricks.V20210401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         /// </summary>
         public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peerings in a VirtualNetwork resource
+        /// </summary>
+        public static Output<GetvNetPeeringResult> Invoke(GetvNetPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetvNetPeeringResult>("azure-native:databricks/v20210401preview:getvNetPeering", args ?? new GetvNetPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetvNetPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetvNetPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the workspace vNet peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetvNetPeeringInvokeArgs()
         {
         }
     }

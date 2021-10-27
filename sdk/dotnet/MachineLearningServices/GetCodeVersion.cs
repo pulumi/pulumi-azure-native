@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Task<GetCodeVersionResult> InvokeAsync(GetCodeVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeVersionResult>("azure-native:machinelearningservices:getCodeVersion", args ?? new GetCodeVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetCodeVersionResult> Invoke(GetCodeVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCodeVersionResult>("azure-native:machinelearningservices:getCodeVersion", args ?? new GetCodeVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string WorkspaceName { get; set; } = null!;
 
         public GetCodeVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetCodeVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Container name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Version identifier.
+        /// </summary>
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetCodeVersionInvokeArgs()
         {
         }
     }

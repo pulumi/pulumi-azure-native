@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20200801preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A sensitivity label.
+        /// </summary>
+        public static Output<GetManagedDatabaseSensitivityLabelResult> Invoke(GetManagedDatabaseSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20200801preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +71,55 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         public string TableName { get; set; } = null!;
 
         public GetManagedDatabaseSensitivityLabelArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedDatabaseSensitivityLabelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
+        [Input("columnName", required: true)]
+        public Input<string> ColumnName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        /// <summary>
+        /// The source of the sensitivity label.
+        /// </summary>
+        [Input("sensitivityLabelSource", required: true)]
+        public Input<string> SensitivityLabelSource { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetManagedDatabaseSensitivityLabelInvokeArgs()
         {
         }
     }

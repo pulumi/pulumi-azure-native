@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         /// </summary>
         public static Task<GetStorageResult> InvokeAsync(GetStorageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageResult>("azure-native:appplatform/v20210901preview:getStorage", args ?? new GetStorageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Storage resource payload.
+        /// </summary>
+        public static Output<GetStorageResult> Invoke(GetStorageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageResult>("azure-native:appplatform/v20210901preview:getStorage", args ?? new GetStorageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         public string StorageName { get; set; } = null!;
 
         public GetStorageArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the storage resource.
+        /// </summary>
+        [Input("storageName", required: true)]
+        public Input<string> StorageName { get; set; } = null!;
+
+        public GetStorageInvokeArgs()
         {
         }
     }

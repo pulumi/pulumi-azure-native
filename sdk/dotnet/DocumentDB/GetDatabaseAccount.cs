@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB database account.
+        /// API Version: 2021-03-15.
+        /// </summary>
+        public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DocumentDB
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountInvokeArgs()
         {
         }
     }

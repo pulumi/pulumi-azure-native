@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Task<GetADLSGen2StorageAccountDataSetResult> InvokeAsync(GetADLSGen2StorageAccountDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An ADLSGen2 storage account data set.
+        /// </summary>
+        public static Output<GetADLSGen2StorageAccountDataSetResult> Invoke(GetADLSGen2StorageAccountDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet", args ?? new GetADLSGen2StorageAccountDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public string ShareName { get; set; } = null!;
 
         public GetADLSGen2StorageAccountDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetADLSGen2StorageAccountDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetADLSGen2StorageAccountDataSetInvokeArgs()
         {
         }
     }

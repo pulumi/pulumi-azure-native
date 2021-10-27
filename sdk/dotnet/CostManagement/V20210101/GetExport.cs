@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20210101
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement/v20210101:getExport", args ?? new GetExportArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An export resource.
+        /// </summary>
+        public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20210101:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CostManagement.V20210101
         public string Scope { get; set; } = null!;
 
         public GetExportArgs()
+        {
+        }
+    }
+
+    public sealed class GetExportInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Export Name.
+        /// </summary>
+        [Input("exportName", required: true)]
+        public Input<string> ExportName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetExportInvokeArgs()
         {
         }
     }

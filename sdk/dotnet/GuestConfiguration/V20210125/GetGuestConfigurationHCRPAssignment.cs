@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20210125
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// </summary>
+        public static Output<GetGuestConfigurationHCRPAssignmentResult> Invoke(GetGuestConfigurationHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGuestConfigurationHCRPAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetGuestConfigurationHCRPAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The guest configuration assignment name.
+        /// </summary>
+        [Input("guestConfigurationAssignmentName", required: true)]
+        public Input<string> GuestConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ARC machine.
+        /// </summary>
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGuestConfigurationHCRPAssignmentInvokeArgs()
         {
         }
     }

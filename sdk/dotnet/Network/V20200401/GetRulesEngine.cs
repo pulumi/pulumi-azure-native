@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// </summary>
         public static Task<GetRulesEngineResult> InvokeAsync(GetRulesEngineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-native:network/v20200401:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+        /// </summary>
+        public static Output<GetRulesEngineResult> Invoke(GetRulesEngineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRulesEngineResult>("azure-native:network/v20200401:getRulesEngine", args ?? new GetRulesEngineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200401
         public string RulesEngineName { get; set; } = null!;
 
         public GetRulesEngineArgs()
+        {
+        }
+    }
+
+    public sealed class GetRulesEngineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Front Door which is globally unique.
+        /// </summary>
+        [Input("frontDoorName", required: true)]
+        public Input<string> FrontDoorName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Rules Engine which is unique within the Front Door.
+        /// </summary>
+        [Input("rulesEngineName", required: true)]
+        public Input<string> RulesEngineName { get; set; } = null!;
+
+        public GetRulesEngineInvokeArgs()
         {
         }
     }

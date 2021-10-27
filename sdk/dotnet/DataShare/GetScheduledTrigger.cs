@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetScheduledTriggerResult> InvokeAsync(GetScheduledTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A type of trigger based on schedule
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetScheduledTriggerResult> Invoke(GetScheduledTriggerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataShare
         public string TriggerName { get; set; } = null!;
 
         public GetScheduledTriggerArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduledTriggerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
+
+        public GetScheduledTriggerInvokeArgs()
         {
         }
     }

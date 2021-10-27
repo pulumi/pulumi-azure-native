@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network/v20210201preview:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the security configuration
+        /// </summary>
+        public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network/v20210201preview:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSecurityAdminConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityAdminConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager security Configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSecurityAdminConfigurationInvokeArgs()
         {
         }
     }

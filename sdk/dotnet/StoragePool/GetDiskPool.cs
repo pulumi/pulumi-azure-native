@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StoragePool
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StoragePool
         /// </summary>
         public static Task<GetDiskPoolResult> InvokeAsync(GetDiskPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response for Disk pool request.
+        /// API Version: 2020-03-15-preview.
+        /// </summary>
+        public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.StoragePool
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDiskPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetDiskPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Disk pool.
+        /// </summary>
+        [Input("diskPoolName", required: true)]
+        public Input<string> DiskPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDiskPoolInvokeArgs()
         {
         }
     }

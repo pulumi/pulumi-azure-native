@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse/v20210501:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL Analytics pool
+        /// </summary>
+        public static Output<GetSqlPoolResult> Invoke(GetSqlPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse/v20210501:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public string WorkspaceName { get; set; } = null!;
 
         public GetSqlPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// SQL pool name
+        /// </summary>
+        [Input("sqlPoolName", required: true)]
+        public Input<string> SqlPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSqlPoolInvokeArgs()
         {
         }
     }

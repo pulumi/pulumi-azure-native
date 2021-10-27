@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         /// </summary>
         public static Task<GetReplicationProtectionContainerMappingResult> InvokeAsync(GetReplicationProtectionContainerMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Protection container mapping object.
+        /// </summary>
+        public static Output<GetReplicationProtectionContainerMappingResult> Invoke(GetReplicationProtectionContainerMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices/v20210401:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         public string ResourceName { get; set; } = null!;
 
         public GetReplicationProtectionContainerMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationProtectionContainerMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Protection Container mapping name.
+        /// </summary>
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
+
+        /// <summary>
+        /// Protection container name.
+        /// </summary>
+        [Input("protectionContainerName", required: true)]
+        public Input<string> ProtectionContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetReplicationProtectionContainerMappingInvokeArgs()
         {
         }
     }

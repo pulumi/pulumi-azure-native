@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListWebAppHybridConnectionKeysResult> InvokeAsync(ListWebAppHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysResult>("azure-native:web:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// API Version: 2018-11-01.
+        /// </summary>
+        public static Output<ListWebAppHybridConnectionKeysResult> Invoke(ListWebAppHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysResult>("azure-native:web:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWebAppHybridConnectionKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the web app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace for this hybrid connection.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name for this hybrid connection.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWebAppHybridConnectionKeysInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/v20200301:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Table.
+        /// </summary>
+        public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20200301:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301
         public string TableName { get; set; } = null!;
 
         public GetTableResourceTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetTableResourceTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB table name.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetTableResourceTableInvokeArgs()
         {
         }
     }

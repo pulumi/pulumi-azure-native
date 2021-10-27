@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         /// </summary>
         public static Task<GetMachineLearningDatasetResult> InvokeAsync(GetMachineLearningDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatasetResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args ?? new GetMachineLearningDatasetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning dataset object wrapped into ARM resource envelope.
+        /// </summary>
+        public static Output<GetMachineLearningDatasetResult> Invoke(GetMachineLearningDatasetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatasetResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args ?? new GetMachineLearningDatasetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetMachineLearningDatasetArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineLearningDatasetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Dataset name.
+        /// </summary>
+        [Input("datasetName", required: true)]
+        public Input<string> DatasetName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMachineLearningDatasetInvokeArgs()
         {
         }
     }

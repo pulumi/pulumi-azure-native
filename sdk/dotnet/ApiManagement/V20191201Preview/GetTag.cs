@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-native:apimanagement/v20191201preview:getTag", args ?? new GetTagArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Tag Contract details.
+        /// </summary>
+        public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("azure-native:apimanagement/v20191201preview:getTag", args ?? new GetTagInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public string TagId { get; set; } = null!;
 
         public GetTagArgs()
+        {
+        }
+    }
+
+    public sealed class GetTagInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public Input<string> TagId { get; set; } = null!;
+
+        public GetTagInvokeArgs()
         {
         }
     }

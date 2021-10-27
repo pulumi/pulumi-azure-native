@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -18,6 +19,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetSynchronizationSettingResult> InvokeAsync(GetSynchronizationSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSynchronizationSettingResult>("azure-native:datashare:getSynchronizationSetting", args ?? new GetSynchronizationSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Synchronization Setting data transfer object.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetSynchronizationSettingResult> Invoke(GetSynchronizationSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSynchronizationSettingResult>("azure-native:datashare:getSynchronizationSetting", args ?? new GetSynchronizationSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -48,6 +56,37 @@ namespace Pulumi.AzureNative.DataShare
         public string SynchronizationSettingName { get; set; } = null!;
 
         public GetSynchronizationSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetSynchronizationSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the synchronizationSetting.
+        /// </summary>
+        [Input("synchronizationSettingName", required: true)]
+        public Input<string> SynchronizationSettingName { get; set; } = null!;
+
+        public GetSynchronizationSettingInvokeArgs()
         {
         }
     }

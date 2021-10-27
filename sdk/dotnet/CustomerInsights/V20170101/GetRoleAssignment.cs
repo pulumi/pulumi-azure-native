@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:customerinsights/v20170101:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Role Assignment resource format.
+        /// </summary>
+        public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:customerinsights/v20170101:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRoleAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the role assignment.
+        /// </summary>
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRoleAssignmentInvokeArgs()
         {
         }
     }

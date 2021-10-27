@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20171001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20171001Preview
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization/v20171001preview:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Role Assignments
+        /// </summary>
+        public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization/v20171001preview:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20171001Preview
         public string Scope { get; set; } = null!;
 
         public GetRoleAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the role assignment to get.
+        /// </summary>
+        [Input("roleAssignmentName", required: true)]
+        public Input<string> RoleAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the role assignment.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetRoleAssignmentInvokeArgs()
         {
         }
     }

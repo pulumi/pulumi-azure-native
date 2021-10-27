@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20180331
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20180331
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20180331:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of credential result response.
+        /// </summary>
+        public static Output<ListManagedClusterUserCredentialsResult> Invoke(ListManagedClusterUserCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20180331:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerService.V20180331
         public string ResourceName { get; set; } = null!;
 
         public ListManagedClusterUserCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListManagedClusterUserCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListManagedClusterUserCredentialsInvokeArgs()
         {
         }
     }

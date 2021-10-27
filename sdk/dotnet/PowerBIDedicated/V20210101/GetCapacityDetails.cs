@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of a Dedicated Capacity resource.
+        /// </summary>
+        public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCapacityDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class GetCapacityDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("dedicatedCapacityName", required: true)]
+        public Input<string> DedicatedCapacityName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCapacityDetailsInvokeArgs()
         {
         }
     }

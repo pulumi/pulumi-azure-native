@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a SourceControl in Azure Security Insights.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetSourceControlArgs()
+        {
+        }
+    }
+
+    public sealed class GetSourceControlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Source control Id
+        /// </summary>
+        [Input("sourceControlId", required: true)]
+        public Input<string> SourceControlId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSourceControlInvokeArgs()
         {
         }
     }

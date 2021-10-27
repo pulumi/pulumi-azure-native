@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20201101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network/v20201101:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Nat Gateway resource.
+        /// </summary>
+        public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network/v20201101:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20201101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNatGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the nat gateway.
+        /// </summary>
+        [Input("natGatewayName", required: true)]
+        public Input<string> NatGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNatGatewayInvokeArgs()
         {
         }
     }

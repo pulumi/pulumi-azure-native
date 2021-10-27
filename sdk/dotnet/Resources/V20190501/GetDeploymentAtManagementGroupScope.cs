@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20190501
         /// </summary>
         public static Task<GetDeploymentAtManagementGroupScopeResult> InvokeAsync(GetDeploymentAtManagementGroupScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources/v20190501:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Deployment information.
+        /// </summary>
+        public static Output<GetDeploymentAtManagementGroupScopeResult> Invoke(GetDeploymentAtManagementGroupScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources/v20190501:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Resources.V20190501
         public string GroupId { get; set; } = null!;
 
         public GetDeploymentAtManagementGroupScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeploymentAtManagementGroupScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the deployment.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// The management group ID.
+        /// </summary>
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
+
+        public GetDeploymentAtManagementGroupScopeInvokeArgs()
         {
         }
     }

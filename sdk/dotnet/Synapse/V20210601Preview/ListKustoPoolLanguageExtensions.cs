@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<ListKustoPoolLanguageExtensionsResult> InvokeAsync(ListKustoPoolLanguageExtensionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of language extension objects.
+        /// </summary>
+        public static Output<ListKustoPoolLanguageExtensionsResult> Invoke(ListKustoPoolLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListKustoPoolLanguageExtensionsArgs()
+        {
+        }
+    }
+
+    public sealed class ListKustoPoolLanguageExtensionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListKustoPoolLanguageExtensionsInvokeArgs()
         {
         }
     }

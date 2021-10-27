@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:labservices/v20181015:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an environment instance
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:labservices/v20181015:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the environment Setting.
+        /// </summary>
+        [Input("environmentSettingName", required: true)]
+        public Input<string> EnvironmentSettingName { get; set; } = null!;
+
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($expand=networkInterface)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEnvironmentInvokeArgs()
         {
         }
     }

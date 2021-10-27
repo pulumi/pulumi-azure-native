@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20191001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20191001
         /// </summary>
         public static Task<GetDeploymentAtScopeResult> InvokeAsync(GetDeploymentAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtScopeResult>("azure-native:resources/v20191001:getDeploymentAtScope", args ?? new GetDeploymentAtScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Deployment information.
+        /// </summary>
+        public static Output<GetDeploymentAtScopeResult> Invoke(GetDeploymentAtScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeploymentAtScopeResult>("azure-native:resources/v20191001:getDeploymentAtScope", args ?? new GetDeploymentAtScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Resources.V20191001
         public string Scope { get; set; } = null!;
 
         public GetDeploymentAtScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeploymentAtScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the deployment.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource scope.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetDeploymentAtScopeInvokeArgs()
         {
         }
     }

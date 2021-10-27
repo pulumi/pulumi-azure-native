@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Task<GetBatchEndpointResult> InvokeAsync(GetBatchEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string WorkspaceName { get; set; } = null!;
 
         public GetBatchEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetBatchEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name for the Batch Endpoint.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetBatchEndpointInvokeArgs()
         {
         }
     }

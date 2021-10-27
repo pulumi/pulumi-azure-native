@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Workspace definition.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWorkspaceInvokeArgs()
         {
         }
     }

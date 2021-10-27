@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// </summary>
         public static Task<GetVideoAnalyzerResult> InvokeAsync(GetVideoAnalyzerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVideoAnalyzerResult>("azure-native:videoanalyzer/v20210501preview:getVideoAnalyzer", args ?? new GetVideoAnalyzerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Video Analyzer account.
+        /// </summary>
+        public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer/v20210501preview:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVideoAnalyzerArgs()
+        {
+        }
+    }
+
+    public sealed class GetVideoAnalyzerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVideoAnalyzerInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Get Storage Account ManagementPolicies operation response.
+        /// API Version: 2021-02-01.
+        /// </summary>
+        public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Storage
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagementPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Account Management Policy. It should always be 'default'
+        /// </summary>
+        [Input("managementPolicyName", required: true)]
+        public Input<string> ManagementPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagementPolicyInvokeArgs()
         {
         }
     }

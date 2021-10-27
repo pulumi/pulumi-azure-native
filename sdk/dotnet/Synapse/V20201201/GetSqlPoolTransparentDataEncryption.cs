@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         /// </summary>
         public static Task<GetSqlPoolTransparentDataEncryptionResult> InvokeAsync(GetSqlPoolTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20201201:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Sql pool transparent data encryption configuration.
+        /// </summary>
+        public static Output<GetSqlPoolTransparentDataEncryptionResult> Invoke(GetSqlPoolTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/v20201201:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         public string WorkspaceName { get; set; } = null!;
 
         public GetSqlPoolTransparentDataEncryptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlPoolTransparentDataEncryptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// SQL pool name
+        /// </summary>
+        [Input("sqlPoolName", required: true)]
+        public Input<string> SqlPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the transparent data encryption configuration.
+        /// </summary>
+        [Input("transparentDataEncryptionName", required: true)]
+        public Input<string> TransparentDataEncryptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSqlPoolTransparentDataEncryptionInvokeArgs()
         {
         }
     }

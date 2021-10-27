@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement/v20191201preview:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// </summary>
+        public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement/v20191201preview:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public string ServiceName { get; set; } = null!;
 
         public ListNamedValueArgs()
+        {
+        }
+    }
+
+    public sealed class ListNamedValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the NamedValue.
+        /// </summary>
+        [Input("namedValueId", required: true)]
+        public Input<string> NamedValueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListNamedValueInvokeArgs()
         {
         }
     }

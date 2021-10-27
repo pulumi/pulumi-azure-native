@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Private Endpoint Connection ARM resource.
+        /// </summary>
+        public static Output<GetWebAppPrivateEndpointConnectionResult> Invoke(GetWebAppPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +44,28 @@ namespace Pulumi.AzureNative.Web.V20201001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebAppPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebAppPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

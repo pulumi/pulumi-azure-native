@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:hybridcompute/v20210610preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Arc PrivateLinkScope definition.
+        /// </summary>
+        public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:hybridcompute/v20210610preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
         public string ScopeName { get; set; } = null!;
 
         public GetPrivateLinkScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateLinkScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Arc PrivateLinkScope resource.
+        /// </summary>
+        [Input("scopeName", required: true)]
+        public Input<string> ScopeName { get; set; } = null!;
+
+        public GetPrivateLinkScopeInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetBandwidthScheduleResult> InvokeAsync(GetBandwidthScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-native:databoxedge:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The bandwidth schedule details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetBandwidthScheduleResult> Invoke(GetBandwidthScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBandwidthScheduleResult>("azure-native:databoxedge:getBandwidthSchedule", args ?? new GetBandwidthScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBandwidthScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetBandwidthScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The bandwidth schedule name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBandwidthScheduleInvokeArgs()
         {
         }
     }

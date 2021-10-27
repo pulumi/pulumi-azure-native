@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// MEC role.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMECRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetMECRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMECRoleInvokeArgs()
         {
         }
     }

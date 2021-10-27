@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Task<GetPredictionTrainingResultsResult> InvokeAsync(GetPredictionTrainingResultsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The training results of the prediction.
+        /// API Version: 2017-04-26.
+        /// </summary>
+        public static Output<GetPredictionTrainingResultsResult> Invoke(GetPredictionTrainingResultsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.CustomerInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPredictionTrainingResultsArgs()
+        {
+        }
+    }
+
+    public sealed class GetPredictionTrainingResultsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Prediction.
+        /// </summary>
+        [Input("predictionName", required: true)]
+        public Input<string> PredictionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPredictionTrainingResultsInvokeArgs()
         {
         }
     }

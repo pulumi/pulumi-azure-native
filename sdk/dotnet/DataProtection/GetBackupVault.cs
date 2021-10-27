@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataProtection
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("azure-native:dataprotection:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Backup Vault Resource
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure-native:dataprotection:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DataProtection
         public string VaultName { get; set; } = null!;
 
         public GetBackupVaultArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupVaultInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group where the backup vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the backup vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetBackupVaultInvokeArgs()
         {
         }
     }

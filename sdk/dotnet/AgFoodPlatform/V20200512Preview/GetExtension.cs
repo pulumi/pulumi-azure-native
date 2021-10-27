@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform/v20200512preview:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Extension resource.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform/v20200512preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of extension resource.
+        /// </summary>
+        [Input("extensionId", required: true)]
+        public Input<string> ExtensionId { get; set; } = null!;
+
+        /// <summary>
+        /// FarmBeats resource name.
+        /// </summary>
+        [Input("farmBeatsResourceName", required: true)]
+        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExtensionInvokeArgs()
         {
         }
     }

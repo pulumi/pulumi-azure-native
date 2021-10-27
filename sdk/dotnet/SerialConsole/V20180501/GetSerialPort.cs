@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SerialConsole.V20180501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the serial port of the parent resource.
+        /// </summary>
+        public static Output<GetSerialPortResult> Invoke(GetSerialPortInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         public string SerialPort { get; set; } = null!;
 
         public GetSerialPortArgs()
+        {
+        }
+    }
+
+    public sealed class GetSerialPortInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
+        /// </summary>
+        [Input("parentResource", required: true)]
+        public Input<string> ParentResource { get; set; } = null!;
+
+        /// <summary>
+        /// The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
+        /// </summary>
+        [Input("parentResourceType", required: true)]
+        public Input<string> ParentResourceType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of the resource provider.
+        /// </summary>
+        [Input("resourceProviderNamespace", required: true)]
+        public Input<string> ResourceProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the serial port to connect to.
+        /// </summary>
+        [Input("serialPort", required: true)]
+        public Input<string> SerialPort { get; set; } = null!;
+
+        public GetSerialPortInvokeArgs()
         {
         }
     }

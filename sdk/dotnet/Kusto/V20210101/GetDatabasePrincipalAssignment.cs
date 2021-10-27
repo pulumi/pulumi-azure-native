@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:kusto/v20210101:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a database principal assignment.
+        /// </summary>
+        public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:kusto/v20210101:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabasePrincipalAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabasePrincipalAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto principalAssignment.
+        /// </summary>
+        [Input("principalAssignmentName", required: true)]
+        public Input<string> PrincipalAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabasePrincipalAssignmentInvokeArgs()
         {
         }
     }

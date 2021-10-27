@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// </summary>
         public static Task<GetExpressRouteCircuitPeeringResult> InvokeAsync(GetExpressRouteCircuitPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-native:network/v20150501preview:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peering in a ExpressRouteCircuit resource
+        /// </summary>
+        public static Output<GetExpressRouteCircuitPeeringResult> Invoke(GetExpressRouteCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network/v20150501preview:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteCircuitPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteCircuitPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the express route circuit.
+        /// </summary>
+        [Input("circuitName", required: true)]
+        public Input<string> CircuitName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteCircuitPeeringInvokeArgs()
         {
         }
     }

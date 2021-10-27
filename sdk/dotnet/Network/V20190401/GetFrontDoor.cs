@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190401
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network/v20190401:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+        /// </summary>
+        public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network/v20190401:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20190401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFrontDoorArgs()
+        {
+        }
+    }
+
+    public sealed class GetFrontDoorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Front Door which is globally unique.
+        /// </summary>
+        [Input("frontDoorName", required: true)]
+        public Input<string> FrontDoorName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFrontDoorInvokeArgs()
         {
         }
     }

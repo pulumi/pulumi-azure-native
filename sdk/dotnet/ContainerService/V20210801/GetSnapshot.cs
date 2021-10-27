@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20210801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20210801
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:containerservice/v20210801:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A node pool snapshot resource.
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:containerservice/v20210801:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerService.V20210801
         public string ResourceName { get; set; } = null!;
 
         public GetSnapshotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetSnapshotInvokeArgs()
         {
         }
     }

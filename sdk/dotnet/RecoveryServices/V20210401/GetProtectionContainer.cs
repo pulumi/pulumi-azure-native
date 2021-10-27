@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-native:recoveryservices/v20210401:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Base class for container with backup items. Containers with specific workloads are derived from this class.
+        /// </summary>
+        public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices/v20210401:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         public string VaultName { get; set; } = null!;
 
         public GetProtectionContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetProtectionContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the container whose details need to be fetched.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the fabric where the container belongs.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetProtectionContainerInvokeArgs()
         {
         }
     }

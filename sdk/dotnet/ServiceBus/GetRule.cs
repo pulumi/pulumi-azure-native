@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of Rule Resource.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.ServiceBus
         public string TopicName { get; set; } = null!;
 
         public GetRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The rule name.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The subscription name.
+        /// </summary>
+        [Input("subscriptionName", required: true)]
+        public Input<string> SubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The topic name.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
+
+        public GetRuleInvokeArgs()
         {
         }
     }

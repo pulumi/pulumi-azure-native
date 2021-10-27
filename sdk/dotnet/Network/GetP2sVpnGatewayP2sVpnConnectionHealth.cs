@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthArgs(), options.WithVersion());
+
+        /// <summary>
+        /// P2SVpnGateway Resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetP2sVpnGatewayP2sVpnConnectionHealthArgs()
+        {
+        }
+    }
+
+    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the P2SVpnGateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs()
         {
         }
     }

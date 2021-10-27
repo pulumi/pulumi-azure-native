@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Base class for backup items.
+        /// API Version: 2021-02-01.
+        /// </summary>
+        public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +67,49 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string VaultName { get; set; } = null!;
 
         public GetProtectedItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetProtectedItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Container name associated with the backed up item.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Fabric name associated with the backed up item.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// OData filter options.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// Backed up item name whose details are to be fetched.
+        /// </summary>
+        [Input("protectedItemName", required: true)]
+        public Input<string> ProtectedItemName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetProtectedItemInvokeArgs()
         {
         }
     }

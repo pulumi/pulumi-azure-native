@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20180201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsSlotResult> InvokeAsync(ListWebAppBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20180201:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Backup description.
+        /// </summary>
+        public static Output<ListWebAppBackupStatusSecretsSlotResult> Invoke(ListWebAppBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20180201:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -88,6 +95,79 @@ namespace Pulumi.AzureNative.Web.V20180201
         public string StorageAccountUrl { get; set; } = null!;
 
         public ListWebAppBackupStatusSecretsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppBackupStatusSecretsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID of backup.
+        /// </summary>
+        [Input("backupId", required: true)]
+        public Input<string> BackupId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the backup.
+        /// </summary>
+        [Input("backupName")]
+        public Input<string>? BackupName { get; set; }
+
+        /// <summary>
+        /// Schedule for the backup if it is executed periodically.
+        /// </summary>
+        [Input("backupSchedule")]
+        public Input<Inputs.BackupScheduleArgs>? BackupSchedule { get; set; }
+
+        [Input("databases")]
+        private InputList<Inputs.DatabaseBackupSettingArgs>? _databases;
+
+        /// <summary>
+        /// Databases included in the backup.
+        /// </summary>
+        public InputList<Inputs.DatabaseBackupSettingArgs> Databases
+        {
+            get => _databases ?? (_databases = new InputList<Inputs.DatabaseBackupSettingArgs>());
+            set => _databases = value;
+        }
+
+        /// <summary>
+        /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Kind of resource.
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Name of web app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// SAS URL to the container.
+        /// </summary>
+        [Input("storageAccountUrl", required: true)]
+        public Input<string> StorageAccountUrl { get; set; } = null!;
+
+        public ListWebAppBackupStatusSecretsSlotInvokeArgs()
         {
         }
     }

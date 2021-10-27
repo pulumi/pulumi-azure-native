@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public static Task<GetWebAppSiteExtensionSlotResult> InvokeAsync(GetWebAppSiteExtensionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionSlotResult>("azure-native:web/v20160801:getWebAppSiteExtensionSlot", args ?? new GetWebAppSiteExtensionSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Site Extension Information.
+        /// </summary>
+        public static Output<GetWebAppSiteExtensionSlotResult> Invoke(GetWebAppSiteExtensionSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSiteExtensionSlotResult>("azure-native:web/v20160801:getWebAppSiteExtensionSlot", args ?? new GetWebAppSiteExtensionSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20160801
         public string Slot { get; set; } = null!;
 
         public GetWebAppSiteExtensionSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppSiteExtensionSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site extension name.
+        /// </summary>
+        [Input("siteExtensionId", required: true)]
+        public Input<string> SiteExtensionId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppSiteExtensionSlotInvokeArgs()
         {
         }
     }

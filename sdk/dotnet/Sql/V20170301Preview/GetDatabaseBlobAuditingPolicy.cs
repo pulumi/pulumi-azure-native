@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         /// </summary>
         public static Task<GetDatabaseBlobAuditingPolicyResult> InvokeAsync(GetDatabaseBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql/v20170301preview:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A database blob auditing policy.
+        /// </summary>
+        public static Output<GetDatabaseBlobAuditingPolicyResult> Invoke(GetDatabaseBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql/v20170301preview:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public string ServerName { get; set; } = null!;
 
         public GetDatabaseBlobAuditingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseBlobAuditingPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the blob auditing policy.
+        /// </summary>
+        [Input("blobAuditingPolicyName", required: true)]
+        public Input<string> BlobAuditingPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDatabaseBlobAuditingPolicyInvokeArgs()
         {
         }
     }

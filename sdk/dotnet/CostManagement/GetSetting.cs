@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public static Task<GetSettingResult> InvokeAsync(GetSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// State of the myscope setting.
+        /// API Version: 2019-11-01.
+        /// </summary>
+        public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.CostManagement
         public string SettingName { get; set; } = null!;
 
         public GetSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the setting. Allowed values: myscope
+        /// </summary>
+        [Input("settingName", required: true)]
+        public Input<string> SettingName { get; set; } = null!;
+
+        public GetSettingInvokeArgs()
         {
         }
     }

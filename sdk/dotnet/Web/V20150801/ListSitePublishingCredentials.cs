@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSitePublishingCredentialsResult> InvokeAsync(ListSitePublishingCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
+        public static Output<ListSitePublishingCredentialsResult> Invoke(ListSitePublishingCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsResult>("azure-native:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public ListSitePublishingCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListSitePublishingCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListSitePublishingCredentialsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:servicebus/v20210101preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// </summary>
+        public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:servicebus/v20210101preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDisasterRecoveryConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetDisasterRecoveryConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Disaster Recovery configuration name
+        /// </summary>
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDisasterRecoveryConfigInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:autonomousdevelopmentplatform/v20200701preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An ADP account.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:autonomousdevelopmentplatform/v20200701preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ADP account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccountInvokeArgs()
         {
         }
     }

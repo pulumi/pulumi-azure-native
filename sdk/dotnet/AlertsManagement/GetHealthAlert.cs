@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public static Task<GetHealthAlertResult> InvokeAsync(GetHealthAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The health alert resource.
+        /// API Version: 2020-08-04-preview.
+        /// </summary>
+        public static Output<GetHealthAlertResult> Invoke(GetHealthAlertInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AlertsManagement
         public string RuleName { get; set; } = null!;
 
         public GetHealthAlertArgs()
+        {
+        }
+    }
+
+    public sealed class GetHealthAlertInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetHealthAlertInvokeArgs()
         {
         }
     }

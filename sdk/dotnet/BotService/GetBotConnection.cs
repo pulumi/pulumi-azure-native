@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot channel resource definition
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.BotService
         public string ResourceName { get; set; } = null!;
 
         public GetBotConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetBotConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bot Service Connection Setting resource.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetBotConnectionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of a storage account’s Table service.
+        /// API Version: 2021-02-01.
+        /// </summary>
+        public static Output<GetTableServicePropertiesResult> Invoke(GetTableServicePropertiesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Storage
         public string TableServiceName { get; set; } = null!;
 
         public GetTableServicePropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class GetTableServicePropertiesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
+        /// </summary>
+        [Input("tableServiceName", required: true)]
+        public Input<string> TableServiceName { get; set; } = null!;
+
+        public GetTableServicePropertiesInvokeArgs()
         {
         }
     }

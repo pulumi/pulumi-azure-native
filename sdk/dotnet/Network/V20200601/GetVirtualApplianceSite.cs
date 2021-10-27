@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network/v20200601:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Appliance Site resource.
+        /// </summary>
+        public static Output<GetVirtualApplianceSiteResult> Invoke(GetVirtualApplianceSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network/v20200601:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string SiteName { get; set; } = null!;
 
         public GetVirtualApplianceSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualApplianceSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Network Virtual Appliance.
+        /// </summary>
+        [Input("networkVirtualApplianceName", required: true)]
+        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the site.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
+
+        public GetVirtualApplianceSiteInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// </summary>
         public static Task<ListShareSubscriptionSynchronizationsResult> InvokeAsync(ListShareSubscriptionSynchronizationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A consumer side list of share subscription synchronizations
+        /// </summary>
+        public static Output<ListShareSubscriptionSynchronizationsResult> Invoke(ListShareSubscriptionSynchronizationsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public string? SkipToken { get; set; }
 
         public ListShareSubscriptionSynchronizationsArgs()
+        {
+        }
+    }
+
+    public sealed class ListShareSubscriptionSynchronizationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Filters the results using OData syntax.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// Sorts the results using OData syntax.
+        /// </summary>
+        [Input("orderby")]
+        public Input<string>? Orderby { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share subscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// Continuation token
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListShareSubscriptionSynchronizationsInvokeArgs()
         {
         }
     }

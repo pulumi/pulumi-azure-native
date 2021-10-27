@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:hdinsight/v20150301preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The HDInsight cluster application
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:hdinsight/v20150301preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The constant value for the application name.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationInvokeArgs()
         {
         }
     }

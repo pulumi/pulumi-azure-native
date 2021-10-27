@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The connector resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.CustomerInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connector.
+        /// </summary>
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectorInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics/v20170401preview:getInput", args ?? new GetInputArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        /// </summary>
+        public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics/v20170401preview:getInput", args ?? new GetInputInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInputArgs()
+        {
+        }
+    }
+
+    public sealed class GetInputInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the input.
+        /// </summary>
+        [Input("inputName", required: true)]
+        public Input<string> InputName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the streaming job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInputInvokeArgs()
         {
         }
     }

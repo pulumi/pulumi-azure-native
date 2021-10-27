@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:datalakeanalytics/v20151001preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data Lake Analytics firewall rule information.
+        /// </summary>
+        public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:datalakeanalytics/v20151001preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFirewallRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Analytics account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the firewall rule to retrieve.
+        /// </summary>
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFirewallRuleInvokeArgs()
         {
         }
     }

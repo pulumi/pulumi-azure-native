@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Peering.V20210601
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering/v20210601:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The customer's ASN that is registered by the peering service provider.
+        /// </summary>
+        public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering/v20210601:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Peering.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegisteredAsnArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegisteredAsnInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the registered ASN.
+        /// </summary>
+        [Input("registeredAsnName", required: true)]
+        public Input<string> RegisteredAsnName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegisteredAsnInvokeArgs()
         {
         }
     }

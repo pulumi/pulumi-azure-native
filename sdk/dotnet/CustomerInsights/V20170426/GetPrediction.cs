@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The prediction resource format.
+        /// </summary>
+        public static Output<GetPredictionResult> Invoke(GetPredictionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPredictionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPredictionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Prediction.
+        /// </summary>
+        [Input("predictionName", required: true)]
+        public Input<string> PredictionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPredictionInvokeArgs()
         {
         }
     }

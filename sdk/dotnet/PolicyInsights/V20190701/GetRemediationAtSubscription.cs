@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20190701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         /// </summary>
         public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-native:policyinsights/v20190701:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The remediation definition.
+        /// </summary>
+        public static Output<GetRemediationAtSubscriptionResult> Invoke(GetRemediationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtSubscriptionResult>("azure-native:policyinsights/v20190701:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
         public string RemediationName { get; set; } = null!;
 
         public GetRemediationAtSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRemediationAtSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        public GetRemediationAtSubscriptionInvokeArgs()
         {
         }
     }

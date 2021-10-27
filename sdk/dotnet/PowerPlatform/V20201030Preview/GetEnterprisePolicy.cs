@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         public static Task<GetEnterprisePolicyResult> InvokeAsync(GetEnterprisePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePolicyResult>("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", args ?? new GetEnterprisePolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the EnterprisePolicy.
+        /// </summary>
+        public static Output<GetEnterprisePolicyResult> Invoke(GetEnterprisePolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnterprisePolicyResult>("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", args ?? new GetEnterprisePolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEnterprisePolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnterprisePolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The EnterprisePolicy name.
+        /// </summary>
+        [Input("enterprisePolicyName", required: true)]
+        public Input<string> EnterprisePolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEnterprisePolicyInvokeArgs()
         {
         }
     }

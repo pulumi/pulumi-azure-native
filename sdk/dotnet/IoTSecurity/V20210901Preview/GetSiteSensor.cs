@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         /// </summary>
         public static Task<GetSiteSensorResult> InvokeAsync(GetSiteSensorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSensorResult>("azure-native:iotsecurity/v20210901preview:getSiteSensor", args ?? new GetSiteSensorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT sensor model
+        /// </summary>
+        public static Output<GetSiteSensorResult> Invoke(GetSiteSensorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteSensorResult>("azure-native:iotsecurity/v20210901preview:getSiteSensor", args ?? new GetSiteSensorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         public string SiteName { get; set; } = null!;
 
         public GetSiteSensorArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteSensorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Defender for IoT location
+        /// </summary>
+        [Input("iotDefenderLocation", required: true)]
+        public Input<string> IotDefenderLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the IoT sensor
+        /// </summary>
+        [Input("sensorName", required: true)]
+        public Input<string> SensorName { get; set; } = null!;
+
+        /// <summary>
+        /// Site Name
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
+
+        public GetSiteSensorInvokeArgs()
         {
         }
     }

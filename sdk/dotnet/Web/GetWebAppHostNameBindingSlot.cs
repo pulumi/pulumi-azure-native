@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetWebAppHostNameBindingSlotResult> InvokeAsync(GetWebAppHostNameBindingSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A hostname binding object.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetWebAppHostNameBindingSlotResult> Invoke(GetWebAppHostNameBindingSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingSlotResult>("azure-native:web:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Web
         public string Slot { get; set; } = null!;
 
         public GetWebAppHostNameBindingSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppHostNameBindingSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Hostname in the hostname binding.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppHostNameBindingSlotInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ManagedServices
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Registration assignment.
+        /// API Version: 2019-09-01.
+        /// </summary>
+        public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ManagedServices
         public string Scope { get; set; } = null!;
 
         public GetRegistrationAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistrationAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Tells whether to return registration definition details also along with registration assignment details.
+        /// </summary>
+        [Input("expandRegistrationDefinition")]
+        public Input<bool>? ExpandRegistrationDefinition { get; set; }
+
+        /// <summary>
+        /// Guid of the registration assignment.
+        /// </summary>
+        [Input("registrationAssignmentId", required: true)]
+        public Input<string> RegistrationAssignmentId { get; set; } = null!;
+
+        /// <summary>
+        /// Scope of the resource.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetRegistrationAssignmentInvokeArgs()
         {
         }
     }

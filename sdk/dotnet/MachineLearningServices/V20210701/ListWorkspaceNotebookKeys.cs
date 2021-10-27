@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
     {
         public static Task<ListWorkspaceNotebookKeysResult> InvokeAsync(ListWorkspaceNotebookKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20210701:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysArgs(), options.WithVersion());
+
+        public static Output<ListWorkspaceNotebookKeysResult> Invoke(ListWorkspaceNotebookKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20210701:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
         public string WorkspaceName { get; set; } = null!;
 
         public ListWorkspaceNotebookKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkspaceNotebookKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListWorkspaceNotebookKeysInvokeArgs()
         {
         }
     }

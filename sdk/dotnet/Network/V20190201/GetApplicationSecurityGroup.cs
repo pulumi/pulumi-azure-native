@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190201
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure-native:network/v20190201:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An application security group in a resource group.
+        /// </summary>
+        public static Output<GetApplicationSecurityGroupResult> Invoke(GetApplicationSecurityGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure-native:network/v20190201:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20190201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationSecurityGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application security group.
+        /// </summary>
+        [Input("applicationSecurityGroupName", required: true)]
+        public Input<string> ApplicationSecurityGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationSecurityGroupInvokeArgs()
         {
         }
     }

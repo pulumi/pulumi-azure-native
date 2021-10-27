@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceLinker
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configurations for source resource, include appSettings, connectionString and serviceBindings
+        /// API Version: 2021-11-01-preview.
+        /// </summary>
+        public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ServiceLinker
         public string ResourceUri { get; set; } = null!;
 
         public ListLinkerConfigurationsArgs()
+        {
+        }
+    }
+
+    public sealed class ListLinkerConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name Linker resource.
+        /// </summary>
+        [Input("linkerName", required: true)]
+        public Input<string> LinkerName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public ListLinkerConfigurationsInvokeArgs()
         {
         }
     }

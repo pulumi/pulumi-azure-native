@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights/v20210401:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an incident comment
+        /// </summary>
+        public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20210401:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         public string WorkspaceName { get; set; } = null!;
 
         public GetIncidentCommentArgs()
+        {
+        }
+    }
+
+    public sealed class GetIncidentCommentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Incident comment ID
+        /// </summary>
+        [Input("incidentCommentId", required: true)]
+        public Input<string> IncidentCommentId { get; set; } = null!;
+
+        /// <summary>
+        /// Incident ID
+        /// </summary>
+        [Input("incidentId", required: true)]
+        public Input<string> IncidentId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIncidentCommentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs/v20211201:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An addon resource
+        /// </summary>
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20211201:getAddon", args ?? new GetAddonInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAddonArgs()
+        {
+        }
+    }
+
+    public sealed class GetAddonInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the addon for the private cloud
+        /// </summary>
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAddonInvokeArgs()
         {
         }
     }

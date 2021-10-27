@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         /// </summary>
         public static Task<GetManagedNetworkGroupResult> InvokeAsync(GetManagedNetworkGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkGroupResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Managed Network Group resource
+        /// </summary>
+        public static Output<GetManagedNetworkGroupResult> Invoke(GetManagedNetworkGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkGroupResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedNetworkGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedNetworkGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Managed Network Group.
+        /// </summary>
+        [Input("managedNetworkGroupName", required: true)]
+        public Input<string> ManagedNetworkGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Managed Network.
+        /// </summary>
+        [Input("managedNetworkName", required: true)]
+        public Input<string> ManagedNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedNetworkGroupInvokeArgs()
         {
         }
     }

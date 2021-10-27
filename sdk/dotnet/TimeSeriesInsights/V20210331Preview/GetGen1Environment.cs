@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         /// </summary>
         public static Task<GetGen1EnvironmentResult> InvokeAsync(GetGen1EnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGen1EnvironmentResult>("azure-native:timeseriesinsights/v20210331preview:getGen1Environment", args ?? new GetGen1EnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+        /// </summary>
+        public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGen1EnvironmentResult>("azure-native:timeseriesinsights/v20210331preview:getGen1Environment", args ?? new GetGen1EnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGen1EnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetGen1EnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGen1EnvironmentInvokeArgs()
         {
         }
     }

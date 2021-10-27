@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights/v20190101preview:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an automation rule.
+        /// </summary>
+        public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20190101preview:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetAutomationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAutomationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Automation rule ID
+        /// </summary>
+        [Input("automationRuleId", required: true)]
+        public Input<string> AutomationRuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetAutomationRuleInvokeArgs()
         {
         }
     }

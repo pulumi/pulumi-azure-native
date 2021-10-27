@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network/v20150501preview:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NetworkSecurityGroup resource
+        /// </summary>
+        public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network/v20150501preview:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkSecurityGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network security group.
+        /// </summary>
+        [Input("networkSecurityGroupName", required: true)]
+        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkSecurityGroupInvokeArgs()
         {
         }
     }

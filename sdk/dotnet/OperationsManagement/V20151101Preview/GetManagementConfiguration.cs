@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         /// </summary>
         public static Task<GetManagementConfigurationResult> InvokeAsync(GetManagementConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The container for solution.
+        /// </summary>
+        public static Output<GetManagementConfigurationResult> Invoke(GetManagementConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementConfigurationResult>("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagementConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// User Management Configuration Name.
+        /// </summary>
+        [Input("managementConfigurationName", required: true)]
+        public Input<string> ManagementConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagementConfigurationInvokeArgs()
         {
         }
     }

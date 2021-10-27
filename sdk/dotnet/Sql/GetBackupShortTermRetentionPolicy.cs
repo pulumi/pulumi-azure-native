@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetBackupShortTermRetentionPolicyResult> InvokeAsync(GetBackupShortTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupShortTermRetentionPolicyResult>("azure-native:sql:getBackupShortTermRetentionPolicy", args ?? new GetBackupShortTermRetentionPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A short term retention policy.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetBackupShortTermRetentionPolicyResult> Invoke(GetBackupShortTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupShortTermRetentionPolicyResult>("azure-native:sql:getBackupShortTermRetentionPolicy", args ?? new GetBackupShortTermRetentionPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetBackupShortTermRetentionPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupShortTermRetentionPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The policy name. Should always be "default".
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetBackupShortTermRetentionPolicyInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// </summary>
         public static Task<GetProductsResult> InvokeAsync(GetProductsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-native:azurestack/v20200601preview:getProducts", args ?? new GetProductsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Pageable list of products.
+        /// </summary>
+        public static Output<GetProductsResult> Invoke(GetProductsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProductsResult>("azure-native:azurestack/v20200601preview:getProducts", args ?? new GetProductsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public string ResourceGroup { get; set; } = null!;
 
         public GetProductsArgs()
+        {
+        }
+    }
+
+    public sealed class GetProductsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the product.
+        /// </summary>
+        [Input("productName", required: true)]
+        public Input<string> ProductName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Stack registration.
+        /// </summary>
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetProductsInvokeArgs()
         {
         }
     }

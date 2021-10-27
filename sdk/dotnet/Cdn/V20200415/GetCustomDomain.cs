@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200415
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200415
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20200415:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// </summary>
+        public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20200415:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Cdn.V20200415
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCustomDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the custom domain within an endpoint.
+        /// </summary>
+        [Input("customDomainName", required: true)]
+        public Input<string> CustomDomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the endpoint under the profile which is unique globally.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCustomDomainInvokeArgs()
         {
         }
     }

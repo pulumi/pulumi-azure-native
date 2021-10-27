@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Task<GetNamespaceVirtualNetworkRuleResult> InvokeAsync(GetNamespaceVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single item in a List or Get VirtualNetworkRules operation
+        /// API Version: 2018-01-01-preview.
+        /// </summary>
+        public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceBus
         public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetNamespaceVirtualNetworkRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Virtual Network Rule name.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+
+        public GetNamespaceVirtualNetworkRuleInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20200601
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200601:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// </summary>
+        public static Output<ListAppServicePlanHybridConnectionKeysResult> Invoke(ListAppServicePlanHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20200601:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAppServicePlanHybridConnectionKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListAppServicePlanHybridConnectionKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the App Service plan.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus namespace.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus relay.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAppServicePlanHybridConnectionKeysInvokeArgs()
         {
         }
     }

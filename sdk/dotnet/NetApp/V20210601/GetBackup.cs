@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp/v20210601:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Backup of a Volume
+        /// </summary>
+        public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp/v20210601:getBackup", args ?? new GetBackupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public string VolumeName { get; set; } = null!;
 
         public GetBackupArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the backup
+        /// </summary>
+        [Input("backupName", required: true)]
+        public Input<string> BackupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the capacity pool
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
+
+        public GetBackupInvokeArgs()
         {
         }
     }

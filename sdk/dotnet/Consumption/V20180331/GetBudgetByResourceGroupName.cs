@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Consumption.V20180331
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Consumption.V20180331
         /// </summary>
         public static Task<GetBudgetByResourceGroupNameResult> InvokeAsync(GetBudgetByResourceGroupNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetByResourceGroupNameResult>("azure-native:consumption/v20180331:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A budget resource.
+        /// </summary>
+        public static Output<GetBudgetByResourceGroupNameResult> Invoke(GetBudgetByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetByResourceGroupNameResult>("azure-native:consumption/v20180331:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Consumption.V20180331
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBudgetByResourceGroupNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetBudgetByResourceGroupNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Budget Name.
+        /// </summary>
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBudgetByResourceGroupNameInvokeArgs()
         {
         }
     }

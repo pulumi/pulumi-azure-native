@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersSlotResult> InvokeAsync(ListWebAppSyncFunctionTriggersSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Function secrets.
+        /// </summary>
+        public static Output<ListWebAppSyncFunctionTriggersSlotResult> Invoke(ListWebAppSyncFunctionTriggersSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20210101:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20210101
         public string Slot { get; set; } = null!;
 
         public ListWebAppSyncFunctionTriggersSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppSyncFunctionTriggersSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppSyncFunctionTriggersSlotInvokeArgs()
         {
         }
     }

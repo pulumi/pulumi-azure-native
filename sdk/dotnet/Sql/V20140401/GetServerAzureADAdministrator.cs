@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-native:sql/v20140401:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An server Active Directory Administrator.
+        /// </summary>
+        public static Output<GetServerAzureADAdministratorResult> Invoke(GetServerAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerAzureADAdministratorResult>("azure-native:sql/v20140401:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public string ServerName { get; set; } = null!;
 
         public GetServerAzureADAdministratorArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerAzureADAdministratorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the server administrator resource.
+        /// </summary>
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerAzureADAdministratorInvokeArgs()
         {
         }
     }

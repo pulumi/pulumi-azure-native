@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20190801
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionSlotResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20190801:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+        /// </summary>
+        public static Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20190801:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20190801
         public string Slot { get; set; } = null!;
 
         public GetWebAppSwiftVirtualNetworkConnectionSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs()
         {
         }
     }

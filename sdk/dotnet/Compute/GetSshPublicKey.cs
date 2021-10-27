@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-native:compute:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the SSH public key.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Compute
         public string SshPublicKeyName { get; set; } = null!;
 
         public GetSshPublicKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSshPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SSH public key.
+        /// </summary>
+        [Input("sshPublicKeyName", required: true)]
+        public Input<string> SshPublicKeyName { get; set; } = null!;
+
+        public GetSshPublicKeyInvokeArgs()
         {
         }
     }

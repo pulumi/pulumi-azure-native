@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OpenId Connect Provider details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("azure-native:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetOpenIdConnectProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetOpenIdConnectProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the OpenID Connect Provider.
+        /// </summary>
+        [Input("opid", required: true)]
+        public Input<string> Opid { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetOpenIdConnectProviderInvokeArgs()
         {
         }
     }

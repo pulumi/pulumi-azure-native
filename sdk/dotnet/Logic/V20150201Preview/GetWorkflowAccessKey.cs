@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20150201Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
     {
         public static Task<GetWorkflowAccessKeyResult> InvokeAsync(GetWorkflowAccessKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAccessKeyResult>("azure-native:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyArgs(), options.WithVersion());
+
+        public static Output<GetWorkflowAccessKeyResult> Invoke(GetWorkflowAccessKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkflowAccessKeyResult>("azure-native:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         public string WorkflowName { get; set; } = null!;
 
         public GetWorkflowAccessKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkflowAccessKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The workflow access key name.
+        /// </summary>
+        [Input("accessKeyName", required: true)]
+        public Input<string> AccessKeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public GetWorkflowAccessKeyInvokeArgs()
         {
         }
     }

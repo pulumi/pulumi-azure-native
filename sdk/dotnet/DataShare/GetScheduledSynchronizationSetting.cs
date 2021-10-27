@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetScheduledSynchronizationSettingResult> InvokeAsync(GetScheduledSynchronizationSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledSynchronizationSettingResult>("azure-native:datashare:getScheduledSynchronizationSetting", args ?? new GetScheduledSynchronizationSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A type of synchronization setting based on schedule
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetScheduledSynchronizationSettingResult> Invoke(GetScheduledSynchronizationSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledSynchronizationSettingResult>("azure-native:datashare:getScheduledSynchronizationSetting", args ?? new GetScheduledSynchronizationSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataShare
         public string SynchronizationSettingName { get; set; } = null!;
 
         public GetScheduledSynchronizationSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduledSynchronizationSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the synchronizationSetting.
+        /// </summary>
+        [Input("synchronizationSettingName", required: true)]
+        public Input<string> SynchronizationSettingName { get; set; } = null!;
+
+        public GetScheduledSynchronizationSettingInvokeArgs()
         {
         }
     }

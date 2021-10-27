@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Task<GetBlobStorageAccountDataSetResult> InvokeAsync(GetBlobStorageAccountDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure blob storage account data set.
+        /// </summary>
+        public static Output<GetBlobStorageAccountDataSetResult> Invoke(GetBlobStorageAccountDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public string ShareName { get; set; } = null!;
 
         public GetBlobStorageAccountDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobStorageAccountDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetBlobStorageAccountDataSetInvokeArgs()
         {
         }
     }

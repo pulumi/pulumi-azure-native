@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public static Task<GetWorkspaceSharedKeysResult> InvokeAsync(GetWorkspaceSharedKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSharedKeysResult>("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", args ?? new GetWorkspaceSharedKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The shared keys for a workspace.
+        /// </summary>
+        public static Output<GetWorkspaceSharedKeysResult> Invoke(GetWorkspaceSharedKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceSharedKeysResult>("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", args ?? new GetWorkspaceSharedKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceSharedKeysArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceSharedKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Log Analytics Workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWorkspaceSharedKeysInvokeArgs()
         {
         }
     }

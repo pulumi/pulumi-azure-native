@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CertificateRegistration.V20210115
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210115
         /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration/v20210115:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SSL certificate purchase order.
+        /// </summary>
+        public static Output<GetAppServiceCertificateOrderResult> Invoke(GetAppServiceCertificateOrderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration/v20210115:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210115
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAppServiceCertificateOrderArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppServiceCertificateOrderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the certificate order..
+        /// </summary>
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAppServiceCertificateOrderInvokeArgs()
         {
         }
     }

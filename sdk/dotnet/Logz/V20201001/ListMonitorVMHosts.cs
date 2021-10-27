@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logz.V20201001
         /// </summary>
         public static Task<ListMonitorVMHostsResult> InvokeAsync(ListMonitorVMHostsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz/v20201001:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response of a list VM Host Update Operation.
+        /// </summary>
+        public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz/v20201001:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMonitorVMHostsArgs()
+        {
+        }
+    }
+
+    public sealed class ListMonitorVMHostsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMonitorVMHostsInvokeArgs()
         {
         }
     }

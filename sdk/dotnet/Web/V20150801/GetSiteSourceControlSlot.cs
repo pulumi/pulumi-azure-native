@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteSourceControlSlotResult> InvokeAsync(GetSiteSourceControlSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlSlotResult>("azure-native:web/v20150801:getSiteSourceControlSlot", args ?? new GetSiteSourceControlSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the source control configuration for web app
+        /// </summary>
+        public static Output<GetSiteSourceControlSlotResult> Invoke(GetSiteSourceControlSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteSourceControlSlotResult>("azure-native:web/v20150801:getSiteSourceControlSlot", args ?? new GetSiteSourceControlSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteSourceControlSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteSourceControlSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteSourceControlSlotInvokeArgs()
         {
         }
     }

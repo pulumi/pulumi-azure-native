@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// </summary>
         public static Task<GetVpnServerConfigurationResult> InvokeAsync(GetVpnServerConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network/v20200401:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VpnServerConfiguration Resource.
+        /// </summary>
+        public static Output<GetVpnServerConfigurationResult> Invoke(GetVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network/v20200401:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20200401
         public string VpnServerConfigurationName { get; set; } = null!;
 
         public GetVpnServerConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpnServerConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name of the VpnServerConfiguration.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VpnServerConfiguration being retrieved.
+        /// </summary>
+        [Input("vpnServerConfigurationName", required: true)]
+        public Input<string> VpnServerConfigurationName { get; set; } = null!;
+
+        public GetVpnServerConfigurationInvokeArgs()
         {
         }
     }

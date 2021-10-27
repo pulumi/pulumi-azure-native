@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20161201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20161201
         /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network/v20161201:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Public IP address resource.
+        /// </summary>
+        public static Output<GetPublicIPAddressResult> Invoke(GetPublicIPAddressInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIPAddressResult>("azure-native:network/v20161201:getPublicIPAddress", args ?? new GetPublicIPAddressInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20161201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPublicIPAddressArgs()
+        {
+        }
+    }
+
+    public sealed class GetPublicIPAddressInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the subnet.
+        /// </summary>
+        [Input("publicIpAddressName", required: true)]
+        public Input<string> PublicIpAddressName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPublicIPAddressInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierSlotResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210201:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A domain specific resource identifier.
+        /// </summary>
+        public static Output<GetWebAppDomainOwnershipIdentifierSlotResult> Invoke(GetWebAppDomainOwnershipIdentifierSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210201:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20210201
         public string Slot { get; set; } = null!;
 
         public GetWebAppDomainOwnershipIdentifierSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppDomainOwnershipIdentifierSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of domain ownership identifier.
+        /// </summary>
+        [Input("domainOwnershipIdentifierName", required: true)]
+        public Input<string> DomainOwnershipIdentifierName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppDomainOwnershipIdentifierSlotInvokeArgs()
         {
         }
     }

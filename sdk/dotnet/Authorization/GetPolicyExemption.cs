@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The policy exemption.
+        /// API Version: 2020-07-01-preview.
+        /// </summary>
+        public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Authorization
         public string Scope { get; set; } = null!;
 
         public GetPolicyExemptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyExemptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the policy exemption to delete.
+        /// </summary>
+        [Input("policyExemptionName", required: true)]
+        public Input<string> PolicyExemptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetPolicyExemptionInvokeArgs()
         {
         }
     }

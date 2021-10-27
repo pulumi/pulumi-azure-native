@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public static Task<GetBlueprintResult> InvokeAsync(GetBlueprintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Blueprint definition.
+        /// </summary>
+        public static Output<GetBlueprintResult> Invoke(GetBlueprintInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public string ManagementGroupName { get; set; } = null!;
 
         public GetBlueprintArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlueprintInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// name of the blueprint.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// ManagementGroup where blueprint stores.
+        /// </summary>
+        [Input("managementGroupName", required: true)]
+        public Input<string> ManagementGroupName { get; set; } = null!;
+
+        public GetBlueprintInvokeArgs()
         {
         }
     }

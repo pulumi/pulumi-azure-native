@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Task<GetCodelessUiDataConnectorResult> InvokeAsync(GetCodelessUiDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents Codeless UI data connector.
+        /// </summary>
+        public static Output<GetCodelessUiDataConnectorResult> Invoke(GetCodelessUiDataConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetCodelessUiDataConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetCodelessUiDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetCodelessUiDataConnectorInvokeArgs()
         {
         }
     }

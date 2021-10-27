@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         public static Task<GetContentTypeResult> InvokeAsync(GetContentTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Content type contract details.
+        /// </summary>
+        public static Output<GetContentTypeResult> Invoke(GetContentTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public string ServiceName { get; set; } = null!;
 
         public GetContentTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetContentTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Content type identifier.
+        /// </summary>
+        [Input("contentTypeId", required: true)]
+        public Input<string> ContentTypeId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetContentTypeInvokeArgs()
         {
         }
     }

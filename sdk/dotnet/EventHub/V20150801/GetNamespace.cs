@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventHub.V20150801
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub/v20150801:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single Namespace item in List or Get Operation
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub/v20150801:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventHub.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNamespaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNamespaceInvokeArgs()
         {
         }
     }

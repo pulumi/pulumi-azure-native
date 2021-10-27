@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetDefaultUserRuleResult> InvokeAsync(GetDefaultUserRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultUserRuleResult>("azure-native:network:getDefaultUserRule", args ?? new GetDefaultUserRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network security default user rule.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetDefaultUserRuleResult> Invoke(GetDefaultUserRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultUserRuleResult>("azure-native:network:getDefaultUserRule", args ?? new GetDefaultUserRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.Network
         public string RuleName { get; set; } = null!;
 
         public GetDefaultUserRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetDefaultUserRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager security Configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetDefaultUserRuleInvokeArgs()
         {
         }
     }

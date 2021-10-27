@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// </summary>
         public static Task<GetLivePipelineResult> InvokeAsync(GetLivePipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLivePipelineResult>("azure-native:videoanalyzer/v20211101preview:getLivePipeline", args ?? new GetLivePipelineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+        /// </summary>
+        public static Output<GetLivePipelineResult> Invoke(GetLivePipelineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLivePipelineResult>("azure-native:videoanalyzer/v20211101preview:getLivePipeline", args ?? new GetLivePipelineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLivePipelineArgs()
+        {
+        }
+    }
+
+    public sealed class GetLivePipelineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Live pipeline unique identifier.
+        /// </summary>
+        [Input("livePipelineName", required: true)]
+        public Input<string> LivePipelineName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLivePipelineInvokeArgs()
         {
         }
     }

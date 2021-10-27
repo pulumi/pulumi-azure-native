@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ManagedServices
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Registration definition.
+        /// API Version: 2019-09-01.
+        /// </summary>
+        public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ManagedServices
         public string Scope { get; set; } = null!;
 
         public GetRegistrationDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistrationDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Guid of the registration definition.
+        /// </summary>
+        [Input("registrationDefinitionId", required: true)]
+        public Input<string> RegistrationDefinitionId { get; set; } = null!;
+
+        /// <summary>
+        /// Scope of the resource.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetRegistrationDefinitionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         public static Task<GetInstanceFailoverGroupResult> InvokeAsync(GetInstanceFailoverGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFailoverGroupResult>("azure-native:sql/v20200202preview:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An instance failover group.
+        /// </summary>
+        public static Output<GetInstanceFailoverGroupResult> Invoke(GetInstanceFailoverGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceFailoverGroupResult>("azure-native:sql/v20200202preview:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInstanceFailoverGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceFailoverGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the failover group.
+        /// </summary>
+        [Input("failoverGroupName", required: true)]
+        public Input<string> FailoverGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the region where the resource is located.
+        /// </summary>
+        [Input("locationName", required: true)]
+        public Input<string> LocationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInstanceFailoverGroupInvokeArgs()
         {
         }
     }

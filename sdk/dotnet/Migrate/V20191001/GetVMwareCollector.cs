@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20191001
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Migrate.V20191001
     {
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate/v20191001:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
+
+        public static Output<GetVMwareCollectorResult> Invoke(GetVMwareCollectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVMwareCollectorResult>("azure-native:migrate/v20191001:getVMwareCollector", args ?? new GetVMwareCollectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         public string VmWareCollectorName { get; set; } = null!;
 
         public GetVMwareCollectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetVMwareCollectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name of a VMware collector within a project.
+        /// </summary>
+        [Input("vmWareCollectorName", required: true)]
+        public Input<string> VmWareCollectorName { get; set; } = null!;
+
+        public GetVMwareCollectorInvokeArgs()
         {
         }
     }

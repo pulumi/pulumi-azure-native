@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ExpressRoute Circuit Authorization
+        /// API Version: 2020-03-20.
+        /// </summary>
+        public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAuthorizationArgs()
+        {
+        }
+    }
+
+    public sealed class GetAuthorizationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the ExpressRoute Circuit Authorization in the private cloud
+        /// </summary>
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAuthorizationInvokeArgs()
         {
         }
     }

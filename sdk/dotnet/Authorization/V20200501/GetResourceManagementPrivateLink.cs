@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20200501
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Authorization.V20200501
     {
         public static Task<GetResourceManagementPrivateLinkResult> InvokeAsync(GetResourceManagementPrivateLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithVersion());
+
+        public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         public string RmplName { get; set; } = null!;
 
         public GetResourceManagementPrivateLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceManagementPrivateLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group the template will be deployed to. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource management private link.
+        /// </summary>
+        [Input("rmplName", required: true)]
+        public Input<string> RmplName { get; set; } = null!;
+
+        public GetResourceManagementPrivateLinkInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Task<GetAzurePowerShellScriptResult> InvokeAsync(GetAzurePowerShellScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Object model for the Azure PowerShell script.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Resources
         public string ScriptName { get; set; } = null!;
 
         public GetAzurePowerShellScriptArgs()
+        {
+        }
+    }
+
+    public sealed class GetAzurePowerShellScriptInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment script.
+        /// </summary>
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
+
+        public GetAzurePowerShellScriptInvokeArgs()
         {
         }
     }

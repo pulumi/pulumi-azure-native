@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A secret.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         public string UserName { get; set; } = null!;
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=value)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the secret.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the user profile.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetSecretInvokeArgs()
         {
         }
     }

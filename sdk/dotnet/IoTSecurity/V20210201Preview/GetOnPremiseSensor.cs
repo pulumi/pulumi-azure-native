@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// </summary>
         public static Task<GetOnPremiseSensorResult> InvokeAsync(GetOnPremiseSensorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOnPremiseSensorResult>("azure-native:iotsecurity/v20210201preview:getOnPremiseSensor", args ?? new GetOnPremiseSensorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// On-premise IoT sensor
+        /// </summary>
+        public static Output<GetOnPremiseSensorResult> Invoke(GetOnPremiseSensorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOnPremiseSensorResult>("azure-native:iotsecurity/v20210201preview:getOnPremiseSensor", args ?? new GetOnPremiseSensorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public string OnPremiseSensorName { get; set; } = null!;
 
         public GetOnPremiseSensorArgs()
+        {
+        }
+    }
+
+    public sealed class GetOnPremiseSensorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the on-premise IoT sensor
+        /// </summary>
+        [Input("onPremiseSensorName", required: true)]
+        public Input<string> OnPremiseSensorName { get; set; } = null!;
+
+        public GetOnPremiseSensorInvokeArgs()
         {
         }
     }

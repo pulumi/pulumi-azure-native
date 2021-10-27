@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:databoxedge/v20200501preview:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device.
+        /// </summary>
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:databoxedge/v20200501preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDeviceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeviceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDeviceInvokeArgs()
         {
         }
     }

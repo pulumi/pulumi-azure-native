@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a DNS record set (a collection of DNS records with the same name and type).
+        /// API Version: 2018-05-01.
+        /// </summary>
+        public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Network
         public string ZoneName { get; set; } = null!;
 
         public GetRecordSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetRecordSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The type of DNS record in this record set.
+        /// </summary>
+        [Input("recordType", required: true)]
+        public Input<string> RecordType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the record set, relative to the name of the zone.
+        /// </summary>
+        [Input("relativeRecordSetName", required: true)]
+        public Input<string> RelativeRecordSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
+
+        public GetRecordSetInvokeArgs()
         {
         }
     }

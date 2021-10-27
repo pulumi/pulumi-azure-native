@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         /// </summary>
         public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security assessment metadata
+        /// </summary>
+        public static Output<GetAssessmentsMetadataSubscriptionResult> Invoke(GetAssessmentsMetadataSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         public string AssessmentMetadataName { get; set; } = null!;
 
         public GetAssessmentsMetadataSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssessmentsMetadataSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Assessment Key - Unique key for the assessment type
+        /// </summary>
+        [Input("assessmentMetadataName", required: true)]
+        public Input<string> AssessmentMetadataName { get; set; } = null!;
+
+        public GetAssessmentsMetadataSubscriptionInvokeArgs()
         {
         }
     }

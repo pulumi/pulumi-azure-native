@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetVirtualNetworkGatewayLearnedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayLearnedRoutesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayLearnedRoutesResult>("azure-native:network:getVirtualNetworkGatewayLearnedRoutes", args ?? new GetVirtualNetworkGatewayLearnedRoutesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of virtual network gateway routes.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayLearnedRoutesResult> Invoke(GetVirtualNetworkGatewayLearnedRoutesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayLearnedRoutesResult>("azure-native:network:getVirtualNetworkGatewayLearnedRoutes", args ?? new GetVirtualNetworkGatewayLearnedRoutesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayLearnedRoutesArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkGatewayLearnedRoutesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
+
+        public GetVirtualNetworkGatewayLearnedRoutesInvokeArgs()
         {
         }
     }

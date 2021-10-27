@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Media
         public string TransformName { get; set; } = null!;
 
         public GetTransformArgs()
+        {
+        }
+    }
+
+    public sealed class GetTransformInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Transform name.
+        /// </summary>
+        [Input("transformName", required: true)]
+        public Input<string> TransformName { get; set; } = null!;
+
+        public GetTransformInvokeArgs()
         {
         }
     }

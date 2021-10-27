@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210315
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
         /// </summary>
         public static Task<GetCassandraResourceCassandraKeyspaceResult> InvokeAsync(GetCassandraResourceCassandraKeyspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraKeyspaceResult>("azure-native:documentdb/v20210315:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra keyspace.
+        /// </summary>
+        public static Output<GetCassandraResourceCassandraKeyspaceResult> Invoke(GetCassandraResourceCassandraKeyspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraKeyspaceResult>("azure-native:documentdb/v20210315:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCassandraResourceCassandraKeyspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetCassandraResourceCassandraKeyspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB keyspace name.
+        /// </summary>
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCassandraResourceCassandraKeyspaceInvokeArgs()
         {
         }
     }

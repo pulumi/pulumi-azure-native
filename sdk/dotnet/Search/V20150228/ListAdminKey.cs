@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search.V20150228
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Search.V20150228
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20150228:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response containing the primary and secondary API keys for a given Azure Search service.
+        /// </summary>
+        public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20150228:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Search.V20150228
         public string ServiceName { get; set; } = null!;
 
         public ListAdminKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListAdminKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the current subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Search service for which to list admin keys.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListAdminKeyInvokeArgs()
         {
         }
     }

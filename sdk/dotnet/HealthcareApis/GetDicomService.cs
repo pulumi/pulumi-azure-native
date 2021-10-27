@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of Dicom Service
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.HealthcareApis
         public string WorkspaceName { get; set; } = null!;
 
         public GetDicomServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDicomServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of DICOM Service resource.
+        /// </summary>
+        [Input("dicomServiceName", required: true)]
+        public Input<string> DicomServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of workspace resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDicomServiceInvokeArgs()
         {
         }
     }

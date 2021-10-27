@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh/v20180701preview:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This type describes a volume resource.
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh/v20180701preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public string VolumeName { get; set; } = null!;
 
         public GetVolumeArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Azure resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The identity of the volume.
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
+
+        public GetVolumeInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// </summary>
         public static Task<ListWebAppHostKeysSlotResult> InvokeAsync(ListWebAppHostKeysSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysSlotResult>("azure-native:web/v20210201:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Functions host level keys.
+        /// </summary>
+        public static Output<ListWebAppHostKeysSlotResult> Invoke(ListWebAppHostKeysSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppHostKeysSlotResult>("azure-native:web/v20210201:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20210201
         public string Slot { get; set; } = null!;
 
         public ListWebAppHostKeysSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppHostKeysSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppHostKeysSlotInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Managed Network resource
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkManagerArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkManagerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkManagerInvokeArgs()
         {
         }
     }

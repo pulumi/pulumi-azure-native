@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     {
         public static Task<ListWorkflowRunActionRepetitionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionRepetitionExpressionTracesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithVersion());
+
+        public static Output<ListWorkflowRunActionRepetitionExpressionTracesResult> Invoke(ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -49,6 +53,43 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public string WorkflowName { get; set; } = null!;
 
         public ListWorkflowRunActionRepetitionExpressionTracesArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The workflow action name.
+        /// </summary>
+        [Input("actionName", required: true)]
+        public Input<string> ActionName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow repetition.
+        /// </summary>
+        [Input("repetitionName", required: true)]
+        public Input<string> RepetitionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow run name.
+        /// </summary>
+        [Input("runName", required: true)]
+        public Input<string> RunName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public ListWorkflowRunActionRepetitionExpressionTracesInvokeArgs()
         {
         }
     }

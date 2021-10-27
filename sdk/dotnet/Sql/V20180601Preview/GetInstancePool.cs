@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL instance pool.
+        /// </summary>
+        public static Output<GetInstancePoolResult> Invoke(GetInstancePoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInstancePoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstancePoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the instance pool to be retrieved.
+        /// </summary>
+        [Input("instancePoolName", required: true)]
+        public Input<string> InstancePoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInstancePoolInvokeArgs()
         {
         }
     }

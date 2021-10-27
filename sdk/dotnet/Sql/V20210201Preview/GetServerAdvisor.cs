@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         public static Task<GetServerAdvisorResult> InvokeAsync(GetServerAdvisorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdvisorResult>("azure-native:sql/v20210201preview:getServerAdvisor", args ?? new GetServerAdvisorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Database, Server or Elastic Pool Advisor.
+        /// </summary>
+        public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql/v20210201preview:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public string ServerName { get; set; } = null!;
 
         public GetServerAdvisorArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerAdvisorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Server Advisor.
+        /// </summary>
+        [Input("advisorName", required: true)]
+        public Input<string> AdvisorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerAdvisorInvokeArgs()
         {
         }
     }

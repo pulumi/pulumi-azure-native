@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An HCX Enterprise Site resource
+        /// API Version: 2020-03-20.
+        /// </summary>
+        public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHcxEnterpriseSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetHcxEnterpriseSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the HCX Enterprise Site in the private cloud
+        /// </summary>
+        [Input("hcxEnterpriseSiteName", required: true)]
+        public Input<string> HcxEnterpriseSiteName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHcxEnterpriseSiteInvokeArgs()
         {
         }
     }

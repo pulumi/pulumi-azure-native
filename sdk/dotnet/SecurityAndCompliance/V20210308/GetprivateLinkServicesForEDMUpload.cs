@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// </summary>
         public static Task<GetprivateLinkServicesForEDMUploadResult> InvokeAsync(GetprivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
+        public static Output<GetprivateLinkServicesForEDMUploadResult> Invoke(GetprivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public string ResourceName { get; set; } = null!;
 
         public GetprivateLinkServicesForEDMUploadArgs()
+        {
+        }
+    }
+
+    public sealed class GetprivateLinkServicesForEDMUploadInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetprivateLinkServicesForEDMUploadInvokeArgs()
         {
         }
     }

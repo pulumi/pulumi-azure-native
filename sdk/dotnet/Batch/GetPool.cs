@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contains information about a pool.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Batch
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The pool name. This must be unique within the account.
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the Batch account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPoolInvokeArgs()
         {
         }
     }

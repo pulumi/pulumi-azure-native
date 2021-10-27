@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataProtection
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         public static Task<GetBackupInstanceResult> InvokeAsync(GetBackupInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupInstanceResult>("azure-native:dataprotection:getBackupInstance", args ?? new GetBackupInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// BackupInstance Resource
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetBackupInstanceResult> Invoke(GetBackupInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupInstanceResult>("azure-native:dataprotection:getBackupInstance", args ?? new GetBackupInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataProtection
         public string VaultName { get; set; } = null!;
 
         public GetBackupInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the backup instance
+        /// </summary>
+        [Input("backupInstanceName", required: true)]
+        public Input<string> BackupInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the backup vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the backup vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetBackupInstanceInvokeArgs()
         {
         }
     }

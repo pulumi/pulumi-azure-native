@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The container for solution.
+        /// </summary>
+        public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         public string SolutionName { get; set; } = null!;
 
         public GetSolutionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSolutionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// User Solution Name.
+        /// </summary>
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
+
+        public GetSolutionInvokeArgs()
         {
         }
     }

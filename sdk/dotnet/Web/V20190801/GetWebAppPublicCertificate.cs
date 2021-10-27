@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20190801
         /// </summary>
         public static Task<GetWebAppPublicCertificateResult> InvokeAsync(GetWebAppPublicCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-native:web/v20190801:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Public certificate object
+        /// </summary>
+        public static Output<GetWebAppPublicCertificateResult> Invoke(GetWebAppPublicCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web/v20190801:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20190801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebAppPublicCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppPublicCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Public certificate name.
+        /// </summary>
+        [Input("publicCertificateName", required: true)]
+        public Input<string> PublicCertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebAppPublicCertificateInvokeArgs()
         {
         }
     }

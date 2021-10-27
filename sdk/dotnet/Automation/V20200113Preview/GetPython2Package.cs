@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20200113Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation/v20200113preview:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the module type.
+        /// </summary>
+        public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20200113preview:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPython2PackageArgs()
+        {
+        }
+    }
+
+    public sealed class GetPython2PackageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The python package name.
+        /// </summary>
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPython2PackageInvokeArgs()
         {
         }
     }

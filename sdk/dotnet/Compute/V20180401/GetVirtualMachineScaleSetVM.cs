@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20180401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20180401
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20180401:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a virtual machine scale set virtual machine.
+        /// </summary>
+        public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20180401:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20180401
         public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetVMArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineScaleSetVMInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The instance ID of the virtual machine.
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
+
+        public GetVirtualMachineScaleSetVMInvokeArgs()
         {
         }
     }

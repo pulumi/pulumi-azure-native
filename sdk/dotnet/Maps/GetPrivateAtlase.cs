@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maps
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure resource which represents which will provision the ability to create private location data.
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
+        public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Maps
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateAtlaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateAtlaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Maps Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Private Atlas instance.
+        /// </summary>
+        [Input("privateAtlasName", required: true)]
+        public Input<string> PrivateAtlasName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateAtlaseInvokeArgs()
         {
         }
     }

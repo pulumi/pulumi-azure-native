@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric/v20210901privatepreview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The manged cluster resource
+        /// </summary>
+        public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric/v20210901privatepreview:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedClusterInvokeArgs()
         {
         }
     }

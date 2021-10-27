@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality/v20210301preview:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Developer Keys of account
+        /// </summary>
+        public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality/v20210301preview:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListRemoteRenderingAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListRemoteRenderingAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of an Mixed Reality Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListRemoteRenderingAccountKeysInvokeArgs()
         {
         }
     }

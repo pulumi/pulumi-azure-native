@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights:getHub", args ?? new GetHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Hub resource.
+        /// API Version: 2017-04-26.
+        /// </summary>
+        public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure-native:customerinsights:getHub", args ?? new GetHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.CustomerInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHubInvokeArgs()
         {
         }
     }

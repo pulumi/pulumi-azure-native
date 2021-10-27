@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Marketplace
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Marketplace
         /// </summary>
         public static Task<GetPrivateStoreOfferResult> InvokeAsync(GetPrivateStoreOfferArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The privateStore offer data structure.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetPrivateStoreOfferResult> Invoke(GetPrivateStoreOfferInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreOfferResult>("azure-native:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Marketplace
         public string PrivateStoreId { get; set; } = null!;
 
         public GetPrivateStoreOfferArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateStoreOfferInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The offer ID to update or delete
+        /// </summary>
+        [Input("offerId", required: true)]
+        public Input<string> OfferId { get; set; } = null!;
+
+        /// <summary>
+        /// The store ID - must use the tenant ID
+        /// </summary>
+        [Input("privateStoreId", required: true)]
+        public Input<string> PrivateStoreId { get; set; } = null!;
+
+        public GetPrivateStoreOfferInvokeArgs()
         {
         }
     }

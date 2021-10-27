@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Kusto
         public string ResourceGroupName { get; set; } = null!;
 
         public ListClusterFollowerDatabasesArgs()
+        {
+        }
+    }
+
+    public sealed class ListClusterFollowerDatabasesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListClusterFollowerDatabasesInvokeArgs()
         {
         }
     }

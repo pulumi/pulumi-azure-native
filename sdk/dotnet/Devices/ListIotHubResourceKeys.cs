@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public static Task<ListIotHubResourceKeysResult> InvokeAsync(ListIotHubResourceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-native:devices:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of shared access policies with a next link.
+        /// API Version: 2020-08-31.
+        /// </summary>
+        public static Output<ListIotHubResourceKeysResult> Invoke(ListIotHubResourceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysResult>("azure-native:devices:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Devices
         public string ResourceName { get; set; } = null!;
 
         public ListIotHubResourceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListIotHubResourceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the IoT hub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListIotHubResourceKeysInvokeArgs()
         {
         }
     }

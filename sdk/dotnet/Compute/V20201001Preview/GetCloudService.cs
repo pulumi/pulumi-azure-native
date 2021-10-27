@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute/v20201001preview:getCloudService", args ?? new GetCloudServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the cloud service.
+        /// </summary>
+        public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute/v20201001preview:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCloudServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetCloudServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the cloud service.
+        /// </summary>
+        [Input("cloudServiceName", required: true)]
+        public Input<string> CloudServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCloudServiceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Communication.V20200820
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Communication.V20200820
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication/v20200820:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A class representing the access keys of a CommunicationService.
+        /// </summary>
+        public static Output<ListCommunicationServiceKeysResult> Invoke(ListCommunicationServiceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListCommunicationServiceKeysResult>("azure-native:communication/v20200820:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Communication.V20200820
         public string ResourceGroupName { get; set; } = null!;
 
         public ListCommunicationServiceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListCommunicationServiceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the CommunicationService resource.
+        /// </summary>
+        [Input("communicationServiceName", required: true)]
+        public Input<string> CommunicationServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListCommunicationServiceKeysInvokeArgs()
         {
         }
     }

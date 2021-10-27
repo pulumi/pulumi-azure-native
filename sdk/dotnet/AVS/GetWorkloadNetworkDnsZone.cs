@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<GetWorkloadNetworkDnsZoneResult> InvokeAsync(GetWorkloadNetworkDnsZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX DNS Zone
+        /// API Version: 2020-07-17-preview.
+        /// </summary>
+        public static Output<GetWorkloadNetworkDnsZoneResult> Invoke(GetWorkloadNetworkDnsZoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkloadNetworkDnsZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkDnsZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
+        /// </summary>
+        [Input("dnsZoneId", required: true)]
+        public Input<string> DnsZoneId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkloadNetworkDnsZoneInvokeArgs()
         {
         }
     }

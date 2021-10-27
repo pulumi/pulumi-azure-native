@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The backup policy.
+        /// </summary>
+        public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBackupPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of backup policy to be fetched.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBackupPolicyInvokeArgs()
         {
         }
     }

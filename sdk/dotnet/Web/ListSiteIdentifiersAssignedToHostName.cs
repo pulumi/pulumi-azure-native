@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListSiteIdentifiersAssignedToHostNameResult> InvokeAsync(ListSiteIdentifiersAssignedToHostNameArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of identifiers.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListSiteIdentifiersAssignedToHostNameResult> Invoke(ListSiteIdentifiersAssignedToHostNameInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Web
         public string? Name { get; set; }
 
         public ListSiteIdentifiersAssignedToHostNameArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteIdentifiersAssignedToHostNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the object.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public ListSiteIdentifiersAssignedToHostNameInvokeArgs()
         {
         }
     }

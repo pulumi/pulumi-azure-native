@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public string SecretValueResourceName { get; set; } = null!;
 
         public GetSecretValueArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Azure resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the secret resource.
+        /// </summary>
+        [Input("secretResourceName", required: true)]
+        public Input<string> SecretResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the secret resource value which is typically the version identifier for the value.
+        /// </summary>
+        [Input("secretValueResourceName", required: true)]
+        public Input<string> SecretValueResourceName { get; set; } = null!;
+
+        public GetSecretValueInvokeArgs()
         {
         }
     }

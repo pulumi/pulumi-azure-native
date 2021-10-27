@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetDataMaskingPolicyResult> InvokeAsync(GetDataMaskingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a database data masking policy.
+        /// API Version: 2014-04-01.
+        /// </summary>
+        public static Output<GetDataMaskingPolicyResult> Invoke(GetDataMaskingPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetDataMaskingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataMaskingPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database for which the data masking rule applies.
+        /// </summary>
+        [Input("dataMaskingPolicyName", required: true)]
+        public Input<string> DataMaskingPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDataMaskingPolicyInvokeArgs()
         {
         }
     }

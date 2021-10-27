@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public static Task<GetApplicationTypeVersionResult> InvokeAsync(GetApplicationTypeVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An application type version resource for the specified application type name resource.
+        /// API Version: 2020-03-01.
+        /// </summary>
+        public static Output<GetApplicationTypeVersionResult> Invoke(GetApplicationTypeVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.ServiceFabric
         public string Version { get; set; } = null!;
 
         public GetApplicationTypeVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationTypeVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application type name resource.
+        /// </summary>
+        [Input("applicationTypeName", required: true)]
+        public Input<string> ApplicationTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The application type version.
+        /// </summary>
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
+
+        public GetApplicationTypeVersionInvokeArgs()
         {
         }
     }

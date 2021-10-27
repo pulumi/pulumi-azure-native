@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerInstance.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180601
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance/v20180601:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A container group.
+        /// </summary>
+        public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20180601:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerInstance.V20180601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetContainerGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetContainerGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container group.
+        /// </summary>
+        [Input("containerGroupName", required: true)]
+        public Input<string> ContainerGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetContainerGroupInvokeArgs()
         {
         }
     }

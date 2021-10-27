@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20210630preview:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+        /// </summary>
+        public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20210630preview:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetReferenceDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetReferenceDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Time Series Insights reference data set associated with the specified environment.
+        /// </summary>
+        [Input("referenceDataSetName", required: true)]
+        public Input<string> ReferenceDataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetReferenceDataSetInvokeArgs()
         {
         }
     }

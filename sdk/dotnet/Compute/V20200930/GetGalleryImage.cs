@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20200930
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20200930
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute/v20200930:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the gallery image definition that you want to create or update.
+        /// </summary>
+        public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute/v20200930:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20200930
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGalleryImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the gallery image definition to be retrieved.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public Input<string> GalleryImageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGalleryImageInvokeArgs()
         {
         }
     }

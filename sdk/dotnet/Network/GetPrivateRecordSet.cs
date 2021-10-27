@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetPrivateRecordSetResult> InvokeAsync(GetPrivateRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateRecordSetResult>("azure-native:network:getPrivateRecordSet", args ?? new GetPrivateRecordSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetPrivateRecordSetResult> Invoke(GetPrivateRecordSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateRecordSetResult>("azure-native:network:getPrivateRecordSet", args ?? new GetPrivateRecordSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateRecordSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateRecordSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Private DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("privateZoneName", required: true)]
+        public Input<string> PrivateZoneName { get; set; } = null!;
+
+        /// <summary>
+        /// The type of DNS record in this record set.
+        /// </summary>
+        [Input("recordType", required: true)]
+        public Input<string> RecordType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the record set, relative to the name of the zone.
+        /// </summary>
+        [Input("relativeRecordSetName", required: true)]
+        public Input<string> RelativeRecordSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateRecordSetInvokeArgs()
         {
         }
     }

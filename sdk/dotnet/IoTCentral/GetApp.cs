@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTCentral
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The IoT Central application.
+        /// API Version: 2018-09-01.
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.IoTCentral
         public string ResourceName { get; set; } = null!;
 
         public GetAppArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the IoT Central application.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ARM resource name of the IoT Central application.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetAppInvokeArgs()
         {
         }
     }

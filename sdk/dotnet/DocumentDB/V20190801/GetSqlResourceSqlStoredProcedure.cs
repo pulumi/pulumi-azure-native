@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         /// </summary>
         public static Task<GetSqlResourceSqlStoredProcedureResult> InvokeAsync(GetSqlResourceSqlStoredProcedureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20190801:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB storedProcedure.
+        /// </summary>
+        public static Output<GetSqlResourceSqlStoredProcedureResult> Invoke(GetSqlResourceSqlStoredProcedureInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20190801:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         public string StoredProcedureName { get; set; } = null!;
 
         public GetSqlResourceSqlStoredProcedureArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlResourceSqlStoredProcedureInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB container name.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB storedProcedure name.
+        /// </summary>
+        [Input("storedProcedureName", required: true)]
+        public Input<string> StoredProcedureName { get; set; } = null!;
+
+        public GetSqlResourceSqlStoredProcedureInvokeArgs()
         {
         }
     }

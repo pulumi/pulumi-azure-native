@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Product details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetProductArgs()
+        {
+        }
+    }
+
+    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Product identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetProductInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The metric alert resource.
+        /// API Version: 2018-03-01.
+        /// </summary>
+        public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Insights
         public string RuleName { get; set; } = null!;
 
         public GetMetricAlertArgs()
+        {
+        }
+    }
+
+    public sealed class GetMetricAlertInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetMetricAlertInvokeArgs()
         {
         }
     }

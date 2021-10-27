@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180501
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the properties of the Dns Resource Reference Result.
+        /// </summary>
+        public static Output<GetDnsResourceReferenceByTarResourcesResult> Invoke(GetDnsResourceReferenceByTarResourcesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20180501
         }
 
         public GetDnsResourceReferenceByTarResourcesArgs()
+        {
+        }
+    }
+
+    public sealed class GetDnsResourceReferenceByTarResourcesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("targetResources")]
+        private InputList<Inputs.SubResourceArgs>? _targetResources;
+
+        /// <summary>
+        /// A list of references to azure resources for which referencing dns records need to be queried.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> TargetResources
+        {
+            get => _targetResources ?? (_targetResources = new InputList<Inputs.SubResourceArgs>());
+            set => _targetResources = value;
+        }
+
+        public GetDnsResourceReferenceByTarResourcesInvokeArgs()
         {
         }
     }

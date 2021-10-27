@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20170401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20170401
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An activity log alert resource.
+        /// </summary>
+        public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20170401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetActivityLogAlertArgs()
+        {
+        }
+    }
+
+    public sealed class GetActivityLogAlertInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the activity log alert.
+        /// </summary>
+        [Input("activityLogAlertName", required: true)]
+        public Input<string> ActivityLogAlertName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetActivityLogAlertInvokeArgs()
         {
         }
     }

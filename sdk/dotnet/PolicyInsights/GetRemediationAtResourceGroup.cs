@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Task<GetRemediationAtResourceGroupResult> InvokeAsync(GetRemediationAtResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The remediation definition.
+        /// API Version: 2019-07-01.
+        /// </summary>
+        public static Output<GetRemediationAtResourceGroupResult> Invoke(GetRemediationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceGroupResult>("azure-native:policyinsights:getRemediationAtResourceGroup", args ?? new GetRemediationAtResourceGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.PolicyInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRemediationAtResourceGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetRemediationAtResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRemediationAtResourceGroupInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AadIam.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AadIam.V20200301
         /// </summary>
         public static Task<GetprivateLinkForAzureAdResult> InvokeAsync(GetprivateLinkForAzureAdArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-native:aadiam/v20200301:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithVersion());
+
+        /// <summary>
+        /// PrivateLink Policy configuration object.
+        /// </summary>
+        public static Output<GetprivateLinkForAzureAdResult> Invoke(GetprivateLinkForAzureAdInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkForAzureAdResult>("azure-native:aadiam/v20200301:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AadIam.V20200301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetprivateLinkForAzureAdArgs()
+        {
+        }
+    }
+
+    public sealed class GetprivateLinkForAzureAdInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private link policy in Azure AD.
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetprivateLinkForAzureAdInvokeArgs()
         {
         }
     }

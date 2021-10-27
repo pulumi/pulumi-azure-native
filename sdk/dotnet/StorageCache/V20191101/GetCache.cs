@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageCache.V20191101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache/v20191101:getCache", args ?? new GetCacheArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// </summary>
+        public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache/v20191101:getCache", args ?? new GetCacheInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCacheArgs()
+        {
+        }
+    }
+
+    public sealed class GetCacheInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of Cache.
+        /// </summary>
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
+
+        /// <summary>
+        /// Target resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCacheInvokeArgs()
         {
         }
     }

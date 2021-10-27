@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<ListSchemaContentCallbackUrlResult> InvokeAsync(ListSchemaContentCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSchemaContentCallbackUrlResult>("azure-native:logic/v20160601:listSchemaContentCallbackUrl", args ?? new ListSchemaContentCallbackUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// </summary>
+        public static Output<ListSchemaContentCallbackUrlResult> Invoke(ListSchemaContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSchemaContentCallbackUrlResult>("azure-native:logic/v20160601:listSchemaContentCallbackUrl", args ?? new ListSchemaContentCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string SchemaName { get; set; } = null!;
 
         public ListSchemaContentCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListSchemaContentCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The key type.
+        /// </summary>
+        [Input("keyType")]
+        public Input<Pulumi.AzureNative.Logic.V20160601.KeyType>? KeyType { get; set; }
+
+        /// <summary>
+        /// The expiry time.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account schema name.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        public ListSchemaContentCallbackUrlInvokeArgs()
         {
         }
     }

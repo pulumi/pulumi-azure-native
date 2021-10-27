@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListWebAppSiteBackupsSlotResult> InvokeAsync(ListWebAppSiteBackupsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsSlotResult>("azure-native:web:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of backup items.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListWebAppSiteBackupsSlotResult> Invoke(ListWebAppSiteBackupsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppSiteBackupsSlotResult>("azure-native:web:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string Slot { get; set; } = null!;
 
         public ListWebAppSiteBackupsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppSiteBackupsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get backups of the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppSiteBackupsSlotInvokeArgs()
         {
         }
     }

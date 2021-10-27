@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -18,6 +19,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network base admin rule.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -54,6 +62,43 @@ namespace Pulumi.AzureNative.Network
         public string RuleName { get; set; } = null!;
 
         public GetAdminRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAdminRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager security Configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetAdminRuleInvokeArgs()
         {
         }
     }

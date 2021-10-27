@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-native:automation/v20190601:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the connection type.
+        /// </summary>
+        public static Output<GetConnectionTypeResult> Invoke(GetConnectionTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation/v20190601:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectionTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectionTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of connection type.
+        /// </summary>
+        [Input("connectionTypeName", required: true)]
+        public Input<string> ConnectionTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectionTypeInvokeArgs()
         {
         }
     }

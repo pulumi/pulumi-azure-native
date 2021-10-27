@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Media.V20180701
     {
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media/v20180701:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
+
+        public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media/v20180701:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +41,31 @@ namespace Pulumi.AzureNative.Media.V20180701
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMediaServiceEdgePoliciesArgs()
+        {
+        }
+    }
+
+    public sealed class ListMediaServiceEdgePoliciesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique identifier of the edge device.
+        /// </summary>
+        [Input("deviceId")]
+        public Input<string>? DeviceId { get; set; }
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMediaServiceEdgePoliciesInvokeArgs()
         {
         }
     }

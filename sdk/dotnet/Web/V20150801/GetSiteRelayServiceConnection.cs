@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteRelayServiceConnectionResult> InvokeAsync(GetSiteRelayServiceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class that represents a BizTalk Hybrid Connection
+        /// </summary>
+        public static Output<GetSiteRelayServiceConnectionResult> Invoke(GetSiteRelayServiceConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSiteRelayServiceConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteRelayServiceConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name by which the Hybrid Connection is identified
+        /// </summary>
+        [Input("entityName", required: true)]
+        public Input<string> EntityName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSiteRelayServiceConnectionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteSourceControlResult> InvokeAsync(GetSiteSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the source control configuration for web app
+        /// </summary>
+        public static Output<GetSiteSourceControlResult> Invoke(GetSiteSourceControlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteSourceControlResult>("azure-native:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSiteSourceControlArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteSourceControlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSiteSourceControlInvokeArgs()
         {
         }
     }

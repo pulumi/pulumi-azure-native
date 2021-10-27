@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:insights/v20210501preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The diagnostic setting resource.
+        /// </summary>
+        public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights/v20210501preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public string ResourceUri { get; set; } = null!;
 
         public GetDiagnosticSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetDiagnosticSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the diagnostic setting.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetDiagnosticSettingInvokeArgs()
         {
         }
     }

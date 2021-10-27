@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-native:network/v20200601:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Private DNS zone.
+        /// </summary>
+        public static Output<GetPrivateZoneResult> Invoke(GetPrivateZoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network/v20200601:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Private DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("privateZoneName", required: true)]
+        public Input<string> PrivateZoneName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateZoneInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetGlobalUserEnvironmentResult> InvokeAsync(GetGlobalUserEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the environments details
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetGlobalUserEnvironmentResult> Invoke(GetGlobalUserEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.LabServices
         public string UserName { get; set; } = null!;
 
         public GetGlobalUserEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalUserEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resourceId of the environment
+        /// </summary>
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
+
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($expand=environment)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetGlobalUserEnvironmentInvokeArgs()
         {
         }
     }

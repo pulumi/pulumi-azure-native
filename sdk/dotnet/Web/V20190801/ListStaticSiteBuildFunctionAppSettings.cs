@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20190801
         /// </summary>
         public static Task<ListStaticSiteBuildFunctionAppSettingsResult> InvokeAsync(ListStaticSiteBuildFunctionAppSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20190801:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
+        public static Output<ListStaticSiteBuildFunctionAppSettingsResult> Invoke(ListStaticSiteBuildFunctionAppSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20190801:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20190801
         public string ResourceGroupName { get; set; } = null!;
 
         public ListStaticSiteBuildFunctionAppSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class ListStaticSiteBuildFunctionAppSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the static site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The stage site identifier.
+        /// </summary>
+        [Input("prId", required: true)]
+        public Input<string> PrId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListStaticSiteBuildFunctionAppSettingsInvokeArgs()
         {
         }
     }

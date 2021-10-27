@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         public static Task<GetEncryptionProtectorResult> InvokeAsync(GetEncryptionProtectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The server encryption protector.
+        /// </summary>
+        public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql/v20200202preview:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public string ServerName { get; set; } = null!;
 
         public GetEncryptionProtectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetEncryptionProtectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the encryption protector to be retrieved.
+        /// </summary>
+        [Input("encryptionProtectorName", required: true)]
+        public Input<string> EncryptionProtectorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetEncryptionProtectorInvokeArgs()
         {
         }
     }

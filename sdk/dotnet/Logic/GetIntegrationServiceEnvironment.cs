@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentResult> InvokeAsync(GetIntegrationServiceEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azure-native:logic:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration service environment.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<GetIntegrationServiceEnvironmentResult> Invoke(GetIntegrationServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentResult>("azure-native:logic:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Logic
         public string ResourceGroup { get; set; } = null!;
 
         public GetIntegrationServiceEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationServiceEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration service environment name.
+        /// </summary>
+        [Input("integrationServiceEnvironmentName", required: true)]
+        public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetIntegrationServiceEnvironmentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:keyvault:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource information with extended details.
+        /// API Version: 2019-09-01.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:keyvault:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.KeyVault
         public string VaultName { get; set; } = null!;
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Resource Group to which the vault belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the secret.
+        /// </summary>
+        [Input("secretName", required: true)]
+        public Input<string> SecretName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetSecretInvokeArgs()
         {
         }
     }

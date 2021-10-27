@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Task<GetSynapseWorkspaceSqlPoolTableDataSetResult> InvokeAsync(GetSynapseWorkspaceSqlPoolTableDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Synapse Workspace Sql Pool Table data set.
+        /// </summary>
+        public static Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> Invoke(GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSynapseWorkspaceSqlPoolTableDataSetResult>("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public string ShareName { get; set; } = null!;
 
         public GetSynapseWorkspaceSqlPoolTableDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetSynapseWorkspaceSqlPoolTableDataSetInvokeArgs()
         {
         }
     }

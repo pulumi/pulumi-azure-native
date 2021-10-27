@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a .rdp file
+        /// API Version: 2018-09-15.
+        /// </summary>
+        public static Output<GetVirtualMachineRdpFileContentsResult> Invoke(GetVirtualMachineRdpFileContentsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DevTestLab
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualMachineRdpFileContentsArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineRdpFileContentsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualMachineRdpFileContentsInvokeArgs()
         {
         }
     }

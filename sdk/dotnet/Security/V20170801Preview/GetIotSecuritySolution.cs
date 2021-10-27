@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20170801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security Solution
+        /// </summary>
+        public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         public string SolutionName { get; set; } = null!;
 
         public GetIotSecuritySolutionArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotSecuritySolutionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The solution manager name
+        /// </summary>
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
+
+        public GetIotSecuritySolutionInvokeArgs()
         {
         }
     }

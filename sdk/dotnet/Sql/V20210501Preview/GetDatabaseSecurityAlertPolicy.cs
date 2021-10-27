@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// </summary>
         public static Task<GetDatabaseSecurityAlertPolicyResult> InvokeAsync(GetDatabaseSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20210501preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A database security alert policy.
+        /// </summary>
+        public static Output<GetDatabaseSecurityAlertPolicyResult> Invoke(GetDatabaseSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20210501preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public string ServerName { get; set; } = null!;
 
         public GetDatabaseSecurityAlertPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseSecurityAlertPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the  database for which the security alert policy is defined.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the security alert policy.
+        /// </summary>
+        [Input("securityAlertPolicyName", required: true)]
+        public Input<string> SecurityAlertPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the  server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDatabaseSecurityAlertPolicyInvokeArgs()
         {
         }
     }

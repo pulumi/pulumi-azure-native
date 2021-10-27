@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         /// </summary>
         public static Task<GetVendorSkusResult> InvokeAsync(GetVendorSkusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-native:hybridnetwork/v20200101preview:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Sku sub resource.
+        /// </summary>
+        public static Output<GetVendorSkusResult> Invoke(GetVendorSkusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVendorSkusResult>("azure-native:hybridnetwork/v20200101preview:getVendorSkus", args ?? new GetVendorSkusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         public string VendorName { get; set; } = null!;
 
         public GetVendorSkusArgs()
+        {
+        }
+    }
+
+    public sealed class GetVendorSkusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the sku.
+        /// </summary>
+        [Input("skuName", required: true)]
+        public Input<string> SkuName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vendor.
+        /// </summary>
+        [Input("vendorName", required: true)]
+        public Input<string> VendorName { get; set; } = null!;
+
+        public GetVendorSkusInvokeArgs()
         {
         }
     }

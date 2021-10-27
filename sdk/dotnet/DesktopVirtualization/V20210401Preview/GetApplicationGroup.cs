@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20210401preview:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a ApplicationGroup definition.
+        /// </summary>
+        public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization/v20210401preview:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application group
+        /// </summary>
+        [Input("applicationGroupName", required: true)]
+        public Input<string> ApplicationGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationGroupInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SignalRService.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20200501:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A class represents the access keys of SignalR service.
+        /// </summary>
+        public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20200501:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
         public string ResourceName { get; set; } = null!;
 
         public ListSignalRKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListSignalRKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SignalR resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListSignalRKeysInvokeArgs()
         {
         }
     }

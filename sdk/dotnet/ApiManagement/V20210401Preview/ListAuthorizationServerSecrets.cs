@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210401preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OAuth Server Secrets Contract.
+        /// </summary>
+        public static Output<ListAuthorizationServerSecretsResult> Invoke(ListAuthorizationServerSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210401preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public string ServiceName { get; set; } = null!;
 
         public ListAuthorizationServerSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListAuthorizationServerSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the authorization server.
+        /// </summary>
+        [Input("authsid", required: true)]
+        public Input<string> Authsid { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListAuthorizationServerSecretsInvokeArgs()
         {
         }
     }

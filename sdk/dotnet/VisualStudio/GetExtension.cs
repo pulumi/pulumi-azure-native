@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VisualStudio
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.VisualStudio
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response to an extension resource GET request.
+        /// API Version: 2014-04-01-preview.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.VisualStudio
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Visual Studio Team Services account resource.
+        /// </summary>
+        [Input("accountResourceName", required: true)]
+        public Input<string> AccountResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the extension.
+        /// </summary>
+        [Input("extensionResourceName", required: true)]
+        public Input<string> ExtensionResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExtensionInvokeArgs()
         {
         }
     }

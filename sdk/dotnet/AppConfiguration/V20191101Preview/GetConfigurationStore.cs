@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration/v20191101preview:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+        /// </summary>
+        public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration/v20191101preview:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConfigurationStoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationStoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the configuration store.
+        /// </summary>
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConfigurationStoreInvokeArgs()
         {
         }
     }

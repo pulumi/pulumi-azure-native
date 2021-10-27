@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetApiIssueAttachmentResult> InvokeAsync(GetApiIssueAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-native:apimanagement:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Issue Attachment Contract details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetApiIssueAttachmentResult> Invoke(GetApiIssueAttachmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiIssueAttachmentResult>("azure-native:apimanagement:getApiIssueAttachment", args ?? new GetApiIssueAttachmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetApiIssueAttachmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiIssueAttachmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Attachment identifier within an Issue. Must be unique in the current Issue.
+        /// </summary>
+        [Input("attachmentId", required: true)]
+        public Input<string> AttachmentId { get; set; } = null!;
+
+        /// <summary>
+        /// Issue identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("issueId", required: true)]
+        public Input<string> IssueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiIssueAttachmentInvokeArgs()
         {
         }
     }

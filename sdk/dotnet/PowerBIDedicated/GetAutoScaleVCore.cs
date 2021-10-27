@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBIDedicated
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public static Task<GetAutoScaleVCoreResult> InvokeAsync(GetAutoScaleVCoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoScaleVCoreResult>("azure-native:powerbidedicated:getAutoScaleVCore", args ?? new GetAutoScaleVCoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of an auto scale v-core resource.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetAutoScaleVCoreResult> Invoke(GetAutoScaleVCoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAutoScaleVCoreResult>("azure-native:powerbidedicated:getAutoScaleVCore", args ?? new GetAutoScaleVCoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public string VcoreName { get; set; } = null!;
 
         public GetAutoScaleVCoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetAutoScaleVCoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("vcoreName", required: true)]
+        public Input<string> VcoreName { get; set; } = null!;
+
+        public GetAutoScaleVCoreInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetThreatIntelligenceAlertRuleResult> InvokeAsync(GetThreatIntelligenceAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents Threat Intelligence alert rule.
+        /// </summary>
+        public static Output<GetThreatIntelligenceAlertRuleResult> Invoke(GetThreatIntelligenceAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetThreatIntelligenceAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetThreatIntelligenceAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetThreatIntelligenceAlertRuleInvokeArgs()
         {
         }
     }

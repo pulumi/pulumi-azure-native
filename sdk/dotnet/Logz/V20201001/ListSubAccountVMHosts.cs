@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logz.V20201001
         /// </summary>
         public static Task<ListSubAccountVMHostsResult> InvokeAsync(ListSubAccountVMHostsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz/v20201001:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response of a list VM Host Update Operation.
+        /// </summary>
+        public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz/v20201001:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public string SubAccountName { get; set; } = null!;
 
         public ListSubAccountVMHostsArgs()
+        {
+        }
+    }
+
+    public sealed class ListSubAccountVMHostsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sub Account resource name
+        /// </summary>
+        [Input("subAccountName", required: true)]
+        public Input<string> SubAccountName { get; set; } = null!;
+
+        public ListSubAccountVMHostsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Integration runtime resource type.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public string WorkspaceName { get; set; } = null!;
 
         public GetIntegrationRuntimeArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationRuntimeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Integration runtime name
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIntegrationRuntimeInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of a DNC controller.
+        /// </summary>
+        public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public string ResourceName { get; set; } = null!;
 
         public GetControllerDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class GetControllerDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetControllerDetailsInvokeArgs()
         {
         }
     }

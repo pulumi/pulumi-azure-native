@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteRelayServiceConnectionSlotResult> InvokeAsync(GetSiteRelayServiceConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class that represents a BizTalk Hybrid Connection
+        /// </summary>
+        public static Output<GetSiteRelayServiceConnectionSlotResult> Invoke(GetSiteRelayServiceConnectionSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionSlotResult>("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteRelayServiceConnectionSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteRelayServiceConnectionSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name by which the Hybrid Connection is identified
+        /// </summary>
+        [Input("entityName", required: true)]
+        public Input<string> EntityName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the slot for the web app.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteRelayServiceConnectionSlotInvokeArgs()
         {
         }
     }

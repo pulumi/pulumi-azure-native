@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/v20170601:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Customer subscription.
+        /// </summary>
+        public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack/v20170601:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
         public string ResourceGroup { get; set; } = null!;
 
         public GetCustomerSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomerSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the product.
+        /// </summary>
+        [Input("customerSubscriptionName", required: true)]
+        public Input<string> CustomerSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Stack registration.
+        /// </summary>
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetCustomerSubscriptionInvokeArgs()
         {
         }
     }

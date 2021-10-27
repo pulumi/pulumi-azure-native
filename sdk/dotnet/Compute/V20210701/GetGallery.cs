@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute/v20210701:getGallery", args ?? new GetGalleryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the Shared Image Gallery that you want to create or update.
+        /// </summary>
+        public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute/v20210701:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public string? Select { get; set; }
 
         public GetGalleryArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Shared Image Gallery.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The select expression to apply on the operation.
+        /// </summary>
+        [Input("select")]
+        public Input<string>? Select { get; set; }
+
+        public GetGalleryInvokeArgs()
         {
         }
     }

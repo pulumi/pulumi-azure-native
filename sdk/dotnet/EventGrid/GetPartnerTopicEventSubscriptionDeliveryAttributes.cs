@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetPartnerTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getPartnerTopicEventSubscriptionDeliveryAttributes", args ?? new GetPartnerTopicEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the Get delivery attributes operation.
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getPartnerTopicEventSubscriptionDeliveryAttributes", args ?? new GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.EventGrid
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPartnerTopicEventSubscriptionDeliveryAttributesArgs()
+        {
+        }
+    }
+
+    public sealed class GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the partner topic.
+        /// </summary>
+        [Input("partnerTopicName", required: true)]
+        public Input<string> PartnerTopicName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs()
         {
         }
     }

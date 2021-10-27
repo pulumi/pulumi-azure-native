@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20200701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         /// </summary>
         public static Task<ListVMHostResult> InvokeAsync(ListVMHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListVMHostResult>("azure-native:elastic/v20200701:listVMHost", args ?? new ListVMHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic/v20200701:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         public string ResourceGroupName { get; set; } = null!;
 
         public ListVMHostArgs()
+        {
+        }
+    }
+
+    public sealed class ListVMHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the Elastic resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListVMHostInvokeArgs()
         {
         }
     }

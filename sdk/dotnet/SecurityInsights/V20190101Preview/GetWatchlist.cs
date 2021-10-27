@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights/v20190101preview:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Watchlist in Azure Security Insights.
+        /// </summary>
+        public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights/v20190101preview:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetWatchlistArgs()
+        {
+        }
+    }
+
+    public sealed class GetWatchlistInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Watchlist Alias
+        /// </summary>
+        [Input("watchlistAlias", required: true)]
+        public Input<string> WatchlistAlias { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWatchlistInvokeArgs()
         {
         }
     }

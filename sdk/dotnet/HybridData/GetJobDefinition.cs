@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HybridData
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:hybriddata:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Job Definition.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.HybridData
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJobDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("dataManagerName", required: true)]
+        public Input<string> DataManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The data service name of the job definition
+        /// </summary>
+        [Input("dataServiceName", required: true)]
+        public Input<string> DataServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The job definition name that is being queried.
+        /// </summary>
+        [Input("jobDefinitionName", required: true)]
+        public Input<string> JobDefinitionName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJobDefinitionInvokeArgs()
         {
         }
     }

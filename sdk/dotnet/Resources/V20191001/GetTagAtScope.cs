@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20191001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20191001
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources/v20191001:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Wrapper resource for tags API requests and responses.
+        /// </summary>
+        public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources/v20191001:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Resources.V20191001
         public string Scope { get; set; } = null!;
 
         public GetTagAtScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetTagAtScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource scope.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetTagAtScopeInvokeArgs()
         {
         }
     }

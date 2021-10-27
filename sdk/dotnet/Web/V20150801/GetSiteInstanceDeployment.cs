@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteInstanceDeploymentResult> InvokeAsync(GetSiteInstanceDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
+        public static Output<GetSiteInstanceDeploymentResult> Invoke(GetSiteInstanceDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSiteInstanceDeploymentArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteInstanceDeploymentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Id of web app instance
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSiteInstanceDeploymentInvokeArgs()
         {
         }
     }

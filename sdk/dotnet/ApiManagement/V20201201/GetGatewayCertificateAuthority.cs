@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Gateway certificate authority details.
+        /// </summary>
+        public static Output<GetGatewayCertificateAuthorityResult> Invoke(GetGatewayCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         public string ServiceName { get; set; } = null!;
 
         public GetGatewayCertificateAuthorityArgs()
+        {
+        }
+    }
+
+    public sealed class GetGatewayCertificateAuthorityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("certificateId", required: true)]
+        public Input<string> CertificateId { get; set; } = null!;
+
+        /// <summary>
+        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        /// </summary>
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetGatewayCertificateAuthorityInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         /// </summary>
         public static Task<GetDatabaseAccountGremlinDatabaseResult> InvokeAsync(GetDatabaseAccountGremlinDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinDatabase", args ?? new GetDatabaseAccountGremlinDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Gremlin database.
+        /// </summary>
+        public static Output<GetDatabaseAccountGremlinDatabaseResult> Invoke(GetDatabaseAccountGremlinDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinDatabase", args ?? new GetDatabaseAccountGremlinDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountGremlinDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountGremlinDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountGremlinDatabaseInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-native:sql/v20210201preview:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A group of job targets.
+        /// </summary>
+        public static Output<GetJobTargetGroupResult> Invoke(GetJobTargetGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobTargetGroupResult>("azure-native:sql/v20210201preview:getJobTargetGroup", args ?? new GetJobTargetGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public string TargetGroupName { get; set; } = null!;
 
         public GetJobTargetGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobTargetGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the job agent.
+        /// </summary>
+        [Input("jobAgentName", required: true)]
+        public Input<string> JobAgentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the target group.
+        /// </summary>
+        [Input("targetGroupName", required: true)]
+        public Input<string> TargetGroupName { get; set; } = null!;
+
+        public GetJobTargetGroupInvokeArgs()
         {
         }
     }

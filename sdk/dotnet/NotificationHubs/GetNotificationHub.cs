@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NotificationHubs
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of a NotificationHub Resource.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetNotificationHubResult> Invoke(GetNotificationHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.NotificationHubs
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNotificationHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetNotificationHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace name.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The notification hub name.
+        /// </summary>
+        [Input("notificationHubName", required: true)]
+        public Input<string> NotificationHubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNotificationHubInvokeArgs()
         {
         }
     }

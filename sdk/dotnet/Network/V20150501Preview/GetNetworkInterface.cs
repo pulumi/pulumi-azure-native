@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network/v20150501preview:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A NetworkInterface in a resource group
+        /// </summary>
+        public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network/v20150501preview:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkInterfaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network interface.
+        /// </summary>
+        [Input("networkInterfaceName", required: true)]
+        public Input<string> NetworkInterfaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkInterfaceInvokeArgs()
         {
         }
     }

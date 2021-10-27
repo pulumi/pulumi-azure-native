@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media/v20210601:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Streaming Policy resource
+        /// </summary>
+        public static Output<GetStreamingPolicyResult> Invoke(GetStreamingPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media/v20210601:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20210601
         public string StreamingPolicyName { get; set; } = null!;
 
         public GetStreamingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetStreamingPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Streaming Policy name.
+        /// </summary>
+        [Input("streamingPolicyName", required: true)]
+        public Input<string> StreamingPolicyName { get; set; } = null!;
+
+        public GetStreamingPolicyInvokeArgs()
         {
         }
     }

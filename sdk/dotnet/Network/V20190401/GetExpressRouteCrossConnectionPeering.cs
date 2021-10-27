@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190401
         /// </summary>
         public static Task<GetExpressRouteCrossConnectionPeeringResult> InvokeAsync(GetExpressRouteCrossConnectionPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network/v20190401:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peering in an ExpressRoute Cross Connection resource.
+        /// </summary>
+        public static Output<GetExpressRouteCrossConnectionPeeringResult> Invoke(GetExpressRouteCrossConnectionPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network/v20190401:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteCrossConnectionPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteCrossConnectionPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ExpressRouteCrossConnection.
+        /// </summary>
+        [Input("crossConnectionName", required: true)]
+        public Input<string> CrossConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteCrossConnectionPeeringInvokeArgs()
         {
         }
     }

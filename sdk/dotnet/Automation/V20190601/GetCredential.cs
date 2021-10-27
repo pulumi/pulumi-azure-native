@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation/v20190601:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the credential.
+        /// </summary>
+        public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation/v20190601:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class GetCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of credential.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCredentialInvokeArgs()
         {
         }
     }

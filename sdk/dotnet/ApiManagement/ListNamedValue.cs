@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public ListNamedValueArgs()
+        {
+        }
+    }
+
+    public sealed class ListNamedValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the NamedValue.
+        /// </summary>
+        [Input("namedValueId", required: true)]
+        public Input<string> NamedValueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListNamedValueInvokeArgs()
         {
         }
     }

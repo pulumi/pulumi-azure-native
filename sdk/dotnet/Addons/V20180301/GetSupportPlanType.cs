@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Addons.V20180301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Addons.V20180301
         /// </summary>
         public static Task<GetSupportPlanTypeResult> InvokeAsync(GetSupportPlanTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-native:addons/v20180301:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The status of the Canonical support plan.
+        /// </summary>
+        public static Output<GetSupportPlanTypeResult> Invoke(GetSupportPlanTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSupportPlanTypeResult>("azure-native:addons/v20180301:getSupportPlanType", args ?? new GetSupportPlanTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Addons.V20180301
         public string ProviderName { get; set; } = null!;
 
         public GetSupportPlanTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetSupportPlanTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Canonical support plan type.
+        /// </summary>
+        [Input("planTypeName", required: true)]
+        public Input<string> PlanTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// The support plan type. For now the only valid type is "canonical".
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        public GetSupportPlanTypeInvokeArgs()
         {
         }
     }

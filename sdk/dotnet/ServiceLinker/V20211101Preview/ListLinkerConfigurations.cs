@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configurations for source resource, include appSettings, connectionString and serviceBindings
+        /// </summary>
+        public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public string ResourceUri { get; set; } = null!;
 
         public ListLinkerConfigurationsArgs()
+        {
+        }
+    }
+
+    public sealed class ListLinkerConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name Linker resource.
+        /// </summary>
+        [Input("linkerName", required: true)]
+        public Input<string> LinkerName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public ListLinkerConfigurationsInvokeArgs()
         {
         }
     }

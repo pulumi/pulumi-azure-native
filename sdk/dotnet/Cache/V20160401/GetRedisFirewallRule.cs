@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20160401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cache.V20160401
         /// </summary>
         public static Task<GetRedisFirewallRuleResult> InvokeAsync(GetRedisFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        /// </summary>
+        public static Output<GetRedisFirewallRuleResult> Invoke(GetRedisFirewallRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRedisFirewallRuleResult>("azure-native:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cache.V20160401
         public string RuleName { get; set; } = null!;
 
         public GetRedisFirewallRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRedisFirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Redis cache.
+        /// </summary>
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the firewall rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetRedisFirewallRuleInvokeArgs()
         {
         }
     }

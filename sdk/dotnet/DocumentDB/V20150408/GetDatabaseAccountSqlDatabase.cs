@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         /// </summary>
         public static Task<GetDatabaseAccountSqlDatabaseResult> InvokeAsync(GetDatabaseAccountSqlDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountSqlDatabase", args ?? new GetDatabaseAccountSqlDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB SQL database.
+        /// </summary>
+        public static Output<GetDatabaseAccountSqlDatabaseResult> Invoke(GetDatabaseAccountSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountSqlDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountSqlDatabase", args ?? new GetDatabaseAccountSqlDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountSqlDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountSqlDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountSqlDatabaseInvokeArgs()
         {
         }
     }

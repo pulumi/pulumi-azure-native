@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteLogsConfigResult> InvokeAsync(GetSiteLogsConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configuration of Azure web site
+        /// </summary>
+        public static Output<GetSiteLogsConfigResult> Invoke(GetSiteLogsConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSiteLogsConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteLogsConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSiteLogsConfigInvokeArgs()
         {
         }
     }

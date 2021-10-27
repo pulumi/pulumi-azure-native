@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridConnectivity
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The endpoint for the target resource.
+        /// API Version: 2021-10-06-preview.
+        /// </summary>
+        public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public string ResourceUri { get; set; } = null!;
 
         public GetEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The endpoint name.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetEndpointInvokeArgs()
         {
         }
     }

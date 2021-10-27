@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:machinelearningservices/v20210301preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:machinelearningservices/v20210301preview:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetDatastoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Datastore name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDatastoreInvokeArgs()
         {
         }
     }

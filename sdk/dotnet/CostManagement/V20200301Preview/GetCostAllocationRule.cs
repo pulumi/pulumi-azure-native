@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20200301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20200301Preview
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The cost allocation rule model definition
+        /// </summary>
+        public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CostManagement.V20200301Preview
         public string RuleName { get; set; } = null!;
 
         public GetCostAllocationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetCostAllocationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// BillingAccount ID
+        /// </summary>
+        [Input("billingAccountId", required: true)]
+        public Input<string> BillingAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
+
+        public GetCostAllocationRuleInvokeArgs()
         {
         }
     }

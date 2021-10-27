@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190801
         /// </summary>
         public static Task<GetVirtualNetworkGatewayAdvertisedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayAdvertisedRoutesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network/v20190801:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of virtual network gateway routes.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> Invoke(GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network/v20190801:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190801
         public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayAdvertisedRoutesArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The IP address of the peer.
+        /// </summary>
+        [Input("peer", required: true)]
+        public Input<string> Peer { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
+
+        public GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs()
         {
         }
     }

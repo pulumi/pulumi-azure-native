@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workload group operations for a data warehouse
+        /// </summary>
+        public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql/v20201101preview:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public string WorkloadGroupName { get; set; } = null!;
 
         public GetWorkloadGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workload group.
+        /// </summary>
+        [Input("workloadGroupName", required: true)]
+        public Input<string> WorkloadGroupName { get; set; } = null!;
+
+        public GetWorkloadGroupInvokeArgs()
         {
         }
     }

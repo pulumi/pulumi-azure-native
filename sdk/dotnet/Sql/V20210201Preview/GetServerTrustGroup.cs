@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         public static Task<GetServerTrustGroupResult> InvokeAsync(GetServerTrustGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustGroupResult>("azure-native:sql/v20210201preview:getServerTrustGroup", args ?? new GetServerTrustGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A server trust group.
+        /// </summary>
+        public static Output<GetServerTrustGroupResult> Invoke(GetServerTrustGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerTrustGroupResult>("azure-native:sql/v20210201preview:getServerTrustGroup", args ?? new GetServerTrustGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public string ServerTrustGroupName { get; set; } = null!;
 
         public GetServerTrustGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerTrustGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the region where the resource is located.
+        /// </summary>
+        [Input("locationName", required: true)]
+        public Input<string> LocationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server trust group.
+        /// </summary>
+        [Input("serverTrustGroupName", required: true)]
+        public Input<string> ServerTrustGroupName { get; set; } = null!;
+
+        public GetServerTrustGroupInvokeArgs()
         {
         }
     }

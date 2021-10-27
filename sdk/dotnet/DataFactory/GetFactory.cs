@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure-native:datafactory:getFactory", args ?? new GetFactoryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Factory resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure-native:datafactory:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DataFactory
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFactoryArgs()
+        {
+        }
+    }
+
+    public sealed class GetFactoryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFactoryInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of Fhir Service
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.HealthcareApis
         public string WorkspaceName { get; set; } = null!;
 
         public GetFhirServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetFhirServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of FHIR Service resource.
+        /// </summary>
+        [Input("fhirServiceName", required: true)]
+        public Input<string> FhirServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of workspace resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetFhirServiceInvokeArgs()
         {
         }
     }

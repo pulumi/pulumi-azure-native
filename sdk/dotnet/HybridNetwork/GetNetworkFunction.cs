@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network function resource response.
+        /// API Version: 2020-01-01-preview.
+        /// </summary>
+        public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.HybridNetwork
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkFunctionArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkFunctionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network function resource.
+        /// </summary>
+        [Input("networkFunctionName", required: true)]
+        public Input<string> NetworkFunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkFunctionInvokeArgs()
         {
         }
     }

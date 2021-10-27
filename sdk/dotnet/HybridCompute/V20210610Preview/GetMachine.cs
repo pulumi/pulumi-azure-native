@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute/v20210610preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a hybrid machine.
+        /// </summary>
+        public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute/v20210610preview:getMachine", args ?? new GetMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the hybrid machine.
+        /// </summary>
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMachineInvokeArgs()
         {
         }
     }

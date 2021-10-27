@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement/v20180101:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Schema Contract details.
+        /// </summary>
+        public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement/v20180101:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public string ServiceName { get; set; } = null!;
 
         public GetApiSchemaArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiSchemaInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("schemaId", required: true)]
+        public Input<string> SchemaId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiSchemaInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<ListWorkflowAccessKeySecretKeysResult> InvokeAsync(ListWorkflowAccessKeySecretKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2015-02-01-preview.
+        /// </summary>
+        public static Output<ListWorkflowAccessKeySecretKeysResult> Invoke(ListWorkflowAccessKeySecretKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logic
         public string WorkflowName { get; set; } = null!;
 
         public ListWorkflowAccessKeySecretKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkflowAccessKeySecretKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The workflow access key name.
+        /// </summary>
+        [Input("accessKeyName", required: true)]
+        public Input<string> AccessKeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public ListWorkflowAccessKeySecretKeysInvokeArgs()
         {
         }
     }

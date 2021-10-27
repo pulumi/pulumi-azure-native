@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement/v20210801:getCache", args ?? new GetCacheArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Cache details.
+        /// </summary>
+        public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement/v20210801:getCache", args ?? new GetCacheInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public string ServiceName { get; set; } = null!;
 
         public GetCacheArgs()
+        {
+        }
+    }
+
+    public sealed class GetCacheInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+        /// </summary>
+        [Input("cacheId", required: true)]
+        public Input<string> CacheId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetCacheInvokeArgs()
         {
         }
     }

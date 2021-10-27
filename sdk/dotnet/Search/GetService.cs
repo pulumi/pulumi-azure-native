@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:search:getService", args ?? new GetServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes an Azure Cognitive Search service and its current state.
+        /// API Version: 2020-08-01.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:search:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Search
         public string SearchServiceName { get; set; } = null!;
 
         public GetServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// </summary>
+        [Input("searchServiceName", required: true)]
+        public Input<string> SearchServiceName { get; set; } = null!;
+
+        public GetServiceInvokeArgs()
         {
         }
     }

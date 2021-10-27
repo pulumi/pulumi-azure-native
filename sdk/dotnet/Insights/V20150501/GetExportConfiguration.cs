@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties that define a Continuous Export configuration.
+        /// </summary>
+        public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public string ResourceName { get; set; } = null!;
 
         public GetExportConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetExportConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Continuous Export configuration ID. This is unique within a Application Insights component.
+        /// </summary>
+        [Input("exportId", required: true)]
+        public Input<string> ExportId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetExportConfigurationInvokeArgs()
         {
         }
     }

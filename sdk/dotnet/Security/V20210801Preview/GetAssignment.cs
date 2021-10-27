@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security Assignment on a resource group over a given scope
+        /// </summary>
+        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The security assignment key - unique key for the standard assignment
+        /// </summary>
+        [Input("assignmentId", required: true)]
+        public Input<string> AssignmentId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAssignmentInvokeArgs()
         {
         }
     }

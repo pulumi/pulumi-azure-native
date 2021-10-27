@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceResult> InvokeAsync(ListRemediationDeploymentsAtResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of deployments for a remediation.
+        /// API Version: 2019-07-01.
+        /// </summary>
+        public static Output<ListRemediationDeploymentsAtResourceResult> Invoke(ListRemediationDeploymentsAtResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.PolicyInsights
         public int? Top { get; set; }
 
         public ListRemediationDeploymentsAtResourceArgs()
+        {
+        }
+    }
+
+    public sealed class ListRemediationDeploymentsAtResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
+
+        public ListRemediationDeploymentsAtResourceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevSpaces
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevSpaces
         /// </summary>
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2019-04-01.
+        /// </summary>
+        public static Output<ListControllerConnectionDetailsResult> Invoke(ListControllerConnectionDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListControllerConnectionDetailsResult>("azure-native:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DevSpaces
         public string TargetContainerHostResourceId { get; set; } = null!;
 
         public ListControllerConnectionDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class ListControllerConnectionDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
+        /// </summary>
+        [Input("targetContainerHostResourceId", required: true)]
+        public Input<string> TargetContainerHostResourceId { get; set; } = null!;
+
+        public ListControllerConnectionDetailsInvokeArgs()
         {
         }
     }

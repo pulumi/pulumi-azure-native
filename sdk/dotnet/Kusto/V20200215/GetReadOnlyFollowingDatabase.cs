@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20200215
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20200215
         /// </summary>
         public static Task<GetReadOnlyFollowingDatabaseResult> InvokeAsync(GetReadOnlyFollowingDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20200215:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a read only following database.
+        /// </summary>
+        public static Output<GetReadOnlyFollowingDatabaseResult> Invoke(GetReadOnlyFollowingDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto/v20200215:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Kusto.V20200215
         public string ResourceGroupName { get; set; } = null!;
 
         public GetReadOnlyFollowingDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetReadOnlyFollowingDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetReadOnlyFollowingDatabaseInvokeArgs()
         {
         }
     }

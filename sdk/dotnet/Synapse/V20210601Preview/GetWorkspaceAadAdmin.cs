@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<GetWorkspaceAadAdminResult> InvokeAsync(GetWorkspaceAadAdminArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceAadAdminResult>("azure-native:synapse/v20210601preview:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workspace active directory administrator
+        /// </summary>
+        public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse/v20210601preview:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceAadAdminArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceAadAdminInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWorkspaceAadAdminInvokeArgs()
         {
         }
     }

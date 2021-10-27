@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ResourceConnector
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Appliances definition.
+        /// API Version: 2021-10-31-preview.
+        /// </summary>
+        public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ResourceConnector
         public string ResourceName { get; set; } = null!;
 
         public GetApplianceArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplianceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Appliances name.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetApplianceInvokeArgs()
         {
         }
     }

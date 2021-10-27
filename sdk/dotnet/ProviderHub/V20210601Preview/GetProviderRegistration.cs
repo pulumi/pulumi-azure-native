@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
     {
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub/v20210601preview:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithVersion());
+
+        public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub/v20210601preview:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -25,6 +29,19 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public string ProviderNamespace { get; set; } = null!;
 
         public GetProviderRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetProviderRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource provider hosted within ProviderHub.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        public GetProviderRegistrationInvokeArgs()
         {
         }
     }

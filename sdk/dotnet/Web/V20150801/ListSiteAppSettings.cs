@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteAppSettingsResult> InvokeAsync(ListSiteAppSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
+        public static Output<ListSiteAppSettingsResult> Invoke(ListSiteAppSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteAppSettingsResult>("azure-native:web/v20150801:listSiteAppSettings", args ?? new ListSiteAppSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public ListSiteAppSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteAppSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListSiteAppSettingsInvokeArgs()
         {
         }
     }

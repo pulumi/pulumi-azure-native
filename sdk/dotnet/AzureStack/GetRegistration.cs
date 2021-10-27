@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Registration information.
+        /// API Version: 2017-06-01.
+        /// </summary>
+        public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AzureStack
         public string ResourceGroup { get; set; } = null!;
 
         public GetRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Stack registration.
+        /// </summary>
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetRegistrationInvokeArgs()
         {
         }
     }

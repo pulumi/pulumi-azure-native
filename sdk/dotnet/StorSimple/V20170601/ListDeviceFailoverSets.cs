@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-native:storsimple/v20170601:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of failover sets.
+        /// </summary>
+        public static Output<ListDeviceFailoverSetsResult> Invoke(ListDeviceFailoverSetsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverSetsResult>("azure-native:storsimple/v20170601:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDeviceFailoverSetsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDeviceFailoverSetsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDeviceFailoverSetsInvokeArgs()
         {
         }
     }

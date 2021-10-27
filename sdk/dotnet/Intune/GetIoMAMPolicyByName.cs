@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Intune
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Intune
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// iOS Policy entity for Intune MAM.
+        /// API Version: 2015-01-14-preview.
+        /// </summary>
+        public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Intune
         public string? Select { get; set; }
 
         public GetIoMAMPolicyByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetIoMAMPolicyByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Location hostName for the tenant
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name for the policy
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// select specific fields in entity.
+        /// </summary>
+        [Input("select")]
+        public Input<string>? Select { get; set; }
+
+        public GetIoMAMPolicyByNameInvokeArgs()
         {
         }
     }

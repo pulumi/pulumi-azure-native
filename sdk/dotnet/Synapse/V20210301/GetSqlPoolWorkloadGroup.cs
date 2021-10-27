@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210301:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workload group operations for a sql pool
+        /// </summary>
+        public static Output<GetSqlPoolWorkloadGroupResult> Invoke(GetSqlPoolWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20210301:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Synapse.V20210301
         public string WorkspaceName { get; set; } = null!;
 
         public GetSqlPoolWorkloadGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlPoolWorkloadGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// SQL pool name
+        /// </summary>
+        [Input("sqlPoolName", required: true)]
+        public Input<string> SqlPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workload group.
+        /// </summary>
+        [Input("workloadGroupName", required: true)]
+        public Input<string> WorkloadGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSqlPoolWorkloadGroupInvokeArgs()
         {
         }
     }

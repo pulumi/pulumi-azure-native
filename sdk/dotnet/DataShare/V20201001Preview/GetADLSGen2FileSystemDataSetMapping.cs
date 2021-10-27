@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Task<GetADLSGen2FileSystemDataSetMappingResult> InvokeAsync(GetADLSGen2FileSystemDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileSystemDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2FileSystemDataSetMapping", args ?? new GetADLSGen2FileSystemDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An ADLS Gen2 file system data set mapping.
+        /// </summary>
+        public static Output<GetADLSGen2FileSystemDataSetMappingResult> Invoke(GetADLSGen2FileSystemDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2FileSystemDataSetMapping", args ?? new GetADLSGen2FileSystemDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetADLSGen2FileSystemDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetADLSGen2FileSystemDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetADLSGen2FileSystemDataSetMappingInvokeArgs()
         {
         }
     }

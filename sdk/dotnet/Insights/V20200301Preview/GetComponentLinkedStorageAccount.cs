@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20200301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         /// </summary>
         public static Task<GetComponentLinkedStorageAccountResult> InvokeAsync(GetComponentLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Application Insights component linked storage accounts
+        /// </summary>
+        public static Output<GetComponentLinkedStorageAccountResult> Invoke(GetComponentLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         public string StorageType { get; set; } = null!;
 
         public GetComponentLinkedStorageAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetComponentLinkedStorageAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the Application Insights component data source for the linked storage account.
+        /// </summary>
+        [Input("storageType", required: true)]
+        public Input<string> StorageType { get; set; } = null!;
+
+        public GetComponentLinkedStorageAccountInvokeArgs()
         {
         }
     }

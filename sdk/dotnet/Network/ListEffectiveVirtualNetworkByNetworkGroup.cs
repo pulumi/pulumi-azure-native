@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<ListEffectiveVirtualNetworkByNetworkGroupResult> InvokeAsync(ListEffectiveVirtualNetworkByNetworkGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<ListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Network
         public string? SkipToken { get; set; }
 
         public ListEffectiveVirtualNetworkByNetworkGroupArgs()
+        {
+        }
+    }
+
+    public sealed class ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network group to get.
+        /// </summary>
+        [Input("networkGroupName", required: true)]
+        public Input<string> NetworkGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20191201
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-native:compute/v20191201:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+        /// </summary>
+        public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute/v20191201:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20191201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDedicatedHostGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedHostGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the dedicated host group.
+        /// </summary>
+        [Input("hostGroupName", required: true)]
+        public Input<string> HostGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDedicatedHostGroupInvokeArgs()
         {
         }
     }

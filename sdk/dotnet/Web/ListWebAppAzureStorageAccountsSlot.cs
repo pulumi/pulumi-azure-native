@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListWebAppAzureStorageAccountsSlotResult> InvokeAsync(ListWebAppAzureStorageAccountsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsSlotResult>("azure-native:web:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// AzureStorageInfo dictionary resource.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListWebAppAzureStorageAccountsSlotResult> Invoke(ListWebAppAzureStorageAccountsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppAzureStorageAccountsSlotResult>("azure-native:web:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string Slot { get; set; } = null!;
 
         public ListWebAppAzureStorageAccountsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppAzureStorageAccountsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppAzureStorageAccountsSlotInvokeArgs()
         {
         }
     }

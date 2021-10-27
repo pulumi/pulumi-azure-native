@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Task<GetFactoryGitHubAccessTokenResult> InvokeAsync(GetFactoryGitHubAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get GitHub access token response definition.
+        /// </summary>
+        public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFactoryGitHubAccessTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetFactoryGitHubAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// GitHub access code.
+        /// </summary>
+        [Input("gitHubAccessCode", required: true)]
+        public Input<string> GitHubAccessCode { get; set; } = null!;
+
+        /// <summary>
+        /// GitHub access token base URL.
+        /// </summary>
+        [Input("gitHubAccessTokenBaseUrl", required: true)]
+        public Input<string> GitHubAccessTokenBaseUrl { get; set; } = null!;
+
+        /// <summary>
+        /// GitHub application client ID.
+        /// </summary>
+        [Input("gitHubClientId")]
+        public Input<string>? GitHubClientId { get; set; }
+
+        /// <summary>
+        /// GitHub bring your own app client secret information.
+        /// </summary>
+        [Input("gitHubClientSecret")]
+        public Input<Inputs.GitHubClientSecretArgs>? GitHubClientSecret { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFactoryGitHubAccessTokenInvokeArgs()
         {
         }
     }

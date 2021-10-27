@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// </summary>
         public static Task<ListWebAppHostKeysResult> InvokeAsync(ListWebAppHostKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-native:web/v20210101:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Functions host level keys.
+        /// </summary>
+        public static Output<ListWebAppHostKeysResult> Invoke(ListWebAppHostKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppHostKeysResult>("azure-native:web/v20210101:listWebAppHostKeys", args ?? new ListWebAppHostKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWebAppHostKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppHostKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWebAppHostKeysInvokeArgs()
         {
         }
     }

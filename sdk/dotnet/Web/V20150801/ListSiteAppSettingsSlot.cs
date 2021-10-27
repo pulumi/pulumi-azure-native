@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteAppSettingsSlotResult> InvokeAsync(ListSiteAppSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsSlotResult>("azure-native:web/v20150801:listSiteAppSettingsSlot", args ?? new ListSiteAppSettingsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
+        public static Output<ListSiteAppSettingsSlotResult> Invoke(ListSiteAppSettingsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteAppSettingsSlotResult>("azure-native:web/v20150801:listSiteAppSettingsSlot", args ?? new ListSiteAppSettingsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public ListSiteAppSettingsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteAppSettingsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListSiteAppSettingsSlotInvokeArgs()
         {
         }
     }

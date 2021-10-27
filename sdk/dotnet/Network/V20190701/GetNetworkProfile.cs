@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190701
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network/v20190701:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network profile resource.
+        /// </summary>
+        public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network/v20190701:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the public IP prefix.
+        /// </summary>
+        [Input("networkProfileName", required: true)]
+        public Input<string> NetworkProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkProfileInvokeArgs()
         {
         }
     }

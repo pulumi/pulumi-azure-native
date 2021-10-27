@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A list of SSIS object metadata.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeObjectMetadatumResult> Invoke(GetIntegrationRuntimeObjectMetadatumInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:synapse/v20210601preview:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetIntegrationRuntimeObjectMetadatumArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationRuntimeObjectMetadatumInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Integration runtime name
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// Metadata path.
+        /// </summary>
+        [Input("metadataPath")]
+        public Input<string>? MetadataPath { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIntegrationRuntimeObjectMetadatumInvokeArgs()
         {
         }
     }

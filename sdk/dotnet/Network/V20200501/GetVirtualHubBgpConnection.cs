@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-native:network/v20200501:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Appliance Site resource.
+        /// </summary>
+        public static Output<GetVirtualHubBgpConnectionResult> Invoke(GetVirtualHubBgpConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubBgpConnectionResult>("azure-native:network/v20200501:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200501
         public string VirtualHubName { get; set; } = null!;
 
         public GetVirtualHubBgpConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualHubBgpConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the VirtualHub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
+
+        public GetVirtualHubBgpConnectionInvokeArgs()
         {
         }
     }

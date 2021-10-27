@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20180501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/v20180501preview:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Application Insights WebTest definition.
+        /// </summary>
+        public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20180501preview:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
         public string WebTestName { get; set; } = null!;
 
         public GetWebTestArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebTestInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights WebTest resource.
+        /// </summary>
+        [Input("webTestName", required: true)]
+        public Input<string> WebTestName { get; set; } = null!;
+
+        public GetWebTestInvokeArgs()
         {
         }
     }

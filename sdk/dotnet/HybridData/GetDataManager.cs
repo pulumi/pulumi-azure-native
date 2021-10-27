@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HybridData
         /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The DataManager resource.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetDataManagerResult> Invoke(GetDataManagerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.HybridData
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataManagerArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataManagerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("dataManagerName", required: true)]
+        public Input<string> DataManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataManagerInvokeArgs()
         {
         }
     }

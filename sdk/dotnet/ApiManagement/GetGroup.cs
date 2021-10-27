@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contract details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement:getGroup", args ?? new GetGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Group identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetGroupInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         /// </summary>
         public static Task<GetFarmBeatsModelResult> InvokeAsync(GetFarmBeatsModelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFarmBeatsModelResult>("azure-native:agfoodplatform/v20200512preview:getFarmBeatsModel", args ?? new GetFarmBeatsModelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// FarmBeats ARM Resource.
+        /// </summary>
+        public static Output<GetFarmBeatsModelResult> Invoke(GetFarmBeatsModelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFarmBeatsModelResult>("azure-native:agfoodplatform/v20200512preview:getFarmBeatsModel", args ?? new GetFarmBeatsModelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFarmBeatsModelArgs()
+        {
+        }
+    }
+
+    public sealed class GetFarmBeatsModelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// FarmBeats resource name.
+        /// </summary>
+        [Input("farmBeatsResourceName", required: true)]
+        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFarmBeatsModelInvokeArgs()
         {
         }
     }

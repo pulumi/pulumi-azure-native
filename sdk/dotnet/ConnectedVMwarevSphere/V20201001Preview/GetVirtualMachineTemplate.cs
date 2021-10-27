@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the virtualMachineTemplate.
+        /// </summary>
+        public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public string VirtualMachineTemplateName { get; set; } = null!;
 
         public GetVirtualMachineTemplateArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineTemplateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual machine template resource.
+        /// </summary>
+        [Input("virtualMachineTemplateName", required: true)]
+        public Input<string> VirtualMachineTemplateName { get; set; } = null!;
+
+        public GetVirtualMachineTemplateInvokeArgs()
         {
         }
     }

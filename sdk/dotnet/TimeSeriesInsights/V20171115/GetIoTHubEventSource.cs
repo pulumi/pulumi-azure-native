@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         /// </summary>
         public static Task<GetIoTHubEventSourceResult> InvokeAsync(GetIoTHubEventSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights/v20171115:getIoTHubEventSource", args ?? new GetIoTHubEventSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An event source that receives its data from an Azure IoTHub.
+        /// </summary>
+        public static Output<GetIoTHubEventSourceResult> Invoke(GetIoTHubEventSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights/v20171115:getIoTHubEventSource", args ?? new GetIoTHubEventSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIoTHubEventSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetIoTHubEventSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Time Series Insights event source associated with the specified environment.
+        /// </summary>
+        [Input("eventSourceName", required: true)]
+        public Input<string> EventSourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIoTHubEventSourceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto/v20210101:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an attached database configuration.
+        /// </summary>
+        public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto/v20210101:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Kusto.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAttachedDatabaseConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetAttachedDatabaseConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the attached database configuration.
+        /// </summary>
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAttachedDatabaseConfigurationInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-native:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of consent links
+        /// </summary>
+        public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Web.V20160601
         public string? SubscriptionId { get; set; }
 
         public ListConnectionConsentLinksArgs()
+        {
+        }
+    }
+
+    public sealed class ListConnectionConsentLinksInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connection name
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        [Input("parameters")]
+        private InputList<Inputs.ConsentLinkParameterDefinitionArgs>? _parameters;
+
+        /// <summary>
+        /// Collection of resources
+        /// </summary>
+        public InputList<Inputs.ConsentLinkParameterDefinitionArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ConsentLinkParameterDefinitionArgs>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// The resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public ListConnectionConsentLinksInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maps.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+        /// </summary>
+        public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCreatorArgs()
+        {
+        }
+    }
+
+    public sealed class GetCreatorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Maps Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Maps Creator instance.
+        /// </summary>
+        [Input("creatorName", required: true)]
+        public Input<string> CreatorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCreatorInvokeArgs()
         {
         }
     }

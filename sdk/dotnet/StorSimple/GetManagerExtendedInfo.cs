@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public static Task<GetManagerExtendedInfoResult> InvokeAsync(GetManagerExtendedInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-native:storsimple:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The extended info of the manager.
+        /// API Version: 2017-06-01.
+        /// </summary>
+        public static Output<GetManagerExtendedInfoResult> Invoke(GetManagerExtendedInfoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagerExtendedInfoResult>("azure-native:storsimple:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.StorSimple
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagerExtendedInfoArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagerExtendedInfoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagerExtendedInfoInvokeArgs()
         {
         }
     }

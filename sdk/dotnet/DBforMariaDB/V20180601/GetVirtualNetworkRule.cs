@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMariaDB.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformariadb/v20180601:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A virtual network rule.
+        /// </summary>
+        public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformariadb/v20180601:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
         public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+
+        public GetVirtualNetworkRuleInvokeArgs()
         {
         }
     }

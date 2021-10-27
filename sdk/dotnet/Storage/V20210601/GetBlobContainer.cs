@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20210601
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/v20210601:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties of the blob container, including Id, resource name, resource type, Etag.
+        /// </summary>
+        public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20210601:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Storage.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBlobContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBlobContainerInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peerings in a virtual network resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string VirtualNetworkPeeringName { get; set; } = null!;
 
         public GetVirtualNetworkPeeringArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkPeeringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network peering.
+        /// </summary>
+        [Input("virtualNetworkPeeringName", required: true)]
+        public Input<string> VirtualNetworkPeeringName { get; set; } = null!;
+
+        public GetVirtualNetworkPeeringInvokeArgs()
         {
         }
     }

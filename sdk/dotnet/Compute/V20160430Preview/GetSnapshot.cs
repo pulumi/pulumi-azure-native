@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20160430Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute/v20160430preview:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Snapshot resource.
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute/v20160430preview:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
         public string SnapshotName { get; set; } = null!;
 
         public GetSnapshotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the snapshot within the given subscription and resource group.
+        /// </summary>
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
+
+        public GetSnapshotInvokeArgs()
         {
         }
     }

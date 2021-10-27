@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         /// </summary>
         public static Task<GetSqlPoolSensitivityLabelResult> InvokeAsync(GetSqlPoolSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolSensitivityLabelResult>("azure-native:synapse/v20210501:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A sensitivity label.
+        /// </summary>
+        public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse/v20210501:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +71,55 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public string WorkspaceName { get; set; } = null!;
 
         public GetSqlPoolSensitivityLabelArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlPoolSensitivityLabelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
+        [Input("columnName", required: true)]
+        public Input<string> ColumnName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        /// <summary>
+        /// The source of the sensitivity label.
+        /// </summary>
+        [Input("sensitivityLabelSource", required: true)]
+        public Input<string> SensitivityLabelSource { get; set; } = null!;
+
+        /// <summary>
+        /// SQL pool name
+        /// </summary>
+        [Input("sqlPoolName", required: true)]
+        public Input<string> SqlPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSqlPoolSensitivityLabelInvokeArgs()
         {
         }
     }

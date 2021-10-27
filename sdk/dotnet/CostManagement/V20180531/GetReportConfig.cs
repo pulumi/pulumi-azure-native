@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20180531
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         /// </summary>
         public static Task<GetReportConfigResult> InvokeAsync(GetReportConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A report config resource.
+        /// </summary>
+        public static Output<GetReportConfigResult> Invoke(GetReportConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReportConfigResult>("azure-native:costmanagement/v20180531:getReportConfig", args ?? new GetReportConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
         public string ReportConfigName { get; set; } = null!;
 
         public GetReportConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetReportConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Report Config Name.
+        /// </summary>
+        [Input("reportConfigName", required: true)]
+        public Input<string> ReportConfigName { get; set; } = null!;
+
+        public GetReportConfigInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Gateway hostname configuration details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetGatewayHostnameConfigurationResult> Invoke(GetGatewayHostnameConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetGatewayHostnameConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetGatewayHostnameConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        /// </summary>
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+        /// </summary>
+        [Input("hcId", required: true)]
+        public Input<string> HcId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetGatewayHostnameConfigurationInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-native:authorization:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The lock information.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetManagementLockByScopeResult> Invoke(GetManagementLockByScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Authorization
         public string Scope { get; set; } = null!;
 
         public GetManagementLockByScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementLockByScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of lock.
+        /// </summary>
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope for the lock. 
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetManagementLockByScopeInvokeArgs()
         {
         }
     }

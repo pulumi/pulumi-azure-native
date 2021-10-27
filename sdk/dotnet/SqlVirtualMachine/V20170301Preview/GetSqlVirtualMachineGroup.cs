@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         /// </summary>
         public static Task<GetSqlVirtualMachineGroupResult> InvokeAsync(GetSqlVirtualMachineGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL virtual machine group.
+        /// </summary>
+        public static Output<GetSqlVirtualMachineGroupResult> Invoke(GetSqlVirtualMachineGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         public string SqlVirtualMachineGroupName { get; set; } = null!;
 
         public GetSqlVirtualMachineGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlVirtualMachineGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL virtual machine group.
+        /// </summary>
+        [Input("sqlVirtualMachineGroupName", required: true)]
+        public Input<string> SqlVirtualMachineGroupName { get; set; } = null!;
+
+        public GetSqlVirtualMachineGroupInvokeArgs()
         {
         }
     }

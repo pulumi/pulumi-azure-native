@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationsManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The container for solution.
+        /// API Version: 2015-11-01-preview.
+        /// </summary>
+        public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.OperationsManagement
         public string ResourceType { get; set; } = null!;
 
         public GetManagementAssociationArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementAssociationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// User ManagementAssociation Name.
+        /// </summary>
+        [Input("managementAssociationName", required: true)]
+        public Input<string> ManagementAssociationName { get; set; } = null!;
+
+        /// <summary>
+        /// Provider name for the parent resource.
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parent resource name.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type for the parent resource
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        public GetManagementAssociationInvokeArgs()
         {
         }
     }

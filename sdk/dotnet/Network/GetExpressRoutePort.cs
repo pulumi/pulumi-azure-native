@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ExpressRoutePort resource definition.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRoutePortArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRoutePortInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of ExpressRoutePort.
+        /// </summary>
+        [Input("expressRoutePortName", required: true)]
+        public Input<string> ExpressRoutePortName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRoutePortInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20170831
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20170831
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice/v20170831:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Managed cluster.
+        /// </summary>
+        public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice/v20170831:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerService.V20170831
         public string ResourceName { get; set; } = null!;
 
         public GetManagedClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetManagedClusterInvokeArgs()
         {
         }
     }

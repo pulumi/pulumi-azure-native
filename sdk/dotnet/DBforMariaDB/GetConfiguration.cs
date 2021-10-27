@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMariaDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Configuration.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformariadb:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DBforMariaDB
         public string ServerName { get; set; } = null!;
 
         public GetConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the server configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetConfigurationInvokeArgs()
         {
         }
     }

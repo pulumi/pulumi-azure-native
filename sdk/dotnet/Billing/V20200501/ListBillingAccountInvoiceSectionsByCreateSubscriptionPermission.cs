@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Billing.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Billing.V20200501
         /// </summary>
         public static Task<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> InvokeAsync(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20200501:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of invoice section properties with create subscription permission.
+        /// </summary>
+        public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20200501:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Billing.V20200501
         public string BillingAccountName { get; set; } = null!;
 
         public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs()
+        {
+        }
+    }
+
+    public sealed class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID that uniquely identifies a billing account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        public ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs()
         {
         }
     }

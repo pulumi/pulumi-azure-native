@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20210401:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Migration item.
+        /// </summary>
+        public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20210401:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
         public string ResourceName { get; set; } = null!;
 
         public GetReplicationMigrationItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationMigrationItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric unique name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Migration item name.
+        /// </summary>
+        [Input("migrationItemName", required: true)]
+        public Input<string> MigrationItemName { get; set; } = null!;
+
+        /// <summary>
+        /// Protection container name.
+        /// </summary>
+        [Input("protectionContainerName", required: true)]
+        public Input<string> ProtectionContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetReplicationMigrationItemInvokeArgs()
         {
         }
     }

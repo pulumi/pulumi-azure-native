@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maintenance.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview
         /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance/v20210901preview:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configuration Assignment
+        /// </summary>
+        public static Output<GetConfigurationAssignmentParentResult> Invoke(GetConfigurationAssignmentParentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance/v20210901preview:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +71,55 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview
         public string ResourceType { get; set; } = null!;
 
         public GetConfigurationAssignmentParentArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationAssignmentParentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Configuration assignment name
+        /// </summary>
+        [Input("configurationAssignmentName", required: true)]
+        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource provider name
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identifier
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource parent identifier
+        /// </summary>
+        [Input("resourceParentName", required: true)]
+        public Input<string> ResourceParentName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource parent type
+        /// </summary>
+        [Input("resourceParentType", required: true)]
+        public Input<string> ResourceParentType { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        public GetConfigurationAssignmentParentInvokeArgs()
         {
         }
     }

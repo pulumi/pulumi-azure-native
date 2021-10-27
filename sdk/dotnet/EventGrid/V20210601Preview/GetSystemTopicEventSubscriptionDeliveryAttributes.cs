@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetSystemTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the Get delivery attributes operation.
+        /// </summary>
+        public static Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         public string SystemTopicName { get; set; } = null!;
 
         public GetSystemTopicEventSubscriptionDeliveryAttributesArgs()
+        {
+        }
+    }
+
+    public sealed class GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the system topic.
+        /// </summary>
+        [Input("systemTopicName", required: true)]
+        public Input<string> SystemTopicName { get; set; } = null!;
+
+        public GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs()
         {
         }
     }

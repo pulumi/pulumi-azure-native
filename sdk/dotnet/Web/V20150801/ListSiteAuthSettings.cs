@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteAuthSettingsResult> InvokeAsync(ListSiteAuthSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// </summary>
+        public static Output<ListSiteAuthSettingsResult> Invoke(ListSiteAuthSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteAuthSettingsResult>("azure-native:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public ListSiteAuthSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteAuthSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListSiteAuthSettingsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20191101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NetApp.V20191101
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:netapp/v20191101:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Volume resource
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:netapp/v20191101:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.NetApp.V20191101
         public string VolumeName { get; set; } = null!;
 
         public GetVolumeArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the capacity pool
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
+
+        public GetVolumeInvokeArgs()
         {
         }
     }

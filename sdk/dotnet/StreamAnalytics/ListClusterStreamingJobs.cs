@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Task<ListClusterStreamingJobsResult> InvokeAsync(ListClusterStreamingJobsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-native:streamanalytics:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A list of streaming jobs. Populated by a List operation.
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
+        public static Output<ListClusterStreamingJobsResult> Invoke(ListClusterStreamingJobsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string ResourceGroupName { get; set; } = null!;
 
         public ListClusterStreamingJobsArgs()
+        {
+        }
+    }
+
+    public sealed class ListClusterStreamingJobsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListClusterStreamingJobsInvokeArgs()
         {
         }
     }

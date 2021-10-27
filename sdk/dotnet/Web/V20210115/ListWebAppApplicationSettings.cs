@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// </summary>
         public static Task<ListWebAppApplicationSettingsResult> InvokeAsync(ListWebAppApplicationSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsResult>("azure-native:web/v20210115:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
+        public static Output<ListWebAppApplicationSettingsResult> Invoke(ListWebAppApplicationSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppApplicationSettingsResult>("azure-native:web/v20210115:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20210115
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWebAppApplicationSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppApplicationSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWebAppApplicationSettingsInvokeArgs()
         {
         }
     }

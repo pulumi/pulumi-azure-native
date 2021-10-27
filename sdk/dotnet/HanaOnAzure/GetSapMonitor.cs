@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HanaOnAzure
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HanaOnAzure
         /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
+        /// API Version: 2020-02-07-preview.
+        /// </summary>
+        public static Output<GetSapMonitorResult> Invoke(GetSapMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSapMonitorResult>("azure-native:hanaonazure:getSapMonitor", args ?? new GetSapMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.HanaOnAzure
         public string SapMonitorName { get; set; } = null!;
 
         public GetSapMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetSapMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SAP monitor resource.
+        /// </summary>
+        [Input("sapMonitorName", required: true)]
+        public Input<string> SapMonitorName { get; set; } = null!;
+
+        public GetSapMonitorInvokeArgs()
         {
         }
     }

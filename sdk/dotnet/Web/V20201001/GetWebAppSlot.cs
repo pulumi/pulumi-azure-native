@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Task<GetWebAppSlotResult> InvokeAsync(GetWebAppSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotResult>("azure-native:web/v20201001:getWebAppSlot", args ?? new GetWebAppSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A web app, a mobile app backend, or an API app.
+        /// </summary>
+        public static Output<GetWebAppSlotResult> Invoke(GetWebAppSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSlotResult>("azure-native:web/v20201001:getWebAppSlot", args ?? new GetWebAppSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20201001
         public string Slot { get; set; } = null!;
 
         public GetWebAppSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. By default, this API returns the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppSlotInvokeArgs()
         {
         }
     }

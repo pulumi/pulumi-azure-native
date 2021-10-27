@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a VMSS VM Extension.
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetVirtualMachineScaleSetVMExtensionResult> Invoke(GetVirtualMachineScaleSetVMExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.Compute
         public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetVMExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineScaleSetVMExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The instance ID of the virtual machine.
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
+        [Input("vmExtensionName", required: true)]
+        public Input<string> VmExtensionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
+
+        public GetVirtualMachineScaleSetVMExtensionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache/v20210201preview:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The secret access keys used for authenticating connections to redis
+        /// </summary>
+        public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20210201preview:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDatabaseKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListDatabaseKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the RedisEnterprise cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDatabaseKeysInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20180201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// </summary>
         public static Task<GetWebAppPremierAddOnResult> InvokeAsync(GetWebAppPremierAddOnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnResult>("azure-native:web/v20180201:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Premier add-on.
+        /// </summary>
+        public static Output<GetWebAppPremierAddOnResult> Invoke(GetWebAppPremierAddOnInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppPremierAddOnResult>("azure-native:web/v20180201:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20180201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebAppPremierAddOnArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppPremierAddOnInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Add-on name.
+        /// </summary>
+        [Input("premierAddOnName", required: true)]
+        public Input<string> PremierAddOnName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebAppPremierAddOnInvokeArgs()
         {
         }
     }

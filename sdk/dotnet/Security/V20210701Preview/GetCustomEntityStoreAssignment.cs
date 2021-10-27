@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         /// </summary>
         public static Task<GetCustomEntityStoreAssignmentResult> InvokeAsync(GetCustomEntityStoreAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Custom entity store assignment
+        /// </summary>
+        public static Output<GetCustomEntityStoreAssignmentResult> Invoke(GetCustomEntityStoreAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCustomEntityStoreAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomEntityStoreAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the custom entity store assignment. Generated name is GUID.
+        /// </summary>
+        [Input("customEntityStoreAssignmentName", required: true)]
+        public Input<string> CustomEntityStoreAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCustomEntityStoreAssignmentInvokeArgs()
         {
         }
     }

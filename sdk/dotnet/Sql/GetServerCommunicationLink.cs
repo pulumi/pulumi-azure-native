@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-native:sql:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Server communication link.
+        /// API Version: 2014-04-01.
+        /// </summary>
+        public static Output<GetServerCommunicationLinkResult> Invoke(GetServerCommunicationLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetServerCommunicationLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerCommunicationLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the server communication link.
+        /// </summary>
+        [Input("communicationLinkName", required: true)]
+        public Input<string> CommunicationLinkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerCommunicationLinkInvokeArgs()
         {
         }
     }

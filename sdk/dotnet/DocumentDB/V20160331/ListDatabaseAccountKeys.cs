@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160331:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The access keys for the given database account.
+        /// </summary>
+        public static Output<ListDatabaseAccountKeysResult> Invoke(ListDatabaseAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountKeysResult>("azure-native:documentdb/v20160331:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDatabaseAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListDatabaseAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDatabaseAccountKeysInvokeArgs()
         {
         }
     }

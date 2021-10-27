@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// </summary>
         public static Task<GetprivateLinkServicesForO365ManagementActivityAPIResult> InvokeAsync(GetprivateLinkServicesForO365ManagementActivityAPIArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForO365ManagementActivityAPI", args ?? new GetprivateLinkServicesForO365ManagementActivityAPIArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the service.
+        /// API Version: 2021-03-25-preview.
+        /// </summary>
+        public static Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> Invoke(GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForO365ManagementActivityAPI", args ?? new GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         public string ResourceName { get; set; } = null!;
 
         public GetprivateLinkServicesForO365ManagementActivityAPIArgs()
+        {
+        }
+    }
+
+    public sealed class GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetprivateLinkServicesForO365ManagementActivityAPIInvokeArgs()
         {
         }
     }

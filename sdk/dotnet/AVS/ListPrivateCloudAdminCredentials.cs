@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Task<ListPrivateCloudAdminCredentialsResult> InvokeAsync(ListPrivateCloudAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-native:avs:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Administrative credentials for accessing vCenter and NSX-T
+        /// API Version: 2020-03-20.
+        /// </summary>
+        public static Output<ListPrivateCloudAdminCredentialsResult> Invoke(ListPrivateCloudAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListPrivateCloudAdminCredentialsResult>("azure-native:avs:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         public ListPrivateCloudAdminCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListPrivateCloudAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListPrivateCloudAdminCredentialsInvokeArgs()
         {
         }
     }

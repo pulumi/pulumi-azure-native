@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureActiveDirectory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Guest Usages Resource
+        /// API Version: 2020-05-01-preview.
+        /// </summary>
+        public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public string ResourceName { get; set; } = null!;
 
         public GetGuestUsageArgs()
+        {
+        }
+    }
+
+    public sealed class GetGuestUsageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The initial domain name of the AAD tenant.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetGuestUsageInvokeArgs()
         {
         }
     }

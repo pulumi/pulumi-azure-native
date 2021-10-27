@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetIscsiDiskResult> InvokeAsync(GetIscsiDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The iSCSI disk.
+        /// </summary>
+        public static Output<GetIscsiDiskResult> Invoke(GetIscsiDiskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIscsiDiskArgs()
+        {
+        }
+    }
+
+    public sealed class GetIscsiDiskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The disk name.
+        /// </summary>
+        [Input("diskName", required: true)]
+        public Input<string> DiskName { get; set; } = null!;
+
+        /// <summary>
+        /// The iSCSI server name.
+        /// </summary>
+        [Input("iscsiServerName", required: true)]
+        public Input<string> IscsiServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIscsiDiskInvokeArgs()
         {
         }
     }

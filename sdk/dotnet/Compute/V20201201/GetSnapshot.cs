@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20201201
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute/v20201201:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Snapshot resource.
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute/v20201201:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public string SnapshotName { get; set; } = null!;
 
         public GetSnapshotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// </summary>
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
+
+        public GetSnapshotInvokeArgs()
         {
         }
     }

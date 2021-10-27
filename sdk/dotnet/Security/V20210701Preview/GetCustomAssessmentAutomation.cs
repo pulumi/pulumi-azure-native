@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         /// </summary>
         public static Task<GetCustomAssessmentAutomationResult> InvokeAsync(GetCustomAssessmentAutomationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Custom Assessment Automation
+        /// </summary>
+        public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCustomAssessmentAutomationArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomAssessmentAutomationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Custom Assessment Automation.
+        /// </summary>
+        [Input("customAssessmentAutomationName", required: true)]
+        public Input<string> CustomAssessmentAutomationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCustomAssessmentAutomationInvokeArgs()
         {
         }
     }

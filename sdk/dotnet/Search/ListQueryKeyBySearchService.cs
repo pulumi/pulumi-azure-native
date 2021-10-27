@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response containing the query API keys for a given Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
+        public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Search
         public string SearchServiceName { get; set; } = null!;
 
         public ListQueryKeyBySearchServiceArgs()
+        {
+        }
+    }
+
+    public sealed class ListQueryKeyBySearchServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// </summary>
+        [Input("searchServiceName", required: true)]
+        public Input<string> SearchServiceName { get; set; } = null!;
+
+        public ListQueryKeyBySearchServiceInvokeArgs()
         {
         }
     }

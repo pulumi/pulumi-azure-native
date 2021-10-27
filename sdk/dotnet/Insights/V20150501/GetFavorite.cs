@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties that define a favorite that is associated to an Application Insights component.
+        /// </summary>
+        public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public string ResourceName { get; set; } = null!;
 
         public GetFavoriteArgs()
+        {
+        }
+    }
+
+    public sealed class GetFavoriteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Id of a specific favorite defined in the Application Insights component
+        /// </summary>
+        [Input("favoriteId", required: true)]
+        public Input<string> FavoriteId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetFavoriteInvokeArgs()
         {
         }
     }

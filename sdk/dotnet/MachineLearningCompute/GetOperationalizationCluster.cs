@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningCompute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         /// </summary>
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Instance of an Azure ML Operationalization Cluster resource.
+        /// API Version: 2017-08-01-preview.
+        /// </summary>
+        public static Output<GetOperationalizationClusterResult> Invoke(GetOperationalizationClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOperationalizationClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetOperationalizationClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which the cluster is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOperationalizationClusterInvokeArgs()
         {
         }
     }

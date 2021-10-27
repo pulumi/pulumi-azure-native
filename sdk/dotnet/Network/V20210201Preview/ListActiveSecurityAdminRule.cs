@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<ListActiveSecurityAdminRuleResult> InvokeAsync(ListActiveSecurityAdminRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityAdminRuleResult>("azure-native:network/v20210201preview:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
+        /// </summary>
+        public static Output<ListActiveSecurityAdminRuleResult> Invoke(ListActiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListActiveSecurityAdminRuleResult>("azure-native:network/v20210201preview:listActiveSecurityAdminRule", args ?? new ListActiveSecurityAdminRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string? SkipToken { get; set; }
 
         public ListActiveSecurityAdminRuleArgs()
+        {
+        }
+    }
+
+    public sealed class ListActiveSecurityAdminRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// List of regions.
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
+        }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListActiveSecurityAdminRuleInvokeArgs()
         {
         }
     }

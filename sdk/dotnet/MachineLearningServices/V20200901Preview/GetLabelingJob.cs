@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning labeling job object wrapped into ARM resource envelope.
+        /// </summary>
+        public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetLabelingJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabelingJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Boolean value to indicate whether to include JobInstructions in response.
+        /// </summary>
+        [Input("includeJobInstructions")]
+        public Input<bool>? IncludeJobInstructions { get; set; }
+
+        /// <summary>
+        /// Boolean value to indicate whether to include LabelCategories in response.
+        /// </summary>
+        [Input("includeLabelCategories")]
+        public Input<bool>? IncludeLabelCategories { get; set; }
+
+        /// <summary>
+        /// Name and identifier for LabelingJob.
+        /// </summary>
+        [Input("labelingJobId", required: true)]
+        public Input<string> LabelingJobId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetLabelingJobInvokeArgs()
         {
         }
     }

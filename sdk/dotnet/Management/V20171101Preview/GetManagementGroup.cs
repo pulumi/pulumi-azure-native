@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management.V20171101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management/v20171101preview:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The management group details.
+        /// </summary>
+        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management/v20171101preview:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Management.V20171101Preview
         public bool? Recurse { get; set; }
 
         public GetManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Management Group ID.
+        /// </summary>
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload.
+        /// </summary>
+        [Input("recurse")]
+        public Input<bool>? Recurse { get; set; }
+
+        public GetManagementGroupInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210827
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an iot hub data connection.
+        /// </summary>
+        public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIotHubDataConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotHubDataConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the data connection.
+        /// </summary>
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIotHubDataConnectionInvokeArgs()
         {
         }
     }

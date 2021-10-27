@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBox
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBox
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Job Resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataBox
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// $expand is supported on details parameter for job, which provides details on the job stages.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJobInvokeArgs()
         {
         }
     }

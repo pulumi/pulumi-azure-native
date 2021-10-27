@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource representation of a rollout step.
+        /// </summary>
+        public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public string StepName { get; set; } = null!;
 
         public GetStepArgs()
+        {
+        }
+    }
+
+    public sealed class GetStepInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the deployment step.
+        /// </summary>
+        [Input("stepName", required: true)]
+        public Input<string> StepName { get; set; } = null!;
+
+        public GetStepInvokeArgs()
         {
         }
     }

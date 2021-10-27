@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// </summary>
         public static Task<ListVideoContentTokenResult> InvokeAsync(ListVideoContentTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// "Video content token grants access to the video content URLs."
+        /// </summary>
+        public static Output<ListVideoContentTokenResult> Invoke(ListVideoContentTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         public string VideoName { get; set; } = null!;
 
         public ListVideoContentTokenArgs()
+        {
+        }
+    }
+
+    public sealed class ListVideoContentTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Video name.
+        /// </summary>
+        [Input("videoName", required: true)]
+        public Input<string> VideoName { get; set; } = null!;
+
+        public ListVideoContentTokenInvokeArgs()
         {
         }
     }

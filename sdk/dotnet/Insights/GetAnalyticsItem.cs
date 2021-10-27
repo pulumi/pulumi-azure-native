@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties that define an Analytics item that is associated to an Application Insights component.
+        /// API Version: 2015-05-01.
+        /// </summary>
+        public static Output<GetAnalyticsItemResult> Invoke(GetAnalyticsItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAnalyticsItemResult>("azure-native:insights:getAnalyticsItem", args ?? new GetAnalyticsItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.Insights
         public string ScopePath { get; set; } = null!;
 
         public GetAnalyticsItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetAnalyticsItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Id of a specific item defined in the Application Insights component
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of a specific item defined in the Application Insights component
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Input("scopePath", required: true)]
+        public Input<string> ScopePath { get; set; } = null!;
+
+        public GetAnalyticsItemInvokeArgs()
         {
         }
     }

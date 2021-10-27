@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Datasources under OMS Workspace.
+        /// API Version: 2020-08-01.
+        /// </summary>
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.OperationalInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetDataSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the datasource
+        /// </summary>
+        [Input("dataSourceName", required: true)]
+        public Input<string> DataSourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDataSourceInvokeArgs()
         {
         }
     }

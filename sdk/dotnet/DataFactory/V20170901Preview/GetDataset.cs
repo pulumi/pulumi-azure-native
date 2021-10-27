@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Dataset resource type.
+        /// </summary>
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatasetArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatasetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The dataset name.
+        /// </summary>
+        [Input("datasetName", required: true)]
+        public Input<string> DatasetName { get; set; } = null!;
+
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatasetInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20150320
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         /// </summary>
         public static Task<GetStorageInsightResult> InvokeAsync(GetStorageInsightArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightResult>("azure-native:operationalinsights/v20150320:getStorageInsight", args ?? new GetStorageInsightArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The top level storage insight resource container.
+        /// </summary>
+        public static Output<GetStorageInsightResult> Invoke(GetStorageInsightInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageInsightResult>("azure-native:operationalinsights/v20150320:getStorageInsight", args ?? new GetStorageInsightInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
         public string WorkspaceName { get; set; } = null!;
 
         public GetStorageInsightArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageInsightInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the storageInsightsConfigs resource
+        /// </summary>
+        [Input("storageInsightName", required: true)]
+        public Input<string> StorageInsightName { get; set; } = null!;
+
+        /// <summary>
+        /// The Log Analytics Workspace name.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetStorageInsightInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20160319
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
         /// </summary>
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-native:documentdb/v20160319:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Table.
+        /// </summary>
+        public static Output<GetDatabaseAccountTableResult> Invoke(GetDatabaseAccountTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountTableResult>("azure-native:documentdb/v20160319:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
         public string TableName { get; set; } = null!;
 
         public GetDatabaseAccountTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB table name.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetDatabaseAccountTableInvokeArgs()
         {
         }
     }

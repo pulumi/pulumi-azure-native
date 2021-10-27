@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningExperimentation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:machinelearningexperimentation:getProject", args ?? new GetProjectArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a machine learning project.
+        /// API Version: 2017-05-01-preview.
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:machinelearningexperimentation:getProject", args ?? new GetProjectInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
         public string WorkspaceName { get; set; } = null!;
 
         public GetProjectArgs()
+        {
+        }
+    }
+
+    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the machine learning team account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine learning project under a team account workspace.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the machine learning team account belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine learning team account workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetProjectInvokeArgs()
         {
         }
     }

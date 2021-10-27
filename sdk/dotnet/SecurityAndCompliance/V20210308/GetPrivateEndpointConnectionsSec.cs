@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsSecResult> InvokeAsync(GetPrivateEndpointConnectionsSecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsSecResult>("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionsSecResult> Invoke(GetPrivateEndpointConnectionsSecInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         public string ResourceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionsSecArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionsSecInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionsSecInvokeArgs()
         {
         }
     }

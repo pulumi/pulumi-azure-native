@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
         /// </summary>
         public static Task<ListOpenShiftClusterAdminCredentialsResult> InvokeAsync(ListOpenShiftClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+        /// </summary>
+        public static Output<ListOpenShiftClusterAdminCredentialsResult> Invoke(ListOpenShiftClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
         public string ResourceName { get; set; } = null!;
 
         public ListOpenShiftClusterAdminCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListOpenShiftClusterAdminCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListOpenShiftClusterAdminCredentialsInvokeArgs()
         {
         }
     }

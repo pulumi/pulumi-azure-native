@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The storage account.
+        /// API Version: 2021-02-01.
+        /// </summary>
+        public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Storage
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStorageAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStorageAccountInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Property details.
+        /// API Version: 2019-01-01.
+        /// </summary>
+        public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetPropertyArgs()
+        {
+        }
+    }
+
+    public sealed class GetPropertyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the property.
+        /// </summary>
+        [Input("propId", required: true)]
+        public Input<string> PropId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetPropertyInvokeArgs()
         {
         }
     }

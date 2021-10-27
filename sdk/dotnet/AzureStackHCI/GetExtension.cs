@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStackHCI
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Details of a particular extension in HCI Cluster.
+        /// API Version: 2021-01-01-preview.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the proxy resource holding details of HCI ArcSetting information.
+        /// </summary>
+        [Input("arcSettingName", required: true)]
+        public Input<string> ArcSettingName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine extension.
+        /// </summary>
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExtensionInvokeArgs()
         {
         }
     }

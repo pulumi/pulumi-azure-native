@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices/v20211001preview:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices/v20211001preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public string ScheduleName { get; set; } = null!;
 
         public GetScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
+        /// </summary>
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
+
+        public GetScheduleInvokeArgs()
         {
         }
     }

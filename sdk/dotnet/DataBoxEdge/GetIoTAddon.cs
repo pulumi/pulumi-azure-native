@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetIoTAddonResult> InvokeAsync(GetIoTAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT Addon.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string RoleName { get; set; } = null!;
 
         public GetIoTAddonArgs()
+        {
+        }
+    }
+
+    public sealed class GetIoTAddonInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The addon name.
+        /// </summary>
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
+
+        public GetIoTAddonInvokeArgs()
         {
         }
     }

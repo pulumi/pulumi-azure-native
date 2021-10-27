@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response to put/get patch schedules for Redis cache.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetPatchScheduleResult> Invoke(GetPatchScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Cache
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPatchScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetPatchScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Default string modeled as parameter for auto generation to work correctly.
+        /// </summary>
+        [Input("default", required: true)]
+        public Input<string> Default { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the redis cache.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPatchScheduleInvokeArgs()
         {
         }
     }

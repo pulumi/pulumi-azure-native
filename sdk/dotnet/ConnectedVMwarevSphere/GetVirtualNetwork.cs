@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the virtualNetwork.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual network resource.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
+
+        public GetVirtualNetworkInvokeArgs()
         {
         }
     }

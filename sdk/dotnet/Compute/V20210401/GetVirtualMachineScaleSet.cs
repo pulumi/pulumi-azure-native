@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210401
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute/v20210401:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Virtual Machine Scale Set.
+        /// </summary>
+        public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute/v20210401:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20210401
         public string VmScaleSetName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineScaleSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set.
+        /// </summary>
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
+
+        public GetVirtualMachineScaleSetInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20170401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20170401
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An action group resource.
+        /// </summary>
+        public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights/v20170401:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20170401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetActionGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the action group.
+        /// </summary>
+        [Input("actionGroupName", required: true)]
+        public Input<string> ActionGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetActionGroupInvokeArgs()
         {
         }
     }
