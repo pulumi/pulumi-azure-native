@@ -169,7 +169,9 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         }
 
         public static EventSource Assessments { get; } = new EventSource("Assessments");
+        public static EventSource AssessmentsSnapshot { get; } = new EventSource("AssessmentsSnapshot");
         public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
+        public static EventSource SubAssessmentsSnapshot { get; } = new EventSource("SubAssessmentsSnapshot");
         public static EventSource Alerts { get; } = new EventSource("Alerts");
         public static EventSource SecureScores { get; } = new EventSource("SecureScores");
         public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");

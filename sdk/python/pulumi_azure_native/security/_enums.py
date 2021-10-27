@@ -13,13 +13,16 @@ __all__ = [
     'AuthenticationType',
     'AutoProvision',
     'Categories',
+    'CloudName',
     'DataSource',
     'EventSource',
     'ExportData',
     'ImplementationEffort',
     'ImplementationEffortEnum',
     'MinimalSeverity',
+    'OfferingType',
     'Operator',
+    'OrganizationMembershipType',
     'PropertyType',
     'Protocol',
     'RecommendationConfigStatus',
@@ -148,6 +151,15 @@ class Categories(str, Enum):
     IO_T = "IoT"
 
 
+class CloudName(str, Enum):
+    """
+    The multi cloud resource's cloud name.
+    """
+    AZURE = "Azure"
+    AWS = "AWS"
+    GCP = "GCP"
+
+
 class DataSource(str, Enum):
     TWIN_DATA = "TwinData"
     """
@@ -160,7 +172,9 @@ class EventSource(str, Enum):
     A valid event source type.
     """
     ASSESSMENTS = "Assessments"
+    ASSESSMENTS_SNAPSHOT = "AssessmentsSnapshot"
     SUB_ASSESSMENTS = "SubAssessments"
+    SUB_ASSESSMENTS_SNAPSHOT = "SubAssessmentsSnapshot"
     ALERTS = "Alerts"
     SECURE_SCORES = "SecureScores"
     SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
@@ -213,6 +227,15 @@ class MinimalSeverity(str, Enum):
     """
 
 
+class OfferingType(str, Enum):
+    """
+    The type of the security offering.
+    """
+    CSPM_MONITOR_AWS = "CspmMonitorAws"
+    DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
+    DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
+
+
 class Operator(str, Enum):
     """
     A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
@@ -253,6 +276,14 @@ class Operator(str, Enum):
     """
     Applies only for non-decimal operands
     """
+
+
+class OrganizationMembershipType(str, Enum):
+    """
+    The multi cloud account's membership type in the organization
+    """
+    MEMBER = "Member"
+    ORGANIZATION = "Organization"
 
 
 class PropertyType(str, Enum):

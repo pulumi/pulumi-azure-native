@@ -3,7 +3,13 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `security.SecurityConnector`
+
+#### New functions:
+
+- `security.getSecurityConnector`
 
 ---
 

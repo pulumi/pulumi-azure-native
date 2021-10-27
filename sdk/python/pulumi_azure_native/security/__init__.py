@@ -31,6 +31,7 @@ from .get_device_security_group import *
 from .get_ingestion_setting import *
 from .get_iot_security_solution import *
 from .get_jit_network_access_policy import *
+from .get_security_connector import *
 from .get_security_contact import *
 from .get_server_vulnerability_assessment import *
 from .get_sql_vulnerability_assessment_baseline_rule import *
@@ -41,6 +42,7 @@ from .iot_security_solution import *
 from .jit_network_access_policy import *
 from .list_ingestion_setting_connection_strings import *
 from .list_ingestion_setting_tokens import *
+from .security_connector import *
 from .security_contact import *
 from .server_vulnerability_assessment import *
 from .sql_vulnerability_assessment_baseline_rule import *

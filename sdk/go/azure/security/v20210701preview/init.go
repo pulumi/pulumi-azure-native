@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomAssessmentAutomation{}
 	case "azure-native:security/v20210701preview:CustomEntityStoreAssignment":
 		r = &CustomEntityStoreAssignment{}
+	case "azure-native:security/v20210701preview:SecurityConnector":
+		r = &SecurityConnector{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

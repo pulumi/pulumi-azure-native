@@ -68,7 +68,9 @@ export type Categories = (typeof Categories)[keyof typeof Categories];
 
 export const EventSource = {
     Assessments: "Assessments",
+    AssessmentsSnapshot: "AssessmentsSnapshot",
     SubAssessments: "SubAssessments",
+    SubAssessmentsSnapshot: "SubAssessmentsSnapshot",
     Alerts: "Alerts",
     SecureScores: "SecureScores",
     SecureScoresSnapshot: "SecureScoresSnapshot",

@@ -30,6 +30,7 @@ export * from "./getDeviceSecurityGroup";
 export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
 export * from "./getJitNetworkAccessPolicy";
+export * from "./getSecurityConnector";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSqlVulnerabilityAssessmentBaselineRule";
@@ -40,6 +41,7 @@ export * from "./iotSecuritySolution";
 export * from "./jitNetworkAccessPolicy";
 export * from "./listIngestionSettingConnectionStrings";
 export * from "./listIngestionSettingTokens";
+export * from "./securityConnector";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
 export * from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -93,6 +95,7 @@ import { DeviceSecurityGroup } from "./deviceSecurityGroup";
 import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
+import { SecurityConnector } from "./securityConnector";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -131,6 +134,8 @@ const _module = {
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:security:SecurityConnector":
+                return new SecurityConnector(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":

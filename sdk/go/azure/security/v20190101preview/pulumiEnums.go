@@ -682,7 +682,9 @@ type EventSource string
 
 const (
 	EventSourceAssessments                            = EventSource("Assessments")
+	EventSourceAssessmentsSnapshot                    = EventSource("AssessmentsSnapshot")
 	EventSourceSubAssessments                         = EventSource("SubAssessments")
+	EventSourceSubAssessmentsSnapshot                 = EventSource("SubAssessmentsSnapshot")
 	EventSourceAlerts                                 = EventSource("Alerts")
 	EventSourceSecureScores                           = EventSource("SecureScores")
 	EventSourceSecureScoresSnapshot                   = EventSource("SecureScoresSnapshot")

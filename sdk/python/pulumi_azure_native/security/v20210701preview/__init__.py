@@ -10,4 +10,7 @@ from .custom_assessment_automation import *
 from .custom_entity_store_assignment import *
 from .get_custom_assessment_automation import *
 from .get_custom_entity_store_assignment import *
+from .get_security_connector import *
+from .security_connector import *
+from ._inputs import *
 from . import outputs

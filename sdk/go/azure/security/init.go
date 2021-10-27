@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IotSecuritySolution{}
 	case "azure-native:security:JitNetworkAccessPolicy":
 		r = &JitNetworkAccessPolicy{}
+	case "azure-native:security:SecurityConnector":
+		r = &SecurityConnector{}
 	case "azure-native:security:SecurityContact":
 		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":

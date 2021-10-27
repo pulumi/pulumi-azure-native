@@ -7074,6 +7074,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20211015",
+  "fqn": "pulumi_azure_native.documentdb.v20211015",
+  "classes": {
+   "azure-native:documentdb/v20211015:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20211015:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20211015:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20211015:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20211015:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20211015:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20211015:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20211015:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20211015:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20211015:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20211015:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20211015:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20211015:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20211015:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20211015:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20211015:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {
@@ -14137,6 +14163,7 @@ _utilities.register(
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
+   "azure-native:security:SecurityConnector": "SecurityConnector",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
@@ -14245,7 +14272,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20210701preview",
   "classes": {
    "azure-native:security/v20210701preview:CustomAssessmentAutomation": "CustomAssessmentAutomation",
-   "azure-native:security/v20210701preview:CustomEntityStoreAssignment": "CustomEntityStoreAssignment"
+   "azure-native:security/v20210701preview:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
+   "azure-native:security/v20210701preview:SecurityConnector": "SecurityConnector"
   }
  },
  {

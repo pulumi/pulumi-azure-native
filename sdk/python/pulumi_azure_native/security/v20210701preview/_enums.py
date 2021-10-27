@@ -5,11 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'CloudName',
     'ImplementationEffortEnum',
+    'OfferingType',
+    'OrganizationMembershipType',
     'SeverityEnum',
     'SupportedCloudEnum',
     'UserImpactEnum',
 ]
+
+
+class CloudName(str, Enum):
+    """
+    The multi cloud resource's cloud name.
+    """
+    AZURE = "Azure"
+    AWS = "AWS"
+    GCP = "GCP"
 
 
 class ImplementationEffortEnum(str, Enum):
@@ -19,6 +31,23 @@ class ImplementationEffortEnum(str, Enum):
     HIGH = "High"
     MODERATE = "Moderate"
     LOW = "Low"
+
+
+class OfferingType(str, Enum):
+    """
+    The type of the security offering.
+    """
+    CSPM_MONITOR_AWS = "CspmMonitorAws"
+    DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
+    DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
+
+
+class OrganizationMembershipType(str, Enum):
+    """
+    The multi cloud account's membership type in the organization
+    """
+    MEMBER = "Member"
+    ORGANIZATION = "Organization"
 
 
 class SeverityEnum(str, Enum):

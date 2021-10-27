@@ -9,6 +9,8 @@ export * from "./customAssessmentAutomation";
 export * from "./customEntityStoreAssignment";
 export * from "./getCustomAssessmentAutomation";
 export * from "./getCustomEntityStoreAssignment";
+export * from "./getSecurityConnector";
+export * from "./securityConnector";
 
 // Export enums:
 export * from "../../types/enums/security/v20210701preview";
@@ -16,6 +18,7 @@ export * from "../../types/enums/security/v20210701preview";
 // Import resources to register:
 import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
 import { CustomEntityStoreAssignment } from "./customEntityStoreAssignment";
+import { SecurityConnector } from "./securityConnector";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new CustomAssessmentAutomation(name, <any>undefined, { urn })
             case "azure-native:security/v20210701preview:CustomEntityStoreAssignment":
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
+            case "azure-native:security/v20210701preview:SecurityConnector":
+                return new SecurityConnector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -93,6 +93,7 @@ var ignoredProviderVersions = map[string][]string{
 var cutoffProviderVersions = map[string]string{
 	"aad":                     "v20210301",
 	"alertsmanagement":        "v20200804preview",
+	"apimanagement":           "v20210401preview",
 	"appconfiguration":        "v20200701preview",
 	"authorization":           "v20210301preview",
 	"avs":                     "v20210101preview",

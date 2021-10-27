@@ -298,6 +298,38 @@ namespace Pulumi.AzureNative.Security
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The multi cloud resource's cloud name.
+    /// </summary>
+    [EnumType]
+    public readonly struct CloudName : IEquatable<CloudName>
+    {
+        private readonly string _value;
+
+        private CloudName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudName Azure { get; } = new CloudName("Azure");
+        public static CloudName AWS { get; } = new CloudName("AWS");
+        public static CloudName GCP { get; } = new CloudName("GCP");
+
+        public static bool operator ==(CloudName left, CloudName right) => left.Equals(right);
+        public static bool operator !=(CloudName left, CloudName right) => !left.Equals(right);
+
+        public static explicit operator string(CloudName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudName other && Equals(other);
+        public bool Equals(CloudName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataSource : IEquatable<DataSource>
     {
@@ -342,7 +374,9 @@ namespace Pulumi.AzureNative.Security
         }
 
         public static EventSource Assessments { get; } = new EventSource("Assessments");
+        public static EventSource AssessmentsSnapshot { get; } = new EventSource("AssessmentsSnapshot");
         public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
+        public static EventSource SubAssessmentsSnapshot { get; } = new EventSource("SubAssessmentsSnapshot");
         public static EventSource Alerts { get; } = new EventSource("Alerts");
         public static EventSource SecureScores { get; } = new EventSource("SecureScores");
         public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");
@@ -502,6 +536,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The type of the security offering.
+    /// </summary>
+    [EnumType]
+    public readonly struct OfferingType : IEquatable<OfferingType>
+    {
+        private readonly string _value;
+
+        private OfferingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OfferingType CspmMonitorAws { get; } = new OfferingType("CspmMonitorAws");
+        public static OfferingType DefenderForContainersAws { get; } = new OfferingType("DefenderForContainersAws");
+        public static OfferingType DefenderForServersAws { get; } = new OfferingType("DefenderForServersAws");
+
+        public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
+        public static bool operator !=(OfferingType left, OfferingType right) => !left.Equals(right);
+
+        public static explicit operator string(OfferingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OfferingType other && Equals(other);
+        public bool Equals(OfferingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
     /// </summary>
     [EnumType]
@@ -559,6 +625,37 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Operator other && Equals(other);
         public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The multi cloud account's membership type in the organization
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationMembershipType : IEquatable<OrganizationMembershipType>
+    {
+        private readonly string _value;
+
+        private OrganizationMembershipType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationMembershipType Member { get; } = new OrganizationMembershipType("Member");
+        public static OrganizationMembershipType Organization { get; } = new OrganizationMembershipType("Organization");
+
+        public static bool operator ==(OrganizationMembershipType left, OrganizationMembershipType right) => left.Equals(right);
+        public static bool operator !=(OrganizationMembershipType left, OrganizationMembershipType right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationMembershipType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationMembershipType other && Equals(other);
+        public bool Equals(OrganizationMembershipType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

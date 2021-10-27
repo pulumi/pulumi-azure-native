@@ -145,6 +145,17 @@ export const Categories = {
  */
 export type Categories = (typeof Categories)[keyof typeof Categories];
 
+export const CloudName = {
+    Azure: "Azure",
+    AWS: "AWS",
+    GCP: "GCP",
+} as const;
+
+/**
+ * The multi cloud resource's cloud name.
+ */
+export type CloudName = (typeof CloudName)[keyof typeof CloudName];
+
 export const DataSource = {
     /**
      * Devices twin data
@@ -156,7 +167,9 @@ export type DataSource = (typeof DataSource)[keyof typeof DataSource];
 
 export const EventSource = {
     Assessments: "Assessments",
+    AssessmentsSnapshot: "AssessmentsSnapshot",
     SubAssessments: "SubAssessments",
+    SubAssessmentsSnapshot: "SubAssessmentsSnapshot",
     Alerts: "Alerts",
     SecureScores: "SecureScores",
     SecureScoresSnapshot: "SecureScoresSnapshot",
@@ -222,6 +235,17 @@ export const MinimalSeverity = {
  */
 export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
 
+export const OfferingType = {
+    CspmMonitorAws: "CspmMonitorAws",
+    DefenderForContainersAws: "DefenderForContainersAws",
+    DefenderForServersAws: "DefenderForServersAws",
+} as const;
+
+/**
+ * The type of the security offering.
+ */
+export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
+
 export const Operator = {
     /**
      * Applies for decimal and non-decimal operands
@@ -265,6 +289,16 @@ export const Operator = {
  * A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
+
+export const OrganizationMembershipType = {
+    Member: "Member",
+    Organization: "Organization",
+} as const;
+
+/**
+ * The multi cloud account's membership type in the organization
+ */
+export type OrganizationMembershipType = (typeof OrganizationMembershipType)[keyof typeof OrganizationMembershipType];
 
 export const PropertyType = {
     String: "String",

@@ -82,7 +82,9 @@ class EventSource(str, Enum):
     A valid event source type.
     """
     ASSESSMENTS = "Assessments"
+    ASSESSMENTS_SNAPSHOT = "AssessmentsSnapshot"
     SUB_ASSESSMENTS = "SubAssessments"
+    SUB_ASSESSMENTS_SNAPSHOT = "SubAssessmentsSnapshot"
     ALERTS = "Alerts"
     SECURE_SCORES = "SecureScores"
     SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
