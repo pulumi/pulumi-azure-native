@@ -1,0 +1,118 @@
+
+
+
+package v20201001preview
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:datashare/v20201001preview:ADLSGen1FileDataSet":
+		r = &ADLSGen1FileDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet":
+		r = &ADLSGen1FolderDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet":
+		r = &ADLSGen2FileDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSetMapping":
+		r = &ADLSGen2FileDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSet":
+		r = &ADLSGen2FileSystemDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping":
+		r = &ADLSGen2FileSystemDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet":
+		r = &ADLSGen2FolderDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping":
+		r = &ADLSGen2FolderDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet":
+		r = &ADLSGen2StorageAccountDataSet{}
+	case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping":
+		r = &ADLSGen2StorageAccountDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:Account":
+		r = &Account{}
+	case "azure-native:datashare/v20201001preview:BlobContainerDataSet":
+		r = &BlobContainerDataSet{}
+	case "azure-native:datashare/v20201001preview:BlobContainerDataSetMapping":
+		r = &BlobContainerDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:BlobDataSet":
+		r = &BlobDataSet{}
+	case "azure-native:datashare/v20201001preview:BlobDataSetMapping":
+		r = &BlobDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:BlobFolderDataSet":
+		r = &BlobFolderDataSet{}
+	case "azure-native:datashare/v20201001preview:BlobFolderDataSetMapping":
+		r = &BlobFolderDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet":
+		r = &BlobStorageAccountDataSet{}
+	case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping":
+		r = &BlobStorageAccountDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:DataSet":
+		r = &DataSet{}
+	case "azure-native:datashare/v20201001preview:DataSetMapping":
+		r = &DataSetMapping{}
+	case "azure-native:datashare/v20201001preview:Invitation":
+		r = &Invitation{}
+	case "azure-native:datashare/v20201001preview:KustoClusterDataSet":
+		r = &KustoClusterDataSet{}
+	case "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping":
+		r = &KustoClusterDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:KustoDatabaseDataSet":
+		r = &KustoDatabaseDataSet{}
+	case "azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping":
+		r = &KustoDatabaseDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting":
+		r = &ScheduledSynchronizationSetting{}
+	case "azure-native:datashare/v20201001preview:ScheduledTrigger":
+		r = &ScheduledTrigger{}
+	case "azure-native:datashare/v20201001preview:Share":
+		r = &Share{}
+	case "azure-native:datashare/v20201001preview:ShareSubscription":
+		r = &ShareSubscription{}
+	case "azure-native:datashare/v20201001preview:SqlDBTableDataSet":
+		r = &SqlDBTableDataSet{}
+	case "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping":
+		r = &SqlDBTableDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:SqlDWTableDataSet":
+		r = &SqlDWTableDataSet{}
+	case "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping":
+		r = &SqlDWTableDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet":
+		r = &SynapseWorkspaceSqlPoolTableDataSet{}
+	case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping":
+		r = &SynapseWorkspaceSqlPoolTableDataSetMapping{}
+	case "azure-native:datashare/v20201001preview:SynchronizationSetting":
+		r = &SynchronizationSetting{}
+	case "azure-native:datashare/v20201001preview:Trigger":
+		r = &Trigger{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"datashare/v20201001preview",
+		&module{version},
+	)
+}

@@ -1,0 +1,40 @@
+
+
+
+package v20191001preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupBillingRoleAssignmentByEnrollmentAccount(ctx *pulumi.Context, args *LookupBillingRoleAssignmentByEnrollmentAccountArgs, opts ...pulumi.InvokeOption) (*LookupBillingRoleAssignmentByEnrollmentAccountResult, error) {
+	var rv LookupBillingRoleAssignmentByEnrollmentAccountResult
+	err := ctx.Invoke("azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupBillingRoleAssignmentByEnrollmentAccountArgs struct {
+	BillingAccountName        string `pulumi:"billingAccountName"`
+	BillingRoleAssignmentName string `pulumi:"billingRoleAssignmentName"`
+	EnrollmentAccountName     string `pulumi:"enrollmentAccountName"`
+}
+
+
+type LookupBillingRoleAssignmentByEnrollmentAccountResult struct {
+	CreatedByPrincipalId       string  `pulumi:"createdByPrincipalId"`
+	CreatedByPrincipalTenantId string  `pulumi:"createdByPrincipalTenantId"`
+	CreatedByUserEmailAddress  string  `pulumi:"createdByUserEmailAddress"`
+	CreatedOn                  string  `pulumi:"createdOn"`
+	Id                         string  `pulumi:"id"`
+	Name                       string  `pulumi:"name"`
+	PrincipalId                *string `pulumi:"principalId"`
+	PrincipalTenantId          *string `pulumi:"principalTenantId"`
+	RoleDefinitionId           *string `pulumi:"roleDefinitionId"`
+	Scope                      string  `pulumi:"scope"`
+	Type                       string  `pulumi:"type"`
+	UserAuthenticationType     *string `pulumi:"userAuthenticationType"`
+	UserEmailAddress           *string `pulumi:"userEmailAddress"`
+}
