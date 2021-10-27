@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+## 1.43.0 (2021-10-27)
+
 #### New resources:
 
 - `security.SecurityConnector`
@@ -10,6 +12,10 @@ CHANGELOG
 #### New functions:
 
 - `security.getSecurityConnector`
+
+#### Enhancements:
+
+- Update to `pulumi/pulumi` 3.16.0
 
 ---
 
