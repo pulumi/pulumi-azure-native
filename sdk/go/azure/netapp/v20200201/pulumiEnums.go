@@ -676,6 +676,14 @@ func (in *volumeServiceLevelPtr) ToVolumeServiceLevelPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("src"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("src"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolServiceLevelInput)(nil)).Elem(), PoolServiceLevel("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolServiceLevelPtrInput)(nil)).Elem(), PoolServiceLevel("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationScheduleInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSchedulePtrInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeServiceLevelInput)(nil)).Elem(), VolumeServiceLevel("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeServiceLevelPtrInput)(nil)).Elem(), VolumeServiceLevel("Standard"))
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(PoolServiceLevelOutput{})

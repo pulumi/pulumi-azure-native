@@ -1164,6 +1164,20 @@ func (in *storageAutogrowPtr) ToStorageAutogrowPtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModeInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModePtrInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoRedundantBackupInput)(nil)).Elem(), GeoRedundantBackup("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoRedundantBackupPtrInput)(nil)).Elem(), GeoRedundantBackup("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MinimalTlsVersionEnumInput)(nil)).Elem(), MinimalTlsVersionEnum("TLS1_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MinimalTlsVersionEnumPtrInput)(nil)).Elem(), MinimalTlsVersionEnum("TLS1_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionInput)(nil)).Elem(), ServerVersion("10.2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionPtrInput)(nil)).Elem(), ServerVersion("10.2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SslEnforcementEnumInput)(nil)).Elem(), SslEnforcementEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SslEnforcementEnumPtrInput)(nil)).Elem(), SslEnforcementEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAutogrowInput)(nil)).Elem(), StorageAutogrow("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageAutogrowPtrInput)(nil)).Elem(), StorageAutogrow("Enabled"))
 	pulumi.RegisterOutputType(CreateModeOutput{})
 	pulumi.RegisterOutputType(CreateModePtrOutput{})
 	pulumi.RegisterOutputType(GeoRedundantBackupOutput{})

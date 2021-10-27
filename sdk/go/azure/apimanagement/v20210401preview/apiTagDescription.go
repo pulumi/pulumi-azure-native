@@ -201,5 +201,6 @@ func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiTagDescriptionInput)(nil)).Elem(), &ApiTagDescription{})
 	pulumi.RegisterOutputType(ApiTagDescriptionOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20160101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-native:azurestack/v20160101:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource containing the Azure Stack activation key.
+        /// </summary>
+        public static Output<GetRegistrationActivationKeyResult> Invoke(GetRegistrationActivationKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationActivationKeyResult>("azure-native:azurestack/v20160101:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         public string ResourceGroup { get; set; } = null!;
 
         public GetRegistrationActivationKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistrationActivationKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Stack registration.
+        /// </summary>
+        [Input("registrationName", required: true)]
+        public Input<string> RegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetRegistrationActivationKeyInvokeArgs()
         {
         }
     }

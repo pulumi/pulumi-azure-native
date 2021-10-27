@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// </summary>
         public static Task<GetCloudLinkResult> InvokeAsync(GetCloudLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs/v20211201:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A cloud link resource
+        /// </summary>
+        public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs/v20211201:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCloudLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetCloudLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the cloud link resource
+        /// </summary>
+        [Input("cloudLinkName", required: true)]
+        public Input<string> CloudLinkName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCloudLinkInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// </summary>
         public static Task<GetWorkloadNetworkDnsServiceResult> InvokeAsync(GetWorkloadNetworkDnsServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-native:avs/v20210601:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX DNS Service
+        /// </summary>
+        public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs/v20210601:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkloadNetworkDnsServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkDnsServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
+        /// </summary>
+        [Input("dnsServiceId", required: true)]
+        public Input<string> DnsServiceId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkloadNetworkDnsServiceInvokeArgs()
         {
         }
     }

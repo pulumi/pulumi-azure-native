@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         /// </summary>
         public static Task<GetSqlResourceSqlRoleAssignmentResult> InvokeAsync(GetSqlResourceSqlRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb/v20210701preview:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Role Assignment
+        /// </summary>
+        public static Output<GetSqlResourceSqlRoleAssignmentResult> Invoke(GetSqlResourceSqlRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb/v20210701preview:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         public string RoleAssignmentId { get; set; } = null!;
 
         public GetSqlResourceSqlRoleAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlResourceSqlRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The GUID for the Role Assignment.
+        /// </summary>
+        [Input("roleAssignmentId", required: true)]
+        public Input<string> RoleAssignmentId { get; set; } = null!;
+
+        public GetSqlResourceSqlRoleAssignmentInvokeArgs()
         {
         }
     }

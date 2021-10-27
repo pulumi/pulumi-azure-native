@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         /// </summary>
         public static Task<GetCassandraClusterResult> InvokeAsync(GetCassandraClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb/v20210701preview:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Representation of a managed Cassandra cluster.
+        /// </summary>
+        public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb/v20210701preview:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCassandraClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetCassandraClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Managed Cassandra cluster name.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCassandraClusterInvokeArgs()
         {
         }
     }

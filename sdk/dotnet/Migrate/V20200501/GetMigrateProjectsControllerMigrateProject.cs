@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         /// </summary>
         public static Task<GetMigrateProjectsControllerMigrateProjectResult> InvokeAsync(GetMigrateProjectsControllerMigrateProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Migrate project.
+        /// </summary>
+        public static Output<GetMigrateProjectsControllerMigrateProjectResult> Invoke(GetMigrateProjectsControllerMigrateProjectInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMigrateProjectsControllerMigrateProjectArgs()
+        {
+        }
+    }
+
+    public sealed class GetMigrateProjectsControllerMigrateProjectInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Migrate project name.
+        /// </summary>
+        [Input("migrateProjectName", required: true)]
+        public Input<string> MigrateProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMigrateProjectsControllerMigrateProjectInvokeArgs()
         {
         }
     }

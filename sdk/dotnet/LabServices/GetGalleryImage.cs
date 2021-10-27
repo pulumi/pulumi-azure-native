@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an image from the Azure Marketplace
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.LabServices
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGalleryImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=author)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the gallery Image.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public Input<string> GalleryImageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGalleryImageInvokeArgs()
         {
         }
     }

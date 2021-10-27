@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Features
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Features
         /// </summary>
         public static Task<GetSubscriptionFeatureRegistrationResult> InvokeAsync(GetSubscriptionFeatureRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Subscription feature registration details
+        /// API Version: 2021-07-01.
+        /// </summary>
+        public static Output<GetSubscriptionFeatureRegistrationResult> Invoke(GetSubscriptionFeatureRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Features
         public string ProviderNamespace { get; set; } = null!;
 
         public GetSubscriptionFeatureRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubscriptionFeatureRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The feature name.
+        /// </summary>
+        [Input("featureName", required: true)]
+        public Input<string> FeatureName { get; set; } = null!;
+
+        /// <summary>
+        /// The provider namespace.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        public GetSubscriptionFeatureRegistrationInvokeArgs()
         {
         }
     }

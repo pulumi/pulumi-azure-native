@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview
         /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-native:containerservice/v20151101preview:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Container service
+        /// </summary>
+        public static Output<GetContainerServiceResult> Invoke(GetContainerServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContainerServiceResult>("azure-native:containerservice/v20151101preview:getContainerService", args ?? new GetContainerServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetContainerServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetContainerServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container service within the given subscription and resource group.
+        /// </summary>
+        [Input("containerServiceName", required: true)]
+        public Input<string> ContainerServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetContainerServiceInvokeArgs()
         {
         }
     }

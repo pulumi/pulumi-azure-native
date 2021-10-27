@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteDeploymentSlotResult> InvokeAsync(GetSiteDeploymentSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteDeploymentSlotResult>("azure-native:web/v20150801:getSiteDeploymentSlot", args ?? new GetSiteDeploymentSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
+        public static Output<GetSiteDeploymentSlotResult> Invoke(GetSiteDeploymentSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteDeploymentSlotResult>("azure-native:web/v20150801:getSiteDeploymentSlot", args ?? new GetSiteDeploymentSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteDeploymentSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteDeploymentSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of the deployment
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteDeploymentSlotInvokeArgs()
         {
         }
     }

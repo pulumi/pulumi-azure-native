@@ -169,5 +169,6 @@ func (o PeeringServiceOutput) ToPeeringServiceOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringServiceInput)(nil)).Elem(), &PeeringService{})
 	pulumi.RegisterOutputType(PeeringServiceOutput{})
 }

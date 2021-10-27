@@ -165,5 +165,6 @@ func (o WatcherOutput) ToWatcherOutputWithContext(ctx context.Context) WatcherOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WatcherInput)(nil)).Elem(), &Watcher{})
 	pulumi.RegisterOutputType(WatcherOutput{})
 }

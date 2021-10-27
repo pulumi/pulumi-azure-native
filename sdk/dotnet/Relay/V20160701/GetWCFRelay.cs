@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay.V20160701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Relay.V20160701
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of WcfRelays Resource.
+        /// </summary>
+        public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWCFRelayArgs()
+        {
+        }
+    }
+
+    public sealed class GetWCFRelayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Namespace Name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWCFRelayInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+        /// API Version: 2020-05-15.
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccessPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights access policy associated with the specified environment.
+        /// </summary>
+        [Input("accessPolicyName", required: true)]
+        public Input<string> AccessPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccessPolicyInvokeArgs()
         {
         }
     }

@@ -153,5 +153,6 @@ func (o ASCDataConnectorOutput) ToASCDataConnectorOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ASCDataConnectorInput)(nil)).Elem(), &ASCDataConnector{})
 	pulumi.RegisterOutputType(ASCDataConnectorOutput{})
 }

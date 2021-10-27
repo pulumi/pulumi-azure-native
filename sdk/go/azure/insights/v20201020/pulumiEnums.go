@@ -175,6 +175,8 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("user"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("user"))
 	pulumi.RegisterOutputType(KindOutput{})
 	pulumi.RegisterOutputType(KindPtrOutput{})
 }

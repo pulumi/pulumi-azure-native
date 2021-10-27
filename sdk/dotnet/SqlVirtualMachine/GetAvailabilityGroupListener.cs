@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL Server availability group listener.
+        /// API Version: 2017-03-01-preview.
+        /// </summary>
+        public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public string SqlVirtualMachineGroupName { get; set; } = null!;
 
         public GetAvailabilityGroupListenerArgs()
+        {
+        }
+    }
+
+    public sealed class GetAvailabilityGroupListenerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the availability group listener.
+        /// </summary>
+        [Input("availabilityGroupListenerName", required: true)]
+        public Input<string> AvailabilityGroupListenerName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL virtual machine group.
+        /// </summary>
+        [Input("sqlVirtualMachineGroupName", required: true)]
+        public Input<string> SqlVirtualMachineGroupName { get; set; } = null!;
+
+        public GetAvailabilityGroupListenerInvokeArgs()
         {
         }
     }

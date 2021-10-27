@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20210801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Task<GetKustoTableDataSetResult> InvokeAsync(GetKustoTableDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKustoTableDataSetResult>("azure-native:datashare/v20210801:getKustoTableDataSet", args ?? new GetKustoTableDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A kusto table data set.
+        /// </summary>
+        public static Output<GetKustoTableDataSetResult> Invoke(GetKustoTableDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKustoTableDataSetResult>("azure-native:datashare/v20210801:getKustoTableDataSet", args ?? new GetKustoTableDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public string ShareName { get; set; } = null!;
 
         public GetKustoTableDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetKustoTableDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetKustoTableDataSetInvokeArgs()
         {
         }
     }

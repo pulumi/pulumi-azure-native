@@ -125,5 +125,6 @@ func (o BuildStepOutput) ToBuildStepOutputWithContext(ctx context.Context) Build
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildStepInput)(nil)).Elem(), &BuildStep{})
 	pulumi.RegisterOutputType(BuildStepOutput{})
 }

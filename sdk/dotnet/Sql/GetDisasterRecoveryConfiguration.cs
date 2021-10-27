@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetDisasterRecoveryConfigurationResult> InvokeAsync(GetDisasterRecoveryConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a disaster recovery configuration.
+        /// API Version: 2014-04-01.
+        /// </summary>
+        public static Output<GetDisasterRecoveryConfigurationResult> Invoke(GetDisasterRecoveryConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetDisasterRecoveryConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDisasterRecoveryConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the disaster recovery configuration.
+        /// </summary>
+        [Input("disasterRecoveryConfigurationName", required: true)]
+        public Input<string> DisasterRecoveryConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetDisasterRecoveryConfigurationInvokeArgs()
         {
         }
     }

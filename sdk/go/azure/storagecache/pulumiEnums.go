@@ -1005,6 +1005,18 @@ func (in *usernameSourcePtr) ToUsernameSourcePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityTypeInput)(nil)).Elem(), CacheIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityTypePtrInput)(nil)).Elem(), CacheIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsAccessRuleAccessInput)(nil)).Elem(), NfsAccessRuleAccess("no"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsAccessRuleAccessPtrInput)(nil)).Elem(), NfsAccessRuleAccess("no"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsAccessRuleScopeInput)(nil)).Elem(), NfsAccessRuleScope("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsAccessRuleScopePtrInput)(nil)).Elem(), NfsAccessRuleScope("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateTypeInput)(nil)).Elem(), ProvisioningStateType("Succeeded"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateTypePtrInput)(nil)).Elem(), ProvisioningStateType("Succeeded"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTargetTypeInput)(nil)).Elem(), StorageTargetType("nfs3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTargetTypePtrInput)(nil)).Elem(), StorageTargetType("nfs3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsernameSourceInput)(nil)).Elem(), UsernameSource("AD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsernameSourcePtrInput)(nil)).Elem(), UsernameSource("AD"))
 	pulumi.RegisterOutputType(CacheIdentityTypeOutput{})
 	pulumi.RegisterOutputType(CacheIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleAccessOutput{})

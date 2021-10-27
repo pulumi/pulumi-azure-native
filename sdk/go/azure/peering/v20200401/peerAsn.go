@@ -163,5 +163,6 @@ func (o PeerAsnOutput) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PeerAsnInput)(nil)).Elem(), &PeerAsn{})
 	pulumi.RegisterOutputType(PeerAsnOutput{})
 }

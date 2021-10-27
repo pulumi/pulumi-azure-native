@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20150701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization/v20150701:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Role definition.
+        /// </summary>
+        public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization/v20150701:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         public string Scope { get; set; } = null!;
 
         public GetRoleDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the role definition.
+        /// </summary>
+        [Input("roleDefinitionId", required: true)]
+        public Input<string> RoleDefinitionId { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the role definition.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetRoleDefinitionInvokeArgs()
         {
         }
     }

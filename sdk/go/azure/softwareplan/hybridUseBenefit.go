@@ -136,5 +136,6 @@ func (o HybridUseBenefitOutput) ToHybridUseBenefitOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridUseBenefitInput)(nil)).Elem(), &HybridUseBenefit{})
 	pulumi.RegisterOutputType(HybridUseBenefitOutput{})
 }

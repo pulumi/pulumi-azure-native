@@ -196,5 +196,6 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseThreatDetectionPolicyInput)(nil)).Elem(), &DatabaseThreatDetectionPolicy{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
 }

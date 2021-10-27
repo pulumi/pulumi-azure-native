@@ -152,5 +152,6 @@ func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MachineLearningDatasetInput)(nil)).Elem(), &MachineLearningDataset{})
 	pulumi.RegisterOutputType(MachineLearningDatasetOutput{})
 }

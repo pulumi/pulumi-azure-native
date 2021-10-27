@@ -1193,6 +1193,20 @@ func (in *securitySolutionStatusPtr) ToSecuritySolutionStatusPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNotificationsInput)(nil)).Elem(), AlertNotifications("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNotificationsPtrInput)(nil)).Elem(), AlertNotifications("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertsToAdminsInput)(nil)).Elem(), AlertsToAdmins("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertsToAdminsPtrInput)(nil)).Elem(), AlertsToAdmins("On"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), DataSource("TwinData"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePtrInput)(nil)).Elem(), DataSource("TwinData"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportDataInput)(nil)).Elem(), ExportData("RawEvents"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportDataPtrInput)(nil)).Elem(), ExportData("RawEvents"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationConfigStatusInput)(nil)).Elem(), RecommendationConfigStatus("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationConfigStatusPtrInput)(nil)).Elem(), RecommendationConfigStatus("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationTypeInput)(nil)).Elem(), RecommendationType("IoT_ACRAuthentication"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationTypePtrInput)(nil)).Elem(), RecommendationType("IoT_ACRAuthentication"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionStatusInput)(nil)).Elem(), SecuritySolutionStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionStatusPtrInput)(nil)).Elem(), SecuritySolutionStatus("Enabled"))
 	pulumi.RegisterOutputType(AlertNotificationsOutput{})
 	pulumi.RegisterOutputType(AlertNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(AlertsToAdminsOutput{})

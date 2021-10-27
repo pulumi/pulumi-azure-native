@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public static Task<GetQueryPackResult> InvokeAsync(GetQueryPackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Log Analytics QueryPack definition.
+        /// API Version: 2019-09-01-preview.
+        /// </summary>
+        public static Output<GetQueryPackResult> Invoke(GetQueryPackInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetQueryPackResult>("azure-native:operationalinsights:getQueryPack", args ?? new GetQueryPackInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.OperationalInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetQueryPackArgs()
+        {
+        }
+    }
+
+    public sealed class GetQueryPackInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Log Analytics QueryPack resource.
+        /// </summary>
+        [Input("queryPackName", required: true)]
+        public Input<string> QueryPackName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetQueryPackInvokeArgs()
         {
         }
     }

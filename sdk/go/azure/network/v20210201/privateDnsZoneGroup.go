@@ -190,5 +190,6 @@ func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsZoneGroupInput)(nil)).Elem(), &PrivateDnsZoneGroup{})
 	pulumi.RegisterOutputType(PrivateDnsZoneGroupOutput{})
 }

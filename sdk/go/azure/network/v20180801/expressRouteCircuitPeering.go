@@ -412,5 +412,6 @@ func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitPeeringInput)(nil)).Elem(), &ExpressRouteCircuitPeering{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringOutput{})
 }

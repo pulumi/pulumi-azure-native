@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Virtual Machine Extension.
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Compute
         public string VmName { get; set; } = null!;
 
         public GetVirtualMachineExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
+        [Input("vmExtensionName", required: true)]
+        public Input<string> VmExtensionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine containing the extension.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
+
+        public GetVirtualMachineExtensionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevSpaces.V20190401
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
     {
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerArgs(), options.WithVersion());
+
+        public static Output<GetControllerResult> Invoke(GetControllerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces/v20190401:getController", args ?? new GetControllerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.DevSpaces.V20190401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetControllerArgs()
+        {
+        }
+    }
+
+    public sealed class GetControllerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetControllerInvokeArgs()
         {
         }
     }

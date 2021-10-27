@@ -142,5 +142,6 @@ func (o WCFRelayAuthorizationRuleOutput) ToWCFRelayAuthorizationRuleOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WCFRelayAuthorizationRuleInput)(nil)).Elem(), &WCFRelayAuthorizationRule{})
 	pulumi.RegisterOutputType(WCFRelayAuthorizationRuleOutput{})
 }

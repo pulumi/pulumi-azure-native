@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Task<GetMachineLearningComputeResult> InvokeAsync(GetMachineLearningComputeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning compute object wrapped into ARM resource envelope.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetMachineLearningComputeResult> Invoke(GetMachineLearningComputeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningComputeResult>("azure-native:machinelearningservices:getMachineLearningCompute", args ?? new GetMachineLearningComputeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string WorkspaceName { get; set; } = null!;
 
         public GetMachineLearningComputeArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineLearningComputeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Machine Learning compute.
+        /// </summary>
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMachineLearningComputeInvokeArgs()
         {
         }
     }

@@ -144,5 +144,6 @@ func (o ObjectAnchorsAccountOutput) ToObjectAnchorsAccountOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectAnchorsAccountInput)(nil)).Elem(), &ObjectAnchorsAccount{})
 	pulumi.RegisterOutputType(ObjectAnchorsAccountOutput{})
 }

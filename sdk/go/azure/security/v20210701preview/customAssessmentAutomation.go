@@ -143,5 +143,6 @@ func (o CustomAssessmentAutomationOutput) ToCustomAssessmentAutomationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomAssessmentAutomationInput)(nil)).Elem(), &CustomAssessmentAutomation{})
 	pulumi.RegisterOutputType(CustomAssessmentAutomationOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20151101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20151101
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20151101:getResource", args ?? new GetResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource information.
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20151101:getResource", args ?? new GetResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Resources.V20151101
         public string ResourceType { get; set; } = null!;
 
         public GetResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Resource identity.
+        /// </summary>
+        [Input("parentResourcePath", required: true)]
+        public Input<string> ParentResourcePath { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identity.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identity.
+        /// </summary>
+        [Input("resourceProviderNamespace", required: true)]
+        public Input<string> ResourceProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identity.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        public GetResourceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Log Analytics QueryPack-Query definition.
+        /// </summary>
+        public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetQueryArgs()
+        {
+        }
+    }
+
+    public sealed class GetQueryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The id of a specific query defined in the Log Analytics QueryPack
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Log Analytics QueryPack resource.
+        /// </summary>
+        [Input("queryPackName", required: true)]
+        public Input<string> QueryPackName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetQueryInvokeArgs()
         {
         }
     }

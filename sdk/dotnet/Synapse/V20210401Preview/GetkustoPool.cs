@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// </summary>
         public static Task<GetkustoPoolResult> InvokeAsync(GetkustoPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetkustoPoolResult>("azure-native:synapse/v20210401preview:getkustoPool", args ?? new GetkustoPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a Kusto kusto pool.
+        /// </summary>
+        public static Output<GetkustoPoolResult> Invoke(GetkustoPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetkustoPoolResult>("azure-native:synapse/v20210401preview:getkustoPool", args ?? new GetkustoPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetkustoPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetkustoPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetkustoPoolInvokeArgs()
         {
         }
     }

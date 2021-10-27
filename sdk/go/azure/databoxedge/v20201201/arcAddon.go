@@ -197,5 +197,6 @@ func (o ArcAddonOutput) ToArcAddonOutputWithContext(ctx context.Context) ArcAddo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArcAddonInput)(nil)).Elem(), &ArcAddon{})
 	pulumi.RegisterOutputType(ArcAddonOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20160601
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network/v20160601:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayConnectionResult> Invoke(GetVirtualNetworkGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayConnectionResult>("azure-native:network/v20160601:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20160601
         public string VirtualNetworkGatewayConnectionName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkGatewayConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network gateway connection.
+        /// </summary>
+        [Input("virtualNetworkGatewayConnectionName", required: true)]
+        public Input<string> VirtualNetworkGatewayConnectionName { get; set; } = null!;
+
+        public GetVirtualNetworkGatewayConnectionInvokeArgs()
         {
         }
     }

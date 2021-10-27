@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBCollectionResult> InvokeAsync(GetDatabaseAccountMongoDBCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20150401:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB MongoDB collection.
+        /// </summary>
+        public static Output<GetDatabaseAccountMongoDBCollectionResult> Invoke(GetDatabaseAccountMongoDBCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20150401:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountMongoDBCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountMongoDBCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB collection name.
+        /// </summary>
+        [Input("collectionName", required: true)]
+        public Input<string> CollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountMongoDBCollectionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bot channel resource definition
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.BotService
         public string ResourceName { get; set; } = null!;
 
         public GetChannelArgs()
+        {
+        }
+    }
+
+    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource group in the user subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetChannelInvokeArgs()
         {
         }
     }

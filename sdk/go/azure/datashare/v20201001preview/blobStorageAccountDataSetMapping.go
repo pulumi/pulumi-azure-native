@@ -192,5 +192,6 @@ func (o BlobStorageAccountDataSetMappingOutput) ToBlobStorageAccountDataSetMappi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobStorageAccountDataSetMappingInput)(nil)).Elem(), &BlobStorageAccountDataSetMapping{})
 	pulumi.RegisterOutputType(BlobStorageAccountDataSetMappingOutput{})
 }

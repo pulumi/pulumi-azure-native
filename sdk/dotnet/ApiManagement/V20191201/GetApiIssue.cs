@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         /// </summary>
         public static Task<GetApiIssueResult> InvokeAsync(GetApiIssueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueResult>("azure-native:apimanagement/v20191201:getApiIssue", args ?? new GetApiIssueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Issue Contract details.
+        /// </summary>
+        public static Output<GetApiIssueResult> Invoke(GetApiIssueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiIssueResult>("azure-native:apimanagement/v20191201:getApiIssue", args ?? new GetApiIssueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
         public string ServiceName { get; set; } = null!;
 
         public GetApiIssueArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiIssueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Expand the comment attachments. 
+        /// </summary>
+        [Input("expandCommentsAttachments")]
+        public Input<bool>? ExpandCommentsAttachments { get; set; }
+
+        /// <summary>
+        /// Issue identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("issueId", required: true)]
+        public Input<string> IssueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiIssueInvokeArgs()
         {
         }
     }

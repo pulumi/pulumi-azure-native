@@ -204,5 +204,6 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseInput)(nil)).Elem(), &ManagedDatabase{})
 	pulumi.RegisterOutputType(ManagedDatabaseOutput{})
 }

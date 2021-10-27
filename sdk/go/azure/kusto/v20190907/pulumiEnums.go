@@ -1016,6 +1016,18 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNameInput)(nil)).Elem(), AzureSkuName("Standard_DS13_v2+1TB_PS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNamePtrInput)(nil)).Elem(), AzureSkuName("Standard_DS13_v2+1TB_PS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierInput)(nil)).Elem(), AzureSkuTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierPtrInput)(nil)).Elem(), AzureSkuTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFormatInput)(nil)).Elem(), DataFormat("MULTIJSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFormatPtrInput)(nil)).Elem(), DataFormat("MULTIJSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultPrincipalsModificationKindInput)(nil)).Elem(), DefaultPrincipalsModificationKind("Union"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultPrincipalsModificationKindPtrInput)(nil)).Elem(), DefaultPrincipalsModificationKind("Union"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("ReadWrite"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("ReadWrite"))
 	pulumi.RegisterOutputType(AzureSkuNameOutput{})
 	pulumi.RegisterOutputType(AzureSkuNamePtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuTierOutput{})

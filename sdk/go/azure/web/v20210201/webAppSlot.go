@@ -304,5 +304,6 @@ func (o WebAppSlotOutput) ToWebAppSlotOutputWithContext(ctx context.Context) Web
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSlotInput)(nil)).Elem(), &WebAppSlot{})
 	pulumi.RegisterOutputType(WebAppSlotOutput{})
 }

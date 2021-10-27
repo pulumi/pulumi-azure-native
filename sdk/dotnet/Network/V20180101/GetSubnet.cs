@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180101
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network/v20180101:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Subnet in a virtual network resource.
+        /// </summary>
+        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network/v20180101:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Network.V20180101
         public string VirtualNetworkName { get; set; } = null!;
 
         public GetSubnetArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubnetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the subnet.
+        /// </summary>
+        [Input("subnetName", required: true)]
+        public Input<string> SubnetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
+
+        public GetSubnetInvokeArgs()
         {
         }
     }

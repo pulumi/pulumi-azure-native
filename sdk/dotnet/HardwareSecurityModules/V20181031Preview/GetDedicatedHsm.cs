@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource information with extended details.
+        /// </summary>
+        public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDedicatedHsmArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedHsmInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the dedicated HSM.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group to which the dedicated hsm belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDedicatedHsmInvokeArgs()
         {
         }
     }

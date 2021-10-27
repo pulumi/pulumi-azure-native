@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevOps
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DevOps
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:devops:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
+        /// API Version: 2020-07-13-preview.
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:devops:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DevOps
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPipelineArgs()
+        {
+        }
+    }
+
+    public sealed class GetPipelineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Pipeline resource in ARM.
+        /// </summary>
+        [Input("pipelineName", required: true)]
+        public Input<string> PipelineName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPipelineInvokeArgs()
         {
         }
     }

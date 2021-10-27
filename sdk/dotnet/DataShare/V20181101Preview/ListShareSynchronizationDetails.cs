@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// </summary>
         public static Task<ListShareSynchronizationDetailsResult> InvokeAsync(ListShareSynchronizationDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSynchronizationDetails", args ?? new ListShareSynchronizationDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// details of synchronization
+        /// </summary>
+        public static Output<ListShareSynchronizationDetailsResult> Invoke(ListShareSynchronizationDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListShareSynchronizationDetailsResult>("azure-native:datashare/v20181101preview:listShareSynchronizationDetails", args ?? new ListShareSynchronizationDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -112,6 +119,103 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         public string? SynchronizationId { get; set; }
 
         public ListShareSynchronizationDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class ListShareSynchronizationDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Email of the user who created the synchronization
+        /// </summary>
+        [Input("consumerEmail")]
+        public Input<string>? ConsumerEmail { get; set; }
+
+        /// <summary>
+        /// Name of the user who created the synchronization
+        /// </summary>
+        [Input("consumerName")]
+        public Input<string>? ConsumerName { get; set; }
+
+        /// <summary>
+        /// Tenant name of the consumer who created the synchronization
+        /// </summary>
+        [Input("consumerTenantName")]
+        public Input<string>? ConsumerTenantName { get; set; }
+
+        /// <summary>
+        /// synchronization duration
+        /// </summary>
+        [Input("durationMs")]
+        public Input<int>? DurationMs { get; set; }
+
+        /// <summary>
+        /// End time of synchronization
+        /// </summary>
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
+
+        /// <summary>
+        /// Filters the results using OData syntax.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// message of synchronization
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
+
+        /// <summary>
+        /// Sorts the results using OData syntax.
+        /// </summary>
+        [Input("orderby")]
+        public Input<string>? Orderby { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// Continuation token
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        /// <summary>
+        /// start time of synchronization
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// Raw Status
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Synchronization id
+        /// </summary>
+        [Input("synchronizationId")]
+        public Input<string>? SynchronizationId { get; set; }
+
+        public ListShareSynchronizationDetailsInvokeArgs()
         {
         }
     }

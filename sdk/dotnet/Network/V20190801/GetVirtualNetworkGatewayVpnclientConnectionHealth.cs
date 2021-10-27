@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190801
         /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network/v20190801:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of virtual network gateway vpn client connection health.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> Invoke(GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network/v20190801:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20190801
         public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayVpnclientConnectionHealthArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
+
+        public GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs()
         {
         }
     }

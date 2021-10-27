@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Task<ListAgentPoolQueueStatusResult> InvokeAsync(ListAgentPoolQueueStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The QueueStatus of Agent Pool
+        /// </summary>
+        public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAgentPoolQueueStatusArgs()
+        {
+        }
+    }
+
+    public sealed class ListAgentPoolQueueStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAgentPoolQueueStatusInvokeArgs()
         {
         }
     }

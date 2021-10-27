@@ -286,5 +286,6 @@ func (o ManagedHostingEnvironmentOutput) ToManagedHostingEnvironmentOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHostingEnvironmentInput)(nil)).Elem(), &ManagedHostingEnvironment{})
 	pulumi.RegisterOutputType(ManagedHostingEnvironmentOutput{})
 }

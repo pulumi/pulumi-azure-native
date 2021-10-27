@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data needed to decrypt asset files encrypted with legacy storage encryption.
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<GetAssetEncryptionKeyResult> Invoke(GetAssetEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Media
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAssetEncryptionKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssetEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Asset name.
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAssetEncryptionKeyInvokeArgs()
         {
         }
     }

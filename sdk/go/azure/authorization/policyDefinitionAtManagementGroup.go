@@ -192,5 +192,6 @@ func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionAtManagementGroupInput)(nil)).Elem(), &PolicyDefinitionAtManagementGroup{})
 	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupOutput{})
 }

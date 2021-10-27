@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/v20200601:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of on demand test probe.
+        /// </summary>
+        public static Output<GetApplicationGatewayBackendHealthOnDemandResult> Invoke(GetApplicationGatewayBackendHealthOnDemandInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/v20200601:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandInvokeArgs(), options.WithVersion());
     }
 
 
@@ -88,6 +95,79 @@ namespace Pulumi.AzureNative.Network.V20200601
         public int? Timeout { get; set; }
 
         public GetApplicationGatewayBackendHealthOnDemandArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationGatewayBackendHealthOnDemandInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application gateway.
+        /// </summary>
+        [Input("applicationGatewayName", required: true)]
+        public Input<string> ApplicationGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// Reference to backend pool of application gateway to which probe request will be sent.
+        /// </summary>
+        [Input("backendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
+
+        /// <summary>
+        /// Reference to backend http setting of application gateway to be used for test probe.
+        /// </summary>
+        [Input("backendHttpSettings")]
+        public Input<Inputs.SubResourceArgs>? BackendHttpSettings { get; set; }
+
+        /// <summary>
+        /// Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Host name to send the probe to.
+        /// </summary>
+        [Input("host")]
+        public Input<string>? Host { get; set; }
+
+        /// <summary>
+        /// Criterion for classifying a healthy probe response.
+        /// </summary>
+        [Input("match")]
+        public Input<Inputs.ApplicationGatewayProbeHealthResponseMatchArgs>? Match { get; set; }
+
+        /// <summary>
+        /// Relative path of probe. Valid path starts from '/'. Probe is sent to &lt;Protocol&gt;://&lt;host&gt;:&lt;port&gt;&lt;path&gt;.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Whether the host header should be picked from the backend http settings. Default value is false.
+        /// </summary>
+        [Input("pickHostNameFromBackendHttpSettings")]
+        public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
+
+        /// <summary>
+        /// The protocol used for the probe.
+        /// </summary>
+        [Input("protocol")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200601.ApplicationGatewayProtocol>? Protocol { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        public GetApplicationGatewayBackendHealthOnDemandInvokeArgs()
         {
         }
     }

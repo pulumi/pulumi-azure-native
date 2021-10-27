@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp/v20201201:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Snapshot policy information
+        /// </summary>
+        public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp/v20201201:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         public string SnapshotPolicyName { get; set; } = null!;
 
         public GetSnapshotPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSnapshotPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the snapshot policy
+        /// </summary>
+        [Input("snapshotPolicyName", required: true)]
+        public Input<string> SnapshotPolicyName { get; set; } = null!;
+
+        public GetSnapshotPolicyInvokeArgs()
         {
         }
     }

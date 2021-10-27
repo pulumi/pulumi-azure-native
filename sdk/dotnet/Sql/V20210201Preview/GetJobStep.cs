@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql/v20210201preview:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A job step.
+        /// </summary>
+        public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql/v20210201preview:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         public string StepName { get; set; } = null!;
 
         public GetJobStepArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobStepInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the job agent.
+        /// </summary>
+        [Input("jobAgentName", required: true)]
+        public Input<string> JobAgentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the job step.
+        /// </summary>
+        [Input("stepName", required: true)]
+        public Input<string> StepName { get; set; } = null!;
+
+        public GetJobStepInvokeArgs()
         {
         }
     }

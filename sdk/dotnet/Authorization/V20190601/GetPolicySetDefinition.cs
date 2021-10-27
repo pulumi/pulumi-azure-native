@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20190601
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization/v20190601:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The policy set definition.
+        /// </summary>
+        public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization/v20190601:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Authorization.V20190601
         public string PolicySetDefinitionName { get; set; } = null!;
 
         public GetPolicySetDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicySetDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the policy set definition to get.
+        /// </summary>
+        [Input("policySetDefinitionName", required: true)]
+        public Input<string> PolicySetDefinitionName { get; set; } = null!;
+
+        public GetPolicySetDefinitionInvokeArgs()
         {
         }
     }

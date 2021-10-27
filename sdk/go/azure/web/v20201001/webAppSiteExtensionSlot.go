@@ -212,5 +212,6 @@ func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSiteExtensionSlotInput)(nil)).Elem(), &WebAppSiteExtensionSlot{})
 	pulumi.RegisterOutputType(WebAppSiteExtensionSlotOutput{})
 }

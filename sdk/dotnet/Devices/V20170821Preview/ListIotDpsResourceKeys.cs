@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20170821Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
         /// </summary>
         public static Task<ListIotDpsResourceKeysResult> InvokeAsync(ListIotDpsResourceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-native:devices/v20170821preview:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of shared access keys.
+        /// </summary>
+        public static Output<ListIotDpsResourceKeysResult> Invoke(ListIotDpsResourceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysResult>("azure-native:devices/v20170821preview:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListIotDpsResourceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListIotDpsResourceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The provisioning service name to get the shared access keys for.
+        /// </summary>
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListIotDpsResourceKeysInvokeArgs()
         {
         }
     }

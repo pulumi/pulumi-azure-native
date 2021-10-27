@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20190301
         /// </summary>
         public static Task<GetGalleryApplicationResult> InvokeAsync(GetGalleryApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azure-native:compute/v20190301:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the gallery Application Definition that you want to create or update.
+        /// </summary>
+        public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute/v20190301:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGalleryApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetGalleryApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the gallery Application Definition to be retrieved.
+        /// </summary>
+        [Input("galleryApplicationName", required: true)]
+        public Input<string> GalleryApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGalleryApplicationInvokeArgs()
         {
         }
     }

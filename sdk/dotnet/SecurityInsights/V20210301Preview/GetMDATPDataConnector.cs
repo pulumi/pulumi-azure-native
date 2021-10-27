@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Task<GetMDATPDataConnectorResult> InvokeAsync(GetMDATPDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMDATPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMDATPDataConnector", args ?? new GetMDATPDataConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+        /// </summary>
+        public static Output<GetMDATPDataConnectorResult> Invoke(GetMDATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMDATPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMDATPDataConnector", args ?? new GetMDATPDataConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetMDATPDataConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMDATPDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMDATPDataConnectorInvokeArgs()
         {
         }
     }

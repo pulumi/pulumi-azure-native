@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20210801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Task<GetKustoTableDataSetMappingResult> InvokeAsync(GetKustoTableDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Kusto database data set mapping
+        /// </summary>
+        public static Output<GetKustoTableDataSetMappingResult> Invoke(GetKustoTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKustoTableDataSetMappingResult>("azure-native:datashare/v20210801:getKustoTableDataSetMapping", args ?? new GetKustoTableDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetKustoTableDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetKustoTableDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetKustoTableDataSetMappingInvokeArgs()
         {
         }
     }

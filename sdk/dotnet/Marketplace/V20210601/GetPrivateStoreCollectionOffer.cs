@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Marketplace.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         /// </summary>
         public static Task<GetPrivateStoreCollectionOfferResult> InvokeAsync(GetPrivateStoreCollectionOfferArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace/v20210601:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The privateStore offer data structure.
+        /// </summary>
+        public static Output<GetPrivateStoreCollectionOfferResult> Invoke(GetPrivateStoreCollectionOfferInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace/v20210601:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Marketplace.V20210601
         public string PrivateStoreId { get; set; } = null!;
 
         public GetPrivateStoreCollectionOfferArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateStoreCollectionOfferInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The collection ID
+        /// </summary>
+        [Input("collectionId", required: true)]
+        public Input<string> CollectionId { get; set; } = null!;
+
+        /// <summary>
+        /// The offer ID to update or delete
+        /// </summary>
+        [Input("offerId", required: true)]
+        public Input<string> OfferId { get; set; } = null!;
+
+        /// <summary>
+        /// The store ID - must use the tenant ID
+        /// </summary>
+        [Input("privateStoreId", required: true)]
+        public Input<string> PrivateStoreId { get; set; } = null!;
+
+        public GetPrivateStoreCollectionOfferInvokeArgs()
         {
         }
     }

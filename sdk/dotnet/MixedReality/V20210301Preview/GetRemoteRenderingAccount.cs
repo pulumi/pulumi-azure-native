@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20210301preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// RemoteRenderingAccount Response.
+        /// </summary>
+        public static Output<GetRemoteRenderingAccountResult> Invoke(GetRemoteRenderingAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRemoteRenderingAccountResult>("azure-native:mixedreality/v20210301preview:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRemoteRenderingAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetRemoteRenderingAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of an Mixed Reality Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRemoteRenderingAccountInvokeArgs()
         {
         }
     }

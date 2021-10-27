@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeStore.V20161101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-native:datalakestore/v20161101:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data Lake Store trusted identity provider information.
+        /// </summary>
+        public static Output<GetTrustedIdProviderResult> Invoke(GetTrustedIdProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTrustedIdProviderResult>("azure-native:datalakestore/v20161101:getTrustedIdProvider", args ?? new GetTrustedIdProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         public string TrustedIdProviderName { get; set; } = null!;
 
         public GetTrustedIdProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetTrustedIdProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Store account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the trusted identity provider to retrieve.
+        /// </summary>
+        [Input("trustedIdProviderName", required: true)]
+        public Input<string> TrustedIdProviderName { get; set; } = null!;
+
+        public GetTrustedIdProviderInvokeArgs()
         {
         }
     }

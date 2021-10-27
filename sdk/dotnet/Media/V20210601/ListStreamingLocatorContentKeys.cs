@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-native:media/v20210601:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class of response for listContentKeys action
+        /// </summary>
+        public static Output<ListStreamingLocatorContentKeysResult> Invoke(ListStreamingLocatorContentKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorContentKeysResult>("azure-native:media/v20210601:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20210601
         public string StreamingLocatorName { get; set; } = null!;
 
         public ListStreamingLocatorContentKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListStreamingLocatorContentKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Streaming Locator name.
+        /// </summary>
+        [Input("streamingLocatorName", required: true)]
+        public Input<string> StreamingLocatorName { get; set; } = null!;
+
+        public ListStreamingLocatorContentKeysInvokeArgs()
         {
         }
     }

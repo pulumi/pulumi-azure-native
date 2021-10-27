@@ -179,6 +179,8 @@ func (in *complianceStatePtr) ToComplianceStatePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComplianceStateInput)(nil)).Elem(), ComplianceState("Compliant"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComplianceStatePtrInput)(nil)).Elem(), ComplianceState("Compliant"))
 	pulumi.RegisterOutputType(ComplianceStateOutput{})
 	pulumi.RegisterOutputType(ComplianceStatePtrOutput{})
 }

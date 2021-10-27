@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20210501:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Customer subscription which can use a sku.
+        /// </summary>
+        public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20210501:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public string VendorName { get; set; } = null!;
 
         public GetVendorSkuPreviewArgs()
+        {
+        }
+    }
+
+    public sealed class GetVendorSkuPreviewInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Preview subscription ID.
+        /// </summary>
+        [Input("previewSubscription", required: true)]
+        public Input<string> PreviewSubscription { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vendor sku.
+        /// </summary>
+        [Input("skuName", required: true)]
+        public Input<string> SkuName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vendor.
+        /// </summary>
+        [Input("vendorName", required: true)]
+        public Input<string> VendorName { get; set; } = null!;
+
+        public GetVendorSkuPreviewInvokeArgs()
         {
         }
     }

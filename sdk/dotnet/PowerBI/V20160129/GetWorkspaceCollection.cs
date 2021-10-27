@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBI.V20160129
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
     {
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-native:powerbi/v20160129:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithVersion());
+
+        public static Output<GetWorkspaceCollectionResult> Invoke(GetWorkspaceCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceCollectionResult>("azure-native:powerbi/v20160129:getWorkspaceCollection", args ?? new GetWorkspaceCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
         public string WorkspaceCollectionName { get; set; } = null!;
 
         public GetWorkspaceCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Azure resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Power BI Embedded Workspace Collection name
+        /// </summary>
+        [Input("workspaceCollectionName", required: true)]
+        public Input<string> WorkspaceCollectionName { get; set; } = null!;
+
+        public GetWorkspaceCollectionInvokeArgs()
         {
         }
     }

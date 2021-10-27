@@ -511,6 +511,12 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekInput)(nil)).Elem(), DayOfWeek("Monday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekPtrInput)(nil)).Elem(), DayOfWeek("Monday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyInput)(nil)).Elem(), SkuFamily("C"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyPtrInput)(nil)).Elem(), SkuFamily("C"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Basic"))
 	pulumi.RegisterOutputType(DayOfWeekOutput{})
 	pulumi.RegisterOutputType(DayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(SkuFamilyOutput{})

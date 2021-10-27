@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20200113Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the watcher type.
+        /// </summary>
+        public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation/v20200113preview:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
         public string WatcherName { get; set; } = null!;
 
         public GetWatcherArgs()
+        {
+        }
+    }
+
+    public sealed class GetWatcherInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The watcher name.
+        /// </summary>
+        [Input("watcherName", required: true)]
+        public Input<string> WatcherName { get; set; } = null!;
+
+        public GetWatcherInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-native:network/v20210301:getNatRule", args ?? new GetNatRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VpnGatewayNatRule Resource.
+        /// </summary>
+        public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network/v20210301:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNatRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetNatRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the gateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the nat rule.
+        /// </summary>
+        [Input("natRuleName", required: true)]
+        public Input<string> NatRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the VpnGateway.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNatRuleInvokeArgs()
         {
         }
     }

@@ -172,5 +172,6 @@ func (o ConnectorMappingOutput) ToConnectorMappingOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorMappingInput)(nil)).Elem(), &ConnectorMapping{})
 	pulumi.RegisterOutputType(ConnectorMappingOutput{})
 }

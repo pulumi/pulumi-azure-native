@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20181101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// </summary>
         public static Task<GetWebAppVnetConnectionResult> InvokeAsync(GetWebAppVnetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-native:web/v20181101:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual Network information contract.
+        /// </summary>
+        public static Output<GetWebAppVnetConnectionResult> Invoke(GetWebAppVnetConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionResult>("azure-native:web/v20181101:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20181101
         public string VnetName { get; set; } = null!;
 
         public GetWebAppVnetConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppVnetConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual network.
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
+
+        public GetWebAppVnetConnectionInvokeArgs()
         {
         }
     }

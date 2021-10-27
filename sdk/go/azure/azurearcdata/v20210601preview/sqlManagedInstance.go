@@ -157,5 +157,6 @@ func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlManagedInstanceInput)(nil)).Elem(), &SqlManagedInstance{})
 	pulumi.RegisterOutputType(SqlManagedInstanceOutput{})
 }

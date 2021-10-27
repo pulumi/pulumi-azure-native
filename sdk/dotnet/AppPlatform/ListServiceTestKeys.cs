@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Test keys payload
+        /// API Version: 2020-07-01.
+        /// </summary>
+        public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AppPlatform
         public string ServiceName { get; set; } = null!;
 
         public ListServiceTestKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListServiceTestKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListServiceTestKeysInvokeArgs()
         {
         }
     }

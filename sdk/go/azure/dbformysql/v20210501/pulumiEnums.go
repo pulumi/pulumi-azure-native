@@ -1000,6 +1000,18 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModeInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModePtrInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnableStatusEnumInput)(nil)).Elem(), EnableStatusEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnableStatusEnumPtrInput)(nil)).Elem(), EnableStatusEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HighAvailabilityModeInput)(nil)).Elem(), HighAvailabilityMode("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HighAvailabilityModePtrInput)(nil)).Elem(), HighAvailabilityMode("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRoleInput)(nil)).Elem(), ReplicationRole("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRolePtrInput)(nil)).Elem(), ReplicationRole("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionInput)(nil)).Elem(), ServerVersion("5.7"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionPtrInput)(nil)).Elem(), ServerVersion("5.7"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Burstable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Burstable"))
 	pulumi.RegisterOutputType(CreateModeOutput{})
 	pulumi.RegisterOutputType(CreateModePtrOutput{})
 	pulumi.RegisterOutputType(EnableStatusEnumOutput{})

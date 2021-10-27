@@ -1199,6 +1199,20 @@ func (in *servicePlacementPolicyTypePtr) ToServicePlacementPolicyTypePtrOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArmUpgradeFailureActionInput)(nil)).Elem(), ArmUpgradeFailureAction("Rollback"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArmUpgradeFailureActionPtrInput)(nil)).Elem(), ArmUpgradeFailureAction("Rollback"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MoveCostInput)(nil)).Elem(), MoveCost("Zero"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MoveCostPtrInput)(nil)).Elem(), MoveCost("Zero"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemeInput)(nil)).Elem(), PartitionScheme("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemePtrInput)(nil)).Elem(), PartitionScheme("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorrelationSchemeInput)(nil)).Elem(), ServiceCorrelationScheme("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorrelationSchemePtrInput)(nil)).Elem(), ServiceCorrelationScheme("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKindInput)(nil)).Elem(), ServiceKind("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKindPtrInput)(nil)).Elem(), ServiceKind("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadMetricWeightInput)(nil)).Elem(), ServiceLoadMetricWeight("Zero"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadMetricWeightPtrInput)(nil)).Elem(), ServiceLoadMetricWeight("Zero"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementPolicyTypeInput)(nil)).Elem(), ServicePlacementPolicyType("Invalid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementPolicyTypePtrInput)(nil)).Elem(), ServicePlacementPolicyType("Invalid"))
 	pulumi.RegisterOutputType(ArmUpgradeFailureActionOutput{})
 	pulumi.RegisterOutputType(ArmUpgradeFailureActionPtrOutput{})
 	pulumi.RegisterOutputType(MoveCostOutput{})

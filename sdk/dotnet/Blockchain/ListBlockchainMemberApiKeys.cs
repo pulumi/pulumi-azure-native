@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Blockchain
         /// </summary>
         public static Task<ListBlockchainMemberApiKeysResult> InvokeAsync(ListBlockchainMemberApiKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-native:blockchain:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of the API key payload which is exposed in the response of the resource provider.
+        /// API Version: 2018-06-01-preview.
+        /// </summary>
+        public static Output<ListBlockchainMemberApiKeysResult> Invoke(ListBlockchainMemberApiKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListBlockchainMemberApiKeysResult>("azure-native:blockchain:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Blockchain
         public string ResourceGroupName { get; set; } = null!;
 
         public ListBlockchainMemberApiKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListBlockchainMemberApiKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Blockchain member name.
+        /// </summary>
+        [Input("blockchainMemberName", required: true)]
+        public Input<string> BlockchainMemberName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListBlockchainMemberApiKeysInvokeArgs()
         {
         }
     }

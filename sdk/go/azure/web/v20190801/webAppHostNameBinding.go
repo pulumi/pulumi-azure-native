@@ -219,5 +219,6 @@ func (o WebAppHostNameBindingOutput) ToWebAppHostNameBindingOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppHostNameBindingInput)(nil)).Elem(), &WebAppHostNameBinding{})
 	pulumi.RegisterOutputType(WebAppHostNameBindingOutput{})
 }

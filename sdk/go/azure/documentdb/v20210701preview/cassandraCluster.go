@@ -150,5 +150,6 @@ func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterInput)(nil)).Elem(), &CassandraCluster{})
 	pulumi.RegisterOutputType(CassandraClusterOutput{})
 }

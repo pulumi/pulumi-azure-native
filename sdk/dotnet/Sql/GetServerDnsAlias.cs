@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A server DNS alias.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetServerDnsAliasArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerDnsAliasInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the server dns alias.
+        /// </summary>
+        [Input("dnsAliasName", required: true)]
+        public Input<string> DnsAliasName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server that the alias is pointing to.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerDnsAliasInvokeArgs()
         {
         }
     }

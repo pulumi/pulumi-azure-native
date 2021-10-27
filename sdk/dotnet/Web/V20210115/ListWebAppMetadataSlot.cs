@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// </summary>
         public static Task<ListWebAppMetadataSlotResult> InvokeAsync(ListWebAppMetadataSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataSlotResult>("azure-native:web/v20210115:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
+        public static Output<ListWebAppMetadataSlotResult> Invoke(ListWebAppMetadataSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataSlotResult>("azure-native:web/v20210115:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20210115
         public string Slot { get; set; } = null!;
 
         public ListWebAppMetadataSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppMetadataSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get the metadata for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppMetadataSlotInvokeArgs()
         {
         }
     }

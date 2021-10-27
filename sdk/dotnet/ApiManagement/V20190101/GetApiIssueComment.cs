@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement/v20190101:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Issue Comment Contract details.
+        /// </summary>
+        public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement/v20190101:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public string ServiceName { get; set; } = null!;
 
         public GetApiIssueCommentArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiIssueCommentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Comment identifier within an Issue. Must be unique in the current Issue.
+        /// </summary>
+        [Input("commentId", required: true)]
+        public Input<string> CommentId { get; set; } = null!;
+
+        /// <summary>
+        /// Issue identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("issueId", required: true)]
+        public Input<string> IssueId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiIssueCommentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetJobAgentResult> InvokeAsync(GetJobAgentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-native:sql:getJobAgent", args ?? new GetJobAgentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL job agent.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetJobAgentArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobAgentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the job agent to be retrieved.
+        /// </summary>
+        [Input("jobAgentName", required: true)]
+        public Input<string> JobAgentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetJobAgentInvokeArgs()
         {
         }
     }

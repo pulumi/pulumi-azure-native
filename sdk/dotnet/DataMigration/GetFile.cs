@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A file resource
+        /// API Version: 2018-07-15-preview.
+        /// </summary>
+        public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataMigration
         public string ServiceName { get; set; } = null!;
 
         public GetFileArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the File
+        /// </summary>
+        [Input("fileName", required: true)]
+        public Input<string> FileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the project
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the service
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetFileInvokeArgs()
         {
         }
     }

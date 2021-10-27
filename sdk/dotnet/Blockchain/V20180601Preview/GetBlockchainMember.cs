@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         /// </summary>
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-native:blockchain/v20180601preview:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+        /// </summary>
+        public static Output<GetBlockchainMemberResult> Invoke(GetBlockchainMemberInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlockchainMemberResult>("azure-native:blockchain/v20180601preview:getBlockchainMember", args ?? new GetBlockchainMemberInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBlockchainMemberArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlockchainMemberInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Blockchain member name.
+        /// </summary>
+        [Input("blockchainMemberName", required: true)]
+        public Input<string> BlockchainMemberName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBlockchainMemberInvokeArgs()
         {
         }
     }

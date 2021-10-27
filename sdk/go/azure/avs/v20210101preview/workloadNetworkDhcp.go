@@ -157,5 +157,6 @@ func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkDhcpInput)(nil)).Elem(), &WorkloadNetworkDhcp{})
 	pulumi.RegisterOutputType(WorkloadNetworkDhcpOutput{})
 }

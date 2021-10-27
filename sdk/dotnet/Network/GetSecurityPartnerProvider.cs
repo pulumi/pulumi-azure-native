@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security Partner Provider resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string SecurityPartnerProviderName { get; set; } = null!;
 
         public GetSecurityPartnerProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityPartnerProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Security Partner Provider.
+        /// </summary>
+        [Input("securityPartnerProviderName", required: true)]
+        public Input<string> SecurityPartnerProviderName { get; set; } = null!;
+
+        public GetSecurityPartnerProviderInvokeArgs()
         {
         }
     }

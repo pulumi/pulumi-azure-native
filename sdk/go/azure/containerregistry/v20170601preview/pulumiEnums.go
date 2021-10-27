@@ -505,6 +505,12 @@ func (in *webhookStatusPtr) ToWebhookStatusPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookActionInput)(nil)).Elem(), WebhookAction("push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookActionPtrInput)(nil)).Elem(), WebhookAction("push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookStatusInput)(nil)).Elem(), WebhookStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookStatusPtrInput)(nil)).Elem(), WebhookStatus("enabled"))
 	pulumi.RegisterOutputType(SkuNameOutput{})
 	pulumi.RegisterOutputType(SkuNamePtrOutput{})
 	pulumi.RegisterOutputType(WebhookActionOutput{})

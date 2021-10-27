@@ -187,5 +187,6 @@ func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceConfigurationInput)(nil)).Elem(), &MaintenanceConfiguration{})
 	pulumi.RegisterOutputType(MaintenanceConfigurationOutput{})
 }

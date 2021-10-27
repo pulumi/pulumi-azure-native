@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20211101Preview
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20211101preview:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Flux Configuration object returned in Get &amp; Put response.
+        /// </summary>
+        public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20211101preview:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20211101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFluxConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetFluxConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the kubernetes cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterResourceName", required: true)]
+        public Input<string> ClusterResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterRp", required: true)]
+        public Input<string> ClusterRp { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Flux Configuration.
+        /// </summary>
+        [Input("fluxConfigurationName", required: true)]
+        public Input<string> FluxConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFluxConfigurationInvokeArgs()
         {
         }
     }

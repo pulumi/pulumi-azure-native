@@ -339,6 +339,10 @@ func (in *monitoringStatusPtr) ToMonitoringStatusPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesInput)(nil)).Elem(), ManagedIdentityTypes("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesPtrInput)(nil)).Elem(), ManagedIdentityTypes("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringStatusInput)(nil)).Elem(), MonitoringStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringStatusPtrInput)(nil)).Elem(), MonitoringStatus("Enabled"))
 	pulumi.RegisterOutputType(ManagedIdentityTypesOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityTypesPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringStatusOutput{})

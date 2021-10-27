@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// </summary>
         public static Task<GetVideoResult> InvokeAsync(GetVideoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The representation of a single video in a Video Analyzer account.
+        /// </summary>
+        public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         public string VideoName { get; set; } = null!;
 
         public GetVideoArgs()
+        {
+        }
+    }
+
+    public sealed class GetVideoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the video to retrieve.
+        /// </summary>
+        [Input("videoName", required: true)]
+        public Input<string> VideoName { get; set; } = null!;
+
+        public GetVideoInvokeArgs()
         {
         }
     }

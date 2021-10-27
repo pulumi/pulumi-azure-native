@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetManagedInstanceAzureADOnlyAuthenticationResult> InvokeAsync(GetManagedInstanceAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Active Directory only authentication.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetManagedInstanceAzureADOnlyAuthenticationResult> Invoke(GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedInstanceAzureADOnlyAuthenticationArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of server azure active directory only authentication.
+        /// </summary>
+        [Input("authenticationName", required: true)]
+        public Input<string> AuthenticationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs()
         {
         }
     }

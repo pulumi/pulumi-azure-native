@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Devices.V20200301
         /// </summary>
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-native:devices/v20200301:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the IoT hub.
+        /// </summary>
+        public static Output<GetIotHubResourceResult> Invoke(GetIotHubResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubResourceResult>("azure-native:devices/v20200301:getIotHubResource", args ?? new GetIotHubResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Devices.V20200301
         public string ResourceName { get; set; } = null!;
 
         public GetIotHubResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotHubResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the IoT hub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetIotHubResourceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20210201
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage/v20210201:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+        /// </summary>
+        public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage/v20210201:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Storage.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetObjectReplicationPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetObjectReplicationPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of object replication policy or 'default' if the policy ID is unknown.
+        /// </summary>
+        [Input("objectReplicationPolicyId", required: true)]
+        public Input<string> ObjectReplicationPolicyId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetObjectReplicationPolicyInvokeArgs()
         {
         }
     }

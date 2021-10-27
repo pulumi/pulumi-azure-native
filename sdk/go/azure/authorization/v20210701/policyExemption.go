@@ -154,5 +154,6 @@ func (o PolicyExemptionOutput) ToPolicyExemptionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExemptionInput)(nil)).Elem(), &PolicyExemption{})
 	pulumi.RegisterOutputType(PolicyExemptionOutput{})
 }

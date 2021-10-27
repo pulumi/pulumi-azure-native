@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20190430
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
         /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice/v20190430:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OpenShift Managed cluster.
+        /// </summary>
+        public static Output<GetOpenShiftManagedClusterResult> Invoke(GetOpenShiftManagedClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOpenShiftManagedClusterResult>("azure-native:containerservice/v20190430:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
         public string ResourceName { get; set; } = null!;
 
         public GetOpenShiftManagedClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetOpenShiftManagedClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetOpenShiftManagedClusterInvokeArgs()
         {
         }
     }

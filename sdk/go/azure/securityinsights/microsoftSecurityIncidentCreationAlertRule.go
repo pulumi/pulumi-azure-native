@@ -181,5 +181,6 @@ func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) ToMicrosoftSecurityInc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftSecurityIncidentCreationAlertRuleInput)(nil)).Elem(), &MicrosoftSecurityIncidentCreationAlertRule{})
 	pulumi.RegisterOutputType(MicrosoftSecurityIncidentCreationAlertRuleOutput{})
 }

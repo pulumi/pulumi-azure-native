@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// RouteTable resource in a virtual hub.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetHubRouteTableResult> Invoke(GetHubRouteTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string VirtualHubName { get; set; } = null!;
 
         public GetHubRouteTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetHubRouteTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name of the VirtualHub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the RouteTable.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
+
+        public GetHubRouteTableInvokeArgs()
         {
         }
     }

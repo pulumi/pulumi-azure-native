@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights/v20170426:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The KPI resource format.
+        /// </summary>
+        public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights/v20170426:getKpi", args ?? new GetKpiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public string ResourceGroupName { get; set; } = null!;
 
         public GetKpiArgs()
+        {
+        }
+    }
+
+    public sealed class GetKpiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the KPI.
+        /// </summary>
+        [Input("kpiName", required: true)]
+        public Input<string> KpiName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetKpiInvokeArgs()
         {
         }
     }

@@ -175,6 +175,8 @@ func (in *poolAllocationModePtr) ToPoolAllocationModePtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolAllocationModeInput)(nil)).Elem(), PoolAllocationMode("BatchService"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolAllocationModePtrInput)(nil)).Elem(), PoolAllocationMode("BatchService"))
 	pulumi.RegisterOutputType(PoolAllocationModeOutput{})
 	pulumi.RegisterOutputType(PoolAllocationModePtrOutput{})
 }

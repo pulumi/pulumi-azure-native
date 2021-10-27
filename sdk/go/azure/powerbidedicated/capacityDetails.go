@@ -149,5 +149,6 @@ func (o CapacityDetailsOutput) ToCapacityDetailsOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityDetailsInput)(nil)).Elem(), &CapacityDetails{})
 	pulumi.RegisterOutputType(CapacityDetailsOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20190301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         /// </summary>
         public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Connector model definition
+        /// </summary>
+        public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         public string? Expand { get; set; }
 
         public GetCloudConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetCloudConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector Name.
+        /// </summary>
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
+
+        /// <summary>
+        /// May be used to expand the collectionInfo property. By default, collectionInfo is not included.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        public GetCloudConnectorInvokeArgs()
         {
         }
     }

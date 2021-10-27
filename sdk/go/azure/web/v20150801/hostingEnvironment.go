@@ -286,5 +286,6 @@ func (o HostingEnvironmentOutput) ToHostingEnvironmentOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostingEnvironmentInput)(nil)).Elem(), &HostingEnvironment{})
 	pulumi.RegisterOutputType(HostingEnvironmentOutput{})
 }

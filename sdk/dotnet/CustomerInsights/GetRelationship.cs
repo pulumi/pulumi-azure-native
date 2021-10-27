@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-native:customerinsights:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The relationship resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
+        public static Output<GetRelationshipResult> Invoke(GetRelationshipInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRelationshipResult>("azure-native:customerinsights:getRelationship", args ?? new GetRelationshipInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.CustomerInsights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRelationshipArgs()
+        {
+        }
+    }
+
+    public sealed class GetRelationshipInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the relationship.
+        /// </summary>
+        [Input("relationshipName", required: true)]
+        public Input<string> RelationshipName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRelationshipInvokeArgs()
         {
         }
     }

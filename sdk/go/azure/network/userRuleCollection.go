@@ -142,5 +142,6 @@ func (o UserRuleCollectionOutput) ToUserRuleCollectionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserRuleCollectionInput)(nil)).Elem(), &UserRuleCollection{})
 	pulumi.RegisterOutputType(UserRuleCollectionOutput{})
 }

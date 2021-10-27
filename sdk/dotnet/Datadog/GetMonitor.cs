@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Datadog
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Datadog
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Datadog
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMonitorInvokeArgs()
         {
         }
     }

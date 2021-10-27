@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureArcData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SqlManagedInstance.
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AzureArcData
         public string SqlManagedInstanceName { get; set; } = null!;
 
         public GetSqlManagedInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlManagedInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of SQL Managed Instance
+        /// </summary>
+        [Input("sqlManagedInstanceName", required: true)]
+        public Input<string> SqlManagedInstanceName { get; set; } = null!;
+
+        public GetSqlManagedInstanceInvokeArgs()
         {
         }
     }

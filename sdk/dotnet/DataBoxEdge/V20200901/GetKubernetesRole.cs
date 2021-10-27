@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge/v20200901:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Kubernetes role.
+        /// </summary>
+        public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge/v20200901:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetKubernetesRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetKubernetesRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetKubernetesRoleInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetGlobalUserOperationBatchStatusResult> InvokeAsync(GetGlobalUserOperationBatchStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Status Details of the long running operation for an environment
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetGlobalUserOperationBatchStatusResult> Invoke(GetGlobalUserOperationBatchStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.LabServices
         public string UserName { get; set; } = null!;
 
         public GetGlobalUserOperationBatchStatusArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalUserOperationBatchStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("urls", required: true)]
+        private InputList<string>? _urls;
+
+        /// <summary>
+        /// The operation url of long running operation
+        /// </summary>
+        public InputList<string> Urls
+        {
+            get => _urls ?? (_urls = new InputList<string>());
+            set => _urls = value;
+        }
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetGlobalUserOperationBatchStatusInvokeArgs()
         {
         }
     }

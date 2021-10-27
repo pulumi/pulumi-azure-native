@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:automation/v20190601:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the schedule.
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:automation/v20190601:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string ScheduleName { get; set; } = null!;
 
         public GetScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The schedule name.
+        /// </summary>
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
+
+        public GetScheduleInvokeArgs()
         {
         }
     }

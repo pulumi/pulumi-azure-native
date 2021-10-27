@@ -115,5 +115,6 @@ func (o OnPremiseSensorOutput) ToOnPremiseSensorOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OnPremiseSensorInput)(nil)).Elem(), &OnPremiseSensor{})
 	pulumi.RegisterOutputType(OnPremiseSensorOutput{})
 }

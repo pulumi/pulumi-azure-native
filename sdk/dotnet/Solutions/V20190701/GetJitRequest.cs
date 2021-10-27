@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Solutions.V20190701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions/v20190701:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about JIT request definition.
+        /// </summary>
+        public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions/v20190701:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Solutions.V20190701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJitRequestArgs()
+        {
+        }
+    }
+
+    public sealed class GetJitRequestInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the JIT request.
+        /// </summary>
+        [Input("jitRequestName", required: true)]
+        public Input<string> JitRequestName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJitRequestInvokeArgs()
         {
         }
     }

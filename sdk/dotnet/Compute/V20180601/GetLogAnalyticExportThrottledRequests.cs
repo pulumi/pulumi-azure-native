@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20180601
         /// </summary>
         public static Task<GetLogAnalyticExportThrottledRequestsResult> InvokeAsync(GetLogAnalyticExportThrottledRequestsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20180601:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// LogAnalytics operation status response
+        /// </summary>
+        public static Output<GetLogAnalyticExportThrottledRequestsResult> Invoke(GetLogAnalyticExportThrottledRequestsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/v20180601:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +71,55 @@ namespace Pulumi.AzureNative.Compute.V20180601
         public string ToTime { get; set; } = null!;
 
         public GetLogAnalyticExportThrottledRequestsArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogAnalyticExportThrottledRequestsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+        /// </summary>
+        [Input("blobContainerSasUri", required: true)]
+        public Input<string> BlobContainerSasUri { get; set; } = null!;
+
+        /// <summary>
+        /// From time of the query
+        /// </summary>
+        [Input("fromTime", required: true)]
+        public Input<string> FromTime { get; set; } = null!;
+
+        /// <summary>
+        /// Group query result by Operation Name.
+        /// </summary>
+        [Input("groupByOperationName")]
+        public Input<bool>? GroupByOperationName { get; set; }
+
+        /// <summary>
+        /// Group query result by Resource Name.
+        /// </summary>
+        [Input("groupByResourceName")]
+        public Input<bool>? GroupByResourceName { get; set; }
+
+        /// <summary>
+        /// Group query result by Throttle Policy applied.
+        /// </summary>
+        [Input("groupByThrottlePolicy")]
+        public Input<bool>? GroupByThrottlePolicy { get; set; }
+
+        /// <summary>
+        /// The location upon which virtual-machine-sizes is queried.
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// To time of the query
+        /// </summary>
+        [Input("toTime", required: true)]
+        public Input<string> ToTime { get; set; } = null!;
+
+        public GetLogAnalyticExportThrottledRequestsInvokeArgs()
         {
         }
     }

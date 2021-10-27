@@ -142,5 +142,6 @@ func (o PrivateLinkServicesForMIPPolicySyncOutput) ToPrivateLinkServicesForMIPPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicesForMIPPolicySyncInput)(nil)).Elem(), &PrivateLinkServicesForMIPPolicySync{})
 	pulumi.RegisterOutputType(PrivateLinkServicesForMIPPolicySyncOutput{})
 }

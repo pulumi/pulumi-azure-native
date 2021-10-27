@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The iSCSI server.
+        /// </summary>
+        public static Output<GetIscsiServerResult> Invoke(GetIscsiServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIscsiServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetIscsiServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The iSCSI server name.
+        /// </summary>
+        [Input("iscsiServerName", required: true)]
+        public Input<string> IscsiServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIscsiServerInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// </summary>
         public static Task<GetTestResultDownloadURLResult> InvokeAsync(GetTestResultDownloadURLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase/v20201216preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response of getting a download URL.
+        /// </summary>
+        public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase/v20201216preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public string TestResultName { get; set; } = null!;
 
         public GetTestResultDownloadURLArgs()
+        {
+        }
+    }
+
+    public sealed class GetTestResultDownloadURLInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name of the Test Base Package.
+        /// </summary>
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Test Result Name. It equals to {osName}-{TestResultId} string.
+        /// </summary>
+        [Input("testResultName", required: true)]
+        public Input<string> TestResultName { get; set; } = null!;
+
+        public GetTestResultDownloadURLInvokeArgs()
         {
         }
     }

@@ -177,6 +177,8 @@ func (in *connectorBillingModelPtr) ToConnectorBillingModelPtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorBillingModelInput)(nil)).Elem(), ConnectorBillingModel("trial"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorBillingModelPtrInput)(nil)).Elem(), ConnectorBillingModel("trial"))
 	pulumi.RegisterOutputType(ConnectorBillingModelOutput{})
 	pulumi.RegisterOutputType(ConnectorBillingModelPtrOutput{})
 }

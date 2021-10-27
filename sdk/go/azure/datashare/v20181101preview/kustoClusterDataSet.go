@@ -170,5 +170,6 @@ func (o KustoClusterDataSetOutput) ToKustoClusterDataSetOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KustoClusterDataSetInput)(nil)).Elem(), &KustoClusterDataSet{})
 	pulumi.RegisterOutputType(KustoClusterDataSetOutput{})
 }

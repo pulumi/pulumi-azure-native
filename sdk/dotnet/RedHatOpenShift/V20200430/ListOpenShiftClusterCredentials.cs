@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+        /// </summary>
+        public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         public string ResourceName { get; set; } = null!;
 
         public ListOpenShiftClusterCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListOpenShiftClusterCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListOpenShiftClusterCredentialsInvokeArgs()
         {
         }
     }

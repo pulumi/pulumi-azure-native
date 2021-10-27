@@ -183,5 +183,6 @@ func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleInput)(nil)).Elem(), &SmartDetectorAlertRule{})
 	pulumi.RegisterOutputType(SmartDetectorAlertRuleOutput{})
 }

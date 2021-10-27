@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteHostNameBindingResult> InvokeAsync(GetSiteHostNameBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A host name binding object
+        /// </summary>
+        public static Output<GetSiteHostNameBindingResult> Invoke(GetSiteHostNameBindingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSiteHostNameBindingArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteHostNameBindingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of host
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSiteHostNameBindingInvokeArgs()
         {
         }
     }

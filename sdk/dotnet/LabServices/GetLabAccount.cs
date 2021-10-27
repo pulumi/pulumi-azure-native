@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetLabAccountResult> InvokeAsync(GetLabAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azure-native:labservices:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a lab account.
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetLabAccountResult> Invoke(GetLabAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabAccountResult>("azure-native:labservices:getLabAccount", args ?? new GetLabAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.LabServices
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabAccountInvokeArgs()
         {
         }
     }

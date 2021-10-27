@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Linked service.
+        /// </summary>
+        public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetLinkedServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkedServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Friendly name of the linked workspace
+        /// </summary>
+        [Input("linkName", required: true)]
+        public Input<string> LinkName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetLinkedServiceInvokeArgs()
         {
         }
     }

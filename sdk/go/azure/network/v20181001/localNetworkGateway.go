@@ -366,5 +366,6 @@ func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayInput)(nil)).Elem(), &LocalNetworkGateway{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
 }

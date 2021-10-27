@@ -202,5 +202,6 @@ func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlConfigurationInput)(nil)).Elem(), &SourceControlConfiguration{})
 	pulumi.RegisterOutputType(SourceControlConfigurationOutput{})
 }

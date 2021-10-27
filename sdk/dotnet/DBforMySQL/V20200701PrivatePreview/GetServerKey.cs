@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformysql/v20200701privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A MySQL Server key.
+        /// </summary>
+        public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbformysql/v20200701privatepreview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         public string ServerName { get; set; } = null!;
 
         public GetServerKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the server key.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerKeyInvokeArgs()
         {
         }
     }

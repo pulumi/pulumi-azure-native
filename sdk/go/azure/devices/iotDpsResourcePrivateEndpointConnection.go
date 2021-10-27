@@ -137,5 +137,6 @@ func (o IotDpsResourcePrivateEndpointConnectionOutput) ToIotDpsResourcePrivateEn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotDpsResourcePrivateEndpointConnectionInput)(nil)).Elem(), &IotDpsResourcePrivateEndpointConnection{})
 	pulumi.RegisterOutputType(IotDpsResourcePrivateEndpointConnectionOutput{})
 }

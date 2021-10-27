@@ -153,5 +153,6 @@ func (o OfficeDataConnectorOutput) ToOfficeDataConnectorOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OfficeDataConnectorInput)(nil)).Elem(), &OfficeDataConnector{})
 	pulumi.RegisterOutputType(OfficeDataConnectorOutput{})
 }

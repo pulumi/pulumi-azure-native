@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logz
         public string SubAccountName { get; set; } = null!;
 
         public GetSubAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sub Account resource name
+        /// </summary>
+        [Input("subAccountName", required: true)]
+        public Input<string> SubAccountName { get; set; } = null!;
+
+        public GetSubAccountInvokeArgs()
         {
         }
     }

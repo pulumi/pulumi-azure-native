@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:operationalinsights/v20151101preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The top level Linked service resource container.
+        /// </summary>
+        public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:operationalinsights/v20151101preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetLinkedServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkedServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the linked service.
+        /// </summary>
+        [Input("linkedServiceName", required: true)]
+        public Input<string> LinkedServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Log Analytics Workspace that contains the linkedServices resource
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetLinkedServiceInvokeArgs()
         {
         }
     }

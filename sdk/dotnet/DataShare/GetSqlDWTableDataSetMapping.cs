@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetSqlDWTableDataSetMappingResult> InvokeAsync(GetSqlDWTableDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDWTableDataSetMappingResult>("azure-native:datashare:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL DW Table data set mapping.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetSqlDWTableDataSetMappingResult> Invoke(GetSqlDWTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlDWTableDataSetMappingResult>("azure-native:datashare:getSqlDWTableDataSetMapping", args ?? new GetSqlDWTableDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataShare
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetSqlDWTableDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlDWTableDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetSqlDWTableDataSetMappingInvokeArgs()
         {
         }
     }

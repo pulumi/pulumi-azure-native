@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// </summary>
         public static Task<GetRouteFilterResult> InvokeAsync(GetRouteFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure-native:network/v20200401:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Route Filter Resource.
+        /// </summary>
+        public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network/v20200401:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200401
         public string RouteFilterName { get; set; } = null!;
 
         public GetRouteFilterArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteFilterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced express route bgp peering resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route filter.
+        /// </summary>
+        [Input("routeFilterName", required: true)]
+        public Input<string> RouteFilterName { get; set; } = null!;
+
+        public GetRouteFilterInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The application type name resource
+        /// API Version: 2020-03-01.
+        /// </summary>
+        public static Output<GetApplicationTypeResult> Invoke(GetApplicationTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceFabric
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplicationTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application type name resource.
+        /// </summary>
+        [Input("applicationTypeName", required: true)]
+        public Input<string> ApplicationTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplicationTypeInvokeArgs()
         {
         }
     }

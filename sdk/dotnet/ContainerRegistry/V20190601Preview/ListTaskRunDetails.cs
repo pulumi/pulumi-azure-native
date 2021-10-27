@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Task<ListTaskRunDetailsResult> InvokeAsync(ListTaskRunDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTaskRunDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The task run that has the ARM resource and properties. 
+        /// The task run will have the information of request and result of a run.
+        /// </summary>
+        public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         public string TaskRunName { get; set; } = null!;
 
         public ListTaskRunDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class ListTaskRunDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the task run.
+        /// </summary>
+        [Input("taskRunName", required: true)]
+        public Input<string> TaskRunName { get; set; } = null!;
+
+        public ListTaskRunDetailsInvokeArgs()
         {
         }
     }

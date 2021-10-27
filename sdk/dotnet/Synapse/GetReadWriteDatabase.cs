@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public static Task<GetReadWriteDatabaseResult> InvokeAsync(GetReadWriteDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReadWriteDatabaseResult>("azure-native:synapse:getReadWriteDatabase", args ?? new GetReadWriteDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a read write database.
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:synapse:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Synapse
         public string WorkspaceName { get; set; } = null!;
 
         public GetReadWriteDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetReadWriteDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database in the Kusto pool.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto pool.
+        /// </summary>
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetReadWriteDatabaseInvokeArgs()
         {
         }
     }

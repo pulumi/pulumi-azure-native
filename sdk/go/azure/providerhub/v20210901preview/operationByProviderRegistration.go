@@ -136,5 +136,6 @@ func (o OperationByProviderRegistrationOutput) ToOperationByProviderRegistration
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationByProviderRegistrationInput)(nil)).Elem(), &OperationByProviderRegistration{})
 	pulumi.RegisterOutputType(OperationByProviderRegistrationOutput{})
 }

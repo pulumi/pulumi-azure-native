@@ -190,5 +190,6 @@ func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAgreementInput)(nil)).Elem(), &IntegrationAccountAgreement{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementOutput{})
 }

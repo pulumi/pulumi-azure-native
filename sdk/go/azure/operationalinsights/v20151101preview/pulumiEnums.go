@@ -692,6 +692,14 @@ func (in *skuNameEnumPtr) ToSkuNameEnumPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceKindInput)(nil)).Elem(), DataSourceKind("AzureActivityLog"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceKindPtrInput)(nil)).Elem(), DataSourceKind("AzureActivityLog"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusInput)(nil)).Elem(), EntityStatus("Creating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusPtrInput)(nil)).Elem(), EntityStatus("Creating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MachineGroupTypeInput)(nil)).Elem(), MachineGroupType("unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MachineGroupTypePtrInput)(nil)).Elem(), MachineGroupType("unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumInput)(nil)).Elem(), SkuNameEnum("Free"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumPtrInput)(nil)).Elem(), SkuNameEnum("Free"))
 	pulumi.RegisterOutputType(DataSourceKindOutput{})
 	pulumi.RegisterOutputType(DataSourceKindPtrOutput{})
 	pulumi.RegisterOutputType(EntityStatusOutput{})

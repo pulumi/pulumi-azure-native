@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20200601
         /// </summary>
         public static Task<GetVirtualMachineRunCommandByVirtualMachineResult> InvokeAsync(GetVirtualMachineRunCommandByVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20200601:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Virtual Machine run command.
+        /// </summary>
+        public static Output<GetVirtualMachineRunCommandByVirtualMachineResult> Invoke(GetVirtualMachineRunCommandByVirtualMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20200601:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Compute.V20200601
         public string VmName { get; set; } = null!;
 
         public GetVirtualMachineRunCommandByVirtualMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineRunCommandByVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine run command.
+        /// </summary>
+        [Input("runCommandName", required: true)]
+        public Input<string> RunCommandName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine containing the run command.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
+
+        public GetVirtualMachineRunCommandByVirtualMachineInvokeArgs()
         {
         }
     }

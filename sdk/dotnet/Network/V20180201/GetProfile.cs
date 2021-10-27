@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180201
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network/v20180201:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a Traffic Manager profile.
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:network/v20180201:getProfile", args ?? new GetProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20180201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Traffic Manager profile.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Traffic Manager profile.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProfileInvokeArgs()
         {
         }
     }

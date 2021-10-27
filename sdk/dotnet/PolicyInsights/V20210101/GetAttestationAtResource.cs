@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         /// </summary>
         public static Task<GetAttestationAtResourceResult> InvokeAsync(GetAttestationAtResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceResult>("azure-native:policyinsights/v20210101:getAttestationAtResource", args ?? new GetAttestationAtResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An attestation resource.
+        /// </summary>
+        public static Output<GetAttestationAtResourceResult> Invoke(GetAttestationAtResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceResult>("azure-native:policyinsights/v20210101:getAttestationAtResource", args ?? new GetAttestationAtResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public string ResourceId { get; set; } = null!;
 
         public GetAttestationAtResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetAttestationAtResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the attestation.
+        /// </summary>
+        [Input("attestationName", required: true)]
+        public Input<string> AttestationName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public GetAttestationAtResourceInvokeArgs()
         {
         }
     }

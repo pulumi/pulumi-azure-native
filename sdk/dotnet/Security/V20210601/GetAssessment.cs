@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20210601
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/v20210601:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Security assessment on a resource - response format
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20210601:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Security.V20210601
         public string ResourceId { get; set; } = null!;
 
         public GetAssessmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssessmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Assessment Key - Unique key for the assessment type
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
+
+        /// <summary>
+        /// OData expand. Optional.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public GetAssessmentInvokeArgs()
         {
         }
     }

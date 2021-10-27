@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A virtual network rule.
+        /// API Version: 2017-12-01.
+        /// </summary>
+        public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbforpostgresql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+
+        public GetVirtualNetworkRuleInvokeArgs()
         {
         }
     }

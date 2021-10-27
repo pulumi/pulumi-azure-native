@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:security/v20200101preview:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The connector setting
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:security/v20200101preview:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         public string ConnectorName { get; set; } = null!;
 
         public GetConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the cloud account connector
+        /// </summary>
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
+
+        public GetConnectorInvokeArgs()
         {
         }
     }

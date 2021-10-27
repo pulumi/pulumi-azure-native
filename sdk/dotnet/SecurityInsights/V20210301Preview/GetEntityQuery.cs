@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Task<GetEntityQueryResult> InvokeAsync(GetEntityQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights/v20210301preview:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specific entity query.
+        /// </summary>
+        public static Output<GetEntityQueryResult> Invoke(GetEntityQueryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEntityQueryResult>("azure-native:securityinsights/v20210301preview:getEntityQuery", args ?? new GetEntityQueryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +54,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetEntityQueryArgs()
+        {
+        }
+    }
+
+    public sealed class GetEntityQueryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// entity query ID
+        /// </summary>
+        [Input("entityQueryId", required: true)]
+        public Input<string> EntityQueryId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetEntityQueryInvokeArgs()
         {
         }
     }

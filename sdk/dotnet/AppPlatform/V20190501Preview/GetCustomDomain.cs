@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform/v20190501preview:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Custom domain resource payload.
+        /// </summary>
+        public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform/v20190501preview:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
         public string ServiceName { get; set; } = null!;
 
         public GetCustomDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App resource.
+        /// </summary>
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the custom domain resource.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetCustomDomainInvokeArgs()
         {
         }
     }

@@ -221,5 +221,6 @@ func (o VirtualRouterPeeringOutput) ToVirtualRouterPeeringOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterPeeringInput)(nil)).Elem(), &VirtualRouterPeering{})
 	pulumi.RegisterOutputType(VirtualRouterPeeringOutput{})
 }

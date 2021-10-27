@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         /// </summary>
         public static Task<GetTagByApiResult> InvokeAsync(GetTagByApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azure-native:apimanagement/v20191201preview:getTagByApi", args ?? new GetTagByApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Tag Contract details.
+        /// </summary>
+        public static Output<GetTagByApiResult> Invoke(GetTagByApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTagByApiResult>("azure-native:apimanagement/v20191201preview:getTagByApi", args ?? new GetTagByApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public string TagId { get; set; } = null!;
 
         public GetTagByApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetTagByApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public Input<string> TagId { get; set; } = null!;
+
+        public GetTagByApiInvokeArgs()
         {
         }
     }

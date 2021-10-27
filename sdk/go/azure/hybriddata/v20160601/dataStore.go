@@ -152,5 +152,6 @@ func (o DataStoreOutput) ToDataStoreOutputWithContext(ctx context.Context) DataS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataStoreInput)(nil)).Elem(), &DataStore{})
 	pulumi.RegisterOutputType(DataStoreOutput{})
 }

@@ -210,5 +210,6 @@ func (o SiteConnectionStringsSlotOutput) ToSiteConnectionStringsSlotOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteConnectionStringsSlotInput)(nil)).Elem(), &SiteConnectionStringsSlot{})
 	pulumi.RegisterOutputType(SiteConnectionStringsSlotOutput{})
 }

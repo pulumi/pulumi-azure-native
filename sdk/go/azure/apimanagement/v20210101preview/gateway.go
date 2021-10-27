@@ -167,5 +167,6 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInput)(nil)).Elem(), &Gateway{})
 	pulumi.RegisterOutputType(GatewayOutput{})
 }

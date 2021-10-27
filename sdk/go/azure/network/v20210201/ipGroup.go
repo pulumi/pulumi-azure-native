@@ -207,5 +207,6 @@ func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupInput)(nil)).Elem(), &IpGroup{})
 	pulumi.RegisterOutputType(IpGroupOutput{})
 }

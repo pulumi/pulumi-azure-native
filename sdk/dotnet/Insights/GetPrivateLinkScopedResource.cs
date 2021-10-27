@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A private link scoped resource
+        /// API Version: 2019-10-17-preview.
+        /// </summary>
+        public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Insights
         public string ScopeName { get; set; } = null!;
 
         public GetPrivateLinkScopedResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateLinkScopedResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the scoped resource object.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Monitor PrivateLinkScope resource.
+        /// </summary>
+        [Input("scopeName", required: true)]
+        public Input<string> ScopeName { get; set; } = null!;
+
+        public GetPrivateLinkScopedResourceInvokeArgs()
         {
         }
     }

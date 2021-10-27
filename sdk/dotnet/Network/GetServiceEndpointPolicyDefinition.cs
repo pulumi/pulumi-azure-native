@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetServiceEndpointPolicyDefinitionResult> InvokeAsync(GetServiceEndpointPolicyDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Service Endpoint policy definitions.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetServiceEndpointPolicyDefinitionResult> Invoke(GetServiceEndpointPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyDefinitionResult>("azure-native:network:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ServiceEndpointPolicyName { get; set; } = null!;
 
         public GetServiceEndpointPolicyDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceEndpointPolicyDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service endpoint policy definition name.
+        /// </summary>
+        [Input("serviceEndpointPolicyDefinitionName", required: true)]
+        public Input<string> ServiceEndpointPolicyDefinitionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service endpoint policy name.
+        /// </summary>
+        [Input("serviceEndpointPolicyName", required: true)]
+        public Input<string> ServiceEndpointPolicyName { get; set; } = null!;
+
+        public GetServiceEndpointPolicyDefinitionInvokeArgs()
         {
         }
     }

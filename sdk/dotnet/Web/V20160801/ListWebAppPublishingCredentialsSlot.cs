@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsSlotResult> InvokeAsync(ListWebAppPublishingCredentialsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-native:web/v20160801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// </summary>
+        public static Output<ListWebAppPublishingCredentialsSlotResult> Invoke(ListWebAppPublishingCredentialsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsSlotResult>("azure-native:web/v20160801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20160801
         public string Slot { get; set; } = null!;
 
         public ListWebAppPublishingCredentialsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppPublishingCredentialsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will get the publishing credentials for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListWebAppPublishingCredentialsSlotInvokeArgs()
         {
         }
     }

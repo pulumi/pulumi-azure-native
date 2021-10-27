@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     {
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithVersion());
+
+        public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -43,6 +47,37 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         public string WorkflowName { get; set; } = null!;
 
         public ListWorkflowRunActionExpressionTracesArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkflowRunActionExpressionTracesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The workflow action name.
+        /// </summary>
+        [Input("actionName", required: true)]
+        public Input<string> ActionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow run name.
+        /// </summary>
+        [Input("runName", required: true)]
+        public Input<string> RunName { get; set; } = null!;
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
+
+        public ListWorkflowRunActionExpressionTracesInvokeArgs()
         {
         }
     }

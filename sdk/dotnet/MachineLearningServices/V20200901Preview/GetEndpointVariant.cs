@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// </summary>
         public static Task<GetEndpointVariantResult> InvokeAsync(GetEndpointVariantArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200901preview:getEndpointVariant", args ?? new GetEndpointVariantArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning service object wrapped into ARM resource envelope.
+        /// </summary>
+        public static Output<GetEndpointVariantResult> Invoke(GetEndpointVariantInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEndpointVariantResult>("azure-native:machinelearningservices/v20200901preview:getEndpointVariant", args ?? new GetEndpointVariantInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetEndpointVariantArgs()
+        {
+        }
+    }
+
+    public sealed class GetEndpointVariantInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Set to True to include Model details.
+        /// </summary>
+        [Input("expand")]
+        public Input<bool>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Machine Learning service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetEndpointVariantInvokeArgs()
         {
         }
     }

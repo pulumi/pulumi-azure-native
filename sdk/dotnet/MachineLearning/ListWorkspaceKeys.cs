@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workspace authorization keys for a workspace.
+        /// API Version: 2016-04-01.
+        /// </summary>
+        public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.MachineLearning
         public string WorkspaceName { get; set; } = null!;
 
         public ListWorkspaceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkspaceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group to which the machine learning workspace belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListWorkspaceKeysInvokeArgs()
         {
         }
     }

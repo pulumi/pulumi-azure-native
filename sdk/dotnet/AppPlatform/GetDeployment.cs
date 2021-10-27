@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Deployment resource payload
+        /// API Version: 2020-07-01.
+        /// </summary>
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:appplatform:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.AppPlatform
         public string ServiceName { get; set; } = null!;
 
         public GetDeploymentArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeploymentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App resource.
+        /// </summary>
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Deployment resource.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetDeploymentInvokeArgs()
         {
         }
     }

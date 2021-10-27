@@ -167,5 +167,6 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterOutputType(ChannelOutput{})
 }

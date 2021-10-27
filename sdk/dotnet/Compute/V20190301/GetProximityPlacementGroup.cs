@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20190301
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute/v20190301:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the proximity placement group.
+        /// </summary>
+        public static Output<GetProximityPlacementGroupResult> Invoke(GetProximityPlacementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute/v20190301:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Compute.V20190301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProximityPlacementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetProximityPlacementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the proximity placement group.
+        /// </summary>
+        [Input("proximityPlacementGroupName", required: true)]
+        public Input<string> ProximityPlacementGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProximityPlacementGroupInvokeArgs()
         {
         }
     }

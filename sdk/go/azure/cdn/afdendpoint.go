@@ -141,5 +141,6 @@ func (o AFDEndpointOutput) ToAFDEndpointOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AFDEndpointInput)(nil)).Elem(), &AFDEndpoint{})
 	pulumi.RegisterOutputType(AFDEndpointOutput{})
 }

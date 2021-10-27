@@ -171,5 +171,6 @@ func (o FileServicePropertiesOutput) ToFileServicePropertiesOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileServicePropertiesInput)(nil)).Elem(), &FileServiceProperties{})
 	pulumi.RegisterOutputType(FileServicePropertiesOutput{})
 }

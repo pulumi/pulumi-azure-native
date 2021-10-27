@@ -137,5 +137,6 @@ func (o SentinelOnboardingStateOutput) ToSentinelOnboardingStateOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SentinelOnboardingStateInput)(nil)).Elem(), &SentinelOnboardingState{})
 	pulumi.RegisterOutputType(SentinelOnboardingStateOutput{})
 }

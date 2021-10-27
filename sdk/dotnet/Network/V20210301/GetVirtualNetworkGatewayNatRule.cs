@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// </summary>
         public static Task<GetVirtualNetworkGatewayNatRuleResult> InvokeAsync(GetVirtualNetworkGatewayNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network/v20210301:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VirtualNetworkGatewayNatRule Resource.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayNatRuleResult> Invoke(GetVirtualNetworkGatewayNatRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network/v20210301:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210301
         public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayNatRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkGatewayNatRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the nat rule.
+        /// </summary>
+        [Input("natRuleName", required: true)]
+        public Input<string> NatRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the Virtual Network Gateway.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
+
+        public GetVirtualNetworkGatewayNatRuleInvokeArgs()
         {
         }
     }

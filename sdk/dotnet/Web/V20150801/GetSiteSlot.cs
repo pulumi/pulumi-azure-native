@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteSlotResult> InvokeAsync(GetSiteSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a web app
+        /// </summary>
+        public static Output<GetSiteSlotResult> Invoke(GetSiteSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Additional web app properties included in the response
+        /// </summary>
+        [Input("propertiesToInclude")]
+        public Input<string>? PropertiesToInclude { get; set; }
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteSlotInvokeArgs()
         {
         }
     }

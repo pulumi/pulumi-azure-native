@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Chaos.V20210915Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Model that represents a Experiment resource.
+        /// </summary>
+        public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExperimentArgs()
+        {
+        }
+    }
+
+    public sealed class GetExperimentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// String that represents a Experiment resource name.
+        /// </summary>
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
+
+        /// <summary>
+        /// String that represents an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExperimentInvokeArgs()
         {
         }
     }

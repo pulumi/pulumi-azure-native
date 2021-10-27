@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190901
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20190901:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Tap configuration in a Network Interface.
+        /// </summary>
+        public static Output<GetNetworkInterfaceTapConfigurationResult> Invoke(GetNetworkInterfaceTapConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20190901:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190901
         public string TapConfigurationName { get; set; } = null!;
 
         public GetNetworkInterfaceTapConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInterfaceTapConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network interface.
+        /// </summary>
+        [Input("networkInterfaceName", required: true)]
+        public Input<string> NetworkInterfaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the tap configuration.
+        /// </summary>
+        [Input("tapConfigurationName", required: true)]
+        public Input<string> TapConfigurationName { get; set; } = null!;
+
+        public GetNetworkInterfaceTapConfigurationInvokeArgs()
         {
         }
     }

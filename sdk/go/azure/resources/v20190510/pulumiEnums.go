@@ -505,6 +505,12 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModeInput)(nil)).Elem(), DeploymentMode("Incremental"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModePtrInput)(nil)).Elem(), DeploymentMode("Incremental"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnErrorDeploymentTypeInput)(nil)).Elem(), OnErrorDeploymentType("LastSuccessful"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnErrorDeploymentTypePtrInput)(nil)).Elem(), OnErrorDeploymentType("LastSuccessful"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(DeploymentModeOutput{})
 	pulumi.RegisterOutputType(DeploymentModePtrOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentTypeOutput{})

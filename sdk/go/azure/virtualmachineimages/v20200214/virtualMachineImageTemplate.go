@@ -177,5 +177,6 @@ func (o VirtualMachineImageTemplateOutput) ToVirtualMachineImageTemplateOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineImageTemplateInput)(nil)).Elem(), &VirtualMachineImageTemplate{})
 	pulumi.RegisterOutputType(VirtualMachineImageTemplateOutput{})
 }

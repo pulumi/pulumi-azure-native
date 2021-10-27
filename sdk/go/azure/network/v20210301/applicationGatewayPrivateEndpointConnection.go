@@ -178,5 +178,6 @@ func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionInput)(nil)).Elem(), &ApplicationGatewayPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionOutput{})
 }

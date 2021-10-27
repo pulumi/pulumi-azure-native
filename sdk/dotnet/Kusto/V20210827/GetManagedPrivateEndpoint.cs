@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210827
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:kusto/v20210827:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a managed private endpoint.
+        /// </summary>
+        public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto/v20210827:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedPrivateEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed private endpoint.
+        /// </summary>
+        [Input("managedPrivateEndpointName", required: true)]
+        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedPrivateEndpointInvokeArgs()
         {
         }
     }

@@ -187,5 +187,6 @@ func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionInput)(nil)).Elem(), &PolicySetDefinition{})
 	pulumi.RegisterOutputType(PolicySetDefinitionOutput{})
 }

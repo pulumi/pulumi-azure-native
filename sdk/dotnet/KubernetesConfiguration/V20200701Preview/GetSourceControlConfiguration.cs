@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/v20200701preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The SourceControl Configuration object returned in Get &amp; Put response.
+        /// </summary>
+        public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/v20200701preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
         public string SourceControlConfigurationName { get; set; } = null!;
 
         public GetSourceControlConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetSourceControlConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the kubernetes cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterResourceName", required: true)]
+        public Input<string> ClusterResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// </summary>
+        [Input("clusterRp", required: true)]
+        public Input<string> ClusterRp { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Source Control Configuration.
+        /// </summary>
+        [Input("sourceControlConfigurationName", required: true)]
+        public Input<string> SourceControlConfigurationName { get; set; } = null!;
+
+        public GetSourceControlConfigurationInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public static Task<GetPolicyAssignmentArtifactResult> InvokeAsync(GetPolicyAssignmentArtifactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint/v20171111preview:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Blueprint artifact applies Policy assignments.
+        /// </summary>
+        public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint/v20171111preview:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public string ManagementGroupName { get; set; } = null!;
 
         public GetPolicyAssignmentArtifactArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyAssignmentArtifactInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// name of the artifact.
+        /// </summary>
+        [Input("artifactName", required: true)]
+        public Input<string> ArtifactName { get; set; } = null!;
+
+        /// <summary>
+        /// name of the blueprint.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// ManagementGroup where blueprint stores.
+        /// </summary>
+        [Input("managementGroupName", required: true)]
+        public Input<string> ManagementGroupName { get; set; } = null!;
+
+        public GetPolicyAssignmentArtifactInvokeArgs()
         {
         }
     }

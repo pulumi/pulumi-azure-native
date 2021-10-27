@@ -217,5 +217,6 @@ func (o SiteBackupConfigurationOutput) ToSiteBackupConfigurationOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteBackupConfigurationInput)(nil)).Elem(), &SiteBackupConfiguration{})
 	pulumi.RegisterOutputType(SiteBackupConfigurationOutput{})
 }

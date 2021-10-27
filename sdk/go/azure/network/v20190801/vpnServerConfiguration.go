@@ -243,5 +243,6 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationInput)(nil)).Elem(), &VpnServerConfiguration{})
 	pulumi.RegisterOutputType(VpnServerConfigurationOutput{})
 }

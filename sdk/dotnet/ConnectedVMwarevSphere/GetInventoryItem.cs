@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the inventory item.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string VcenterName { get; set; } = null!;
 
         public GetInventoryItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetInventoryItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the inventoryItem.
+        /// </summary>
+        [Input("inventoryItemName", required: true)]
+        public Input<string> InventoryItemName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the vCenter.
+        /// </summary>
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
+
+        public GetInventoryItemInvokeArgs()
         {
         }
     }

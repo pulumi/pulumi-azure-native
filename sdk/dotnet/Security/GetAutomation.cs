@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The security automation resource.
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
+        public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Security
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAutomationArgs()
+        {
+        }
+    }
+
+    public sealed class GetAutomationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The security automation name.
+        /// </summary>
+        [Input("automationName", required: true)]
+        public Input<string> AutomationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAutomationInvokeArgs()
         {
         }
     }

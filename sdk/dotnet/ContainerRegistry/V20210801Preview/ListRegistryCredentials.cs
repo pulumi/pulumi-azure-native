@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210801preview:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response from the ListCredentials operation.
+        /// </summary>
+        public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry/v20210801preview:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListRegistryCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListRegistryCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListRegistryCredentialsInvokeArgs()
         {
         }
     }

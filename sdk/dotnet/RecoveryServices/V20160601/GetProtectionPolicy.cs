@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The base class for backup policy. Workload-specific backup policies are derived from this class.
+        /// </summary>
+        public static Output<GetProtectionPolicyResult> Invoke(GetProtectionPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionPolicyResult>("azure-native:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
         public string VaultName { get; set; } = null!;
 
         public GetProtectionPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetProtectionPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The backup policy name used in this GET operation.
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group associated with the Recovery Services vault.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Recovery Services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetProtectionPolicyInvokeArgs()
         {
         }
     }

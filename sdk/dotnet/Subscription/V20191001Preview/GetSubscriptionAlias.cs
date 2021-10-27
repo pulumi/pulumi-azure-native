@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Subscription.V20191001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         /// </summary>
         public static Task<GetSubscriptionAliasResult> InvokeAsync(GetSubscriptionAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionAliasResult>("azure-native:subscription/v20191001preview:getSubscriptionAlias", args ?? new GetSubscriptionAliasArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Subscription Information with the alias.
+        /// </summary>
+        public static Output<GetSubscriptionAliasResult> Invoke(GetSubscriptionAliasInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionAliasResult>("azure-native:subscription/v20191001preview:getSubscriptionAlias", args ?? new GetSubscriptionAliasInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
         public string AliasName { get; set; } = null!;
 
         public GetSubscriptionAliasArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubscriptionAliasInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+        /// </summary>
+        [Input("aliasName", required: true)]
+        public Input<string> AliasName { get; set; } = null!;
+
+        public GetSubscriptionAliasInvokeArgs()
         {
         }
     }

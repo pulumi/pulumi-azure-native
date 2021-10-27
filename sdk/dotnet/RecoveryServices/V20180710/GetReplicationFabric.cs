@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20180710:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Fabric definition.
+        /// </summary>
+        public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20180710:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
         public string ResourceName { get; set; } = null!;
 
         public GetReplicationFabricArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationFabricInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetReplicationFabricInvokeArgs()
         {
         }
     }

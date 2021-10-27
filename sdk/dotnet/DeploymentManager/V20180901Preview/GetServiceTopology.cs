@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// </summary>
         public static Task<GetServiceTopologyResult> InvokeAsync(GetServiceTopologyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTopologyResult>("azure-native:deploymentmanager/v20180901preview:getServiceTopology", args ?? new GetServiceTopologyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource representation of a service topology.
+        /// </summary>
+        public static Output<GetServiceTopologyResult> Invoke(GetServiceTopologyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceTopologyResult>("azure-native:deploymentmanager/v20180901preview:getServiceTopology", args ?? new GetServiceTopologyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public string ServiceTopologyName { get; set; } = null!;
 
         public GetServiceTopologyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceTopologyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service topology .
+        /// </summary>
+        [Input("serviceTopologyName", required: true)]
+        public Input<string> ServiceTopologyName { get; set; } = null!;
+
+        public GetServiceTopologyInvokeArgs()
         {
         }
     }

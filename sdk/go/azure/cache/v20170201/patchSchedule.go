@@ -130,5 +130,6 @@ func (o PatchScheduleOutput) ToPatchScheduleOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchScheduleInput)(nil)).Elem(), &PatchSchedule{})
 	pulumi.RegisterOutputType(PatchScheduleOutput{})
 }

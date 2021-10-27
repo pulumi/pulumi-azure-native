@@ -147,5 +147,6 @@ func (o PrivateStoreCollectionOfferOutput) ToPrivateStoreCollectionOfferOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateStoreCollectionOfferInput)(nil)).Elem(), &PrivateStoreCollectionOffer{})
 	pulumi.RegisterOutputType(PrivateStoreCollectionOfferOutput{})
 }

@@ -137,5 +137,6 @@ func (o LabAccountOutput) ToLabAccountOutputWithContext(ctx context.Context) Lab
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabAccountInput)(nil)).Elem(), &LabAccount{})
 	pulumi.RegisterOutputType(LabAccountOutput{})
 }

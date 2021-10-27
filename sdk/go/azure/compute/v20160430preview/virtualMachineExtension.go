@@ -245,5 +245,6 @@ func (o VirtualMachineExtensionOutput) ToVirtualMachineExtensionOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineExtensionInput)(nil)).Elem(), &VirtualMachineExtension{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionOutput{})
 }

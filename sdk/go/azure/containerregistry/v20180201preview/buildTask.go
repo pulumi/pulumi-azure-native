@@ -178,5 +178,6 @@ func (o BuildTaskOutput) ToBuildTaskOutputWithContext(ctx context.Context) Build
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildTaskInput)(nil)).Elem(), &BuildTask{})
 	pulumi.RegisterOutputType(BuildTaskOutput{})
 }

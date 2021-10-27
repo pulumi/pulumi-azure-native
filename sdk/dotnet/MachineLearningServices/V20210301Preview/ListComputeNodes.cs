@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<ListComputeNodesResult> InvokeAsync(ListComputeNodesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListComputeNodesResult>("azure-native:machinelearningservices/v20210301preview:listComputeNodes", args ?? new ListComputeNodesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Compute node information related to a AmlCompute.
+        /// </summary>
+        public static Output<ListComputeNodesResult> Invoke(ListComputeNodesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListComputeNodesResult>("azure-native:machinelearningservices/v20210301preview:listComputeNodes", args ?? new ListComputeNodesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListComputeNodesArgs()
+        {
+        }
+    }
+
+    public sealed class ListComputeNodesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Machine Learning compute.
+        /// </summary>
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListComputeNodesInvokeArgs()
         {
         }
     }

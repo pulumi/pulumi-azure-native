@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string SecretName { get; set; } = null!;
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Secret under the profile.
+        /// </summary>
+        [Input("secretName", required: true)]
+        public Input<string> SecretName { get; set; } = null!;
+
+        public GetSecretInvokeArgs()
         {
         }
     }

@@ -144,5 +144,6 @@ func (o ManagedHsmOutput) ToManagedHsmOutputWithContext(ctx context.Context) Man
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHsmInput)(nil)).Elem(), &ManagedHsm{})
 	pulumi.RegisterOutputType(ManagedHsmOutput{})
 }

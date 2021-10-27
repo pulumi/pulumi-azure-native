@@ -170,5 +170,6 @@ func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncrypti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolTransparentDataEncryptionInput)(nil)).Elem(), &SqlPoolTransparentDataEncryption{})
 	pulumi.RegisterOutputType(SqlPoolTransparentDataEncryptionOutput{})
 }

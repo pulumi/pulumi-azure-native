@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20190801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NetApp.V20190801
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp/v20190801:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Capacity pool resource
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20190801:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.NetApp.V20190801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the capacity pool
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPoolInvokeArgs()
         {
         }
     }

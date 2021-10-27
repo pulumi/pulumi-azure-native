@@ -145,5 +145,6 @@ func (o ServiceFabricOutput) ToServiceFabricOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFabricInput)(nil)).Elem(), &ServiceFabric{})
 	pulumi.RegisterOutputType(ServiceFabricOutput{})
 }

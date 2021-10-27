@@ -148,5 +148,6 @@ func (o PrivateLinkServicesForSCCPowershellOutput) ToPrivateLinkServicesForSCCPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicesForSCCPowershellInput)(nil)).Elem(), &PrivateLinkServicesForSCCPowershell{})
 	pulumi.RegisterOutputType(PrivateLinkServicesForSCCPowershellOutput{})
 }

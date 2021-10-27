@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configures where to store the OMS agent data for workspaces under a scope
+        /// API Version: 2017-08-01-preview.
+        /// </summary>
+        public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Security
         public string WorkspaceSettingName { get; set; } = null!;
 
         public GetWorkspaceSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the security setting
+        /// </summary>
+        [Input("workspaceSettingName", required: true)]
+        public Input<string> WorkspaceSettingName { get; set; } = null!;
+
+        public GetWorkspaceSettingInvokeArgs()
         {
         }
     }

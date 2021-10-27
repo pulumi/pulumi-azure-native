@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20190201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync/v20190201:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Cloud Endpoint object.
+        /// </summary>
+        public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync/v20190201:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         public string SyncGroupName { get; set; } = null!;
 
         public GetCloudEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetCloudEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of Cloud Endpoint object.
+        /// </summary>
+        [Input("cloudEndpointName", required: true)]
+        public Input<string> CloudEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Sync Group resource.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
+
+        public GetCloudEndpointInvokeArgs()
         {
         }
     }

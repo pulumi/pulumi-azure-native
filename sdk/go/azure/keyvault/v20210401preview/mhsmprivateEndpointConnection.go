@@ -149,5 +149,6 @@ func (o MHSMPrivateEndpointConnectionOutput) ToMHSMPrivateEndpointConnectionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MHSMPrivateEndpointConnectionInput)(nil)).Elem(), &MHSMPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(MHSMPrivateEndpointConnectionOutput{})
 }

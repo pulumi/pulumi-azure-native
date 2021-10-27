@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry/v20201101preview:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a connected registry for a container registry.
+        /// </summary>
+        public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry/v20201101preview:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectedRegistryArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectedRegistryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connected registry.
+        /// </summary>
+        [Input("connectedRegistryName", required: true)]
+        public Input<string> ConnectedRegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectedRegistryInvokeArgs()
         {
         }
     }

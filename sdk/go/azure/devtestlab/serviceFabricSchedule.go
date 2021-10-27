@@ -171,5 +171,6 @@ func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFabricScheduleInput)(nil)).Elem(), &ServiceFabricSchedule{})
 	pulumi.RegisterOutputType(ServiceFabricScheduleOutput{})
 }

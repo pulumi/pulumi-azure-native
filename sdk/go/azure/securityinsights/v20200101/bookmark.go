@@ -179,5 +179,6 @@ func (o BookmarkOutput) ToBookmarkOutputWithContext(ctx context.Context) Bookmar
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkInput)(nil)).Elem(), &Bookmark{})
 	pulumi.RegisterOutputType(BookmarkOutput{})
 }

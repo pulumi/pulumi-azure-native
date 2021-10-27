@@ -1327,6 +1327,22 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupIpAddressTypeInput)(nil)).Elem(), ContainerGroupIpAddressType("Public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupIpAddressTypePtrInput)(nil)).Elem(), ContainerGroupIpAddressType("Public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupNetworkProtocolInput)(nil)).Elem(), ContainerGroupNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupNetworkProtocolPtrInput)(nil)).Elem(), ContainerGroupNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupRestartPolicyInput)(nil)).Elem(), ContainerGroupRestartPolicy("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupRestartPolicyPtrInput)(nil)).Elem(), ContainerGroupRestartPolicy("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerNetworkProtocolInput)(nil)).Elem(), ContainerNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerNetworkProtocolPtrInput)(nil)).Elem(), ContainerNetworkProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GpuSkuInput)(nil)).Elem(), GpuSku("K80"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GpuSkuPtrInput)(nil)).Elem(), GpuSku("K80"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsLogTypeInput)(nil)).Elem(), LogAnalyticsLogType("ContainerInsights"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnalyticsLogTypePtrInput)(nil)).Elem(), LogAnalyticsLogType("ContainerInsights"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesPtrInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(ContainerGroupIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupNetworkProtocolOutput{})

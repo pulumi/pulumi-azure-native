@@ -188,5 +188,6 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportInput)(nil)).Elem(), &Export{})
 	pulumi.RegisterOutputType(ExportOutput{})
 }

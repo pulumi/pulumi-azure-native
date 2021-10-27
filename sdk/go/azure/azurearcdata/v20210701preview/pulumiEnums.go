@@ -833,6 +833,16 @@ func (in *sqlManagedInstanceSkuTierPtr) ToSqlManagedInstanceSkuTierPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtendedLocationTypesInput)(nil)).Elem(), ExtendedLocationTypes("CustomLocation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtendedLocationTypesPtrInput)(nil)).Elem(), ExtendedLocationTypes("CustomLocation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureInput)(nil)).Elem(), Infrastructure("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructurePtrInput)(nil)).Elem(), Infrastructure("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseTypeInput)(nil)).Elem(), LicenseType("BasePrice"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseTypePtrInput)(nil)).Elem(), LicenseType("BasePrice"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceSkuTierInput)(nil)).Elem(), PostgresInstanceSkuTier("Hyperscale"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceSkuTierPtrInput)(nil)).Elem(), PostgresInstanceSkuTier("Hyperscale"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlManagedInstanceSkuTierInput)(nil)).Elem(), SqlManagedInstanceSkuTier("GeneralPurpose"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlManagedInstanceSkuTierPtrInput)(nil)).Elem(), SqlManagedInstanceSkuTier("GeneralPurpose"))
 	pulumi.RegisterOutputType(ExtendedLocationTypesOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationTypesPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureOutput{})

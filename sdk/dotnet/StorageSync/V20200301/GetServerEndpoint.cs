@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync/v20200301:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Server Endpoint object.
+        /// </summary>
+        public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync/v20200301:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         public string SyncGroupName { get; set; } = null!;
 
         public GetServerEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Server Endpoint object.
+        /// </summary>
+        [Input("serverEndpointName", required: true)]
+        public Input<string> ServerEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Sync Group resource.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
+
+        public GetServerEndpointInvokeArgs()
         {
         }
     }

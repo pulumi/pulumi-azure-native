@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteVNETConnectionResult> InvokeAsync(GetSiteVNETConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionResult>("azure-native:web/v20150801:getSiteVNETConnection", args ?? new GetSiteVNETConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+        /// </summary>
+        public static Output<GetSiteVNETConnectionResult> Invoke(GetSiteVNETConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteVNETConnectionResult>("azure-native:web/v20150801:getSiteVNETConnection", args ?? new GetSiteVNETConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string VnetName { get; set; } = null!;
 
         public GetSiteVNETConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteVNETConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Virtual Network
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
+
+        public GetSiteVNETConnectionInvokeArgs()
         {
         }
     }

@@ -171,5 +171,6 @@ func (o KustoDatabaseDataSetOutput) ToKustoDatabaseDataSetOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KustoDatabaseDataSetInput)(nil)).Elem(), &KustoDatabaseDataSet{})
 	pulumi.RegisterOutputType(KustoDatabaseDataSetOutput{})
 }

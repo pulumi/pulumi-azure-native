@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         /// </summary>
         public static Task<GetDedicatedCloudNodeResult> InvokeAsync(GetDedicatedCloudNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Dedicated cloud node model
+        /// </summary>
+        public static Output<GetDedicatedCloudNodeResult> Invoke(GetDedicatedCloudNodeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDedicatedCloudNodeArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedCloudNodeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// dedicated cloud node name
+        /// </summary>
+        [Input("dedicatedCloudNodeName", required: true)]
+        public Input<string> DedicatedCloudNodeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDedicatedCloudNodeInvokeArgs()
         {
         }
     }

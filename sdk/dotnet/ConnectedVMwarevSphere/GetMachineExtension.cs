@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:connectedvmwarevsphere:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a Machine Extension.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:connectedvmwarevsphere:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMachineExtensionArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineExtensionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the machine extension.
+        /// </summary>
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine containing the extension.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMachineExtensionInvokeArgs()
         {
         }
     }

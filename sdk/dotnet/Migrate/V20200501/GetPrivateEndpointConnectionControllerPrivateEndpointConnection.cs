@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         /// </summary>
         public static Task<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Migrate.V20200501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Migrate project name.
+        /// </summary>
+        [Input("migrateProjectName", required: true)]
+        public Input<string> MigrateProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Private endpoint connection name.
+        /// </summary>
+        [Input("peConnectionName", required: true)]
+        public Input<string> PeConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

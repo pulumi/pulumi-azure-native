@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Task<GetVirtualMachineScheduleResult> InvokeAsync(GetVirtualMachineScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20180915:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A schedule.
+        /// </summary>
+        public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20180915:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public string VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=status)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
+
+        public GetVirtualMachineScheduleInvokeArgs()
         {
         }
     }

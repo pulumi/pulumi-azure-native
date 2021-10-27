@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Action rule object containing target scope, conditions and suppression logic
+        /// API Version: 2019-05-05-preview.
+        /// </summary>
+        public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AlertsManagement
         public string ResourceGroupName { get; set; } = null!;
 
         public GetActionRuleByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetActionRuleByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of action rule that needs to be fetched
+        /// </summary>
+        [Input("actionRuleName", required: true)]
+        public Input<string> ActionRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name where the resource is created.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetActionRuleByNameInvokeArgs()
         {
         }
     }

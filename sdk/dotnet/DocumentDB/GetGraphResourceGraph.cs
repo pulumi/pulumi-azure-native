@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public static Task<GetGraphResourceGraphResult> InvokeAsync(GetGraphResourceGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Graph resource.
+        /// API Version: 2021-07-01-preview.
+        /// </summary>
+        public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DocumentDB
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGraphResourceGraphArgs()
+        {
+        }
+    }
+
+    public sealed class GetGraphResourceGraphInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB graph resource name.
+        /// </summary>
+        [Input("graphName", required: true)]
+        public Input<string> GraphName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGraphResourceGraphInvokeArgs()
         {
         }
     }

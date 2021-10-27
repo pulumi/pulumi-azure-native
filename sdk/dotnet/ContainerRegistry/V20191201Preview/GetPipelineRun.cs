@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
         /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry/v20191201preview:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a pipeline run for a container registry.
+        /// </summary>
+        public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry/v20191201preview:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPipelineRunArgs()
+        {
+        }
+    }
+
+    public sealed class GetPipelineRunInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the pipeline run.
+        /// </summary>
+        [Input("pipelineRunName", required: true)]
+        public Input<string> PipelineRunName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPipelineRunInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics/v20200301:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A streaming job object, containing all information associated with the named streaming job.
+        /// </summary>
+        public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics/v20200301:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStreamingJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetStreamingJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the streaming job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStreamingJobInvokeArgs()
         {
         }
     }

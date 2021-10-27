@@ -222,5 +222,6 @@ func (o SiteHostNameBindingOutput) ToSiteHostNameBindingOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteHostNameBindingInput)(nil)).Elem(), &SiteHostNameBinding{})
 	pulumi.RegisterOutputType(SiteHostNameBindingOutput{})
 }

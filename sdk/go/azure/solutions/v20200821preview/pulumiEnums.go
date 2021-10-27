@@ -1332,6 +1332,22 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationArtifactTypeInput)(nil)).Elem(), ApplicationArtifactType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationArtifactTypePtrInput)(nil)).Elem(), ApplicationArtifactType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinitionArtifactNameInput)(nil)).Elem(), ApplicationDefinitionArtifactName("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinitionArtifactNamePtrInput)(nil)).Elem(), ApplicationDefinitionArtifactName("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLockLevelInput)(nil)).Elem(), ApplicationLockLevel("CanNotDelete"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLockLevelPtrInput)(nil)).Elem(), ApplicationLockLevel("CanNotDelete"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagementModeInput)(nil)).Elem(), ApplicationManagementMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagementModePtrInput)(nil)).Elem(), ApplicationManagementMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModeInput)(nil)).Elem(), DeploymentMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModePtrInput)(nil)).Elem(), DeploymentMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JitApprovalModeInput)(nil)).Elem(), JitApprovalMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JitApprovalModePtrInput)(nil)).Elem(), JitApprovalMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JitApproverTypeInput)(nil)).Elem(), JitApproverType("user"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JitApproverTypePtrInput)(nil)).Elem(), JitApproverType("user"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(ApplicationArtifactTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactNameOutput{})

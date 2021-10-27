@@ -505,6 +505,12 @@ func (in *streamOptionsFlagPtr) ToStreamOptionsFlagPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventEncodingTypeInput)(nil)).Elem(), LiveEventEncodingType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventEncodingTypePtrInput)(nil)).Elem(), LiveEventEncodingType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputProtocolInput)(nil)).Elem(), LiveEventInputProtocol("FragmentedMP4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputProtocolPtrInput)(nil)).Elem(), LiveEventInputProtocol("FragmentedMP4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamOptionsFlagInput)(nil)).Elem(), StreamOptionsFlag("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamOptionsFlagPtrInput)(nil)).Elem(), StreamOptionsFlag("Default"))
 	pulumi.RegisterOutputType(LiveEventEncodingTypeOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingTypePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputProtocolOutput{})

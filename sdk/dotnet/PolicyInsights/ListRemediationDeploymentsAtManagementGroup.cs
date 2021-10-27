@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Task<ListRemediationDeploymentsAtManagementGroupResult> InvokeAsync(ListRemediationDeploymentsAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List of deployments for a remediation.
+        /// API Version: 2019-07-01.
+        /// </summary>
+        public static Output<ListRemediationDeploymentsAtManagementGroupResult> Invoke(ListRemediationDeploymentsAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.PolicyInsights
         public int? Top { get; set; }
 
         public ListRemediationDeploymentsAtManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class ListRemediationDeploymentsAtManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Management group ID.
+        /// </summary>
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+        /// </summary>
+        [Input("managementGroupsNamespace", required: true)]
+        public Input<string> ManagementGroupsNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
+
+        public ListRemediationDeploymentsAtManagementGroupInvokeArgs()
         {
         }
     }

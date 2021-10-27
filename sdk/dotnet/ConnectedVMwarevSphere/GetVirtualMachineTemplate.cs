@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the virtualMachineTemplate.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string VirtualMachineTemplateName { get; set; } = null!;
 
         public GetVirtualMachineTemplateArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineTemplateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual machine template resource.
+        /// </summary>
+        [Input("virtualMachineTemplateName", required: true)]
+        public Input<string> VirtualMachineTemplateName { get; set; } = null!;
+
+        public GetVirtualMachineTemplateInvokeArgs()
         {
         }
     }

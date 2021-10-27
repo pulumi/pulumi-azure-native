@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Complete information about the private endpoint.
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
+        public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint.
+        /// </summary>
+        [Input("privateEndpointName", required: true)]
+        public Input<string> PrivateEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateEndpointInvokeArgs()
         {
         }
     }

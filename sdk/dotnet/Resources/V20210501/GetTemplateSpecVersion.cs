@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20210501
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources/v20210501:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Template Spec Version object.
+        /// </summary>
+        public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources/v20210501:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Resources.V20210501
         public string TemplateSpecVersion { get; set; } = null!;
 
         public GetTemplateSpecVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetTemplateSpecVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Template Spec.
+        /// </summary>
+        [Input("templateSpecName", required: true)]
+        public Input<string> TemplateSpecName { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the Template Spec.
+        /// </summary>
+        [Input("templateSpecVersion", required: true)]
+        public Input<string> TemplateSpecVersion { get; set; } = null!;
+
+        public GetTemplateSpecVersionInvokeArgs()
         {
         }
     }

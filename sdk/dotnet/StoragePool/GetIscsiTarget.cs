@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StoragePool
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StoragePool
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response for iSCSI target requests.
+        /// API Version: 2020-03-15-preview.
+        /// </summary>
+        public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.StoragePool
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIscsiTargetArgs()
+        {
+        }
+    }
+
+    public sealed class GetIscsiTargetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Disk pool.
+        /// </summary>
+        [Input("diskPoolName", required: true)]
+        public Input<string> DiskPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the iSCSI target.
+        /// </summary>
+        [Input("iscsiTargetName", required: true)]
+        public Input<string> IscsiTargetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIscsiTargetInvokeArgs()
         {
         }
     }

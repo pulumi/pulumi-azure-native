@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// </summary>
         public static Task<GetStaticSiteCustomDomainResult> InvokeAsync(GetStaticSiteCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Static Site Custom Domain Overview ARM resource.
+        /// </summary>
+        public static Output<GetStaticSiteCustomDomainResult> Invoke(GetStaticSiteCustomDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web/v20210201:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStaticSiteCustomDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetStaticSiteCustomDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The custom domain name.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the static site resource to search in.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStaticSiteCustomDomainInvokeArgs()
         {
         }
     }

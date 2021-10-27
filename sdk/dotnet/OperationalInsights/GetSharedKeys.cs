@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public static Task<GetSharedKeysResult> InvokeAsync(GetSharedKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedKeysResult>("azure-native:operationalinsights:getSharedKeys", args ?? new GetSharedKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The shared keys for a workspace.
+        /// API Version: 2020-08-01.
+        /// </summary>
+        public static Output<GetSharedKeysResult> Invoke(GetSharedKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSharedKeysResult>("azure-native:operationalinsights:getSharedKeys", args ?? new GetSharedKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.OperationalInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetSharedKeysArgs()
+        {
+        }
+    }
+
+    public sealed class GetSharedKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSharedKeysInvokeArgs()
         {
         }
     }

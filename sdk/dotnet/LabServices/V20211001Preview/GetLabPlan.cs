@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+        /// </summary>
+        public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
+        /// </summary>
+        [Input("labPlanName", required: true)]
+        public Input<string> LabPlanName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabPlanInvokeArgs()
         {
         }
     }

@@ -1006,6 +1006,18 @@ func (in *vmPriorityPtr) ToVmPriorityPtrOutputWithContext(ctx context.Context) V
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeTypeInput)(nil)).Elem(), ComputeType("AKS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeTypePtrInput)(nil)).Elem(), ComputeType("AKS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionStatusInput)(nil)).Elem(), EncryptionStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionStatusPtrInput)(nil)).Elem(), EncryptionStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteLoginPortPublicAccessInput)(nil)).Elem(), RemoteLoginPortPublicAccess("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteLoginPortPublicAccessPtrInput)(nil)).Elem(), RemoteLoginPortPublicAccess("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VmPriorityInput)(nil)).Elem(), VmPriority("Dedicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VmPriorityPtrInput)(nil)).Elem(), VmPriority("Dedicated"))
 	pulumi.RegisterOutputType(ComputeTypeOutput{})
 	pulumi.RegisterOutputType(ComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionStatusOutput{})

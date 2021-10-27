@@ -201,5 +201,6 @@ func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobContainerImmutabilityPolicyInput)(nil)).Elem(), &BlobContainerImmutabilityPolicy{})
 	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyOutput{})
 }

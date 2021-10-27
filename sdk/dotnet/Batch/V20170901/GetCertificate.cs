@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch.V20170901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Batch.V20170901
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:batch/v20170901:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contains information about a certificate.
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:batch/v20170901:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Batch.V20170901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the Batch account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCertificateInvokeArgs()
         {
         }
     }

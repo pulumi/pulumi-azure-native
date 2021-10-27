@@ -184,5 +184,6 @@ func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationMigrationItemInput)(nil)).Elem(), &ReplicationMigrationItem{})
 	pulumi.RegisterOutputType(ReplicationMigrationItemOutput{})
 }

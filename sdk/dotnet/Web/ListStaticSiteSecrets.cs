@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public ListStaticSiteSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListStaticSiteSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the static site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListStaticSiteSecretsInvokeArgs()
         {
         }
     }

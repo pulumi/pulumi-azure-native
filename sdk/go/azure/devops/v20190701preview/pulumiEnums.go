@@ -338,6 +338,10 @@ func (in *codeRepositoryTypePtr) ToCodeRepositoryTypePtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationTypeInput)(nil)).Elem(), AuthorizationType("personalAccessToken"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationTypePtrInput)(nil)).Elem(), AuthorizationType("personalAccessToken"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTypeInput)(nil)).Elem(), CodeRepositoryType("gitHub"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTypePtrInput)(nil)).Elem(), CodeRepositoryType("gitHub"))
 	pulumi.RegisterOutputType(AuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(AuthorizationTypePtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTypeOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker/v20211101preview:getLinker", args ?? new GetLinkerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Linker of source and target resource
+        /// </summary>
+        public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker/v20211101preview:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public string ResourceUri { get; set; } = null!;
 
         public GetLinkerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name Linker resource.
+        /// </summary>
+        [Input("linkerName", required: true)]
+        public Input<string> LinkerName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetLinkerInvokeArgs()
         {
         }
     }

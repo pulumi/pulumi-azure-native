@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteBackupStatusSecretsSlotResult> InvokeAsync(ListSiteBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Backup description
+        /// </summary>
+        public static Output<ListSiteBackupStatusSecretsSlotResult> Invoke(ListSiteBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -112,6 +119,103 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Type { get; set; } = null!;
 
         public ListSiteBackupStatusSecretsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteBackupStatusSecretsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of backup
+        /// </summary>
+        [Input("backupId", required: true)]
+        public Input<string> BackupId { get; set; } = null!;
+
+        /// <summary>
+        /// Schedule for the backup if it is executed periodically
+        /// </summary>
+        [Input("backupSchedule")]
+        public Input<Inputs.BackupScheduleArgs>? BackupSchedule { get; set; }
+
+        [Input("databases")]
+        private InputList<Inputs.DatabaseBackupSettingArgs>? _databases;
+
+        /// <summary>
+        /// Databases included in the backup
+        /// </summary>
+        public InputList<Inputs.DatabaseBackupSettingArgs> Databases
+        {
+            get => _databases ?? (_databases = new InputList<Inputs.DatabaseBackupSettingArgs>());
+            set => _databases = value;
+        }
+
+        /// <summary>
+        /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Kind of resource
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Resource Location
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Resource Name
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// SAS URL to the container
+        /// </summary>
+        [Input("storageAccountUrl")]
+        public Input<string>? StorageAccountUrl { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Resource type
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public ListSiteBackupStatusSecretsSlotInvokeArgs()
         {
         }
     }

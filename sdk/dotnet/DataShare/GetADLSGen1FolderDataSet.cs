@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Task<GetADLSGen1FolderDataSetResult> InvokeAsync(GetADLSGen1FolderDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen1FolderDataSetResult>("azure-native:datashare:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An ADLS Gen 1 folder data set.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetADLSGen1FolderDataSetResult> Invoke(GetADLSGen1FolderDataSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetADLSGen1FolderDataSetResult>("azure-native:datashare:getADLSGen1FolderDataSet", args ?? new GetADLSGen1FolderDataSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataShare
         public string ShareName { get; set; } = null!;
 
         public GetADLSGen1FolderDataSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetADLSGen1FolderDataSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSet.
+        /// </summary>
+        [Input("dataSetName", required: true)]
+        public Input<string> DataSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
+
+        public GetADLSGen1FolderDataSetInvokeArgs()
         {
         }
     }

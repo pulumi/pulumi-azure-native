@@ -160,5 +160,6 @@ func (o IncidentCommentOutput) ToIncidentCommentOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentCommentInput)(nil)).Elem(), &IncidentComment{})
 	pulumi.RegisterOutputType(IncidentCommentOutput{})
 }

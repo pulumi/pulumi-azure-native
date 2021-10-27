@@ -176,6 +176,8 @@ func (in *statusLevelTypesPtr) ToStatusLevelTypesPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusLevelTypesInput)(nil)).Elem(), StatusLevelTypes("Info"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusLevelTypesPtrInput)(nil)).Elem(), StatusLevelTypes("Info"))
 	pulumi.RegisterOutputType(StatusLevelTypesOutput{})
 	pulumi.RegisterOutputType(StatusLevelTypesPtrOutput{})
 }

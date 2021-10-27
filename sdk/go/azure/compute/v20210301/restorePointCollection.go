@@ -144,5 +144,6 @@ func (o RestorePointCollectionOutput) ToRestorePointCollectionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointCollectionInput)(nil)).Elem(), &RestorePointCollection{})
 	pulumi.RegisterOutputType(RestorePointCollectionOutput{})
 }

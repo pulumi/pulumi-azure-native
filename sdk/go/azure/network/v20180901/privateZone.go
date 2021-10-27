@@ -148,5 +148,6 @@ func (o PrivateZoneOutput) ToPrivateZoneOutputWithContext(ctx context.Context) P
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateZoneInput)(nil)).Elem(), &PrivateZone{})
 	pulumi.RegisterOutputType(PrivateZoneOutput{})
 }

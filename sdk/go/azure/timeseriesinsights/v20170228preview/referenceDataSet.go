@@ -169,5 +169,6 @@ func (o ReferenceDataSetOutput) ToReferenceDataSetOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataSetInput)(nil)).Elem(), &ReferenceDataSet{})
 	pulumi.RegisterOutputType(ReferenceDataSetOutput{})
 }

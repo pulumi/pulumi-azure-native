@@ -1064,6 +1064,19 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsInput)(nil)).Elem(), AccessRights("Manage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsPtrInput)(nil)).Elem(), AccessRights("Manage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsArrayInput)(nil)).Elem(), AccessRightsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityAvailabilityStatusInput)(nil)).Elem(), EntityAvailabilityStatus("Available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityAvailabilityStatusPtrInput)(nil)).Elem(), EntityAvailabilityStatus("Available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusInput)(nil)).Elem(), EntityStatus("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityStatusPtrInput)(nil)).Elem(), EntityStatus("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceStateEnumInput)(nil)).Elem(), NamespaceStateEnum("Unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceStateEnumPtrInput)(nil)).Elem(), NamespaceStateEnum("Unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Basic"))
 	pulumi.RegisterOutputType(AccessRightsOutput{})
 	pulumi.RegisterOutputType(AccessRightsPtrOutput{})
 	pulumi.RegisterOutputType(AccessRightsArrayOutput{})

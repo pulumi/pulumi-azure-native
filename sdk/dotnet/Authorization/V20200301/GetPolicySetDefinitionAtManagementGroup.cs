@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20200301
         /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The policy set definition.
+        /// </summary>
+        public static Output<GetPolicySetDefinitionAtManagementGroupResult> Invoke(GetPolicySetDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20200301:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20200301
         public string PolicySetDefinitionName { get; set; } = null!;
 
         public GetPolicySetDefinitionAtManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicySetDefinitionAtManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the management group.
+        /// </summary>
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the policy set definition to get.
+        /// </summary>
+        [Input("policySetDefinitionName", required: true)]
+        public Input<string> PolicySetDefinitionName { get; set; } = null!;
+
+        public GetPolicySetDefinitionAtManagementGroupInvokeArgs()
         {
         }
     }

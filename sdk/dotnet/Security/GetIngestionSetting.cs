@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetIngestionSettingResult> InvokeAsync(GetIngestionSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIngestionSettingResult>("azure-native:security:getIngestionSetting", args ?? new GetIngestionSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configures how to correlate scan data and logs with resources associated with the subscription.
+        /// API Version: 2021-01-15-preview.
+        /// </summary>
+        public static Output<GetIngestionSettingResult> Invoke(GetIngestionSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIngestionSettingResult>("azure-native:security:getIngestionSetting", args ?? new GetIngestionSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Security
         public string IngestionSettingName { get; set; } = null!;
 
         public GetIngestionSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetIngestionSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the ingestion setting
+        /// </summary>
+        [Input("ingestionSettingName", required: true)]
+        public Input<string> IngestionSettingName { get; set; } = null!;
+
+        public GetIngestionSettingInvokeArgs()
         {
         }
     }

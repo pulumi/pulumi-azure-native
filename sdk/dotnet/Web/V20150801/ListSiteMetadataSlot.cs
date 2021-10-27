@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteMetadataSlotResult> InvokeAsync(ListSiteMetadataSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
+        public static Output<ListSiteMetadataSlotResult> Invoke(ListSiteMetadataSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public ListSiteMetadataSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteMetadataSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListSiteMetadataSlotInvokeArgs()
         {
         }
     }

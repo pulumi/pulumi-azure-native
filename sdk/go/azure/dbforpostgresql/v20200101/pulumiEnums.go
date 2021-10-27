@@ -174,6 +174,8 @@ func (in *serverKeyTypePtr) ToServerKeyTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyTypeInput)(nil)).Elem(), ServerKeyType("AzureKeyVault"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyTypePtrInput)(nil)).Elem(), ServerKeyType("AzureKeyVault"))
 	pulumi.RegisterOutputType(ServerKeyTypeOutput{})
 	pulumi.RegisterOutputType(ServerKeyTypePtrOutput{})
 }

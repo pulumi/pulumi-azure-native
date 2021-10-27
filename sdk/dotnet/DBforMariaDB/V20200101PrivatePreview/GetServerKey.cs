@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A MariaDB Server key.
+        /// </summary>
+        public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
         public string ServerName { get; set; } = null!;
 
         public GetServerKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the MariaDB Server key to be retrieved.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerKeyInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20180201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20180201
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage/v20180201:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response from the ListKeys operation.
+        /// </summary>
+        public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:storage/v20180201:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Storage.V20180201
         public string ResourceGroupName { get; set; } = null!;
 
         public ListStorageAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListStorageAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListStorageAccountKeysInvokeArgs()
         {
         }
     }

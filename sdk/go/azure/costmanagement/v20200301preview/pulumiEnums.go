@@ -508,6 +508,12 @@ func (in *ruleStatusPtr) ToRuleStatusPtrOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CostAllocationPolicyTypeInput)(nil)).Elem(), CostAllocationPolicyType("FixedProportion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CostAllocationPolicyTypePtrInput)(nil)).Elem(), CostAllocationPolicyType("FixedProportion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CostAllocationResourceTypeInput)(nil)).Elem(), CostAllocationResourceType("Dimension"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CostAllocationResourceTypePtrInput)(nil)).Elem(), CostAllocationResourceType("Dimension"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleStatusInput)(nil)).Elem(), RuleStatus("NotActive"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleStatusPtrInput)(nil)).Elem(), RuleStatus("NotActive"))
 	pulumi.RegisterOutputType(CostAllocationPolicyTypeOutput{})
 	pulumi.RegisterOutputType(CostAllocationPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(CostAllocationResourceTypeOutput{})

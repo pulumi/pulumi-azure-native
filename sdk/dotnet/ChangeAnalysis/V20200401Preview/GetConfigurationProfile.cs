@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:changeanalysis/v20200401preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
+        /// </summary>
+        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("azure-native:changeanalysis/v20200401preview:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
         public string ProfileName { get; set; } = null!;
 
         public GetConfigurationProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        public GetConfigurationProfileInvokeArgs()
         {
         }
     }

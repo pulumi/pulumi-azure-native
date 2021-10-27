@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An attestation resource.
+        /// </summary>
+        public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAttestationAtResourceGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetAttestationAtResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the attestation.
+        /// </summary>
+        [Input("attestationName", required: true)]
+        public Input<string> AttestationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAttestationAtResourceGroupInvokeArgs()
         {
         }
     }

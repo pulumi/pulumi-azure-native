@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CertificateRegistration.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210201:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+        /// </summary>
+        public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210201:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAppServiceCertificateOrderCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppServiceCertificateOrderCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the certificate order.
+        /// </summary>
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the certificate.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAppServiceCertificateOrderCertificateInvokeArgs()
         {
         }
     }

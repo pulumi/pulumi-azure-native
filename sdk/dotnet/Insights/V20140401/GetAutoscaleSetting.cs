@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20140401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20140401
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights/v20140401:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The autoscale setting resource.
+        /// </summary>
+        public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights/v20140401:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20140401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAutoscaleSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetAutoscaleSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The autoscale setting name.
+        /// </summary>
+        [Input("autoscaleSettingName", required: true)]
+        public Input<string> AutoscaleSettingName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAutoscaleSettingInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Content type contract details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetContentItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetContentItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Content item identifier.
+        /// </summary>
+        [Input("contentItemId", required: true)]
+        public Input<string> ContentItemId { get; set; } = null!;
+
+        /// <summary>
+        /// Content type identifier.
+        /// </summary>
+        [Input("contentTypeId", required: true)]
+        public Input<string> ContentTypeId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetContentItemInvokeArgs()
         {
         }
     }

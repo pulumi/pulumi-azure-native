@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// </summary>
         public static Task<GetServiceUnitResult> InvokeAsync(GetServiceUnitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents the response of a service unit resource.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
+        public static Output<GetServiceUnitResult> Invoke(GetServiceUnitInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DeploymentManager
         public string ServiceUnitName { get; set; } = null!;
 
         public GetServiceUnitArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceUnitInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service topology .
+        /// </summary>
+        [Input("serviceTopologyName", required: true)]
+        public Input<string> ServiceTopologyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service unit resource.
+        /// </summary>
+        [Input("serviceUnitName", required: true)]
+        public Input<string> ServiceUnitName { get; set; } = null!;
+
+        public GetServiceUnitInvokeArgs()
         {
         }
     }

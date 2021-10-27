@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:blueprint/v20171111preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Blueprint assignment.
+        /// </summary>
+        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20171111preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public string? SubscriptionId { get; set; }
 
         public GetAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// name of the assignment.
+        /// </summary>
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// azure subscriptionId, which we assign the blueprint to.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetAssignmentInvokeArgs()
         {
         }
     }

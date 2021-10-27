@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         /// </summary>
         public static Task<GetprivateLinkServicesForM365SecurityCenterResult> InvokeAsync(GetprivateLinkServicesForM365SecurityCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForM365SecurityCenterResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForM365SecurityCenter", args ?? new GetprivateLinkServicesForM365SecurityCenterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
+        public static Output<GetprivateLinkServicesForM365SecurityCenterResult> Invoke(GetprivateLinkServicesForM365SecurityCenterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForM365SecurityCenterResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForM365SecurityCenter", args ?? new GetprivateLinkServicesForM365SecurityCenterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         public string ResourceName { get; set; } = null!;
 
         public GetprivateLinkServicesForM365SecurityCenterArgs()
+        {
+        }
+    }
+
+    public sealed class GetprivateLinkServicesForM365SecurityCenterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service instance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetprivateLinkServicesForM365SecurityCenterInvokeArgs()
         {
         }
     }

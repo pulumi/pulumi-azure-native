@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
         /// </summary>
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// MAK key details.
+        /// </summary>
+        public static Output<GetMultipleActivationKeyResult> Invoke(GetMultipleActivationKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMultipleActivationKeyResult>("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMultipleActivationKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetMultipleActivationKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the MAK key.
+        /// </summary>
+        [Input("multipleActivationKeyName", required: true)]
+        public Input<string> MultipleActivationKeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMultipleActivationKeyInvokeArgs()
         {
         }
     }

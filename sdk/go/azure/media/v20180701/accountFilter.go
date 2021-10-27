@@ -146,5 +146,6 @@ func (o AccountFilterOutput) ToAccountFilterOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterInput)(nil)).Elem(), &AccountFilter{})
 	pulumi.RegisterOutputType(AccountFilterOutput{})
 }

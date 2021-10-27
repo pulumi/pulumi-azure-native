@@ -152,5 +152,6 @@ func (o PipelineRunOutput) ToPipelineRunOutputWithContext(ctx context.Context) P
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineRunInput)(nil)).Elem(), &PipelineRun{})
 	pulumi.RegisterOutputType(PipelineRunOutput{})
 }

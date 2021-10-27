@@ -155,5 +155,6 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInput)(nil)).Elem(), &Workspace{})
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

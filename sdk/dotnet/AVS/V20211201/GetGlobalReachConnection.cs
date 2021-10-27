@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs/v20211201:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A global reach connection resource
+        /// </summary>
+        public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs/v20211201:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGlobalReachConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetGlobalReachConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the global reach connection in the private cloud
+        /// </summary>
+        [Input("globalReachConnectionName", required: true)]
+        public Input<string> GlobalReachConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGlobalReachConnectionInvokeArgs()
         {
         }
     }

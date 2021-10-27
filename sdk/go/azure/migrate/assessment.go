@@ -139,5 +139,6 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentInput)(nil)).Elem(), &Assessment{})
 	pulumi.RegisterOutputType(AssessmentOutput{})
 }

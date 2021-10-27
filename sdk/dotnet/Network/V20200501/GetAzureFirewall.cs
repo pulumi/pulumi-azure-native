@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network/v20200501:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Firewall resource.
+        /// </summary>
+        public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network/v20200501:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20200501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAzureFirewallArgs()
+        {
+        }
+    }
+
+    public sealed class GetAzureFirewallInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure Firewall.
+        /// </summary>
+        [Input("azureFirewallName", required: true)]
+        public Input<string> AzureFirewallName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAzureFirewallInvokeArgs()
         {
         }
     }

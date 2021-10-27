@@ -124,5 +124,6 @@ func (o ResourceManagementPrivateLinkOutput) ToResourceManagementPrivateLinkOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceManagementPrivateLinkInput)(nil)).Elem(), &ResourceManagementPrivateLink{})
 	pulumi.RegisterOutputType(ResourceManagementPrivateLinkOutput{})
 }

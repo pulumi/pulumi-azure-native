@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Bastion Host resource.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetBastionHostResult> Invoke(GetBastionHostInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBastionHostArgs()
+        {
+        }
+    }
+
+    public sealed class GetBastionHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bastion Host.
+        /// </summary>
+        [Input("bastionHostName", required: true)]
+        public Input<string> BastionHostName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBastionHostInvokeArgs()
         {
         }
     }

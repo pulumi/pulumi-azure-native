@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Task<GetRemediationAtManagementGroupResult> InvokeAsync(GetRemediationAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The remediation definition.
+        /// API Version: 2019-07-01.
+        /// </summary>
+        public static Output<GetRemediationAtManagementGroupResult> Invoke(GetRemediationAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.PolicyInsights
         public string RemediationName { get; set; } = null!;
 
         public GetRemediationAtManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetRemediationAtManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Management group ID.
+        /// </summary>
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+        /// </summary>
+        [Input("managementGroupsNamespace", required: true)]
+        public Input<string> ManagementGroupsNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
+
+        public GetRemediationAtManagementGroupInvokeArgs()
         {
         }
     }

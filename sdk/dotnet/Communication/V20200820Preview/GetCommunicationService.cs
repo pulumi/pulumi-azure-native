@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Communication.V20200820Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Communication.V20200820Preview
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication/v20200820preview:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A class representing a CommunicationService resource.
+        /// </summary>
+        public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication/v20200820preview:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Communication.V20200820Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCommunicationServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetCommunicationServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the CommunicationService resource.
+        /// </summary>
+        [Input("communicationServiceName", required: true)]
+        public Input<string> CommunicationServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCommunicationServiceInvokeArgs()
         {
         }
     }

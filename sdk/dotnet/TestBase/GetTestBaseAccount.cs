@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Task<GetTestBaseAccountResult> InvokeAsync(GetTestBaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Test Base Account resource.
+        /// API Version: 2020-12-16-preview.
+        /// </summary>
+        public static Output<GetTestBaseAccountResult> Invoke(GetTestBaseAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.TestBase
         public string TestBaseAccountName { get; set; } = null!;
 
         public GetTestBaseAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetTestBaseAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        public GetTestBaseAccountInvokeArgs()
         {
         }
     }

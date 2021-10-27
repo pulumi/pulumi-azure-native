@@ -228,5 +228,6 @@ func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAlertRuleInput)(nil)).Elem(), &ScheduledAlertRule{})
 	pulumi.RegisterOutputType(ScheduledAlertRuleOutput{})
 }

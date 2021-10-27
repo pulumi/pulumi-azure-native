@@ -175,6 +175,8 @@ func (in *sensorTypePtr) ToSensorTypePtrOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SensorTypeInput)(nil)).Elem(), SensorType("Ot"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SensorTypePtrInput)(nil)).Elem(), SensorType("Ot"))
 	pulumi.RegisterOutputType(SensorTypeOutput{})
 	pulumi.RegisterOutputType(SensorTypePtrOutput{})
 }

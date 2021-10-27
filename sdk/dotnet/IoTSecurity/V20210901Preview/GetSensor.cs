@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         /// </summary>
         public static Task<GetSensorResult> InvokeAsync(GetSensorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSensorResult>("azure-native:iotsecurity/v20210901preview:getSensor", args ?? new GetSensorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT sensor model
+        /// </summary>
+        public static Output<GetSensorResult> Invoke(GetSensorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSensorResult>("azure-native:iotsecurity/v20210901preview:getSensor", args ?? new GetSensorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         public string SensorName { get; set; } = null!;
 
         public GetSensorArgs()
+        {
+        }
+    }
+
+    public sealed class GetSensorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the IoT sensor
+        /// </summary>
+        [Input("sensorName", required: true)]
+        public Input<string> SensorName { get; set; } = null!;
+
+        public GetSensorInvokeArgs()
         {
         }
     }

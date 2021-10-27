@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Task<GetBookmarkRelationResult> InvokeAsync(GetBookmarkRelationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-native:securityinsights:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a relation between two resources
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
+        public static Output<GetBookmarkRelationResult> Invoke(GetBookmarkRelationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBookmarkRelationResult>("azure-native:securityinsights:getBookmarkRelation", args ?? new GetBookmarkRelationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetBookmarkRelationArgs()
+        {
+        }
+    }
+
+    public sealed class GetBookmarkRelationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Bookmark ID
+        /// </summary>
+        [Input("bookmarkId", required: true)]
+        public Input<string> BookmarkId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// Relation Name
+        /// </summary>
+        [Input("relationName", required: true)]
+        public Input<string> RelationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetBookmarkRelationInvokeArgs()
         {
         }
     }

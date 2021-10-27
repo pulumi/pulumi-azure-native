@@ -134,5 +134,6 @@ func (o HybridIdentityMetadatumOutput) ToHybridIdentityMetadatumOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridIdentityMetadatumInput)(nil)).Elem(), &HybridIdentityMetadatum{})
 	pulumi.RegisterOutputType(HybridIdentityMetadatumOutput{})
 }

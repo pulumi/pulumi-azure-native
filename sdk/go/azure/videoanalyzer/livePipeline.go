@@ -145,5 +145,6 @@ func (o LivePipelineOutput) ToLivePipelineOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LivePipelineInput)(nil)).Elem(), &LivePipeline{})
 	pulumi.RegisterOutputType(LivePipelineOutput{})
 }

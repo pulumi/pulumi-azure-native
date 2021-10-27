@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EdgeOrder
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// </summary>
         public static Task<GetOrderItemByNameResult> InvokeAsync(GetOrderItemByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemByNameResult>("azure-native:edgeorder:getOrderItemByName", args ?? new GetOrderItemByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents order item contract
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
+        public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.EdgeOrder
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOrderItemByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrderItemByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the order item
+        /// </summary>
+        [Input("orderItemName", required: true)]
+        public Input<string> OrderItemName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOrderItemByNameInvokeArgs()
         {
         }
     }

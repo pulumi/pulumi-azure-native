@@ -128,5 +128,6 @@ func (o RoleManagementPolicyAssignmentOutput) ToRoleManagementPolicyAssignmentOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyAssignmentInput)(nil)).Elem(), &RoleManagementPolicyAssignment{})
 	pulumi.RegisterOutputType(RoleManagementPolicyAssignmentOutput{})
 }

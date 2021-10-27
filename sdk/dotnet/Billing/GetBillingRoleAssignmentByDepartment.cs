@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Billing
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Billing
         /// </summary>
         public static Task<GetBillingRoleAssignmentByDepartmentResult> InvokeAsync(GetBillingRoleAssignmentByDepartmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The role assignment
+        /// API Version: 2019-10-01-preview.
+        /// </summary>
+        public static Output<GetBillingRoleAssignmentByDepartmentResult> Invoke(GetBillingRoleAssignmentByDepartmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Billing
         public string DepartmentName { get; set; } = null!;
 
         public GetBillingRoleAssignmentByDepartmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetBillingRoleAssignmentByDepartmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID that uniquely identifies a billing account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID that uniquely identifies a role assignment.
+        /// </summary>
+        [Input("billingRoleAssignmentName", required: true)]
+        public Input<string> BillingRoleAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID that uniquely identifies a department.
+        /// </summary>
+        [Input("departmentName", required: true)]
+        public Input<string> DepartmentName { get; set; } = null!;
+
+        public GetBillingRoleAssignmentByDepartmentInvokeArgs()
         {
         }
     }

@@ -174,5 +174,6 @@ func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerInput)(nil)).Elem(), &LinkedServer{})
 	pulumi.RegisterOutputType(LinkedServerOutput{})
 }

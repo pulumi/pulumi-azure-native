@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20200701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NetApp.V20200701
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/v20200701:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Backup policy information
+        /// </summary>
+        public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20200701:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.NetApp.V20200701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBackupPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Backup policy Name which uniquely identify backup policy.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBackupPolicyInvokeArgs()
         {
         }
     }

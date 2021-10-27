@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbforpostgresql/v20171201:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a and external administrator to be created.
+        /// </summary>
+        public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbforpostgresql/v20171201:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         public string ServerName { get; set; } = null!;
 
         public GetServerAdministratorArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerAdministratorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerAdministratorInvokeArgs()
         {
         }
     }

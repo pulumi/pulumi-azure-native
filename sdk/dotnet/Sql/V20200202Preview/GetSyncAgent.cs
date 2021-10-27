@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         public static Task<GetSyncAgentResult> InvokeAsync(GetSyncAgentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-native:sql/v20200202preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL Database sync agent.
+        /// </summary>
+        public static Output<GetSyncAgentResult> Invoke(GetSyncAgentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql/v20200202preview:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public string SyncAgentName { get; set; } = null!;
 
         public GetSyncAgentArgs()
+        {
+        }
+    }
+
+    public sealed class GetSyncAgentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server on which the sync agent is hosted.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the sync agent.
+        /// </summary>
+        [Input("syncAgentName", required: true)]
+        public Input<string> SyncAgentName { get; set; } = null!;
+
+        public GetSyncAgentInvokeArgs()
         {
         }
     }

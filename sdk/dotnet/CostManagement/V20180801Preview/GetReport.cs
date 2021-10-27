@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         /// </summary>
         public static Task<GetReportResult> InvokeAsync(GetReportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportResult>("azure-native:costmanagement/v20180801preview:getReport", args ?? new GetReportArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A report resource.
+        /// </summary>
+        public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:costmanagement/v20180801preview:getReport", args ?? new GetReportInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         public string ReportName { get; set; } = null!;
 
         public GetReportArgs()
+        {
+        }
+    }
+
+    public sealed class GetReportInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Report Name.
+        /// </summary>
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
+
+        public GetReportInvokeArgs()
         {
         }
     }

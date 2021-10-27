@@ -1162,6 +1162,20 @@ func (in *scriptTypePtr) ToScriptTypePtrOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CleanupOptionsInput)(nil)).Elem(), CleanupOptions("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CleanupOptionsPtrInput)(nil)).Elem(), CleanupOptions("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModeInput)(nil)).Elem(), DeploymentMode("Incremental"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModePtrInput)(nil)).Elem(), DeploymentMode("Incremental"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressionEvaluationOptionsScopeTypeInput)(nil)).Elem(), ExpressionEvaluationOptionsScopeType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressionEvaluationOptionsScopeTypePtrInput)(nil)).Elem(), ExpressionEvaluationOptionsScopeType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("UserAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("UserAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnErrorDeploymentTypeInput)(nil)).Elem(), OnErrorDeploymentType("LastSuccessful"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnErrorDeploymentTypePtrInput)(nil)).Elem(), OnErrorDeploymentType("LastSuccessful"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTypeInput)(nil)).Elem(), ScriptType("AzurePowerShell"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTypePtrInput)(nil)).Elem(), ScriptType("AzurePowerShell"))
 	pulumi.RegisterOutputType(CleanupOptionsOutput{})
 	pulumi.RegisterOutputType(CleanupOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentModeOutput{})

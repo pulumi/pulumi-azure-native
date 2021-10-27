@@ -1014,6 +1014,18 @@ func (in *routingSourcePtr) ToRoutingSourcePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsInput)(nil)).Elem(), AccessRights("RegistryRead"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsPtrInput)(nil)).Elem(), AccessRights("RegistryRead"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilitiesInput)(nil)).Elem(), Capabilities("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilitiesPtrInput)(nil)).Elem(), Capabilities("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubSkuInput)(nil)).Elem(), IotHubSku("F1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubSkuPtrInput)(nil)).Elem(), IotHubSku("F1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpFilterActionTypeInput)(nil)).Elem(), IpFilterActionType("Accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpFilterActionTypePtrInput)(nil)).Elem(), IpFilterActionType("Accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationMonitoringLevelInput)(nil)).Elem(), OperationMonitoringLevel("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperationMonitoringLevelPtrInput)(nil)).Elem(), OperationMonitoringLevel("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingSourceInput)(nil)).Elem(), RoutingSource("DeviceMessages"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingSourcePtrInput)(nil)).Elem(), RoutingSource("DeviceMessages"))
 	pulumi.RegisterOutputType(AccessRightsOutput{})
 	pulumi.RegisterOutputType(AccessRightsPtrOutput{})
 	pulumi.RegisterOutputType(CapabilitiesOutput{})

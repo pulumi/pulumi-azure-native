@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         /// </summary>
         public static Task<GetBuildTaskResult> InvokeAsync(GetBuildTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildTaskResult>("azure-native:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+        /// </summary>
+        public static Output<GetBuildTaskResult> Invoke(GetBuildTaskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBuildTaskResult>("azure-native:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBuildTaskArgs()
+        {
+        }
+    }
+
+    public sealed class GetBuildTaskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry build task.
+        /// </summary>
+        [Input("buildTaskName", required: true)]
+        public Input<string> BuildTaskName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBuildTaskInvokeArgs()
         {
         }
     }

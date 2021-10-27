@@ -175,6 +175,8 @@ func (in *sharedTypeKindPtr) ToSharedTypeKindPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedTypeKindInput)(nil)).Elem(), SharedTypeKind("user"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedTypeKindPtrInput)(nil)).Elem(), SharedTypeKind("user"))
 	pulumi.RegisterOutputType(SharedTypeKindOutput{})
 	pulumi.RegisterOutputType(SharedTypeKindPtrOutput{})
 }

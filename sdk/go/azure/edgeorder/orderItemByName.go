@@ -146,5 +146,6 @@ func (o OrderItemByNameOutput) ToOrderItemByNameOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderItemByNameInput)(nil)).Elem(), &OrderItemByName{})
 	pulumi.RegisterOutputType(OrderItemByNameOutput{})
 }

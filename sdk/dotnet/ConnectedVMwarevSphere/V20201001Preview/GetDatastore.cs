@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:connectedvmwarevsphere/v20201001preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the datastore.
+        /// </summary>
+        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:connectedvmwarevsphere/v20201001preview:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatastoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatastoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the datastore.
+        /// </summary>
+        [Input("datastoreName", required: true)]
+        public Input<string> DatastoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatastoreInvokeArgs()
         {
         }
     }

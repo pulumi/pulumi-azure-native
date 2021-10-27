@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Task<GetClusterPrincipalAssignmentResult> InvokeAsync(GetClusterPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a cluster principal assignment.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Kusto
         public string ResourceGroupName { get; set; } = null!;
 
         public GetClusterPrincipalAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterPrincipalAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto principalAssignment.
+        /// </summary>
+        [Input("principalAssignmentName", required: true)]
+        public Input<string> PrincipalAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetClusterPrincipalAssignmentInvokeArgs()
         {
         }
     }

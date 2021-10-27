@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Replication protected item.
+        /// API Version: 2018-07-10.
+        /// </summary>
+        public static Output<GetReplicationProtectedItemResult> Invoke(GetReplicationProtectedItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationProtectedItemResult>("azure-native:recoveryservices:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string ResourceName { get; set; } = null!;
 
         public GetReplicationProtectedItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationProtectedItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric unique name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Protection container name.
+        /// </summary>
+        [Input("protectionContainerName", required: true)]
+        public Input<string> ProtectionContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Replication protected item name.
+        /// </summary>
+        [Input("replicatedProtectedItemName", required: true)]
+        public Input<string> ReplicatedProtectedItemName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetReplicationProtectedItemInvokeArgs()
         {
         }
     }

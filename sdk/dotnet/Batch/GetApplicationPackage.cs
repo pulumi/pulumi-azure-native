@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An application package which represents a particular version of an application.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Batch
         public string VersionName { get; set; } = null!;
 
         public GetApplicationPackageArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationPackageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the application. This must be unique within the account.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the Batch account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the application.
+        /// </summary>
+        [Input("versionName", required: true)]
+        public Input<string> VersionName { get; set; } = null!;
+
+        public GetApplicationPackageInvokeArgs()
         {
         }
     }

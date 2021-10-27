@@ -124,5 +124,6 @@ func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileInput)(nil)).Elem(), &ConfigurationProfile{})
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
 }

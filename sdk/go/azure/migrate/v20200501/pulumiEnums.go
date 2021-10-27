@@ -177,6 +177,8 @@ func (in *statusPtr) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusInput)(nil)).Elem(), Status("Approved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusPtrInput)(nil)).Elem(), Status("Approved"))
 	pulumi.RegisterOutputType(StatusOutput{})
 	pulumi.RegisterOutputType(StatusPtrOutput{})
 }

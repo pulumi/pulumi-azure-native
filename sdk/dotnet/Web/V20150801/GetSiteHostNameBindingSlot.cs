@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetSiteHostNameBindingSlotResult> InvokeAsync(GetSiteHostNameBindingSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A host name binding object
+        /// </summary>
+        public static Output<GetSiteHostNameBindingSlotResult> Invoke(GetSiteHostNameBindingSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public GetSiteHostNameBindingSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteHostNameBindingSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of host
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetSiteHostNameBindingSlotInvokeArgs()
         {
         }
     }

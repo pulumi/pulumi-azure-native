@@ -144,5 +144,6 @@ func (o LinkedSubscriptionOutput) ToLinkedSubscriptionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedSubscriptionInput)(nil)).Elem(), &LinkedSubscription{})
 	pulumi.RegisterOutputType(LinkedSubscriptionOutput{})
 }

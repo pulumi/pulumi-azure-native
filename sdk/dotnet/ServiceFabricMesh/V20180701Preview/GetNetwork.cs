@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-native:servicefabricmesh/v20180701preview:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This type describes a network resource.
+        /// </summary>
+        public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh/v20180701preview:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identity of the network.
+        /// </summary>
+        [Input("networkName", required: true)]
+        public Input<string> NetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkInvokeArgs()
         {
         }
     }

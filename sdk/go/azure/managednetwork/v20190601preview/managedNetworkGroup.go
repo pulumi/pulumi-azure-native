@@ -145,5 +145,6 @@ func (o ManagedNetworkGroupOutput) ToManagedNetworkGroupOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedNetworkGroupInput)(nil)).Elem(), &ManagedNetworkGroup{})
 	pulumi.RegisterOutputType(ManagedNetworkGroupOutput{})
 }

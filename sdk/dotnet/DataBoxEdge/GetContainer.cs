@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a container on the  Data Box Edge/Gateway device.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public string StorageAccountName { get; set; } = null!;
 
         public GetContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The container Name
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Storage Account Name
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        public GetContainerInvokeArgs()
         {
         }
     }

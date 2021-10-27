@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Advisor
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Advisor
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Advisor
         public string ResourceUri { get; set; } = null!;
 
         public GetSuppressionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSuppressionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the suppression.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The recommendation ID.
+        /// </summary>
+        [Input("recommendationId", required: true)]
+        public Input<string> RecommendationId { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetSuppressionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media/v20210601:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The streaming endpoint.
+        /// </summary>
+        public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media/v20210601:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20210601
         public string StreamingEndpointName { get; set; } = null!;
 
         public GetStreamingEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetStreamingEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the streaming endpoint, maximum length is 24.
+        /// </summary>
+        [Input("streamingEndpointName", required: true)]
+        public Input<string> StreamingEndpointName { get; set; } = null!;
+
+        public GetStreamingEndpointInvokeArgs()
         {
         }
     }

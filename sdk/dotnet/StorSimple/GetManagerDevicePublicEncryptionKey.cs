@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public static Task<GetManagerDevicePublicEncryptionKeyResult> InvokeAsync(GetManagerDevicePublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The public key.
+        /// API Version: 2017-06-01.
+        /// </summary>
+        public static Output<GetManagerDevicePublicEncryptionKeyResult> Invoke(GetManagerDevicePublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.StorSimple
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagerDevicePublicEncryptionKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagerDevicePublicEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagerDevicePublicEncryptionKeyInvokeArgs()
         {
         }
     }

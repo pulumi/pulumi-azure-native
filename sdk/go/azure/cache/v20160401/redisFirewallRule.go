@@ -173,5 +173,6 @@ func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisFirewallRuleInput)(nil)).Elem(), &RedisFirewallRule{})
 	pulumi.RegisterOutputType(RedisFirewallRuleOutput{})
 }

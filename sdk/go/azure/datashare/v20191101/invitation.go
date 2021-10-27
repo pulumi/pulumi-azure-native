@@ -169,5 +169,6 @@ func (o InvitationOutput) ToInvitationOutputWithContext(ctx context.Context) Inv
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationInput)(nil)).Elem(), &Invitation{})
 	pulumi.RegisterOutputType(InvitationOutput{})
 }

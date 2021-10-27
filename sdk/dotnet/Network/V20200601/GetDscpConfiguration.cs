@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network/v20200601:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// DSCP Configuration in a resource group.
+        /// </summary>
+        public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network/v20200601:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDscpConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDscpConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("dscpConfigurationName", required: true)]
+        public Input<string> DscpConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDscpConfigurationInvokeArgs()
         {
         }
     }

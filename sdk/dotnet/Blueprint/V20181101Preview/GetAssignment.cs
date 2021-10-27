@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a blueprint assignment.
+        /// </summary>
+        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public string ResourceScope { get; set; } = null!;
 
         public GetAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the blueprint assignment.
+        /// </summary>
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+        /// </summary>
+        [Input("resourceScope", required: true)]
+        public Input<string> ResourceScope { get; set; } = null!;
+
+        public GetAssignmentInvokeArgs()
         {
         }
     }

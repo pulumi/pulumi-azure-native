@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetSecurityConnectorResult> InvokeAsync(GetSecurityConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The security connector resource.
+        /// API Version: 2021-07-01-preview.
+        /// </summary>
+        public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Security
         public string SecurityConnectorName { get; set; } = null!;
 
         public GetSecurityConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The security connector name.
+        /// </summary>
+        [Input("securityConnectorName", required: true)]
+        public Input<string> SecurityConnectorName { get; set; } = null!;
+
+        public GetSecurityConnectorInvokeArgs()
         {
         }
     }

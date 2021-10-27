@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+        /// </summary>
+        public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift/v20200430:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         public string ResourceName { get; set; } = null!;
 
         public GetOpenShiftClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetOpenShiftClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetOpenShiftClusterInvokeArgs()
         {
         }
     }

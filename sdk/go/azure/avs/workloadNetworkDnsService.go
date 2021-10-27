@@ -163,5 +163,6 @@ func (o WorkloadNetworkDnsServiceOutput) ToWorkloadNetworkDnsServiceOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkDnsServiceInput)(nil)).Elem(), &WorkloadNetworkDnsService{})
 	pulumi.RegisterOutputType(WorkloadNetworkDnsServiceOutput{})
 }

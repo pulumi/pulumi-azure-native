@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20210201preview:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Base class for backup ProtectionIntent.
+        /// </summary>
+        public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20210201preview:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
         public string VaultName { get; set; } = null!;
 
         public GetProtectionIntentArgs()
+        {
+        }
+    }
+
+    public sealed class GetProtectionIntentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric name associated with the backed up item.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Backed up item name whose details are to be fetched.
+        /// </summary>
+        [Input("intentObjectName", required: true)]
+        public Input<string> IntentObjectName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetProtectionIntentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20140901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         /// </summary>
         public static Task<ListNotificationHubKeysResult> InvokeAsync(ListNotificationHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20140901:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/NotificationHub Connection String
+        /// </summary>
+        public static Output<ListNotificationHubKeysResult> Invoke(ListNotificationHubKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20140901:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         public string ResourceGroupName { get; set; } = null!;
 
         public ListNotificationHubKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListNotificationHubKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The connection string of the NotificationHub for the specified authorizationRule.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The notification hub name.
+        /// </summary>
+        [Input("notificationHubName", required: true)]
+        public Input<string> NotificationHubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListNotificationHubKeysInvokeArgs()
         {
         }
     }

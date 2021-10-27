@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Linked Subscription information.
+        /// </summary>
+        public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public string ResourceGroup { get; set; } = null!;
 
         public GetLinkedSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkedSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Linked Subscription resource.
+        /// </summary>
+        [Input("linkedSubscriptionName", required: true)]
+        public Input<string> LinkedSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetLinkedSubscriptionInvokeArgs()
         {
         }
     }

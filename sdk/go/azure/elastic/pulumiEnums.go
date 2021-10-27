@@ -673,6 +673,14 @@ func (in *tagActionPtr) ToTagActionPtrOutputWithContext(ctx context.Context) Tag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesInput)(nil)).Elem(), ManagedIdentityTypes("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypesPtrInput)(nil)).Elem(), ManagedIdentityTypes("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringStatusInput)(nil)).Elem(), MonitoringStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringStatusPtrInput)(nil)).Elem(), MonitoringStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateInput)(nil)).Elem(), ProvisioningState("Accepted"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStatePtrInput)(nil)).Elem(), ProvisioningState("Accepted"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TagActionInput)(nil)).Elem(), TagAction("Include"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TagActionPtrInput)(nil)).Elem(), TagAction("Include"))
 	pulumi.RegisterOutputType(ManagedIdentityTypesOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityTypesPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringStatusOutput{})

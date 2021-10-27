@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of domain name identifiers.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DomainRegistration
         public int? MaxDomainRecommendations { get; set; }
 
         public ListDomainRecommendationsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDomainRecommendationsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Keywords to be used for generating domain recommendations.
+        /// </summary>
+        [Input("keywords")]
+        public Input<string>? Keywords { get; set; }
+
+        /// <summary>
+        /// Maximum number of recommendations.
+        /// </summary>
+        [Input("maxDomainRecommendations")]
+        public Input<int>? MaxDomainRecommendations { get; set; }
+
+        public ListDomainRecommendationsInvokeArgs()
         {
         }
     }

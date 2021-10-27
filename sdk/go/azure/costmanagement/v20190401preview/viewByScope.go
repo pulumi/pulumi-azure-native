@@ -179,5 +179,6 @@ func (o ViewByScopeOutput) ToViewByScopeOutputWithContext(ctx context.Context) V
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewByScopeInput)(nil)).Elem(), &ViewByScope{})
 	pulumi.RegisterOutputType(ViewByScopeOutput{})
 }

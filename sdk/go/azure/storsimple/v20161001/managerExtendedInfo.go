@@ -156,5 +156,6 @@ func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerExtendedInfoInput)(nil)).Elem(), &ManagerExtendedInfo{})
 	pulumi.RegisterOutputType(ManagerExtendedInfoOutput{})
 }

@@ -177,6 +177,8 @@ func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("None"))
 	pulumi.RegisterOutputType(IdentityTypeOutput{})
 	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Role Assignments
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
+        public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Authorization
         public string? TenantId { get; set; }
 
         public GetRoleAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the role assignment. It can be any valid GUID.
+        /// </summary>
+        [Input("roleAssignmentName", required: true)]
+        public Input<string> RoleAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Tenant ID for cross-tenant request
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        public GetRoleAssignmentInvokeArgs()
         {
         }
     }

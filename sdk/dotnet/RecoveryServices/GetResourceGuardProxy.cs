@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         public static Task<GetResourceGuardProxyResult> InvokeAsync(GetResourceGuardProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -38,6 +46,28 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string VaultName { get; set; } = null!;
 
         public GetResourceGuardProxyArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceGuardProxyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("resourceGuardProxyName", required: true)]
+        public Input<string> ResourceGuardProxyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
+
+        public GetResourceGuardProxyInvokeArgs()
         {
         }
     }

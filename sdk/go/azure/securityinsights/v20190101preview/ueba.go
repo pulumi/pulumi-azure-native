@@ -149,5 +149,6 @@ func (o UebaOutput) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UebaInput)(nil)).Elem(), &Ueba{})
 	pulumi.RegisterOutputType(UebaOutput{})
 }

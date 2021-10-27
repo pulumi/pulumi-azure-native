@@ -282,5 +282,6 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskInput)(nil)).Elem(), &Disk{})
 	pulumi.RegisterOutputType(DiskOutput{})
 }

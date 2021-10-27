@@ -176,6 +176,8 @@ func (in *diskPoolTierPtr) ToDiskPoolTierPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolTierInput)(nil)).Elem(), DiskPoolTier("Basic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolTierPtrInput)(nil)).Elem(), DiskPoolTier("Basic"))
 	pulumi.RegisterOutputType(DiskPoolTierOutput{})
 	pulumi.RegisterOutputType(DiskPoolTierPtrOutput{})
 }

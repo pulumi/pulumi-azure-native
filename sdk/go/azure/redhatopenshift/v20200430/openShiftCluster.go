@@ -159,5 +159,6 @@ func (o OpenShiftClusterOutput) ToOpenShiftClusterOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftClusterInput)(nil)).Elem(), &OpenShiftCluster{})
 	pulumi.RegisterOutputType(OpenShiftClusterOutput{})
 }

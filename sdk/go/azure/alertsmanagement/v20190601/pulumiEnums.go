@@ -342,6 +342,10 @@ func (in *severityPtr) ToSeverityPtrOutputWithContext(ctx context.Context) Sever
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleStateInput)(nil)).Elem(), AlertRuleState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleStatePtrInput)(nil)).Elem(), AlertRuleState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SeverityInput)(nil)).Elem(), Severity("Sev0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SeverityPtrInput)(nil)).Elem(), Severity("Sev0"))
 	pulumi.RegisterOutputType(AlertRuleStateOutput{})
 	pulumi.RegisterOutputType(AlertRuleStatePtrOutput{})
 	pulumi.RegisterOutputType(SeverityOutput{})

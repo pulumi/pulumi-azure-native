@@ -223,5 +223,6 @@ func (o SiteRelayServiceConnectionOutput) ToSiteRelayServiceConnectionOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteRelayServiceConnectionInput)(nil)).Elem(), &SiteRelayServiceConnection{})
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionOutput{})
 }

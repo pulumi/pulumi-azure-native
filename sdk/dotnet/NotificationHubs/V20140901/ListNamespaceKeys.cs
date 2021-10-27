@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20140901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/NotificationHub Connection String
+        /// </summary>
+        public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         public string ResourceGroupName { get; set; } = null!;
 
         public ListNamespaceKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListNamespaceKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The connection string of the namespace for the specified authorizationRule.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListNamespaceKeysInvokeArgs()
         {
         }
     }

@@ -124,5 +124,6 @@ func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsWithLocationInput)(nil)).Elem(), &UserSettingsWithLocation{})
 	pulumi.RegisterOutputType(UserSettingsWithLocationOutput{})
 }

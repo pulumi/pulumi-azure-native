@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20160707
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement/v20160707:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of an API Management service resource.
+        /// </summary>
+        public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement/v20160707:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
         public string ServiceName { get; set; } = null!;
 
         public GetApiManagementServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiManagementServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiManagementServiceInvokeArgs()
         {
         }
     }

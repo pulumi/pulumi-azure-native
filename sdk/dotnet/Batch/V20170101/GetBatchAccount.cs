@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch.V20170101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Batch.V20170101
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contains information about an Azure Batch account.
+        /// </summary>
+        public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Batch.V20170101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBatchAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetBatchAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the Batch account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBatchAccountInvokeArgs()
         {
         }
     }

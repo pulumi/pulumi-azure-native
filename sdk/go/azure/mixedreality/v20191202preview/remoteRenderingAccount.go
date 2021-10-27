@@ -149,5 +149,6 @@ func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRenderingAccountInput)(nil)).Elem(), &RemoteRenderingAccount{})
 	pulumi.RegisterOutputType(RemoteRenderingAccountOutput{})
 }

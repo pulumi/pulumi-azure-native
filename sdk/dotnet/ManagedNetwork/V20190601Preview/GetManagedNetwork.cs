@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Managed Network resource
+        /// </summary>
+        public static Output<GetManagedNetworkResult> Invoke(GetManagedNetworkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedNetworkArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedNetworkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Managed Network.
+        /// </summary>
+        [Input("managedNetworkName", required: true)]
+        public Input<string> ManagedNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedNetworkInvokeArgs()
         {
         }
     }

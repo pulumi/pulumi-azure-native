@@ -160,5 +160,6 @@ func (o ExportPipelineOutput) ToExportPipelineOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportPipelineInput)(nil)).Elem(), &ExportPipeline{})
 	pulumi.RegisterOutputType(ExportPipelineOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AnalysisServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AnalysisServices
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents an instance of an Analysis Services resource.
+        /// API Version: 2017-08-01.
+        /// </summary>
+        public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AnalysisServices
         public string ServerName { get; set; } = null!;
 
         public GetServerDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerDetailsInvokeArgs()
         {
         }
     }

@@ -187,5 +187,6 @@ func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationNetworkMappingInput)(nil)).Elem(), &ReplicationNetworkMapping{})
 	pulumi.RegisterOutputType(ReplicationNetworkMappingOutput{})
 }

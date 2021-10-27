@@ -204,5 +204,6 @@ func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinitionInput)(nil)).Elem(), &ApplicationDefinition{})
 	pulumi.RegisterOutputType(ApplicationDefinitionOutput{})
 }

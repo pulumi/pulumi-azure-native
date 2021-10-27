@@ -193,5 +193,6 @@ func (o BlobContainerDataSetMappingOutput) ToBlobContainerDataSetMappingOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobContainerDataSetMappingInput)(nil)).Elem(), &BlobContainerDataSetMapping{})
 	pulumi.RegisterOutputType(BlobContainerDataSetMappingOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180601
         /// </summary>
         public static Task<GetVirtualWANResult> InvokeAsync(GetVirtualWANArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VirtualWAN Resource.
+        /// </summary>
+        public static Output<GetVirtualWANResult> Invoke(GetVirtualWANInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualWANResult>("azure-native:network/v20180601:getVirtualWAN", args ?? new GetVirtualWANInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20180601
         public string VirtualWANName { get; set; } = null!;
 
         public GetVirtualWANArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualWANInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name of the VirtualWan.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualWAN being retrieved.
+        /// </summary>
+        [Input("virtualWANName", required: true)]
+        public Input<string> VirtualWANName { get; set; } = null!;
+
+        public GetVirtualWANInvokeArgs()
         {
         }
     }

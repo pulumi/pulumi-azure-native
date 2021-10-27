@@ -227,5 +227,6 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterInput)(nil)).Elem(), &VirtualRouter{})
 	pulumi.RegisterOutputType(VirtualRouterOutput{})
 }

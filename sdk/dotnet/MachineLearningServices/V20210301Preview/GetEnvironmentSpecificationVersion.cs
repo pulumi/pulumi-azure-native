@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<GetEnvironmentSpecificationVersionResult> InvokeAsync(GetEnvironmentSpecificationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetEnvironmentSpecificationVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnvironmentSpecificationVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Container name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Version identifier.
+        /// </summary>
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetEnvironmentSpecificationVersionInvokeArgs()
         {
         }
     }

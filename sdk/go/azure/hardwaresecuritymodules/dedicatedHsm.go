@@ -143,5 +143,6 @@ func (o DedicatedHsmOutput) ToDedicatedHsmOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHsmInput)(nil)).Elem(), &DedicatedHsm{})
 	pulumi.RegisterOutputType(DedicatedHsmOutput{})
 }

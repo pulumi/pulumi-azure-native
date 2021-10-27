@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         /// </summary>
         public static Task<GetFusionAlertRuleResult> InvokeAsync(GetFusionAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFusionAlertRuleResult>("azure-native:securityinsights/v20200101:getFusionAlertRule", args ?? new GetFusionAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents Fusion alert rule.
+        /// </summary>
+        public static Output<GetFusionAlertRuleResult> Invoke(GetFusionAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFusionAlertRuleResult>("azure-native:securityinsights/v20200101:getFusionAlertRule", args ?? new GetFusionAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public string WorkspaceName { get; set; } = null!;
 
         public GetFusionAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetFusionAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetFusionAlertRuleInvokeArgs()
         {
         }
     }

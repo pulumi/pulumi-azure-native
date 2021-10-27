@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetLiveTokenResult> InvokeAsync(GetLiveTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveTokenResult>("azure-native:insights:getLiveToken", args ?? new GetLiveTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response to a live token query.
+        /// API Version: 2020-06-02-preview.
+        /// </summary>
+        public static Output<GetLiveTokenResult> Invoke(GetLiveTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLiveTokenResult>("azure-native:insights:getLiveToken", args ?? new GetLiveTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceUri { get; set; } = null!;
 
         public GetLiveTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetLiveTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetLiveTokenInvokeArgs()
         {
         }
     }

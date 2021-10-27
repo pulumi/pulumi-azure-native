@@ -215,5 +215,6 @@ func (o LoggerOutput) ToLoggerOutputWithContext(ctx context.Context) LoggerOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerInput)(nil)).Elem(), &Logger{})
 	pulumi.RegisterOutputType(LoggerOutput{})
 }

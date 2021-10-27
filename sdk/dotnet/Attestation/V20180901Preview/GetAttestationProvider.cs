@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Attestation.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation/v20180901preview:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Attestation service response message.
+        /// </summary>
+        public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation/v20180901preview:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAttestationProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetAttestationProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the attestation service instance
+        /// </summary>
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAttestationProviderInvokeArgs()
         {
         }
     }

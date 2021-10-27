@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This type describes a gateway resource.
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identity of the gateway.
+        /// </summary>
+        [Input("gatewayResourceName", required: true)]
+        public Input<string> GatewayResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGatewayInvokeArgs()
         {
         }
     }

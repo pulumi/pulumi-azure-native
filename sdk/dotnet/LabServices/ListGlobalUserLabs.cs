@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Lists the labs owned by a user
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<ListGlobalUserLabsResult> Invoke(ListGlobalUserLabsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.LabServices
         public string UserName { get; set; } = null!;
 
         public ListGlobalUserLabsArgs()
+        {
+        }
+    }
+
+    public sealed class ListGlobalUserLabsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public ListGlobalUserLabsInvokeArgs()
         {
         }
     }

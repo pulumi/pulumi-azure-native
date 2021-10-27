@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210303Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
         /// </summary>
         public static Task<GetDiagnosticServiceTokenReadOnlyResult> InvokeAsync(GetDiagnosticServiceTokenReadOnlyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response to a diagnostic services token query.
+        /// </summary>
+        public static Output<GetDiagnosticServiceTokenReadOnlyResult> Invoke(GetDiagnosticServiceTokenReadOnlyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
         public string ResourceUri { get; set; } = null!;
 
         public GetDiagnosticServiceTokenReadOnlyArgs()
+        {
+        }
+    }
+
+    public sealed class GetDiagnosticServiceTokenReadOnlyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetDiagnosticServiceTokenReadOnlyInvokeArgs()
         {
         }
     }

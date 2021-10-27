@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetImportCollectorResult> InvokeAsync(GetImportCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2019-10-01.
+        /// </summary>
+        public static Output<GetImportCollectorResult> Invoke(GetImportCollectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Migrate
         public string ResourceGroupName { get; set; } = null!;
 
         public GetImportCollectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetImportCollectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Unique name of a Import collector within a project.
+        /// </summary>
+        [Input("importCollectorName", required: true)]
+        public Input<string> ImportCollectorName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetImportCollectorInvokeArgs()
         {
         }
     }

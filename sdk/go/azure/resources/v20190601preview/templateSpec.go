@@ -146,5 +146,6 @@ func (o TemplateSpecOutput) ToTemplateSpecOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecInput)(nil)).Elem(), &TemplateSpec{})
 	pulumi.RegisterOutputType(TemplateSpecOutput{})
 }

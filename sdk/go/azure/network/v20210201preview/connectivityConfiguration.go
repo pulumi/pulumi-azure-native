@@ -152,5 +152,6 @@ func (o ConnectivityConfigurationOutput) ToConnectivityConfigurationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectivityConfigurationInput)(nil)).Elem(), &ConnectivityConfiguration{})
 	pulumi.RegisterOutputType(ConnectivityConfigurationOutput{})
 }

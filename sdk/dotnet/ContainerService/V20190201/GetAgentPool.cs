@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService.V20190201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice/v20190201:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Agent Pool.
+        /// </summary>
+        public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice/v20190201:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAgentPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetAgentPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("managedClusterName", required: true)]
+        public Input<string> ManagedClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAgentPoolInvokeArgs()
         {
         }
     }

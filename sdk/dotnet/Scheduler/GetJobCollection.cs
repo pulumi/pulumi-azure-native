@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Scheduler
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Scheduler
         /// </summary>
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2016-03-01.
+        /// </summary>
+        public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Scheduler
         public string ResourceGroupName { get; set; } = null!;
 
         public GetJobCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The job collection name.
+        /// </summary>
+        [Input("jobCollectionName", required: true)]
+        public Input<string> JobCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetJobCollectionInvokeArgs()
         {
         }
     }

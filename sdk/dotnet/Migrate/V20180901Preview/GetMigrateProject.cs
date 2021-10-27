@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
         /// </summary>
         public static Task<GetMigrateProjectResult> InvokeAsync(GetMigrateProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectResult>("azure-native:migrate/v20180901preview:getMigrateProject", args ?? new GetMigrateProjectArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Migrate Project REST Resource.
+        /// </summary>
+        public static Output<GetMigrateProjectResult> Invoke(GetMigrateProjectInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMigrateProjectResult>("azure-native:migrate/v20180901preview:getMigrateProject", args ?? new GetMigrateProjectInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMigrateProjectArgs()
+        {
+        }
+    }
+
+    public sealed class GetMigrateProjectInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("migrateProjectName", required: true)]
+        public Input<string> MigrateProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that migrate project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMigrateProjectInvokeArgs()
         {
         }
     }

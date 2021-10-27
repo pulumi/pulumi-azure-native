@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Gateway authentication keys.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public ListGatewayKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListGatewayKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        /// </summary>
+        [Input("gatewayId", required: true)]
+        public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListGatewayKeysInvokeArgs()
         {
         }
     }

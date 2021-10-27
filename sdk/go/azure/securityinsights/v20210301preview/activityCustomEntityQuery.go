@@ -170,5 +170,6 @@ func (o ActivityCustomEntityQueryOutput) ToActivityCustomEntityQueryOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityCustomEntityQueryInput)(nil)).Elem(), &ActivityCustomEntityQuery{})
 	pulumi.RegisterOutputType(ActivityCustomEntityQueryOutput{})
 }

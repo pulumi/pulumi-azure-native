@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
         /// </summary>
         public static Task<GetCustomLocationResult> InvokeAsync(GetCustomLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure-native:extendedlocation/v20210315preview:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Custom Locations definition.
+        /// </summary>
+        public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation/v20210315preview:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
         public string ResourceName { get; set; } = null!;
 
         public GetCustomLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Custom Locations name.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetCustomLocationInvokeArgs()
         {
         }
     }

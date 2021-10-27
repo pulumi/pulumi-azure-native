@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure-native:eventgrid/v20201015preview:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// EventGrid System Topic.
+        /// </summary>
+        public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure-native:eventgrid/v20201015preview:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public string SystemTopicName { get; set; } = null!;
 
         public GetSystemTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetSystemTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the system topic.
+        /// </summary>
+        [Input("systemTopicName", required: true)]
+        public Input<string> SystemTopicName { get; set; } = null!;
+
+        public GetSystemTopicInvokeArgs()
         {
         }
     }

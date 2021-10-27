@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public static Task<GetWebPubSubHubResult> InvokeAsync(GetWebPubSubHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubHubResult>("azure-native:webpubsub:getWebPubSubHub", args ?? new GetWebPubSubHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A hub setting
+        /// API Version: 2021-10-01.
+        /// </summary>
+        public static Output<GetWebPubSubHubResult> Invoke(GetWebPubSubHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubHubResult>("azure-native:webpubsub:getWebPubSubHub", args ?? new GetWebPubSubHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.WebPubSub
         public string ResourceName { get; set; } = null!;
 
         public GetWebPubSubHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebPubSubHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetWebPubSubHubInvokeArgs()
         {
         }
     }

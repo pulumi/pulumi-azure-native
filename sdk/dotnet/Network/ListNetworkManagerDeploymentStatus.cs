@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<ListNetworkManagerDeploymentStatusResult> InvokeAsync(ListNetworkManagerDeploymentStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerDeploymentStatusResult>("azure-native:network:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A list of Network Manager Deployment Status
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<ListNetworkManagerDeploymentStatusResult> Invoke(ListNetworkManagerDeploymentStatusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerDeploymentStatusResult>("azure-native:network:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +73,55 @@ namespace Pulumi.AzureNative.Network
         public string? SkipToken { get; set; }
 
         public ListNetworkManagerDeploymentStatusArgs()
+        {
+        }
+    }
+
+    public sealed class ListNetworkManagerDeploymentStatusInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("deploymentTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _deploymentTypes;
+
+        /// <summary>
+        /// List of deployment types.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>> DeploymentTypes
+        {
+            get => _deploymentTypes ?? (_deploymentTypes = new InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>());
+            set => _deploymentTypes = value;
+        }
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// List of locations.
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
+        }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListNetworkManagerDeploymentStatusInvokeArgs()
         {
         }
     }

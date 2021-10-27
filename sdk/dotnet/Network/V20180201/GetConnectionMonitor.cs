@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180201
         /// </summary>
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-native:network/v20180201:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about the connection monitor.
+        /// </summary>
+        public static Output<GetConnectionMonitorResult> Invoke(GetConnectionMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorResult>("azure-native:network/v20180201:getConnectionMonitor", args ?? new GetConnectionMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20180201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectionMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectionMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connection monitor.
+        /// </summary>
+        [Input("connectionMonitorName", required: true)]
+        public Input<string> ConnectionMonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Network Watcher resource.
+        /// </summary>
+        [Input("networkWatcherName", required: true)]
+        public Input<string> NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing Network Watcher.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectionMonitorInvokeArgs()
         {
         }
     }

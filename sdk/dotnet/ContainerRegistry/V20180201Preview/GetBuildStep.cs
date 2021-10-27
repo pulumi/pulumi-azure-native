@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         /// </summary>
         public static Task<GetBuildStepResult> InvokeAsync(GetBuildStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Build step resource properties
+        /// </summary>
+        public static Output<GetBuildStepResult> Invoke(GetBuildStepInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         public string StepName { get; set; } = null!;
 
         public GetBuildStepArgs()
+        {
+        }
+    }
+
+    public sealed class GetBuildStepInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry build task.
+        /// </summary>
+        [Input("buildTaskName", required: true)]
+        public Input<string> BuildTaskName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of a build step for a container registry build task.
+        /// </summary>
+        [Input("stepName", required: true)]
+        public Input<string> StepName { get; set; } = null!;
+
+        public GetBuildStepInvokeArgs()
         {
         }
     }

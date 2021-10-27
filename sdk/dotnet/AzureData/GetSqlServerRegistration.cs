@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureData
         /// </summary>
         public static Task<GetSqlServerRegistrationResult> InvokeAsync(GetSqlServerRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-native:azuredata:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL server registration.
+        /// API Version: 2019-07-24-preview.
+        /// </summary>
+        public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AzureData
         public string SqlServerRegistrationName { get; set; } = null!;
 
         public GetSqlServerRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlServerRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL Server registration.
+        /// </summary>
+        [Input("sqlServerRegistrationName", required: true)]
+        public Input<string> SqlServerRegistrationName { get; set; } = null!;
+
+        public GetSqlServerRegistrationInvokeArgs()
         {
         }
     }

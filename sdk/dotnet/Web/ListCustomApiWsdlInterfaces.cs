@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<ListCustomApiWsdlInterfacesResult> InvokeAsync(ListCustomApiWsdlInterfacesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-native:web:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A list of custom API WSDL interfaces
+        /// API Version: 2016-06-01.
+        /// </summary>
+        public static Output<ListCustomApiWsdlInterfacesResult> Invoke(ListCustomApiWsdlInterfacesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListCustomApiWsdlInterfacesResult>("azure-native:web:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +67,49 @@ namespace Pulumi.AzureNative.Web
         public string? Url { get; set; }
 
         public ListCustomApiWsdlInterfacesArgs()
+        {
+        }
+    }
+
+    public sealed class ListCustomApiWsdlInterfacesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The WSDL content
+        /// </summary>
+        [Input("content")]
+        public Input<string>? Content { get; set; }
+
+        /// <summary>
+        /// The WSDL import method
+        /// </summary>
+        [Input("importMethod")]
+        public InputUnion<string, Pulumi.AzureNative.Web.WsdlImportMethod>? ImportMethod { get; set; }
+
+        /// <summary>
+        /// The location
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The service with name and endpoint names
+        /// </summary>
+        [Input("service")]
+        public Input<Inputs.WsdlServiceArgs>? Service { get; set; }
+
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        /// <summary>
+        /// The WSDL URL
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        public ListCustomApiWsdlInterfacesInvokeArgs()
         {
         }
     }

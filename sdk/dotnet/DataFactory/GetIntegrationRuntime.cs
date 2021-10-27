@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:datafactory:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Integration runtime resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:datafactory:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataFactory
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationRuntimeArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationRuntimeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration runtime name.
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationRuntimeInvokeArgs()
         {
         }
     }

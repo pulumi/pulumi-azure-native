@@ -196,5 +196,6 @@ func (o VirtualMachineScaleSetVMExtensionOutput) ToVirtualMachineScaleSetVMExten
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScaleSetVMExtensionInput)(nil)).Elem(), &VirtualMachineScaleSetVMExtension{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMExtensionOutput{})
 }

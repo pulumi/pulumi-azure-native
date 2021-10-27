@@ -176,5 +176,6 @@ func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlRoleAssignmentInput)(nil)).Elem(), &SqlResourceSqlRoleAssignment{})
 	pulumi.RegisterOutputType(SqlResourceSqlRoleAssignmentOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SaaS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SaaS
         /// </summary>
         public static Task<GetSaasSubscriptionLevelResult> InvokeAsync(GetSaasSubscriptionLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SaaS REST API resource definition.
+        /// API Version: 2018-03-01-beta.
+        /// </summary>
+        public static Output<GetSaasSubscriptionLevelResult> Invoke(GetSaasSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.SaaS
         public string ResourceName { get; set; } = null!;
 
         public GetSaasSubscriptionLevelArgs()
+        {
+        }
+    }
+
+    public sealed class GetSaasSubscriptionLevelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetSaasSubscriptionLevelInvokeArgs()
         {
         }
     }

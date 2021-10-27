@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the move collection.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Migrate
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMoveCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetMoveCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Move Collection Name.
+        /// </summary>
+        [Input("moveCollectionName", required: true)]
+        public Input<string> MoveCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMoveCollectionInvokeArgs()
         {
         }
     }

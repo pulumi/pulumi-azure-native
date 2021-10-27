@@ -153,5 +153,6 @@ func (o AATPDataConnectorOutput) ToAATPDataConnectorOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AATPDataConnectorInput)(nil)).Elem(), &AATPDataConnector{})
 	pulumi.RegisterOutputType(AATPDataConnectorOutput{})
 }

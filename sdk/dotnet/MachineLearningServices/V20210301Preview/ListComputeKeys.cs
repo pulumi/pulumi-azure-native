@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<ListComputeKeysResult> InvokeAsync(ListComputeKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListComputeKeysResult>("azure-native:machinelearningservices/v20210301preview:listComputeKeys", args ?? new ListComputeKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+        /// </summary>
+        public static Output<ListComputeKeysResult> Invoke(ListComputeKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListComputeKeysResult>("azure-native:machinelearningservices/v20210301preview:listComputeKeys", args ?? new ListComputeKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListComputeKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListComputeKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Machine Learning compute.
+        /// </summary>
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListComputeKeysInvokeArgs()
         {
         }
     }

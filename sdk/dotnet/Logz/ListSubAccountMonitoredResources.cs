@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Task<ListSubAccountMonitoredResourcesResult> InvokeAsync(ListSubAccountMonitoredResourcesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountMonitoredResourcesResult>("azure-native:logz:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// API Version: 2020-10-01.
+        /// </summary>
+        public static Output<ListSubAccountMonitoredResourcesResult> Invoke(ListSubAccountMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSubAccountMonitoredResourcesResult>("azure-native:logz:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logz
         public string SubAccountName { get; set; } = null!;
 
         public ListSubAccountMonitoredResourcesArgs()
+        {
+        }
+    }
+
+    public sealed class ListSubAccountMonitoredResourcesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sub Account resource name
+        /// </summary>
+        [Input("subAccountName", required: true)]
+        public Input<string> SubAccountName { get; set; } = null!;
+
+        public ListSubAccountMonitoredResourcesInvokeArgs()
         {
         }
     }

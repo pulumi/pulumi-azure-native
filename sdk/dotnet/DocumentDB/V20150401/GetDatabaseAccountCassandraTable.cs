@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20150401:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra table.
+        /// </summary>
+        public static Output<GetDatabaseAccountCassandraTableResult> Invoke(GetDatabaseAccountCassandraTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20150401:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         public string TableName { get; set; } = null!;
 
         public GetDatabaseAccountCassandraTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountCassandraTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB keyspace name.
+        /// </summary>
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB table name.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetDatabaseAccountCassandraTableInvokeArgs()
         {
         }
     }

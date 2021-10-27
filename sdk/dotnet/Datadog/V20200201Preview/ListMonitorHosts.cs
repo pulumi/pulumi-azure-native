@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Datadog.V20200201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
         /// </summary>
         public static Task<ListMonitorHostsResult> InvokeAsync(ListMonitorHostsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorHostsResult>("azure-native:datadog/v20200201preview:listMonitorHosts", args ?? new ListMonitorHostsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog/v20200201preview:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMonitorHostsArgs()
+        {
+        }
+    }
+
+    public sealed class ListMonitorHostsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the Datadog resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMonitorHostsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20181201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20181201
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network/v20181201:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VirtualHub Resource.
+        /// </summary>
+        public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network/v20181201:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20181201
         public string VirtualHubName { get; set; } = null!;
 
         public GetVirtualHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource group name of the VirtualHub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
+
+        public GetVirtualHubInvokeArgs()
         {
         }
     }

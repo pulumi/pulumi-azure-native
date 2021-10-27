@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
     {
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-native:security/v20150601preview:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithVersion());
+
+        public static Output<GetAdaptiveApplicationControlResult> Invoke(GetAdaptiveApplicationControlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAdaptiveApplicationControlResult>("azure-native:security/v20150601preview:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
         public string GroupName { get; set; } = null!;
 
         public GetAdaptiveApplicationControlArgs()
+        {
+        }
+    }
+
+    public sealed class GetAdaptiveApplicationControlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        /// </summary>
+        [Input("ascLocation", required: true)]
+        public Input<string> AscLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an application control VM/server group
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        public GetAdaptiveApplicationControlInvokeArgs()
         {
         }
     }

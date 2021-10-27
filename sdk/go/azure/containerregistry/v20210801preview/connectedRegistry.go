@@ -166,5 +166,6 @@ func (o ConnectedRegistryOutput) ToConnectedRegistryOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryInput)(nil)).Elem(), &ConnectedRegistry{})
 	pulumi.RegisterOutputType(ConnectedRegistryOutput{})
 }

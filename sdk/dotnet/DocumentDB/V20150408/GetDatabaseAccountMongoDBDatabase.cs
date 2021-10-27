@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBDatabaseResult> InvokeAsync(GetDatabaseAccountMongoDBDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB MongoDB database.
+        /// </summary>
+        public static Output<GetDatabaseAccountMongoDBDatabaseResult> Invoke(GetDatabaseAccountMongoDBDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountMongoDBDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountMongoDBDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountMongoDBDatabaseInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         /// </summary>
         public static Task<ListSaasResourceAccessTokenResult> InvokeAsync(ListSaasResourceAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// the ISV access token result response.
+        /// </summary>
+        public static Output<ListSaasResourceAccessTokenResult> Invoke(ListSaasResourceAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         public string ResourceId { get; set; } = null!;
 
         public ListSaasResourceAccessTokenArgs()
+        {
+        }
+    }
+
+    public sealed class ListSaasResourceAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public ListSaasResourceAccessTokenInvokeArgs()
         {
         }
     }

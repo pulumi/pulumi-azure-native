@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignatureResult> InvokeAsync(ListFirewallPolicyIdpsSignatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Query result
+        /// API Version: 2021-05-01.
+        /// </summary>
+        public static Output<ListFirewallPolicyIdpsSignatureResult> Invoke(ListFirewallPolicyIdpsSignatureInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithVersion());
     }
 
 
@@ -71,6 +79,61 @@ namespace Pulumi.AzureNative.Network
         public int? Skip { get; set; }
 
         public ListFirewallPolicyIdpsSignatureArgs()
+        {
+        }
+    }
+
+    public sealed class ListFirewallPolicyIdpsSignatureInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.FilterItemsArgs>? _filters;
+
+        /// <summary>
+        /// Contain all filters names and values
+        /// </summary>
+        public InputList<Inputs.FilterItemsArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.FilterItemsArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the Firewall Policy.
+        /// </summary>
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// Column to sort response by
+        /// </summary>
+        [Input("orderBy")]
+        public Input<Inputs.OrderByArgs>? OrderBy { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The number of the results to return in each page
+        /// </summary>
+        [Input("resultsPerPage")]
+        public Input<int>? ResultsPerPage { get; set; }
+
+        /// <summary>
+        /// Search term in all columns
+        /// </summary>
+        [Input("search")]
+        public Input<string>? Search { get; set; }
+
+        /// <summary>
+        /// The number of records matching the filter to skip
+        /// </summary>
+        [Input("skip")]
+        public Input<int>? Skip { get; set; }
+
+        public ListFirewallPolicyIdpsSignatureInvokeArgs()
         {
         }
     }

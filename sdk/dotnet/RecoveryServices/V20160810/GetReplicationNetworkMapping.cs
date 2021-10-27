@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20160810
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         /// </summary>
         public static Task<GetReplicationNetworkMappingResult> InvokeAsync(GetReplicationNetworkMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/v20160810:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+        /// </summary>
+        public static Output<GetReplicationNetworkMappingResult> Invoke(GetReplicationNetworkMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/v20160810:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
         public string ResourceName { get; set; } = null!;
 
         public GetReplicationNetworkMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationNetworkMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Primary fabric name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// Network mapping name.
+        /// </summary>
+        [Input("networkMappingName", required: true)]
+        public Input<string> NetworkMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// Primary network name.
+        /// </summary>
+        [Input("networkName", required: true)]
+        public Input<string> NetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetReplicationNetworkMappingInvokeArgs()
         {
         }
     }

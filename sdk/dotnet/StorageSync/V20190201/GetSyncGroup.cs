@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20190201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:storagesync/v20190201:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Sync Group object.
+        /// </summary>
+        public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync/v20190201:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
         public string SyncGroupName { get; set; } = null!;
 
         public GetSyncGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetSyncGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Sync Group resource.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
+
+        public GetSyncGroupInvokeArgs()
         {
         }
     }

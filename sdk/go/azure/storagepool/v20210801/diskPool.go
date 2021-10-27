@@ -168,5 +168,6 @@ func (o DiskPoolOutput) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolInput)(nil)).Elem(), &DiskPool{})
 	pulumi.RegisterOutputType(DiskPoolOutput{})
 }

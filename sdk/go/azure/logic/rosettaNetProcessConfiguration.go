@@ -175,5 +175,6 @@ func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RosettaNetProcessConfigurationInput)(nil)).Elem(), &RosettaNetProcessConfiguration{})
 	pulumi.RegisterOutputType(RosettaNetProcessConfigurationOutput{})
 }

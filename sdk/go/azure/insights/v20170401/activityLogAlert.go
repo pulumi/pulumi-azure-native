@@ -159,5 +159,6 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertInput)(nil)).Elem(), &ActivityLogAlert{})
 	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
 }

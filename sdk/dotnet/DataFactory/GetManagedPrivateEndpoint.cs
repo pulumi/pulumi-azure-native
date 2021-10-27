@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Managed private endpoint resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.DataFactory
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedPrivateEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedPrivateEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// Managed private endpoint name
+        /// </summary>
+        [Input("managedPrivateEndpointName", required: true)]
+        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Managed virtual network name
+        /// </summary>
+        [Input("managedVirtualNetworkName", required: true)]
+        public Input<string> ManagedVirtualNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedPrivateEndpointInvokeArgs()
         {
         }
     }

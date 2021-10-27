@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource definition of this association.
+        /// </summary>
+        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         public string Scope { get; set; } = null!;
 
         public GetAssociationArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssociationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the association.
+        /// </summary>
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the association.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetAssociationInvokeArgs()
         {
         }
     }

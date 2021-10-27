@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     {
         public static Task<GetOnlineDeploymentResult> InvokeAsync(GetOnlineDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentArgs(), options.WithVersion());
+
+        public static Output<GetOnlineDeploymentResult> Invoke(GetOnlineDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -43,6 +47,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetOnlineDeploymentArgs()
+        {
+        }
+    }
+
+    public sealed class GetOnlineDeploymentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Inference Endpoint Deployment name.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
+        /// Inference endpoint name.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetOnlineDeploymentInvokeArgs()
         {
         }
     }

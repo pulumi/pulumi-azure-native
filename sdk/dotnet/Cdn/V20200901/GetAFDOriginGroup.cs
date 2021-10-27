@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn/v20200901:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// </summary>
+        public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20200901:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAFDOriginGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetAFDOriginGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the origin group which is unique within the endpoint.
+        /// </summary>
+        [Input("originGroupName", required: true)]
+        public Input<string> OriginGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAFDOriginGroupInvokeArgs()
         {
         }
     }

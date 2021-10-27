@@ -189,5 +189,6 @@ func (o LiveOutputOutput) ToLiveOutputOutputWithContext(ctx context.Context) Liv
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveOutputInput)(nil)).Elem(), &LiveOutput{})
 	pulumi.RegisterOutputType(LiveOutputOutput{})
 }

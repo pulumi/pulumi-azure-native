@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20150101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20150101:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Management lock information.
+        /// </summary>
+        public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20150101:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagementLockAtResourceGroupLevelArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementLockAtResourceGroupLevelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The lock name.
+        /// </summary>
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagementLockAtResourceGroupLevelInvokeArgs()
         {
         }
     }

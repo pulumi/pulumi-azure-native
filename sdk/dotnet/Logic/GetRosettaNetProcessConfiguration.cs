@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<GetRosettaNetProcessConfigurationResult> InvokeAsync(GetRosettaNetProcessConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-native:logic:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account RosettaNet process configuration.
+        /// API Version: 2016-06-01.
+        /// </summary>
+        public static Output<GetRosettaNetProcessConfigurationResult> Invoke(GetRosettaNetProcessConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRosettaNetProcessConfigurationResult>("azure-native:logic:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Logic
         public string RosettaNetProcessConfigurationName { get; set; } = null!;
 
         public GetRosettaNetProcessConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetRosettaNetProcessConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNetProcessConfiguration name.
+        /// </summary>
+        [Input("rosettaNetProcessConfigurationName", required: true)]
+        public Input<string> RosettaNetProcessConfigurationName { get; set; } = null!;
+
+        public GetRosettaNetProcessConfigurationInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150401:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Gremlin graph.
+        /// </summary>
+        public static Output<GetDatabaseAccountGremlinGraphResult> Invoke(GetDatabaseAccountGremlinGraphInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150401:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDatabaseAccountGremlinGraphArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseAccountGremlinGraphInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB graph name.
+        /// </summary>
+        [Input("graphName", required: true)]
+        public Input<string> GraphName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDatabaseAccountGremlinGraphInvokeArgs()
         {
         }
     }

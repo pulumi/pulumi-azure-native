@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// </summary>
         public static Task<GetArtifactResult> InvokeAsync(GetArtifactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-native:blueprint/v20181101preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a blueprint artifact.
+        /// </summary>
+        public static Output<GetArtifactResult> Invoke(GetArtifactInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArtifactResult>("azure-native:blueprint/v20181101preview:getArtifact", args ?? new GetArtifactInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +48,31 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         public string ResourceScope { get; set; } = null!;
 
         public GetArtifactArgs()
+        {
+        }
+    }
+
+    public sealed class GetArtifactInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the blueprint artifact.
+        /// </summary>
+        [Input("artifactName", required: true)]
+        public Input<string> ArtifactName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the blueprint definition.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+        /// </summary>
+        [Input("resourceScope", required: true)]
+        public Input<string> ResourceScope { get; set; } = null!;
+
+        public GetArtifactInvokeArgs()
         {
         }
     }

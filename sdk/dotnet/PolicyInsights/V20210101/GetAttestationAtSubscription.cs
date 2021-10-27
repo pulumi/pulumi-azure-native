@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         /// </summary>
         public static Task<GetAttestationAtSubscriptionResult> InvokeAsync(GetAttestationAtSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtSubscriptionResult>("azure-native:policyinsights/v20210101:getAttestationAtSubscription", args ?? new GetAttestationAtSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An attestation resource.
+        /// </summary>
+        public static Output<GetAttestationAtSubscriptionResult> Invoke(GetAttestationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtSubscriptionResult>("azure-native:policyinsights/v20210101:getAttestationAtSubscription", args ?? new GetAttestationAtSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
         public string AttestationName { get; set; } = null!;
 
         public GetAttestationAtSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetAttestationAtSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the attestation.
+        /// </summary>
+        [Input("attestationName", required: true)]
+        public Input<string> AttestationName { get; set; } = null!;
+
+        public GetAttestationAtSubscriptionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Management.V20201001
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management/v20201001:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The management group details.
+        /// </summary>
+        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management/v20201001:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Management.V20201001
         public bool? Recurse { get; set; }
 
         public GetManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// Management Group ID.
+        /// </summary>
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+        /// </summary>
+        [Input("recurse")]
+        public Input<bool>? Recurse { get; set; }
+
+        public GetManagementGroupInvokeArgs()
         {
         }
     }

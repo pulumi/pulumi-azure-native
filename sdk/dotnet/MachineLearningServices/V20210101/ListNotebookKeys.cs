@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
     {
         public static Task<ListNotebookKeysResult> InvokeAsync(ListNotebookKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookKeysResult>("azure-native:machinelearningservices/v20210101:listNotebookKeys", args ?? new ListNotebookKeysArgs(), options.WithVersion());
+
+        public static Output<ListNotebookKeysResult> Invoke(ListNotebookKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListNotebookKeysResult>("azure-native:machinelearningservices/v20210101:listNotebookKeys", args ?? new ListNotebookKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
         public string WorkspaceName { get; set; } = null!;
 
         public ListNotebookKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListNotebookKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListNotebookKeysInvokeArgs()
         {
         }
     }

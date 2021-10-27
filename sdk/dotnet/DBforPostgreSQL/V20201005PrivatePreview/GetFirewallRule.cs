@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql/v20201005privatepreview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a server group firewall rule.
+        /// </summary>
+        public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql/v20201005privatepreview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public string ServerGroupName { get; set; } = null!;
 
         public GetFirewallRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirewallRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the server group firewall rule.
+        /// </summary>
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server group.
+        /// </summary>
+        [Input("serverGroupName", required: true)]
+        public Input<string> ServerGroupName { get; set; } = null!;
+
+        public GetFirewallRuleInvokeArgs()
         {
         }
     }

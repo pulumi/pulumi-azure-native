@@ -147,5 +147,6 @@ func (o AnomaliesOutput) ToAnomaliesOutputWithContext(ctx context.Context) Anoma
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomaliesInput)(nil)).Elem(), &Anomalies{})
 	pulumi.RegisterOutputType(AnomaliesOutput{})
 }

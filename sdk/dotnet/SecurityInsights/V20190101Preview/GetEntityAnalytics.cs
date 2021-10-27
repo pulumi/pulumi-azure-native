@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetEntityAnalyticsResult> InvokeAsync(GetEntityAnalyticsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityAnalyticsResult>("azure-native:securityinsights/v20190101preview:getEntityAnalytics", args ?? new GetEntityAnalyticsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Settings with single toggle.
+        /// </summary>
+        public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights/v20190101preview:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetEntityAnalyticsArgs()
+        {
+        }
+    }
+
+    public sealed class GetEntityAnalyticsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+        /// </summary>
+        [Input("settingsName", required: true)]
+        public Input<string> SettingsName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetEntityAnalyticsInvokeArgs()
         {
         }
     }

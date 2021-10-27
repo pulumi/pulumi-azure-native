@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200301
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20200301:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithVersion());
+
+        /// <summary>
+        /// P2S Vpn connection detailed health written to sas url.
+        /// </summary>
+        public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20200301:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Network.V20200301
         }
 
         public GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs()
+        {
+        }
+    }
+
+    public sealed class GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the P2SVpnGateway.
+        /// </summary>
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The sas-url to download the P2S Vpn connection health detail.
+        /// </summary>
+        [Input("outputBlobSasUrl")]
+        public Input<string>? OutputBlobSasUrl { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("vpnUserNamesFilter")]
+        private InputList<string>? _vpnUserNamesFilter;
+
+        /// <summary>
+        /// The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
+        /// </summary>
+        public InputList<string> VpnUserNamesFilter
+        {
+            get => _vpnUserNamesFilter ?? (_vpnUserNamesFilter = new InputList<string>());
+            set => _vpnUserNamesFilter = value;
+        }
+
+        public GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs()
         {
         }
     }

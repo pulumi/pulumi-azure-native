@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes/v20200101preview:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a connected cluster.
+        /// </summary>
+        public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20200101preview:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectedClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectedClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kubernetes cluster on which get is called.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectedClusterInvokeArgs()
         {
         }
     }

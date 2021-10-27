@@ -153,5 +153,6 @@ func (o ResourcePoolOutput) ToResourcePoolOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePoolInput)(nil)).Elem(), &ResourcePool{})
 	pulumi.RegisterOutputType(ResourcePoolOutput{})
 }

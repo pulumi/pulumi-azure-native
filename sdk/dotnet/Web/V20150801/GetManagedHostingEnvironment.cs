@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetManagedHostingEnvironmentResult> InvokeAsync(GetManagedHostingEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-native:web/v20150801:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of an hostingEnvironment (App Service Environment)
+        /// </summary>
+        public static Output<GetManagedHostingEnvironmentResult> Invoke(GetManagedHostingEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedHostingEnvironmentResult>("azure-native:web/v20150801:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedHostingEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedHostingEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of managed hosting environment
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedHostingEnvironmentInvokeArgs()
         {
         }
     }

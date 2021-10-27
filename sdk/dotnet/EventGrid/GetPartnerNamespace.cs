@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// EventGrid Partner Namespace.
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.EventGrid
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPartnerNamespaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPartnerNamespaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the partner namespace.
+        /// </summary>
+        [Input("partnerNamespaceName", required: true)]
+        public Input<string> PartnerNamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPartnerNamespaceInvokeArgs()
         {
         }
     }

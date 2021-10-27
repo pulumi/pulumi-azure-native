@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20160501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20160501
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20160501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The List service SAS credentials operation response.
+        /// </summary>
+        public static Output<ListStorageAccountServiceSASResult> Invoke(ListStorageAccountServiceSASInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20160501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithVersion());
     }
 
 
@@ -142,6 +149,133 @@ namespace Pulumi.AzureNative.Storage.V20160501
         public string? SharedAccessStartTime { get; set; }
 
         public ListStorageAccountServiceSASArgs()
+        {
+        }
+    }
+
+    public sealed class ListStorageAccountServiceSASInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The response header override for cache control.
+        /// </summary>
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
+
+        /// <summary>
+        /// The canonical path to the signed resource.
+        /// </summary>
+        [Input("canonicalizedResource", required: true)]
+        public Input<string> CanonicalizedResource { get; set; } = null!;
+
+        /// <summary>
+        /// The response header override for content disposition.
+        /// </summary>
+        [Input("contentDisposition")]
+        public Input<string>? ContentDisposition { get; set; }
+
+        /// <summary>
+        /// The response header override for content encoding.
+        /// </summary>
+        [Input("contentEncoding")]
+        public Input<string>? ContentEncoding { get; set; }
+
+        /// <summary>
+        /// The response header override for content language.
+        /// </summary>
+        [Input("contentLanguage")]
+        public Input<string>? ContentLanguage { get; set; }
+
+        /// <summary>
+        /// The response header override for content type.
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
+
+        /// <summary>
+        /// An IP address or a range of IP addresses from which to accept requests.
+        /// </summary>
+        [Input("iPAddressOrRange")]
+        public Input<string>? IPAddressOrRange { get; set; }
+
+        /// <summary>
+        /// A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.
+        /// </summary>
+        [Input("identifier")]
+        public Input<string>? Identifier { get; set; }
+
+        /// <summary>
+        /// The key to sign the account SAS token with.
+        /// </summary>
+        [Input("keyToSign")]
+        public Input<string>? KeyToSign { get; set; }
+
+        /// <summary>
+        /// The end of partition key.
+        /// </summary>
+        [Input("partitionKeyEnd")]
+        public Input<string>? PartitionKeyEnd { get; set; }
+
+        /// <summary>
+        /// The start of partition key.
+        /// </summary>
+        [Input("partitionKeyStart")]
+        public Input<string>? PartitionKeyStart { get; set; }
+
+        /// <summary>
+        /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+        /// </summary>
+        [Input("permissions")]
+        public Input<string>? Permissions { get; set; }
+
+        /// <summary>
+        /// The protocol permitted for a request made with the account SAS.
+        /// </summary>
+        [Input("protocols")]
+        public Input<Pulumi.AzureNative.Storage.V20160501.HttpProtocol>? Protocols { get; set; }
+
+        /// <summary>
+        /// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+        /// </summary>
+        [Input("resource", required: true)]
+        public Input<string> Resource { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The end of row key.
+        /// </summary>
+        [Input("rowKeyEnd")]
+        public Input<string>? RowKeyEnd { get; set; }
+
+        /// <summary>
+        /// The start of row key.
+        /// </summary>
+        [Input("rowKeyStart")]
+        public Input<string>? RowKeyStart { get; set; }
+
+        /// <summary>
+        /// The time at which the shared access signature becomes invalid.
+        /// </summary>
+        [Input("sharedAccessExpiryTime")]
+        public Input<string>? SharedAccessExpiryTime { get; set; }
+
+        /// <summary>
+        /// The time at which the SAS becomes valid.
+        /// </summary>
+        [Input("sharedAccessStartTime")]
+        public Input<string>? SharedAccessStartTime { get; set; }
+
+        public ListStorageAccountServiceSASInvokeArgs()
         {
         }
     }

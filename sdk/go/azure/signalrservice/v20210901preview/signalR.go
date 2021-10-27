@@ -214,5 +214,6 @@ func (o SignalROutput) ToSignalROutputWithContext(ctx context.Context) SignalROu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SignalRInput)(nil)).Elem(), &SignalR{})
 	pulumi.RegisterOutputType(SignalROutput{})
 }

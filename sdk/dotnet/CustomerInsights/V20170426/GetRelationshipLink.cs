@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Task<GetRelationshipLinkResult> InvokeAsync(GetRelationshipLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-native:customerinsights/v20170426:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The relationship link resource format.
+        /// </summary>
+        public static Output<GetRelationshipLinkResult> Invoke(GetRelationshipLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRelationshipLinkResult>("azure-native:customerinsights/v20170426:getRelationshipLink", args ?? new GetRelationshipLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRelationshipLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetRelationshipLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName", required: true)]
+        public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the relationship link.
+        /// </summary>
+        [Input("relationshipLinkName", required: true)]
+        public Input<string> RelationshipLinkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRelationshipLinkInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         /// </summary>
         public static Task<GetStandardEnvironmentResult> InvokeAsync(GetStandardEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
+        /// </summary>
+        public static Output<GetStandardEnvironmentResult> Invoke(GetStandardEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStandardEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetStandardEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Time Series Insights environment associated with the specified resource group.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
+        /// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStandardEnvironmentInvokeArgs()
         {
         }
     }

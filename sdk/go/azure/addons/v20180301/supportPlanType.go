@@ -127,5 +127,6 @@ func (o SupportPlanTypeOutput) ToSupportPlanTypeOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SupportPlanTypeInput)(nil)).Elem(), &SupportPlanType{})
 	pulumi.RegisterOutputType(SupportPlanTypeOutput{})
 }

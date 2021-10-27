@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EngagementFabric
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:engagementfabric:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of the EngagementFabric account keys
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:engagementfabric:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.EngagementFabric
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Account Name
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAccountKeysInvokeArgs()
         {
         }
     }

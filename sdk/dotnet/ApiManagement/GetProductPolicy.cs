@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Policy Contract details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetProductPolicyResult> Invoke(GetProductPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.ApiManagement
         public string ServiceName { get; set; } = null!;
 
         public GetProductPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetProductPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Policy Export Format.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// The identifier of the Policy.
+        /// </summary>
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
+
+        /// <summary>
+        /// Product identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetProductPolicyInvokeArgs()
         {
         }
     }

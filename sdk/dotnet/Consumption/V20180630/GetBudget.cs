@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Consumption.V20180630
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Consumption.V20180630
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption/v20180630:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A budget resource.
+        /// </summary>
+        public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption/v20180630:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Consumption.V20180630
         public string BudgetName { get; set; } = null!;
 
         public GetBudgetArgs()
+        {
+        }
+    }
+
+    public sealed class GetBudgetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Budget Name.
+        /// </summary>
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
+
+        public GetBudgetInvokeArgs()
         {
         }
     }

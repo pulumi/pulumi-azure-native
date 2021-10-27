@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20190322
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Devices.V20190322
         /// </summary>
         public static Task<ListIotHubResourceKeysForKeyNameResult> InvokeAsync(ListIotHubResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20190322:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of an IoT hub shared access policy.
+        /// </summary>
+        public static Output<ListIotHubResourceKeysForKeyNameResult> Invoke(ListIotHubResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20190322:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Devices.V20190322
         public string ResourceName { get; set; } = null!;
 
         public ListIotHubResourceKeysForKeyNameArgs()
+        {
+        }
+    }
+
+    public sealed class ListIotHubResourceKeysForKeyNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the shared access policy.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the IoT hub.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListIotHubResourceKeysForKeyNameInvokeArgs()
         {
         }
     }

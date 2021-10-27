@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning.V20170101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
         /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Instance of an Azure ML web service resource.
+        /// </summary>
+        public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20170101:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearning.V20170101
         public string WebServiceName { get; set; } = null!;
 
         public GetWebServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The region for which encrypted credential parameters are valid.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Name of the resource group in which the web service is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the web service.
+        /// </summary>
+        [Input("webServiceName", required: true)]
+        public Input<string> WebServiceName { get; set; } = null!;
+
+        public GetWebServiceInvokeArgs()
         {
         }
     }

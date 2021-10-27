@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeysResult> InvokeAsync(ListIntegrationRuntimeAuthKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-native:datafactory/v20170901preview:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration runtime authentication keys.
+        /// </summary>
+        public static Output<ListIntegrationRuntimeAuthKeysResult> Invoke(ListIntegrationRuntimeAuthKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationRuntimeAuthKeysResult>("azure-native:datafactory/v20170901preview:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListIntegrationRuntimeAuthKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListIntegrationRuntimeAuthKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration runtime name.
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListIntegrationRuntimeAuthKeysInvokeArgs()
         {
         }
     }

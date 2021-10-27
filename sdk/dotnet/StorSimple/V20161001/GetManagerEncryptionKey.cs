@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetManagerEncryptionKeyResult> InvokeAsync(GetManagerEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-native:storsimple/v20161001:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+        /// </summary>
+        public static Output<GetManagerEncryptionKeyResult> Invoke(GetManagerEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagerEncryptionKeyResult>("azure-native:storsimple/v20161001:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagerEncryptionKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagerEncryptionKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagerEncryptionKeyInvokeArgs()
         {
         }
     }

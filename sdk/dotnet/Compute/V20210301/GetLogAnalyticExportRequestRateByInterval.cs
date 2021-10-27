@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210301
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210301
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute/v20210301:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
+
+        /// <summary>
+        /// LogAnalytics operation status response
+        /// </summary>
+        public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute/v20210301:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithVersion());
     }
 
 
@@ -82,6 +89,73 @@ namespace Pulumi.AzureNative.Compute.V20210301
         public string ToTime { get; set; } = null!;
 
         public GetLogAnalyticExportRequestRateByIntervalArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogAnalyticExportRequestRateByIntervalInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+        /// </summary>
+        [Input("blobContainerSasUri", required: true)]
+        public Input<string> BlobContainerSasUri { get; set; } = null!;
+
+        /// <summary>
+        /// From time of the query
+        /// </summary>
+        [Input("fromTime", required: true)]
+        public Input<string> FromTime { get; set; } = null!;
+
+        /// <summary>
+        /// Group query result by Client Application ID.
+        /// </summary>
+        [Input("groupByClientApplicationId")]
+        public Input<bool>? GroupByClientApplicationId { get; set; }
+
+        /// <summary>
+        /// Group query result by Operation Name.
+        /// </summary>
+        [Input("groupByOperationName")]
+        public Input<bool>? GroupByOperationName { get; set; }
+
+        /// <summary>
+        /// Group query result by Resource Name.
+        /// </summary>
+        [Input("groupByResourceName")]
+        public Input<bool>? GroupByResourceName { get; set; }
+
+        /// <summary>
+        /// Group query result by Throttle Policy applied.
+        /// </summary>
+        [Input("groupByThrottlePolicy")]
+        public Input<bool>? GroupByThrottlePolicy { get; set; }
+
+        /// <summary>
+        /// Group query result by User Agent.
+        /// </summary>
+        [Input("groupByUserAgent")]
+        public Input<bool>? GroupByUserAgent { get; set; }
+
+        /// <summary>
+        /// Interval value in minutes used to create LogAnalytics call rate logs.
+        /// </summary>
+        [Input("intervalLength", required: true)]
+        public Input<Pulumi.AzureNative.Compute.V20210301.IntervalInMins> IntervalLength { get; set; } = null!;
+
+        /// <summary>
+        /// The location upon which virtual-machine-sizes is queried.
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// To time of the query
+        /// </summary>
+        [Input("toTime", required: true)]
+        public Input<string> ToTime { get; set; } = null!;
+
+        public GetLogAnalyticExportRequestRateByIntervalInvokeArgs()
         {
         }
     }

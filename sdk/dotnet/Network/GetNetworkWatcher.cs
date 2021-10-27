@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network watcher in a resource group.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkWatcherArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkWatcherInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network watcher.
+        /// </summary>
+        [Input("networkWatcherName", required: true)]
+        public Input<string> NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkWatcherInvokeArgs()
         {
         }
     }

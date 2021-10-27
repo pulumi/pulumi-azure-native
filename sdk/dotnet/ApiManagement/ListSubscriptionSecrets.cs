@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-native:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Subscription keys.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<ListSubscriptionSecretsResult> Invoke(ListSubscriptionSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSubscriptionSecretsResult>("azure-native:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string Sid { get; set; } = null!;
 
         public ListSubscriptionSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListSubscriptionSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        /// </summary>
+        [Input("sid", required: true)]
+        public Input<string> Sid { get; set; } = null!;
+
+        public ListSubscriptionSecretsInvokeArgs()
         {
         }
     }

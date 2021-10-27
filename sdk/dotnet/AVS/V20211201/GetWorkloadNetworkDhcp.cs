@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20211201:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX DHCP
+        /// </summary>
+        public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20211201:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20211201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkloadNetworkDhcpArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkDhcpInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// NSX DHCP identifier. Generally the same as the DHCP display name
+        /// </summary>
+        [Input("dhcpId", required: true)]
+        public Input<string> DhcpId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkloadNetworkDhcpInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-native:network/v20210201:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// VirtualRouter Resource.
+        /// </summary>
+        public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("azure-native:network/v20210201:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210201
         public string VirtualRouterName { get; set; } = null!;
 
         public GetVirtualRouterArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualRouterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Virtual Router.
+        /// </summary>
+        [Input("virtualRouterName", required: true)]
+        public Input<string> VirtualRouterName { get; set; } = null!;
+
+        public GetVirtualRouterInvokeArgs()
         {
         }
     }

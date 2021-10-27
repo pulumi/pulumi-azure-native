@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The task that has the ARM resource and task properties. 
+        /// The task will have all information to schedule a run against it.
+        /// </summary>
+        public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         public string TaskName { get; set; } = null!;
 
         public ListTaskDetailsArgs()
+        {
+        }
+    }
+
+    public sealed class ListTaskDetailsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry task.
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
+
+        public ListTaskDetailsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse/v20210601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A privateLinkHub
+        /// </summary>
+        public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse/v20210601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrivateLinkHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateLinkHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the privateLinkHub
+        /// </summary>
+        [Input("privateLinkHubName", required: true)]
+        public Input<string> PrivateLinkHubName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrivateLinkHubInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Task<ListSourceControlRepositoriesResult> InvokeAsync(ListSourceControlRepositoriesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSourceControlRepositoriesResult>("azure-native:securityinsights/v20210301preview:listSourceControlRepositories", args ?? new ListSourceControlRepositoriesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// List all the source controls.
+        /// </summary>
+        public static Output<ListSourceControlRepositoriesResult> Invoke(ListSourceControlRepositoriesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSourceControlRepositoriesResult>("azure-native:securityinsights/v20210301preview:listSourceControlRepositories", args ?? new ListSourceControlRepositoriesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public ListSourceControlRepositoriesArgs()
+        {
+        }
+    }
+
+    public sealed class ListSourceControlRepositoriesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListSourceControlRepositoriesInvokeArgs()
         {
         }
     }

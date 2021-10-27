@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub/v20201120:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The notification registration definition.
+        /// </summary>
+        public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub/v20201120:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         public string ProviderNamespace { get; set; } = null!;
 
         public GetNotificationRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetNotificationRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The notification registration.
+        /// </summary>
+        [Input("notificationRegistrationName", required: true)]
+        public Input<string> NotificationRegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource provider hosted within ProviderHub.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        public GetNotificationRegistrationInvokeArgs()
         {
         }
     }

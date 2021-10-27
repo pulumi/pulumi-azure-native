@@ -162,5 +162,6 @@ func (o WorkloadNetworkDnsZoneOutput) ToWorkloadNetworkDnsZoneOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkDnsZoneInput)(nil)).Elem(), &WorkloadNetworkDnsZone{})
 	pulumi.RegisterOutputType(WorkloadNetworkDnsZoneOutput{})
 }

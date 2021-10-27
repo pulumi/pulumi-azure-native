@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByWorkspaceResult> InvokeAsync(GetPrivateEndpointConnectionByWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionByWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrivateEndpointConnectionByWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the private endpoint connection associated with the Azure resource
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetPrivateEndpointConnectionByWorkspaceInvokeArgs()
         {
         }
     }

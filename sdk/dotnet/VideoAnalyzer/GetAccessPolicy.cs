@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Policy that determines how a video can be accessed.
+        /// API Version: 2021-05-01-preview.
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccessPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the access policy to retrieve.
+        /// </summary>
+        [Input("accessPolicyName", required: true)]
+        public Input<string> AccessPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The Azure Video Analyzer account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccessPolicyInvokeArgs()
         {
         }
     }

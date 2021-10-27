@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// </summary>
         public static Task<GetIoTRoleResult> InvokeAsync(GetIoTRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTRoleResult>("azure-native:databoxedge/v20210201:getIoTRole", args ?? new GetIoTRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Compute role.
+        /// </summary>
+        public static Output<GetIoTRoleResult> Invoke(GetIoTRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIoTRoleResult>("azure-native:databoxedge/v20210201:getIoTRole", args ?? new GetIoTRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIoTRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetIoTRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIoTRoleInvokeArgs()
         {
         }
     }

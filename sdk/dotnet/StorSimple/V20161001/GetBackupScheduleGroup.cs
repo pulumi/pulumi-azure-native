@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetBackupScheduleGroupResult> InvokeAsync(GetBackupScheduleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Backup Schedule Group
+        /// </summary>
+        public static Output<GetBackupScheduleGroupResult> Invoke(GetBackupScheduleGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupScheduleGroupResult>("azure-native:storsimple/v20161001:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ScheduleGroupName { get; set; } = null!;
 
         public GetBackupScheduleGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupScheduleGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the device.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
+        [Input("scheduleGroupName", required: true)]
+        public Input<string> ScheduleGroupName { get; set; } = null!;
+
+        public GetBackupScheduleGroupInvokeArgs()
         {
         }
     }

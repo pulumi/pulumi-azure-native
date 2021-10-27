@@ -230,5 +230,6 @@ func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendInput)(nil)).Elem(), &Backend{})
 	pulumi.RegisterOutputType(BackendOutput{})
 }

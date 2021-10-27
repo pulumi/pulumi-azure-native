@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         public static Task<GetRestorePointCollectionResult> InvokeAsync(GetRestorePointCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointCollectionResult>("azure-native:compute/v20210701:getRestorePointCollection", args ?? new GetRestorePointCollectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Create or update Restore Point collection parameters.
+        /// </summary>
+        public static Output<GetRestorePointCollectionResult> Invoke(GetRestorePointCollectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRestorePointCollectionResult>("azure-native:compute/v20210701:getRestorePointCollection", args ?? new GetRestorePointCollectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public string RestorePointCollectionName { get; set; } = null!;
 
         public GetRestorePointCollectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRestorePointCollectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the restore point collection.
+        /// </summary>
+        [Input("restorePointCollectionName", required: true)]
+        public Input<string> RestorePointCollectionName { get; set; } = null!;
+
+        public GetRestorePointCollectionInvokeArgs()
         {
         }
     }

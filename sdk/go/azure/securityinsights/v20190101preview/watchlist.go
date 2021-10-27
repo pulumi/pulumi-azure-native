@@ -212,5 +212,6 @@ func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) Watch
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WatchlistInput)(nil)).Elem(), &Watchlist{})
 	pulumi.RegisterOutputType(WatchlistOutput{})
 }

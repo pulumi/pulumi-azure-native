@@ -158,5 +158,6 @@ func (o Python2PackageOutput) ToPython2PackageOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*Python2PackageInput)(nil)).Elem(), &Python2Package{})
 	pulumi.RegisterOutputType(Python2PackageOutput{})
 }

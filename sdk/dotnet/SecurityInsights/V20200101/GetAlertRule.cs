@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
@@ -17,6 +18,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:securityinsights/v20200101:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Alert rule.
+        /// </summary>
+        public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure-native:securityinsights/v20200101:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +48,31 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public string WorkspaceName { get; set; } = null!;
 
         public GetAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetAlertRuleInvokeArgs()
         {
         }
     }

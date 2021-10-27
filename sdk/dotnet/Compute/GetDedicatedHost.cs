@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Specifies information about the Dedicated host.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDedicatedHostArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the dedicated host group.
+        /// </summary>
+        [Input("hostGroupName", required: true)]
+        public Input<string> HostGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dedicated host.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDedicatedHostInvokeArgs()
         {
         }
     }

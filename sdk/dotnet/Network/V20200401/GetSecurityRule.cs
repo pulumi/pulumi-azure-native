@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network/v20200401:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Network security rule.
+        /// </summary>
+        public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network/v20200401:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200401
         public string SecurityRuleName { get; set; } = null!;
 
         public GetSecurityRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network security group.
+        /// </summary>
+        [Input("networkSecurityGroupName", required: true)]
+        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the security rule.
+        /// </summary>
+        [Input("securityRuleName", required: true)]
+        public Input<string> SecurityRuleName { get; set; } = null!;
+
+        public GetSecurityRuleInvokeArgs()
         {
         }
     }

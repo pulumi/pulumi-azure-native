@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A task resource
+        /// API Version: 2018-04-19.
+        /// </summary>
+        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.DataMigration
         public string TaskName { get; set; } = null!;
 
         public GetTaskArgs()
+        {
+        }
+    }
+
+    public sealed class GetTaskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expand the response
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the project
+        /// </summary>
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the service
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Task
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
+
+        public GetTaskInvokeArgs()
         {
         }
     }

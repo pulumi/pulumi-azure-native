@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20200101Preview
         /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights/v20200101preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The management group diagnostic setting resource.
+        /// </summary>
+        public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights/v20200101preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20200101Preview
         public string Name { get; set; } = null!;
 
         public GetManagementGroupDiagnosticSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementGroupDiagnosticSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The management group id.
+        /// </summary>
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the diagnostic setting.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetManagementGroupDiagnosticSettingInvokeArgs()
         {
         }
     }

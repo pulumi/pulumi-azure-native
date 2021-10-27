@@ -169,5 +169,6 @@ func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotSecuritySolutionInput)(nil)).Elem(), &IotSecuritySolution{})
 	pulumi.RegisterOutputType(IotSecuritySolutionOutput{})
 }

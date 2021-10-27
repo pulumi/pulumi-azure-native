@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Task<GetDscConfigurationResult> InvokeAsync(GetDscConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-native:automation:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the configuration type.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetDscConfigurationResult> Invoke(GetDscConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDscConfigurationResult>("azure-native:automation:getDscConfiguration", args ?? new GetDscConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDscConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDscConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration name.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDscConfigurationInvokeArgs()
         {
         }
     }

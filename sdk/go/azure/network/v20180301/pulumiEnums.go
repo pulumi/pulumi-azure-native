@@ -1169,6 +1169,20 @@ func (in *trafficViewEnrollmentStatusPtr) ToTrafficViewEnrollmentStatusPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitorStatusInput)(nil)).Elem(), EndpointMonitorStatus("CheckingEndpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitorStatusPtrInput)(nil)).Elem(), EndpointMonitorStatus("CheckingEndpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusInput)(nil)).Elem(), EndpointStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusPtrInput)(nil)).Elem(), EndpointStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorProtocolInput)(nil)).Elem(), MonitorProtocol("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorProtocolPtrInput)(nil)).Elem(), MonitorProtocol("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorStatusInput)(nil)).Elem(), ProfileMonitorStatus("CheckingEndpoints"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorStatusPtrInput)(nil)).Elem(), ProfileMonitorStatus("CheckingEndpoints"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileStatusInput)(nil)).Elem(), ProfileStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileStatusPtrInput)(nil)).Elem(), ProfileStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficRoutingMethodInput)(nil)).Elem(), TrafficRoutingMethod("Performance"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficRoutingMethodPtrInput)(nil)).Elem(), TrafficRoutingMethod("Performance"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficViewEnrollmentStatusInput)(nil)).Elem(), TrafficViewEnrollmentStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficViewEnrollmentStatusPtrInput)(nil)).Elem(), TrafficViewEnrollmentStatus("Enabled"))
 	pulumi.RegisterOutputType(EndpointMonitorStatusOutput{})
 	pulumi.RegisterOutputType(EndpointMonitorStatusPtrOutput{})
 	pulumi.RegisterOutputType(EndpointStatusOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20180701
         /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media/v20180701:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Account Filter.
+        /// </summary>
+        public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media/v20180701:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20180701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountFilterArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountFilterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Account Filter name
+        /// </summary>
+        [Input("filterName", required: true)]
+        public Input<string> FilterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccountFilterInvokeArgs()
         {
         }
     }

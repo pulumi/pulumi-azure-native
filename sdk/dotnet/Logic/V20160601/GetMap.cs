@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account map.
+        /// </summary>
+        public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMapArgs()
+        {
+        }
+    }
+
+    public sealed class GetMapInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account map name.
+        /// </summary>
+        [Input("mapName", required: true)]
+        public Input<string> MapName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMapInvokeArgs()
         {
         }
     }

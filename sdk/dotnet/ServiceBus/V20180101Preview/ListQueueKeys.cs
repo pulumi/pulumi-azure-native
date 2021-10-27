@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// </summary>
         public static Task<ListQueueKeysResult> InvokeAsync(ListQueueKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListQueueKeysResult>("azure-native:servicebus/v20180101preview:listQueueKeys", args ?? new ListQueueKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// </summary>
+        public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus/v20180101preview:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListQueueKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListQueueKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The queue name.
+        /// </summary>
+        [Input("queueName", required: true)]
+        public Input<string> QueueName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListQueueKeysInvokeArgs()
         {
         }
     }

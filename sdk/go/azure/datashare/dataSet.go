@@ -162,5 +162,6 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInput)(nil)).Elem(), &DataSet{})
 	pulumi.RegisterOutputType(DataSetOutput{})
 }

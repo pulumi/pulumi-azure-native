@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20190201
         /// </summary>
         public static Task<GetExpressRouteConnectionResult> InvokeAsync(GetExpressRouteConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-native:network/v20190201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ExpressRouteConnection resource.
+        /// </summary>
+        public static Output<GetExpressRouteConnectionResult> Invoke(GetExpressRouteConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteConnectionResult>("azure-native:network/v20190201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20190201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ExpressRoute connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ExpressRoute gateway.
+        /// </summary>
+        [Input("expressRouteGatewayName", required: true)]
+        public Input<string> ExpressRouteGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteConnectionInvokeArgs()
         {
         }
     }

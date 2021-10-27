@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         /// </summary>
         public static Task<GetMHSMPrivateEndpointConnectionResult> InvokeAsync(GetMHSMPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault/v20210601preview:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Private endpoint connection resource.
+        /// </summary>
+        public static Output<GetMHSMPrivateEndpointConnectionResult> Invoke(GetMHSMPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault/v20210601preview:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMHSMPrivateEndpointConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetMHSMPrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the managed HSM Pool
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private endpoint connection associated with the managed hsm pool.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group that contains the managed HSM pool.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMHSMPrivateEndpointConnectionInvokeArgs()
         {
         }
     }

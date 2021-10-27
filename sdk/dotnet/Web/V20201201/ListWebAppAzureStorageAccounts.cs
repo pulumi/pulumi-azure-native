@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20201201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// </summary>
         public static Task<ListWebAppAzureStorageAccountsResult> InvokeAsync(ListWebAppAzureStorageAccountsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsResult>("azure-native:web/v20201201:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// AzureStorageInfo dictionary resource.
+        /// </summary>
+        public static Output<ListWebAppAzureStorageAccountsResult> Invoke(ListWebAppAzureStorageAccountsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppAzureStorageAccountsResult>("azure-native:web/v20201201:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20201201
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWebAppAzureStorageAccountsArgs()
+        {
+        }
+    }
+
+    public sealed class ListWebAppAzureStorageAccountsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWebAppAzureStorageAccountsInvokeArgs()
         {
         }
     }

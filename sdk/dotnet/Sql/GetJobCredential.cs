@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A stored credential that can be used by a job to connect to target databases.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Sql
         public string ServerName { get; set; } = null!;
 
         public GetJobCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the credential.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the job agent.
+        /// </summary>
+        [Input("jobAgentName", required: true)]
+        public Input<string> JobAgentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetJobCredentialInvokeArgs()
         {
         }
     }

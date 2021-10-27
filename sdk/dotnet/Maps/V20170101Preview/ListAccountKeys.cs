@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maps.V20170101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Maps.V20170101Preview
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps/v20170101preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps/v20170101preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Maps.V20170101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListAccountKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListAccountKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Maps Account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Resource Group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListAccountKeysInvokeArgs()
         {
         }
     }

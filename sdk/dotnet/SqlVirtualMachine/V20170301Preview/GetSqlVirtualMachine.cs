@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL virtual machine.
+        /// </summary>
+        public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         public string SqlVirtualMachineName { get; set; } = null!;
 
         public GetSqlVirtualMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL virtual machine.
+        /// </summary>
+        [Input("sqlVirtualMachineName", required: true)]
+        public Input<string> SqlVirtualMachineName { get; set; } = null!;
+
+        public GetSqlVirtualMachineInvokeArgs()
         {
         }
     }

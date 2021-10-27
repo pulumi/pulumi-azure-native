@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureArcData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data controller resource
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -32,6 +40,22 @@ namespace Pulumi.AzureNative.AzureArcData
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataControllerArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataControllerInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("dataControllerName", required: true)]
+        public Input<string> DataControllerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataControllerInvokeArgs()
         {
         }
     }

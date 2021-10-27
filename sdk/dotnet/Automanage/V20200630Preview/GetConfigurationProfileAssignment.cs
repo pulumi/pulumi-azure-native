@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage/v20200630preview:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// </summary>
+        public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileAssignmentResult>("azure-native:automanage/v20200630preview:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         public string VmName { get; set; } = null!;
 
         public GetConfigurationProfileAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetConfigurationProfileAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The configuration profile assignment name.
+        /// </summary>
+        [Input("configurationProfileAssignmentName", required: true)]
+        public Input<string> ConfigurationProfileAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
+
+        public GetConfigurationProfileAssignmentInvokeArgs()
         {
         }
     }

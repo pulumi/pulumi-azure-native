@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Inbound NAT rule of the load balancer.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetInboundNatRuleResult> Invoke(GetInboundNatRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInboundNatRuleResult>("azure-native:network:getInboundNatRule", args ?? new GetInboundNatRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInboundNatRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetInboundNatRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the inbound nat rule.
+        /// </summary>
+        [Input("inboundNatRuleName", required: true)]
+        public Input<string> InboundNatRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the load balancer.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInboundNatRuleInvokeArgs()
         {
         }
     }

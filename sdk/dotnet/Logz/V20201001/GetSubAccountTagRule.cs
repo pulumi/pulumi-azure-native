@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20201001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logz.V20201001
         /// </summary>
         public static Task<GetSubAccountTagRuleResult> InvokeAsync(GetSubAccountTagRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Capture logs and metrics of Azure resources based on ARM tags.
+        /// </summary>
+        public static Output<GetSubAccountTagRuleResult> Invoke(GetSubAccountTagRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubAccountTagRuleResult>("azure-native:logz/v20201001:getSubAccountTagRule", args ?? new GetSubAccountTagRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -43,6 +50,34 @@ namespace Pulumi.AzureNative.Logz.V20201001
         public string SubAccountName { get; set; } = null!;
 
         public GetSubAccountTagRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubAccountTagRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
+
+        /// <summary>
+        /// Sub Account resource name
+        /// </summary>
+        [Input("subAccountName", required: true)]
+        public Input<string> SubAccountName { get; set; } = null!;
+
+        public GetSubAccountTagRuleInvokeArgs()
         {
         }
     }

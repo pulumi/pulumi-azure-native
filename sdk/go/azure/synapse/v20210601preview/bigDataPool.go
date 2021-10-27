@@ -221,5 +221,6 @@ func (o BigDataPoolOutput) ToBigDataPoolOutputWithContext(ctx context.Context) B
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BigDataPoolInput)(nil)).Elem(), &BigDataPool{})
 	pulumi.RegisterOutputType(BigDataPoolOutput{})
 }

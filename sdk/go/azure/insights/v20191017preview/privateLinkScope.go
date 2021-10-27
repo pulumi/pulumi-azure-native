@@ -134,5 +134,6 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeInput)(nil)).Elem(), &PrivateLinkScope{})
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 }

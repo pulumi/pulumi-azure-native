@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20171115
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Devices.V20171115
         /// </summary>
         public static Task<GetDpsCertificateResult> InvokeAsync(GetDpsCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azure-native:devices/v20171115:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The X509 Certificate.
+        /// </summary>
+        public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices/v20171115:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Devices.V20171115
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDpsCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetDpsCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the certificate to retrieve.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the provisioning service the certificate is associated with.
+        /// </summary>
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group identifier.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDpsCertificateInvokeArgs()
         {
         }
     }

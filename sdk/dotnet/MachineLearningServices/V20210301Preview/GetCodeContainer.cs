@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Task<GetCodeContainerResult> InvokeAsync(GetCodeContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetCodeContainerResult> Invoke(GetCodeContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetCodeContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetCodeContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Container name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetCodeContainerInvokeArgs()
         {
         }
     }

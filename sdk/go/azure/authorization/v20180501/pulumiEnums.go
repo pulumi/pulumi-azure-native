@@ -505,6 +505,12 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModeInput)(nil)).Elem(), PolicyMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModePtrInput)(nil)).Elem(), PolicyMode("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(PolicyModeOutput{})
 	pulumi.RegisterOutputType(PolicyModePtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})

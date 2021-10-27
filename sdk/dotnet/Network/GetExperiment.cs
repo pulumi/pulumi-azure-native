@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the properties of an Experiment
+        /// API Version: 2019-11-01.
+        /// </summary>
+        public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:network:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExperimentArgs()
+        {
+        }
+    }
+
+    public sealed class GetExperimentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Experiment identifier associated with the Experiment
+        /// </summary>
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
+
+        /// <summary>
+        /// The Profile identifier associated with the Tenant and Partner
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExperimentInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20200214:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+        /// </summary>
+        public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20200214:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualMachineImageTemplateArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineImageTemplateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the image Template
+        /// </summary>
+        [Input("imageTemplateName", required: true)]
+        public Input<string> ImageTemplateName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualMachineImageTemplateInvokeArgs()
         {
         }
     }

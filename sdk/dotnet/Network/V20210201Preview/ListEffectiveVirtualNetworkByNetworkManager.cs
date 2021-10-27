@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<ListEffectiveVirtualNetworkByNetworkManagerResult> InvokeAsync(ListEffectiveVirtualNetworkByNetworkManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveVirtualNetworkByNetworkManagerResult>("azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkManager", args ?? new ListEffectiveVirtualNetworkByNetworkManagerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+        /// </summary>
+        public static Output<ListEffectiveVirtualNetworkByNetworkManagerResult> Invoke(ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkManagerResult>("azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkManager", args ?? new ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public int? Top { get; set; }
 
         public ListEffectiveVirtualNetworkByNetworkManagerArgs()
+        {
+        }
+    }
+
+    public sealed class ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Conditional Members.
+        /// </summary>
+        [Input("conditionalMembers")]
+        public Input<string>? ConditionalMembers { get; set; }
+
+        /// <summary>
+        /// The name of the network manager.
+        /// </summary>
+        [Input("networkManagerName", required: true)]
+        public Input<string> NetworkManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        /// <summary>
+        /// An optional query parameter which specifies the maximum number of records to be returned by the server.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
+
+        public ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs()
         {
         }
     }

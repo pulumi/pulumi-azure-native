@@ -135,5 +135,6 @@ func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentInput)(nil)).Elem(), &IntegrationServiceEnvironment{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentOutput{})
 }

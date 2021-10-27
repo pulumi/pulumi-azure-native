@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the variable.
+        /// </summary>
+        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string VariableName { get; set; } = null!;
 
         public GetVariableArgs()
+        {
+        }
+    }
+
+    public sealed class GetVariableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of variable.
+        /// </summary>
+        [Input("variableName", required: true)]
+        public Input<string> VariableName { get; set; } = null!;
+
+        public GetVariableInvokeArgs()
         {
         }
     }

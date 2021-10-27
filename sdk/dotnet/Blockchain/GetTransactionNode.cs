@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Blockchain
         /// </summary>
         public static Task<GetTransactionNodeResult> InvokeAsync(GetTransactionNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Payload of the transaction node which is the request/response of the resource provider.
+        /// API Version: 2018-06-01-preview.
+        /// </summary>
+        public static Output<GetTransactionNodeResult> Invoke(GetTransactionNodeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Blockchain
         public string TransactionNodeName { get; set; } = null!;
 
         public GetTransactionNodeArgs()
+        {
+        }
+    }
+
+    public sealed class GetTransactionNodeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Blockchain member name.
+        /// </summary>
+        [Input("blockchainMemberName", required: true)]
+        public Input<string> BlockchainMemberName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Transaction node name.
+        /// </summary>
+        [Input("transactionNodeName", required: true)]
+        public Input<string> TransactionNodeName { get; set; } = null!;
+
+        public GetTransactionNodeInvokeArgs()
         {
         }
     }

@@ -139,5 +139,6 @@ func (o SchemaRegistryOutput) ToSchemaRegistryOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), &SchemaRegistry{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 }

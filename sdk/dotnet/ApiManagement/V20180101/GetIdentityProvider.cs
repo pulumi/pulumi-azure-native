@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement/v20180101:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Identity Provider details.
+        /// </summary>
+        public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement/v20180101:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         public string ServiceName { get; set; } = null!;
 
         public GetIdentityProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetIdentityProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identity Provider Type identifier.
+        /// </summary>
+        [Input("identityProviderName", required: true)]
+        public Input<string> IdentityProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetIdentityProviderInvokeArgs()
         {
         }
     }

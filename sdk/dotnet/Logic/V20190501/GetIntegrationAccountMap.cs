@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic/v20190501:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration account map.
+        /// </summary>
+        public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic/v20190501:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20190501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationAccountMapArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountMapInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account map name.
+        /// </summary>
+        [Input("mapName", required: true)]
+        public Input<string> MapName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationAccountMapInvokeArgs()
         {
         }
     }

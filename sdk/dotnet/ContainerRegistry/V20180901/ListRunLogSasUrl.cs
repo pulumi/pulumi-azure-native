@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20180901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
         /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-native:containerregistry/v20180901:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The result of get log link operation.
+        /// </summary>
+        public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry/v20180901:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
         public string RunId { get; set; } = null!;
 
         public ListRunLogSasUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListRunLogSasUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The run ID.
+        /// </summary>
+        [Input("runId", required: true)]
+        public Input<string> RunId { get; set; } = null!;
+
+        public ListRunLogSasUrlInvokeArgs()
         {
         }
     }

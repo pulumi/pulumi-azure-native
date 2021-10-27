@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetServerTrustCertificateResult> InvokeAsync(GetServerTrustCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+        /// API Version: 2021-05-01-preview.
+        /// </summary>
+        public static Output<GetServerTrustCertificateResult> Invoke(GetServerTrustCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetServerTrustCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerTrustCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of of the certificate to get.
+        /// </summary>
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetServerTrustCertificateInvokeArgs()
         {
         }
     }

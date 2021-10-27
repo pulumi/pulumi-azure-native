@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Task<GetHybridRunbookWorkerResult> InvokeAsync(GetHybridRunbookWorkerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerResult>("azure-native:automation:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of hybrid runbook worker.
+        /// API Version: 2021-06-22.
+        /// </summary>
+        public static Output<GetHybridRunbookWorkerResult> Invoke(GetHybridRunbookWorkerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHybridRunbookWorkerArgs()
+        {
+        }
+    }
+
+    public sealed class GetHybridRunbookWorkerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The hybrid runbook worker group name
+        /// </summary>
+        [Input("hybridRunbookWorkerGroupName", required: true)]
+        public Input<string> HybridRunbookWorkerGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The hybrid runbook worker id
+        /// </summary>
+        [Input("hybridRunbookWorkerId", required: true)]
+        public Input<string> HybridRunbookWorkerId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHybridRunbookWorkerInvokeArgs()
         {
         }
     }

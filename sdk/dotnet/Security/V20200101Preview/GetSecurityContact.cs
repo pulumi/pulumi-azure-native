@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Contact details and configurations for notifications coming from Azure Security Center.
+        /// </summary>
+        public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         public string SecurityContactName { get; set; } = null!;
 
         public GetSecurityContactArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityContactInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the security contact object
+        /// </summary>
+        [Input("securityContactName", required: true)]
+        public Input<string> SecurityContactName { get; set; } = null!;
+
+        public GetSecurityContactInvokeArgs()
         {
         }
     }

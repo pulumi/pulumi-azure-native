@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
+        /// API Version: 2020-09-01.
+        /// </summary>
+        public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Cdn
         public string RuleSetName { get; set; } = null!;
 
         public GetRuleSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetRuleSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the rule set under the profile which is unique globally.
+        /// </summary>
+        [Input("ruleSetName", required: true)]
+        public Input<string> RuleSetName { get; set; } = null!;
+
+        public GetRuleSetInvokeArgs()
         {
         }
     }

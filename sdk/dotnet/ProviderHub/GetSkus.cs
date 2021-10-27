@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2020-11-20.
+        /// </summary>
+        public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ProviderHub
         public string Sku { get; set; } = null!;
 
         public GetSkusArgs()
+        {
+        }
+    }
+
+    public sealed class GetSkusInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource provider hosted within ProviderHub.
+        /// </summary>
+        [Input("providerNamespace", required: true)]
+        public Input<string> ProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The resource type.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        /// <summary>
+        /// The SKU.
+        /// </summary>
+        [Input("sku", required: true)]
+        public Input<string> Sku { get; set; } = null!;
+
+        public GetSkusInvokeArgs()
         {
         }
     }

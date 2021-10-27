@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of hybrid connection resource.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Relay
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHybridConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetHybridConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The hybrid connection name.
+        /// </summary>
+        [Input("hybridConnectionName", required: true)]
+        public Input<string> HybridConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHybridConnectionInvokeArgs()
         {
         }
     }

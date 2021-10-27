@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Test result.
+        /// API Version: 2020-02-10-preview.
+        /// </summary>
+        public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +73,55 @@ namespace Pulumi.AzureNative.Insights
         public string WebTestName { get; set; } = null!;
 
         public GetTestResultFileArgs()
+        {
+        }
+    }
+
+    public sealed class GetTestResultFileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The continuation token.
+        /// </summary>
+        [Input("continuationToken")]
+        public Input<string>? ContinuationToken { get; set; }
+
+        /// <summary>
+        /// The format to use when returning the webtest result.
+        /// </summary>
+        [Input("downloadAs", required: true)]
+        public Input<string> DownloadAs { get; set; } = null!;
+
+        /// <summary>
+        /// The location ID where the webtest was physically run.
+        /// </summary>
+        [Input("geoLocationId", required: true)]
+        public Input<string> GeoLocationId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The success state criteria for the webtest result.
+        /// </summary>
+        [Input("testSuccessfulCriteria")]
+        public Input<bool>? TestSuccessfulCriteria { get; set; }
+
+        /// <summary>
+        /// The posix (epoch) time stamp for the webtest result.
+        /// </summary>
+        [Input("timeStamp", required: true)]
+        public Input<int> TimeStamp { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights webtest resource.
+        /// </summary>
+        [Input("webTestName", required: true)]
+        public Input<string> WebTestName { get; set; } = null!;
+
+        public GetTestResultFileInvokeArgs()
         {
         }
     }

@@ -189,5 +189,6 @@ func (o PredictionOutput) ToPredictionOutputWithContext(ctx context.Context) Pre
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PredictionInput)(nil)).Elem(), &Prediction{})
 	pulumi.RegisterOutputType(PredictionOutput{})
 }

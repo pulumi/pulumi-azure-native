@@ -132,5 +132,6 @@ func (o ArtifactOutput) ToArtifactOutputWithContext(ctx context.Context) Artifac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactInput)(nil)).Elem(), &Artifact{})
 	pulumi.RegisterOutputType(ArtifactOutput{})
 }

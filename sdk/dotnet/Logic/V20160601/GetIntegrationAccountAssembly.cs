@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<GetIntegrationAccountAssemblyResult> InvokeAsync(GetIntegrationAccountAssemblyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20160601:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The assembly definition.
+        /// </summary>
+        public static Output<GetIntegrationAccountAssemblyResult> Invoke(GetIntegrationAccountAssemblyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20160601:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntegrationAccountAssemblyArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntegrationAccountAssemblyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The assembly artifact name.
+        /// </summary>
+        [Input("assemblyArtifactName", required: true)]
+        public Input<string> AssemblyArtifactName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntegrationAccountAssemblyInvokeArgs()
         {
         }
     }

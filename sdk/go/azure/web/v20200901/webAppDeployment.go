@@ -222,5 +222,6 @@ func (o WebAppDeploymentOutput) ToWebAppDeploymentOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppDeploymentInput)(nil)).Elem(), &WebAppDeployment{})
 	pulumi.RegisterOutputType(WebAppDeploymentOutput{})
 }

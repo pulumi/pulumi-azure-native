@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20180601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// </summary>
         public static Task<GetGuestDiagnosticsSettingsAssociationResult> InvokeAsync(GetGuestDiagnosticsSettingsAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Virtual machine guest diagnostic settings resource.
+        /// </summary>
+        public static Output<GetGuestDiagnosticsSettingsAssociationResult> Invoke(GetGuestDiagnosticsSettingsAssociationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         public string ResourceUri { get; set; } = null!;
 
         public GetGuestDiagnosticsSettingsAssociationArgs()
+        {
+        }
+    }
+
+    public sealed class GetGuestDiagnosticsSettingsAssociationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the diagnostic settings association.
+        /// </summary>
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully qualified ID of the resource, including the resource name and resource type.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetGuestDiagnosticsSettingsAssociationInvokeArgs()
         {
         }
     }

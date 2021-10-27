@@ -158,5 +158,6 @@ func (o CredentialOutput) ToCredentialOutputWithContext(ctx context.Context) Cre
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialInput)(nil)).Elem(), &Credential{})
 	pulumi.RegisterOutputType(CredentialOutput{})
 }

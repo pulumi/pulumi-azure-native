@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data Lake Analytics compute policy information.
+        /// API Version: 2016-11-01.
+        /// </summary>
+        public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public string ResourceGroupName { get; set; } = null!;
 
         public GetComputePolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetComputePolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Analytics account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the compute policy to retrieve.
+        /// </summary>
+        [Input("computePolicyName", required: true)]
+        public Input<string> ComputePolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetComputePolicyInvokeArgs()
         {
         }
     }

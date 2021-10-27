@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20210101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Peering.V20210101
         /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering/v20210101:getPrefix", args ?? new GetPrefixArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The peering service prefix class.
+        /// </summary>
+        public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering/v20210101:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Peering.V20210101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPrefixArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrefixInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The properties to be expanded.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the peering service.
+        /// </summary>
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the prefix.
+        /// </summary>
+        [Input("prefixName", required: true)]
+        public Input<string> PrefixName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPrefixInvokeArgs()
         {
         }
     }

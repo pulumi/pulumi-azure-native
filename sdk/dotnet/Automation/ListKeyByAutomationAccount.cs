@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2021-06-22.
+        /// </summary>
+        public static Output<ListKeyByAutomationAccountResult> Invoke(ListKeyByAutomationAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListKeyByAutomationAccountResult>("azure-native:automation:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public ListKeyByAutomationAccountArgs()
+        {
+        }
+    }
+
+    public sealed class ListKeyByAutomationAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListKeyByAutomationAccountInvokeArgs()
         {
         }
     }

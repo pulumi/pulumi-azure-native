@@ -176,5 +176,6 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewInput)(nil)).Elem(), &View{})
 	pulumi.RegisterOutputType(ViewOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210827
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("azure-native:kusto/v20210827:getScript", args ?? new GetScriptArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing a database script.
+        /// </summary>
+        public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto/v20210827:getScript", args ?? new GetScriptInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         public string ScriptName { get; set; } = null!;
 
         public GetScriptArgs()
+        {
+        }
+    }
+
+    public sealed class GetScriptInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kusto database script.
+        /// </summary>
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
+
+        public GetScriptInvokeArgs()
         {
         }
     }

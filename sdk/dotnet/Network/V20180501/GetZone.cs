@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20180501
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-native:network/v20180501:getZone", args ?? new GetZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes a DNS zone.
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network/v20180501:getZone", args ?? new GetZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20180501
         public string ZoneName { get; set; } = null!;
 
         public GetZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
+
+        public GetZoneInvokeArgs()
         {
         }
     }

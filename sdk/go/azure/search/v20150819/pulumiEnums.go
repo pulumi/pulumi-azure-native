@@ -508,6 +508,12 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostingModeInput)(nil)).Elem(), HostingMode("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostingModePtrInput)(nil)).Elem(), HostingMode("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("free"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("free"))
 	pulumi.RegisterOutputType(HostingModeOutput{})
 	pulumi.RegisterOutputType(HostingModePtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})

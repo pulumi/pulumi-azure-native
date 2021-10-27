@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterResult> InvokeAsync(GetNetworkSecurityPerimeterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Network Security Perimeter resource
+        /// </summary>
+        public static Output<GetNetworkSecurityPerimeterResult> Invoke(GetNetworkSecurityPerimeterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkSecurityPerimeterArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkSecurityPerimeterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network security perimeter.
+        /// </summary>
+        [Input("networkSecurityPerimeterName", required: true)]
+        public Input<string> NetworkSecurityPerimeterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkSecurityPerimeterInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
         /// </summary>
         public static Task<GetFluidRelayServerKeysResult> InvokeAsync(GetFluidRelayServerKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The set of available keys for this server.
+        /// </summary>
+        public static Output<GetFluidRelayServerKeysResult> Invoke(GetFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
         public string ResourceGroup { get; set; } = null!;
 
         public GetFluidRelayServerKeysArgs()
+        {
+        }
+    }
+
+    public sealed class GetFluidRelayServerKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group containing the resource.
+        /// </summary>
+        [Input("resourceGroup", required: true)]
+        public Input<string> ResourceGroup { get; set; } = null!;
+
+        public GetFluidRelayServerKeysInvokeArgs()
         {
         }
     }

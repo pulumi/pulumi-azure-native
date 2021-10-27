@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork/v20200101preview:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Vendor resource.
+        /// </summary>
+        public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork/v20200101preview:getVendor", args ?? new GetVendorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         public string VendorName { get; set; } = null!;
 
         public GetVendorArgs()
+        {
+        }
+    }
+
+    public sealed class GetVendorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the vendor.
+        /// </summary>
+        [Input("vendorName", required: true)]
+        public Input<string> VendorName { get; set; } = null!;
+
+        public GetVendorInvokeArgs()
         {
         }
     }

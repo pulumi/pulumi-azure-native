@@ -144,5 +144,6 @@ func (o AdminRuleOutput) ToAdminRuleOutputWithContext(ctx context.Context) Admin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminRuleInput)(nil)).Elem(), &AdminRule{})
 	pulumi.RegisterOutputType(AdminRuleOutput{})
 }

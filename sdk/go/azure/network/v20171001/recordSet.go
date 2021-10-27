@@ -200,5 +200,6 @@ func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) Recor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetInput)(nil)).Elem(), &RecordSet{})
 	pulumi.RegisterOutputType(RecordSetOutput{})
 }

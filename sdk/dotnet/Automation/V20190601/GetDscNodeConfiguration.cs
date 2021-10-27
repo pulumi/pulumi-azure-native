@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation/v20190601:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the dsc node configuration.
+        /// </summary>
+        public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation/v20190601:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20190601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDscNodeConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDscNodeConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Dsc node configuration name.
+        /// </summary>
+        [Input("nodeConfigurationName", required: true)]
+        public Input<string> NodeConfigurationName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDscNodeConfigurationInvokeArgs()
         {
         }
     }

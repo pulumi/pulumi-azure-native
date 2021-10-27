@@ -196,5 +196,6 @@ func (o WebAppMetadataOutput) ToWebAppMetadataOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppMetadataInput)(nil)).Elem(), &WebAppMetadata{})
 	pulumi.RegisterOutputType(WebAppMetadataOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20191231
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20191231
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn/v20191231:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20191231:getProfile", args ?? new GetProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Cdn.V20191231
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProfileInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         /// </summary>
         public static Task<GetMigrationResult> InvokeAsync(GetMigrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationResult>("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", args ?? new GetMigrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a migration resource.
+        /// </summary>
+        public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
         public string TargetDBServerSubscriptionId { get; set; } = null!;
 
         public GetMigrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetMigrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the migration.
+        /// </summary>
+        [Input("migrationName", required: true)]
+        public Input<string> MigrationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the target database server.
+        /// </summary>
+        [Input("targetDBServerName", required: true)]
+        public Input<string> TargetDBServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name of the target database server.
+        /// </summary>
+        [Input("targetDBServerResourceGroupName", required: true)]
+        public Input<string> TargetDBServerResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The subscription ID of the target database server.
+        /// </summary>
+        [Input("targetDBServerSubscriptionId", required: true)]
+        public Input<string> TargetDBServerSubscriptionId { get; set; } = null!;
+
+        public GetMigrationInvokeArgs()
         {
         }
     }

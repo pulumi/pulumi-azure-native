@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-native:storsimple/v20161001:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Challenge-Handshake Authentication Protocol (CHAP) setting
+        /// </summary>
+        public static Output<GetChapSettingResult> Invoke(GetChapSettingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetChapSettingResult>("azure-native:storsimple/v20161001:getChapSetting", args ?? new GetChapSettingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetChapSettingArgs()
+        {
+        }
+    }
+
+    public sealed class GetChapSettingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The user name of chap to be fetched.
+        /// </summary>
+        [Input("chapUserName", required: true)]
+        public Input<string> ChapUserName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetChapSettingInvokeArgs()
         {
         }
     }

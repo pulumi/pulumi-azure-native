@@ -343,6 +343,10 @@ func (in *pricingTierPtr) ToPricingTierPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExemptionCategoryInput)(nil)).Elem(), ExemptionCategory("Waiver"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExemptionCategoryPtrInput)(nil)).Elem(), ExemptionCategory("Waiver"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingTierInput)(nil)).Elem(), PricingTier("Advanced"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingTierPtrInput)(nil)).Elem(), PricingTier("Advanced"))
 	pulumi.RegisterOutputType(ExemptionCategoryOutput{})
 	pulumi.RegisterOutputType(ExemptionCategoryPtrOutput{})
 	pulumi.RegisterOutputType(PricingTierOutput{})

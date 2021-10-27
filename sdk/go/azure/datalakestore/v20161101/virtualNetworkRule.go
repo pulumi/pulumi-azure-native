@@ -131,5 +131,6 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkRuleInput)(nil)).Elem(), &VirtualNetworkRule{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

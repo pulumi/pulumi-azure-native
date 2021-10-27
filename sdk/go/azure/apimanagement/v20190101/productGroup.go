@@ -194,5 +194,6 @@ func (o ProductGroupOutput) ToProductGroupOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductGroupInput)(nil)).Elem(), &ProductGroup{})
 	pulumi.RegisterOutputType(ProductGroupOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Task<GetSolutionConfigResult> InvokeAsync(GetSolutionConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing the config for the solution in the migrate project.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Migrate
         public string SolutionName { get; set; } = null!;
 
         public GetSolutionConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetSolutionConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Migrate project.
+        /// </summary>
+        [Input("migrateProjectName", required: true)]
+        public Input<string> MigrateProjectName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Azure Resource Group that migrate project is part of.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name of a migration solution within a migrate project.
+        /// </summary>
+        [Input("solutionName", required: true)]
+        public Input<string> SolutionName { get; set; } = null!;
+
+        public GetSolutionConfigInvokeArgs()
         {
         }
     }

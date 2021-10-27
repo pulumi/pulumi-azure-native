@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A custom API
+        /// API Version: 2016-06-01.
+        /// </summary>
+        public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string? SubscriptionId { get; set; }
 
         public GetCustomApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API name
+        /// </summary>
+        [Input("apiName", required: true)]
+        public Input<string> ApiName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetCustomApiInvokeArgs()
         {
         }
     }

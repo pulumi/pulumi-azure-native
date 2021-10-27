@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSiteBackupConfigurationSlotResult> InvokeAsync(ListSiteBackupConfigurationSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupConfigurationSlotResult>("azure-native:web/v20150801:listSiteBackupConfigurationSlot", args ?? new ListSiteBackupConfigurationSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of a backup which will be performed
+        /// </summary>
+        public static Output<ListSiteBackupConfigurationSlotResult> Invoke(ListSiteBackupConfigurationSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupConfigurationSlotResult>("azure-native:web/v20150801:listSiteBackupConfigurationSlot", args ?? new ListSiteBackupConfigurationSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public ListSiteBackupConfigurationSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSiteBackupConfigurationSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListSiteBackupConfigurationSlotInvokeArgs()
         {
         }
     }

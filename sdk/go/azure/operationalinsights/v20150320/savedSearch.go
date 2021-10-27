@@ -164,5 +164,6 @@ func (o SavedSearchOutput) ToSavedSearchOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchInput)(nil)).Elem(), &SavedSearch{})
 	pulumi.RegisterOutputType(SavedSearchOutput{})
 }

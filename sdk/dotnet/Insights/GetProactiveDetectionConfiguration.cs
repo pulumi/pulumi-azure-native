@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetProactiveDetectionConfigurationResult> InvokeAsync(GetProactiveDetectionConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProactiveDetectionConfigurationResult>("azure-native:insights:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Properties that define a ProactiveDetection configuration.
+        /// API Version: 2015-05-01.
+        /// </summary>
+        public static Output<GetProactiveDetectionConfigurationResult> Invoke(GetProactiveDetectionConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProactiveDetectionConfigurationResult>("azure-native:insights:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceName { get; set; } = null!;
 
         public GetProactiveDetectionConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetProactiveDetectionConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
+        /// </summary>
+        [Input("configurationId", required: true)]
+        public Input<string> ConfigurationId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetProactiveDetectionConfigurationInvokeArgs()
         {
         }
     }

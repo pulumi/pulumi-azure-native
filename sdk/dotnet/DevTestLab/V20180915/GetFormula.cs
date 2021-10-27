@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-native:devtestlab/v20180915:getFormula", args ?? new GetFormulaArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A formula for creating a VM, specifying an image base and other parameters
+        /// </summary>
+        public static Output<GetFormulaResult> Invoke(GetFormulaInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab/v20180915:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFormulaArgs()
+        {
+        }
+    }
+
+    public sealed class GetFormulaInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=description)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the formula.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFormulaInvokeArgs()
         {
         }
     }

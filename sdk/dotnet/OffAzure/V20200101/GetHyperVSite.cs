@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OffAzure.V20200101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
         /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Site REST Resource.
+        /// </summary>
+        public static Output<GetHyperVSiteResult> Invoke(GetHyperVSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure/v20200101:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
         public string SiteName { get; set; } = null!;
 
         public GetHyperVSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetHyperVSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
+
+        public GetHyperVSiteInvokeArgs()
         {
         }
     }

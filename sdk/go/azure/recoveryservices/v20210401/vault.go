@@ -193,5 +193,6 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultInput)(nil)).Elem(), &Vault{})
 	pulumi.RegisterOutputType(VaultOutput{})
 }

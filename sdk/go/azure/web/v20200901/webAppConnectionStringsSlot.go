@@ -201,5 +201,6 @@ func (o WebAppConnectionStringsSlotOutput) ToWebAppConnectionStringsSlotOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppConnectionStringsSlotInput)(nil)).Elem(), &WebAppConnectionStringsSlot{})
 	pulumi.RegisterOutputType(WebAppConnectionStringsSlotOutput{})
 }

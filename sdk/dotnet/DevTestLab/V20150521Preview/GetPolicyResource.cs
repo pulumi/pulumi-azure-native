@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// </summary>
         public static Task<GetPolicyResourceResult> InvokeAsync(GetPolicyResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Policy.
+        /// </summary>
+        public static Output<GetPolicyResourceResult> Invoke(GetPolicyResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPolicyResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the policy.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the policy set.
+        /// </summary>
+        [Input("policySetName", required: true)]
+        public Input<string> PolicySetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPolicyResourceInvokeArgs()
         {
         }
     }

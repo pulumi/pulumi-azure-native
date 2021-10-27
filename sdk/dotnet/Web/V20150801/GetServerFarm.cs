@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetServerFarmResult> InvokeAsync(GetServerFarmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithVersion());
+
+        /// <summary>
+        /// App Service Plan Model
+        /// </summary>
+        public static Output<GetServerFarmResult> Invoke(GetServerFarmInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetServerFarmArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerFarmInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of App Service Plan
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetServerFarmInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public static Task<GetPolicyAssignmentArtifactResult> InvokeAsync(GetPolicyAssignmentArtifactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Blueprint artifact that applies a Policy assignment.
+        /// API Version: 2018-11-01-preview.
+        /// </summary>
+        public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Blueprint
         public string ResourceScope { get; set; } = null!;
 
         public GetPolicyAssignmentArtifactArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyAssignmentArtifactInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the blueprint artifact.
+        /// </summary>
+        [Input("artifactName", required: true)]
+        public Input<string> ArtifactName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the blueprint definition.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+        /// </summary>
+        [Input("resourceScope", required: true)]
+        public Input<string> ResourceScope { get; set; } = null!;
+
+        public GetPolicyAssignmentArtifactInvokeArgs()
         {
         }
     }

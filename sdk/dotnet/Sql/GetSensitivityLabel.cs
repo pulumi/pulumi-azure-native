@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetSensitivityLabelResult> InvokeAsync(GetSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A sensitivity label.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +73,55 @@ namespace Pulumi.AzureNative.Sql
         public string TableName { get; set; } = null!;
 
         public GetSensitivityLabelArgs()
+        {
+        }
+    }
+
+    public sealed class GetSensitivityLabelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
+        [Input("columnName", required: true)]
+        public Input<string> ColumnName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
+
+        /// <summary>
+        /// The source of the sensitivity label.
+        /// </summary>
+        [Input("sensitivityLabelSource", required: true)]
+        public Input<string> SensitivityLabelSource { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetSensitivityLabelInvokeArgs()
         {
         }
     }

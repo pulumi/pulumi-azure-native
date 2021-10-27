@@ -262,5 +262,6 @@ func (o CassandraResourceCassandraTableOutput) ToCassandraResourceCassandraTable
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraResourceCassandraTableInput)(nil)).Elem(), &CassandraResourceCassandraTable{})
 	pulumi.RegisterOutputType(CassandraResourceCassandraTableOutput{})
 }

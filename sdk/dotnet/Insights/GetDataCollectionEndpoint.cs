@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetDataCollectionEndpointResult> InvokeAsync(GetDataCollectionEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of ARM tracked top level resource.
+        /// API Version: 2021-04-01.
+        /// </summary>
+        public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataCollectionEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataCollectionEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the data collection endpoint. The name is case insensitive.
+        /// </summary>
+        [Input("dataCollectionEndpointName", required: true)]
+        public Input<string> DataCollectionEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataCollectionEndpointInvokeArgs()
         {
         }
     }

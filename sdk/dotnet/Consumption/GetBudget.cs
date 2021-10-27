@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Consumption
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Consumption
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A budget resource.
+        /// API Version: 2019-10-01.
+        /// </summary>
+        public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Consumption
         public string Scope { get; set; } = null!;
 
         public GetBudgetArgs()
+        {
+        }
+    }
+
+    public sealed class GetBudgetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Budget Name.
+        /// </summary>
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetBudgetInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the module type.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public GetModuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetModuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The module name.
+        /// </summary>
+        [Input("moduleName", required: true)]
+        public Input<string> ModuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetModuleInvokeArgs()
         {
         }
     }

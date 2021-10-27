@@ -188,5 +188,6 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolInput)(nil)).Elem(), &ElasticPool{})
 	pulumi.RegisterOutputType(ElasticPoolOutput{})
 }

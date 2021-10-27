@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetResourcePoolResult> InvokeAsync(GetResourcePoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Define the resourcePool.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string ResourcePoolName { get; set; } = null!;
 
         public GetResourcePoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourcePoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resourcePool.
+        /// </summary>
+        [Input("resourcePoolName", required: true)]
+        public Input<string> ResourcePoolName { get; set; } = null!;
+
+        public GetResourcePoolInvokeArgs()
         {
         }
     }

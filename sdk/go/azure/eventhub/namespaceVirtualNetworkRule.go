@@ -128,5 +128,6 @@ func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceVirtualNetworkRuleInput)(nil)).Elem(), &NamespaceVirtualNetworkRule{})
 	pulumi.RegisterOutputType(NamespaceVirtualNetworkRuleOutput{})
 }

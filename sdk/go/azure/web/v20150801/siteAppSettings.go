@@ -205,5 +205,6 @@ func (o SiteAppSettingsOutput) ToSiteAppSettingsOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteAppSettingsInput)(nil)).Elem(), &SiteAppSettings{})
 	pulumi.RegisterOutputType(SiteAppSettingsOutput{})
 }

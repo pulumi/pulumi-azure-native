@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
         /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the DigitalTwins service.
+        /// </summary>
+        public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
         public string ResourceName { get; set; } = null!;
 
         public GetDigitalTwinArgs()
+        {
+        }
+    }
+
+    public sealed class GetDigitalTwinInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the DigitalTwinsInstance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DigitalTwinsInstance.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetDigitalTwinInvokeArgs()
         {
         }
     }

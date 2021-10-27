@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150615
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20150615
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20150615:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Route resource
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20150615:getRoute", args ?? new GetRouteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20150615
         public string RouteTableName { get; set; } = null!;
 
         public GetRouteArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route.
+        /// </summary>
+        [Input("routeName", required: true)]
+        public Input<string> RouteName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route table.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
+
+        public GetRouteInvokeArgs()
         {
         }
     }

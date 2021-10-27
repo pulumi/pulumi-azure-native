@@ -338,6 +338,10 @@ func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("Connectivity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("Connectivity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("HubAndSpokeTopology"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("HubAndSpokeTopology"))
 	pulumi.RegisterOutputType(KindOutput{})
 	pulumi.RegisterOutputType(KindPtrOutput{})
 	pulumi.RegisterOutputType(TypeOutput{})

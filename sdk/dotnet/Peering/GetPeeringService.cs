@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Peering Service
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Peering
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPeeringServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPeeringServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPeeringServiceInvokeArgs()
         {
         }
     }

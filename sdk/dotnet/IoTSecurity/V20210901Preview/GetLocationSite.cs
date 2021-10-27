@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         /// </summary>
         public static Task<GetLocationSiteResult> InvokeAsync(GetLocationSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationSiteResult>("azure-native:iotsecurity/v20210901preview:getLocationSite", args ?? new GetLocationSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT site model
+        /// </summary>
+        public static Output<GetLocationSiteResult> Invoke(GetLocationSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocationSiteResult>("azure-native:iotsecurity/v20210901preview:getLocationSite", args ?? new GetLocationSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210901Preview
         public string SiteName { get; set; } = null!;
 
         public GetLocationSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocationSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Defender for IoT location
+        /// </summary>
+        [Input("iotDefenderLocation", required: true)]
+        public Input<string> IotDefenderLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Site Name
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
+
+        public GetLocationSiteInvokeArgs()
         {
         }
     }

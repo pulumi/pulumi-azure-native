@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Task<GetExposureControlFeatureValueResult> InvokeAsync(GetExposureControlFeatureValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args ?? new GetExposureControlFeatureValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The exposure control response.
+        /// </summary>
+        public static Output<GetExposureControlFeatureValueResult> Invoke(GetExposureControlFeatureValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args ?? new GetExposureControlFeatureValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public string LocationId { get; set; } = null!;
 
         public GetExposureControlFeatureValueArgs()
+        {
+        }
+    }
+
+    public sealed class GetExposureControlFeatureValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The feature name.
+        /// </summary>
+        [Input("featureName")]
+        public Input<string>? FeatureName { get; set; }
+
+        /// <summary>
+        /// The feature type.
+        /// </summary>
+        [Input("featureType")]
+        public Input<string>? FeatureType { get; set; }
+
+        /// <summary>
+        /// The location identifier.
+        /// </summary>
+        [Input("locationId", required: true)]
+        public Input<string> LocationId { get; set; } = null!;
+
+        public GetExposureControlFeatureValueInvokeArgs()
         {
         }
     }

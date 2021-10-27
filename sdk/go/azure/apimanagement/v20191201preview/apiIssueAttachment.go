@@ -213,5 +213,6 @@ func (o ApiIssueAttachmentOutput) ToApiIssueAttachmentOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiIssueAttachmentInput)(nil)).Elem(), &ApiIssueAttachment{})
 	pulumi.RegisterOutputType(ApiIssueAttachmentOutput{})
 }

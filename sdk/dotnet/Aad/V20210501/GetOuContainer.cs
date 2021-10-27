@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Aad.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Aad.V20210501
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad/v20210501:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource for OuContainer.
+        /// </summary>
+        public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad/v20210501:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOuContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetOuContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the domain service.
+        /// </summary>
+        [Input("domainServiceName", required: true)]
+        public Input<string> DomainServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OuContainer.
+        /// </summary>
+        [Input("ouContainerName", required: true)]
+        public Input<string> OuContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOuContainerInvokeArgs()
         {
         }
     }

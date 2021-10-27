@@ -202,5 +202,6 @@ func (o PrivateCloudOutput) ToPrivateCloudOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudInput)(nil)).Elem(), &PrivateCloud{})
 	pulumi.RegisterOutputType(PrivateCloudOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A provider instance associated with a SAP monitor.
+        /// </summary>
+        public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         public string SapMonitorName { get; set; } = null!;
 
         public GetProviderInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetProviderInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the provider instance.
+        /// </summary>
+        [Input("providerInstanceName", required: true)]
+        public Input<string> ProviderInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SAP monitor resource.
+        /// </summary>
+        [Input("sapMonitorName", required: true)]
+        public Input<string> SapMonitorName { get; set; } = null!;
+
+        public GetProviderInstanceInvokeArgs()
         {
         }
     }

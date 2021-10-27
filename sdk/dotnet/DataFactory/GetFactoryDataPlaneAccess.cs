@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Task<GetFactoryDataPlaneAccessResult> InvokeAsync(GetFactoryDataPlaneAccessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-native:datafactory:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get Data Plane read only token response definition.
+        /// API Version: 2018-06-01.
+        /// </summary>
+        public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +73,55 @@ namespace Pulumi.AzureNative.DataFactory
         public string? StartTime { get; set; }
 
         public GetFactoryDataPlaneAccessArgs()
+        {
+        }
+    }
+
+    public sealed class GetFactoryDataPlaneAccessInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+        /// </summary>
+        [Input("accessResourcePath")]
+        public Input<string>? AccessResourcePath { get; set; }
+
+        /// <summary>
+        /// Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+        /// </summary>
+        [Input("expireTime")]
+        public Input<string>? ExpireTime { get; set; }
+
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+        /// </summary>
+        [Input("permissions")]
+        public Input<string>? Permissions { get; set; }
+
+        /// <summary>
+        /// The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+        /// </summary>
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Start time for the token. If not specified the current time will be used.
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
+        public GetFactoryDataPlaneAccessInvokeArgs()
         {
         }
     }

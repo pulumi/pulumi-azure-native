@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Task<GetEventSubscriptionFullUrlResult> InvokeAsync(GetEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Full endpoint url of an event subscription
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<GetEventSubscriptionFullUrlResult> Invoke(GetEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.EventGrid
         public string Scope { get; set; } = null!;
 
         public GetEventSubscriptionFullUrlArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventSubscriptionFullUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the event subscription.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetEventSubscriptionFullUrlInvokeArgs()
         {
         }
     }

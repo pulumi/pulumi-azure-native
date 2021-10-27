@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-native:storsimple/v20170601:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The key.
+        /// </summary>
+        public static Output<ListManagerActivationKeyResult> Invoke(ListManagerActivationKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListManagerActivationKeyResult>("azure-native:storsimple/v20170601:listManagerActivationKey", args ?? new ListManagerActivationKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public string ResourceGroupName { get; set; } = null!;
 
         public ListManagerActivationKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListManagerActivationKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListManagerActivationKeyInvokeArgs()
         {
         }
     }

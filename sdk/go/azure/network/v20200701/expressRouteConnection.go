@@ -276,5 +276,6 @@ func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteConnectionInput)(nil)).Elem(), &ExpressRouteConnection{})
 	pulumi.RegisterOutputType(ExpressRouteConnectionOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20181101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20181101
         /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network/v20181101:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Interface endpoint resource.
+        /// </summary>
+        public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20181101:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20181101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInterfaceEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetInterfaceEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the interface endpoint.
+        /// </summary>
+        [Input("interfaceEndpointName", required: true)]
+        public Input<string> InterfaceEndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInterfaceEndpointInvokeArgs()
         {
         }
     }

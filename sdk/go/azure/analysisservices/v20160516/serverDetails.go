@@ -171,5 +171,6 @@ func (o ServerDetailsOutput) ToServerDetailsOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerDetailsInput)(nil)).Elem(), &ServerDetails{})
 	pulumi.RegisterOutputType(ServerDetailsOutput{})
 }

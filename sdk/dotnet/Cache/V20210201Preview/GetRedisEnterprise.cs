@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/v20210201preview:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Describes the RedisEnterprise cluster
+        /// </summary>
+        public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20210201preview:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRedisEnterpriseArgs()
+        {
+        }
+    }
+
+    public sealed class GetRedisEnterpriseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the RedisEnterprise cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRedisEnterpriseInvokeArgs()
         {
         }
     }

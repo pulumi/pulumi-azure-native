@@ -185,5 +185,6 @@ func (o VirtualHubIpConfigurationOutput) ToVirtualHubIpConfigurationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpConfigurationInput)(nil)).Elem(), &VirtualHubIpConfiguration{})
 	pulumi.RegisterOutputType(VirtualHubIpConfigurationOutput{})
 }

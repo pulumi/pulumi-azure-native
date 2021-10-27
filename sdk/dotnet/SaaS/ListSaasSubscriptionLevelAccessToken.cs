@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SaaS
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SaaS
         /// </summary>
         public static Task<ListSaasSubscriptionLevelAccessTokenResult> InvokeAsync(ListSaasSubscriptionLevelAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSaasSubscriptionLevelAccessTokenResult>("azure-native:saas:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// the ISV access token result response.
+        /// API Version: 2018-03-01-beta.
+        /// </summary>
+        public static Output<ListSaasSubscriptionLevelAccessTokenResult> Invoke(ListSaasSubscriptionLevelAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSaasSubscriptionLevelAccessTokenResult>("azure-native:saas:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.SaaS
         public string ResourceName { get; set; } = null!;
 
         public ListSaasSubscriptionLevelAccessTokenArgs()
+        {
+        }
+    }
+
+    public sealed class ListSaasSubscriptionLevelAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListSaasSubscriptionLevelAccessTokenInvokeArgs()
         {
         }
     }

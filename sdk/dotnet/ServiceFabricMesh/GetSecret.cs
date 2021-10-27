@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:servicefabricmesh:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This type describes a secret resource.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:servicefabricmesh:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         public string SecretResourceName { get; set; } = null!;
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Azure resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the secret resource.
+        /// </summary>
+        [Input("secretResourceName", required: true)]
+        public Input<string> SecretResourceName { get; set; } = null!;
+
+        public GetSecretInvokeArgs()
         {
         }
     }

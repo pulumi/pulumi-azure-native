@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub/v20210601preview:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A class represent a resource.
+        /// </summary>
+        public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub/v20210601preview:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
         public string ResourceName { get; set; } = null!;
 
         public GetWebPubSubArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebPubSubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public GetWebPubSubInvokeArgs()
         {
         }
     }

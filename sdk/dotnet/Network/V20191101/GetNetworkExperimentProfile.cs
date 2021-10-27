@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20191101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// </summary>
         public static Task<GetNetworkExperimentProfileResult> InvokeAsync(GetNetworkExperimentProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkExperimentProfileResult>("azure-native:network/v20191101:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines an Network Experiment Profile and lists of Experiments
+        /// </summary>
+        public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:network/v20191101:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20191101
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkExperimentProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkExperimentProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Profile identifier associated with the Tenant and Partner
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkExperimentProfileInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql/v20140401:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a database transparent data encryption configuration.
+        /// </summary>
+        public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20140401:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Sql.V20140401
         public string TransparentDataEncryptionName { get; set; } = null!;
 
         public GetTransparentDataEncryptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetTransparentDataEncryptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database for which the transparent data encryption applies.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the transparent data encryption configuration.
+        /// </summary>
+        [Input("transparentDataEncryptionName", required: true)]
+        public Input<string> TransparentDataEncryptionName { get; set; } = null!;
+
+        public GetTransparentDataEncryptionInvokeArgs()
         {
         }
     }

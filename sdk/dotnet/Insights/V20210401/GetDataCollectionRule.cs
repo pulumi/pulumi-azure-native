@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Insights.V20210401
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights/v20210401:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of ARM tracked top level resource.
+        /// </summary>
+        public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights/v20210401:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Insights.V20210401
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataCollectionRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataCollectionRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the data collection rule. The name is case insensitive.
+        /// </summary>
+        [Input("dataCollectionRuleName", required: true)]
+        public Input<string> DataCollectionRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataCollectionRuleInvokeArgs()
         {
         }
     }

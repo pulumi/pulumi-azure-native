@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The device security group resource
+        /// API Version: 2019-08-01.
+        /// </summary>
+        public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Security
         public string ResourceId { get; set; } = null!;
 
         public GetDeviceSecurityGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeviceSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the device security group. Note that the name of the device security group is case insensitive.
+        /// </summary>
+        [Input("deviceSecurityGroupName", required: true)]
+        public Input<string> DeviceSecurityGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public GetDeviceSecurityGroupInvokeArgs()
         {
         }
     }

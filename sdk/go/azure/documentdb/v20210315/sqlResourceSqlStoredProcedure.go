@@ -233,5 +233,6 @@ func (o SqlResourceSqlStoredProcedureOutput) ToSqlResourceSqlStoredProcedureOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlStoredProcedureInput)(nil)).Elem(), &SqlResourceSqlStoredProcedure{})
 	pulumi.RegisterOutputType(SqlResourceSqlStoredProcedureOutput{})
 }

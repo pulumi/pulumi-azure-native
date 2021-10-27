@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Device resource.
+        /// </summary>
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork/v20200101preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDeviceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDeviceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the device resource.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDeviceInvokeArgs()
         {
         }
     }

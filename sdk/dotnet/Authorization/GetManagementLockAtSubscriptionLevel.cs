@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The lock information.
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetManagementLockAtSubscriptionLevelResult> Invoke(GetManagementLockAtSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Authorization
         public string LockName { get; set; } = null!;
 
         public GetManagementLockAtSubscriptionLevelArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementLockAtSubscriptionLevelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lock to get.
+        /// </summary>
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        public GetManagementLockAtSubscriptionLevelInvokeArgs()
         {
         }
     }

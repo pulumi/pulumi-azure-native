@@ -168,5 +168,6 @@ func (o ManagementGroupOutput) ToManagementGroupOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupInput)(nil)).Elem(), &ManagementGroup{})
 	pulumi.RegisterOutputType(ManagementGroupOutput{})
 }

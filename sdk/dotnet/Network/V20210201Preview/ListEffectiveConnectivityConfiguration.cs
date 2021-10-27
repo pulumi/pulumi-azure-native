@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Task<ListEffectiveConnectivityConfigurationResult> InvokeAsync(ListEffectiveConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+        /// </summary>
+        public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string VirtualNetworkName { get; set; } = null!;
 
         public ListEffectiveConnectivityConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class ListEffectiveConnectivityConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
+
+        public ListEffectiveConnectivityConfigurationInvokeArgs()
         {
         }
     }

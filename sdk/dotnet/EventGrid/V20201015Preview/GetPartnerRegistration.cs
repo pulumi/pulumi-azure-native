@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid/v20201015preview:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about a partner registration.
+        /// </summary>
+        public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid/v20201015preview:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPartnerRegistrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetPartnerRegistrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the partner registration.
+        /// </summary>
+        [Input("partnerRegistrationName", required: true)]
+        public Input<string> PartnerRegistrationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPartnerRegistrationInvokeArgs()
         {
         }
     }

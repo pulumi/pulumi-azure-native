@@ -279,5 +279,6 @@ func (o VirtualWANOutput) ToVirtualWANOutputWithContext(ctx context.Context) Vir
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWANInput)(nil)).Elem(), &VirtualWAN{})
 	pulumi.RegisterOutputType(VirtualWANOutput{})
 }

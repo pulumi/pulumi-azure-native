@@ -135,5 +135,6 @@ func (o NetworkExperimentProfileOutput) ToNetworkExperimentProfileOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkExperimentProfileInput)(nil)).Elem(), &NetworkExperimentProfile{})
 	pulumi.RegisterOutputType(NetworkExperimentProfileOutput{})
 }

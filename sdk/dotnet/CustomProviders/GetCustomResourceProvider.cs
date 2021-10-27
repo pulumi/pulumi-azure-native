@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomProviders
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.CustomProviders
         /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A manifest file that defines the custom resource provider resources.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.CustomProviders
         public string ResourceProviderName { get; set; } = null!;
 
         public GetCustomResourceProviderArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomResourceProviderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource provider.
+        /// </summary>
+        [Input("resourceProviderName", required: true)]
+        public Input<string> ResourceProviderName { get; set; } = null!;
+
+        public GetCustomResourceProviderInvokeArgs()
         {
         }
     }

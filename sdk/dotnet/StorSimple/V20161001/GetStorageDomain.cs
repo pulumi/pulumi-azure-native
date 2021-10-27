@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The storage domain.
+        /// </summary>
+        public static Output<GetStorageDomainResult> Invoke(GetStorageDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string StorageDomainName { get; set; } = null!;
 
         public GetStorageDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage domain name.
+        /// </summary>
+        [Input("storageDomainName", required: true)]
+        public Input<string> StorageDomainName { get; set; } = null!;
+
+        public GetStorageDomainInvokeArgs()
         {
         }
     }

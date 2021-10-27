@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20191201
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network/v20191201:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ExpressRouteCircuit resource.
+        /// </summary>
+        public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network/v20191201:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20191201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteCircuitArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteCircuitInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of express route circuit.
+        /// </summary>
+        [Input("circuitName", required: true)]
+        public Input<string> CircuitName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteCircuitInvokeArgs()
         {
         }
     }

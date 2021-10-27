@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The gateway definition
+        /// </summary>
+        public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20160601
         public string? SubscriptionId { get; set; }
 
         public GetConnectionGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectionGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The connection gateway name
+        /// </summary>
+        [Input("connectionGatewayName", required: true)]
+        public Input<string> ConnectionGatewayName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetConnectionGatewayInvokeArgs()
         {
         }
     }

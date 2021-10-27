@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response to get user settings
+        /// API Version: 2018-10-01.
+        /// </summary>
+        public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Portal
         public string UserSettingsName { get; set; } = null!;
 
         public GetUserSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the user settings
+        /// </summary>
+        [Input("userSettingsName", required: true)]
+        public Input<string> UserSettingsName { get; set; } = null!;
+
+        public GetUserSettingsInvokeArgs()
         {
         }
     }

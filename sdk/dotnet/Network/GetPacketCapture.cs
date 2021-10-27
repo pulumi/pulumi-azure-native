@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about packet capture session.
+        /// API Version: 2020-11-01.
+        /// </summary>
+        public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPacketCaptureArgs()
+        {
+        }
+    }
+
+    public sealed class GetPacketCaptureInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the network watcher.
+        /// </summary>
+        [Input("networkWatcherName", required: true)]
+        public Input<string> NetworkWatcherName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the packet capture session.
+        /// </summary>
+        [Input("packetCaptureName", required: true)]
+        public Input<string> PacketCaptureName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPacketCaptureInvokeArgs()
         {
         }
     }

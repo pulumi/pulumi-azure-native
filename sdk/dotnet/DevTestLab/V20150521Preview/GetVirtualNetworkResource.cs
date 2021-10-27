@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// </summary>
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A virtual network.
+        /// </summary>
+        public static Output<GetVirtualNetworkResourceResult> Invoke(GetVirtualNetworkResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualNetworkResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualNetworkResourceInvokeArgs()
         {
         }
     }

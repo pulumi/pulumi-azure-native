@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20190201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-native:eventgrid/v20190201preview:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Domain Topic
+        /// </summary>
+        public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid/v20190201preview:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDomainTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetDomainTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the domain
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the topic
+        /// </summary>
+        [Input("domainTopicName", required: true)]
+        public Input<string> DomainTopicName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDomainTopicInvokeArgs()
         {
         }
     }

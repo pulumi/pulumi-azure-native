@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
         /// </summary>
         public static Task<GetServiceTaskResult> InvokeAsync(GetServiceTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTaskResult>("azure-native:datamigration/v20180715preview:getServiceTask", args ?? new GetServiceTaskArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A task resource
+        /// </summary>
+        public static Output<GetServiceTaskResult> Invoke(GetServiceTaskInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceTaskResult>("azure-native:datamigration/v20180715preview:getServiceTask", args ?? new GetServiceTaskInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
         public string TaskName { get; set; } = null!;
 
         public GetServiceTaskArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceTaskInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expand the response
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the service
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Task
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
+
+        public GetServiceTaskInvokeArgs()
         {
         }
     }

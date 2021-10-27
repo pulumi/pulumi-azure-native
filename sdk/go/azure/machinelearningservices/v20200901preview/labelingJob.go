@@ -135,5 +135,6 @@ func (o LabelingJobOutput) ToLabelingJobOutputWithContext(ctx context.Context) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInput)(nil)).Elem(), &LabelingJob{})
 	pulumi.RegisterOutputType(LabelingJobOutput{})
 }

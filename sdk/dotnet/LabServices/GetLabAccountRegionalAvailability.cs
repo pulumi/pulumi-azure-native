@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The response model from the GetRegionalAvailability action
+        /// API Version: 2018-10-15.
+        /// </summary>
+        public static Output<GetLabAccountRegionalAvailabilityResult> Invoke(GetLabAccountRegionalAvailabilityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.LabServices
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabAccountRegionalAvailabilityArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabAccountRegionalAvailabilityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab Account.
+        /// </summary>
+        [Input("labAccountName", required: true)]
+        public Input<string> LabAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabAccountRegionalAvailabilityInvokeArgs()
         {
         }
     }

@@ -375,5 +375,6 @@ func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupInput)(nil)).Elem(), &NetworkSecurityGroup{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
 }

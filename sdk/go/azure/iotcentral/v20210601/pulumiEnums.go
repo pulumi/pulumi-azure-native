@@ -340,6 +340,10 @@ func (in *systemAssignedServiceIdentityTypePtr) ToSystemAssignedServiceIdentityT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInput)(nil)).Elem(), AppSku("ST0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuPtrInput)(nil)).Elem(), AppSku("ST0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityTypeInput)(nil)).Elem(), SystemAssignedServiceIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityTypePtrInput)(nil)).Elem(), SystemAssignedServiceIdentityType("None"))
 	pulumi.RegisterOutputType(AppSkuOutput{})
 	pulumi.RegisterOutputType(AppSkuPtrOutput{})
 	pulumi.RegisterOutputType(SystemAssignedServiceIdentityTypeOutput{})

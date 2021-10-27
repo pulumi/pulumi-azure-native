@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20190801preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Linked storage accounts top level resource container.
+        /// </summary>
+        public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20190801preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetLinkedStorageAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetLinkedStorageAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Linked storage accounts type.
+        /// </summary>
+        [Input("dataSourceType", required: true)]
+        public Input<string> DataSourceType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Log Analytics Workspace that will contain the resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetLinkedStorageAccountInvokeArgs()
         {
         }
     }

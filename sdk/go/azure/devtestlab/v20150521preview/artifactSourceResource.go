@@ -171,5 +171,6 @@ func (o ArtifactSourceResourceOutput) ToArtifactSourceResourceOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceResourceInput)(nil)).Elem(), &ArtifactSourceResource{})
 	pulumi.RegisterOutputType(ArtifactSourceResourceOutput{})
 }

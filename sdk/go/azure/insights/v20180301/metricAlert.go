@@ -179,5 +179,6 @@ func (o MetricAlertOutput) ToMetricAlertOutputWithContext(ctx context.Context) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertInput)(nil)).Elem(), &MetricAlert{})
 	pulumi.RegisterOutputType(MetricAlertOutput{})
 }

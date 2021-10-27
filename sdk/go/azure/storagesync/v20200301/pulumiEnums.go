@@ -833,6 +833,16 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureStatusInput)(nil)).Elem(), FeatureStatus("on"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureStatusPtrInput)(nil)).Elem(), FeatureStatus("on"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IncomingTrafficPolicyInput)(nil)).Elem(), IncomingTrafficPolicy("AllowAllTraffic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IncomingTrafficPolicyPtrInput)(nil)).Elem(), IncomingTrafficPolicy("AllowAllTraffic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InitialDownloadPolicyInput)(nil)).Elem(), InitialDownloadPolicy("NamespaceOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InitialDownloadPolicyPtrInput)(nil)).Elem(), InitialDownloadPolicy("NamespaceOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalCacheModeInput)(nil)).Elem(), LocalCacheMode("DownloadNewAndModifiedFiles"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalCacheModePtrInput)(nil)).Elem(), LocalCacheMode("DownloadNewAndModifiedFiles"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
 	pulumi.RegisterOutputType(FeatureStatusOutput{})
 	pulumi.RegisterOutputType(FeatureStatusPtrOutput{})
 	pulumi.RegisterOutputType(IncomingTrafficPolicyOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20210601
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:storage/v20210601:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Encryption Scope resource.
+        /// </summary>
+        public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage/v20210601:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Storage.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEncryptionScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetEncryptionScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        /// </summary>
+        [Input("encryptionScopeName", required: true)]
+        public Input<string> EncryptionScopeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEncryptionScopeInvokeArgs()
         {
         }
     }

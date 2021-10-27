@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// </summary>
         public static Task<GetWebApplicationFirewallPolicyResult> InvokeAsync(GetWebApplicationFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20210201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines web application firewall policy.
+        /// </summary>
+        public static Output<GetWebApplicationFirewallPolicyResult> Invoke(GetWebApplicationFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20210201:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Network.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebApplicationFirewallPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebApplicationFirewallPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the policy.
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebApplicationFirewallPolicyInvokeArgs()
         {
         }
     }

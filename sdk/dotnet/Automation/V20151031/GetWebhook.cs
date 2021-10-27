@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20151031
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:automation/v20151031:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the webhook type.
+        /// </summary>
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation/v20151031:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20151031
         public string WebhookName { get; set; } = null!;
 
         public GetWebhookArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebhookInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The webhook name.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public Input<string> WebhookName { get; set; } = null!;
+
+        public GetWebhookInvokeArgs()
         {
         }
     }

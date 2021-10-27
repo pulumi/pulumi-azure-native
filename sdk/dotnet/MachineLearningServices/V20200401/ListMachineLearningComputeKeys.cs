@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200401
         /// </summary>
         public static Task<ListMachineLearningComputeKeysResult> InvokeAsync(ListMachineLearningComputeKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices/v20200401:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+        /// </summary>
+        public static Output<ListMachineLearningComputeKeysResult> Invoke(ListMachineLearningComputeKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices/v20200401:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200401
         public string WorkspaceName { get; set; } = null!;
 
         public ListMachineLearningComputeKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListMachineLearningComputeKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Azure Machine Learning compute.
+        /// </summary>
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListMachineLearningComputeKeysInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20210801preview:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An object that represents a webhook for a container registry.
+        /// </summary>
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20210801preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         public string WebhookName { get; set; } = null!;
 
         public GetWebhookArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebhookInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the webhook.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public Input<string> WebhookName { get; set; } = null!;
+
+        public GetWebhookInvokeArgs()
         {
         }
     }

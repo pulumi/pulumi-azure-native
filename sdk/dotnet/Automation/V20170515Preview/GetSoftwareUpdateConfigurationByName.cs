@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20170515Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
         /// </summary>
         public static Task<GetSoftwareUpdateConfigurationByNameResult> InvokeAsync(GetSoftwareUpdateConfigurationByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Software update configuration properties.
+        /// </summary>
+        public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
         public string SoftwareUpdateConfigurationName { get; set; } = null!;
 
         public GetSoftwareUpdateConfigurationByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetSoftwareUpdateConfigurationByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the software update configuration to be created.
+        /// </summary>
+        [Input("softwareUpdateConfigurationName", required: true)]
+        public Input<string> SoftwareUpdateConfigurationName { get; set; } = null!;
+
+        public GetSoftwareUpdateConfigurationByNameInvokeArgs()
         {
         }
     }

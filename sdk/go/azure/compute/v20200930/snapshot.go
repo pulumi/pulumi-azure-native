@@ -243,5 +243,6 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotInput)(nil)).Elem(), &Snapshot{})
 	pulumi.RegisterOutputType(SnapshotOutput{})
 }

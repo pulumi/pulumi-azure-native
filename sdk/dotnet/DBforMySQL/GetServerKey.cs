@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMySQL
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformysql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A MySQL Server key.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbformysql:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DBforMySQL
         public string ServerName { get; set; } = null!;
 
         public GetServerKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the MySQL Server key to be retrieved.
+        /// </summary>
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetServerKeyInvokeArgs()
         {
         }
     }

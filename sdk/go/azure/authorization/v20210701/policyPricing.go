@@ -128,5 +128,6 @@ func (o PolicyPricingOutput) ToPolicyPricingOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPricingInput)(nil)).Elem(), &PolicyPricing{})
 	pulumi.RegisterOutputType(PolicyPricingOutput{})
 }

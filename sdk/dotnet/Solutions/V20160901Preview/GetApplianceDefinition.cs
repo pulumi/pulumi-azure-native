@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Solutions.V20160901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         /// </summary>
         public static Task<GetApplianceDefinitionResult> InvokeAsync(GetApplianceDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about appliance definition.
+        /// </summary>
+        public static Output<GetApplianceDefinitionResult> Invoke(GetApplianceDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplianceDefinitionResult>("azure-native:solutions/v20160901preview:getApplianceDefinition", args ?? new GetApplianceDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetApplianceDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplianceDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the appliance definition.
+        /// </summary>
+        [Input("applianceDefinitionName", required: true)]
+        public Input<string> ApplianceDefinitionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetApplianceDefinitionInvokeArgs()
         {
         }
     }

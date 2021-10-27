@@ -144,5 +144,6 @@ func (o ManagerOutput) ToManagerOutputWithContext(ctx context.Context) ManagerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagerInput)(nil)).Elem(), &Manager{})
 	pulumi.RegisterOutputType(ManagerOutput{})
 }

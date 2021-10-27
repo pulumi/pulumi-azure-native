@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge/v20200901preview:getArcAddon", args ?? new GetArcAddonArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Arc Addon.
+        /// </summary>
+        public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge/v20200901preview:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         public string RoleName { get; set; } = null!;
 
         public GetArcAddonArgs()
+        {
+        }
+    }
+
+    public sealed class GetArcAddonInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The addon name.
+        /// </summary>
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("roleName", required: true)]
+        public Input<string> RoleName { get; set; } = null!;
+
+        public GetArcAddonInvokeArgs()
         {
         }
     }

@@ -145,5 +145,6 @@ func (o FileServerOutput) ToFileServerOutputWithContext(ctx context.Context) Fil
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileServerInput)(nil)).Elem(), &FileServer{})
 	pulumi.RegisterOutputType(FileServerOutput{})
 }

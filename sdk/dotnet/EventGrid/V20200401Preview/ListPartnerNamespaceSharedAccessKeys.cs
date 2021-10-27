@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public static Task<ListPartnerNamespaceSharedAccessKeysResult> InvokeAsync(ListPartnerNamespaceSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid/v20200401preview:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Shared access keys of the partner namespace.
+        /// </summary>
+        public static Output<ListPartnerNamespaceSharedAccessKeysResult> Invoke(ListPartnerNamespaceSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid/v20200401preview:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListPartnerNamespaceSharedAccessKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListPartnerNamespaceSharedAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the partner namespace.
+        /// </summary>
+        [Input("partnerNamespaceName", required: true)]
+        public Input<string> PartnerNamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListPartnerNamespaceSharedAccessKeysInvokeArgs()
         {
         }
     }

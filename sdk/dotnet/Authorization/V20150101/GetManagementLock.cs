@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20150101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         /// </summary>
         public static Task<GetManagementLockResult> InvokeAsync(GetManagementLockArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Management lock information.
+        /// </summary>
+        public static Output<GetManagementLockResult> Invoke(GetManagementLockInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockResult>("azure-native:authorization/v20150101:getManagementLock", args ?? new GetManagementLockInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.AzureNative.Authorization.V20150101
         public string LockName { get; set; } = null!;
 
         public GetManagementLockArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementLockInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the management lock.
+        /// </summary>
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        public GetManagementLockInvokeArgs()
         {
         }
     }

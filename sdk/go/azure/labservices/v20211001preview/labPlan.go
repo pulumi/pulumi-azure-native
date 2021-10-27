@@ -149,5 +149,6 @@ func (o LabPlanOutput) ToLabPlanOutputWithContext(ctx context.Context) LabPlanOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabPlanInput)(nil)).Elem(), &LabPlan{})
 	pulumi.RegisterOutputType(LabPlanOutput{})
 }

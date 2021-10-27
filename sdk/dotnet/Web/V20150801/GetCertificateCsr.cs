@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetCertificateCsrResult> InvokeAsync(GetCertificateCsrArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Certificate signing request object
+        /// </summary>
+        public static Output<GetCertificateCsrResult> Invoke(GetCertificateCsrInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateCsrResult>("azure-native:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCertificateCsrArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateCsrInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the certificate.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCertificateCsrInvokeArgs()
         {
         }
     }

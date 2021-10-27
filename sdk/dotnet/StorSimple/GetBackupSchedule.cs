@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public static Task<GetBackupScheduleResult> InvokeAsync(GetBackupScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The backup schedule.
+        /// API Version: 2017-06-01.
+        /// </summary>
+        public static Output<GetBackupScheduleResult> Invoke(GetBackupScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.StorSimple
         public string ResourceGroupName { get; set; } = null!;
 
         public GetBackupScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetBackupScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The backup policy name.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public Input<string> BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the backup schedule to be fetched
+        /// </summary>
+        [Input("backupScheduleName", required: true)]
+        public Input<string> BackupScheduleName { get; set; } = null!;
+
+        /// <summary>
+        /// The device name
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetBackupScheduleInvokeArgs()
         {
         }
     }

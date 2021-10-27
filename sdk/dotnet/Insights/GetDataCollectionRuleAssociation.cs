@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of generic ARM proxy resource.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
+        public static Output<GetDataCollectionRuleAssociationResult> Invoke(GetDataCollectionRuleAssociationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceUri { get; set; } = null!;
 
         public GetDataCollectionRuleAssociationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataCollectionRuleAssociationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the association. The name is case insensitive.
+        /// </summary>
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceUri", required: true)]
+        public Input<string> ResourceUri { get; set; } = null!;
+
+        public GetDataCollectionRuleAssociationInvokeArgs()
         {
         }
     }

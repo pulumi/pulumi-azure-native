@@ -174,5 +174,6 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonInput)(nil)).Elem(), &Addon{})
 	pulumi.RegisterOutputType(AddonOutput{})
 }

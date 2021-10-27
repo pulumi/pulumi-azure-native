@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeStore
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:datalakestore:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data Lake Store virtual network rule information.
+        /// API Version: 2016-11-01.
+        /// </summary>
+        public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:datalakestore:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.DataLakeStore
         public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualNetworkRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Store account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule to retrieve.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+
+        public GetVirtualNetworkRuleInvokeArgs()
         {
         }
     }

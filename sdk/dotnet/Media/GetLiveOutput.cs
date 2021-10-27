@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Live Output.
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Media
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLiveOutputArgs()
+        {
+        }
+    }
+
+    public sealed class GetLiveOutputInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the live event, maximum length is 32.
+        /// </summary>
+        [Input("liveEventName", required: true)]
+        public Input<string> LiveEventName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the live output.
+        /// </summary>
+        [Input("liveOutputName", required: true)]
+        public Input<string> LiveOutputName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLiveOutputInvokeArgs()
         {
         }
     }

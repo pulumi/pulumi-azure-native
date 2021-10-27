@@ -177,6 +177,8 @@ func (in *blockchainProtocolPtr) ToBlockchainProtocolPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainProtocolInput)(nil)).Elem(), BlockchainProtocol("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockchainProtocolPtrInput)(nil)).Elem(), BlockchainProtocol("NotSpecified"))
 	pulumi.RegisterOutputType(BlockchainProtocolOutput{})
 	pulumi.RegisterOutputType(BlockchainProtocolPtrOutput{})
 }

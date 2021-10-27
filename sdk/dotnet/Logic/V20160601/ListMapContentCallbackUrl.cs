@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Task<ListMapContentCallbackUrlResult> InvokeAsync(ListMapContentCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// </summary>
+        public static Output<ListMapContentCallbackUrlResult> Invoke(ListMapContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListMapContentCallbackUrlResult>("azure-native:logic/v20160601:listMapContentCallbackUrl", args ?? new ListMapContentCallbackUrlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Logic.V20160601
         public string ResourceGroupName { get; set; } = null!;
 
         public ListMapContentCallbackUrlArgs()
+        {
+        }
+    }
+
+    public sealed class ListMapContentCallbackUrlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The key type.
+        /// </summary>
+        [Input("keyType")]
+        public Input<Pulumi.AzureNative.Logic.V20160601.KeyType>? KeyType { get; set; }
+
+        /// <summary>
+        /// The integration account map name.
+        /// </summary>
+        [Input("mapName", required: true)]
+        public Input<string> MapName { get; set; } = null!;
+
+        /// <summary>
+        /// The expiry time.
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListMapContentCallbackUrlInvokeArgs()
         {
         }
     }

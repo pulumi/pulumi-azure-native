@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search.V20150819
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Search.V20150819
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20150819:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+        /// </summary>
+        public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20150819:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Search.V20150819
         public string SearchServiceName { get; set; } = null!;
 
         public ListAdminKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListAdminKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// </summary>
+        [Input("searchServiceName", required: true)]
+        public Input<string> SearchServiceName { get; set; } = null!;
+
+        public ListAdminKeyInvokeArgs()
         {
         }
     }

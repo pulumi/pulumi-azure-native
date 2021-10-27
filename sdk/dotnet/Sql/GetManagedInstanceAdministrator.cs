@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Task<GetManagedInstanceAdministratorResult> InvokeAsync(GetManagedInstanceAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure SQL managed instance administrator.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
+        public static Output<GetManagedInstanceAdministratorResult> Invoke(GetManagedInstanceAdministratorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -38,6 +46,28 @@ namespace Pulumi.AzureNative.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedInstanceAdministratorArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedInstanceAdministratorInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed instance.
+        /// </summary>
+        [Input("managedInstanceName", required: true)]
+        public Input<string> ManagedInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedInstanceAdministratorInvokeArgs()
         {
         }
     }

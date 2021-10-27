@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20160901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization.V20160901
         /// </summary>
         public static Task<GetManagementLockAtResourceLevelResult> InvokeAsync(GetManagementLockAtResourceLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceLevelResult>("azure-native:authorization/v20160901:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The lock information.
+        /// </summary>
+        public static Output<GetManagementLockAtResourceLevelResult> Invoke(GetManagementLockAtResourceLevelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceLevelResult>("azure-native:authorization/v20160901:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.AzureNative.Authorization.V20160901
         public string ResourceType { get; set; } = null!;
 
         public GetManagementLockAtResourceLevelArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementLockAtResourceLevelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of lock.
+        /// </summary>
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
+
+        /// <summary>
+        /// An extra path parameter needed in some services, like SQL Databases.
+        /// </summary>
+        [Input("parentResourcePath", required: true)]
+        public Input<string> ParentResourcePath { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. 
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of the resource provider.
+        /// </summary>
+        [Input("resourceProviderNamespace", required: true)]
+        public Input<string> ResourceProviderNamespace { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
+
+        public GetManagementLockAtResourceLevelInvokeArgs()
         {
         }
     }

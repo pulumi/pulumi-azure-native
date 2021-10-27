@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+        /// API Version: 2016-03-01.
+        /// </summary>
+        public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOutputArgs()
+        {
+        }
+    }
+
+    public sealed class GetOutputInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the streaming job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the output.
+        /// </summary>
+        [Input("outputName", required: true)]
+        public Input<string> OutputName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOutputInvokeArgs()
         {
         }
     }

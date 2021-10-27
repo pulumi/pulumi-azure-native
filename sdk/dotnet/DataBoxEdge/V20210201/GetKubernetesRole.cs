@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
@@ -23,6 +24,19 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge/v20210201:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The limited preview of Kubernetes Cluster Management from the Azure supports:
+        /// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device. 
+        /// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal. 
+        ///  Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+        /// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data. 
+        ///  For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf 
+        ///  Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+        ///  By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+        /// </summary>
+        public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge/v20210201:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +61,31 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         public string ResourceGroupName { get; set; } = null!;
 
         public GetKubernetesRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetKubernetesRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetKubernetesRoleInvokeArgs()
         {
         }
     }

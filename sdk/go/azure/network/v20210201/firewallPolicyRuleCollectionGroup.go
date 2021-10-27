@@ -179,5 +179,6 @@ func (o FirewallPolicyRuleCollectionGroupOutput) ToFirewallPolicyRuleCollectionG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupInput)(nil)).Elem(), &FirewallPolicyRuleCollectionGroup{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupOutput{})
 }

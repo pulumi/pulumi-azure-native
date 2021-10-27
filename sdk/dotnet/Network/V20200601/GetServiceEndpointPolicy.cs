@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// </summary>
         public static Task<GetServiceEndpointPolicyResult> InvokeAsync(GetServiceEndpointPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyResult>("azure-native:network/v20200601:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Service End point policy resource.
+        /// </summary>
+        public static Output<GetServiceEndpointPolicyResult> Invoke(GetServiceEndpointPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyResult>("azure-native:network/v20200601:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200601
         public string ServiceEndpointPolicyName { get; set; } = null!;
 
         public GetServiceEndpointPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceEndpointPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service endpoint policy.
+        /// </summary>
+        [Input("serviceEndpointPolicyName", required: true)]
+        public Input<string> ServiceEndpointPolicyName { get; set; } = null!;
+
+        public GetServiceEndpointPolicyInvokeArgs()
         {
         }
     }

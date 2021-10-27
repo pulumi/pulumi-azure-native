@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         /// </summary>
         public static Task<GetCassandraResourceCassandraViewResult> InvokeAsync(GetCassandraResourceCassandraViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraViewResult>("azure-native:documentdb/v20210701preview:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra view.
+        /// </summary>
+        public static Output<GetCassandraResourceCassandraViewResult> Invoke(GetCassandraResourceCassandraViewInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraViewResult>("azure-native:documentdb/v20210701preview:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
         public string ViewName { get; set; } = null!;
 
         public GetCassandraResourceCassandraViewArgs()
+        {
+        }
+    }
+
+    public sealed class GetCassandraResourceCassandraViewInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB keyspace name.
+        /// </summary>
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB view name.
+        /// </summary>
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
+
+        public GetCassandraResourceCassandraViewInvokeArgs()
         {
         }
     }

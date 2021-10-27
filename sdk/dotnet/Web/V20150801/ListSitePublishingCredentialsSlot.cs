@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<ListSitePublishingCredentialsSlotResult> InvokeAsync(ListSitePublishingCredentialsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
+        public static Output<ListSitePublishingCredentialsSlotResult> Invoke(ListSitePublishingCredentialsSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string Slot { get; set; } = null!;
 
         public ListSitePublishingCredentialsSlotArgs()
+        {
+        }
+    }
+
+    public sealed class ListSitePublishingCredentialsSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of web app
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public ListSitePublishingCredentialsSlotInvokeArgs()
         {
         }
     }

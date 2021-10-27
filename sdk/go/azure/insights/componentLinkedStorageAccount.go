@@ -128,5 +128,6 @@ func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentLinkedStorageAccountInput)(nil)).Elem(), &ComponentLinkedStorageAccount{})
 	pulumi.RegisterOutputType(ComponentLinkedStorageAccountOutput{})
 }

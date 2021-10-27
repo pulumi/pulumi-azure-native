@@ -506,6 +506,12 @@ func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusInput)(nil)).Elem(), Status("Unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatusPtrInput)(nil)).Elem(), Status("Unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("SystemAssigned"))
 	pulumi.RegisterOutputType(PublicNetworkAccessOutput{})
 	pulumi.RegisterOutputType(PublicNetworkAccessPtrOutput{})
 	pulumi.RegisterOutputType(StatusOutput{})

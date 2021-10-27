@@ -155,5 +155,6 @@ func (o TokenOutput) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenInput)(nil)).Elem(), &Token{})
 	pulumi.RegisterOutputType(TokenOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Single item in List or Get Migration Config operation
+        /// API Version: 2017-04-01.
+        /// </summary>
+        public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ServiceBus
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMigrationConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetMigrationConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The configuration name. Should always be "$default".
+        /// </summary>
+        [Input("configName", required: true)]
+        public Input<string> ConfigName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMigrationConfigInvokeArgs()
         {
         }
     }

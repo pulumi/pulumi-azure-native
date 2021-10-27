@@ -333,5 +333,6 @@ func (o RouteFilterOutput) ToRouteFilterOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterInput)(nil)).Elem(), &RouteFilter{})
 	pulumi.RegisterOutputType(RouteFilterOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of key vault keys.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Logic
         public string? SkipToken { get; set; }
 
         public ListIntegrationAccountKeyVaultKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListIntegrationAccountKeyVaultKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration account name.
+        /// </summary>
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The key vault reference.
+        /// </summary>
+        [Input("keyVault", required: true)]
+        public Input<Inputs.KeyVaultReferenceArgs> KeyVault { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The skip token.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListIntegrationAccountKeyVaultKeysInvokeArgs()
         {
         }
     }

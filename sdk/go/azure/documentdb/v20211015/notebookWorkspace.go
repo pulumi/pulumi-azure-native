@@ -211,5 +211,6 @@ func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookWorkspaceInput)(nil)).Elem(), &NotebookWorkspace{})
 	pulumi.RegisterOutputType(NotebookWorkspaceOutput{})
 }

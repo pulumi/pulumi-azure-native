@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Storage.V20210601
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210601:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of a storage account’s Queue service.
+        /// </summary>
+        public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210601:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Storage.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetQueueServicePropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class GetQueueServicePropertiesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
+        /// </summary>
+        [Input("queueServiceName", required: true)]
+        public Input<string> QueueServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetQueueServicePropertiesInvokeArgs()
         {
         }
     }

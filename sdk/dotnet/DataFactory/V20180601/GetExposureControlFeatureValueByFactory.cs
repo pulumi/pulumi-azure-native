@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Task<GetExposureControlFeatureValueByFactoryResult> InvokeAsync(GetExposureControlFeatureValueByFactoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The exposure control response.
+        /// </summary>
+        public static Output<GetExposureControlFeatureValueByFactoryResult> Invoke(GetExposureControlFeatureValueByFactoryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExposureControlFeatureValueByFactoryArgs()
+        {
+        }
+    }
+
+    public sealed class GetExposureControlFeatureValueByFactoryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The feature name.
+        /// </summary>
+        [Input("featureName")]
+        public Input<string>? FeatureName { get; set; }
+
+        /// <summary>
+        /// The feature type.
+        /// </summary>
+        [Input("featureType")]
+        public Input<string>? FeatureType { get; set; }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExposureControlFeatureValueByFactoryInvokeArgs()
         {
         }
     }

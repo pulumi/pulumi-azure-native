@@ -675,6 +675,12 @@ func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceStorageProfileTypesInput)(nil)).Elem(), ContainerServiceStorageProfileTypes("StorageAccount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceStorageProfileTypesPtrInput)(nil)).Elem(), ContainerServiceStorageProfileTypes("StorageAccount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesPtrInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypeInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypePtrInput)(nil)).Elem(), OSType("Linux"))
 	pulumi.RegisterOutputType(ContainerServiceStorageProfileTypesOutput{})
 	pulumi.RegisterOutputType(ContainerServiceStorageProfileTypesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})

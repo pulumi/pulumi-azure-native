@@ -155,5 +155,6 @@ func (o EventChannelOutput) ToEventChannelOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventChannelInput)(nil)).Elem(), &EventChannel{})
 	pulumi.RegisterOutputType(EventChannelOutput{})
 }

@@ -168,5 +168,6 @@ func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeInput)(nil)).Elem(), &IntegrationRuntime{})
 	pulumi.RegisterOutputType(IntegrationRuntimeOutput{})
 }

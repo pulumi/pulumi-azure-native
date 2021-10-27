@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus/v20170401:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// </summary>
+        public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus/v20170401:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDisasterRecoveryConfigKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListDisasterRecoveryConfigKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Disaster Recovery configuration name
+        /// </summary>
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
+
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDisasterRecoveryConfigKeysInvokeArgs()
         {
         }
     }

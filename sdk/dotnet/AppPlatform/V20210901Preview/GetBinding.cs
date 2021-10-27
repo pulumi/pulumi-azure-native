@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform/v20210901preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Binding resource payload
+        /// </summary>
+        public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform/v20210901preview:getBinding", args ?? new GetBindingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
         public string ServiceName { get; set; } = null!;
 
         public GetBindingArgs()
+        {
+        }
+    }
+
+    public sealed class GetBindingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App resource.
+        /// </summary>
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Binding resource.
+        /// </summary>
+        [Input("bindingName", required: true)]
+        public Input<string> BindingName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service resource.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetBindingInvokeArgs()
         {
         }
     }

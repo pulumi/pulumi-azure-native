@@ -141,5 +141,6 @@ func (o NotificationRegistrationOutput) ToNotificationRegistrationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRegistrationInput)(nil)).Elem(), &NotificationRegistration{})
 	pulumi.RegisterOutputType(NotificationRegistrationOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The resource that defines the source location where the artifacts are located.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
+        public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.DeploymentManager
         public string ResourceGroupName { get; set; } = null!;
 
         public GetArtifactSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetArtifactSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the artifact source.
+        /// </summary>
+        [Input("artifactSourceName", required: true)]
+        public Input<string> ArtifactSourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetArtifactSourceInvokeArgs()
         {
         }
     }

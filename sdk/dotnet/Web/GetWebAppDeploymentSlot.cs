@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetWebAppDeploymentSlotResult> InvokeAsync(GetWebAppDeploymentSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetWebAppDeploymentSlotResult> Invoke(GetWebAppDeploymentSlotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentSlotResult>("azure-native:web:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.Web
         public string Slot { get; set; } = null!;
 
         public GetWebAppDeploymentSlotArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppDeploymentSlotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Deployment ID.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public GetWebAppDeploymentSlotInvokeArgs()
         {
         }
     }

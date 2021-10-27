@@ -140,5 +140,6 @@ func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedPrivateLinkResourceInput)(nil)).Elem(), &SharedPrivateLinkResource{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 }

@@ -227,5 +227,6 @@ func (o SiteVNETConnectionSlotOutput) ToSiteVNETConnectionSlotOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteVNETConnectionSlotInput)(nil)).Elem(), &SiteVNETConnectionSlot{})
 	pulumi.RegisterOutputType(SiteVNETConnectionSlotOutput{})
 }

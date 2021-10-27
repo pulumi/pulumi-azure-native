@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Event Channel.
+        /// </summary>
+        public static Output<GetEventChannelResult> Invoke(GetEventChannelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventChannelArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventChannelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the event channel.
+        /// </summary>
+        [Input("eventChannelName", required: true)]
+        public Input<string> EventChannelName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the partner namespace.
+        /// </summary>
+        [Input("partnerNamespaceName", required: true)]
+        public Input<string> PartnerNamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventChannelInvokeArgs()
         {
         }
     }

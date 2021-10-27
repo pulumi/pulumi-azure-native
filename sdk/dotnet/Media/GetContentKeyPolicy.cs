@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Content Key Policy resource.
+        /// API Version: 2020-05-01.
+        /// </summary>
+        public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Media
         public string ResourceGroupName { get; set; } = null!;
 
         public GetContentKeyPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetContentKeyPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Content Key Policy name.
+        /// </summary>
+        [Input("contentKeyPolicyName", required: true)]
+        public Input<string> ContentKeyPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetContentKeyPolicyInvokeArgs()
         {
         }
     }

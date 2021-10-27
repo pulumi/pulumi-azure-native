@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Task<GetADLSGen2StorageAccountDataSetMappingResult> InvokeAsync(GetADLSGen2StorageAccountDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2StorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", args ?? new GetADLSGen2StorageAccountDataSetMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ADLSGen2 storage account data set mapping.
+        /// </summary>
+        public static Output<GetADLSGen2StorageAccountDataSetMappingResult> Invoke(GetADLSGen2StorageAccountDataSetMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", args ?? new GetADLSGen2StorageAccountDataSetMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public string ShareSubscriptionName { get; set; } = null!;
 
         public GetADLSGen2StorageAccountDataSetMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetADLSGen2StorageAccountDataSetMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the dataSetMapping.
+        /// </summary>
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the shareSubscription.
+        /// </summary>
+        [Input("shareSubscriptionName", required: true)]
+        public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        public GetADLSGen2StorageAccountDataSetMappingInvokeArgs()
         {
         }
     }

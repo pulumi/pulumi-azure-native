@@ -337,5 +337,6 @@ func (o ConnectionMonitorOutput) ToConnectionMonitorOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionMonitorInput)(nil)).Elem(), &ConnectionMonitor{})
 	pulumi.RegisterOutputType(ConnectionMonitorOutput{})
 }

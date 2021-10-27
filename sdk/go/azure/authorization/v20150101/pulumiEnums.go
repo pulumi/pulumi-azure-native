@@ -176,6 +176,8 @@ func (in *lockLevelPtr) ToLockLevelPtrOutputWithContext(ctx context.Context) Loc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LockLevelInput)(nil)).Elem(), LockLevel("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LockLevelPtrInput)(nil)).Elem(), LockLevel("NotSpecified"))
 	pulumi.RegisterOutputType(LockLevelOutput{})
 	pulumi.RegisterOutputType(LockLevelPtrOutput{})
 }

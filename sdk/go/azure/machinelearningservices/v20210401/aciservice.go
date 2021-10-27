@@ -204,5 +204,6 @@ func (o ACIServiceOutput) ToACIServiceOutputWithContext(ctx context.Context) ACI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ACIServiceInput)(nil)).Elem(), &ACIService{})
 	pulumi.RegisterOutputType(ACIServiceOutput{})
 }

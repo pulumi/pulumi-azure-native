@@ -168,5 +168,6 @@ func (o FormulaResourceOutput) ToFormulaResourceOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FormulaResourceInput)(nil)).Elem(), &FormulaResource{})
 	pulumi.RegisterOutputType(FormulaResourceOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Resources.V20210501
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources/v20210501:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Template Spec object.
+        /// </summary>
+        public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20210501:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Resources.V20210501
         public string TemplateSpecName { get; set; } = null!;
 
         public GetTemplateSpecArgs()
+        {
+        }
+    }
+
+    public sealed class GetTemplateSpecInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Allows for expansion of additional Template Spec details in the response. Optional.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Template Spec.
+        /// </summary>
+        [Input("templateSpecName", required: true)]
+        public Input<string> TemplateSpecName { get; set; } = null!;
+
+        public GetTemplateSpecInvokeArgs()
         {
         }
     }

@@ -162,5 +162,6 @@ func (o SiteInstanceDeploymentOutput) ToSiteInstanceDeploymentOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteInstanceDeploymentInput)(nil)).Elem(), &SiteInstanceDeployment{})
 	pulumi.RegisterOutputType(SiteInstanceDeploymentOutput{})
 }

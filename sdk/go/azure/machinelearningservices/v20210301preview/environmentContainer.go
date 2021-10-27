@@ -132,5 +132,6 @@ func (o EnvironmentContainerOutput) ToEnvironmentContainerOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentContainerInput)(nil)).Elem(), &EnvironmentContainer{})
 	pulumi.RegisterOutputType(EnvironmentContainerOutput{})
 }

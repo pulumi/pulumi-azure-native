@@ -164,5 +164,6 @@ func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorInstanceServiceDetailsInput)(nil)).Elem(), &OrchestratorInstanceServiceDetails{})
 	pulumi.RegisterOutputType(OrchestratorInstanceServiceDetailsOutput{})
 }

@@ -155,5 +155,6 @@ func (o GetbotOutput) ToGetbotOutputWithContext(ctx context.Context) GetbotOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetbotInput)(nil)).Elem(), &Getbot{})
 	pulumi.RegisterOutputType(GetbotOutput{})
 }

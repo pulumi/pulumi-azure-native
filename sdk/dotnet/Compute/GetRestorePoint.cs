@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Task<GetRestorePointResult> InvokeAsync(GetRestorePointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Restore Point details.
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<GetRestorePointResult> Invoke(GetRestorePointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Compute
         public string RestorePointName { get; set; } = null!;
 
         public GetRestorePointArgs()
+        {
+        }
+    }
+
+    public sealed class GetRestorePointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the restore point collection.
+        /// </summary>
+        [Input("restorePointCollectionName", required: true)]
+        public Input<string> RestorePointCollectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the restore point.
+        /// </summary>
+        [Input("restorePointName", required: true)]
+        public Input<string> RestorePointName { get; set; } = null!;
+
+        public GetRestorePointInvokeArgs()
         {
         }
     }

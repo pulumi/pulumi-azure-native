@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.HybridData
         /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-native:hybriddata:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Data store.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetDataStoreResult> Invoke(GetDataStoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.HybridData
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDataStoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataStoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("dataManagerName", required: true)]
+        public Input<string> DataManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The data store/repository name queried.
+        /// </summary>
+        [Input("dataStoreName", required: true)]
+        public Input<string> DataStoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDataStoreInvokeArgs()
         {
         }
     }

@@ -146,5 +146,6 @@ func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionL
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockAtSubscriptionLevelInput)(nil)).Elem(), &ManagementLockAtSubscriptionLevel{})
 	pulumi.RegisterOutputType(ManagementLockAtSubscriptionLevelOutput{})
 }

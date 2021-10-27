@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/EventHub Connection String
+        /// </summary>
+        public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public ListEventHubKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListEventHubKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The Event Hub name
+        /// </summary>
+        [Input("eventHubName", required: true)]
+        public Input<string> EventHubName { get; set; } = null!;
+
+        /// <summary>
+        /// The Namespace name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group within the azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListEventHubKeysInvokeArgs()
         {
         }
     }

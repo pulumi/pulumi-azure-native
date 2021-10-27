@@ -344,5 +344,6 @@ func (o DatabaseAccountOutput) ToDatabaseAccountOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountInput)(nil)).Elem(), &DatabaseAccount{})
 	pulumi.RegisterOutputType(DatabaseAccountOutput{})
 }

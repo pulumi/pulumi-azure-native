@@ -1016,6 +1016,18 @@ func (in *timeGrainTypePtr) ToTimeGrainTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetOperatorTypeInput)(nil)).Elem(), BudgetOperatorType("In"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetOperatorTypePtrInput)(nil)).Elem(), BudgetOperatorType("In"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CategoryTypeInput)(nil)).Elem(), CategoryType("Cost"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CategoryTypePtrInput)(nil)).Elem(), CategoryType("Cost"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CultureCodeInput)(nil)).Elem(), CultureCode("en-us"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CultureCodePtrInput)(nil)).Elem(), CultureCode("en-us"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("EqualTo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("EqualTo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThresholdTypeInput)(nil)).Elem(), ThresholdType("Actual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThresholdTypePtrInput)(nil)).Elem(), ThresholdType("Actual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeGrainTypeInput)(nil)).Elem(), TimeGrainType("Monthly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeGrainTypePtrInput)(nil)).Elem(), TimeGrainType("Monthly"))
 	pulumi.RegisterOutputType(BudgetOperatorTypeOutput{})
 	pulumi.RegisterOutputType(BudgetOperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(CategoryTypeOutput{})

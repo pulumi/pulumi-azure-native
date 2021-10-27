@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// </summary>
         public static Task<GetVirtualMachineResourceResult> InvokeAsync(GetVirtualMachineResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A virtual machine.
+        /// </summary>
+        public static Output<GetVirtualMachineResourceResult> Invoke(GetVirtualMachineResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualMachineResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualMachineResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual Machine.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualMachineResourceInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppConfiguration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The result of a request to list API keys.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.AppConfiguration
         public string? SkipToken { get; set; }
 
         public ListConfigurationStoreKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListConfigurationStoreKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the configuration store.
+        /// </summary>
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+        /// </summary>
+        [Input("skipToken")]
+        public Input<string>? SkipToken { get; set; }
+
+        public ListConfigurationStoreKeysInvokeArgs()
         {
         }
     }

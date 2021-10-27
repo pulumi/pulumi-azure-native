@@ -509,6 +509,12 @@ func (in *timeAggregationPtr) ToTimeAggregationPtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionOperatorInput)(nil)).Elem(), ConditionOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionOperatorPtrInput)(nil)).Elem(), ConditionOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DimensionOperatorInput)(nil)).Elem(), DimensionOperator("Include"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DimensionOperatorPtrInput)(nil)).Elem(), DimensionOperator("Include"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeAggregationInput)(nil)).Elem(), TimeAggregation("Count"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeAggregationPtrInput)(nil)).Elem(), TimeAggregation("Count"))
 	pulumi.RegisterOutputType(ConditionOperatorOutput{})
 	pulumi.RegisterOutputType(ConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DimensionOperatorOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20190901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20190901Preview
         /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Media Graph.
+        /// </summary>
+        public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media/v20190901preview:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20190901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMediaGraphArgs()
+        {
+        }
+    }
+
+    public sealed class GetMediaGraphInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Media Graph name.
+        /// </summary>
+        [Input("mediaGraphName", required: true)]
+        public Input<string> MediaGraphName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMediaGraphInvokeArgs()
         {
         }
     }

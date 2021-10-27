@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppConfiguration
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The result of a request to retrieve a key-value from the specified configuration store.
+        /// API Version: 2020-06-01.
+        /// </summary>
+        public static Output<ListConfigurationStoreKeyValueResult> Invoke(ListConfigurationStoreKeyValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.AppConfiguration
         public string ResourceGroupName { get; set; } = null!;
 
         public ListConfigurationStoreKeyValueArgs()
+        {
+        }
+    }
+
+    public sealed class ListConfigurationStoreKeyValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the configuration store.
+        /// </summary>
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
+
+        /// <summary>
+        /// The key to retrieve.
+        /// </summary>
+        [Input("key", required: true)]
+        public Input<string> Key { get; set; } = null!;
+
+        /// <summary>
+        /// The label of the key.
+        /// </summary>
+        [Input("label")]
+        public Input<string>? Label { get; set; }
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListConfigurationStoreKeyValueInvokeArgs()
         {
         }
     }

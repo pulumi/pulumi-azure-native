@@ -156,5 +156,6 @@ func (o RoleAssignmentArtifactOutput) ToRoleAssignmentArtifactOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAssignmentArtifactInput)(nil)).Elem(), &RoleAssignmentArtifact{})
 	pulumi.RegisterOutputType(RoleAssignmentArtifactOutput{})
 }

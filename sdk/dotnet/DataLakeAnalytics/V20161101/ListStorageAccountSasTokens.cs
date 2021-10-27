@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The SAS response that contains the storage account, container and associated SAS token for connection use.
+        /// </summary>
+        public static Output<ListStorageAccountSasTokensResult> Invoke(ListStorageAccountSasTokensInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         public string StorageAccountName { get; set; } = null!;
 
         public ListStorageAccountSasTokensArgs()
+        {
+        }
+    }
+
+    public sealed class ListStorageAccountSasTokensInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Analytics account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure storage container for which the SAS token is being requested.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure storage account for which the SAS token is being requested.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        public ListStorageAccountSasTokensInvokeArgs()
         {
         }
     }

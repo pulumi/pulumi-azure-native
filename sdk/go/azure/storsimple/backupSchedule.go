@@ -169,5 +169,6 @@ func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupScheduleInput)(nil)).Elem(), &BackupSchedule{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
 }

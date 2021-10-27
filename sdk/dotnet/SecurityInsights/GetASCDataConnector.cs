@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Task<GetASCDataConnectorResult> InvokeAsync(GetASCDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetASCDataConnectorResult>("azure-native:securityinsights:getASCDataConnector", args ?? new GetASCDataConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents ASC (Azure Security Center) data connector.
+        /// API Version: 2020-01-01.
+        /// </summary>
+        public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string WorkspaceName { get; set; } = null!;
 
         public GetASCDataConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetASCDataConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Connector ID
+        /// </summary>
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetASCDataConnectorInvokeArgs()
         {
         }
     }

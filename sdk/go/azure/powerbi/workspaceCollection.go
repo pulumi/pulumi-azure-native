@@ -130,5 +130,6 @@ func (o WorkspaceCollectionOutput) ToWorkspaceCollectionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCollectionInput)(nil)).Elem(), &WorkspaceCollection{})
 	pulumi.RegisterOutputType(WorkspaceCollectionOutput{})
 }

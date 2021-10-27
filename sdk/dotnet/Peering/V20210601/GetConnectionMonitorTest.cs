@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Peering.V20210601
         /// </summary>
         public static Task<GetConnectionMonitorTestResult> InvokeAsync(GetConnectionMonitorTestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorTestResult>("azure-native:peering/v20210601:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Connection Monitor Test class.
+        /// </summary>
+        public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering/v20210601:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Peering.V20210601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetConnectionMonitorTestArgs()
+        {
+        }
+    }
+
+    public sealed class GetConnectionMonitorTestInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connection monitor test
+        /// </summary>
+        [Input("connectionMonitorTestName", required: true)]
+        public Input<string> ConnectionMonitorTestName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the peering service.
+        /// </summary>
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetConnectionMonitorTestInvokeArgs()
         {
         }
     }

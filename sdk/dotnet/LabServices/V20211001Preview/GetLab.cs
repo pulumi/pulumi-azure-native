@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices/v20211001preview:getLab", args ?? new GetLabArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The lab resource.
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices/v20211001preview:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabInvokeArgs()
         {
         }
     }

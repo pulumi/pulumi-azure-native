@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Task<GetServiceFabricResult> InvokeAsync(GetServiceFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Service Fabric.
+        /// </summary>
+        public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public string UserName { get; set; } = null!;
 
         public GetServiceFabricArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceFabricInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service fabric.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the user profile.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
+
+        public GetServiceFabricInvokeArgs()
         {
         }
     }

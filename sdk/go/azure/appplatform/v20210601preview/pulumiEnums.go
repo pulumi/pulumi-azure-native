@@ -508,6 +508,12 @@ func (in *userSourceTypePtr) ToUserSourceTypePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypeInput)(nil)).Elem(), ManagedIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypePtrInput)(nil)).Elem(), ManagedIdentityType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVersionInput)(nil)).Elem(), RuntimeVersion("Java_8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVersionPtrInput)(nil)).Elem(), RuntimeVersion("Java_8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSourceTypeInput)(nil)).Elem(), UserSourceType("Jar"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSourceTypePtrInput)(nil)).Elem(), UserSourceType("Jar"))
 	pulumi.RegisterOutputType(ManagedIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeVersionOutput{})

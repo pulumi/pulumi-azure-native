@@ -134,5 +134,6 @@ func (o MoveResourceOutput) ToMoveResourceOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MoveResourceInput)(nil)).Elem(), &MoveResource{})
 	pulumi.RegisterOutputType(MoveResourceOutput{})
 }

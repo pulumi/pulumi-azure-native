@@ -340,6 +340,10 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("fhir"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("fhir"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(KindOutput{})
 	pulumi.RegisterOutputType(KindPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityTypeOutput{})

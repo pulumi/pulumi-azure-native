@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConfidentialLedger
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
+        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLedgerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Confidential Ledger
+        /// </summary>
+        [Input("ledgerName", required: true)]
+        public Input<string> LedgerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLedgerInvokeArgs()
         {
         }
     }

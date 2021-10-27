@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeyResult> InvokeAsync(ListIntegrationRuntimeAuthKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/v20210601:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The integration runtime authentication keys.
+        /// </summary>
+        public static Output<ListIntegrationRuntimeAuthKeyResult> Invoke(ListIntegrationRuntimeAuthKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/v20210601:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public string WorkspaceName { get; set; } = null!;
 
         public ListIntegrationRuntimeAuthKeyArgs()
+        {
+        }
+    }
+
+    public sealed class ListIntegrationRuntimeAuthKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Integration runtime name
+        /// </summary>
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public ListIntegrationRuntimeAuthKeyInvokeArgs()
         {
         }
     }

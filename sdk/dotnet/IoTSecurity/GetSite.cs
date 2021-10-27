@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.IoTSecurity
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT site model
+        /// API Version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.IoTSecurity
         public string Scope { get; set; } = null!;
 
         public GetSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetSiteInvokeArgs()
         {
         }
     }

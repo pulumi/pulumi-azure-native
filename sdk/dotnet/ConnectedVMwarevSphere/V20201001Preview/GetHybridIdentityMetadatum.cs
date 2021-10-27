@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the HybridIdentityMetadata.
+        /// </summary>
+        public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         public string VirtualMachineName { get; set; } = null!;
 
         public GetHybridIdentityMetadatumArgs()
+        {
+        }
+    }
+
+    public sealed class GetHybridIdentityMetadatumInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the HybridIdentityMetadata.
+        /// </summary>
+        [Input("metadataName", required: true)]
+        public Input<string> MetadataName { get; set; } = null!;
+
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the vm.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
+
+        public GetHybridIdentityMetadatumInvokeArgs()
         {
         }
     }

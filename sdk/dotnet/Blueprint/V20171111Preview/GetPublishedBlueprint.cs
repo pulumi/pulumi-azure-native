@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// </summary>
         public static Task<GetPublishedBlueprintResult> InvokeAsync(GetPublishedBlueprintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublishedBlueprintResult>("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args ?? new GetPublishedBlueprintArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a published Blueprint.
+        /// </summary>
+        public static Output<GetPublishedBlueprintResult> Invoke(GetPublishedBlueprintInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPublishedBlueprintResult>("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args ?? new GetPublishedBlueprintInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         public string VersionId { get; set; } = null!;
 
         public GetPublishedBlueprintArgs()
+        {
+        }
+    }
+
+    public sealed class GetPublishedBlueprintInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// name of the blueprint.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// ManagementGroup where blueprint stores.
+        /// </summary>
+        [Input("managementGroupName", required: true)]
+        public Input<string> ManagementGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// version of the published blueprint.
+        /// </summary>
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
+
+        public GetPublishedBlueprintInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement/v20190101:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Email Template details.
+        /// </summary>
+        public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement/v20190101:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public string TemplateName { get; set; } = null!;
 
         public GetEmailTemplateArgs()
+        {
+        }
+    }
+
+    public sealed class GetEmailTemplateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Email Template Name Identifier.
+        /// </summary>
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
+
+        public GetEmailTemplateInvokeArgs()
         {
         }
     }

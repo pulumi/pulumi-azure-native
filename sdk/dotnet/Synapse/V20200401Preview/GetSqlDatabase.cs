@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20200401Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         public static Task<GetSqlDatabaseResult> InvokeAsync(GetSqlDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A sql database resource.
+        /// </summary>
+        public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetSqlDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the sql database.
+        /// </summary>
+        [Input("sqlDatabaseName", required: true)]
+        public Input<string> SqlDatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSqlDatabaseInvokeArgs()
         {
         }
     }

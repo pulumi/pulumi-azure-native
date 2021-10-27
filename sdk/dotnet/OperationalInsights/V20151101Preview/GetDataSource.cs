@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights/v20151101preview:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Datasources under OMS Workspace.
+        /// </summary>
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights/v20151101preview:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetDataSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the datasource
+        /// </summary>
+        [Input("dataSourceName", required: true)]
+        public Input<string> DataSourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Log Analytics Workspace that contains the datasource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetDataSourceInvokeArgs()
         {
         }
     }

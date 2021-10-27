@@ -142,5 +142,6 @@ func (o PrivateLinkServicesForO365ManagementActivityAPIOutput) ToPrivateLinkServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicesForO365ManagementActivityAPIInput)(nil)).Elem(), &PrivateLinkServicesForO365ManagementActivityAPI{})
 	pulumi.RegisterOutputType(PrivateLinkServicesForO365ManagementActivityAPIOutput{})
 }

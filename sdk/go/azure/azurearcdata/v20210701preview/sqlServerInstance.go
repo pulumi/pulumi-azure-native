@@ -148,5 +148,6 @@ func (o SqlServerInstanceOutput) ToSqlServerInstanceOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerInstanceInput)(nil)).Elem(), &SqlServerInstance{})
 	pulumi.RegisterOutputType(SqlServerInstanceOutput{})
 }

@@ -146,5 +146,6 @@ func (o CassandraDataCenterOutput) ToCassandraDataCenterOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDataCenterInput)(nil)).Elem(), &CassandraDataCenter{})
 	pulumi.RegisterOutputType(CassandraDataCenterOutput{})
 }

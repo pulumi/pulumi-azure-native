@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20200501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media/v20200501:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The live event.
+        /// </summary>
+        public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media/v20200501:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20200501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLiveEventArgs()
+        {
+        }
+    }
+
+    public sealed class GetLiveEventInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the live event, maximum length is 32.
+        /// </summary>
+        [Input("liveEventName", required: true)]
+        public Input<string> LiveEventName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLiveEventInvokeArgs()
         {
         }
     }

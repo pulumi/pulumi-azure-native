@@ -139,5 +139,6 @@ func (o GeoBackupPolicyOutput) ToGeoBackupPolicyOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoBackupPolicyInput)(nil)).Elem(), &GeoBackupPolicy{})
 	pulumi.RegisterOutputType(GeoBackupPolicyOutput{})
 }

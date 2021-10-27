@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerregistry/v20190601preview:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The agentpool that has the ARM resource and properties. 
+        /// The agentpool will have all information to create an agent pool.
+        /// </summary>
+        public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerregistry/v20190601preview:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAgentPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetAgentPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry.
+        /// </summary>
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the container registry belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAgentPoolInvokeArgs()
         {
         }
     }

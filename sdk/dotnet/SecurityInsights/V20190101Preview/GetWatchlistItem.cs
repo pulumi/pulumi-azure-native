@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Task<GetWatchlistItemResult> InvokeAsync(GetWatchlistItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistItemResult>("azure-native:securityinsights/v20190101preview:getWatchlistItem", args ?? new GetWatchlistItemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a Watchlist item in Azure Security Insights.
+        /// </summary>
+        public static Output<GetWatchlistItemResult> Invoke(GetWatchlistItemInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights/v20190101preview:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetWatchlistItemArgs()
+        {
+        }
+    }
+
+    public sealed class GetWatchlistItemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Watchlist Alias
+        /// </summary>
+        [Input("watchlistAlias", required: true)]
+        public Input<string> WatchlistAlias { get; set; } = null!;
+
+        /// <summary>
+        /// Watchlist Item Id (GUID)
+        /// </summary>
+        [Input("watchlistItemId", required: true)]
+        public Input<string> WatchlistItemId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetWatchlistItemInvokeArgs()
         {
         }
     }

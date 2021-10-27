@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20180630preview:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Guest configuration assignment is an association between a VM and guest configuration.
+        /// </summary>
+        public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20180630preview:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
         public string VmName { get; set; } = null!;
 
         public GetGuestConfigurationAssignmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetGuestConfigurationAssignmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The guest configuration assignment name.
+        /// </summary>
+        [Input("guestConfigurationAssignmentName", required: true)]
+        public Input<string> GuestConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
+
+        public GetGuestConfigurationAssignmentInvokeArgs()
         {
         }
     }

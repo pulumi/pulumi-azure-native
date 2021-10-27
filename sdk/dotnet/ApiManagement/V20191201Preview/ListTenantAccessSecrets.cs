@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20191201preview:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Tenant access information contract of the API Management service.
+        /// </summary>
+        public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20191201preview:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
         public string ServiceName { get; set; } = null!;
 
         public ListTenantAccessSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class ListTenantAccessSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier of the Access configuration.
+        /// </summary>
+        [Input("accessName", required: true)]
+        public Input<string> AccessName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public ListTenantAccessSecretsInvokeArgs()
         {
         }
     }

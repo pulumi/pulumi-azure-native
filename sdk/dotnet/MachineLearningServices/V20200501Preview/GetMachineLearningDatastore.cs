@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         /// </summary>
         public static Task<GetMachineLearningDatastoreResult> InvokeAsync(GetMachineLearningDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Machine Learning datastore object wrapped into ARM resource envelope.
+        /// </summary>
+        public static Output<GetMachineLearningDatastoreResult> Invoke(GetMachineLearningDatastoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetMachineLearningDatastoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetMachineLearningDatastoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Datastore name.
+        /// </summary>
+        [Input("datastoreName", required: true)]
+        public Input<string> DatastoreName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group in which workspace is located.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Azure Machine Learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetMachineLearningDatastoreInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn/v20200901:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// SecurityPolicy association for AzureFrontDoor profile
+        /// </summary>
+        public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn/v20200901:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         public string SecurityPolicyName { get; set; } = null!;
 
         public GetSecurityPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the security policy under the profile.
+        /// </summary>
+        [Input("securityPolicyName", required: true)]
+        public Input<string> SecurityPolicyName { get; set; } = null!;
+
+        public GetSecurityPolicyInvokeArgs()
         {
         }
     }

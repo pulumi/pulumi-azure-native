@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// </summary>
         public static Task<GetIotConnectorResult> InvokeAsync(GetIotConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// IoT Connector definition.
+        /// </summary>
+        public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetIotConnectorArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotConnectorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of IoT Connector resource.
+        /// </summary>
+        [Input("iotConnectorName", required: true)]
+        public Input<string> IotConnectorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the service instance.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of workspace resource.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetIotConnectorInvokeArgs()
         {
         }
     }

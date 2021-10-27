@@ -216,5 +216,6 @@ func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppHybridConnectionInput)(nil)).Elem(), &WebAppHybridConnection{})
 	pulumi.RegisterOutputType(WebAppHybridConnectionOutput{})
 }

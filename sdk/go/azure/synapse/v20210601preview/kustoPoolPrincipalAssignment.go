@@ -161,5 +161,6 @@ func (o KustoPoolPrincipalAssignmentOutput) ToKustoPoolPrincipalAssignmentOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KustoPoolPrincipalAssignmentInput)(nil)).Elem(), &KustoPoolPrincipalAssignment{})
 	pulumi.RegisterOutputType(KustoPoolPrincipalAssignmentOutput{})
 }

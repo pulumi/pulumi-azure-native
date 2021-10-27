@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20180907Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         /// </summary>
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-native:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Class representing an event hub connection.
+        /// </summary>
+        public static Output<GetEventHubConnectionResult> Invoke(GetEventHubConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubConnectionResult>("azure-native:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventHubConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventHubConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database in the Kusto cluster.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the event hub connection.
+        /// </summary>
+        [Input("eventHubConnectionName", required: true)]
+        public Input<string> EventHubConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group containing the Kusto cluster.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventHubConnectionInvokeArgs()
         {
         }
     }

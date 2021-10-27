@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetKubeEnvironmentResult> InvokeAsync(GetKubeEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Kubernetes cluster specialized for web workloads by Azure App Service
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public GetKubeEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetKubeEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Kubernetes Environment.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetKubeEnvironmentInvokeArgs()
         {
         }
     }

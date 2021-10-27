@@ -173,5 +173,6 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInput)(nil)).Elem(), &Workflow{})
 	pulumi.RegisterOutputType(WorkflowOutput{})
 }

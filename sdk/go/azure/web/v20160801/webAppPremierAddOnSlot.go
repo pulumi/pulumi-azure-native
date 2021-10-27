@@ -221,5 +221,6 @@ func (o WebAppPremierAddOnSlotOutput) ToWebAppPremierAddOnSlotOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppPremierAddOnSlotInput)(nil)).Elem(), &WebAppPremierAddOnSlot{})
 	pulumi.RegisterOutputType(WebAppPremierAddOnSlotOutput{})
 }

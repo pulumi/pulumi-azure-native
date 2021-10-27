@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagementPartner
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// this is the management partner operations response
+        /// API Version: 2018-02-01.
+        /// </summary>
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.ManagementPartner
         public string PartnerId { get; set; } = null!;
 
         public GetPartnerArgs()
+        {
+        }
+    }
+
+    public sealed class GetPartnerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id of the Partner
+        /// </summary>
+        [Input("partnerId", required: true)]
+        public Input<string> PartnerId { get; set; } = null!;
+
+        public GetPartnerInvokeArgs()
         {
         }
     }

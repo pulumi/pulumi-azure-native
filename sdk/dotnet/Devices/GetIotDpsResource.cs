@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The description of the provisioning service.
+        /// API Version: 2020-03-01.
+        /// </summary>
+        public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Devices
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIotDpsResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotDpsResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the provisioning service to retrieve.
+        /// </summary>
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIotDpsResourceInvokeArgs()
         {
         }
     }

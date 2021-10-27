@@ -265,5 +265,6 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileInput)(nil)).Elem(), &NetworkProfile{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 }

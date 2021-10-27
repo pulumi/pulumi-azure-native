@@ -189,5 +189,6 @@ func (o LongTermEnvironmentOutput) ToLongTermEnvironmentOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LongTermEnvironmentInput)(nil)).Elem(), &LongTermEnvironment{})
 	pulumi.RegisterOutputType(LongTermEnvironmentOutput{})
 }

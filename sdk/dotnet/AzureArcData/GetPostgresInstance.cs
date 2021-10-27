@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureArcData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Task<GetPostgresInstanceResult> InvokeAsync(GetPostgresInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPostgresInstanceResult>("azure-native:azurearcdata:getPostgresInstance", args ?? new GetPostgresInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A Postgres Instance.
+        /// API Version: 2021-06-01-preview.
+        /// </summary>
+        public static Output<GetPostgresInstanceResult> Invoke(GetPostgresInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPostgresInstanceResult>("azure-native:azurearcdata:getPostgresInstance", args ?? new GetPostgresInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.AzureArcData
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPostgresInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetPostgresInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of Postgres Instance
+        /// </summary>
+        [Input("postgresInstanceName", required: true)]
+        public Input<string> PostgresInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPostgresInstanceInvokeArgs()
         {
         }
     }

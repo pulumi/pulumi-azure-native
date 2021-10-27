@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20201201preview:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Address Resource.
+        /// </summary>
+        public static Output<GetAddressByNameResult> Invoke(GetAddressByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder/v20201201preview:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAddressByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetAddressByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("addressName", required: true)]
+        public Input<string> AddressName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAddressByNameInvokeArgs()
         {
         }
     }

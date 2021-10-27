@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public static Task<ListManagedClusterMonitoringUserCredentialsResult> InvokeAsync(ListManagedClusterMonitoringUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of credential result response.
+        /// API Version: 2021-03-01.
+        /// </summary>
+        public static Output<ListManagedClusterMonitoringUserCredentialsResult> Invoke(ListManagedClusterMonitoringUserCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ContainerService
         public string ResourceName { get; set; } = null!;
 
         public ListManagedClusterMonitoringUserCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class ListManagedClusterMonitoringUserCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        public ListManagedClusterMonitoringUserCredentialsInvokeArgs()
         {
         }
     }

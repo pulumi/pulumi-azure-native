@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// HANA instance info on Azure (ARM properties and HANA properties)
+        /// </summary>
+        public static Output<GetHanaInstanceResult> Invoke(GetHanaInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHanaInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetHanaInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the SAP HANA on Azure instance.
+        /// </summary>
+        [Input("hanaInstanceName", required: true)]
+        public Input<string> HanaInstanceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHanaInstanceInvokeArgs()
         {
         }
     }

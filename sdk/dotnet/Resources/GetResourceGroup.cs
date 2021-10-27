@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Resource group information.
+        /// API Version: 2019-05-01.
+        /// </summary>
+        public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.AzureNative.Resources
         public string ResourceGroupName { get; set; } = null!;
 
         public GetResourceGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group to get. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetResourceGroupInvokeArgs()
         {
         }
     }

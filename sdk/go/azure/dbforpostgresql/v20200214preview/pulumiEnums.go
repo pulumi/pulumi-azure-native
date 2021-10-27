@@ -995,6 +995,18 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModeInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateModePtrInput)(nil)).Elem(), CreateMode("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoRedundantBackupEnumInput)(nil)).Elem(), GeoRedundantBackupEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoRedundantBackupEnumPtrInput)(nil)).Elem(), GeoRedundantBackupEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HAEnabledEnumInput)(nil)).Elem(), HAEnabledEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HAEnabledEnumPtrInput)(nil)).Elem(), HAEnabledEnum("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionInput)(nil)).Elem(), ServerVersion("12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerVersionPtrInput)(nil)).Elem(), ServerVersion("12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Burstable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Burstable"))
 	pulumi.RegisterOutputType(CreateModeOutput{})
 	pulumi.RegisterOutputType(CreateModePtrOutput{})
 	pulumi.RegisterOutputType(GeoRedundantBackupEnumOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedNetwork
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Managed Network Peering Policy resource
+        /// API Version: 2019-06-01-preview.
+        /// </summary>
+        public static Output<GetManagedNetworkPeeringPolicyResult> Invoke(GetManagedNetworkPeeringPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ManagedNetwork
         public string ResourceGroupName { get; set; } = null!;
 
         public GetManagedNetworkPeeringPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedNetworkPeeringPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Managed Network.
+        /// </summary>
+        [Input("managedNetworkName", required: true)]
+        public Input<string> ManagedNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Managed Network Peering Policy.
+        /// </summary>
+        [Input("managedNetworkPeeringPolicyName", required: true)]
+        public Input<string> ManagedNetworkPeeringPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetManagedNetworkPeeringPolicyInvokeArgs()
         {
         }
     }

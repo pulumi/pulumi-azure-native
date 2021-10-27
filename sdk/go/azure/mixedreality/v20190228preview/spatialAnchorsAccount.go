@@ -155,5 +155,6 @@ func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpatialAnchorsAccountInput)(nil)).Elem(), &SpatialAnchorsAccount{})
 	pulumi.RegisterOutputType(SpatialAnchorsAccountOutput{})
 }

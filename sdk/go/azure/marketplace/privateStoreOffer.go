@@ -141,5 +141,6 @@ func (o PrivateStoreOfferOutput) ToPrivateStoreOfferOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateStoreOfferInput)(nil)).Elem(), &PrivateStoreOffer{})
 	pulumi.RegisterOutputType(PrivateStoreOfferOutput{})
 }

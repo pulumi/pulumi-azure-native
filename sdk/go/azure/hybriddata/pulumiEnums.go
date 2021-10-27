@@ -695,6 +695,14 @@ func (in *userConfirmationPtr) ToUserConfirmationPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RunLocationInput)(nil)).Elem(), RunLocation("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RunLocationPtrInput)(nil)).Elem(), RunLocation("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SupportedAlgorithmInput)(nil)).Elem(), SupportedAlgorithm("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SupportedAlgorithmPtrInput)(nil)).Elem(), SupportedAlgorithm("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserConfirmationInput)(nil)).Elem(), UserConfirmation("NotRequired"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserConfirmationPtrInput)(nil)).Elem(), UserConfirmation("NotRequired"))
 	pulumi.RegisterOutputType(RunLocationOutput{})
 	pulumi.RegisterOutputType(RunLocationPtrOutput{})
 	pulumi.RegisterOutputType(StateOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-native:operationalinsights/v20200301preview:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Value object for saved search results.
+        /// </summary>
+        public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights/v20200301preview:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public string WorkspaceName { get; set; } = null!;
 
         public GetSavedSearchArgs()
+        {
+        }
+    }
+
+    public sealed class GetSavedSearchInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The id of the saved search.
+        /// </summary>
+        [Input("savedSearchId", required: true)]
+        public Input<string> SavedSearchId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
+
+        public GetSavedSearchInvokeArgs()
         {
         }
     }

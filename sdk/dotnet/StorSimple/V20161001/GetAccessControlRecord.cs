@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// </summary>
         public static Task<GetAccessControlRecordResult> InvokeAsync(GetAccessControlRecordArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-native:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The access control record
+        /// </summary>
+        public static Output<GetAccessControlRecordResult> Invoke(GetAccessControlRecordInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccessControlRecordResult>("azure-native:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccessControlRecordArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccessControlRecordInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of access control record to be fetched.
+        /// </summary>
+        [Input("accessControlRecordName", required: true)]
+        public Input<string> AccessControlRecordName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccessControlRecordInvokeArgs()
         {
         }
     }

@@ -517,6 +517,12 @@ func (in *workflowStateEnumPtr) ToWorkflowStateEnumPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypeInput)(nil)).Elem(), ParameterType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStateEnumInput)(nil)).Elem(), WorkflowStateEnum("NotSpecified"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStateEnumPtrInput)(nil)).Elem(), WorkflowStateEnum("NotSpecified"))
 	pulumi.RegisterOutputType(ParameterTypeOutput{})
 	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(SkuNameOutput{})

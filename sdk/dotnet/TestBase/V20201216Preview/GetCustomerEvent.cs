@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// </summary>
         public static Task<GetCustomerEventResult> InvokeAsync(GetCustomerEventArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Customer Notification Event resource.
+        /// </summary>
+        public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase/v20201216preview:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         public string TestBaseAccountName { get; set; } = null!;
 
         public GetCustomerEventArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomerEventInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource name of the Test Base Customer event.
+        /// </summary>
+        [Input("customerEventName", required: true)]
+        public Input<string> CustomerEventName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource name of the Test Base Account.
+        /// </summary>
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
+
+        public GetCustomerEventInvokeArgs()
         {
         }
     }

@@ -838,6 +838,16 @@ func (in *suppressionTypePtr) ToSuppressionTypePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleStatusInput)(nil)).Elem(), ActionRuleStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleStatusPtrInput)(nil)).Elem(), ActionRuleStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleTypeInput)(nil)).Elem(), ActionRuleType("Suppression"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleTypePtrInput)(nil)).Elem(), ActionRuleType("Suppression"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorInput)(nil)).Elem(), Operator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OperatorPtrInput)(nil)).Elem(), Operator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypeInput)(nil)).Elem(), ScopeType("ResourceGroup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypePtrInput)(nil)).Elem(), ScopeType("ResourceGroup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SuppressionTypeInput)(nil)).Elem(), SuppressionType("Always"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SuppressionTypePtrInput)(nil)).Elem(), SuppressionType("Always"))
 	pulumi.RegisterOutputType(ActionRuleStatusOutput{})
 	pulumi.RegisterOutputType(ActionRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleTypeOutput{})

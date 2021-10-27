@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetWebAppSourceControlResult> InvokeAsync(GetWebAppSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Source control configuration for an app.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetWebAppSourceControlResult> Invoke(GetWebAppSourceControlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWebAppSourceControlArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAppSourceControlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWebAppSourceControlInvokeArgs()
         {
         }
     }

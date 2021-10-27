@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public static Task<GetPublishedBlueprintResult> InvokeAsync(GetPublishedBlueprintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublishedBlueprintResult>("azure-native:blueprint:getPublishedBlueprint", args ?? new GetPublishedBlueprintArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Represents a published blueprint.
+        /// API Version: 2018-11-01-preview.
+        /// </summary>
+        public static Output<GetPublishedBlueprintResult> Invoke(GetPublishedBlueprintInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPublishedBlueprintResult>("azure-native:blueprint:getPublishedBlueprint", args ?? new GetPublishedBlueprintInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Blueprint
         public string VersionId { get; set; } = null!;
 
         public GetPublishedBlueprintArgs()
+        {
+        }
+    }
+
+    public sealed class GetPublishedBlueprintInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the blueprint definition.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+        /// </summary>
+        [Input("resourceScope", required: true)]
+        public Input<string> ResourceScope { get; set; } = null!;
+
+        /// <summary>
+        /// Version of the published blueprint definition.
+        /// </summary>
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
+
+        public GetPublishedBlueprintInvokeArgs()
         {
         }
     }

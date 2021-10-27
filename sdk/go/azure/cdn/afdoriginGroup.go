@@ -143,5 +143,6 @@ func (o AFDOriginGroupOutput) ToAFDOriginGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AFDOriginGroupInput)(nil)).Elem(), &AFDOriginGroup{})
 	pulumi.RegisterOutputType(AFDOriginGroupOutput{})
 }

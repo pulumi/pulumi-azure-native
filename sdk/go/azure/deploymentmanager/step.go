@@ -138,5 +138,6 @@ func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StepInput)(nil)).Elem(), &Step{})
 	pulumi.RegisterOutputType(StepOutput{})
 }

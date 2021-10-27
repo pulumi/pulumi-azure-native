@@ -501,6 +501,12 @@ func (in *validationTypePtr) ToValidationTypePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRoutingInput)(nil)).Elem(), ActionRouting("Proxy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRoutingPtrInput)(nil)).Elem(), ActionRouting("Proxy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceTypeRoutingInput)(nil)).Elem(), ResourceTypeRouting("Proxy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceTypeRoutingPtrInput)(nil)).Elem(), ResourceTypeRouting("Proxy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationTypeInput)(nil)).Elem(), ValidationType("Swagger"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationTypePtrInput)(nil)).Elem(), ValidationType("Swagger"))
 	pulumi.RegisterOutputType(ActionRoutingOutput{})
 	pulumi.RegisterOutputType(ActionRoutingPtrOutput{})
 	pulumi.RegisterOutputType(ResourceTypeRoutingOutput{})

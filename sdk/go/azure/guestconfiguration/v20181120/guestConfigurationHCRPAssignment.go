@@ -145,5 +145,6 @@ func (o GuestConfigurationHCRPAssignmentOutput) ToGuestConfigurationHCRPAssignme
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationHCRPAssignmentInput)(nil)).Elem(), &GuestConfigurationHCRPAssignment{})
 	pulumi.RegisterOutputType(GuestConfigurationHCRPAssignmentOutput{})
 }

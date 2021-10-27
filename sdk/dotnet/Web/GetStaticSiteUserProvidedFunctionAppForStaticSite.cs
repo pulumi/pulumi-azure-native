@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Task<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> InvokeAsync(GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Static Site User Provided Function App ARM resource.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> Invoke(GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSite", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Web
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs()
+        {
+        }
+    }
+
+    public sealed class GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the function app registered with the static site.
+        /// </summary>
+        [Input("functionAppName", required: true)]
+        public Input<string> FunctionAppName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the static site.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group to which the resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStaticSiteUserProvidedFunctionAppForStaticSiteInvokeArgs()
         {
         }
     }

@@ -196,5 +196,6 @@ func (o DatabaseBlobAuditingPolicyOutput) ToDatabaseBlobAuditingPolicyOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseBlobAuditingPolicyInput)(nil)).Elem(), &DatabaseBlobAuditingPolicy{})
 	pulumi.RegisterOutputType(DatabaseBlobAuditingPolicyOutput{})
 }

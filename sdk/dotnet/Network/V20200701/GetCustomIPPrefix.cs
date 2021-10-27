@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20200701
         /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-native:network/v20200701:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Custom IP prefix resource.
+        /// </summary>
+        public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network/v20200701:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Network.V20200701
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCustomIPPrefixArgs()
+        {
+        }
+    }
+
+    public sealed class GetCustomIPPrefixInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the custom IP prefix.
+        /// </summary>
+        [Input("customIpPrefixName", required: true)]
+        public Input<string> CustomIpPrefixName { get; set; } = null!;
+
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCustomIPPrefixInvokeArgs()
         {
         }
     }

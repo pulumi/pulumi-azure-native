@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Elastic
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
+        /// API Version: 2020-07-01.
+        /// </summary>
+        public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Elastic
         public string ResourceGroupName { get; set; } = null!;
 
         public ListDeploymentInfoArgs()
+        {
+        }
+    }
+
+    public sealed class ListDeploymentInfoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Monitor resource name
+        /// </summary>
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group to which the Elastic resource belongs.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListDeploymentInfoInvokeArgs()
         {
         }
     }

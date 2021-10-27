@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20201110preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Schema for MSIX Package properties.
+        /// </summary>
+        public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20201110preview:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMSIXPackageArgs()
+        {
+        }
+    }
+
+    public sealed class GetMSIXPackageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the host pool within the specified resource group
+        /// </summary>
+        [Input("hostPoolName", required: true)]
+        public Input<string> HostPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The version specific package full name of the MSIX package within specified hostpool
+        /// </summary>
+        [Input("msixPackageFullName", required: true)]
+        public Input<string> MsixPackageFullName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMSIXPackageInvokeArgs()
         {
         }
     }

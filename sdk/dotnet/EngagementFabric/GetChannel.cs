@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EngagementFabric
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The EngagementFabric channel
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.EngagementFabric
         public string ResourceGroupName { get; set; } = null!;
 
         public GetChannelArgs()
+        {
+        }
+    }
+
+    public sealed class GetChannelInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Account Name
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Channel Name
+        /// </summary>
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource Group Name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetChannelInvokeArgs()
         {
         }
     }

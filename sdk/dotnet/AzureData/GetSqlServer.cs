@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureData
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.AzureData
         /// </summary>
         public static Task<GetSqlServerResult> InvokeAsync(GetSqlServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerResult>("azure-native:azuredata:getSqlServer", args ?? new GetSqlServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// A SQL server.
+        /// API Version: 2019-07-24-preview.
+        /// </summary>
+        public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.AzureData
         public string SqlServerRegistrationName { get; set; } = null!;
 
         public GetSqlServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetSqlServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL Server.
+        /// </summary>
+        [Input("sqlServerName", required: true)]
+        public Input<string> SqlServerName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the SQL Server registration.
+        /// </summary>
+        [Input("sqlServerRegistrationName", required: true)]
+        public Input<string> SqlServerRegistrationName { get; set; } = null!;
+
+        public GetSqlServerInvokeArgs()
         {
         }
     }

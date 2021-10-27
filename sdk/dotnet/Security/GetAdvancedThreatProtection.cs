@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Task<GetAdvancedThreatProtectionResult> InvokeAsync(GetAdvancedThreatProtectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Advanced Threat Protection resource.
+        /// API Version: 2019-01-01.
+        /// </summary>
+        public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.Security
         public string SettingName { get; set; } = null!;
 
         public GetAdvancedThreatProtectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetAdvancedThreatProtectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// Advanced Threat Protection setting name.
+        /// </summary>
+        [Input("settingName", required: true)]
+        public Input<string> SettingName { get; set; } = null!;
+
+        public GetAdvancedThreatProtectionInvokeArgs()
         {
         }
     }

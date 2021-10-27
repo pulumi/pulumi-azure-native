@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// </summary>
         public static Task<GetUserSharedAccessTokenResult> InvokeAsync(GetUserSharedAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20200601preview:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get User Token response details.
+        /// </summary>
+        public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20200601preview:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,44 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         public string UserId { get; set; } = null!;
 
         public GetUserSharedAccessTokenArgs()
+        {
+            KeyType = Pulumi.AzureNative.ApiManagement.V20200601Preview.KeyType.Primary;
+        }
+    }
+
+    public sealed class GetUserSharedAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Input("expiry", required: true)]
+        public Input<string> Expiry { get; set; } = null!;
+
+        /// <summary>
+        /// The Key to be used to generate token for user.
+        /// </summary>
+        [Input("keyType", required: true)]
+        public Input<Pulumi.AzureNative.ApiManagement.V20200601Preview.KeyType> KeyType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// User identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
+
+        public GetUserSharedAccessTokenInvokeArgs()
         {
             KeyType = Pulumi.AzureNative.ApiManagement.V20200601Preview.KeyType.Primary;
         }

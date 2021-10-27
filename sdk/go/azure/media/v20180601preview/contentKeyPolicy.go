@@ -161,5 +161,6 @@ func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyInput)(nil)).Elem(), &ContentKeyPolicy{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOutput{})
 }

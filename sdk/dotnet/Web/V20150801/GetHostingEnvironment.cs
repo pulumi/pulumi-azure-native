@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// </summary>
         public static Task<GetHostingEnvironmentResult> InvokeAsync(GetHostingEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Description of an hostingEnvironment (App Service Environment)
+        /// </summary>
+        public static Output<GetHostingEnvironmentResult> Invoke(GetHostingEnvironmentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Web.V20150801
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHostingEnvironmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetHostingEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Name of resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHostingEnvironmentInvokeArgs()
         {
         }
     }

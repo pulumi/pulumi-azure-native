@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the vCenter.
+        /// API Version: 2020-10-01-preview.
+        /// </summary>
+        public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string VcenterName { get; set; } = null!;
 
         public GetVCenterArgs()
+        {
+        }
+    }
+
+    public sealed class GetVCenterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Resource Group Name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the vCenter.
+        /// </summary>
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
+
+        public GetVCenterInvokeArgs()
         {
         }
     }

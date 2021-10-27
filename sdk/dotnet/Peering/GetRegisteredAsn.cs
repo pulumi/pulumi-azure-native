@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The customer's ASN that is registered by the peering service provider.
+        /// API Version: 2021-01-01.
+        /// </summary>
+        public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Peering
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegisteredAsnArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegisteredAsnInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the peering.
+        /// </summary>
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the registered ASN.
+        /// </summary>
+        [Input("registeredAsnName", required: true)]
+        public Input<string> RegisteredAsnName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegisteredAsnInvokeArgs()
         {
         }
     }

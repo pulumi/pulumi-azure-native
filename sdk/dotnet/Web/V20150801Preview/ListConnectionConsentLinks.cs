@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
         /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-native:web/v20150801preview:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Collection of consent links
+        /// </summary>
+        public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web/v20150801preview:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithVersion());
     }
 
 
@@ -88,6 +95,79 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
         public string? Type { get; set; }
 
         public ListConnectionConsentLinksArgs()
+        {
+        }
+    }
+
+    public sealed class ListConnectionConsentLinksInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The connection name.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Kind of resource
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Resource Location
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Resource Name
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("parameters")]
+        private InputList<Inputs.ConsentLinkInputParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Array of links
+        /// </summary>
+        public InputList<Inputs.ConsentLinkInputParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ConsentLinkInputParameterArgs>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// The resource group name.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Resource type
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public ListConnectionConsentLinksInvokeArgs()
         {
         }
     }

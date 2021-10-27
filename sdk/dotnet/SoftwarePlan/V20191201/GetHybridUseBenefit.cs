@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SoftwarePlan.V20191201
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response on GET of a hybrid use benefit
+        /// </summary>
+        public static Output<GetHybridUseBenefitResult> Invoke(GetHybridUseBenefitInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan/v20191201:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20191201
         public string Scope { get; set; } = null!;
 
         public GetHybridUseBenefitArgs()
+        {
+        }
+    }
+
+    public sealed class GetHybridUseBenefitInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// This is a unique identifier for a plan. Should be a guid.
+        /// </summary>
+        [Input("planId", required: true)]
+        public Input<string> PlanId { get; set; } = null!;
+
+        /// <summary>
+        /// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetHybridUseBenefitInvokeArgs()
         {
         }
     }

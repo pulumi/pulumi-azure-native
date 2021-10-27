@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public static Task<GetVolumeContainerResult> InvokeAsync(GetVolumeContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeContainerResult>("azure-native:storsimple:getVolumeContainer", args ?? new GetVolumeContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The volume container.
+        /// API Version: 2017-06-01.
+        /// </summary>
+        public static Output<GetVolumeContainerResult> Invoke(GetVolumeContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeContainerResult>("azure-native:storsimple:getVolumeContainer", args ?? new GetVolumeContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +55,37 @@ namespace Pulumi.AzureNative.StorSimple
         public string VolumeContainerName { get; set; } = null!;
 
         public GetVolumeContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumeContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The device name
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume container.
+        /// </summary>
+        [Input("volumeContainerName", required: true)]
+        public Input<string> VolumeContainerName { get; set; } = null!;
+
+        public GetVolumeContainerInvokeArgs()
         {
         }
     }

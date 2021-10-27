@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Storage mapping object.
+        /// API Version: 2018-07-10.
+        /// </summary>
+        public static Output<GetReplicationStorageClassificationMappingResult> Invoke(GetReplicationStorageClassificationMappingInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +61,43 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string StorageClassificationName { get; set; } = null!;
 
         public GetReplicationStorageClassificationMappingArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationStorageClassificationMappingInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Fabric name.
+        /// </summary>
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the recovery services vault is present.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the recovery services vault.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage classification mapping name.
+        /// </summary>
+        [Input("storageClassificationMappingName", required: true)]
+        public Input<string> StorageClassificationMappingName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage classification name.
+        /// </summary>
+        [Input("storageClassificationName", required: true)]
+        public Input<string> StorageClassificationName { get; set; } = null!;
+
+        public GetReplicationStorageClassificationMappingInvokeArgs()
         {
         }
     }

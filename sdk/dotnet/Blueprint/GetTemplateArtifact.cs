@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public static Task<GetTemplateArtifactResult> InvokeAsync(GetTemplateArtifactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Blueprint artifact that deploys a Resource Manager template.
+        /// API Version: 2018-11-01-preview.
+        /// </summary>
+        public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Blueprint
         public string ResourceScope { get; set; } = null!;
 
         public GetTemplateArtifactArgs()
+        {
+        }
+    }
+
+    public sealed class GetTemplateArtifactInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the blueprint artifact.
+        /// </summary>
+        [Input("artifactName", required: true)]
+        public Input<string> ArtifactName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the blueprint definition.
+        /// </summary>
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+        /// </summary>
+        [Input("resourceScope", required: true)]
+        public Input<string> ResourceScope { get; set; } = null!;
+
+        public GetTemplateArtifactInvokeArgs()
         {
         }
     }

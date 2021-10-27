@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20210601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         /// </summary>
         public static Task<ListClusterUpgradableVersionsResult> InvokeAsync(ListClusterUpgradableVersionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterUpgradableVersionsResult>("azure-native:servicefabric/v20210601:listClusterUpgradableVersions", args ?? new ListClusterUpgradableVersionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+        /// </summary>
+        public static Output<ListClusterUpgradableVersionsResult> Invoke(ListClusterUpgradableVersionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListClusterUpgradableVersionsResult>("azure-native:servicefabric/v20210601:listClusterUpgradableVersions", args ?? new ListClusterUpgradableVersionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         public string TargetVersion { get; set; } = null!;
 
         public ListClusterUpgradableVersionsArgs()
+        {
+        }
+    }
+
+    public sealed class ListClusterUpgradableVersionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster resource.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The target code version.
+        /// </summary>
+        [Input("targetVersion", required: true)]
+        public Input<string> TargetVersion { get; set; } = null!;
+
+        public ListClusterUpgradableVersionsInvokeArgs()
         {
         }
     }

@@ -340,6 +340,10 @@ func (in *namePtr) ToNamePtrOutputWithContext(ctx context.Context) NamePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("Gen1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("Gen1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NameInput)(nil)).Elem(), Name("S0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NamePtrInput)(nil)).Elem(), Name("S0"))
 	pulumi.RegisterOutputType(KindOutput{})
 	pulumi.RegisterOutputType(KindPtrOutput{})
 	pulumi.RegisterOutputType(NameOutput{})

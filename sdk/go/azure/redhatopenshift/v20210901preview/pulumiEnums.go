@@ -688,6 +688,14 @@ func (in *visibilityPtr) ToVisibilityPtrOutputWithContext(ctx context.Context) V
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionAtHostInput)(nil)).Elem(), EncryptionAtHost("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionAtHostPtrInput)(nil)).Elem(), EncryptionAtHost("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareDefinedNetworkInput)(nil)).Elem(), SoftwareDefinedNetwork("OVNKubernetes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareDefinedNetworkPtrInput)(nil)).Elem(), SoftwareDefinedNetwork("OVNKubernetes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VMSizeInput)(nil)).Elem(), VMSize("Standard_D16as_v4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VMSizePtrInput)(nil)).Elem(), VMSize("Standard_D16as_v4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VisibilityInput)(nil)).Elem(), Visibility("Private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VisibilityPtrInput)(nil)).Elem(), Visibility("Private"))
 	pulumi.RegisterOutputType(EncryptionAtHostOutput{})
 	pulumi.RegisterOutputType(EncryptionAtHostPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareDefinedNetworkOutput{})

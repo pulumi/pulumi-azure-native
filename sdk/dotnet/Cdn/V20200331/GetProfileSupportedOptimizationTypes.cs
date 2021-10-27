@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200331
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20200331:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The result of the GetSupportedOptimizationTypes API
+        /// </summary>
+        public static Output<GetProfileSupportedOptimizationTypesResult> Invoke(GetProfileSupportedOptimizationTypesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20200331:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProfileSupportedOptimizationTypesArgs()
+        {
+        }
+    }
+
+    public sealed class GetProfileSupportedOptimizationTypesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProfileSupportedOptimizationTypesInvokeArgs()
         {
         }
     }

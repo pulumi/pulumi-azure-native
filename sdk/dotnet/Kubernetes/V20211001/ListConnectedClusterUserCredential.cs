@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kubernetes.V20211001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20211001
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialResult> InvokeAsync(ListConnectedClusterUserCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20211001:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of credential result response.
+        /// </summary>
+        public static Output<ListConnectedClusterUserCredentialResult> Invoke(ListConnectedClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20211001:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Kubernetes.V20211001
         public string ResourceGroupName { get; set; } = null!;
 
         public ListConnectedClusterUserCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class ListConnectedClusterUserCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The mode of client authentication.
+        /// </summary>
+        [Input("authenticationMethod", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.V20211001.AuthenticationMethod> AuthenticationMethod { get; set; } = null!;
+
+        /// <summary>
+        /// Boolean value to indicate whether the request is for client side proxy or not
+        /// </summary>
+        [Input("clientProxy", required: true)]
+        public Input<bool> ClientProxy { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Kubernetes cluster on which get is called.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListConnectedClusterUserCredentialInvokeArgs()
         {
         }
     }

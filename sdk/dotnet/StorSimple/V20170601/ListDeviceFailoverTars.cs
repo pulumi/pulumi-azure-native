@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-native:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The list of all devices in a resource and their eligibility status as a failover target device.
+        /// </summary>
+        public static Output<ListDeviceFailoverTarsResult> Invoke(ListDeviceFailoverTarsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverTarsResult>("azure-native:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         }
 
         public ListDeviceFailoverTarsArgs()
+        {
+        }
+    }
+
+    public sealed class ListDeviceFailoverTarsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The manager name
+        /// </summary>
+        [Input("managerName", required: true)]
+        public Input<string> ManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource group name
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The source device name on which failover is performed.
+        /// </summary>
+        [Input("sourceDeviceName", required: true)]
+        public Input<string> SourceDeviceName { get; set; } = null!;
+
+        [Input("volumeContainers")]
+        private InputList<string>? _volumeContainers;
+
+        /// <summary>
+        /// The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
+        /// </summary>
+        public InputList<string> VolumeContainers
+        {
+            get => _volumeContainers ?? (_volumeContainers = new InputList<string>());
+            set => _volumeContainers = value;
+        }
+
+        public ListDeviceFailoverTarsInvokeArgs()
         {
         }
     }

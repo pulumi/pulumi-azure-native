@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataCatalog.V20160330
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Azure Data Catalog.
+        /// </summary>
+        public static Output<GetADCCatalogResult> Invoke(GetADCCatalogInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
         public string ResourceGroupName { get; set; } = null!;
 
         public GetADCCatalogArgs()
+        {
+        }
+    }
+
+    public sealed class GetADCCatalogInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the data catalog in the specified subscription and resource group.
+        /// </summary>
+        [Input("catalogName", required: true)]
+        public Input<string> CatalogName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetADCCatalogInvokeArgs()
         {
         }
     }

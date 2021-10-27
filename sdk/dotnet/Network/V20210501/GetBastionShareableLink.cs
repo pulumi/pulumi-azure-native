@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network/v20210501:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Response for all the Bastion Shareable Link endpoints.
+        /// </summary>
+        public static Output<GetBastionShareableLinkResult> Invoke(GetBastionShareableLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBastionShareableLinkResult>("azure-native:network/v20210501:getBastionShareableLink", args ?? new GetBastionShareableLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Network.V20210501
         }
 
         public GetBastionShareableLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetBastionShareableLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Bastion Host.
+        /// </summary>
+        [Input("bastionHostName", required: true)]
+        public Input<string> BastionHostName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("vms")]
+        private InputList<Inputs.BastionShareableLinkArgs>? _vms;
+
+        /// <summary>
+        /// List of VM references.
+        /// </summary>
+        public InputList<Inputs.BastionShareableLinkArgs> Vms
+        {
+            get => _vms ?? (_vms = new InputList<Inputs.BastionShareableLinkArgs>());
+            set => _vms = value;
+        }
+
+        public GetBastionShareableLinkInvokeArgs()
         {
         }
     }

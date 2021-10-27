@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay.V20160701
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Relay.V20160701
         /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-native:relay/v20160701:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// </summary>
+        public static Output<ListWCFRelayKeysResult> Invoke(ListWCFRelayKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWCFRelayKeysResult>("azure-native:relay/v20160701:listWCFRelayKeys", args ?? new ListWCFRelayKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Relay.V20160701
         public string ResourceGroupName { get; set; } = null!;
 
         public ListWCFRelayKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWCFRelayKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The authorizationRule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// The Namespace Name
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The relay name
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public ListWCFRelayKeysInvokeArgs()
         {
         }
     }

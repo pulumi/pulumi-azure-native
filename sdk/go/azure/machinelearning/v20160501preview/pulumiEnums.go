@@ -1185,6 +1185,20 @@ func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeInput)(nil)).Elem(), AssetType("Module"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypePtrInput)(nil)).Elem(), AssetType("Module"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ColumnFormatInput)(nil)).Elem(), ColumnFormat("Byte"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ColumnFormatPtrInput)(nil)).Elem(), ColumnFormat("Byte"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ColumnTypeInput)(nil)).Elem(), ColumnType("Boolean"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ColumnTypePtrInput)(nil)).Elem(), ColumnType("Boolean"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticsLevelInput)(nil)).Elem(), DiagnosticsLevel("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticsLevelPtrInput)(nil)).Elem(), DiagnosticsLevel("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputPortTypeInput)(nil)).Elem(), InputPortType("Dataset"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InputPortTypePtrInput)(nil)).Elem(), InputPortType("Dataset"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputPortTypeInput)(nil)).Elem(), OutputPortType("Dataset"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputPortTypePtrInput)(nil)).Elem(), OutputPortType("Dataset"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypeInput)(nil)).Elem(), ParameterType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("String"))
 	pulumi.RegisterOutputType(AssetTypeOutput{})
 	pulumi.RegisterOutputType(AssetTypePtrOutput{})
 	pulumi.RegisterOutputType(ColumnFormatOutput{})

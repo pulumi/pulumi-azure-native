@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20190601
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement/v20190601:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The alert rule information
+        /// </summary>
+        public static Output<GetSmartDetectorAlertRuleResult> Invoke(GetSmartDetectorAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement/v20190601:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190601
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSmartDetectorAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetSmartDetectorAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the alert rule.
+        /// </summary>
+        [Input("alertRuleName", required: true)]
+        public Input<string> AlertRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates if Smart Detector should be expanded.
+        /// </summary>
+        [Input("expandDetector")]
+        public Input<bool>? ExpandDetector { get; set; }
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSmartDetectorAlertRuleInvokeArgs()
         {
         }
     }

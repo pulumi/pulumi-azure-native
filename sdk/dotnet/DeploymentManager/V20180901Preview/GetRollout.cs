@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// </summary>
         public static Task<GetRolloutResult> InvokeAsync(GetRolloutArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Defines the PUT rollout request body.
+        /// </summary>
+        public static Output<GetRolloutResult> Invoke(GetRolloutInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         public string RolloutName { get; set; } = null!;
 
         public GetRolloutArgs()
+        {
+        }
+    }
+
+    public sealed class GetRolloutInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
+        /// </summary>
+        [Input("retryAttempt")]
+        public Input<int>? RetryAttempt { get; set; }
+
+        /// <summary>
+        /// The rollout name.
+        /// </summary>
+        [Input("rolloutName", required: true)]
+        public Input<string> RolloutName { get; set; } = null!;
+
+        public GetRolloutInvokeArgs()
         {
         }
     }

@@ -153,5 +153,6 @@ func (o BackupInstanceOutput) ToBackupInstanceOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceInput)(nil)).Elem(), &BackupInstance{})
 	pulumi.RegisterOutputType(BackupInstanceOutput{})
 }

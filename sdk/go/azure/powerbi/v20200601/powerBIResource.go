@@ -133,5 +133,6 @@ func (o PowerBIResourceOutput) ToPowerBIResourceOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerBIResourceInput)(nil)).Elem(), &PowerBIResource{})
 	pulumi.RegisterOutputType(PowerBIResourceOutput{})
 }

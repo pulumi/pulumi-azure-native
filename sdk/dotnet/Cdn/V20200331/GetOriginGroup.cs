@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200331
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// </summary>
+        public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         public string ResourceGroupName { get; set; } = null!;
 
         public GetOriginGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetOriginGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the endpoint under the profile which is unique globally.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the origin group which is unique within the endpoint.
+        /// </summary>
+        [Input("originGroupName", required: true)]
+        public Input<string> OriginGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetOriginGroupInvokeArgs()
         {
         }
     }

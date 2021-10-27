@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public static Task<GetWorkloadClassifierResult> InvokeAsync(GetWorkloadClassifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-native:sql/v20200801preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Workload classifier operations for a data warehouse
+        /// </summary>
+        public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20200801preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         public string WorkloadGroupName { get; set; } = null!;
 
         public GetWorkloadClassifierArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadClassifierInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workload classifier.
+        /// </summary>
+        [Input("workloadClassifierName", required: true)]
+        public Input<string> WorkloadClassifierName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the workload group from which to receive the classifier from.
+        /// </summary>
+        [Input("workloadGroupName", required: true)]
+        public Input<string> WorkloadGroupName { get; set; } = null!;
+
+        public GetWorkloadClassifierInvokeArgs()
         {
         }
     }

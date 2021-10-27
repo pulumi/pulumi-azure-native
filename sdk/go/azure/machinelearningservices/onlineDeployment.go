@@ -149,5 +149,6 @@ func (o OnlineDeploymentOutput) ToOnlineDeploymentOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineDeploymentInput)(nil)).Elem(), &OnlineDeployment{})
 	pulumi.RegisterOutputType(OnlineDeploymentOutput{})
 }

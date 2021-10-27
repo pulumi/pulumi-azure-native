@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBI
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.PowerBI
         /// </summary>
         public static Task<ListWorkspaceCollectionAccessKeysResult> InvokeAsync(ListWorkspaceCollectionAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// 
+        /// API Version: 2016-01-29.
+        /// </summary>
+        public static Output<ListWorkspaceCollectionAccessKeysResult> Invoke(ListWorkspaceCollectionAccessKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -35,6 +43,25 @@ namespace Pulumi.AzureNative.PowerBI
         public string WorkspaceCollectionName { get; set; } = null!;
 
         public ListWorkspaceCollectionAccessKeysArgs()
+        {
+        }
+    }
+
+    public sealed class ListWorkspaceCollectionAccessKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Azure resource group
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Power BI Embedded Workspace Collection name
+        /// </summary>
+        [Input("workspaceCollectionName", required: true)]
+        public Input<string> WorkspaceCollectionName { get; set; } = null!;
+
+        public ListWorkspaceCollectionAccessKeysInvokeArgs()
         {
         }
     }

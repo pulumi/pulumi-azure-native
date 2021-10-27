@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Api Version Set Contract details.
+        /// API Version: 2020-12-01.
+        /// </summary>
+        public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.ApiManagement
         public string VersionSetId { get; set; } = null!;
 
         public GetApiVersionSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiVersionSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Api Version Set identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("versionSetId", required: true)]
+        public Input<string> VersionSetId { get; set; } = null!;
+
+        public GetApiVersionSetInvokeArgs()
         {
         }
     }

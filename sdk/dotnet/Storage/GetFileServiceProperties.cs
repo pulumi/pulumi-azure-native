@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The properties of File services in storage account.
+        /// API Version: 2021-02-01.
+        /// </summary>
+        public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Storage
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFileServicePropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileServicePropertiesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the file Service within the specified storage account. File Service Name must be "default"
+        /// </summary>
+        [Input("fileServicesName", required: true)]
+        public Input<string> FileServicesName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFileServicePropertiesInvokeArgs()
         {
         }
     }

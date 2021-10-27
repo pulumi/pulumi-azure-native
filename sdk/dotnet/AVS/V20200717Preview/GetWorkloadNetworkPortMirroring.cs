@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         /// </summary>
         public static Task<GetWorkloadNetworkPortMirroringResult> InvokeAsync(GetWorkloadNetworkPortMirroringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20200717preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringArgs(), options.WithVersion());
+
+        /// <summary>
+        /// NSX Port Mirroring
+        /// </summary>
+        public static Output<GetWorkloadNetworkPortMirroringResult> Invoke(GetWorkloadNetworkPortMirroringInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20200717preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkloadNetworkPortMirroringArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkloadNetworkPortMirroringInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+        /// </summary>
+        [Input("portMirroringId", required: true)]
+        public Input<string> PortMirroringId { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkloadNetworkPortMirroringInvokeArgs()
         {
         }
     }

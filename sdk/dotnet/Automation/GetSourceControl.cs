@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Definition of the source control.
+        /// API Version: 2019-06-01.
+        /// </summary>
+        public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Automation
         public string SourceControlName { get; set; } = null!;
 
         public GetSourceControlArgs()
+        {
+        }
+    }
+
+    public sealed class GetSourceControlInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of an Azure Resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of source control.
+        /// </summary>
+        [Input("sourceControlName", required: true)]
+        public Input<string> SourceControlName { get; set; } = null!;
+
+        public GetSourceControlInvokeArgs()
         {
         }
     }

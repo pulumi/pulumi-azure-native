@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Aad.V20210501
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Aad.V20210501
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad/v20210501:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Domain service.
+        /// </summary>
+        public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad/v20210501:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Aad.V20210501
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDomainServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDomainServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the domain service.
+        /// </summary>
+        [Input("domainServiceName", required: true)]
+        public Input<string> DomainServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDomainServiceInvokeArgs()
         {
         }
     }

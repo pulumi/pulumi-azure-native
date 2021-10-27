@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20180330preview:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// An Asset.
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20180330preview:getAsset", args ?? new GetAssetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAssetArgs()
+        {
+        }
+    }
+
+    public sealed class GetAssetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Asset name.
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group within the Azure subscription.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAssetInvokeArgs()
         {
         }
     }

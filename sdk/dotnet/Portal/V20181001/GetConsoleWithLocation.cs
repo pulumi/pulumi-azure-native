@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal.V20181001
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.Portal.V20181001
         /// </summary>
         public static Task<GetConsoleWithLocationResult> InvokeAsync(GetConsoleWithLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azure-native:portal/v20181001:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Cloud shell console
+        /// </summary>
+        public static Output<GetConsoleWithLocationResult> Invoke(GetConsoleWithLocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConsoleWithLocationResult>("azure-native:portal/v20181001:getConsoleWithLocation", args ?? new GetConsoleWithLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.AzureNative.Portal.V20181001
         public string Location { get; set; } = null!;
 
         public GetConsoleWithLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetConsoleWithLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the console
+        /// </summary>
+        [Input("consoleName", required: true)]
+        public Input<string> ConsoleName { get; set; } = null!;
+
+        /// <summary>
+        /// The provider location
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        public GetConsoleWithLocationInvokeArgs()
         {
         }
     }

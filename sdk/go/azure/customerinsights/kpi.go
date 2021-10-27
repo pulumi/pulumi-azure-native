@@ -193,5 +193,6 @@ func (o KpiOutput) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KpiInput)(nil)).Elem(), &Kpi{})
 	pulumi.RegisterOutputType(KpiOutput{})
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
@@ -16,6 +17,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20190101:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ApiRelease details.
+        /// </summary>
+        public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement/v20190101:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         public string ServiceName { get; set; } = null!;
 
         public GetApiReleaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiReleaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// API identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Release identifier within an API. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("releaseId", required: true)]
+        public Input<string> ReleaseId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetApiReleaseInvokeArgs()
         {
         }
     }

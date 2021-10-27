@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Intune
 {
@@ -17,6 +18,13 @@ namespace Pulumi.AzureNative.Intune
         /// </summary>
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Android Policy entity for Intune MAM.
+        /// API Version: 2015-01-14-preview.
+        /// </summary>
+        public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithVersion());
     }
 
 
@@ -41,6 +49,31 @@ namespace Pulumi.AzureNative.Intune
         public string? Select { get; set; }
 
         public GetAndroidMAMPolicyByNameArgs()
+        {
+        }
+    }
+
+    public sealed class GetAndroidMAMPolicyByNameInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Location hostName for the tenant
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name for the policy
+        /// </summary>
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// select specific fields in entity.
+        /// </summary>
+        [Input("select")]
+        public Input<string>? Select { get; set; }
+
+        public GetAndroidMAMPolicyByNameInvokeArgs()
         {
         }
     }

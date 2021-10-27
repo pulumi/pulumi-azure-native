@@ -140,5 +140,6 @@ func (o PrivateEndpointConnectionByWorkspaceOutput) ToPrivateEndpointConnectionB
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionByWorkspaceInput)(nil)).Elem(), &PrivateEndpointConnectionByWorkspace{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionByWorkspaceOutput{})
 }
