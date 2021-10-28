@@ -130,6 +130,5 @@ func (o LinkedWorkspaceOutput) ToLinkedWorkspaceOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedWorkspaceInput)(nil)).Elem(), &LinkedWorkspace{})
 	pulumi.RegisterOutputType(LinkedWorkspaceOutput{})
 }

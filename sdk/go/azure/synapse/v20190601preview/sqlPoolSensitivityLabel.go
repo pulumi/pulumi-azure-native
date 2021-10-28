@@ -201,6 +201,5 @@ func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolSensitivityLabelInput)(nil)).Elem(), &SqlPoolSensitivityLabel{})
 	pulumi.RegisterOutputType(SqlPoolSensitivityLabelOutput{})
 }

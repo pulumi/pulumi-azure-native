@@ -550,13 +550,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsPtrInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsArrayInput)(nil)).Elem(), AccessRightsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypeInput)(nil)).Elem(), NamespaceType("Messaging"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypePtrInput)(nil)).Elem(), NamespaceType("Messaging"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Free"))
 	pulumi.RegisterOutputType(AccessRightsOutput{})
 	pulumi.RegisterOutputType(AccessRightsPtrOutput{})
 	pulumi.RegisterOutputType(AccessRightsArrayOutput{})

@@ -948,19 +948,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplianceCredentialKubeconfigResponseInput)(nil)).Elem(), ApplianceCredentialKubeconfigResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplianceCredentialKubeconfigResponseArrayInput)(nil)).Elem(), ApplianceCredentialKubeconfigResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppliancePropertiesInfrastructureConfigInput)(nil)).Elem(), AppliancePropertiesInfrastructureConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppliancePropertiesInfrastructureConfigPtrInput)(nil)).Elem(), AppliancePropertiesInfrastructureConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppliancePropertiesResponseInfrastructureConfigInput)(nil)).Elem(), AppliancePropertiesResponseInfrastructureConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppliancePropertiesResponseInfrastructureConfigPtrInput)(nil)).Elem(), AppliancePropertiesResponseInfrastructureConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionConfigResponseInput)(nil)).Elem(), HybridConnectionConfigResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityInput)(nil)).Elem(), IdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPtrInput)(nil)).Elem(), IdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityResponseInput)(nil)).Elem(), IdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityResponsePtrInput)(nil)).Elem(), IdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseOutput{})
 	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseArrayOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesInfrastructureConfigOutput{})

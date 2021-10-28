@@ -175,8 +175,6 @@ func (in *deploymentModePtr) ToDeploymentModePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModeInput)(nil)).Elem(), DeploymentMode("Incremental"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModePtrInput)(nil)).Elem(), DeploymentMode("Incremental"))
 	pulumi.RegisterOutputType(DeploymentModeOutput{})
 	pulumi.RegisterOutputType(DeploymentModePtrOutput{})
 }

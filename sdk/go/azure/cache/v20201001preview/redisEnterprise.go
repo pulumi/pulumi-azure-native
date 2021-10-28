@@ -161,6 +161,5 @@ func (o RedisEnterpriseOutput) ToRedisEnterpriseOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RedisEnterpriseInput)(nil)).Elem(), &RedisEnterprise{})
 	pulumi.RegisterOutputType(RedisEnterpriseOutput{})
 }

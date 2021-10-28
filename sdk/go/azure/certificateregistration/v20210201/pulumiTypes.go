@@ -648,14 +648,6 @@ func (o CertificateOrderContactResponsePtrOutput) Phone() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateInput)(nil)).Elem(), AppServiceCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateMapInput)(nil)).Elem(), AppServiceCertificateMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateResponseInput)(nil)).Elem(), AppServiceCertificateResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateResponseMapInput)(nil)).Elem(), AppServiceCertificateResponseMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDetailsResponseInput)(nil)).Elem(), CertificateDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDetailsResponsePtrInput)(nil)).Elem(), CertificateDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderContactResponseInput)(nil)).Elem(), CertificateOrderContactResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderContactResponsePtrInput)(nil)).Elem(), CertificateOrderContactResponseArgs{})
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})

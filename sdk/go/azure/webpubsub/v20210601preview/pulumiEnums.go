@@ -1002,18 +1002,6 @@ func (in *webPubSubSkuTierPtr) ToWebPubSubSkuTierPtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLActionInput)(nil)).Elem(), ACLAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLActionPtrInput)(nil)).Elem(), ACLAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypeInput)(nil)).Elem(), ManagedIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypePtrInput)(nil)).Elem(), ManagedIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamAuthTypeInput)(nil)).Elem(), UpstreamAuthType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamAuthTypePtrInput)(nil)).Elem(), UpstreamAuthType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubRequestTypeInput)(nil)).Elem(), WebPubSubRequestType("ClientConnection"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubRequestTypePtrInput)(nil)).Elem(), WebPubSubRequestType("ClientConnection"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubSkuTierInput)(nil)).Elem(), WebPubSubSkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubSkuTierPtrInput)(nil)).Elem(), WebPubSubSkuTier("Free"))
 	pulumi.RegisterOutputType(ACLActionOutput{})
 	pulumi.RegisterOutputType(ACLActionPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityTypeOutput{})

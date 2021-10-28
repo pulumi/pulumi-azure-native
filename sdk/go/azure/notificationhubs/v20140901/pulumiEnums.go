@@ -385,11 +385,6 @@ func (in *namespaceTypePtr) ToNamespaceTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsPtrInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsArrayInput)(nil)).Elem(), AccessRightsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypeInput)(nil)).Elem(), NamespaceType("Messaging"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypePtrInput)(nil)).Elem(), NamespaceType("Messaging"))
 	pulumi.RegisterOutputType(AccessRightsOutput{})
 	pulumi.RegisterOutputType(AccessRightsPtrOutput{})
 	pulumi.RegisterOutputType(AccessRightsArrayOutput{})

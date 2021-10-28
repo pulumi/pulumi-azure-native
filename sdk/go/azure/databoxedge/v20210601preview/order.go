@@ -200,6 +200,5 @@ func (o OrderOutput) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OrderInput)(nil)).Elem(), &Order{})
 	pulumi.RegisterOutputType(OrderOutput{})
 }

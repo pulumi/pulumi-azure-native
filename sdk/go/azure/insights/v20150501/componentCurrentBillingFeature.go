@@ -127,6 +127,5 @@ func (o ComponentCurrentBillingFeatureOutput) ToComponentCurrentBillingFeatureOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentCurrentBillingFeatureInput)(nil)).Elem(), &ComponentCurrentBillingFeature{})
 	pulumi.RegisterOutputType(ComponentCurrentBillingFeatureOutput{})
 }

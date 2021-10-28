@@ -133,6 +133,5 @@ func (o DisasterRecoveryConfigurationOutput) ToDisasterRecoveryConfigurationOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DisasterRecoveryConfigurationInput)(nil)).Elem(), &DisasterRecoveryConfiguration{})
 	pulumi.RegisterOutputType(DisasterRecoveryConfigurationOutput{})
 }

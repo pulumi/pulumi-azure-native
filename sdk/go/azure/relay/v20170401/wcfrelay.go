@@ -147,6 +147,5 @@ func (o WCFRelayOutput) ToWCFRelayOutputWithContext(ctx context.Context) WCFRela
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WCFRelayInput)(nil)).Elem(), &WCFRelay{})
 	pulumi.RegisterOutputType(WCFRelayOutput{})
 }

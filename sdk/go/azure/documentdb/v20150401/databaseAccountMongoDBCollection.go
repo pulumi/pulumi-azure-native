@@ -258,6 +258,5 @@ func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollecti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountMongoDBCollectionInput)(nil)).Elem(), &DatabaseAccountMongoDBCollection{})
 	pulumi.RegisterOutputType(DatabaseAccountMongoDBCollectionOutput{})
 }

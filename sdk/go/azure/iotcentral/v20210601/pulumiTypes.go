@@ -573,14 +573,6 @@ func (o SystemAssignedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrO
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoInput)(nil)).Elem(), AppSkuInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoPtrInput)(nil)).Elem(), AppSkuInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoResponseInput)(nil)).Elem(), AppSkuInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoResponsePtrInput)(nil)).Elem(), AppSkuInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityInput)(nil)).Elem(), SystemAssignedServiceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityPtrInput)(nil)).Elem(), SystemAssignedServiceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityResponseInput)(nil)).Elem(), SystemAssignedServiceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedServiceIdentityResponsePtrInput)(nil)).Elem(), SystemAssignedServiceIdentityResponseArgs{})
 	pulumi.RegisterOutputType(AppSkuInfoOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoResponseOutput{})

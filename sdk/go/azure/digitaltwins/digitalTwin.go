@@ -151,6 +151,5 @@ func (o DigitalTwinOutput) ToDigitalTwinOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinInput)(nil)).Elem(), &DigitalTwin{})
 	pulumi.RegisterOutputType(DigitalTwinOutput{})
 }

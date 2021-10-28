@@ -228,6 +228,5 @@ func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceEnvironmentInput)(nil)).Elem(), &AppServiceEnvironment{})
 	pulumi.RegisterOutputType(AppServiceEnvironmentOutput{})
 }

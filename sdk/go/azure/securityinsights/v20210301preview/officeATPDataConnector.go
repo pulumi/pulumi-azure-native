@@ -162,6 +162,5 @@ func (o OfficeATPDataConnectorOutput) ToOfficeATPDataConnectorOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OfficeATPDataConnectorInput)(nil)).Elem(), &OfficeATPDataConnector{})
 	pulumi.RegisterOutputType(OfficeATPDataConnectorOutput{})
 }

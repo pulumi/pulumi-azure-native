@@ -176,6 +176,5 @@ func (o PartnerRegistrationOutput) ToPartnerRegistrationOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerRegistrationInput)(nil)).Elem(), &PartnerRegistration{})
 	pulumi.RegisterOutputType(PartnerRegistrationOutput{})
 }

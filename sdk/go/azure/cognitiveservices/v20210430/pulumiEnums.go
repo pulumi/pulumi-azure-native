@@ -1001,18 +1001,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourceInput)(nil)).Elem(), KeySource("Microsoft.CognitiveServices"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourcePtrInput)(nil)).Elem(), KeySource("Microsoft.CognitiveServices"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRuleActionInput)(nil)).Elem(), NetworkRuleAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRuleActionPtrInput)(nil)).Elem(), NetworkRuleAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Free"))
 	pulumi.RegisterOutputType(KeySourceOutput{})
 	pulumi.RegisterOutputType(KeySourcePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleActionOutput{})

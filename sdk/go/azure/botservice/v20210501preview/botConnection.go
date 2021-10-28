@@ -168,6 +168,5 @@ func (o BotConnectionOutput) ToBotConnectionOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BotConnectionInput)(nil)).Elem(), &BotConnection{})
 	pulumi.RegisterOutputType(BotConnectionOutput{})
 }

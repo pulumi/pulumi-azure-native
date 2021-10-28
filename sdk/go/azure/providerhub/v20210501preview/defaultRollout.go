@@ -141,6 +141,5 @@ func (o DefaultRolloutOutput) ToDefaultRolloutOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRolloutInput)(nil)).Elem(), &DefaultRollout{})
 	pulumi.RegisterOutputType(DefaultRolloutOutput{})
 }

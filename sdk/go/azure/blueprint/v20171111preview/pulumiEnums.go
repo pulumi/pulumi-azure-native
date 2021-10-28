@@ -838,16 +838,6 @@ func (in *templateParameterTypePtr) ToTemplateParameterTypePtrOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactKindInput)(nil)).Elem(), ArtifactKind("template"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactKindPtrInput)(nil)).Elem(), ArtifactKind("template"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentLockModeInput)(nil)).Elem(), AssignmentLockMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentLockModePtrInput)(nil)).Elem(), AssignmentLockMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BlueprintTargetScopeInput)(nil)).Elem(), BlueprintTargetScope("subscription"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BlueprintTargetScopePtrInput)(nil)).Elem(), BlueprintTargetScope("subscription"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterTypeInput)(nil)).Elem(), TemplateParameterType("string"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterTypePtrInput)(nil)).Elem(), TemplateParameterType("string"))
 	pulumi.RegisterOutputType(ArtifactKindOutput{})
 	pulumi.RegisterOutputType(ArtifactKindPtrOutput{})
 	pulumi.RegisterOutputType(AssignmentLockModeOutput{})

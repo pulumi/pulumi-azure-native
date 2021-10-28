@@ -148,6 +148,5 @@ func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvir
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiInput)(nil)).Elem(), &IntegrationServiceEnvironmentManagedApi{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiOutput{})
 }

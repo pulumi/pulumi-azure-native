@@ -144,6 +144,5 @@ func (o SubAccountOutput) ToSubAccountOutputWithContext(ctx context.Context) Sub
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SubAccountInput)(nil)).Elem(), &SubAccount{})
 	pulumi.RegisterOutputType(SubAccountOutput{})
 }

@@ -191,6 +191,5 @@ func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifier
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppDomainOwnershipIdentifierInput)(nil)).Elem(), &WebAppDomainOwnershipIdentifier{})
 	pulumi.RegisterOutputType(WebAppDomainOwnershipIdentifierOutput{})
 }

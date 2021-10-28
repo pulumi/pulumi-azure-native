@@ -138,6 +138,5 @@ func (o DataManagerOutput) ToDataManagerOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataManagerInput)(nil)).Elem(), &DataManager{})
 	pulumi.RegisterOutputType(DataManagerOutput{})
 }

@@ -179,6 +179,5 @@ func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaServiceInput)(nil)).Elem(), &MediaService{})
 	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

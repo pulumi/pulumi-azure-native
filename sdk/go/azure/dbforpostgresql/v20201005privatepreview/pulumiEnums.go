@@ -837,16 +837,6 @@ func (in *serverRolePtr) ToServerRolePtrOutputWithContext(ctx context.Context) S
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CitusVersionInput)(nil)).Elem(), CitusVersion("8.3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CitusVersionPtrInput)(nil)).Elem(), CitusVersion("8.3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateModeInput)(nil)).Elem(), CreateMode("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateModePtrInput)(nil)).Elem(), CreateMode("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PostgreSQLVersionInput)(nil)).Elem(), PostgreSQLVersion("11"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PostgreSQLVersionPtrInput)(nil)).Elem(), PostgreSQLVersion("11"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerEditionInput)(nil)).Elem(), ServerEdition("GeneralPurpose"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerEditionPtrInput)(nil)).Elem(), ServerEdition("GeneralPurpose"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerRoleInput)(nil)).Elem(), ServerRole("Coordinator"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerRolePtrInput)(nil)).Elem(), ServerRole("Coordinator"))
 	pulumi.RegisterOutputType(CitusVersionOutput{})
 	pulumi.RegisterOutputType(CitusVersionPtrOutput{})
 	pulumi.RegisterOutputType(CreateModeOutput{})

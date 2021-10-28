@@ -132,6 +132,5 @@ func (o CodeContainerOutput) ToCodeContainerOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeContainerInput)(nil)).Elem(), &CodeContainer{})
 	pulumi.RegisterOutputType(CodeContainerOutput{})
 }

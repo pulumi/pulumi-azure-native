@@ -207,6 +207,5 @@ func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineResourceInput)(nil)).Elem(), &VirtualMachineResource{})
 	pulumi.RegisterOutputType(VirtualMachineResourceOutput{})
 }

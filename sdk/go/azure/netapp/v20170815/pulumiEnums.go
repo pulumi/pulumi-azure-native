@@ -179,8 +179,6 @@ func (in *serviceLevelPtr) ToServiceLevelPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelInput)(nil)).Elem(), ServiceLevel("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelPtrInput)(nil)).Elem(), ServiceLevel("Standard"))
 	pulumi.RegisterOutputType(ServiceLevelOutput{})
 	pulumi.RegisterOutputType(ServiceLevelPtrOutput{})
 }

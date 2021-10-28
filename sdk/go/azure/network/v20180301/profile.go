@@ -186,6 +186,5 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileInput)(nil)).Elem(), &Profile{})
 	pulumi.RegisterOutputType(ProfileOutput{})
 }

@@ -204,6 +204,5 @@ func (o ReadOnlyFollowingDatabaseOutput) ToReadOnlyFollowingDatabaseOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReadOnlyFollowingDatabaseInput)(nil)).Elem(), &ReadOnlyFollowingDatabase{})
 	pulumi.RegisterOutputType(ReadOnlyFollowingDatabaseOutput{})
 }

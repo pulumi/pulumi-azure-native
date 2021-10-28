@@ -156,6 +156,5 @@ func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) S
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicInput)(nil)).Elem(), &SystemTopic{})
 	pulumi.RegisterOutputType(SystemTopicOutput{})
 }

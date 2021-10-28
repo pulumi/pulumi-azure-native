@@ -135,6 +135,5 @@ func (o ProviderRegistrationOutput) ToProviderRegistrationOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderRegistrationInput)(nil)).Elem(), &ProviderRegistration{})
 	pulumi.RegisterOutputType(ProviderRegistrationOutput{})
 }

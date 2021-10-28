@@ -123,6 +123,5 @@ func (o SubscriptionAliasOutput) ToSubscriptionAliasOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionAliasInput)(nil)).Elem(), &SubscriptionAlias{})
 	pulumi.RegisterOutputType(SubscriptionAliasOutput{})
 }

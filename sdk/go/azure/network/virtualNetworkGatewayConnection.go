@@ -414,6 +414,5 @@ func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnection
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionInput)(nil)).Elem(), &VirtualNetworkGatewayConnection{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
 }

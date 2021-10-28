@@ -211,6 +211,5 @@ func (o ApiDiagnosticOutput) ToApiDiagnosticOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiDiagnosticInput)(nil)).Elem(), &ApiDiagnostic{})
 	pulumi.RegisterOutputType(ApiDiagnosticOutput{})
 }

@@ -152,6 +152,5 @@ func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) ToAppServiceEnviro
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceEnvironmentPrivateEndpointConnectionInput)(nil)).Elem(), &AppServiceEnvironmentPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(AppServiceEnvironmentPrivateEndpointConnectionOutput{})
 }

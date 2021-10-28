@@ -156,6 +156,5 @@ func (o PolicyAssignmentArtifactOutput) ToPolicyAssignmentArtifactOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentArtifactInput)(nil)).Elem(), &PolicyAssignmentArtifact{})
 	pulumi.RegisterOutputType(PolicyAssignmentArtifactOutput{})
 }

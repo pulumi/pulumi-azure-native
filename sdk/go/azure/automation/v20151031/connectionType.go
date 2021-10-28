@@ -154,6 +154,5 @@ func (o ConnectionTypeOutput) ToConnectionTypeOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeInput)(nil)).Elem(), &ConnectionType{})
 	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 }

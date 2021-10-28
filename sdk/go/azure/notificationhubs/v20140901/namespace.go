@@ -144,6 +144,5 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceInput)(nil)).Elem(), &Namespace{})
 	pulumi.RegisterOutputType(NamespaceOutput{})
 }

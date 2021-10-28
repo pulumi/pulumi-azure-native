@@ -196,6 +196,5 @@ func (o WebAppConnectionStringsOutput) ToWebAppConnectionStringsOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppConnectionStringsInput)(nil)).Elem(), &WebAppConnectionStrings{})
 	pulumi.RegisterOutputType(WebAppConnectionStringsOutput{})
 }

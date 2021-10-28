@@ -141,6 +141,5 @@ func (o EntityQueryOutput) ToEntityQueryOutputWithContext(ctx context.Context) E
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityQueryInput)(nil)).Elem(), &EntityQuery{})
 	pulumi.RegisterOutputType(EntityQueryOutput{})
 }

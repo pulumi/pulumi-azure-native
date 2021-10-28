@@ -131,6 +131,5 @@ func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedNetworkPeeringPolicyInput)(nil)).Elem(), &ManagedNetworkPeeringPolicy{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyOutput{})
 }

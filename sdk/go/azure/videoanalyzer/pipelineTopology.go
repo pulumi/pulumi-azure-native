@@ -159,6 +159,5 @@ func (o PipelineTopologyOutput) ToPipelineTopologyOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTopologyInput)(nil)).Elem(), &PipelineTopology{})
 	pulumi.RegisterOutputType(PipelineTopologyOutput{})
 }

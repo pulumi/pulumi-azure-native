@@ -177,8 +177,6 @@ func (in *exemptionCategoryPtr) ToExemptionCategoryPtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExemptionCategoryInput)(nil)).Elem(), ExemptionCategory("Waiver"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExemptionCategoryPtrInput)(nil)).Elem(), ExemptionCategory("Waiver"))
 	pulumi.RegisterOutputType(ExemptionCategoryOutput{})
 	pulumi.RegisterOutputType(ExemptionCategoryPtrOutput{})
 }

@@ -163,6 +163,5 @@ func (o SyncAgentOutput) ToSyncAgentOutputWithContext(ctx context.Context) SyncA
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SyncAgentInput)(nil)).Elem(), &SyncAgent{})
 	pulumi.RegisterOutputType(SyncAgentOutput{})
 }

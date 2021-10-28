@@ -163,6 +163,5 @@ func (o AFDOriginOutput) ToAFDOriginOutputWithContext(ctx context.Context) AFDOr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AFDOriginInput)(nil)).Elem(), &AFDOrigin{})
 	pulumi.RegisterOutputType(AFDOriginOutput{})
 }

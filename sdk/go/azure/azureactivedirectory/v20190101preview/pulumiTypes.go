@@ -603,14 +603,6 @@ func (o CreateTenantRequestBodyPropertiesPtrOutput) DisplayName() pulumi.StringP
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUInput)(nil)).Elem(), B2CResourceSKUArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUPtrInput)(nil)).Elem(), B2CResourceSKUArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUResponseInput)(nil)).Elem(), B2CResourceSKUResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUResponsePtrInput)(nil)).Elem(), B2CResourceSKUResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CTenantResourcePropertiesResponseBillingConfigInput)(nil)).Elem(), B2CTenantResourcePropertiesResponseBillingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CTenantResourcePropertiesResponseBillingConfigPtrInput)(nil)).Elem(), B2CTenantResourcePropertiesResponseBillingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateTenantRequestBodyPropertiesInput)(nil)).Elem(), CreateTenantRequestBodyPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateTenantRequestBodyPropertiesPtrInput)(nil)).Elem(), CreateTenantRequestBodyPropertiesArgs{})
 	pulumi.RegisterOutputType(B2CResourceSKUOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUPtrOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUResponseOutput{})

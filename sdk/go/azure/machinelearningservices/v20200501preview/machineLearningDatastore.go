@@ -207,6 +207,5 @@ func (o MachineLearningDatastoreOutput) ToMachineLearningDatastoreOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineLearningDatastoreInput)(nil)).Elem(), &MachineLearningDatastore{})
 	pulumi.RegisterOutputType(MachineLearningDatastoreOutput{})
 }

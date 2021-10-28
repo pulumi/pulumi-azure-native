@@ -162,6 +162,5 @@ func (o MDATPDataConnectorOutput) ToMDATPDataConnectorOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MDATPDataConnectorInput)(nil)).Elem(), &MDATPDataConnector{})
 	pulumi.RegisterOutputType(MDATPDataConnectorOutput{})
 }

@@ -675,14 +675,6 @@ func (in *tierTypePtr) ToTierTypePtrOutputWithContext(ctx context.Context) TierT
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AADObjectTypeInput)(nil)).Elem(), AADObjectType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AADObjectTypePtrInput)(nil)).Elem(), AADObjectType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAllowAzureIpsStateInput)(nil)).Elem(), FirewallAllowAzureIpsState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAllowAzureIpsStatePtrInput)(nil)).Elem(), FirewallAllowAzureIpsState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallStateInput)(nil)).Elem(), FirewallState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallStatePtrInput)(nil)).Elem(), FirewallState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierTypeInput)(nil)).Elem(), TierType("Consumption"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierTypePtrInput)(nil)).Elem(), TierType("Consumption"))
 	pulumi.RegisterOutputType(AADObjectTypeOutput{})
 	pulumi.RegisterOutputType(AADObjectTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallAllowAzureIpsStateOutput{})

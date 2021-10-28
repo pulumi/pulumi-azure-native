@@ -126,6 +126,5 @@ func (o ManagementConfigurationOutput) ToManagementConfigurationOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementConfigurationInput)(nil)).Elem(), &ManagementConfiguration{})
 	pulumi.RegisterOutputType(ManagementConfigurationOutput{})
 }

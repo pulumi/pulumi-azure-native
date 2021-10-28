@@ -170,6 +170,5 @@ func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapInput)(nil)).Elem(), &IntegrationAccountMap{})
 	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
 }

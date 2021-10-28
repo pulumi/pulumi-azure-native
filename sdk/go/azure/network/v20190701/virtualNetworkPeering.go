@@ -363,6 +363,5 @@ func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkPeeringInput)(nil)).Elem(), &VirtualNetworkPeering{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringOutput{})
 }

@@ -129,6 +129,5 @@ func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfilePreferenceInput)(nil)).Elem(), &ConfigurationProfilePreference{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceOutput{})
 }

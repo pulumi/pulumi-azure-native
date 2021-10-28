@@ -148,6 +148,5 @@ func (o EyesOnOutput) ToEyesOnOutputWithContext(ctx context.Context) EyesOnOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EyesOnInput)(nil)).Elem(), &EyesOn{})
 	pulumi.RegisterOutputType(EyesOnOutput{})
 }

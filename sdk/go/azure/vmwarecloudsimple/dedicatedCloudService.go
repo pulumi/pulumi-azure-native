@@ -135,6 +135,5 @@ func (o DedicatedCloudServiceOutput) ToDedicatedCloudServiceOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCloudServiceInput)(nil)).Elem(), &DedicatedCloudService{})
 	pulumi.RegisterOutputType(DedicatedCloudServiceOutput{})
 }

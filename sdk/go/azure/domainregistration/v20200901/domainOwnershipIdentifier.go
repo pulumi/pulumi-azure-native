@@ -186,6 +186,5 @@ func (o DomainOwnershipIdentifierOutput) ToDomainOwnershipIdentifierOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainOwnershipIdentifierInput)(nil)).Elem(), &DomainOwnershipIdentifier{})
 	pulumi.RegisterOutputType(DomainOwnershipIdentifierOutput{})
 }

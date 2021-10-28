@@ -195,6 +195,5 @@ func (o SensitivityLabelOutput) ToSensitivityLabelOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SensitivityLabelInput)(nil)).Elem(), &SensitivityLabel{})
 	pulumi.RegisterOutputType(SensitivityLabelOutput{})
 }

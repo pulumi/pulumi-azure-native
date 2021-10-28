@@ -144,6 +144,5 @@ func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatorInput)(nil)).Elem(), &Creator{})
 	pulumi.RegisterOutputType(CreatorOutput{})
 }

@@ -156,6 +156,5 @@ func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) J
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleInput)(nil)).Elem(), &JobSchedule{})
 	pulumi.RegisterOutputType(JobScheduleOutput{})
 }

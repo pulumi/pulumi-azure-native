@@ -259,10 +259,6 @@ func (o InvoiceSectionWithCreateSubPermissionResponseArrayOutput) Index(i pulumi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzurePlanResponseInput)(nil)).Elem(), AzurePlanResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AzurePlanResponseArrayInput)(nil)).Elem(), AzurePlanResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionResponseInput)(nil)).Elem(), InvoiceSectionWithCreateSubPermissionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionResponseArrayInput)(nil)).Elem(), InvoiceSectionWithCreateSubPermissionResponseArray{})
 	pulumi.RegisterOutputType(AzurePlanResponseOutput{})
 	pulumi.RegisterOutputType(AzurePlanResponseArrayOutput{})
 	pulumi.RegisterOutputType(InvoiceSectionWithCreateSubPermissionResponseOutput{})

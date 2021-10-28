@@ -1315,22 +1315,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScaleVCoreSkuInput)(nil)).Elem(), AutoScaleVCoreSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScaleVCoreSkuPtrInput)(nil)).Elem(), AutoScaleVCoreSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScaleVCoreSkuResponseInput)(nil)).Elem(), AutoScaleVCoreSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScaleVCoreSkuResponsePtrInput)(nil)).Elem(), AutoScaleVCoreSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuInput)(nil)).Elem(), CapacitySkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuPtrInput)(nil)).Elem(), CapacitySkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuResponseInput)(nil)).Elem(), CapacitySkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuResponsePtrInput)(nil)).Elem(), CapacitySkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsInput)(nil)).Elem(), DedicatedCapacityAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsPtrInput)(nil)).Elem(), DedicatedCapacityAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsResponseInput)(nil)).Elem(), DedicatedCapacityAdministratorsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsResponsePtrInput)(nil)).Elem(), DedicatedCapacityAdministratorsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataInput)(nil)).Elem(), SystemDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataPtrInput)(nil)).Elem(), SystemDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(AutoScaleVCoreSkuOutput{})
 	pulumi.RegisterOutputType(AutoScaleVCoreSkuPtrOutput{})
 	pulumi.RegisterOutputType(AutoScaleVCoreSkuResponseOutput{})

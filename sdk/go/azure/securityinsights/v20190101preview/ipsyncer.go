@@ -147,6 +147,5 @@ func (o IPSyncerOutput) ToIPSyncerOutputWithContext(ctx context.Context) IPSynce
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IPSyncerInput)(nil)).Elem(), &IPSyncer{})
 	pulumi.RegisterOutputType(IPSyncerOutput{})
 }

@@ -177,8 +177,6 @@ func (in *maintenanceScopePtr) ToMaintenanceScopePtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceScopeInput)(nil)).Elem(), MaintenanceScope("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceScopePtrInput)(nil)).Elem(), MaintenanceScope("All"))
 	pulumi.RegisterOutputType(MaintenanceScopeOutput{})
 	pulumi.RegisterOutputType(MaintenanceScopePtrOutput{})
 }

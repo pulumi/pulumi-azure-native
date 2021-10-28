@@ -135,8 +135,6 @@ func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseInput)(nil)).Elem(), ApiKeyResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseArrayInput)(nil)).Elem(), ApiKeyResponseArray{})
 	pulumi.RegisterOutputType(ApiKeyResponseOutput{})
 	pulumi.RegisterOutputType(ApiKeyResponseArrayOutput{})
 }

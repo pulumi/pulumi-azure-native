@@ -140,6 +140,5 @@ func (o WebServiceOutput) ToWebServiceOutputWithContext(ctx context.Context) Web
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebServiceInput)(nil)).Elem(), &WebService{})
 	pulumi.RegisterOutputType(WebServiceOutput{})
 }

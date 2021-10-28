@@ -196,6 +196,5 @@ func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrde
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceCertificateOrderCertificateInput)(nil)).Elem(), &AppServiceCertificateOrderCertificate{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateOutput{})
 }

@@ -180,6 +180,5 @@ func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanInput)(nil)).Elem(), &ReplicationRecoveryPlan{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanOutput{})
 }

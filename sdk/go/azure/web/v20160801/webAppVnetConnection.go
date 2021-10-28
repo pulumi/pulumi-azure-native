@@ -206,6 +206,5 @@ func (o WebAppVnetConnectionOutput) ToWebAppVnetConnectionOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppVnetConnectionInput)(nil)).Elem(), &WebAppVnetConnection{})
 	pulumi.RegisterOutputType(WebAppVnetConnectionOutput{})
 }

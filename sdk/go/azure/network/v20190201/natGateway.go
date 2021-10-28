@@ -252,6 +252,5 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayInput)(nil)).Elem(), &NatGateway{})
 	pulumi.RegisterOutputType(NatGatewayOutput{})
 }

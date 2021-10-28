@@ -147,6 +147,5 @@ func (o AttestationAtResourceGroupOutput) ToAttestationAtResourceGroupOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationAtResourceGroupInput)(nil)).Elem(), &AttestationAtResourceGroup{})
 	pulumi.RegisterOutputType(AttestationAtResourceGroupOutput{})
 }

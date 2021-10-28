@@ -200,6 +200,5 @@ func (o WebAppMetadataSlotOutput) ToWebAppMetadataSlotOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppMetadataSlotInput)(nil)).Elem(), &WebAppMetadataSlot{})
 	pulumi.RegisterOutputType(WebAppMetadataSlotOutput{})
 }

@@ -367,10 +367,6 @@ func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.Str
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCollectionErrorInfoResponseInput)(nil)).Elem(), ConnectorCollectionErrorInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCollectionErrorInfoResponsePtrInput)(nil)).Elem(), ConnectorCollectionErrorInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCollectionInfoResponseInput)(nil)).Elem(), ConnectorCollectionInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCollectionInfoResponsePtrInput)(nil)).Elem(), ConnectorCollectionInfoResponseArgs{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionInfoResponseOutput{})

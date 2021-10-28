@@ -262,6 +262,5 @@ func (o SqlResourceSqlContainerOutput) ToSqlResourceSqlContainerOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlContainerInput)(nil)).Elem(), &SqlResourceSqlContainer{})
 	pulumi.RegisterOutputType(SqlResourceSqlContainerOutput{})
 }

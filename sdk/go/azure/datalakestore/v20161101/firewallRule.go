@@ -137,6 +137,5 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleInput)(nil)).Elem(), &FirewallRule{})
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
 }

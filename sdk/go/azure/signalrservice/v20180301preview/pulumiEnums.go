@@ -177,8 +177,6 @@ func (in *signalRSkuTierPtr) ToSignalRSkuTierPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRSkuTierInput)(nil)).Elem(), SignalRSkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRSkuTierPtrInput)(nil)).Elem(), SignalRSkuTier("Free"))
 	pulumi.RegisterOutputType(SignalRSkuTierOutput{})
 	pulumi.RegisterOutputType(SignalRSkuTierPtrOutput{})
 }

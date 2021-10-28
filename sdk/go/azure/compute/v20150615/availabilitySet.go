@@ -226,6 +226,5 @@ func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetInput)(nil)).Elem(), &AvailabilitySet{})
 	pulumi.RegisterOutputType(AvailabilitySetOutput{})
 }

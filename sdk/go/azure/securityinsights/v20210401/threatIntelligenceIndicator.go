@@ -202,6 +202,5 @@ func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelligenceIndicatorInput)(nil)).Elem(), &ThreatIntelligenceIndicator{})
 	pulumi.RegisterOutputType(ThreatIntelligenceIndicatorOutput{})
 }

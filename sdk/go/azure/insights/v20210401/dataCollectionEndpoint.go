@@ -143,6 +143,5 @@ func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionEndpointInput)(nil)).Elem(), &DataCollectionEndpoint{})
 	pulumi.RegisterOutputType(DataCollectionEndpointOutput{})
 }

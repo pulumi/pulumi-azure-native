@@ -175,8 +175,6 @@ func (in *categoryPtr) ToCategoryPtrOutputWithContext(ctx context.Context) Categ
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryInput)(nil)).Elem(), Category("AuditLogs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryPtrInput)(nil)).Elem(), Category("AuditLogs"))
 	pulumi.RegisterOutputType(CategoryOutput{})
 	pulumi.RegisterOutputType(CategoryPtrOutput{})
 }

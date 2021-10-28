@@ -272,6 +272,5 @@ func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointInput)(nil)).Elem(), &PrivateEndpoint{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 }

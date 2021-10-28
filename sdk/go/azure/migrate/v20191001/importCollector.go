@@ -131,6 +131,5 @@ func (o ImportCollectorOutput) ToImportCollectorOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ImportCollectorInput)(nil)).Elem(), &ImportCollector{})
 	pulumi.RegisterOutputType(ImportCollectorOutput{})
 }

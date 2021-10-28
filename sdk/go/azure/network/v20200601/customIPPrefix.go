@@ -177,6 +177,5 @@ func (o CustomIPPrefixOutput) ToCustomIPPrefixOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomIPPrefixInput)(nil)).Elem(), &CustomIPPrefix{})
 	pulumi.RegisterOutputType(CustomIPPrefixOutput{})
 }

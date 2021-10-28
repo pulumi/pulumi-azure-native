@@ -144,6 +144,5 @@ func (o CommunicationServiceOutput) ToCommunicationServiceOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CommunicationServiceInput)(nil)).Elem(), &CommunicationService{})
 	pulumi.RegisterOutputType(CommunicationServiceOutput{})
 }

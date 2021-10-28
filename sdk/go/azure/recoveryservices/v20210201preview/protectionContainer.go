@@ -208,6 +208,5 @@ func (o ProtectionContainerOutput) ToProtectionContainerOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerInput)(nil)).Elem(), &ProtectionContainer{})
 	pulumi.RegisterOutputType(ProtectionContainerOutput{})
 }

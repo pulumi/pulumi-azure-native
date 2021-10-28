@@ -144,6 +144,5 @@ func (o SapMonitorOutput) ToSapMonitorOutputWithContext(ctx context.Context) Sap
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SapMonitorInput)(nil)).Elem(), &SapMonitor{})
 	pulumi.RegisterOutputType(SapMonitorOutput{})
 }

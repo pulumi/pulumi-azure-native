@@ -222,6 +222,5 @@ func (o SiteVNETConnectionOutput) ToSiteVNETConnectionOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteVNETConnectionInput)(nil)).Elem(), &SiteVNETConnection{})
 	pulumi.RegisterOutputType(SiteVNETConnectionOutput{})
 }

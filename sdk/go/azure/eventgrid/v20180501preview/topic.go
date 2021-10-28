@@ -215,6 +215,5 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicInput)(nil)).Elem(), &Topic{})
 	pulumi.RegisterOutputType(TopicOutput{})
 }

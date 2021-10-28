@@ -1168,20 +1168,6 @@ func (in *serviceLevelPtr) ToServiceLevelPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ChownModeInput)(nil)).Elem(), ChownMode("Restricted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ChownModePtrInput)(nil)).Elem(), ChownMode("Restricted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionTypeInput)(nil)).Elem(), EncryptionType("Single"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionTypePtrInput)(nil)).Elem(), EncryptionType("Single"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("src"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("src"))
-	pulumi.RegisterInputType(reflect.TypeOf((*QosTypeInput)(nil)).Elem(), QosType("Auto"))
-	pulumi.RegisterInputType(reflect.TypeOf((*QosTypePtrInput)(nil)).Elem(), QosType("Auto"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationScheduleInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSchedulePtrInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityStyleInput)(nil)).Elem(), SecurityStyle("ntfs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityStylePtrInput)(nil)).Elem(), SecurityStyle("ntfs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelInput)(nil)).Elem(), ServiceLevel("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelPtrInput)(nil)).Elem(), ServiceLevel("Standard"))
 	pulumi.RegisterOutputType(ChownModeOutput{})
 	pulumi.RegisterOutputType(ChownModePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionTypeOutput{})

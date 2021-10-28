@@ -145,6 +145,5 @@ func (o CertificateCsrOutput) ToCertificateCsrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCsrInput)(nil)).Elem(), &CertificateCsr{})
 	pulumi.RegisterOutputType(CertificateCsrOutput{})
 }

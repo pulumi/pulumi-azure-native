@@ -1163,20 +1163,6 @@ func (in *userImpactEnumPtr) ToUserImpactEnumPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudNameInput)(nil)).Elem(), CloudName("Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudNamePtrInput)(nil)).Elem(), CloudName("Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImplementationEffortEnumInput)(nil)).Elem(), ImplementationEffortEnum("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImplementationEffortEnumPtrInput)(nil)).Elem(), ImplementationEffortEnum("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferingTypeInput)(nil)).Elem(), OfferingType("CspmMonitorAws"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferingTypePtrInput)(nil)).Elem(), OfferingType("CspmMonitorAws"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationMembershipTypeInput)(nil)).Elem(), OrganizationMembershipType("Member"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationMembershipTypePtrInput)(nil)).Elem(), OrganizationMembershipType("Member"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SeverityEnumInput)(nil)).Elem(), SeverityEnum("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SeverityEnumPtrInput)(nil)).Elem(), SeverityEnum("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportedCloudEnumInput)(nil)).Elem(), SupportedCloudEnum("AWS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportedCloudEnumPtrInput)(nil)).Elem(), SupportedCloudEnum("AWS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UserImpactEnumInput)(nil)).Elem(), UserImpactEnum("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UserImpactEnumPtrInput)(nil)).Elem(), UserImpactEnum("High"))
 	pulumi.RegisterOutputType(CloudNameOutput{})
 	pulumi.RegisterOutputType(CloudNamePtrOutput{})
 	pulumi.RegisterOutputType(ImplementationEffortEnumOutput{})

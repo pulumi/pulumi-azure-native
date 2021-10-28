@@ -1336,22 +1336,6 @@ func (in *tokenTypePtr) ToTokenTypePtrOutputWithContext(ctx context.Context) Tok
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypeInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypePtrInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourceTypeInput)(nil)).Elem(), EncryptionKeySourceType("Microsoft.Automation"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourceTypePtrInput)(nil)).Elem(), EncryptionKeySourceType("Microsoft.Automation"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayPtrInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyPtrInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumInput)(nil)).Elem(), SkuNameEnum("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumPtrInput)(nil)).Elem(), SkuNameEnum("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceTypeInput)(nil)).Elem(), SourceType("VsoGit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceTypePtrInput)(nil)).Elem(), SourceType("VsoGit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypeInput)(nil)).Elem(), TokenType("PersonalAccessToken"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypePtrInput)(nil)).Elem(), TokenType("PersonalAccessToken"))
 	pulumi.RegisterOutputType(ContentSourceTypeOutput{})
 	pulumi.RegisterOutputType(ContentSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionKeySourceTypeOutput{})

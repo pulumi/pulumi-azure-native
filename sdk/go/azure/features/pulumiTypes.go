@@ -712,12 +712,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) TenantId() p
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationProfileResponseInput)(nil)).Elem(), AuthorizationProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationProfileResponsePtrInput)(nil)).Elem(), AuthorizationProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationPropertiesInput)(nil)).Elem(), SubscriptionFeatureRegistrationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationPropertiesPtrInput)(nil)).Elem(), SubscriptionFeatureRegistrationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationResponsePropertiesInput)(nil)).Elem(), SubscriptionFeatureRegistrationResponsePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationResponsePropertiesPtrInput)(nil)).Elem(), SubscriptionFeatureRegistrationResponsePropertiesArgs{})
 	pulumi.RegisterOutputType(AuthorizationProfileResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationPropertiesOutput{})

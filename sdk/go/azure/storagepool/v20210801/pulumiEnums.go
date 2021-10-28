@@ -175,8 +175,6 @@ func (in *iscsiTargetAclModePtr) ToIscsiTargetAclModePtrOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IscsiTargetAclModeInput)(nil)).Elem(), IscsiTargetAclMode("Dynamic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IscsiTargetAclModePtrInput)(nil)).Elem(), IscsiTargetAclMode("Dynamic"))
 	pulumi.RegisterOutputType(IscsiTargetAclModeOutput{})
 	pulumi.RegisterOutputType(IscsiTargetAclModePtrOutput{})
 }

@@ -207,6 +207,5 @@ func (o SnapshotPolicyOutput) ToSnapshotPolicyOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyInput)(nil)).Elem(), &SnapshotPolicy{})
 	pulumi.RegisterOutputType(SnapshotPolicyOutput{})
 }

@@ -172,6 +172,5 @@ func (o BackupLongTermRetentionPolicyOutput) ToBackupLongTermRetentionPolicyOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupLongTermRetentionPolicyInput)(nil)).Elem(), &BackupLongTermRetentionPolicy{})
 	pulumi.RegisterOutputType(BackupLongTermRetentionPolicyOutput{})
 }

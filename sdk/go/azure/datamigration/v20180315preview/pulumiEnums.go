@@ -670,14 +670,6 @@ func (in *serverLevelPermissionsGroupPtr) ToServerLevelPermissionsGroupPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypeInput)(nil)).Elem(), AuthenticationType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationTypePtrInput)(nil)).Elem(), AuthenticationType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePlatformInput)(nil)).Elem(), ProjectSourcePlatform("SQL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePlatformPtrInput)(nil)).Elem(), ProjectSourcePlatform("SQL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTargetPlatformInput)(nil)).Elem(), ProjectTargetPlatform("SQLDB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTargetPlatformPtrInput)(nil)).Elem(), ProjectTargetPlatform("SQLDB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerLevelPermissionsGroupInput)(nil)).Elem(), ServerLevelPermissionsGroup("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerLevelPermissionsGroupPtrInput)(nil)).Elem(), ServerLevelPermissionsGroup("Default"))
 	pulumi.RegisterOutputType(AuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(AuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourcePlatformOutput{})

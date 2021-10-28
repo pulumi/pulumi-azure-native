@@ -337,10 +337,6 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoInput)(nil)).Elem(), RegistrationInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoPtrInput)(nil)).Elem(), RegistrationInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoResponseInput)(nil)).Elem(), RegistrationInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationInfoResponsePtrInput)(nil)).Elem(), RegistrationInfoResponseArgs{})
 	pulumi.RegisterOutputType(RegistrationInfoOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponseOutput{})

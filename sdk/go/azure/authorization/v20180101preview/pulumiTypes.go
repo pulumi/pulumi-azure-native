@@ -235,10 +235,6 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionInput)(nil)).Elem(), PermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionArrayInput)(nil)).Elem(), PermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionResponseInput)(nil)).Elem(), PermissionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionResponseArrayInput)(nil)).Elem(), PermissionResponseArray{})
 	pulumi.RegisterOutputType(PermissionOutput{})
 	pulumi.RegisterOutputType(PermissionArrayOutput{})
 	pulumi.RegisterOutputType(PermissionResponseOutput{})

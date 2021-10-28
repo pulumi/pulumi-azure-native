@@ -502,12 +502,6 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableHelmOperatorInput)(nil)).Elem(), EnableHelmOperator("true"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableHelmOperatorPtrInput)(nil)).Elem(), EnableHelmOperator("true"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeInput)(nil)).Elem(), OperatorScope("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopePtrInput)(nil)).Elem(), OperatorScope("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("Flux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("Flux"))
 	pulumi.RegisterOutputType(EnableHelmOperatorOutput{})
 	pulumi.RegisterOutputType(EnableHelmOperatorPtrOutput{})
 	pulumi.RegisterOutputType(OperatorScopeOutput{})

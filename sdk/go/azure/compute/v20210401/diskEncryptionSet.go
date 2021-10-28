@@ -178,6 +178,5 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetInput)(nil)).Elem(), &DiskEncryptionSet{})
 	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
 }

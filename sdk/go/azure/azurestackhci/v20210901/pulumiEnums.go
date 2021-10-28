@@ -506,12 +506,6 @@ func (in *windowsServerSubscriptionPtr) ToWindowsServerSubscriptionPtrOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatedByTypeInput)(nil)).Elem(), CreatedByType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatedByTypePtrInput)(nil)).Elem(), CreatedByType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticLevelInput)(nil)).Elem(), DiagnosticLevel("Off"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticLevelPtrInput)(nil)).Elem(), DiagnosticLevel("Off"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsServerSubscriptionInput)(nil)).Elem(), WindowsServerSubscription("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsServerSubscriptionPtrInput)(nil)).Elem(), WindowsServerSubscription("Disabled"))
 	pulumi.RegisterOutputType(CreatedByTypeOutput{})
 	pulumi.RegisterOutputType(CreatedByTypePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticLevelOutput{})

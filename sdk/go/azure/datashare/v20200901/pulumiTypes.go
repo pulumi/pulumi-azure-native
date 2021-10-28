@@ -1077,20 +1077,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityInput)(nil)).Elem(), IdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPtrInput)(nil)).Elem(), IdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityResponseInput)(nil)).Elem(), IdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityResponsePtrInput)(nil)).Elem(), IdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledSourceSynchronizationSettingResponseInput)(nil)).Elem(), ScheduledSourceSynchronizationSettingResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledSourceSynchronizationSettingResponseArrayInput)(nil)).Elem(), ScheduledSourceSynchronizationSettingResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareSubscriptionSynchronizationResponseInput)(nil)).Elem(), ShareSubscriptionSynchronizationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareSubscriptionSynchronizationResponseArrayInput)(nil)).Elem(), ShareSubscriptionSynchronizationResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareSynchronizationResponseInput)(nil)).Elem(), ShareSynchronizationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareSynchronizationResponseArrayInput)(nil)).Elem(), ShareSynchronizationResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SynchronizationDetailsResponseInput)(nil)).Elem(), SynchronizationDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SynchronizationDetailsResponseArrayInput)(nil)).Elem(), SynchronizationDetailsResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

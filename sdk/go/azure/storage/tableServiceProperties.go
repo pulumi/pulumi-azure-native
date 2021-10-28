@@ -158,6 +158,5 @@ func (o TableServicePropertiesOutput) ToTableServicePropertiesOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TableServicePropertiesInput)(nil)).Elem(), &TableServiceProperties{})
 	pulumi.RegisterOutputType(TableServicePropertiesOutput{})
 }

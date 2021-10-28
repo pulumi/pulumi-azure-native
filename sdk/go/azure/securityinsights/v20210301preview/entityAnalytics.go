@@ -148,6 +148,5 @@ func (o EntityAnalyticsOutput) ToEntityAnalyticsOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityAnalyticsInput)(nil)).Elem(), &EntityAnalytics{})
 	pulumi.RegisterOutputType(EntityAnalyticsOutput{})
 }

@@ -156,6 +156,5 @@ func (o TIDataConnectorOutput) ToTIDataConnectorOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TIDataConnectorInput)(nil)).Elem(), &TIDataConnector{})
 	pulumi.RegisterOutputType(TIDataConnectorOutput{})
 }

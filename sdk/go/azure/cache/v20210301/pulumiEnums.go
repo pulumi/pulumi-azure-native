@@ -1337,22 +1337,6 @@ func (in *tlsVersionPtr) ToTlsVersionPtrOutputWithContext(ctx context.Context) T
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AofFrequencyInput)(nil)).Elem(), AofFrequency("1s"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AofFrequencyPtrInput)(nil)).Elem(), AofFrequency("1s"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusteringPolicyInput)(nil)).Elem(), ClusteringPolicy("EnterpriseCluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusteringPolicyPtrInput)(nil)).Elem(), ClusteringPolicy("EnterpriseCluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyInput)(nil)).Elem(), EvictionPolicy("AllKeysLFU"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyPtrInput)(nil)).Elem(), EvictionPolicy("AllKeysLFU"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("Encrypted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("Encrypted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RdbFrequencyInput)(nil)).Elem(), RdbFrequency("1h"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RdbFrequencyPtrInput)(nil)).Elem(), RdbFrequency("1h"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Enterprise_E10"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Enterprise_E10"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsVersionInput)(nil)).Elem(), TlsVersion("1.0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsVersionPtrInput)(nil)).Elem(), TlsVersion("1.0"))
 	pulumi.RegisterOutputType(AofFrequencyOutput{})
 	pulumi.RegisterOutputType(AofFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(ClusteringPolicyOutput{})

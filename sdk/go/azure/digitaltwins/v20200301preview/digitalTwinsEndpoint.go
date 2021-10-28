@@ -140,6 +140,5 @@ func (o DigitalTwinsEndpointOutput) ToDigitalTwinsEndpointOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DigitalTwinsEndpointInput)(nil)).Elem(), &DigitalTwinsEndpoint{})
 	pulumi.RegisterOutputType(DigitalTwinsEndpointOutput{})
 }

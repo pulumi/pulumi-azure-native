@@ -228,6 +228,5 @@ func (o SiteRelayServiceConnectionSlotOutput) ToSiteRelayServiceConnectionSlotOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteRelayServiceConnectionSlotInput)(nil)).Elem(), &SiteRelayServiceConnectionSlot{})
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionSlotOutput{})
 }

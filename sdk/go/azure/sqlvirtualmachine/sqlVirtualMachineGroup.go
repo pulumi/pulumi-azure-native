@@ -139,6 +139,5 @@ func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlVirtualMachineGroupInput)(nil)).Elem(), &SqlVirtualMachineGroup{})
 	pulumi.RegisterOutputType(SqlVirtualMachineGroupOutput{})
 }

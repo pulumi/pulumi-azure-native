@@ -1090,20 +1090,6 @@ func (o OSProfileResponsePtrOutput) ComputerName() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDetailResponseInput)(nil)).Elem(), ErrorDetailResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDetailResponseArrayInput)(nil)).Elem(), ErrorDetailResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewInput)(nil)).Elem(), MachineExtensionInstanceViewArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewPtrInput)(nil)).Elem(), MachineExtensionInstanceViewArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewArrayInput)(nil)).Elem(), MachineExtensionInstanceViewArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewResponseInput)(nil)).Elem(), MachineExtensionInstanceViewResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewResponsePtrInput)(nil)).Elem(), MachineExtensionInstanceViewResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewResponseArrayInput)(nil)).Elem(), MachineExtensionInstanceViewResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewResponseStatusInput)(nil)).Elem(), MachineExtensionInstanceViewResponseStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewResponseStatusPtrInput)(nil)).Elem(), MachineExtensionInstanceViewResponseStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewStatusInput)(nil)).Elem(), MachineExtensionInstanceViewStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInstanceViewStatusPtrInput)(nil)).Elem(), MachineExtensionInstanceViewStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OSProfileResponseInput)(nil)).Elem(), OSProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OSProfileResponsePtrInput)(nil)).Elem(), OSProfileResponseArgs{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewOutput{})

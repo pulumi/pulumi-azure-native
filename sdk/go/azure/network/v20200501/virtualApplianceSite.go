@@ -179,6 +179,5 @@ func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualApplianceSiteInput)(nil)).Elem(), &VirtualApplianceSite{})
 	pulumi.RegisterOutputType(VirtualApplianceSiteOutput{})
 }

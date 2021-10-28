@@ -140,6 +140,5 @@ func (o DataPoolOutput) ToDataPoolOutputWithContext(ctx context.Context) DataPoo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataPoolInput)(nil)).Elem(), &DataPool{})
 	pulumi.RegisterOutputType(DataPoolOutput{})
 }

@@ -506,12 +506,6 @@ func (in *zoneRedundantPtr) ToZoneRedundantPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetAvailabilityZoneInput)(nil)).Elem(), TargetAvailabilityZone("1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetAvailabilityZonePtrInput)(nil)).Elem(), TargetAvailabilityZone("1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneRedundantInput)(nil)).Elem(), ZoneRedundant("Enable"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneRedundantPtrInput)(nil)).Elem(), ZoneRedundant("Enable"))
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(TargetAvailabilityZoneOutput{})

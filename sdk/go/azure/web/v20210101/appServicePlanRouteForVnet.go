@@ -202,6 +202,5 @@ func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServicePlanRouteForVnetInput)(nil)).Elem(), &AppServicePlanRouteForVnet{})
 	pulumi.RegisterOutputType(AppServicePlanRouteForVnetOutput{})
 }

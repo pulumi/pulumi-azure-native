@@ -165,6 +165,5 @@ func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyInput)(nil)).Elem(), &StreamingPolicy{})
 	pulumi.RegisterOutputType(StreamingPolicyOutput{})
 }

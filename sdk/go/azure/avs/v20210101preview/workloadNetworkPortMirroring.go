@@ -160,6 +160,5 @@ func (o WorkloadNetworkPortMirroringOutput) ToWorkloadNetworkPortMirroringOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkPortMirroringInput)(nil)).Elem(), &WorkloadNetworkPortMirroring{})
 	pulumi.RegisterOutputType(WorkloadNetworkPortMirroringOutput{})
 }

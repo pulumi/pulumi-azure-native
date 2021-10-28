@@ -262,6 +262,5 @@ func (o GremlinResourceGremlinGraphOutput) ToGremlinResourceGremlinGraphOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GremlinResourceGremlinGraphInput)(nil)).Elem(), &GremlinResourceGremlinGraph{})
 	pulumi.RegisterOutputType(GremlinResourceGremlinGraphOutput{})
 }

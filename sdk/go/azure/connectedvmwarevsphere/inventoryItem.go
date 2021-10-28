@@ -145,6 +145,5 @@ func (o InventoryItemOutput) ToInventoryItemOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InventoryItemInput)(nil)).Elem(), &InventoryItem{})
 	pulumi.RegisterOutputType(InventoryItemOutput{})
 }

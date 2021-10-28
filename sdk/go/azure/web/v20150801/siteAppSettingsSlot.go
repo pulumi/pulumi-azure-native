@@ -210,6 +210,5 @@ func (o SiteAppSettingsSlotOutput) ToSiteAppSettingsSlotOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteAppSettingsSlotInput)(nil)).Elem(), &SiteAppSettingsSlot{})
 	pulumi.RegisterOutputType(SiteAppSettingsSlotOutput{})
 }

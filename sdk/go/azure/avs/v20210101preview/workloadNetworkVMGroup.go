@@ -154,6 +154,5 @@ func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkVMGroupInput)(nil)).Elem(), &WorkloadNetworkVMGroup{})
 	pulumi.RegisterOutputType(WorkloadNetworkVMGroupOutput{})
 }

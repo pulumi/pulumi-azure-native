@@ -834,16 +834,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourceInput)(nil)).Elem(), KeySource("Microsoft.CognitiveServices"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourcePtrInput)(nil)).Elem(), KeySource("Microsoft.CognitiveServices"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRuleActionInput)(nil)).Elem(), NetworkRuleAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRuleActionPtrInput)(nil)).Elem(), NetworkRuleAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
 	pulumi.RegisterOutputType(IdentityTypeOutput{})
 	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(KeySourceOutput{})

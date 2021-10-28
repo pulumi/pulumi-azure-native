@@ -179,6 +179,5 @@ func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrincipalAssignmentInput)(nil)).Elem(), &ClusterPrincipalAssignment{})
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentOutput{})
 }

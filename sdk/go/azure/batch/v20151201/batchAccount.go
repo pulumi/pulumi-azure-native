@@ -200,6 +200,5 @@ func (o BatchAccountOutput) ToBatchAccountOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BatchAccountInput)(nil)).Elem(), &BatchAccount{})
 	pulumi.RegisterOutputType(BatchAccountOutput{})
 }

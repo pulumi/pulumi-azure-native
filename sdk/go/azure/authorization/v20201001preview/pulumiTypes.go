@@ -843,16 +843,6 @@ func (o PrincipalResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponseInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponsePtrInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponsePolicyInput)(nil)).Elem(), PolicyAssignmentPropertiesResponsePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponsePolicyPtrInput)(nil)).Elem(), PolicyAssignmentPropertiesResponsePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponseRoleDefinitionInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseRoleDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponseRoleDefinitionPtrInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseRoleDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponseScopeInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentPropertiesResponseScopePtrInput)(nil)).Elem(), PolicyAssignmentPropertiesResponseScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalResponseInput)(nil)).Elem(), PrincipalResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalResponsePtrInput)(nil)).Elem(), PrincipalResponseArgs{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePolicyOutput{})

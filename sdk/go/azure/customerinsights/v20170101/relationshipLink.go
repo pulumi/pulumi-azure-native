@@ -168,6 +168,5 @@ func (o RelationshipLinkOutput) ToRelationshipLinkOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RelationshipLinkInput)(nil)).Elem(), &RelationshipLink{})
 	pulumi.RegisterOutputType(RelationshipLinkOutput{})
 }

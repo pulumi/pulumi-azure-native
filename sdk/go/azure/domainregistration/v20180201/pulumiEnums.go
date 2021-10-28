@@ -175,8 +175,6 @@ func (in *dnsTypePtr) ToDnsTypePtrOutputWithContext(ctx context.Context) DnsType
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsTypeInput)(nil)).Elem(), DnsType("AzureDns"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsTypePtrInput)(nil)).Elem(), DnsType("AzureDns"))
 	pulumi.RegisterOutputType(DnsTypeOutput{})
 	pulumi.RegisterOutputType(DnsTypePtrOutput{})
 }

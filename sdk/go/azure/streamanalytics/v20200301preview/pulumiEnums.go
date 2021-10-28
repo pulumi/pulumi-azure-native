@@ -175,8 +175,6 @@ func (in *clusterSkuNamePtr) ToClusterSkuNamePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuNameInput)(nil)).Elem(), ClusterSkuName("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuNamePtrInput)(nil)).Elem(), ClusterSkuName("Default"))
 	pulumi.RegisterOutputType(ClusterSkuNameOutput{})
 	pulumi.RegisterOutputType(ClusterSkuNamePtrOutput{})
 }

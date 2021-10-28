@@ -171,6 +171,5 @@ func (o JobCredentialOutput) ToJobCredentialOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialInput)(nil)).Elem(), &JobCredential{})
 	pulumi.RegisterOutputType(JobCredentialOutput{})
 }

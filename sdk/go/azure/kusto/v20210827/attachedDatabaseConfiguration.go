@@ -187,6 +187,5 @@ func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationInput)(nil)).Elem(), &AttachedDatabaseConfiguration{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
 }

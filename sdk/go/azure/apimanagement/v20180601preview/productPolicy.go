@@ -202,6 +202,5 @@ func (o ProductPolicyOutput) ToProductPolicyOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductPolicyInput)(nil)).Elem(), &ProductPolicy{})
 	pulumi.RegisterOutputType(ProductPolicyOutput{})
 }

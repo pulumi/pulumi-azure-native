@@ -165,6 +165,5 @@ func (o Dynamics365DataConnectorOutput) ToDynamics365DataConnectorOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*Dynamics365DataConnectorInput)(nil)).Elem(), &Dynamics365DataConnector{})
 	pulumi.RegisterOutputType(Dynamics365DataConnectorOutput{})
 }

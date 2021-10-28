@@ -111,8 +111,6 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedResourceResponseInput)(nil)).Elem(), PrivateLinkScopedResourceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedResourceResponseArrayInput)(nil)).Elem(), PrivateLinkScopedResourceResponseArray{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 }

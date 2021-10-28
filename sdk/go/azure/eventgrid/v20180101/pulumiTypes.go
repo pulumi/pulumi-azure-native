@@ -593,14 +593,6 @@ func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EventHubEventSubscriptionDestinationInput)(nil)).Elem(), EventHubEventSubscriptionDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventHubEventSubscriptionDestinationResponseInput)(nil)).Elem(), EventHubEventSubscriptionDestinationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterInput)(nil)).Elem(), EventSubscriptionFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterPtrInput)(nil)).Elem(), EventSubscriptionFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponseInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionFilterResponsePtrInput)(nil)).Elem(), EventSubscriptionFilterResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebHookEventSubscriptionDestinationInput)(nil)).Elem(), WebHookEventSubscriptionDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebHookEventSubscriptionDestinationResponseInput)(nil)).Elem(), WebHookEventSubscriptionDestinationResponseArgs{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})

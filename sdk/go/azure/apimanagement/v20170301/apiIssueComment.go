@@ -210,6 +210,5 @@ func (o ApiIssueCommentOutput) ToApiIssueCommentOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiIssueCommentInput)(nil)).Elem(), &ApiIssueComment{})
 	pulumi.RegisterOutputType(ApiIssueCommentOutput{})
 }

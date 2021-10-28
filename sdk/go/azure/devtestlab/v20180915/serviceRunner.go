@@ -140,6 +140,5 @@ func (o ServiceRunnerOutput) ToServiceRunnerOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRunnerInput)(nil)).Elem(), &ServiceRunner{})
 	pulumi.RegisterOutputType(ServiceRunnerOutput{})
 }

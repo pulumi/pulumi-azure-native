@@ -165,6 +165,5 @@ func (o ManagementLockAtResourceLevelOutput) ToManagementLockAtResourceLevelOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockAtResourceLevelInput)(nil)).Elem(), &ManagementLockAtResourceLevel{})
 	pulumi.RegisterOutputType(ManagementLockAtResourceLevelOutput{})
 }

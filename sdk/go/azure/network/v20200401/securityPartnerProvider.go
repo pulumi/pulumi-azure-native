@@ -191,6 +191,5 @@ func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPartnerProviderInput)(nil)).Elem(), &SecurityPartnerProvider{})
 	pulumi.RegisterOutputType(SecurityPartnerProviderOutput{})
 }

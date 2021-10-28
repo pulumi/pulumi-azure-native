@@ -633,14 +633,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthBotPropertiesResponseInput)(nil)).Elem(), HealthBotPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthBotPropertiesResponsePtrInput)(nil)).Elem(), HealthBotPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(HealthBotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HealthBotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

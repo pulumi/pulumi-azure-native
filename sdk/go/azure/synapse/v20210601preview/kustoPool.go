@@ -169,6 +169,5 @@ func (o KustoPoolOutput) ToKustoPoolOutputWithContext(ctx context.Context) Kusto
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KustoPoolInput)(nil)).Elem(), &KustoPool{})
 	pulumi.RegisterOutputType(KustoPoolOutput{})
 }

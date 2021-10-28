@@ -183,6 +183,5 @@ func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncG
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SyncGroupInput)(nil)).Elem(), &SyncGroup{})
 	pulumi.RegisterOutputType(SyncGroupOutput{})
 }

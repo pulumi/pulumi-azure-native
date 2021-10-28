@@ -174,6 +174,5 @@ func (o RedisLinkedServerOutput) ToRedisLinkedServerOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RedisLinkedServerInput)(nil)).Elem(), &RedisLinkedServer{})
 	pulumi.RegisterOutputType(RedisLinkedServerOutput{})
 }

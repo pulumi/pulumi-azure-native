@@ -205,6 +205,5 @@ func (o IpAllocationOutput) ToIpAllocationOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IpAllocationInput)(nil)).Elem(), &IpAllocation{})
 	pulumi.RegisterOutputType(IpAllocationOutput{})
 }

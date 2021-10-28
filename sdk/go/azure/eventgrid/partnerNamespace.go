@@ -160,6 +160,5 @@ func (o PartnerNamespaceOutput) ToPartnerNamespaceOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerNamespaceInput)(nil)).Elem(), &PartnerNamespace{})
 	pulumi.RegisterOutputType(PartnerNamespaceOutput{})
 }

@@ -165,6 +165,5 @@ func (o FormulaOutput) ToFormulaOutputWithContext(ctx context.Context) FormulaOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FormulaInput)(nil)).Elem(), &Formula{})
 	pulumi.RegisterOutputType(FormulaOutput{})
 }

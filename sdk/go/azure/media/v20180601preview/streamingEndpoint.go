@@ -199,6 +199,5 @@ func (o StreamingEndpointOutput) ToStreamingEndpointOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointInput)(nil)).Elem(), &StreamingEndpoint{})
 	pulumi.RegisterOutputType(StreamingEndpointOutput{})
 }

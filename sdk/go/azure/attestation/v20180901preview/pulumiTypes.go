@@ -482,12 +482,6 @@ func (o JSONWebKeySetPtrOutput) Keys() JSONWebKeyArrayOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationServiceCreationSpecificParamsInput)(nil)).Elem(), AttestationServiceCreationSpecificParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationServiceCreationSpecificParamsPtrInput)(nil)).Elem(), AttestationServiceCreationSpecificParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeyInput)(nil)).Elem(), JSONWebKeyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeyArrayInput)(nil)).Elem(), JSONWebKeyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeySetInput)(nil)).Elem(), JSONWebKeySetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeySetPtrInput)(nil)).Elem(), JSONWebKeySetArgs{})
 	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsOutput{})
 	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsPtrOutput{})
 	pulumi.RegisterOutputType(JSONWebKeyOutput{})

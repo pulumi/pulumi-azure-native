@@ -1260,22 +1260,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationServiceCreationSpecificParamsInput)(nil)).Elem(), AttestationServiceCreationSpecificParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationServiceCreationSpecificParamsPtrInput)(nil)).Elem(), AttestationServiceCreationSpecificParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeyInput)(nil)).Elem(), JSONWebKeyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeyArrayInput)(nil)).Elem(), JSONWebKeyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeySetInput)(nil)).Elem(), JSONWebKeySetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JSONWebKeySetPtrInput)(nil)).Elem(), JSONWebKeySetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionResponseInput)(nil)).Elem(), PrivateEndpointConnectionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionResponseArrayInput)(nil)).Elem(), PrivateEndpointConnectionResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponseInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointResponsePtrInput)(nil)).Elem(), PrivateEndpointResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponseInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStateResponsePtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStateResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsOutput{})
 	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsPtrOutput{})
 	pulumi.RegisterOutputType(JSONWebKeyOutput{})

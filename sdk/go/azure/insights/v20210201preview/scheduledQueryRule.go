@@ -200,6 +200,5 @@ func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRuleInput)(nil)).Elem(), &ScheduledQueryRule{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleOutput{})
 }

@@ -138,6 +138,5 @@ func (o TransactionNodeOutput) ToTransactionNodeOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TransactionNodeInput)(nil)).Elem(), &TransactionNode{})
 	pulumi.RegisterOutputType(TransactionNodeOutput{})
 }

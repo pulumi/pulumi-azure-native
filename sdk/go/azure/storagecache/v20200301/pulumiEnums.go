@@ -508,12 +508,6 @@ func (in *storageTargetTypePtr) ToStorageTargetTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityTypeInput)(nil)).Elem(), CacheIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityTypePtrInput)(nil)).Elem(), CacheIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateTypeInput)(nil)).Elem(), ProvisioningStateType("Succeeded"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateTypePtrInput)(nil)).Elem(), ProvisioningStateType("Succeeded"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageTargetTypeInput)(nil)).Elem(), StorageTargetType("nfs3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageTargetTypePtrInput)(nil)).Elem(), StorageTargetType("nfs3"))
 	pulumi.RegisterOutputType(CacheIdentityTypeOutput{})
 	pulumi.RegisterOutputType(CacheIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningStateTypeOutput{})

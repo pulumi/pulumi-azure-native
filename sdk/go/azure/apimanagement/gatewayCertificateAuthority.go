@@ -157,6 +157,5 @@ func (o GatewayCertificateAuthorityOutput) ToGatewayCertificateAuthorityOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCertificateAuthorityInput)(nil)).Elem(), &GatewayCertificateAuthority{})
 	pulumi.RegisterOutputType(GatewayCertificateAuthorityOutput{})
 }

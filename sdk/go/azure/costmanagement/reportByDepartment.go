@@ -139,6 +139,5 @@ func (o ReportByDepartmentOutput) ToReportByDepartmentOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportByDepartmentInput)(nil)).Elem(), &ReportByDepartment{})
 	pulumi.RegisterOutputType(ReportByDepartmentOutput{})
 }

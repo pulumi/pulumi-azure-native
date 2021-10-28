@@ -152,6 +152,5 @@ func (o StaticSitePrivateEndpointConnectionOutput) ToStaticSitePrivateEndpointCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StaticSitePrivateEndpointConnectionInput)(nil)).Elem(), &StaticSitePrivateEndpointConnection{})
 	pulumi.RegisterOutputType(StaticSitePrivateEndpointConnectionOutput{})
 }

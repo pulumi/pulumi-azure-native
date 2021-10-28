@@ -164,6 +164,5 @@ func (o GalleryOutput) ToGalleryOutputWithContext(ctx context.Context) GalleryOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GalleryInput)(nil)).Elem(), &Gallery{})
 	pulumi.RegisterOutputType(GalleryOutput{})
 }

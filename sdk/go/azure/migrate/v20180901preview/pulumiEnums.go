@@ -179,8 +179,6 @@ func (in *provisioningStatePtr) ToProvisioningStatePtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateInput)(nil)).Elem(), ProvisioningState("Accepted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStatePtrInput)(nil)).Elem(), ProvisioningState("Accepted"))
 	pulumi.RegisterOutputType(ProvisioningStateOutput{})
 	pulumi.RegisterOutputType(ProvisioningStatePtrOutput{})
 }

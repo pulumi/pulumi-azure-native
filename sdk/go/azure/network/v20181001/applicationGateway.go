@@ -435,6 +435,5 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayInput)(nil)).Elem(), &ApplicationGateway{})
 	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 }

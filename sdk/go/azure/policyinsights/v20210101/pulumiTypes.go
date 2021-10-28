@@ -419,12 +419,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationEvidenceInput)(nil)).Elem(), AttestationEvidenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationEvidenceArrayInput)(nil)).Elem(), AttestationEvidenceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationEvidenceResponseInput)(nil)).Elem(), AttestationEvidenceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationEvidenceResponseArrayInput)(nil)).Elem(), AttestationEvidenceResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(AttestationEvidenceOutput{})
 	pulumi.RegisterOutputType(AttestationEvidenceArrayOutput{})
 	pulumi.RegisterOutputType(AttestationEvidenceResponseOutput{})

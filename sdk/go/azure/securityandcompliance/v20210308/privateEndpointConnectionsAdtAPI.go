@@ -140,6 +140,5 @@ func (o PrivateEndpointConnectionsAdtAPIOutput) ToPrivateEndpointConnectionsAdtA
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionsAdtAPIInput)(nil)).Elem(), &PrivateEndpointConnectionsAdtAPI{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsAdtAPIOutput{})
 }

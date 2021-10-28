@@ -199,6 +199,5 @@ func (o P2sVpnServerConfigurationOutput) ToP2sVpnServerConfigurationOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*P2sVpnServerConfigurationInput)(nil)).Elem(), &P2sVpnServerConfiguration{})
 	pulumi.RegisterOutputType(P2sVpnServerConfigurationOutput{})
 }

@@ -158,6 +158,5 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppInput)(nil)).Elem(), &App{})
 	pulumi.RegisterOutputType(AppOutput{})
 }

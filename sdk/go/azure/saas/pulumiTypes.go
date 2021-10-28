@@ -845,12 +845,6 @@ func (o SaasResourceResponsePropertiesPtrOutput) TermId() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasCreationPropertiesInput)(nil)).Elem(), SaasCreationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasCreationPropertiesPtrInput)(nil)).Elem(), SaasCreationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasPropertiesResponseTermInput)(nil)).Elem(), SaasPropertiesResponseTermArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasPropertiesResponseTermPtrInput)(nil)).Elem(), SaasPropertiesResponseTermArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasResourceResponsePropertiesInput)(nil)).Elem(), SaasResourceResponsePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasResourceResponsePropertiesPtrInput)(nil)).Elem(), SaasResourceResponsePropertiesArgs{})
 	pulumi.RegisterOutputType(SaasCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(SaasCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SaasPropertiesResponseTermOutput{})

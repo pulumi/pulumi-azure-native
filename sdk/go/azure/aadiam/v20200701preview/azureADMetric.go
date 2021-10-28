@@ -127,6 +127,5 @@ func (o AzureADMetricOutput) ToAzureADMetricOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureADMetricInput)(nil)).Elem(), &AzureADMetric{})
 	pulumi.RegisterOutputType(AzureADMetricOutput{})
 }

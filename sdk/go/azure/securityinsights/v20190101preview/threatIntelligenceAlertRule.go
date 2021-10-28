@@ -169,6 +169,5 @@ func (o ThreatIntelligenceAlertRuleOutput) ToThreatIntelligenceAlertRuleOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelligenceAlertRuleInput)(nil)).Elem(), &ThreatIntelligenceAlertRule{})
 	pulumi.RegisterOutputType(ThreatIntelligenceAlertRuleOutput{})
 }

@@ -251,6 +251,5 @@ func (o DatabaseAccountCassandraKeyspaceOutput) ToDatabaseAccountCassandraKeyspa
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountCassandraKeyspaceInput)(nil)).Elem(), &DatabaseAccountCassandraKeyspace{})
 	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceOutput{})
 }

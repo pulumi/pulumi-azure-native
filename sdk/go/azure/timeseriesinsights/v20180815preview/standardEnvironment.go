@@ -186,6 +186,5 @@ func (o StandardEnvironmentOutput) ToStandardEnvironmentOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StandardEnvironmentInput)(nil)).Elem(), &StandardEnvironment{})
 	pulumi.RegisterOutputType(StandardEnvironmentOutput{})
 }

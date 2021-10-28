@@ -189,6 +189,5 @@ func (o WebAppAzureStorageAccountsSlotOutput) ToWebAppAzureStorageAccountsSlotOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppAzureStorageAccountsSlotInput)(nil)).Elem(), &WebAppAzureStorageAccountsSlot{})
 	pulumi.RegisterOutputType(WebAppAzureStorageAccountsSlotOutput{})
 }

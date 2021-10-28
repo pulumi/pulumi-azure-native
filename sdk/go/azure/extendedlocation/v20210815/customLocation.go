@@ -157,6 +157,5 @@ func (o CustomLocationOutput) ToCustomLocationOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationInput)(nil)).Elem(), &CustomLocation{})
 	pulumi.RegisterOutputType(CustomLocationOutput{})
 }

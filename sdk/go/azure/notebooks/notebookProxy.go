@@ -139,6 +139,5 @@ func (o NotebookProxyOutput) ToNotebookProxyOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NotebookProxyInput)(nil)).Elem(), &NotebookProxy{})
 	pulumi.RegisterOutputType(NotebookProxyOutput{})
 }

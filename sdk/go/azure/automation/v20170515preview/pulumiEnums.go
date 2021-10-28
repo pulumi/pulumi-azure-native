@@ -1343,22 +1343,6 @@ func (in *windowsUpdateClassesPtr) ToWindowsUpdateClassesPtrOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxUpdateClassesInput)(nil)).Elem(), LinuxUpdateClasses("Unclassified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxUpdateClassesPtrInput)(nil)).Elem(), LinuxUpdateClasses("Unclassified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypeInput)(nil)).Elem(), OperatingSystemType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypePtrInput)(nil)).Elem(), OperatingSystemType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayPtrInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyPtrInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceTypeInput)(nil)).Elem(), SourceType("VsoGit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceTypePtrInput)(nil)).Elem(), SourceType("VsoGit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TagOperatorsInput)(nil)).Elem(), TagOperators("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TagOperatorsPtrInput)(nil)).Elem(), TagOperators("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypeInput)(nil)).Elem(), TokenType("PersonalAccessToken"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypePtrInput)(nil)).Elem(), TokenType("PersonalAccessToken"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsUpdateClassesInput)(nil)).Elem(), WindowsUpdateClasses("Unclassified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsUpdateClassesPtrInput)(nil)).Elem(), WindowsUpdateClasses("Unclassified"))
 	pulumi.RegisterOutputType(LinuxUpdateClassesOutput{})
 	pulumi.RegisterOutputType(LinuxUpdateClassesPtrOutput{})
 	pulumi.RegisterOutputType(OperatingSystemTypeOutput{})

@@ -175,6 +175,5 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PackageInput)(nil)).Elem(), &Package{})
 	pulumi.RegisterOutputType(PackageOutput{})
 }

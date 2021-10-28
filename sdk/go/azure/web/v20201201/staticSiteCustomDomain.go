@@ -156,6 +156,5 @@ func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteCustomDomainInput)(nil)).Elem(), &StaticSiteCustomDomain{})
 	pulumi.RegisterOutputType(StaticSiteCustomDomainOutput{})
 }

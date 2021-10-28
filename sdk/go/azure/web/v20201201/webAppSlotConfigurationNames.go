@@ -201,6 +201,5 @@ func (o WebAppSlotConfigurationNamesOutput) ToWebAppSlotConfigurationNamesOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSlotConfigurationNamesInput)(nil)).Elem(), &WebAppSlotConfigurationNames{})
 	pulumi.RegisterOutputType(WebAppSlotConfigurationNamesOutput{})
 }

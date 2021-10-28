@@ -133,6 +133,5 @@ func (o PlacementPolicyOutput) ToPlacementPolicyOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PlacementPolicyInput)(nil)).Elem(), &PlacementPolicy{})
 	pulumi.RegisterOutputType(PlacementPolicyOutput{})
 }

@@ -655,16 +655,6 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountInput)(nil)).Elem(), StorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountPtrInput)(nil)).Elem(), StorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponseInput)(nil)).Elem(), StorageAccountResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponsePtrInput)(nil)).Elem(), StorageAccountResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightStatusResponseInput)(nil)).Elem(), StorageInsightStatusResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightStatusResponsePtrInput)(nil)).Elem(), StorageInsightStatusResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), TagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagResponseInput)(nil)).Elem(), TagResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagResponseArrayInput)(nil)).Elem(), TagResponseArray{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})

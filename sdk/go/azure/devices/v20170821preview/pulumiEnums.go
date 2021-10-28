@@ -681,14 +681,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsDescriptionInput)(nil)).Elem(), AccessRightsDescription("ServiceConfig"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsDescriptionPtrInput)(nil)).Elem(), AccessRightsDescription("ServiceConfig"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AllocationPolicyInput)(nil)).Elem(), AllocationPolicy("Hashed"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AllocationPolicyPtrInput)(nil)).Elem(), AllocationPolicy("Hashed"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IotDpsSkuInput)(nil)).Elem(), IotDpsSku("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IotDpsSkuPtrInput)(nil)).Elem(), IotDpsSku("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("Activating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("Activating"))
 	pulumi.RegisterOutputType(AccessRightsDescriptionOutput{})
 	pulumi.RegisterOutputType(AccessRightsDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(AllocationPolicyOutput{})

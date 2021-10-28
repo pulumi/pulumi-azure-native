@@ -153,6 +153,5 @@ func (o ArcSettingOutput) ToArcSettingOutputWithContext(ctx context.Context) Arc
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ArcSettingInput)(nil)).Elem(), &ArcSetting{})
 	pulumi.RegisterOutputType(ArcSettingOutput{})
 }

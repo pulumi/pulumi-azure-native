@@ -144,6 +144,5 @@ func (o OnlineEndpointOutput) ToOnlineEndpointOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEndpointInput)(nil)).Elem(), &OnlineEndpoint{})
 	pulumi.RegisterOutputType(OnlineEndpointOutput{})
 }

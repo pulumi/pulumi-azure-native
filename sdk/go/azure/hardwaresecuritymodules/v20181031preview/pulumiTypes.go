@@ -1033,22 +1033,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEntityReferenceInput)(nil)).Elem(), ApiEntityReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEntityReferencePtrInput)(nil)).Elem(), ApiEntityReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEntityReferenceResponseInput)(nil)).Elem(), ApiEntityReferenceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEntityReferenceResponsePtrInput)(nil)).Elem(), ApiEntityReferenceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInput)(nil)).Elem(), NetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceArrayInput)(nil)).Elem(), NetworkInterfaceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceResponseInput)(nil)).Elem(), NetworkInterfaceResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceResponseArrayInput)(nil)).Elem(), NetworkInterfaceResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileInput)(nil)).Elem(), NetworkProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfilePtrInput)(nil)).Elem(), NetworkProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileResponseInput)(nil)).Elem(), NetworkProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileResponsePtrInput)(nil)).Elem(), NetworkProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(ApiEntityReferenceOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponseOutput{})

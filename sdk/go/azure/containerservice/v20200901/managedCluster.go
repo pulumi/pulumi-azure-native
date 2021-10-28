@@ -323,6 +323,5 @@ func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterInput)(nil)).Elem(), &ManagedCluster{})
 	pulumi.RegisterOutputType(ManagedClusterOutput{})
 }

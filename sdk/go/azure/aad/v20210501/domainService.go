@@ -190,6 +190,5 @@ func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceInput)(nil)).Elem(), &DomainService{})
 	pulumi.RegisterOutputType(DomainServiceOutput{})
 }

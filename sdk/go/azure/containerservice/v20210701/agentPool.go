@@ -349,6 +349,5 @@ func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) Agent
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolInput)(nil)).Elem(), &AgentPool{})
 	pulumi.RegisterOutputType(AgentPoolOutput{})
 }

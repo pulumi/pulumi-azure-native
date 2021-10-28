@@ -138,6 +138,5 @@ func (o DefenderSettingOutput) ToDefenderSettingOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DefenderSettingInput)(nil)).Elem(), &DefenderSetting{})
 	pulumi.RegisterOutputType(DefenderSettingOutput{})
 }

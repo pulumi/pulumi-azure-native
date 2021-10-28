@@ -161,6 +161,5 @@ func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleInput)(nil)).Elem(), &AutomationRule{})
 	pulumi.RegisterOutputType(AutomationRuleOutput{})
 }

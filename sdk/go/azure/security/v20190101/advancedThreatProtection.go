@@ -129,6 +129,5 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionInput)(nil)).Elem(), &AdvancedThreatProtection{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionOutput{})
 }

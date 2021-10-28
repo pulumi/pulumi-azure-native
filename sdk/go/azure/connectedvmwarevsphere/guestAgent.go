@@ -140,6 +140,5 @@ func (o GuestAgentOutput) ToGuestAgentOutputWithContext(ctx context.Context) Gue
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestAgentInput)(nil)).Elem(), &GuestAgent{})
 	pulumi.RegisterOutputType(GuestAgentOutput{})
 }

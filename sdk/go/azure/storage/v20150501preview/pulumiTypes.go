@@ -322,10 +322,6 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainResponseInput)(nil)).Elem(), CustomDomainResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainResponsePtrInput)(nil)).Elem(), CustomDomainResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsResponseInput)(nil)).Elem(), EndpointsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsResponsePtrInput)(nil)).Elem(), EndpointsResponseArgs{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})

@@ -176,6 +176,5 @@ func (o ReplicationOutput) ToReplicationOutputWithContext(ctx context.Context) R
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInput)(nil)).Elem(), &Replication{})
 	pulumi.RegisterOutputType(ReplicationOutput{})
 }

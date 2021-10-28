@@ -174,8 +174,6 @@ func (in *locationPtr) ToLocationPtrOutputWithContext(ctx context.Context) Locat
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationInput)(nil)).Elem(), Location("global"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationPtrInput)(nil)).Elem(), Location("global"))
 	pulumi.RegisterOutputType(LocationOutput{})
 	pulumi.RegisterOutputType(LocationPtrOutput{})
 }

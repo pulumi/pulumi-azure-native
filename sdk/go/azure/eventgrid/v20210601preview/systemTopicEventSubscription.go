@@ -176,6 +176,5 @@ func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionInput)(nil)).Elem(), &SystemTopicEventSubscription{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionOutput{})
 }

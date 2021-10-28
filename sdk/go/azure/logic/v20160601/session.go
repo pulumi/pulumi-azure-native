@@ -148,6 +148,5 @@ func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SessionInput)(nil)).Elem(), &Session{})
 	pulumi.RegisterOutputType(SessionOutput{})
 }

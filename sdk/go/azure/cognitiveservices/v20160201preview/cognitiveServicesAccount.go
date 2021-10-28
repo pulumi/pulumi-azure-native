@@ -153,6 +153,5 @@ func (o CognitiveServicesAccountOutput) ToCognitiveServicesAccountOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CognitiveServicesAccountInput)(nil)).Elem(), &CognitiveServicesAccount{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountOutput{})
 }

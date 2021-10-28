@@ -146,6 +146,5 @@ func (o RestorePointOutput) ToRestorePointOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointInput)(nil)).Elem(), &RestorePoint{})
 	pulumi.RegisterOutputType(RestorePointOutput{})
 }

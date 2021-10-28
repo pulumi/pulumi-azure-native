@@ -175,8 +175,6 @@ func (in *paymentChannelTypePtr) ToPaymentChannelTypePtrOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentChannelTypeInput)(nil)).Elem(), PaymentChannelType("SubscriptionDelegated"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentChannelTypePtrInput)(nil)).Elem(), PaymentChannelType("SubscriptionDelegated"))
 	pulumi.RegisterOutputType(PaymentChannelTypeOutput{})
 	pulumi.RegisterOutputType(PaymentChannelTypePtrOutput{})
 }

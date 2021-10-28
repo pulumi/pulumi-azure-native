@@ -218,6 +218,5 @@ func (o WebAppRelayServiceConnectionSlotOutput) ToWebAppRelayServiceConnectionSl
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppRelayServiceConnectionSlotInput)(nil)).Elem(), &WebAppRelayServiceConnectionSlot{})
 	pulumi.RegisterOutputType(WebAppRelayServiceConnectionSlotOutput{})
 }

@@ -219,6 +219,5 @@ func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionInput)(nil)).Elem(), &IotHubDataConnection{})
 	pulumi.RegisterOutputType(IotHubDataConnectionOutput{})
 }

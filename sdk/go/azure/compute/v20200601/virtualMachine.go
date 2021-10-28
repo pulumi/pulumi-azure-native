@@ -280,6 +280,5 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineInput)(nil)).Elem(), &VirtualMachine{})
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

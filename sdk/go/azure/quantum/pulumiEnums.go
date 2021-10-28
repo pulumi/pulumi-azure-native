@@ -343,10 +343,6 @@ func (in *statusPtr) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusInput)(nil)).Elem(), Status("Succeeded"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusPtrInput)(nil)).Elem(), Status("Succeeded"))
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(StatusOutput{})

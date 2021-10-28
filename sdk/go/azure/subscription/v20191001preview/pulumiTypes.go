@@ -337,10 +337,6 @@ func (o PutAliasResponsePropertiesResponsePtrOutput) SubscriptionId() pulumi.Str
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PutAliasRequestPropertiesInput)(nil)).Elem(), PutAliasRequestPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PutAliasRequestPropertiesPtrInput)(nil)).Elem(), PutAliasRequestPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PutAliasResponsePropertiesResponseInput)(nil)).Elem(), PutAliasResponsePropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PutAliasResponsePropertiesResponsePtrInput)(nil)).Elem(), PutAliasResponsePropertiesResponseArgs{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PutAliasResponsePropertiesResponseOutput{})

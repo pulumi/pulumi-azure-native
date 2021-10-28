@@ -119,6 +119,5 @@ func (o ConsoleOutput) ToConsoleOutputWithContext(ctx context.Context) ConsoleOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConsoleInput)(nil)).Elem(), &Console{})
 	pulumi.RegisterOutputType(ConsoleOutput{})
 }

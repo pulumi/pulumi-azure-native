@@ -515,12 +515,6 @@ func (in *endpointTypePtr) ToEndpointTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedFilterOperatorTypeInput)(nil)).Elem(), AdvancedFilterOperatorType("NumberIn"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedFilterOperatorTypePtrInput)(nil)).Elem(), AdvancedFilterOperatorType("NumberIn"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterEndPointTypeInput)(nil)).Elem(), DeadLetterEndPointType("StorageBlob"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterEndPointTypePtrInput)(nil)).Elem(), DeadLetterEndPointType("StorageBlob"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("WebHook"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("WebHook"))
 	pulumi.RegisterOutputType(AdvancedFilterOperatorTypeOutput{})
 	pulumi.RegisterOutputType(AdvancedFilterOperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(DeadLetterEndPointTypeOutput{})

@@ -170,6 +170,5 @@ func (o AssessmentMetadataInSubscriptionOutput) ToAssessmentMetadataInSubscripti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataInSubscriptionInput)(nil)).Elem(), &AssessmentMetadataInSubscription{})
 	pulumi.RegisterOutputType(AssessmentMetadataInSubscriptionOutput{})
 }

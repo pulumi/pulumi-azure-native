@@ -134,6 +134,5 @@ func (o StorageDomainOutput) ToStorageDomainOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageDomainInput)(nil)).Elem(), &StorageDomain{})
 	pulumi.RegisterOutputType(StorageDomainOutput{})
 }

@@ -283,6 +283,5 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolInput)(nil)).Elem(), &HostPool{})
 	pulumi.RegisterOutputType(HostPoolOutput{})
 }

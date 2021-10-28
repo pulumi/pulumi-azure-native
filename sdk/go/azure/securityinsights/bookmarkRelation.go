@@ -147,6 +147,5 @@ func (o BookmarkRelationOutput) ToBookmarkRelationOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BookmarkRelationInput)(nil)).Elem(), &BookmarkRelation{})
 	pulumi.RegisterOutputType(BookmarkRelationOutput{})
 }

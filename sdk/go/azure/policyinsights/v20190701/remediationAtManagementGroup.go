@@ -147,6 +147,5 @@ func (o RemediationAtManagementGroupOutput) ToRemediationAtManagementGroupOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationAtManagementGroupInput)(nil)).Elem(), &RemediationAtManagementGroup{})
 	pulumi.RegisterOutputType(RemediationAtManagementGroupOutput{})
 }

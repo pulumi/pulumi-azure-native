@@ -343,10 +343,6 @@ func (in *b2cresourceSKUTierPtr) ToB2CResourceSKUTierPtrOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUNameInput)(nil)).Elem(), B2CResourceSKUName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUNamePtrInput)(nil)).Elem(), B2CResourceSKUName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUTierInput)(nil)).Elem(), B2CResourceSKUTier("A0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CResourceSKUTierPtrInput)(nil)).Elem(), B2CResourceSKUTier("A0"))
 	pulumi.RegisterOutputType(B2CResourceSKUNameOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUNamePtrOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUTierOutput{})

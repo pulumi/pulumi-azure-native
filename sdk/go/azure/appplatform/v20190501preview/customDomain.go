@@ -157,6 +157,5 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainInput)(nil)).Elem(), &CustomDomain{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 }

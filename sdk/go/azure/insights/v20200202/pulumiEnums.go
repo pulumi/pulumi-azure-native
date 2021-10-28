@@ -832,16 +832,6 @@ func (in *requestSourcePtr) ToRequestSourcePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), ApplicationType("web"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypePtrInput)(nil)).Elem(), ApplicationType("web"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTypeInput)(nil)).Elem(), FlowType("Bluefield"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTypePtrInput)(nil)).Elem(), FlowType("Bluefield"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IngestionModeInput)(nil)).Elem(), IngestionMode("ApplicationInsights"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IngestionModePtrInput)(nil)).Elem(), IngestionMode("ApplicationInsights"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypeInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypePtrInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequestSourceInput)(nil)).Elem(), RequestSource("rest"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequestSourcePtrInput)(nil)).Elem(), RequestSource("rest"))
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowTypeOutput{})

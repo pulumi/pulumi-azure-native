@@ -279,6 +279,5 @@ func (o ExpressRoutePortOutput) ToExpressRoutePortOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRoutePortInput)(nil)).Elem(), &ExpressRoutePort{})
 	pulumi.RegisterOutputType(ExpressRoutePortOutput{})
 }

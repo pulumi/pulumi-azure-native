@@ -1129,20 +1129,6 @@ func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEntryInput)(nil)).Elem(), AccessPolicyEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEntryArrayInput)(nil)).Elem(), AccessPolicyEntryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEntryResponseInput)(nil)).Elem(), AccessPolicyEntryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyEntryResponseArrayInput)(nil)).Elem(), AccessPolicyEntryResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsInput)(nil)).Elem(), PermissionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsResponseInput)(nil)).Elem(), PermissionsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPropertiesInput)(nil)).Elem(), VaultPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPropertiesPtrInput)(nil)).Elem(), VaultPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPropertiesResponseInput)(nil)).Elem(), VaultPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPropertiesResponsePtrInput)(nil)).Elem(), VaultPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(AccessPolicyEntryOutput{})
 	pulumi.RegisterOutputType(AccessPolicyEntryArrayOutput{})
 	pulumi.RegisterOutputType(AccessPolicyEntryResponseOutput{})

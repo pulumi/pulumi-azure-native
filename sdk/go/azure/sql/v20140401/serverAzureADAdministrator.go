@@ -191,6 +191,5 @@ func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureADAdministratorInput)(nil)).Elem(), &ServerAzureADAdministrator{})
 	pulumi.RegisterOutputType(ServerAzureADAdministratorOutput{})
 }

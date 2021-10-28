@@ -503,12 +503,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DistroInput)(nil)).Elem(), Distro("AKSEdge"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DistroPtrInput)(nil)).Elem(), Distro("AKSEdge"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), Provider("VMWare"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderPtrInput)(nil)).Elem(), Provider("VMWare"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(DistroOutput{})
 	pulumi.RegisterOutputType(DistroPtrOutput{})
 	pulumi.RegisterOutputType(ProviderOutput{})

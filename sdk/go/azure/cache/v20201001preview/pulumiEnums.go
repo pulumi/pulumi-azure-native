@@ -843,16 +843,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusteringPolicyInput)(nil)).Elem(), ClusteringPolicy("EnterpriseCluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusteringPolicyPtrInput)(nil)).Elem(), ClusteringPolicy("EnterpriseCluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyInput)(nil)).Elem(), EvictionPolicy("AllKeysLFU"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyPtrInput)(nil)).Elem(), EvictionPolicy("AllKeysLFU"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("Encrypted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("Encrypted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Enterprise_E10"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Enterprise_E10"))
 	pulumi.RegisterOutputType(ClusteringPolicyOutput{})
 	pulumi.RegisterOutputType(ClusteringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EvictionPolicyOutput{})

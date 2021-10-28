@@ -144,8 +144,6 @@ func (o RuleResultsPropertiesResponsePtrOutput) Results() pulumi.StringArrayArra
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleResultsPropertiesResponseInput)(nil)).Elem(), RuleResultsPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleResultsPropertiesResponsePtrInput)(nil)).Elem(), RuleResultsPropertiesResponseArgs{})
 	pulumi.RegisterOutputType(RuleResultsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RuleResultsPropertiesResponsePtrOutput{})
 }

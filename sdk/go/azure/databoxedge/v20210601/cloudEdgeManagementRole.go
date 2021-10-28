@@ -201,6 +201,5 @@ func (o CloudEdgeManagementRoleOutput) ToCloudEdgeManagementRoleOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudEdgeManagementRoleInput)(nil)).Elem(), &CloudEdgeManagementRole{})
 	pulumi.RegisterOutputType(CloudEdgeManagementRoleOutput{})
 }

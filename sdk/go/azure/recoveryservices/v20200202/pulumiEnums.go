@@ -837,16 +837,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureEncryptionStateInput)(nil)).Elem(), InfrastructureEncryptionState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureEncryptionStatePtrInput)(nil)).Elem(), InfrastructureEncryptionState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionStatusInput)(nil)).Elem(), PrivateEndpointConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateInput)(nil)).Elem(), ProvisioningState("Succeeded"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStatePtrInput)(nil)).Elem(), ProvisioningState("Succeeded"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard"))
 	pulumi.RegisterOutputType(InfrastructureEncryptionStateOutput{})
 	pulumi.RegisterOutputType(InfrastructureEncryptionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionStatusOutput{})

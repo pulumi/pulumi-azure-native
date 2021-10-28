@@ -961,16 +961,6 @@ func (o UserDetailResponsePtrOutput) LastName() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferDetailInput)(nil)).Elem(), OfferDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferDetailPtrInput)(nil)).Elem(), OfferDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferDetailResponseInput)(nil)).Elem(), OfferDetailResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OfferDetailResponsePtrInput)(nil)).Elem(), OfferDetailResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserDetailInput)(nil)).Elem(), UserDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserDetailPtrInput)(nil)).Elem(), UserDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserDetailResponseInput)(nil)).Elem(), UserDetailResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserDetailResponsePtrInput)(nil)).Elem(), UserDetailResponseArgs{})
 	pulumi.RegisterOutputType(OfferDetailOutput{})
 	pulumi.RegisterOutputType(OfferDetailPtrOutput{})
 	pulumi.RegisterOutputType(OfferDetailResponseOutput{})

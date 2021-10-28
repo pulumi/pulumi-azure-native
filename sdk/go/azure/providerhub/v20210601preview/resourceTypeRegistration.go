@@ -142,6 +142,5 @@ func (o ResourceTypeRegistrationOutput) ToResourceTypeRegistrationOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceTypeRegistrationInput)(nil)).Elem(), &ResourceTypeRegistration{})
 	pulumi.RegisterOutputType(ResourceTypeRegistrationOutput{})
 }

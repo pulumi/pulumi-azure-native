@@ -264,6 +264,5 @@ func (o IotHubResourceOutput) ToIotHubResourceOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IotHubResourceInput)(nil)).Elem(), &IotHubResource{})
 	pulumi.RegisterOutputType(IotHubResourceOutput{})
 }

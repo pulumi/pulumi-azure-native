@@ -141,6 +141,5 @@ func (o ManagementAssociationOutput) ToManagementAssociationOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementAssociationInput)(nil)).Elem(), &ManagementAssociation{})
 	pulumi.RegisterOutputType(ManagementAssociationOutput{})
 }

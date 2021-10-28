@@ -1009,18 +1009,6 @@ func (in *transportShipmentTypesPtr) ToTransportShipmentTypesPtrOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypeInput)(nil)).Elem(), AddressType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypePtrInput)(nil)).Elem(), AddressType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DoubleEncryptionStatusInput)(nil)).Elem(), DoubleEncryptionStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DoubleEncryptionStatusPtrInput)(nil)).Elem(), DoubleEncryptionStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNameInput)(nil)).Elem(), NotificationStageName("Shipped"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNamePtrInput)(nil)).Elem(), NotificationStageName("Shipped"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OrderItemTypeInput)(nil)).Elem(), OrderItemType("Purchase"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OrderItemTypePtrInput)(nil)).Elem(), OrderItemType("Purchase"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportedFilterTypesInput)(nil)).Elem(), SupportedFilterTypes("ShipToCountries"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportedFilterTypesPtrInput)(nil)).Elem(), SupportedFilterTypes("ShipToCountries"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransportShipmentTypesInput)(nil)).Elem(), TransportShipmentTypes("CustomerManaged"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransportShipmentTypesPtrInput)(nil)).Elem(), TransportShipmentTypes("CustomerManaged"))
 	pulumi.RegisterOutputType(AddressTypeOutput{})
 	pulumi.RegisterOutputType(AddressTypePtrOutput{})
 	pulumi.RegisterOutputType(DoubleEncryptionStatusOutput{})

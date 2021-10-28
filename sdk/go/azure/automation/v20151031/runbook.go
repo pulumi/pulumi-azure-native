@@ -178,6 +178,5 @@ func (o RunbookOutput) ToRunbookOutputWithContext(ctx context.Context) RunbookOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RunbookInput)(nil)).Elem(), &Runbook{})
 	pulumi.RegisterOutputType(RunbookOutput{})
 }

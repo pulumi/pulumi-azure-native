@@ -183,6 +183,5 @@ func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubBgpConnectionInput)(nil)).Elem(), &VirtualHubBgpConnection{})
 	pulumi.RegisterOutputType(VirtualHubBgpConnectionOutput{})
 }

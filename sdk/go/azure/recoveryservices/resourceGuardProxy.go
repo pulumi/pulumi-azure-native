@@ -141,6 +141,5 @@ func (o ResourceGuardProxyOutput) ToResourceGuardProxyOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGuardProxyInput)(nil)).Elem(), &ResourceGuardProxy{})
 	pulumi.RegisterOutputType(ResourceGuardProxyOutput{})
 }

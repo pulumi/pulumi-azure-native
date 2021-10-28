@@ -138,6 +138,5 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingInput)(nil)).Elem(), &DiagnosticSetting{})
 	pulumi.RegisterOutputType(DiagnosticSettingOutput{})
 }

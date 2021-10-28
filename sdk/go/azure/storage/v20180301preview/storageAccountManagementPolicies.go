@@ -177,6 +177,5 @@ func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPolici
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountManagementPoliciesInput)(nil)).Elem(), &StorageAccountManagementPolicies{})
 	pulumi.RegisterOutputType(StorageAccountManagementPoliciesOutput{})
 }

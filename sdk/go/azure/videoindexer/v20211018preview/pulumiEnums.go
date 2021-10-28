@@ -177,8 +177,6 @@ func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("None"))
 	pulumi.RegisterOutputType(ManagedServiceIdentityTypeOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityTypePtrOutput{})
 }

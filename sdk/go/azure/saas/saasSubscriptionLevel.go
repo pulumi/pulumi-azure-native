@@ -130,6 +130,5 @@ func (o SaasSubscriptionLevelOutput) ToSaasSubscriptionLevelOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SaasSubscriptionLevelInput)(nil)).Elem(), &SaasSubscriptionLevel{})
 	pulumi.RegisterOutputType(SaasSubscriptionLevelOutput{})
 }

@@ -190,6 +190,5 @@ func (o ProtectionIntentOutput) ToProtectionIntentOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionIntentInput)(nil)).Elem(), &ProtectionIntent{})
 	pulumi.RegisterOutputType(ProtectionIntentOutput{})
 }

@@ -174,8 +174,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("PBIE_Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("PBIE_Azure"))
 	pulumi.RegisterOutputType(SkuTierOutput{})
 	pulumi.RegisterOutputType(SkuTierPtrOutput{})
 }

@@ -1001,18 +1001,6 @@ func (o MonitorConfigResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsConfigInput)(nil)).Elem(), DnsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsConfigPtrInput)(nil)).Elem(), DnsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsConfigResponseInput)(nil)).Elem(), DnsConfigResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsConfigResponsePtrInput)(nil)).Elem(), DnsConfigResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeArrayInput)(nil)).Elem(), EndpointTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointResponseInput)(nil)).Elem(), EndpointResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointResponseArrayInput)(nil)).Elem(), EndpointResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigInput)(nil)).Elem(), MonitorConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPtrInput)(nil)).Elem(), MonitorConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigResponseInput)(nil)).Elem(), MonitorConfigResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigResponsePtrInput)(nil)).Elem(), MonitorConfigResponseArgs{})
 	pulumi.RegisterOutputType(DnsConfigOutput{})
 	pulumi.RegisterOutputType(DnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(DnsConfigResponseOutput{})

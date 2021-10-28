@@ -164,6 +164,5 @@ func (o TransparentDataEncryptionOutput) ToTransparentDataEncryptionOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TransparentDataEncryptionInput)(nil)).Elem(), &TransparentDataEncryption{})
 	pulumi.RegisterOutputType(TransparentDataEncryptionOutput{})
 }

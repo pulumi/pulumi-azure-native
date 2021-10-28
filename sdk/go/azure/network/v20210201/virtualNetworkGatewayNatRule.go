@@ -157,6 +157,5 @@ func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleInput)(nil)).Elem(), &VirtualNetworkGatewayNatRule{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleOutput{})
 }

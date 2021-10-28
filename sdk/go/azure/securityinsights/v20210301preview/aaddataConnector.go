@@ -162,6 +162,5 @@ func (o AADDataConnectorOutput) ToAADDataConnectorOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AADDataConnectorInput)(nil)).Elem(), &AADDataConnector{})
 	pulumi.RegisterOutputType(AADDataConnectorOutput{})
 }

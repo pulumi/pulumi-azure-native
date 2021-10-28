@@ -202,6 +202,5 @@ func (o BlobDataSetMappingOutput) ToBlobDataSetMappingOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobDataSetMappingInput)(nil)).Elem(), &BlobDataSetMapping{})
 	pulumi.RegisterOutputType(BlobDataSetMappingOutput{})
 }

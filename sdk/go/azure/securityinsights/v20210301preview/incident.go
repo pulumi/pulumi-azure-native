@@ -206,6 +206,5 @@ func (o IncidentOutput) ToIncidentOutputWithContext(ctx context.Context) Inciden
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentInput)(nil)).Elem(), &Incident{})
 	pulumi.RegisterOutputType(IncidentOutput{})
 }

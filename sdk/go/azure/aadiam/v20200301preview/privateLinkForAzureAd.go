@@ -149,6 +149,5 @@ func (o PrivateLinkForAzureAdOutput) ToPrivateLinkForAzureAdOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkForAzureAdInput)(nil)).Elem(), &PrivateLinkForAzureAd{})
 	pulumi.RegisterOutputType(PrivateLinkForAzureAdOutput{})
 }

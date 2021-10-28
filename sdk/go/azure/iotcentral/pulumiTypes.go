@@ -277,10 +277,6 @@ func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoInput)(nil)).Elem(), AppSkuInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoPtrInput)(nil)).Elem(), AppSkuInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoResponseInput)(nil)).Elem(), AppSkuInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInfoResponsePtrInput)(nil)).Elem(), AppSkuInfoResponseArgs{})
 	pulumi.RegisterOutputType(AppSkuInfoOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoResponseOutput{})

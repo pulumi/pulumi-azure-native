@@ -165,6 +165,5 @@ func (o ManagedInstanceKeyOutput) ToManagedInstanceKeyOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceKeyInput)(nil)).Elem(), &ManagedInstanceKey{})
 	pulumi.RegisterOutputType(ManagedInstanceKeyOutput{})
 }

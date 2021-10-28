@@ -162,6 +162,5 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneInput)(nil)).Elem(), &Zone{})
 	pulumi.RegisterOutputType(ZoneOutput{})
 }

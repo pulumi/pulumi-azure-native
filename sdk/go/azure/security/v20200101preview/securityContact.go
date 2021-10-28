@@ -132,6 +132,5 @@ func (o SecurityContactOutput) ToSecurityContactOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityContactInput)(nil)).Elem(), &SecurityContact{})
 	pulumi.RegisterOutputType(SecurityContactOutput{})
 }

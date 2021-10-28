@@ -179,6 +179,5 @@ func (o DatabaseAdvisorOutput) ToDatabaseAdvisorOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAdvisorInput)(nil)).Elem(), &DatabaseAdvisor{})
 	pulumi.RegisterOutputType(DatabaseAdvisorOutput{})
 }

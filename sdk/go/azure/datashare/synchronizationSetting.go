@@ -162,6 +162,5 @@ func (o SynchronizationSettingOutput) ToSynchronizationSettingOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SynchronizationSettingInput)(nil)).Elem(), &SynchronizationSetting{})
 	pulumi.RegisterOutputType(SynchronizationSettingOutput{})
 }

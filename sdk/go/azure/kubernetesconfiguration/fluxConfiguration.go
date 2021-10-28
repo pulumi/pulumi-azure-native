@@ -170,6 +170,5 @@ func (o FluxConfigurationOutput) ToFluxConfigurationOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationInput)(nil)).Elem(), &FluxConfiguration{})
 	pulumi.RegisterOutputType(FluxConfigurationOutput{})
 }

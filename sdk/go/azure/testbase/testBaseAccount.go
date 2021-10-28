@@ -138,6 +138,5 @@ func (o TestBaseAccountOutput) ToTestBaseAccountOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TestBaseAccountInput)(nil)).Elem(), &TestBaseAccount{})
 	pulumi.RegisterOutputType(TestBaseAccountOutput{})
 }

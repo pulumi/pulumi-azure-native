@@ -164,6 +164,5 @@ func (o FusionAlertRuleOutput) ToFusionAlertRuleOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FusionAlertRuleInput)(nil)).Elem(), &FusionAlertRule{})
 	pulumi.RegisterOutputType(FusionAlertRuleOutput{})
 }

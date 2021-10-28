@@ -200,6 +200,5 @@ func (o TagDescriptionOutput) ToTagDescriptionOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TagDescriptionInput)(nil)).Elem(), &TagDescription{})
 	pulumi.RegisterOutputType(TagDescriptionOutput{})
 }

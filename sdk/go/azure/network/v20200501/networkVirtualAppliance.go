@@ -213,6 +213,5 @@ func (o NetworkVirtualApplianceOutput) ToNetworkVirtualApplianceOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkVirtualApplianceInput)(nil)).Elem(), &NetworkVirtualAppliance{})
 	pulumi.RegisterOutputType(NetworkVirtualApplianceOutput{})
 }

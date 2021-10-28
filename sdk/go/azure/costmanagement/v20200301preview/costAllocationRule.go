@@ -123,6 +123,5 @@ func (o CostAllocationRuleOutput) ToCostAllocationRuleOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CostAllocationRuleInput)(nil)).Elem(), &CostAllocationRule{})
 	pulumi.RegisterOutputType(CostAllocationRuleOutput{})
 }

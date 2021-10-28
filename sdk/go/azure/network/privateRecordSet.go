@@ -177,6 +177,5 @@ func (o PrivateRecordSetOutput) ToPrivateRecordSetOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateRecordSetInput)(nil)).Elem(), &PrivateRecordSet{})
 	pulumi.RegisterOutputType(PrivateRecordSetOutput{})
 }

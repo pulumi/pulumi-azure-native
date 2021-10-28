@@ -177,6 +177,5 @@ func (o ReplicationPolicyOutput) ToReplicationPolicyOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationPolicyInput)(nil)).Elem(), &ReplicationPolicy{})
 	pulumi.RegisterOutputType(ReplicationPolicyOutput{})
 }

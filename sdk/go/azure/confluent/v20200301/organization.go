@@ -148,6 +148,5 @@ func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationInput)(nil)).Elem(), &Organization{})
 	pulumi.RegisterOutputType(OrganizationOutput{})
 }

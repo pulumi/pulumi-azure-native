@@ -719,18 +719,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerSecretInput)(nil)).Elem(), CustomerSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerSecretArrayInput)(nil)).Elem(), CustomerSecretArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerSecretResponseInput)(nil)).Elem(), CustomerSecretResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerSecretResponseArrayInput)(nil)).Elem(), CustomerSecretResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleInput)(nil)).Elem(), ScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleArrayInput)(nil)).Elem(), ScheduleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleResponseInput)(nil)).Elem(), ScheduleResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleResponseArrayInput)(nil)).Elem(), ScheduleResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(CustomerSecretOutput{})
 	pulumi.RegisterOutputType(CustomerSecretArrayOutput{})
 	pulumi.RegisterOutputType(CustomerSecretResponseOutput{})

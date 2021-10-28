@@ -162,6 +162,5 @@ func (o KubeEnvironmentOutput) ToKubeEnvironmentOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KubeEnvironmentInput)(nil)).Elem(), &KubeEnvironment{})
 	pulumi.RegisterOutputType(KubeEnvironmentOutput{})
 }

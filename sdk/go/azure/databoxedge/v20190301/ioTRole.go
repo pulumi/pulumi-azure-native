@@ -219,6 +219,5 @@ func (o IoTRoleOutput) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IoTRoleInput)(nil)).Elem(), &IoTRole{})
 	pulumi.RegisterOutputType(IoTRoleOutput{})
 }

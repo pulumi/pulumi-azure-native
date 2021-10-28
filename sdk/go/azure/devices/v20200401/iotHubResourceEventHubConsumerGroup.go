@@ -258,6 +258,5 @@ func (o IotHubResourceEventHubConsumerGroupOutput) ToIotHubResourceEventHubConsu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IotHubResourceEventHubConsumerGroupInput)(nil)).Elem(), &IotHubResourceEventHubConsumerGroup{})
 	pulumi.RegisterOutputType(IotHubResourceEventHubConsumerGroupOutput{})
 }

@@ -176,6 +176,5 @@ func (o ManagedInstanceAdministratorOutput) ToManagedInstanceAdministratorOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceAdministratorInput)(nil)).Elem(), &ManagedInstanceAdministrator{})
 	pulumi.RegisterOutputType(ManagedInstanceAdministratorOutput{})
 }

@@ -342,10 +342,6 @@ func (in *publicNetworkAccessTypePtr) ToPublicNetworkAccessTypePtrOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypeInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypePtrInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(PublicNetworkAccessTypeOutput{})

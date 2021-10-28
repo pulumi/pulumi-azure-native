@@ -156,6 +156,5 @@ func (o StorageInsightConfigOutput) ToStorageInsightConfigOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightConfigInput)(nil)).Elem(), &StorageInsightConfig{})
 	pulumi.RegisterOutputType(StorageInsightConfigOutput{})
 }

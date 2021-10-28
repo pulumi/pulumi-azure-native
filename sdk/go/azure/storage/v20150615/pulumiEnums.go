@@ -178,8 +178,6 @@ func (in *accountTypePtr) ToAccountTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountTypeInput)(nil)).Elem(), AccountType("Standard_LRS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountTypePtrInput)(nil)).Elem(), AccountType("Standard_LRS"))
 	pulumi.RegisterOutputType(AccountTypeOutput{})
 	pulumi.RegisterOutputType(AccountTypePtrOutput{})
 }

@@ -177,8 +177,6 @@ func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalTypeInput)(nil)).Elem(), PrincipalType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalTypePtrInput)(nil)).Elem(), PrincipalType("User"))
 	pulumi.RegisterOutputType(PrincipalTypeOutput{})
 	pulumi.RegisterOutputType(PrincipalTypePtrOutput{})
 }

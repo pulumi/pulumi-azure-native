@@ -207,6 +207,5 @@ func (o WebAppSitePushSettingsSlotOutput) ToWebAppSitePushSettingsSlotOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSitePushSettingsSlotInput)(nil)).Elem(), &WebAppSitePushSettingsSlot{})
 	pulumi.RegisterOutputType(WebAppSitePushSettingsSlotOutput{})
 }

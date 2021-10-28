@@ -131,6 +131,5 @@ func (o PrivateEndpointConnectionProxyOutput) ToPrivateEndpointConnectionProxyOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionProxyInput)(nil)).Elem(), &PrivateEndpointConnectionProxy{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionProxyOutput{})
 }

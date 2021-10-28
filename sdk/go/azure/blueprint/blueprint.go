@@ -143,6 +143,5 @@ func (o BlueprintOutput) ToBlueprintOutputWithContext(ctx context.Context) Bluep
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BlueprintInput)(nil)).Elem(), &Blueprint{})
 	pulumi.RegisterOutputType(BlueprintOutput{})
 }

@@ -141,6 +141,5 @@ func (o PipelineJobOutput) ToPipelineJobOutputWithContext(ctx context.Context) P
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineJobInput)(nil)).Elem(), &PipelineJob{})
 	pulumi.RegisterOutputType(PipelineJobOutput{})
 }

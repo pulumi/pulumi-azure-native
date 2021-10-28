@@ -191,6 +191,5 @@ func (o TagByProductOutput) ToTagByProductOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TagByProductInput)(nil)).Elem(), &TagByProduct{})
 	pulumi.RegisterOutputType(TagByProductOutput{})
 }

@@ -260,6 +260,5 @@ func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurati
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceTapConfigurationInput)(nil)).Elem(), &NetworkInterfaceTapConfiguration{})
 	pulumi.RegisterOutputType(NetworkInterfaceTapConfigurationOutput{})
 }

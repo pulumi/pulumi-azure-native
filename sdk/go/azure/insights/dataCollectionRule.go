@@ -150,6 +150,5 @@ func (o DataCollectionRuleOutput) ToDataCollectionRuleOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleInput)(nil)).Elem(), &DataCollectionRule{})
 	pulumi.RegisterOutputType(DataCollectionRuleOutput{})
 }

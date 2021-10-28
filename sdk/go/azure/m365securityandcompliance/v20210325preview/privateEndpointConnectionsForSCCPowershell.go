@@ -134,6 +134,5 @@ func (o PrivateEndpointConnectionsForSCCPowershellOutput) ToPrivateEndpointConne
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionsForSCCPowershellInput)(nil)).Elem(), &PrivateEndpointConnectionsForSCCPowershell{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsForSCCPowershellOutput{})
 }

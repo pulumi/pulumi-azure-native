@@ -187,6 +187,5 @@ func (o HubRouteTableOutput) ToHubRouteTableOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HubRouteTableInput)(nil)).Elem(), &HubRouteTable{})
 	pulumi.RegisterOutputType(HubRouteTableOutput{})
 }

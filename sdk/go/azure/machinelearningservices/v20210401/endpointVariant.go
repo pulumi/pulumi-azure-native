@@ -179,6 +179,5 @@ func (o EndpointVariantOutput) ToEndpointVariantOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointVariantInput)(nil)).Elem(), &EndpointVariant{})
 	pulumi.RegisterOutputType(EndpointVariantOutput{})
 }

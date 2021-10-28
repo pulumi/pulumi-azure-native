@@ -152,6 +152,5 @@ func (o KustoPoolDataConnectionOutput) ToKustoPoolDataConnectionOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KustoPoolDataConnectionInput)(nil)).Elem(), &KustoPoolDataConnection{})
 	pulumi.RegisterOutputType(KustoPoolDataConnectionOutput{})
 }

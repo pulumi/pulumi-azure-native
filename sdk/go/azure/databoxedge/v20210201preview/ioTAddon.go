@@ -190,6 +190,5 @@ func (o IoTAddonOutput) ToIoTAddonOutputWithContext(ctx context.Context) IoTAddo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IoTAddonInput)(nil)).Elem(), &IoTAddon{})
 	pulumi.RegisterOutputType(IoTAddonOutput{})
 }

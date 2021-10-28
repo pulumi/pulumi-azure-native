@@ -145,6 +145,5 @@ func (o IscsiServerOutput) ToIscsiServerOutputWithContext(ctx context.Context) I
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IscsiServerInput)(nil)).Elem(), &IscsiServer{})
 	pulumi.RegisterOutputType(IscsiServerOutput{})
 }

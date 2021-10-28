@@ -251,6 +251,5 @@ func (o DatabaseAccountTableOutput) ToDatabaseAccountTableOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountTableInput)(nil)).Elem(), &DatabaseAccountTable{})
 	pulumi.RegisterOutputType(DatabaseAccountTableOutput{})
 }

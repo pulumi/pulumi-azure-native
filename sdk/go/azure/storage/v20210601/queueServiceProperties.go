@@ -158,6 +158,5 @@ func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*QueueServicePropertiesInput)(nil)).Elem(), &QueueServiceProperties{})
 	pulumi.RegisterOutputType(QueueServicePropertiesOutput{})
 }

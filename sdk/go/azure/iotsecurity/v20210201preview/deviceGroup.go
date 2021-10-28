@@ -121,6 +121,5 @@ func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceGroupInput)(nil)).Elem(), &DeviceGroup{})
 	pulumi.RegisterOutputType(DeviceGroupOutput{})
 }

@@ -505,12 +505,6 @@ func (in *defaultDecisionTypePtr) ToDefaultDecisionTypePtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewRecurrencePatternTypeInput)(nil)).Elem(), AccessReviewRecurrencePatternType("weekly"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewRecurrencePatternTypePtrInput)(nil)).Elem(), AccessReviewRecurrencePatternType("weekly"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewRecurrenceRangeTypeInput)(nil)).Elem(), AccessReviewRecurrenceRangeType("endDate"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewRecurrenceRangeTypePtrInput)(nil)).Elem(), AccessReviewRecurrenceRangeType("endDate"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultDecisionTypeInput)(nil)).Elem(), DefaultDecisionType("Approve"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultDecisionTypePtrInput)(nil)).Elem(), DefaultDecisionType("Approve"))
 	pulumi.RegisterOutputType(AccessReviewRecurrencePatternTypeOutput{})
 	pulumi.RegisterOutputType(AccessReviewRecurrencePatternTypePtrOutput{})
 	pulumi.RegisterOutputType(AccessReviewRecurrenceRangeTypeOutput{})

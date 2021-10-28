@@ -143,6 +143,5 @@ func (o HierarchySettingOutput) ToHierarchySettingOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HierarchySettingInput)(nil)).Elem(), &HierarchySetting{})
 	pulumi.RegisterOutputType(HierarchySettingOutput{})
 }

@@ -500,12 +500,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationPropertiesAuthenticationInput)(nil)).Elem(), CustomLocationPropertiesAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationPropertiesAuthenticationPtrInput)(nil)).Elem(), CustomLocationPropertiesAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationPropertiesResponseAuthenticationInput)(nil)).Elem(), CustomLocationPropertiesResponseAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationPropertiesResponseAuthenticationPtrInput)(nil)).Elem(), CustomLocationPropertiesResponseAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(CustomLocationPropertiesAuthenticationOutput{})
 	pulumi.RegisterOutputType(CustomLocationPropertiesAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(CustomLocationPropertiesResponseAuthenticationOutput{})

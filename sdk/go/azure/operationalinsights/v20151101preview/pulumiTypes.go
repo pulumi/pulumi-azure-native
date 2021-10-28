@@ -501,14 +501,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineReferenceWithHintsInput)(nil)).Elem(), MachineReferenceWithHintsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineReferenceWithHintsArrayInput)(nil)).Elem(), MachineReferenceWithHintsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineReferenceWithHintsResponseInput)(nil)).Elem(), MachineReferenceWithHintsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineReferenceWithHintsResponseArrayInput)(nil)).Elem(), MachineReferenceWithHintsResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsOutput{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsArrayOutput{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsResponseOutput{})

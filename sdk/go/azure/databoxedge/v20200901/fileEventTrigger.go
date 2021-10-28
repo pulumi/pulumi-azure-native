@@ -208,6 +208,5 @@ func (o FileEventTriggerOutput) ToFileEventTriggerOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FileEventTriggerInput)(nil)).Elem(), &FileEventTrigger{})
 	pulumi.RegisterOutputType(FileEventTriggerOutput{})
 }

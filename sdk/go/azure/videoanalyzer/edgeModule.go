@@ -133,6 +133,5 @@ func (o EdgeModuleOutput) ToEdgeModuleOutputWithContext(ctx context.Context) Edg
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleInput)(nil)).Elem(), &EdgeModule{})
 	pulumi.RegisterOutputType(EdgeModuleOutput{})
 }

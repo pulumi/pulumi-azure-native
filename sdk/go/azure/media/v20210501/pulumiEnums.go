@@ -1006,18 +1006,6 @@ func (in *storageAuthenticationPtr) ToStorageAuthenticationPtrOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionKeyTypeInput)(nil)).Elem(), AccountEncryptionKeyType("SystemKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionKeyTypePtrInput)(nil)).Elem(), AccountEncryptionKeyType("SystemKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultActionInput)(nil)).Elem(), DefaultAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultActionPtrInput)(nil)).Elem(), DefaultAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypeInput)(nil)).Elem(), ManagedIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypePtrInput)(nil)).Elem(), ManagedIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountTypeInput)(nil)).Elem(), StorageAccountType("Primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountTypePtrInput)(nil)).Elem(), StorageAccountType("Primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAuthenticationInput)(nil)).Elem(), StorageAuthentication("System"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAuthenticationPtrInput)(nil)).Elem(), StorageAuthentication("System"))
 	pulumi.RegisterOutputType(AccountEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(DefaultActionOutput{})

@@ -138,6 +138,5 @@ func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceSecurityGroupInput)(nil)).Elem(), &DeviceSecurityGroup{})
 	pulumi.RegisterOutputType(DeviceSecurityGroupOutput{})
 }

@@ -367,6 +367,5 @@ func (o ExpressRouteCircuitAuthorizationOutput) ToExpressRouteCircuitAuthorizati
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitAuthorizationInput)(nil)).Elem(), &ExpressRouteCircuitAuthorization{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitAuthorizationOutput{})
 }

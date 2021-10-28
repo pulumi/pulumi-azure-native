@@ -212,6 +212,5 @@ func (o CloudEndpointOutput) ToCloudEndpointOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudEndpointInput)(nil)).Elem(), &CloudEndpoint{})
 	pulumi.RegisterOutputType(CloudEndpointOutput{})
 }

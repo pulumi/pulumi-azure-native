@@ -152,6 +152,5 @@ func (o WebPubSubPrivateEndpointConnectionOutput) ToWebPubSubPrivateEndpointConn
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubPrivateEndpointConnectionInput)(nil)).Elem(), &WebPubSubPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(WebPubSubPrivateEndpointConnectionOutput{})
 }

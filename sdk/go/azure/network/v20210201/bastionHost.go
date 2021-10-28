@@ -235,6 +235,5 @@ func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) B
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostInput)(nil)).Elem(), &BastionHost{})
 	pulumi.RegisterOutputType(BastionHostOutput{})
 }

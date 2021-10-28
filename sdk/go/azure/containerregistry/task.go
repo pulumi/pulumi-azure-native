@@ -191,6 +191,5 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskInput)(nil)).Elem(), &Task{})
 	pulumi.RegisterOutputType(TaskOutput{})
 }

@@ -171,6 +171,5 @@ func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminInput)(nil)).Elem(), &WorkspaceAadAdmin{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 }

@@ -133,6 +133,5 @@ func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VendorSkuPreviewInput)(nil)).Elem(), &VendorSkuPreview{})
 	pulumi.RegisterOutputType(VendorSkuPreviewOutput{})
 }

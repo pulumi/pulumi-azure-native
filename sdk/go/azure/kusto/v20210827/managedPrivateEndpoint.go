@@ -145,6 +145,5 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrivateEndpointInput)(nil)).Elem(), &ManagedPrivateEndpoint{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
 }

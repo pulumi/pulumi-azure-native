@@ -267,6 +267,5 @@ func (o VirtualNetworkTapOutput) ToVirtualNetworkTapOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkTapInput)(nil)).Elem(), &VirtualNetworkTap{})
 	pulumi.RegisterOutputType(VirtualNetworkTapOutput{})
 }

@@ -666,14 +666,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessRightsPtrInput)(nil)).Elem(), AccessRights("Manage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RelaytypeInput)(nil)).Elem(), Relaytype("NetTcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RelaytypePtrInput)(nil)).Elem(), Relaytype("NetTcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Standard"))
 	pulumi.RegisterOutputType(AccessRightsOutput{})
 	pulumi.RegisterOutputType(AccessRightsPtrOutput{})
 	pulumi.RegisterOutputType(RelaytypeOutput{})

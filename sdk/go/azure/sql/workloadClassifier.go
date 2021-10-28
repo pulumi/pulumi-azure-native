@@ -186,6 +186,5 @@ func (o WorkloadClassifierOutput) ToWorkloadClassifierOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadClassifierInput)(nil)).Elem(), &WorkloadClassifier{})
 	pulumi.RegisterOutputType(WorkloadClassifierOutput{})
 }

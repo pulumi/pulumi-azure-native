@@ -1008,18 +1008,6 @@ func (in *inputSchemaMappingTypePtr) ToInputSchemaMappingTypePtrOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedFilterOperatorTypeInput)(nil)).Elem(), AdvancedFilterOperatorType("NumberIn"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedFilterOperatorTypePtrInput)(nil)).Elem(), AdvancedFilterOperatorType("NumberIn"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterEndPointTypeInput)(nil)).Elem(), DeadLetterEndPointType("StorageBlob"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterEndPointTypePtrInput)(nil)).Elem(), DeadLetterEndPointType("StorageBlob"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("WebHook"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("WebHook"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventDeliverySchemaInput)(nil)).Elem(), EventDeliverySchema("EventGridSchema"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventDeliverySchemaPtrInput)(nil)).Elem(), EventDeliverySchema("EventGridSchema"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InputSchemaInput)(nil)).Elem(), InputSchema("EventGridSchema"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InputSchemaPtrInput)(nil)).Elem(), InputSchema("EventGridSchema"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InputSchemaMappingTypeInput)(nil)).Elem(), InputSchemaMappingType("Json"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InputSchemaMappingTypePtrInput)(nil)).Elem(), InputSchemaMappingType("Json"))
 	pulumi.RegisterOutputType(AdvancedFilterOperatorTypeOutput{})
 	pulumi.RegisterOutputType(AdvancedFilterOperatorTypePtrOutput{})
 	pulumi.RegisterOutputType(DeadLetterEndPointTypeOutput{})

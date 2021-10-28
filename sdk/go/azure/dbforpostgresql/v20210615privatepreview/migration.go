@@ -168,6 +168,5 @@ func (o MigrationOutput) ToMigrationOutputWithContext(ctx context.Context) Migra
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MigrationInput)(nil)).Elem(), &Migration{})
 	pulumi.RegisterOutputType(MigrationOutput{})
 }

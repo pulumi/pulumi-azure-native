@@ -395,6 +395,5 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkInput)(nil)).Elem(), &VirtualNetwork{})
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

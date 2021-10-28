@@ -151,6 +151,5 @@ func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationHubAuthorizationRuleInput)(nil)).Elem(), &NotificationHubAuthorizationRule{})
 	pulumi.RegisterOutputType(NotificationHubAuthorizationRuleOutput{})
 }

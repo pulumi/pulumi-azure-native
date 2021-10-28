@@ -551,14 +551,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ControllerConnectionDetailsResponseInput)(nil)).Elem(), ControllerConnectionDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ControllerConnectionDetailsResponseArrayInput)(nil)).Elem(), ControllerConnectionDetailsResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesConnectionDetailsResponseInput)(nil)).Elem(), KubernetesConnectionDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesConnectionDetailsResponsePtrInput)(nil)).Elem(), KubernetesConnectionDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponseOutput{})

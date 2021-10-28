@@ -305,6 +305,5 @@ func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSecurityGroupInput)(nil)).Elem(), &ApplicationSecurityGroup{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupOutput{})
 }

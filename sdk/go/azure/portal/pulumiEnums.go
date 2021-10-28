@@ -842,16 +842,6 @@ func (in *shellTypePtr) ToShellTypePtrOutputWithContext(ctx context.Context) She
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FontSizeInput)(nil)).Elem(), FontSize("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FontSizePtrInput)(nil)).Elem(), FontSize("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FontStyleInput)(nil)).Elem(), FontStyle("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FontStylePtrInput)(nil)).Elem(), FontStyle("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypeInput)(nil)).Elem(), OsType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypePtrInput)(nil)).Elem(), OsType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStateInput)(nil)).Elem(), ProvisioningState("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningStatePtrInput)(nil)).Elem(), ProvisioningState("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShellTypeInput)(nil)).Elem(), ShellType("bash"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShellTypePtrInput)(nil)).Elem(), ShellType("bash"))
 	pulumi.RegisterOutputType(FontSizeOutput{})
 	pulumi.RegisterOutputType(FontSizePtrOutput{})
 	pulumi.RegisterOutputType(FontStyleOutput{})

@@ -386,6 +386,5 @@ func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayInput)(nil)).Elem(), &VirtualNetworkGateway{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayOutput{})
 }

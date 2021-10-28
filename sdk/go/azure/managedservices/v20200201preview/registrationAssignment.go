@@ -147,6 +147,5 @@ func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistrationAssignmentInput)(nil)).Elem(), &RegistrationAssignment{})
 	pulumi.RegisterOutputType(RegistrationAssignmentOutput{})
 }

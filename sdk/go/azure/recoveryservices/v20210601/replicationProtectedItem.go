@@ -187,6 +187,5 @@ func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationProtectedItemInput)(nil)).Elem(), &ReplicationProtectedItem{})
 	pulumi.RegisterOutputType(ReplicationProtectedItemOutput{})
 }

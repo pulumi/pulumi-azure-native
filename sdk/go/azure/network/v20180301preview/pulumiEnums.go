@@ -175,8 +175,6 @@ func (in *zoneTypePtr) ToZoneTypePtrOutputWithContext(ctx context.Context) ZoneT
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneTypeInput)(nil)).Elem(), ZoneType("Public"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ZoneTypePtrInput)(nil)).Elem(), ZoneType("Public"))
 	pulumi.RegisterOutputType(ZoneTypeOutput{})
 	pulumi.RegisterOutputType(ZoneTypePtrOutput{})
 }

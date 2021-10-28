@@ -186,6 +186,5 @@ func (o WebAppSwiftVirtualNetworkConnectionOutput) ToWebAppSwiftVirtualNetworkCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionInput)(nil)).Elem(), &WebAppSwiftVirtualNetworkConnection{})
 	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionOutput{})
 }

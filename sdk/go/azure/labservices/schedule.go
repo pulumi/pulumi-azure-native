@@ -148,6 +148,5 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleInput)(nil)).Elem(), &Schedule{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 }

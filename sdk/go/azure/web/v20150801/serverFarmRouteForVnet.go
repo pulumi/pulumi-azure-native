@@ -212,6 +212,5 @@ func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerFarmRouteForVnetInput)(nil)).Elem(), &ServerFarmRouteForVnet{})
 	pulumi.RegisterOutputType(ServerFarmRouteForVnetOutput{})
 }

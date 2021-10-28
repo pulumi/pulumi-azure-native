@@ -139,6 +139,5 @@ func (o B2CTenantOutput) ToB2CTenantOutputWithContext(ctx context.Context) B2CTe
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*B2CTenantInput)(nil)).Elem(), &B2CTenant{})
 	pulumi.RegisterOutputType(B2CTenantOutput{})
 }

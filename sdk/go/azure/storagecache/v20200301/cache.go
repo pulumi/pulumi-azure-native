@@ -190,6 +190,5 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheInput)(nil)).Elem(), &Cache{})
 	pulumi.RegisterOutputType(CacheOutput{})
 }

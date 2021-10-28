@@ -160,6 +160,5 @@ func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountCertificateInput)(nil)).Elem(), &IntegrationAccountCertificate{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificateOutput{})
 }

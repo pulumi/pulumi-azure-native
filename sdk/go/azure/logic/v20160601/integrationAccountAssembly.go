@@ -149,6 +149,5 @@ func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyInput)(nil)).Elem(), &IntegrationAccountAssembly{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyOutput{})
 }

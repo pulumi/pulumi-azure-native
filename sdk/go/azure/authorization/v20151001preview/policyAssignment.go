@@ -199,6 +199,5 @@ func (o PolicyAssignmentOutput) ToPolicyAssignmentOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssignmentInput)(nil)).Elem(), &PolicyAssignment{})
 	pulumi.RegisterOutputType(PolicyAssignmentOutput{})
 }

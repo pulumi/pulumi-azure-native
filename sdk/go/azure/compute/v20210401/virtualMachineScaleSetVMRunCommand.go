@@ -192,6 +192,5 @@ func (o VirtualMachineScaleSetVMRunCommandOutput) ToVirtualMachineScaleSetVMRunC
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScaleSetVMRunCommandInput)(nil)).Elem(), &VirtualMachineScaleSetVMRunCommand{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMRunCommandOutput{})
 }

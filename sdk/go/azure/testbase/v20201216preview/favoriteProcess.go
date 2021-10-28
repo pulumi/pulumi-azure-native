@@ -137,6 +137,5 @@ func (o FavoriteProcessOutput) ToFavoriteProcessOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FavoriteProcessInput)(nil)).Elem(), &FavoriteProcess{})
 	pulumi.RegisterOutputType(FavoriteProcessOutput{})
 }

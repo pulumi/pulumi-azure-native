@@ -186,6 +186,5 @@ func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionInput)(nil)).Elem(), &EventGridDataConnection{})
 	pulumi.RegisterOutputType(EventGridDataConnectionOutput{})
 }

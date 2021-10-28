@@ -205,6 +205,5 @@ func (o AKSServiceOutput) ToAKSServiceOutputWithContext(ctx context.Context) AKS
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AKSServiceInput)(nil)).Elem(), &AKSService{})
 	pulumi.RegisterOutputType(AKSServiceOutput{})
 }

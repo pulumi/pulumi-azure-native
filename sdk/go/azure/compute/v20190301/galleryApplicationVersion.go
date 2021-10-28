@@ -168,6 +168,5 @@ func (o GalleryApplicationVersionOutput) ToGalleryApplicationVersionOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GalleryApplicationVersionInput)(nil)).Elem(), &GalleryApplicationVersion{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionOutput{})
 }

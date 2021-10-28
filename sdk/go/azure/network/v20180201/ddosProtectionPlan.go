@@ -282,6 +282,5 @@ func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DdosProtectionPlanInput)(nil)).Elem(), &DdosProtectionPlan{})
 	pulumi.RegisterOutputType(DdosProtectionPlanOutput{})
 }

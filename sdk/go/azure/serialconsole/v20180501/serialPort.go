@@ -138,6 +138,5 @@ func (o SerialPortOutput) ToSerialPortOutputWithContext(ctx context.Context) Ser
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SerialPortInput)(nil)).Elem(), &SerialPort{})
 	pulumi.RegisterOutputType(SerialPortOutput{})
 }

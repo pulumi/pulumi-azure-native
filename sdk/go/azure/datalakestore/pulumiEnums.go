@@ -1163,20 +1163,6 @@ func (in *trustedIdProviderStateEnumPtr) ToTrustedIdProviderStateEnumPtrOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigTypeInput)(nil)).Elem(), EncryptionConfigType("UserManaged"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigTypePtrInput)(nil)).Elem(), EncryptionConfigType("UserManaged"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionIdentityTypeInput)(nil)).Elem(), EncryptionIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionIdentityTypePtrInput)(nil)).Elem(), EncryptionIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionStateInput)(nil)).Elem(), EncryptionState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionStatePtrInput)(nil)).Elem(), EncryptionState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAllowAzureIpsStateInput)(nil)).Elem(), FirewallAllowAzureIpsState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAllowAzureIpsStatePtrInput)(nil)).Elem(), FirewallAllowAzureIpsState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallStateInput)(nil)).Elem(), FirewallState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallStatePtrInput)(nil)).Elem(), FirewallState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierTypeInput)(nil)).Elem(), TierType("Consumption"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierTypePtrInput)(nil)).Elem(), TierType("Consumption"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedIdProviderStateEnumInput)(nil)).Elem(), TrustedIdProviderStateEnum("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedIdProviderStateEnumPtrInput)(nil)).Elem(), TrustedIdProviderStateEnum("Enabled"))
 	pulumi.RegisterOutputType(EncryptionConfigTypeOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityTypeOutput{})

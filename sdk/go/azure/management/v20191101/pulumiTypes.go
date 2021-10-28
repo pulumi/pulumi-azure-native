@@ -1141,22 +1141,6 @@ func (o ParentGroupInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateManagementGroupDetailsInput)(nil)).Elem(), CreateManagementGroupDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateManagementGroupDetailsPtrInput)(nil)).Elem(), CreateManagementGroupDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateParentGroupInfoInput)(nil)).Elem(), CreateParentGroupInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateParentGroupInfoPtrInput)(nil)).Elem(), CreateParentGroupInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityInfoResponseInput)(nil)).Elem(), EntityInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityInfoResponseArrayInput)(nil)).Elem(), EntityInfoResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityParentGroupInfoResponseInput)(nil)).Elem(), EntityParentGroupInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityParentGroupInfoResponsePtrInput)(nil)).Elem(), EntityParentGroupInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupChildInfoResponseInput)(nil)).Elem(), ManagementGroupChildInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupChildInfoResponseArrayInput)(nil)).Elem(), ManagementGroupChildInfoResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupDetailsResponseInput)(nil)).Elem(), ManagementGroupDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupDetailsResponsePtrInput)(nil)).Elem(), ManagementGroupDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupPathElementResponseInput)(nil)).Elem(), ManagementGroupPathElementResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupPathElementResponseArrayInput)(nil)).Elem(), ManagementGroupPathElementResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParentGroupInfoResponseInput)(nil)).Elem(), ParentGroupInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParentGroupInfoResponsePtrInput)(nil)).Elem(), ParentGroupInfoResponseArgs{})
 	pulumi.RegisterOutputType(CreateManagementGroupDetailsOutput{})
 	pulumi.RegisterOutputType(CreateManagementGroupDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoOutput{})

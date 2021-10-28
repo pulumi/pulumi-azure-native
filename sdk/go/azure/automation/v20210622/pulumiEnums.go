@@ -505,12 +505,6 @@ func (in *skuNameEnumPtr) ToSkuNameEnumPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourceTypeInput)(nil)).Elem(), EncryptionKeySourceType("Microsoft.Automation"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourceTypePtrInput)(nil)).Elem(), EncryptionKeySourceType("Microsoft.Automation"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumInput)(nil)).Elem(), SkuNameEnum("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumPtrInput)(nil)).Elem(), SkuNameEnum("Free"))
 	pulumi.RegisterOutputType(EncryptionKeySourceTypeOutput{})
 	pulumi.RegisterOutputType(EncryptionKeySourceTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

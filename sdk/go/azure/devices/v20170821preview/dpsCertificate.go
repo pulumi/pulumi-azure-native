@@ -159,6 +159,5 @@ func (o DpsCertificateOutput) ToDpsCertificateOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DpsCertificateInput)(nil)).Elem(), &DpsCertificate{})
 	pulumi.RegisterOutputType(DpsCertificateOutput{})
 }

@@ -194,6 +194,5 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionInput)(nil)).Elem(), &Extension{})
 	pulumi.RegisterOutputType(ExtensionOutput{})
 }

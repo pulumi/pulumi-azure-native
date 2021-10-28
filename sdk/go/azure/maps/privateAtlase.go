@@ -132,6 +132,5 @@ func (o PrivateAtlaseOutput) ToPrivateAtlaseOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateAtlaseInput)(nil)).Elem(), &PrivateAtlase{})
 	pulumi.RegisterOutputType(PrivateAtlaseOutput{})
 }

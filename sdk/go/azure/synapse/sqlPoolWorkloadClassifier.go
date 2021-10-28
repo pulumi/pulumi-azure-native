@@ -192,6 +192,5 @@ func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadClassifierInput)(nil)).Elem(), &SqlPoolWorkloadClassifier{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierOutput{})
 }

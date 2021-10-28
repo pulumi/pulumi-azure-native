@@ -123,6 +123,5 @@ func (o SubscriptionFeatureRegistrationOutput) ToSubscriptionFeatureRegistration
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationInput)(nil)).Elem(), &SubscriptionFeatureRegistration{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationOutput{})
 }

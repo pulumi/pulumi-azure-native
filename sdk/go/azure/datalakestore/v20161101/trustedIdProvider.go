@@ -131,6 +131,5 @@ func (o TrustedIdProviderOutput) ToTrustedIdProviderOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedIdProviderInput)(nil)).Elem(), &TrustedIdProvider{})
 	pulumi.RegisterOutputType(TrustedIdProviderOutput{})
 }

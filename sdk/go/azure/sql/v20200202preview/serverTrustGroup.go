@@ -161,6 +161,5 @@ func (o ServerTrustGroupOutput) ToServerTrustGroupOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerTrustGroupInput)(nil)).Elem(), &ServerTrustGroup{})
 	pulumi.RegisterOutputType(ServerTrustGroupOutput{})
 }

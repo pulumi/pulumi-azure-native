@@ -177,6 +177,5 @@ func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EventHubAuthorizationRuleInput)(nil)).Elem(), &EventHubAuthorizationRule{})
 	pulumi.RegisterOutputType(EventHubAuthorizationRuleOutput{})
 }

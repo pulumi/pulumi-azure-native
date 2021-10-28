@@ -128,6 +128,5 @@ func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileAssignmentInput)(nil)).Elem(), &ConfigurationProfileAssignment{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentOutput{})
 }

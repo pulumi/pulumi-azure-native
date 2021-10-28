@@ -186,6 +186,5 @@ func (o SqlDWTableDataSetOutput) ToSqlDWTableDataSetOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlDWTableDataSetInput)(nil)).Elem(), &SqlDWTableDataSet{})
 	pulumi.RegisterOutputType(SqlDWTableDataSetOutput{})
 }
