@@ -3,6 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Breaking Changes published by Microsoft:
+
+- `compute.RestorePoint` property `provisioningDetails` removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16099))
+- `authorization.PolicyPricing` resource removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16537))
+
+---
+
 ## 1.43.0 (2021-10-27)
 
 #### New resources:
@@ -16,8 +25,6 @@ CHANGELOG
 #### Enhancements:
 
 - Update to `pulumi/pulumi` 3.16.0
-
----
 
 ## 1.42.0 (2021-10-25)
 
