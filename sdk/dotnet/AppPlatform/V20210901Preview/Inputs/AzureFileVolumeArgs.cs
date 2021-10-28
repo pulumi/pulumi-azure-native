@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
         public Input<string> MountPath { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the persistent disk is a readonly one.
+        /// Indicates whether the persistent disk is a readOnly one.
         /// </summary>
-        [Input("readonly")]
-        public Input<bool>? Readonly { get; set; }
+        [Input("readOnly")]
+        public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
         /// The share name of the Azure File share.

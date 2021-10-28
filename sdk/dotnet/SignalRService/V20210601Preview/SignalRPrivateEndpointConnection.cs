@@ -87,6 +87,8 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

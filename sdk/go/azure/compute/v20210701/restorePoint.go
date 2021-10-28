@@ -14,13 +14,13 @@ import (
 type RestorePoint struct {
 	pulumi.CustomResourceState
 
-	ConsistencyMode     pulumi.StringOutput                           `pulumi:"consistencyMode"`
-	ExcludeDisks        ApiEntityReferenceResponseArrayOutput         `pulumi:"excludeDisks"`
-	Name                pulumi.StringOutput                           `pulumi:"name"`
-	ProvisioningDetails RestorePointProvisioningDetailsResponseOutput `pulumi:"provisioningDetails"`
-	ProvisioningState   pulumi.StringOutput                           `pulumi:"provisioningState"`
-	SourceMetadata      RestorePointSourceMetadataResponseOutput      `pulumi:"sourceMetadata"`
-	Type                pulumi.StringOutput                           `pulumi:"type"`
+	ConsistencyMode   pulumi.StringOutput                      `pulumi:"consistencyMode"`
+	ExcludeDisks      ApiEntityReferenceResponseArrayOutput    `pulumi:"excludeDisks"`
+	Name              pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                      `pulumi:"provisioningState"`
+	SourceMetadata    RestorePointSourceMetadataResponseOutput `pulumi:"sourceMetadata"`
+	TimeCreated       pulumi.StringPtrOutput                   `pulumi:"timeCreated"`
+	Type              pulumi.StringOutput                      `pulumi:"type"`
 }
 
 
@@ -96,6 +96,7 @@ type restorePointArgs struct {
 	ResourceGroupName          string               `pulumi:"resourceGroupName"`
 	RestorePointCollectionName string               `pulumi:"restorePointCollectionName"`
 	RestorePointName           *string              `pulumi:"restorePointName"`
+	TimeCreated                *string              `pulumi:"timeCreated"`
 }
 
 
@@ -104,6 +105,7 @@ type RestorePointArgs struct {
 	ResourceGroupName          pulumi.StringInput
 	RestorePointCollectionName pulumi.StringInput
 	RestorePointName           pulumi.StringPtrInput
+	TimeCreated                pulumi.StringPtrInput
 }
 
 func (RestorePointArgs) ElementType() reflect.Type {

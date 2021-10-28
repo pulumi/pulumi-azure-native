@@ -111,7 +111,6 @@ __all__ = [
     'ReplicationStatusResponse',
     'ResourceRangeResponse',
     'RestorePointCollectionSourcePropertiesResponse',
-    'RestorePointProvisioningDetailsResponse',
     'RestorePointResponse',
     'RestorePointSourceMetadataResponse',
     'RestorePointSourceVMDataDiskResponse',
@@ -6546,88 +6545,6 @@ class RestorePointCollectionSourcePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class RestorePointProvisioningDetailsResponse(dict):
-    """
-    Restore Point Provisioning details.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "creationTime":
-            suggest = "creation_time"
-        elif key == "statusCode":
-            suggest = "status_code"
-        elif key == "statusMessage":
-            suggest = "status_message"
-        elif key == "totalUsedSizeInBytes":
-            suggest = "total_used_size_in_bytes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RestorePointProvisioningDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RestorePointProvisioningDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RestorePointProvisioningDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 creation_time: Optional[str] = None,
-                 status_code: Optional[int] = None,
-                 status_message: Optional[str] = None,
-                 total_used_size_in_bytes: Optional[float] = None):
-        """
-        Restore Point Provisioning details.
-        :param str creation_time: Gets the creation time of the restore point.
-        :param int status_code: Gets the status of the Create restore point operation.
-        :param str status_message: Gets the status message of the Create restore point operation.
-        :param float total_used_size_in_bytes: Gets the total size of the data in all the disks which are part of the restore point.
-        """
-        if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
-        if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
-        if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
-        if total_used_size_in_bytes is not None:
-            pulumi.set(__self__, "total_used_size_in_bytes", total_used_size_in_bytes)
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
-        """
-        Gets the creation time of the restore point.
-        """
-        return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[int]:
-        """
-        Gets the status of the Create restore point operation.
-        """
-        return pulumi.get(self, "status_code")
-
-    @property
-    @pulumi.getter(name="statusMessage")
-    def status_message(self) -> Optional[str]:
-        """
-        Gets the status message of the Create restore point operation.
-        """
-        return pulumi.get(self, "status_message")
-
-    @property
-    @pulumi.getter(name="totalUsedSizeInBytes")
-    def total_used_size_in_bytes(self) -> Optional[float]:
-        """
-        Gets the total size of the data in all the disks which are part of the restore point.
-        """
-        return pulumi.get(self, "total_used_size_in_bytes")
-
-
-@pulumi.output_type
 class RestorePointResponse(dict):
     """
     Restore Point details.
@@ -6637,14 +6554,14 @@ class RestorePointResponse(dict):
         suggest = None
         if key == "consistencyMode":
             suggest = "consistency_mode"
-        elif key == "provisioningDetails":
-            suggest = "provisioning_details"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "sourceMetadata":
             suggest = "source_metadata"
         elif key == "excludeDisks":
             suggest = "exclude_disks"
+        elif key == "timeCreated":
+            suggest = "time_created"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RestorePointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6661,31 +6578,32 @@ class RestorePointResponse(dict):
                  consistency_mode: str,
                  id: str,
                  name: str,
-                 provisioning_details: 'outputs.RestorePointProvisioningDetailsResponse',
                  provisioning_state: str,
                  source_metadata: 'outputs.RestorePointSourceMetadataResponse',
                  type: str,
-                 exclude_disks: Optional[Sequence['outputs.ApiEntityReferenceResponse']] = None):
+                 exclude_disks: Optional[Sequence['outputs.ApiEntityReferenceResponse']] = None,
+                 time_created: Optional[str] = None):
         """
         Restore Point details.
         :param str consistency_mode: Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
         :param str id: Resource Id
         :param str name: Resource name
-        :param 'RestorePointProvisioningDetailsResponse' provisioning_details: Gets the provisioning details set by the server during Create restore point operation.
         :param str provisioning_state: Gets the provisioning state of the restore point.
         :param 'RestorePointSourceMetadataResponse' source_metadata: Gets the details of the VM captured at the time of the restore point creation.
         :param str type: Resource type
         :param Sequence['ApiEntityReferenceResponse'] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
+        :param str time_created: Gets the creation time of the restore point.
         """
         pulumi.set(__self__, "consistency_mode", consistency_mode)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_details", provisioning_details)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "source_metadata", source_metadata)
         pulumi.set(__self__, "type", type)
         if exclude_disks is not None:
             pulumi.set(__self__, "exclude_disks", exclude_disks)
+        if time_created is not None:
+            pulumi.set(__self__, "time_created", time_created)
 
     @property
     @pulumi.getter(name="consistencyMode")
@@ -6710,14 +6628,6 @@ class RestorePointResponse(dict):
         Resource name
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningDetails")
-    def provisioning_details(self) -> 'outputs.RestorePointProvisioningDetailsResponse':
-        """
-        Gets the provisioning details set by the server during Create restore point operation.
-        """
-        return pulumi.get(self, "provisioning_details")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -6750,6 +6660,14 @@ class RestorePointResponse(dict):
         List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         """
         return pulumi.get(self, "exclude_disks")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> Optional[str]:
+        """
+        Gets the creation time of the restore point.
+        """
+        return pulumi.get(self, "time_created")
 
 
 @pulumi.output_type

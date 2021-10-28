@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning details set by the server during Create restore point operation.
-        /// </summary>
-        public readonly Outputs.RestorePointProvisioningDetailsResponse ProvisioningDetails;
-        /// <summary>
         /// Gets the provisioning state of the restore point.
         /// </summary>
         public readonly string ProvisioningState;
@@ -44,6 +40,10 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
         public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        /// <summary>
+        /// Gets the creation time of the restore point.
+        /// </summary>
+        public readonly string? TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -59,11 +59,11 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 
             string name,
 
-            Outputs.RestorePointProvisioningDetailsResponse provisioningDetails,
-
             string provisioningState,
 
             Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+
+            string? timeCreated,
 
             string type)
         {
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
             ExcludeDisks = excludeDisks;
             Id = id;
             Name = name;
-            ProvisioningDetails = provisioningDetails;
             ProvisioningState = provisioningState;
             SourceMetadata = sourceMetadata;
+            TimeCreated = timeCreated;
             Type = type;
         }
     }

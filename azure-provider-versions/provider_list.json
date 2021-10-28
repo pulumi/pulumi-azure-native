@@ -17186,7 +17186,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -17483,7 +17487,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -17726,7 +17734,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -18951,7 +18963,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -19995,7 +20011,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -24494,7 +24514,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -26212,7 +26236,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -26558,7 +26586,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -28218,7 +28250,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -28457,7 +28493,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -28885,6 +28925,87 @@
         ],
         "properties": null,
         "resourceType": "locations/sharedGalleries"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2016-03-30",
+            "profileVersion": "2017-03-09-profile"
+          },
+          {
+            "apiVersion": "2017-03-30",
+            "profileVersion": "2018-03-01-hybrid"
+          },
+          {
+            "apiVersion": "2017-12-01",
+            "profileVersion": "2018-06-01-profile"
+          }
+        ],
+        "apiVersions": [
+          "2021-07-01",
+          "2021-04-01",
+          "2021-03-01",
+          "2020-12-01",
+          "2020-09-30",
+          "2020-06-01",
+          "2019-12-01",
+          "2019-07-01",
+          "2019-03-01",
+          "2018-10-01",
+          "2018-06-01",
+          "2018-04-01",
+          "2017-12-01",
+          "2017-03-30",
+          "2016-08-30",
+          "2016-04-30-preview",
+          "2016-03-30",
+          "2015-06-15",
+          "2015-05-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "East US 2",
+          "West US",
+          "Central US",
+          "North Central US",
+          "South Central US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "Japan East",
+          "Japan West",
+          "Australia East",
+          "Australia Southeast",
+          "Australia Central",
+          "Brazil South",
+          "South India",
+          "Central India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West US 2",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East",
+          "West US 3",
+          "East US 2 EUAP",
+          "Central US EUAP"
+        ],
+        "properties": null,
+        "resourceType": "locations/communityGalleries"
       },
       {
         "aliases": null,
@@ -29415,7 +29536,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -29955,7 +30080,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -30738,7 +30867,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -30981,7 +31114,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -33038,10 +33175,20 @@
     ]
   },
   {
-    "authorization": {
-      "applicationId": "abfa0a7c-a6b6-4736-8310-5855508787cd",
-      "roleDefinitionId": "f47ed98b-b063-4a5b-9e10-4b9b44fa7735"
-    },
+    "authorizations": [
+      {
+        "applicationId": "abfa0a7c-a6b6-4736-8310-5855508787cd",
+        "roleDefinitionId": "f47ed98b-b063-4a5b-9e10-4b9b44fa7735"
+      },
+      {
+        "applicationId": "7e3bc4fd-85a3-4192-b177-5b8bfc87f42c",
+        "roleDefinitionId": "39a74f72-b40f-4bdc-b639-562fe2260bf0"
+      },
+      {
+        "applicationId": "3734c1a4-2bed-4998-a37a-ff1a9e7bf019",
+        "roleDefinitionId": "5c779a4f-5cb2-4547-8c41-478d9be8ba90"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Web",
     "namespace": "Microsoft.Web",
     "providerAuthorizationConsentState": null,
@@ -33101,6 +33248,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33188,6 +33336,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33275,6 +33424,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33360,6 +33510,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33437,6 +33588,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "West Europe",
           "South India",
@@ -33502,6 +33654,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33589,6 +33742,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33643,6 +33797,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33719,6 +33874,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -33751,6 +33907,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -33827,6 +33984,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34020,6 +34178,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -34096,6 +34255,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -34193,6 +34353,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34272,6 +34433,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34353,6 +34515,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34437,6 +34600,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34521,6 +34685,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34605,6 +34770,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34670,6 +34836,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -34780,6 +34947,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34867,6 +35035,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -34960,6 +35129,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35052,6 +35222,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35339,6 +35510,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35427,6 +35599,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35437,177 +35610,7 @@
           "Central US EUAP"
         ],
         "properties": null,
-        "resourceType": "hostingEnvironments",
-        "zoneMappings": [
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US EUAP",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US 2 EUAP",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "North Central US",
-            "zones": []
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "South Africa North",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Switzerland North",
-            "zones": []
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 3",
-            "zones": []
-          }
-        ]
+        "resourceType": "hostingEnvironments"
       },
       {
         "aliases": null,
@@ -35687,6 +35690,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35777,6 +35781,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -35808,31 +35813,7 @@
         "apiVersions": [
           "2021-03-01",
           "2021-02-01",
-          "2021-01-15",
-          "2021-01-01",
-          "2020-12-01",
-          "2020-10-01",
-          "2020-09-01",
-          "2020-06-01",
-          "2019-08-01",
-          "2019-02-01",
-          "2019-01-01",
-          "2018-11-01",
-          "2018-08-01",
-          "2018-05-01-preview",
-          "2018-02-01",
-          "2017-08-01",
-          "2016-09-01",
-          "2016-03-01",
-          "2015-08-01",
-          "2015-07-01",
-          "2015-06-01",
-          "2015-05-01",
-          "2015-04-01",
-          "2015-02-01",
-          "2014-11-01",
-          "2014-06-01",
-          "2014-04-01"
+          "2021-01-15"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -35841,6 +35822,8 @@
           "West Central US",
           "East US",
           "West Europe",
+          "North Europe",
+          "Canada Central",
           "Central US EUAP"
         ],
         "properties": null,
@@ -35899,6 +35882,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -36006,6 +35990,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -36093,6 +36078,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -36220,6 +36206,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -36289,6 +36276,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36359,6 +36347,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36457,6 +36446,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36526,6 +36516,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36596,6 +36587,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36665,6 +36657,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36735,6 +36728,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36804,6 +36798,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36873,6 +36868,7 @@
           "France Central",
           "France South",
           "Korea Central",
+          "Korea South",
           "South Africa West",
           "South Africa North",
           "UAE Central",
@@ -36942,6 +36938,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -37030,6 +37027,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -37117,6 +37115,7 @@
           "West Europe",
           "Southeast Asia",
           "Korea Central",
+          "Korea South",
           "West US",
           "East US",
           "Japan West",
@@ -37210,6 +37209,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -37288,6 +37288,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -37365,6 +37366,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -37443,6 +37445,7 @@
           "Switzerland North",
           "UAE North",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "South India",
           "West Central US",
@@ -37516,6 +37519,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "West Europe",
           "South India",
@@ -37590,6 +37594,7 @@
           "North Central US",
           "UK West",
           "Australia Southeast",
+          "Korea South",
           "Canada Central",
           "West Europe",
           "South India",
@@ -37632,6 +37637,9 @@
         "defaultApiVersion": "2021-03-01",
         "locationMappings": null,
         "locations": [
+          "East US",
+          "North Europe",
+          "Canada Central",
           "Central US EUAP"
         ],
         "properties": null,
@@ -38552,7 +38560,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -42413,7 +42425,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -46678,29 +46694,36 @@
           "Australia East",
           "Australia Southeast",
           "Brazil South",
+          "Brazil Southeast",
           "Canada Central",
           "Canada East",
           "Central India",
           "Central US",
+          "Central US EUAP",
           "East Asia",
           "East US 2",
+          "East US 2 EUAP",
           "East US",
           "France Central",
           "France South",
+          "Germany North",
           "Germany West Central",
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
+          "Norway West",
           "South Africa North",
           "South Africa West",
           "South Central US",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
           "UAE North",
           "UK South",
           "UK West",
@@ -46709,9 +46732,7 @@
           "West India",
           "West US",
           "West US 2",
-          "West US 3",
-          "Central US EUAP",
-          "East US 2 EUAP"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -46745,7 +46766,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46874,7 +46894,6 @@
           "France Central",
           "Germany West Central",
           "Korea Central",
-          "Korea South",
           "Japan East",
           "Japan West",
           "North Central US",
@@ -46933,7 +46952,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -47093,7 +47116,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -47143,7 +47165,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -47194,7 +47215,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47248,7 +47268,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47299,7 +47318,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -47400,7 +47418,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -47451,7 +47468,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47502,7 +47518,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47556,7 +47571,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47610,7 +47624,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47662,7 +47675,6 @@
           "Japan West",
           "Japan East",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -47714,7 +47726,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47769,7 +47780,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47824,7 +47834,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47879,7 +47888,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47933,7 +47941,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -47986,7 +47993,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48039,7 +48045,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48094,7 +48099,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48149,7 +48153,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48204,7 +48207,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48259,7 +48261,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48314,7 +48315,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48369,7 +48369,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48424,7 +48423,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48479,7 +48477,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48534,7 +48531,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48589,7 +48585,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48644,7 +48639,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48699,7 +48693,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -48754,7 +48747,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -53583,7 +53575,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -65654,7 +65650,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65662,7 +65657,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "maintenanceConfigurations"
@@ -65715,7 +65714,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65723,7 +65721,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "updates"
@@ -65776,7 +65778,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65784,7 +65785,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "configurationAssignments"
@@ -65837,7 +65842,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65845,10 +65849,30 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "applyUpdates"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-09-01-preview",
+          "2021-05-01",
+          "2021-04-01-preview",
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "publicMaintenanceConfigurations"
       }
     ]
   },
@@ -72342,7 +72366,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -72565,7 +72593,11 @@
           },
           {
             "location": "East Asia",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "East US",
@@ -89599,147 +89631,6 @@
         ],
         "properties": null,
         "resourceType": "operations"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "3efe2b8f-32eb-4c7a-ae9a-b43f17de36eb",
-        "roleDefinitionId": "7694897e-330b-4414-acdf-e9fef0c657e0"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DevAI",
-    "namespace": "Microsoft.DevAI",
-    "providerAuthorizationConsentState": null,
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2019-01-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2019-10-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West US",
-          "East US",
-          "South Central US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "Locations/operationstatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-02-04-preview"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West US",
-          "East US",
-          "South Central US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "instances"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-02-04-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West US",
-          "East US",
-          "South Central US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "instances/experiments"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-02-04-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West US",
-          "East US",
-          "South Central US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "instances/sandboxes"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-02-04-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West US",
-          "East US",
-          "South Central US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "instances/sandboxes/experiments"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-02-04-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
       }
     ]
   },

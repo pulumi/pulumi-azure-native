@@ -24,12 +24,12 @@ type LookupRestorePointArgs struct {
 
 
 type LookupRestorePointResult struct {
-	ConsistencyMode     string                                  `pulumi:"consistencyMode"`
-	ExcludeDisks        []ApiEntityReferenceResponse            `pulumi:"excludeDisks"`
-	Id                  string                                  `pulumi:"id"`
-	Name                string                                  `pulumi:"name"`
-	ProvisioningDetails RestorePointProvisioningDetailsResponse `pulumi:"provisioningDetails"`
-	ProvisioningState   string                                  `pulumi:"provisioningState"`
-	SourceMetadata      RestorePointSourceMetadataResponse      `pulumi:"sourceMetadata"`
-	Type                string                                  `pulumi:"type"`
+	ConsistencyMode   string                             `pulumi:"consistencyMode"`
+	ExcludeDisks      []ApiEntityReferenceResponse       `pulumi:"excludeDisks"`
+	Id                string                             `pulumi:"id"`
+	Name              string                             `pulumi:"name"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
+	SourceMetadata    RestorePointSourceMetadataResponse `pulumi:"sourceMetadata"`
+	TimeCreated       *string                            `pulumi:"timeCreated"`
+	Type              string                             `pulumi:"type"`
 }

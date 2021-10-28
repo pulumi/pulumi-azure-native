@@ -11481,7 +11481,7 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) Secret() pulumi.StringPt
 }
 
 type SecurityConnectorPropertiesOrganizationalData struct {
-	ExcludedAccountId          []string `pulumi:"excludedAccountId"`
+	ExcludedAccountIds         []string `pulumi:"excludedAccountIds"`
 	OrganizationMembershipType *string  `pulumi:"organizationMembershipType"`
 	ParentHierarchyId          *string  `pulumi:"parentHierarchyId"`
 	StacksetName               *string  `pulumi:"stacksetName"`
@@ -11499,7 +11499,7 @@ type SecurityConnectorPropertiesOrganizationalDataInput interface {
 }
 
 type SecurityConnectorPropertiesOrganizationalDataArgs struct {
-	ExcludedAccountId          pulumi.StringArrayInput `pulumi:"excludedAccountId"`
+	ExcludedAccountIds         pulumi.StringArrayInput `pulumi:"excludedAccountIds"`
 	OrganizationMembershipType pulumi.StringPtrInput   `pulumi:"organizationMembershipType"`
 	ParentHierarchyId          pulumi.StringPtrInput   `pulumi:"parentHierarchyId"`
 	StacksetName               pulumi.StringPtrInput   `pulumi:"stacksetName"`
@@ -11582,8 +11582,8 @@ func (o SecurityConnectorPropertiesOrganizationalDataOutput) ToSecurityConnector
 	}).(SecurityConnectorPropertiesOrganizationalDataPtrOutput)
 }
 
-func (o SecurityConnectorPropertiesOrganizationalDataOutput) ExcludedAccountId() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityConnectorPropertiesOrganizationalData) []string { return v.ExcludedAccountId }).(pulumi.StringArrayOutput)
+func (o SecurityConnectorPropertiesOrganizationalDataOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityConnectorPropertiesOrganizationalData) []string { return v.ExcludedAccountIds }).(pulumi.StringArrayOutput)
 }
 
 func (o SecurityConnectorPropertiesOrganizationalDataOutput) OrganizationMembershipType() pulumi.StringPtrOutput {
@@ -11622,12 +11622,12 @@ func (o SecurityConnectorPropertiesOrganizationalDataPtrOutput) Elem() SecurityC
 	}).(SecurityConnectorPropertiesOrganizationalDataOutput)
 }
 
-func (o SecurityConnectorPropertiesOrganizationalDataPtrOutput) ExcludedAccountId() pulumi.StringArrayOutput {
+func (o SecurityConnectorPropertiesOrganizationalDataPtrOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityConnectorPropertiesOrganizationalData) []string {
 		if v == nil {
 			return nil
 		}
-		return v.ExcludedAccountId
+		return v.ExcludedAccountIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -11659,7 +11659,7 @@ func (o SecurityConnectorPropertiesOrganizationalDataPtrOutput) StacksetName() p
 }
 
 type SecurityConnectorPropertiesResponseOrganizationalData struct {
-	ExcludedAccountId          []string `pulumi:"excludedAccountId"`
+	ExcludedAccountIds         []string `pulumi:"excludedAccountIds"`
 	OrganizationMembershipType *string  `pulumi:"organizationMembershipType"`
 	ParentHierarchyId          *string  `pulumi:"parentHierarchyId"`
 	StacksetName               *string  `pulumi:"stacksetName"`
@@ -11677,7 +11677,7 @@ type SecurityConnectorPropertiesResponseOrganizationalDataInput interface {
 }
 
 type SecurityConnectorPropertiesResponseOrganizationalDataArgs struct {
-	ExcludedAccountId          pulumi.StringArrayInput `pulumi:"excludedAccountId"`
+	ExcludedAccountIds         pulumi.StringArrayInput `pulumi:"excludedAccountIds"`
 	OrganizationMembershipType pulumi.StringPtrInput   `pulumi:"organizationMembershipType"`
 	ParentHierarchyId          pulumi.StringPtrInput   `pulumi:"parentHierarchyId"`
 	StacksetName               pulumi.StringPtrInput   `pulumi:"stacksetName"`
@@ -11760,8 +11760,8 @@ func (o SecurityConnectorPropertiesResponseOrganizationalDataOutput) ToSecurityC
 	}).(SecurityConnectorPropertiesResponseOrganizationalDataPtrOutput)
 }
 
-func (o SecurityConnectorPropertiesResponseOrganizationalDataOutput) ExcludedAccountId() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityConnectorPropertiesResponseOrganizationalData) []string { return v.ExcludedAccountId }).(pulumi.StringArrayOutput)
+func (o SecurityConnectorPropertiesResponseOrganizationalDataOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityConnectorPropertiesResponseOrganizationalData) []string { return v.ExcludedAccountIds }).(pulumi.StringArrayOutput)
 }
 
 func (o SecurityConnectorPropertiesResponseOrganizationalDataOutput) OrganizationMembershipType() pulumi.StringPtrOutput {
@@ -11802,12 +11802,12 @@ func (o SecurityConnectorPropertiesResponseOrganizationalDataPtrOutput) Elem() S
 	}).(SecurityConnectorPropertiesResponseOrganizationalDataOutput)
 }
 
-func (o SecurityConnectorPropertiesResponseOrganizationalDataPtrOutput) ExcludedAccountId() pulumi.StringArrayOutput {
+func (o SecurityConnectorPropertiesResponseOrganizationalDataPtrOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityConnectorPropertiesResponseOrganizationalData) []string {
 		if v == nil {
 			return nil
 		}
-		return v.ExcludedAccountId
+		return v.ExcludedAccountIds
 	}).(pulumi.StringArrayOutput)
 }
 

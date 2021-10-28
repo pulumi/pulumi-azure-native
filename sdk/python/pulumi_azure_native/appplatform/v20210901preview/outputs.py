@@ -22,6 +22,7 @@ __all__ = [
     'DeploymentInstanceResponse',
     'DeploymentResourcePropertiesResponse',
     'DeploymentSettingsResponse',
+    'DeploymentSettingsResponseContainerProbeSettings',
     'ImageRegistryCredentialResponse',
     'KeyVaultCertificatePropertiesResponse',
     'LoadedCertificateResponse',
@@ -241,6 +242,8 @@ class AzureFileVolumeResponse(dict):
             suggest = "share_name"
         elif key == "mountOptions":
             suggest = "mount_options"
+        elif key == "readOnly":
+            suggest = "read_only"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -258,7 +261,7 @@ class AzureFileVolumeResponse(dict):
                  share_name: str,
                  type: str,
                  mount_options: Optional[Sequence[str]] = None,
-                 readonly: Optional[bool] = None):
+                 read_only: Optional[bool] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param str mount_path: The mount path of the persistent disk.
@@ -266,15 +269,15 @@ class AzureFileVolumeResponse(dict):
         :param str type: The type of the underlying resource to mount as a persistent disk.
                Expected value is 'AzureFileVolume'.
         :param Sequence[str] mount_options: These are the mount options for a persistent disk.
-        :param bool readonly: Indicates whether the persistent disk is a readonly one.
+        :param bool read_only: Indicates whether the persistent disk is a readOnly one.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "type", 'AzureFileVolume')
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
-        if readonly is not None:
-            pulumi.set(__self__, "readonly", readonly)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -310,12 +313,12 @@ class AzureFileVolumeResponse(dict):
         return pulumi.get(self, "mount_options")
 
     @property
-    @pulumi.getter
-    def readonly(self) -> Optional[bool]:
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
         """
-        Indicates whether the persistent disk is a readonly one.
+        Indicates whether the persistent disk is a readOnly one.
         """
-        return pulumi.get(self, "readonly")
+        return pulumi.get(self, "read_only")
 
 
 @pulumi.output_type
@@ -1101,7 +1104,9 @@ class DeploymentSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "environmentVariables":
+        if key == "containerProbeSettings":
+            suggest = "container_probe_settings"
+        elif key == "environmentVariables":
             suggest = "environment_variables"
         elif key == "jvmOptions":
             suggest = "jvm_options"
@@ -1126,6 +1131,7 @@ class DeploymentSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 container_probe_settings: Optional['outputs.DeploymentSettingsResponseContainerProbeSettings'] = None,
                  cpu: Optional[int] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
                  jvm_options: Optional[str] = None,
@@ -1135,6 +1141,7 @@ class DeploymentSettingsResponse(dict):
                  runtime_version: Optional[str] = None):
         """
         Deployment settings payload
+        :param 'DeploymentSettingsResponseContainerProbeSettings' container_probe_settings: Container liveness and readiness probe settings
         :param int cpu: Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the CPU size.
         :param Mapping[str, str] environment_variables: Collection of environment variables
         :param str jvm_options: JVM parameter
@@ -1143,6 +1150,8 @@ class DeploymentSettingsResponse(dict):
         :param 'ResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         :param str runtime_version: Runtime version
         """
+        if container_probe_settings is not None:
+            pulumi.set(__self__, "container_probe_settings", container_probe_settings)
         if cpu is None:
             cpu = 1
         if cpu is not None:
@@ -1163,6 +1172,14 @@ class DeploymentSettingsResponse(dict):
             runtime_version = 'Java_8'
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="containerProbeSettings")
+    def container_probe_settings(self) -> Optional['outputs.DeploymentSettingsResponseContainerProbeSettings']:
+        """
+        Container liveness and readiness probe settings
+        """
+        return pulumi.get(self, "container_probe_settings")
 
     @property
     @pulumi.getter
@@ -1219,6 +1236,46 @@ class DeploymentSettingsResponse(dict):
         Runtime version
         """
         return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
+class DeploymentSettingsResponseContainerProbeSettings(dict):
+    """
+    Container liveness and readiness probe settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableProbe":
+            suggest = "disable_probe"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentSettingsResponseContainerProbeSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentSettingsResponseContainerProbeSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentSettingsResponseContainerProbeSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_probe: Optional[bool] = None):
+        """
+        Container liveness and readiness probe settings
+        :param bool disable_probe: Indicates whether disable the liveness and readiness probe
+        """
+        if disable_probe is not None:
+            pulumi.set(__self__, "disable_probe", disable_probe)
+
+    @property
+    @pulumi.getter(name="disableProbe")
+    def disable_probe(self) -> Optional[bool]:
+        """
+        Indicates whether disable the liveness and readiness probe
+        """
+        return pulumi.get(self, "disable_probe")
 
 
 @pulumi.output_type

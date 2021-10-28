@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.Insights.V20150401
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210501preview:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210501preview:AutoscaleSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

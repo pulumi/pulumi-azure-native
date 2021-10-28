@@ -17,7 +17,6 @@ export * from "./getPolicyAssignment";
 export * from "./getPolicyDefinition";
 export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./getPolicyExemption";
-export * from "./getPolicyPricing";
 export * from "./getPolicySetDefinition";
 export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./getResourceManagementPrivateLink";
@@ -32,7 +31,6 @@ export * from "./policyAssignment";
 export * from "./policyDefinition";
 export * from "./policyDefinitionAtManagementGroup";
 export * from "./policyExemption";
-export * from "./policyPricing";
 export * from "./policySetDefinition";
 export * from "./policySetDefinitionAtManagementGroup";
 export * from "./resourceManagementPrivateLink";
@@ -71,7 +69,6 @@ import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
-import * as v20210701 from "./v20210701";
 import * as v20210701preview from "./v20210701preview";
 
 export {
@@ -102,7 +99,6 @@ export {
     v20201001preview,
     v20210301preview,
     v20210601,
-    v20210701,
     v20210701preview,
 };
 
@@ -116,7 +112,6 @@ import { PolicyAssignment } from "./policyAssignment";
 import { PolicyDefinition } from "./policyDefinition";
 import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
 import { PolicyExemption } from "./policyExemption";
-import { PolicyPricing } from "./policyPricing";
 import { PolicySetDefinition } from "./policySetDefinition";
 import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
@@ -146,8 +141,6 @@ const _module = {
                 return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyExemption":
                 return new PolicyExemption(name, <any>undefined, { urn })
-            case "azure-native:authorization:PolicyPricing":
-                return new PolicyPricing(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":

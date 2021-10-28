@@ -104,8 +104,6 @@ namespace Pulumi.AzureNative.Authorization
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyExemption"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200701preview:PolicyExemption"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/v20210701:PolicyExemption"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20210701:PolicyExemption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

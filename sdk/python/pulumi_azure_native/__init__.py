@@ -1633,7 +1633,6 @@ _utilities.register(
    "azure-native:authorization:PolicyDefinition": "PolicyDefinition",
    "azure-native:authorization:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization:PolicyExemption": "PolicyExemption",
-   "azure-native:authorization:PolicyPricing": "PolicyPricing",
    "azure-native:authorization:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
    "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
@@ -1908,15 +1907,6 @@ _utilities.register(
    "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization/v20210601:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "authorization/v20210701",
-  "fqn": "pulumi_azure_native.authorization.v20210701",
-  "classes": {
-   "azure-native:authorization/v20210701:PolicyExemption": "PolicyExemption",
-   "azure-native:authorization/v20210701:PolicyPricing": "PolicyPricing"
   }
  },
  {
@@ -8445,6 +8435,7 @@ _utilities.register(
   "mod": "insights/v20210501preview",
   "fqn": "pulumi_azure_native.insights.v20210501preview",
   "classes": {
+   "azure-native:insights/v20210501preview:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:insights/v20210501preview:DiagnosticSetting": "DiagnosticSetting",
    "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
    "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
@@ -14956,6 +14947,16 @@ _utilities.register(
    "azure-native:signalrservice/v20210901preview:SignalR": "SignalR",
    "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20211001",
+  "fqn": "pulumi_azure_native.signalrservice.v20211001",
+  "classes": {
+   "azure-native:signalrservice/v20211001:SignalR": "SignalR",
+   "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {

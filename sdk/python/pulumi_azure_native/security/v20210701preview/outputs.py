@@ -648,8 +648,8 @@ class SecurityConnectorPropertiesResponseOrganizationalData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "excludedAccountId":
-            suggest = "excluded_account_id"
+        if key == "excludedAccountIds":
+            suggest = "excluded_account_ids"
         elif key == "organizationMembershipType":
             suggest = "organization_membership_type"
         elif key == "parentHierarchyId":
@@ -669,19 +669,19 @@ class SecurityConnectorPropertiesResponseOrganizationalData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 excluded_account_id: Optional[Sequence[str]] = None,
+                 excluded_account_ids: Optional[Sequence[str]] = None,
                  organization_membership_type: Optional[str] = None,
                  parent_hierarchy_id: Optional[str] = None,
                  stackset_name: Optional[str] = None):
         """
         The multi cloud account's organizational data
-        :param Sequence[str] excluded_account_id: If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        :param Sequence[str] excluded_account_ids: If the multi cloud account is of membership type organization, list of accounts excluded from offering
         :param str organization_membership_type: The multi cloud account's membership type in the organization
         :param str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
         :param str stackset_name: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
         """
-        if excluded_account_id is not None:
-            pulumi.set(__self__, "excluded_account_id", excluded_account_id)
+        if excluded_account_ids is not None:
+            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
         if organization_membership_type is not None:
             pulumi.set(__self__, "organization_membership_type", organization_membership_type)
         if parent_hierarchy_id is not None:
@@ -690,12 +690,12 @@ class SecurityConnectorPropertiesResponseOrganizationalData(dict):
             pulumi.set(__self__, "stackset_name", stackset_name)
 
     @property
-    @pulumi.getter(name="excludedAccountId")
-    def excluded_account_id(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="excludedAccountIds")
+    def excluded_account_ids(self) -> Optional[Sequence[str]]:
         """
         If the multi cloud account is of membership type organization, list of accounts excluded from offering
         """
-        return pulumi.get(self, "excluded_account_id")
+        return pulumi.get(self, "excluded_account_ids")
 
     @property
     @pulumi.getter(name="organizationMembershipType")

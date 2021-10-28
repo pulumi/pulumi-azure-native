@@ -21,7 +21,7 @@ class GetRestorePointResult:
     """
     Restore Point details.
     """
-    def __init__(__self__, consistency_mode=None, exclude_disks=None, id=None, name=None, provisioning_details=None, provisioning_state=None, source_metadata=None, type=None):
+    def __init__(__self__, consistency_mode=None, exclude_disks=None, id=None, name=None, provisioning_state=None, source_metadata=None, time_created=None, type=None):
         if consistency_mode and not isinstance(consistency_mode, str):
             raise TypeError("Expected argument 'consistency_mode' to be a str")
         pulumi.set(__self__, "consistency_mode", consistency_mode)
@@ -34,15 +34,15 @@ class GetRestorePointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_details and not isinstance(provisioning_details, dict):
-            raise TypeError("Expected argument 'provisioning_details' to be a dict")
-        pulumi.set(__self__, "provisioning_details", provisioning_details)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if source_metadata and not isinstance(source_metadata, dict):
             raise TypeError("Expected argument 'source_metadata' to be a dict")
         pulumi.set(__self__, "source_metadata", source_metadata)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -80,14 +80,6 @@ class GetRestorePointResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningDetails")
-    def provisioning_details(self) -> 'outputs.RestorePointProvisioningDetailsResponse':
-        """
-        Gets the provisioning details set by the server during Create restore point operation.
-        """
-        return pulumi.get(self, "provisioning_details")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -102,6 +94,14 @@ class GetRestorePointResult:
         Gets the details of the VM captured at the time of the restore point creation.
         """
         return pulumi.get(self, "source_metadata")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> Optional[str]:
+        """
+        Gets the creation time of the restore point.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter
@@ -122,9 +122,9 @@ class AwaitableGetRestorePointResult(GetRestorePointResult):
             exclude_disks=self.exclude_disks,
             id=self.id,
             name=self.name,
-            provisioning_details=self.provisioning_details,
             provisioning_state=self.provisioning_state,
             source_metadata=self.source_metadata,
+            time_created=self.time_created,
             type=self.type)
 
 
@@ -156,9 +156,9 @@ def get_restore_point(resource_group_name: Optional[str] = None,
         exclude_disks=__ret__.exclude_disks,
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_details=__ret__.provisioning_details,
         provisioning_state=__ret__.provisioning_state,
         source_metadata=__ret__.source_metadata,
+        time_created=__ret__.time_created,
         type=__ret__.type)
 
 

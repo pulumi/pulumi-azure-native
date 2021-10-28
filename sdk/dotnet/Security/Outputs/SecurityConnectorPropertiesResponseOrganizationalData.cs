@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// If the multi cloud account is of membership type organization, list of accounts excluded from offering
         /// </summary>
-        public readonly ImmutableArray<string> ExcludedAccountId;
+        public readonly ImmutableArray<string> ExcludedAccountIds;
         /// <summary>
         /// The multi cloud account's membership type in the organization
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private SecurityConnectorPropertiesResponseOrganizationalData(
-            ImmutableArray<string> excludedAccountId,
+            ImmutableArray<string> excludedAccountIds,
 
             string? organizationMembershipType,
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string? stacksetName)
         {
-            ExcludedAccountId = excludedAccountId;
+            ExcludedAccountIds = excludedAccountIds;
             OrganizationMembershipType = organizationMembershipType;
             ParentHierarchyId = parentHierarchyId;
             StacksetName = stacksetName;

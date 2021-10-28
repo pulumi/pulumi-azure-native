@@ -18,13 +18,15 @@ class RestorePointArgs:
                  resource_group_name: pulumi.Input[str],
                  restore_point_collection_name: pulumi.Input[str],
                  exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]]] = None,
-                 restore_point_name: Optional[pulumi.Input[str]] = None):
+                 restore_point_name: Optional[pulumi.Input[str]] = None,
+                 time_created: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[Sequence[pulumi.Input['ApiEntityReferenceArgs']]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         :param pulumi.Input[str] restore_point_name: The name of the restore point.
+        :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "restore_point_collection_name", restore_point_collection_name)
@@ -32,6 +34,8 @@ class RestorePointArgs:
             pulumi.set(__self__, "exclude_disks", exclude_disks)
         if restore_point_name is not None:
             pulumi.set(__self__, "restore_point_name", restore_point_name)
+        if time_created is not None:
+            pulumi.set(__self__, "time_created", time_created)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -81,6 +85,18 @@ class RestorePointArgs:
     def restore_point_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_point_name", value)
 
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the creation time of the restore point.
+        """
+        return pulumi.get(self, "time_created")
+
+    @time_created.setter
+    def time_created(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_created", value)
+
 
 class RestorePoint(pulumi.CustomResource):
     @overload
@@ -91,6 +107,7 @@ class RestorePoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
+                 time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Restore Point details.
@@ -101,6 +118,7 @@ class RestorePoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[str] restore_point_name: The name of the restore point.
+        :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
         ...
     @overload
@@ -130,6 +148,7 @@ class RestorePoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
+                 time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -150,9 +169,9 @@ class RestorePoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'restore_point_collection_name'")
             __props__.__dict__["restore_point_collection_name"] = restore_point_collection_name
             __props__.__dict__["restore_point_name"] = restore_point_name
+            __props__.__dict__["time_created"] = time_created
             __props__.__dict__["consistency_mode"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_details"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["source_metadata"] = None
             __props__.__dict__["type"] = None
@@ -183,9 +202,9 @@ class RestorePoint(pulumi.CustomResource):
         __props__.__dict__["consistency_mode"] = None
         __props__.__dict__["exclude_disks"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_details"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source_metadata"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         return RestorePoint(resource_name, opts=opts, __props__=__props__)
 
@@ -214,14 +233,6 @@ class RestorePoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningDetails")
-    def provisioning_details(self) -> pulumi.Output['outputs.RestorePointProvisioningDetailsResponse']:
-        """
-        Gets the provisioning details set by the server during Create restore point operation.
-        """
-        return pulumi.get(self, "provisioning_details")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -236,6 +247,14 @@ class RestorePoint(pulumi.CustomResource):
         Gets the details of the VM captured at the time of the restore point creation.
         """
         return pulumi.get(self, "source_metadata")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets the creation time of the restore point.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter

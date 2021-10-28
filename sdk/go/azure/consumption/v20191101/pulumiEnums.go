@@ -504,7 +504,8 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 type ThresholdType string
 
 const (
-	ThresholdTypeActual = ThresholdType("Actual")
+	ThresholdTypeActual     = ThresholdType("Actual")
+	ThresholdTypeForecasted = ThresholdType("Forecasted")
 )
 
 func (ThresholdType) ElementType() reflect.Type {

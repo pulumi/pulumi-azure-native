@@ -16960,193 +16960,15 @@ func (o RestorePointCollectionSourcePropertiesResponsePtrOutput) Location() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type RestorePointProvisioningDetailsResponse struct {
-	CreationTime         *string  `pulumi:"creationTime"`
-	StatusCode           *int     `pulumi:"statusCode"`
-	StatusMessage        *string  `pulumi:"statusMessage"`
-	TotalUsedSizeInBytes *float64 `pulumi:"totalUsedSizeInBytes"`
-}
-
-
-
-
-
-type RestorePointProvisioningDetailsResponseInput interface {
-	pulumi.Input
-
-	ToRestorePointProvisioningDetailsResponseOutput() RestorePointProvisioningDetailsResponseOutput
-	ToRestorePointProvisioningDetailsResponseOutputWithContext(context.Context) RestorePointProvisioningDetailsResponseOutput
-}
-
-type RestorePointProvisioningDetailsResponseArgs struct {
-	CreationTime         pulumi.StringPtrInput  `pulumi:"creationTime"`
-	StatusCode           pulumi.IntPtrInput     `pulumi:"statusCode"`
-	StatusMessage        pulumi.StringPtrInput  `pulumi:"statusMessage"`
-	TotalUsedSizeInBytes pulumi.Float64PtrInput `pulumi:"totalUsedSizeInBytes"`
-}
-
-func (RestorePointProvisioningDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePointProvisioningDetailsResponse)(nil)).Elem()
-}
-
-func (i RestorePointProvisioningDetailsResponseArgs) ToRestorePointProvisioningDetailsResponseOutput() RestorePointProvisioningDetailsResponseOutput {
-	return i.ToRestorePointProvisioningDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i RestorePointProvisioningDetailsResponseArgs) ToRestorePointProvisioningDetailsResponseOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestorePointProvisioningDetailsResponseOutput)
-}
-
-func (i RestorePointProvisioningDetailsResponseArgs) ToRestorePointProvisioningDetailsResponsePtrOutput() RestorePointProvisioningDetailsResponsePtrOutput {
-	return i.ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RestorePointProvisioningDetailsResponseArgs) ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestorePointProvisioningDetailsResponseOutput).ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RestorePointProvisioningDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToRestorePointProvisioningDetailsResponsePtrOutput() RestorePointProvisioningDetailsResponsePtrOutput
-	ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(context.Context) RestorePointProvisioningDetailsResponsePtrOutput
-}
-
-type restorePointProvisioningDetailsResponsePtrType RestorePointProvisioningDetailsResponseArgs
-
-func RestorePointProvisioningDetailsResponsePtr(v *RestorePointProvisioningDetailsResponseArgs) RestorePointProvisioningDetailsResponsePtrInput {
-	return (*restorePointProvisioningDetailsResponsePtrType)(v)
-}
-
-func (*restorePointProvisioningDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestorePointProvisioningDetailsResponse)(nil)).Elem()
-}
-
-func (i *restorePointProvisioningDetailsResponsePtrType) ToRestorePointProvisioningDetailsResponsePtrOutput() RestorePointProvisioningDetailsResponsePtrOutput {
-	return i.ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *restorePointProvisioningDetailsResponsePtrType) ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestorePointProvisioningDetailsResponsePtrOutput)
-}
-
-type RestorePointProvisioningDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (RestorePointProvisioningDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePointProvisioningDetailsResponse)(nil)).Elem()
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) ToRestorePointProvisioningDetailsResponseOutput() RestorePointProvisioningDetailsResponseOutput {
-	return o
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) ToRestorePointProvisioningDetailsResponseOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponseOutput {
-	return o
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) ToRestorePointProvisioningDetailsResponsePtrOutput() RestorePointProvisioningDetailsResponsePtrOutput {
-	return o.ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestorePointProvisioningDetailsResponse) *RestorePointProvisioningDetailsResponse {
-		return &v
-	}).(RestorePointProvisioningDetailsResponsePtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RestorePointProvisioningDetailsResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) StatusCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RestorePointProvisioningDetailsResponse) *int { return v.StatusCode }).(pulumi.IntPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) StatusMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RestorePointProvisioningDetailsResponse) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponseOutput) TotalUsedSizeInBytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v RestorePointProvisioningDetailsResponse) *float64 { return v.TotalUsedSizeInBytes }).(pulumi.Float64PtrOutput)
-}
-
-type RestorePointProvisioningDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RestorePointProvisioningDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestorePointProvisioningDetailsResponse)(nil)).Elem()
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) ToRestorePointProvisioningDetailsResponsePtrOutput() RestorePointProvisioningDetailsResponsePtrOutput {
-	return o
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) ToRestorePointProvisioningDetailsResponsePtrOutputWithContext(ctx context.Context) RestorePointProvisioningDetailsResponsePtrOutput {
-	return o
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) Elem() RestorePointProvisioningDetailsResponseOutput {
-	return o.ApplyT(func(v *RestorePointProvisioningDetailsResponse) RestorePointProvisioningDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RestorePointProvisioningDetailsResponse
-		return ret
-	}).(RestorePointProvisioningDetailsResponseOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RestorePointProvisioningDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RestorePointProvisioningDetailsResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.StatusCode
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) StatusMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RestorePointProvisioningDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StatusMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RestorePointProvisioningDetailsResponsePtrOutput) TotalUsedSizeInBytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *RestorePointProvisioningDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.TotalUsedSizeInBytes
-	}).(pulumi.Float64PtrOutput)
-}
-
 type RestorePointResponse struct {
-	ConsistencyMode     string                                  `pulumi:"consistencyMode"`
-	ExcludeDisks        []ApiEntityReferenceResponse            `pulumi:"excludeDisks"`
-	Id                  string                                  `pulumi:"id"`
-	Name                string                                  `pulumi:"name"`
-	ProvisioningDetails RestorePointProvisioningDetailsResponse `pulumi:"provisioningDetails"`
-	ProvisioningState   string                                  `pulumi:"provisioningState"`
-	SourceMetadata      RestorePointSourceMetadataResponse      `pulumi:"sourceMetadata"`
-	Type                string                                  `pulumi:"type"`
+	ConsistencyMode   string                             `pulumi:"consistencyMode"`
+	ExcludeDisks      []ApiEntityReferenceResponse       `pulumi:"excludeDisks"`
+	Id                string                             `pulumi:"id"`
+	Name              string                             `pulumi:"name"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
+	SourceMetadata    RestorePointSourceMetadataResponse `pulumi:"sourceMetadata"`
+	TimeCreated       *string                            `pulumi:"timeCreated"`
+	Type              string                             `pulumi:"type"`
 }
 
 
@@ -17161,14 +16983,14 @@ type RestorePointResponseInput interface {
 }
 
 type RestorePointResponseArgs struct {
-	ConsistencyMode     pulumi.StringInput                           `pulumi:"consistencyMode"`
-	ExcludeDisks        ApiEntityReferenceResponseArrayInput         `pulumi:"excludeDisks"`
-	Id                  pulumi.StringInput                           `pulumi:"id"`
-	Name                pulumi.StringInput                           `pulumi:"name"`
-	ProvisioningDetails RestorePointProvisioningDetailsResponseInput `pulumi:"provisioningDetails"`
-	ProvisioningState   pulumi.StringInput                           `pulumi:"provisioningState"`
-	SourceMetadata      RestorePointSourceMetadataResponseInput      `pulumi:"sourceMetadata"`
-	Type                pulumi.StringInput                           `pulumi:"type"`
+	ConsistencyMode   pulumi.StringInput                      `pulumi:"consistencyMode"`
+	ExcludeDisks      ApiEntityReferenceResponseArrayInput    `pulumi:"excludeDisks"`
+	Id                pulumi.StringInput                      `pulumi:"id"`
+	Name              pulumi.StringInput                      `pulumi:"name"`
+	ProvisioningState pulumi.StringInput                      `pulumi:"provisioningState"`
+	SourceMetadata    RestorePointSourceMetadataResponseInput `pulumi:"sourceMetadata"`
+	TimeCreated       pulumi.StringPtrInput                   `pulumi:"timeCreated"`
+	Type              pulumi.StringInput                      `pulumi:"type"`
 }
 
 func (RestorePointResponseArgs) ElementType() reflect.Type {
@@ -17238,16 +17060,16 @@ func (o RestorePointResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RestorePointResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o RestorePointResponseOutput) ProvisioningDetails() RestorePointProvisioningDetailsResponseOutput {
-	return o.ApplyT(func(v RestorePointResponse) RestorePointProvisioningDetailsResponse { return v.ProvisioningDetails }).(RestorePointProvisioningDetailsResponseOutput)
-}
-
 func (o RestorePointResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RestorePointResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 func (o RestorePointResponseOutput) SourceMetadata() RestorePointSourceMetadataResponseOutput {
 	return o.ApplyT(func(v RestorePointResponse) RestorePointSourceMetadataResponse { return v.SourceMetadata }).(RestorePointSourceMetadataResponseOutput)
+}
+
+func (o RestorePointResponseOutput) TimeCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestorePointResponse) *string { return v.TimeCreated }).(pulumi.StringPtrOutput)
 }
 
 func (o RestorePointResponseOutput) Type() pulumi.StringOutput {
@@ -34826,8 +34648,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointCollectionSourcePropertiesPtrInput)(nil)).Elem(), RestorePointCollectionSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointCollectionSourcePropertiesResponseInput)(nil)).Elem(), RestorePointCollectionSourcePropertiesResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointCollectionSourcePropertiesResponsePtrInput)(nil)).Elem(), RestorePointCollectionSourcePropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointProvisioningDetailsResponseInput)(nil)).Elem(), RestorePointProvisioningDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointProvisioningDetailsResponsePtrInput)(nil)).Elem(), RestorePointProvisioningDetailsResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointResponseInput)(nil)).Elem(), RestorePointResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointResponseArrayInput)(nil)).Elem(), RestorePointResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestorePointSourceMetadataResponseInput)(nil)).Elem(), RestorePointSourceMetadataResponseArgs{})
@@ -35269,8 +35089,6 @@ func init() {
 	pulumi.RegisterOutputType(RestorePointCollectionSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RestorePointCollectionSourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RestorePointCollectionSourcePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RestorePointProvisioningDetailsResponseOutput{})
-	pulumi.RegisterOutputType(RestorePointProvisioningDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(RestorePointResponseOutput{})
 	pulumi.RegisterOutputType(RestorePointResponseArrayOutput{})
 	pulumi.RegisterOutputType(RestorePointSourceMetadataResponseOutput{})

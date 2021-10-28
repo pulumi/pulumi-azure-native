@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         /// </summary>
         public readonly string MountPath;
         /// <summary>
-        /// Indicates whether the persistent disk is a readonly one.
+        /// Indicates whether the persistent disk is a readOnly one.
         /// </summary>
-        public readonly bool? Readonly;
+        public readonly bool? ReadOnly;
         /// <summary>
         /// The share name of the Azure File share.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
 
             string mountPath,
 
-            bool? @readonly,
+            bool? readOnly,
 
             string shareName,
 
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         {
             MountOptions = mountOptions;
             MountPath = mountPath;
-            Readonly = @readonly;
+            ReadOnly = readOnly;
             ShareName = shareName;
             Type = type;
         }
