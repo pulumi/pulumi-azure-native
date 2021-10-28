@@ -1,0 +1,168 @@
+
+
+
+package containerregistry
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ConnectedRegistry struct {
+	pulumi.CustomResourceState
+
+	Activation        ActivationPropertiesResponseOutput        `pulumi:"activation"`
+	ClientTokenIds    pulumi.StringArrayOutput                  `pulumi:"clientTokenIds"`
+	ConnectionState   pulumi.StringOutput                       `pulumi:"connectionState"`
+	LastActivityTime  pulumi.StringOutput                       `pulumi:"lastActivityTime"`
+	Logging           LoggingPropertiesResponsePtrOutput        `pulumi:"logging"`
+	LoginServer       LoginServerPropertiesResponsePtrOutput    `pulumi:"loginServer"`
+	Mode              pulumi.StringOutput                       `pulumi:"mode"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	Parent            ParentPropertiesResponseOutput            `pulumi:"parent"`
+	ProvisioningState pulumi.StringOutput                       `pulumi:"provisioningState"`
+	StatusDetails     StatusDetailPropertiesResponseArrayOutput `pulumi:"statusDetails"`
+	SystemData        SystemDataResponseOutput                  `pulumi:"systemData"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
+	Version           pulumi.StringOutput                       `pulumi:"version"`
+}
+
+
+func NewConnectedRegistry(ctx *pulumi.Context,
+	name string, args *ConnectedRegistryArgs, opts ...pulumi.ResourceOption) (*ConnectedRegistry, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Mode == nil {
+		return nil, errors.New("invalid value for required argument 'Mode'")
+	}
+	if args.Parent == nil {
+		return nil, errors.New("invalid value for required argument 'Parent'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20210601preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20210801preview:ConnectedRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:ConnectedRegistry"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource ConnectedRegistry
+	err := ctx.RegisterResource("azure-native:containerregistry:ConnectedRegistry", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetConnectedRegistry(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ConnectedRegistryState, opts ...pulumi.ResourceOption) (*ConnectedRegistry, error) {
+	var resource ConnectedRegistry
+	err := ctx.ReadResource("azure-native:containerregistry:ConnectedRegistry", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type connectedRegistryState struct {
+}
+
+type ConnectedRegistryState struct {
+}
+
+func (ConnectedRegistryState) ElementType() reflect.Type {
+	return reflect.TypeOf((*connectedRegistryState)(nil)).Elem()
+}
+
+type connectedRegistryArgs struct {
+	ClientTokenIds        []string           `pulumi:"clientTokenIds"`
+	ConnectedRegistryName *string            `pulumi:"connectedRegistryName"`
+	Logging               *LoggingProperties `pulumi:"logging"`
+	Mode                  string             `pulumi:"mode"`
+	Parent                ParentProperties   `pulumi:"parent"`
+	RegistryName          string             `pulumi:"registryName"`
+	ResourceGroupName     string             `pulumi:"resourceGroupName"`
+}
+
+
+type ConnectedRegistryArgs struct {
+	ClientTokenIds        pulumi.StringArrayInput
+	ConnectedRegistryName pulumi.StringPtrInput
+	Logging               LoggingPropertiesPtrInput
+	Mode                  pulumi.StringInput
+	Parent                ParentPropertiesInput
+	RegistryName          pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+}
+
+func (ConnectedRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*connectedRegistryArgs)(nil)).Elem()
+}
+
+type ConnectedRegistryInput interface {
+	pulumi.Input
+
+	ToConnectedRegistryOutput() ConnectedRegistryOutput
+	ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput
+}
+
+func (*ConnectedRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedRegistry)(nil))
+}
+
+func (i *ConnectedRegistry) ToConnectedRegistryOutput() ConnectedRegistryOutput {
+	return i.ToConnectedRegistryOutputWithContext(context.Background())
+}
+
+func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryOutput)
+}
+
+type ConnectedRegistryOutput struct{ *pulumi.OutputState }
+
+func (ConnectedRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedRegistry)(nil))
+}
+
+func (o ConnectedRegistryOutput) ToConnectedRegistryOutput() ConnectedRegistryOutput {
+	return o
+}
+
+func (o ConnectedRegistryOutput) ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryInput)(nil)).Elem(), &ConnectedRegistry{})
+	pulumi.RegisterOutputType(ConnectedRegistryOutput{})
+}

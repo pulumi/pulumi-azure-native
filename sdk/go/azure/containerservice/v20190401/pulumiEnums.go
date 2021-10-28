@@ -1,0 +1,1362 @@
+
+
+
+package v20190401
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type AgentPoolType string
+
+const (
+	AgentPoolTypeVirtualMachineScaleSets = AgentPoolType("VirtualMachineScaleSets")
+	AgentPoolTypeAvailabilitySet         = AgentPoolType("AvailabilitySet")
+)
+
+func (AgentPoolType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
+}
+
+func (e AgentPoolType) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
+	return pulumi.ToOutput(e).(AgentPoolTypeOutput)
+}
+
+func (e AgentPoolType) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentPoolTypeOutput)
+}
+
+func (e AgentPoolType) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
+	return e.ToAgentPoolTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentPoolType) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
+	return AgentPoolType(e).ToAgentPoolTypeOutputWithContext(ctx).ToAgentPoolTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentPoolType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentPoolType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentPoolType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentPoolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentPoolTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
+	return o
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
+	return o
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
+	return o.ToAgentPoolTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolType) *AgentPoolType {
+		return &v
+	}).(AgentPoolTypePtrOutput)
+}
+
+func (o AgentPoolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentPoolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentPoolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentPoolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPoolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentPoolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPoolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPoolType)(nil)).Elem()
+}
+
+func (o AgentPoolTypePtrOutput) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
+	return o
+}
+
+func (o AgentPoolTypePtrOutput) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
+	return o
+}
+
+func (o AgentPoolTypePtrOutput) Elem() AgentPoolTypeOutput {
+	return o.ApplyT(func(v *AgentPoolType) AgentPoolType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPoolType
+		return ret
+	}).(AgentPoolTypeOutput)
+}
+
+func (o AgentPoolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPoolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentPoolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type AgentPoolTypeInput interface {
+	pulumi.Input
+
+	ToAgentPoolTypeOutput() AgentPoolTypeOutput
+	ToAgentPoolTypeOutputWithContext(context.Context) AgentPoolTypeOutput
+}
+
+var agentPoolTypePtrType = reflect.TypeOf((**AgentPoolType)(nil)).Elem()
+
+type AgentPoolTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput
+	ToAgentPoolTypePtrOutputWithContext(context.Context) AgentPoolTypePtrOutput
+}
+
+type agentPoolTypePtr string
+
+func AgentPoolTypePtr(v string) AgentPoolTypePtrInput {
+	return (*agentPoolTypePtr)(&v)
+}
+
+func (*agentPoolTypePtr) ElementType() reflect.Type {
+	return agentPoolTypePtrType
+}
+
+func (in *agentPoolTypePtr) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentPoolTypePtrOutput)
+}
+
+func (in *agentPoolTypePtr) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentPoolTypePtrOutput)
+}
+
+type ContainerServiceVMSizeTypes string
+
+const (
+	ContainerServiceVMSizeTypes_Standard_A1            = ContainerServiceVMSizeTypes("Standard_A1")
+	ContainerServiceVMSizeTypes_Standard_A10           = ContainerServiceVMSizeTypes("Standard_A10")
+	ContainerServiceVMSizeTypes_Standard_A11           = ContainerServiceVMSizeTypes("Standard_A11")
+	ContainerServiceVMSizeTypes_Standard_A1_v2         = ContainerServiceVMSizeTypes("Standard_A1_v2")
+	ContainerServiceVMSizeTypes_Standard_A2            = ContainerServiceVMSizeTypes("Standard_A2")
+	ContainerServiceVMSizeTypes_Standard_A2_v2         = ContainerServiceVMSizeTypes("Standard_A2_v2")
+	ContainerServiceVMSizeTypes_Standard_A2m_v2        = ContainerServiceVMSizeTypes("Standard_A2m_v2")
+	ContainerServiceVMSizeTypes_Standard_A3            = ContainerServiceVMSizeTypes("Standard_A3")
+	ContainerServiceVMSizeTypes_Standard_A4            = ContainerServiceVMSizeTypes("Standard_A4")
+	ContainerServiceVMSizeTypes_Standard_A4_v2         = ContainerServiceVMSizeTypes("Standard_A4_v2")
+	ContainerServiceVMSizeTypes_Standard_A4m_v2        = ContainerServiceVMSizeTypes("Standard_A4m_v2")
+	ContainerServiceVMSizeTypes_Standard_A5            = ContainerServiceVMSizeTypes("Standard_A5")
+	ContainerServiceVMSizeTypes_Standard_A6            = ContainerServiceVMSizeTypes("Standard_A6")
+	ContainerServiceVMSizeTypes_Standard_A7            = ContainerServiceVMSizeTypes("Standard_A7")
+	ContainerServiceVMSizeTypes_Standard_A8            = ContainerServiceVMSizeTypes("Standard_A8")
+	ContainerServiceVMSizeTypes_Standard_A8_v2         = ContainerServiceVMSizeTypes("Standard_A8_v2")
+	ContainerServiceVMSizeTypes_Standard_A8m_v2        = ContainerServiceVMSizeTypes("Standard_A8m_v2")
+	ContainerServiceVMSizeTypes_Standard_A9            = ContainerServiceVMSizeTypes("Standard_A9")
+	ContainerServiceVMSizeTypes_Standard_B2ms          = ContainerServiceVMSizeTypes("Standard_B2ms")
+	ContainerServiceVMSizeTypes_Standard_B2s           = ContainerServiceVMSizeTypes("Standard_B2s")
+	ContainerServiceVMSizeTypes_Standard_B4ms          = ContainerServiceVMSizeTypes("Standard_B4ms")
+	ContainerServiceVMSizeTypes_Standard_B8ms          = ContainerServiceVMSizeTypes("Standard_B8ms")
+	ContainerServiceVMSizeTypes_Standard_D1            = ContainerServiceVMSizeTypes("Standard_D1")
+	ContainerServiceVMSizeTypes_Standard_D11           = ContainerServiceVMSizeTypes("Standard_D11")
+	ContainerServiceVMSizeTypes_Standard_D11_v2        = ContainerServiceVMSizeTypes("Standard_D11_v2")
+	ContainerServiceVMSizeTypes_Standard_D11_v2_Promo  = ContainerServiceVMSizeTypes("Standard_D11_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D12           = ContainerServiceVMSizeTypes("Standard_D12")
+	ContainerServiceVMSizeTypes_Standard_D12_v2        = ContainerServiceVMSizeTypes("Standard_D12_v2")
+	ContainerServiceVMSizeTypes_Standard_D12_v2_Promo  = ContainerServiceVMSizeTypes("Standard_D12_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D13           = ContainerServiceVMSizeTypes("Standard_D13")
+	ContainerServiceVMSizeTypes_Standard_D13_v2        = ContainerServiceVMSizeTypes("Standard_D13_v2")
+	ContainerServiceVMSizeTypes_Standard_D13_v2_Promo  = ContainerServiceVMSizeTypes("Standard_D13_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D14           = ContainerServiceVMSizeTypes("Standard_D14")
+	ContainerServiceVMSizeTypes_Standard_D14_v2        = ContainerServiceVMSizeTypes("Standard_D14_v2")
+	ContainerServiceVMSizeTypes_Standard_D14_v2_Promo  = ContainerServiceVMSizeTypes("Standard_D14_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D15_v2        = ContainerServiceVMSizeTypes("Standard_D15_v2")
+	ContainerServiceVMSizeTypes_Standard_D16_v3        = ContainerServiceVMSizeTypes("Standard_D16_v3")
+	ContainerServiceVMSizeTypes_Standard_D16s_v3       = ContainerServiceVMSizeTypes("Standard_D16s_v3")
+	ContainerServiceVMSizeTypes_Standard_D1_v2         = ContainerServiceVMSizeTypes("Standard_D1_v2")
+	ContainerServiceVMSizeTypes_Standard_D2            = ContainerServiceVMSizeTypes("Standard_D2")
+	ContainerServiceVMSizeTypes_Standard_D2_v2         = ContainerServiceVMSizeTypes("Standard_D2_v2")
+	ContainerServiceVMSizeTypes_Standard_D2_v2_Promo   = ContainerServiceVMSizeTypes("Standard_D2_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D2_v3         = ContainerServiceVMSizeTypes("Standard_D2_v3")
+	ContainerServiceVMSizeTypes_Standard_D2s_v3        = ContainerServiceVMSizeTypes("Standard_D2s_v3")
+	ContainerServiceVMSizeTypes_Standard_D3            = ContainerServiceVMSizeTypes("Standard_D3")
+	ContainerServiceVMSizeTypes_Standard_D32_v3        = ContainerServiceVMSizeTypes("Standard_D32_v3")
+	ContainerServiceVMSizeTypes_Standard_D32s_v3       = ContainerServiceVMSizeTypes("Standard_D32s_v3")
+	ContainerServiceVMSizeTypes_Standard_D3_v2         = ContainerServiceVMSizeTypes("Standard_D3_v2")
+	ContainerServiceVMSizeTypes_Standard_D3_v2_Promo   = ContainerServiceVMSizeTypes("Standard_D3_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D4            = ContainerServiceVMSizeTypes("Standard_D4")
+	ContainerServiceVMSizeTypes_Standard_D4_v2         = ContainerServiceVMSizeTypes("Standard_D4_v2")
+	ContainerServiceVMSizeTypes_Standard_D4_v2_Promo   = ContainerServiceVMSizeTypes("Standard_D4_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D4_v3         = ContainerServiceVMSizeTypes("Standard_D4_v3")
+	ContainerServiceVMSizeTypes_Standard_D4s_v3        = ContainerServiceVMSizeTypes("Standard_D4s_v3")
+	ContainerServiceVMSizeTypes_Standard_D5_v2         = ContainerServiceVMSizeTypes("Standard_D5_v2")
+	ContainerServiceVMSizeTypes_Standard_D5_v2_Promo   = ContainerServiceVMSizeTypes("Standard_D5_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_D64_v3        = ContainerServiceVMSizeTypes("Standard_D64_v3")
+	ContainerServiceVMSizeTypes_Standard_D64s_v3       = ContainerServiceVMSizeTypes("Standard_D64s_v3")
+	ContainerServiceVMSizeTypes_Standard_D8_v3         = ContainerServiceVMSizeTypes("Standard_D8_v3")
+	ContainerServiceVMSizeTypes_Standard_D8s_v3        = ContainerServiceVMSizeTypes("Standard_D8s_v3")
+	ContainerServiceVMSizeTypes_Standard_DS1           = ContainerServiceVMSizeTypes("Standard_DS1")
+	ContainerServiceVMSizeTypes_Standard_DS11          = ContainerServiceVMSizeTypes("Standard_DS11")
+	ContainerServiceVMSizeTypes_Standard_DS11_v2       = ContainerServiceVMSizeTypes("Standard_DS11_v2")
+	ContainerServiceVMSizeTypes_Standard_DS11_v2_Promo = ContainerServiceVMSizeTypes("Standard_DS11_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS12          = ContainerServiceVMSizeTypes("Standard_DS12")
+	ContainerServiceVMSizeTypes_Standard_DS12_v2       = ContainerServiceVMSizeTypes("Standard_DS12_v2")
+	ContainerServiceVMSizeTypes_Standard_DS12_v2_Promo = ContainerServiceVMSizeTypes("Standard_DS12_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS13          = ContainerServiceVMSizeTypes("Standard_DS13")
+	ContainerServiceVMSizeTypes_Standard_DS13_2_v2     = ContainerServiceVMSizeTypes("Standard_DS13-2_v2")
+	ContainerServiceVMSizeTypes_Standard_DS13_4_v2     = ContainerServiceVMSizeTypes("Standard_DS13-4_v2")
+	ContainerServiceVMSizeTypes_Standard_DS13_v2       = ContainerServiceVMSizeTypes("Standard_DS13_v2")
+	ContainerServiceVMSizeTypes_Standard_DS13_v2_Promo = ContainerServiceVMSizeTypes("Standard_DS13_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS14          = ContainerServiceVMSizeTypes("Standard_DS14")
+	ContainerServiceVMSizeTypes_Standard_DS14_4_v2     = ContainerServiceVMSizeTypes("Standard_DS14-4_v2")
+	ContainerServiceVMSizeTypes_Standard_DS14_8_v2     = ContainerServiceVMSizeTypes("Standard_DS14-8_v2")
+	ContainerServiceVMSizeTypes_Standard_DS14_v2       = ContainerServiceVMSizeTypes("Standard_DS14_v2")
+	ContainerServiceVMSizeTypes_Standard_DS14_v2_Promo = ContainerServiceVMSizeTypes("Standard_DS14_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS15_v2       = ContainerServiceVMSizeTypes("Standard_DS15_v2")
+	ContainerServiceVMSizeTypes_Standard_DS1_v2        = ContainerServiceVMSizeTypes("Standard_DS1_v2")
+	ContainerServiceVMSizeTypes_Standard_DS2           = ContainerServiceVMSizeTypes("Standard_DS2")
+	ContainerServiceVMSizeTypes_Standard_DS2_v2        = ContainerServiceVMSizeTypes("Standard_DS2_v2")
+	ContainerServiceVMSizeTypes_Standard_DS2_v2_Promo  = ContainerServiceVMSizeTypes("Standard_DS2_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS3           = ContainerServiceVMSizeTypes("Standard_DS3")
+	ContainerServiceVMSizeTypes_Standard_DS3_v2        = ContainerServiceVMSizeTypes("Standard_DS3_v2")
+	ContainerServiceVMSizeTypes_Standard_DS3_v2_Promo  = ContainerServiceVMSizeTypes("Standard_DS3_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS4           = ContainerServiceVMSizeTypes("Standard_DS4")
+	ContainerServiceVMSizeTypes_Standard_DS4_v2        = ContainerServiceVMSizeTypes("Standard_DS4_v2")
+	ContainerServiceVMSizeTypes_Standard_DS4_v2_Promo  = ContainerServiceVMSizeTypes("Standard_DS4_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_DS5_v2        = ContainerServiceVMSizeTypes("Standard_DS5_v2")
+	ContainerServiceVMSizeTypes_Standard_DS5_v2_Promo  = ContainerServiceVMSizeTypes("Standard_DS5_v2_Promo")
+	ContainerServiceVMSizeTypes_Standard_E16_v3        = ContainerServiceVMSizeTypes("Standard_E16_v3")
+	ContainerServiceVMSizeTypes_Standard_E16s_v3       = ContainerServiceVMSizeTypes("Standard_E16s_v3")
+	ContainerServiceVMSizeTypes_Standard_E2_v3         = ContainerServiceVMSizeTypes("Standard_E2_v3")
+	ContainerServiceVMSizeTypes_Standard_E2s_v3        = ContainerServiceVMSizeTypes("Standard_E2s_v3")
+	ContainerServiceVMSizeTypes_Standard_E32_16s_v3    = ContainerServiceVMSizeTypes("Standard_E32-16s_v3")
+	ContainerServiceVMSizeTypes_Standard_E32_8s_v3     = ContainerServiceVMSizeTypes("Standard_E32-8s_v3")
+	ContainerServiceVMSizeTypes_Standard_E32_v3        = ContainerServiceVMSizeTypes("Standard_E32_v3")
+	ContainerServiceVMSizeTypes_Standard_E32s_v3       = ContainerServiceVMSizeTypes("Standard_E32s_v3")
+	ContainerServiceVMSizeTypes_Standard_E4_v3         = ContainerServiceVMSizeTypes("Standard_E4_v3")
+	ContainerServiceVMSizeTypes_Standard_E4s_v3        = ContainerServiceVMSizeTypes("Standard_E4s_v3")
+	ContainerServiceVMSizeTypes_Standard_E64_16s_v3    = ContainerServiceVMSizeTypes("Standard_E64-16s_v3")
+	ContainerServiceVMSizeTypes_Standard_E64_32s_v3    = ContainerServiceVMSizeTypes("Standard_E64-32s_v3")
+	ContainerServiceVMSizeTypes_Standard_E64_v3        = ContainerServiceVMSizeTypes("Standard_E64_v3")
+	ContainerServiceVMSizeTypes_Standard_E64s_v3       = ContainerServiceVMSizeTypes("Standard_E64s_v3")
+	ContainerServiceVMSizeTypes_Standard_E8_v3         = ContainerServiceVMSizeTypes("Standard_E8_v3")
+	ContainerServiceVMSizeTypes_Standard_E8s_v3        = ContainerServiceVMSizeTypes("Standard_E8s_v3")
+	ContainerServiceVMSizeTypes_Standard_F1            = ContainerServiceVMSizeTypes("Standard_F1")
+	ContainerServiceVMSizeTypes_Standard_F16           = ContainerServiceVMSizeTypes("Standard_F16")
+	ContainerServiceVMSizeTypes_Standard_F16s          = ContainerServiceVMSizeTypes("Standard_F16s")
+	ContainerServiceVMSizeTypes_Standard_F16s_v2       = ContainerServiceVMSizeTypes("Standard_F16s_v2")
+	ContainerServiceVMSizeTypes_Standard_F1s           = ContainerServiceVMSizeTypes("Standard_F1s")
+	ContainerServiceVMSizeTypes_Standard_F2            = ContainerServiceVMSizeTypes("Standard_F2")
+	ContainerServiceVMSizeTypes_Standard_F2s           = ContainerServiceVMSizeTypes("Standard_F2s")
+	ContainerServiceVMSizeTypes_Standard_F2s_v2        = ContainerServiceVMSizeTypes("Standard_F2s_v2")
+	ContainerServiceVMSizeTypes_Standard_F32s_v2       = ContainerServiceVMSizeTypes("Standard_F32s_v2")
+	ContainerServiceVMSizeTypes_Standard_F4            = ContainerServiceVMSizeTypes("Standard_F4")
+	ContainerServiceVMSizeTypes_Standard_F4s           = ContainerServiceVMSizeTypes("Standard_F4s")
+	ContainerServiceVMSizeTypes_Standard_F4s_v2        = ContainerServiceVMSizeTypes("Standard_F4s_v2")
+	ContainerServiceVMSizeTypes_Standard_F64s_v2       = ContainerServiceVMSizeTypes("Standard_F64s_v2")
+	ContainerServiceVMSizeTypes_Standard_F72s_v2       = ContainerServiceVMSizeTypes("Standard_F72s_v2")
+	ContainerServiceVMSizeTypes_Standard_F8            = ContainerServiceVMSizeTypes("Standard_F8")
+	ContainerServiceVMSizeTypes_Standard_F8s           = ContainerServiceVMSizeTypes("Standard_F8s")
+	ContainerServiceVMSizeTypes_Standard_F8s_v2        = ContainerServiceVMSizeTypes("Standard_F8s_v2")
+	ContainerServiceVMSizeTypes_Standard_G1            = ContainerServiceVMSizeTypes("Standard_G1")
+	ContainerServiceVMSizeTypes_Standard_G2            = ContainerServiceVMSizeTypes("Standard_G2")
+	ContainerServiceVMSizeTypes_Standard_G3            = ContainerServiceVMSizeTypes("Standard_G3")
+	ContainerServiceVMSizeTypes_Standard_G4            = ContainerServiceVMSizeTypes("Standard_G4")
+	ContainerServiceVMSizeTypes_Standard_G5            = ContainerServiceVMSizeTypes("Standard_G5")
+	ContainerServiceVMSizeTypes_Standard_GS1           = ContainerServiceVMSizeTypes("Standard_GS1")
+	ContainerServiceVMSizeTypes_Standard_GS2           = ContainerServiceVMSizeTypes("Standard_GS2")
+	ContainerServiceVMSizeTypes_Standard_GS3           = ContainerServiceVMSizeTypes("Standard_GS3")
+	ContainerServiceVMSizeTypes_Standard_GS4           = ContainerServiceVMSizeTypes("Standard_GS4")
+	ContainerServiceVMSizeTypes_Standard_GS4_4         = ContainerServiceVMSizeTypes("Standard_GS4-4")
+	ContainerServiceVMSizeTypes_Standard_GS4_8         = ContainerServiceVMSizeTypes("Standard_GS4-8")
+	ContainerServiceVMSizeTypes_Standard_GS5           = ContainerServiceVMSizeTypes("Standard_GS5")
+	ContainerServiceVMSizeTypes_Standard_GS5_16        = ContainerServiceVMSizeTypes("Standard_GS5-16")
+	ContainerServiceVMSizeTypes_Standard_GS5_8         = ContainerServiceVMSizeTypes("Standard_GS5-8")
+	ContainerServiceVMSizeTypes_Standard_H16           = ContainerServiceVMSizeTypes("Standard_H16")
+	ContainerServiceVMSizeTypes_Standard_H16m          = ContainerServiceVMSizeTypes("Standard_H16m")
+	ContainerServiceVMSizeTypes_Standard_H16mr         = ContainerServiceVMSizeTypes("Standard_H16mr")
+	ContainerServiceVMSizeTypes_Standard_H16r          = ContainerServiceVMSizeTypes("Standard_H16r")
+	ContainerServiceVMSizeTypes_Standard_H8            = ContainerServiceVMSizeTypes("Standard_H8")
+	ContainerServiceVMSizeTypes_Standard_H8m           = ContainerServiceVMSizeTypes("Standard_H8m")
+	ContainerServiceVMSizeTypes_Standard_L16s          = ContainerServiceVMSizeTypes("Standard_L16s")
+	ContainerServiceVMSizeTypes_Standard_L32s          = ContainerServiceVMSizeTypes("Standard_L32s")
+	ContainerServiceVMSizeTypes_Standard_L4s           = ContainerServiceVMSizeTypes("Standard_L4s")
+	ContainerServiceVMSizeTypes_Standard_L8s           = ContainerServiceVMSizeTypes("Standard_L8s")
+	ContainerServiceVMSizeTypes_Standard_M128_32ms     = ContainerServiceVMSizeTypes("Standard_M128-32ms")
+	ContainerServiceVMSizeTypes_Standard_M128_64ms     = ContainerServiceVMSizeTypes("Standard_M128-64ms")
+	ContainerServiceVMSizeTypes_Standard_M128ms        = ContainerServiceVMSizeTypes("Standard_M128ms")
+	ContainerServiceVMSizeTypes_Standard_M128s         = ContainerServiceVMSizeTypes("Standard_M128s")
+	ContainerServiceVMSizeTypes_Standard_M64_16ms      = ContainerServiceVMSizeTypes("Standard_M64-16ms")
+	ContainerServiceVMSizeTypes_Standard_M64_32ms      = ContainerServiceVMSizeTypes("Standard_M64-32ms")
+	ContainerServiceVMSizeTypes_Standard_M64ms         = ContainerServiceVMSizeTypes("Standard_M64ms")
+	ContainerServiceVMSizeTypes_Standard_M64s          = ContainerServiceVMSizeTypes("Standard_M64s")
+	ContainerServiceVMSizeTypes_Standard_NC12          = ContainerServiceVMSizeTypes("Standard_NC12")
+	ContainerServiceVMSizeTypes_Standard_NC12s_v2      = ContainerServiceVMSizeTypes("Standard_NC12s_v2")
+	ContainerServiceVMSizeTypes_Standard_NC12s_v3      = ContainerServiceVMSizeTypes("Standard_NC12s_v3")
+	ContainerServiceVMSizeTypes_Standard_NC24          = ContainerServiceVMSizeTypes("Standard_NC24")
+	ContainerServiceVMSizeTypes_Standard_NC24r         = ContainerServiceVMSizeTypes("Standard_NC24r")
+	ContainerServiceVMSizeTypes_Standard_NC24rs_v2     = ContainerServiceVMSizeTypes("Standard_NC24rs_v2")
+	ContainerServiceVMSizeTypes_Standard_NC24rs_v3     = ContainerServiceVMSizeTypes("Standard_NC24rs_v3")
+	ContainerServiceVMSizeTypes_Standard_NC24s_v2      = ContainerServiceVMSizeTypes("Standard_NC24s_v2")
+	ContainerServiceVMSizeTypes_Standard_NC24s_v3      = ContainerServiceVMSizeTypes("Standard_NC24s_v3")
+	ContainerServiceVMSizeTypes_Standard_NC6           = ContainerServiceVMSizeTypes("Standard_NC6")
+	ContainerServiceVMSizeTypes_Standard_NC6s_v2       = ContainerServiceVMSizeTypes("Standard_NC6s_v2")
+	ContainerServiceVMSizeTypes_Standard_NC6s_v3       = ContainerServiceVMSizeTypes("Standard_NC6s_v3")
+	ContainerServiceVMSizeTypes_Standard_ND12s         = ContainerServiceVMSizeTypes("Standard_ND12s")
+	ContainerServiceVMSizeTypes_Standard_ND24rs        = ContainerServiceVMSizeTypes("Standard_ND24rs")
+	ContainerServiceVMSizeTypes_Standard_ND24s         = ContainerServiceVMSizeTypes("Standard_ND24s")
+	ContainerServiceVMSizeTypes_Standard_ND6s          = ContainerServiceVMSizeTypes("Standard_ND6s")
+	ContainerServiceVMSizeTypes_Standard_NV12          = ContainerServiceVMSizeTypes("Standard_NV12")
+	ContainerServiceVMSizeTypes_Standard_NV24          = ContainerServiceVMSizeTypes("Standard_NV24")
+	ContainerServiceVMSizeTypes_Standard_NV6           = ContainerServiceVMSizeTypes("Standard_NV6")
+)
+
+func (ContainerServiceVMSizeTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
+	return pulumi.ToOutput(e).(ContainerServiceVMSizeTypesOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerServiceVMSizeTypesOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return e.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return ContainerServiceVMSizeTypes(e).ToContainerServiceVMSizeTypesOutputWithContext(ctx).ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx)
+}
+
+func (e ContainerServiceVMSizeTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerServiceVMSizeTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerServiceVMSizeTypesOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceVMSizeTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return o.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMSizeTypes) *ContainerServiceVMSizeTypes {
+		return &v
+	}).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerServiceVMSizeTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceVMSizeTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceVMSizeTypes)(nil)).Elem()
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) Elem() ContainerServiceVMSizeTypesOutput {
+	return o.ApplyT(func(v *ContainerServiceVMSizeTypes) ContainerServiceVMSizeTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceVMSizeTypes
+		return ret
+	}).(ContainerServiceVMSizeTypesOutput)
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerServiceVMSizeTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ContainerServiceVMSizeTypesInput interface {
+	pulumi.Input
+
+	ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput
+	ToContainerServiceVMSizeTypesOutputWithContext(context.Context) ContainerServiceVMSizeTypesOutput
+}
+
+var containerServiceVMSizeTypesPtrType = reflect.TypeOf((**ContainerServiceVMSizeTypes)(nil)).Elem()
+
+type ContainerServiceVMSizeTypesPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput
+	ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Context) ContainerServiceVMSizeTypesPtrOutput
+}
+
+type containerServiceVMSizeTypesPtr string
+
+func ContainerServiceVMSizeTypesPtr(v string) ContainerServiceVMSizeTypesPtrInput {
+	return (*containerServiceVMSizeTypesPtr)(&v)
+}
+
+func (*containerServiceVMSizeTypesPtr) ElementType() reflect.Type {
+	return containerServiceVMSizeTypesPtrType
+}
+
+func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return pulumi.ToOutput(in).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+type LoadBalancerSku string
+
+const (
+	LoadBalancerSkuStandard = LoadBalancerSku("standard")
+	LoadBalancerSkuBasic    = LoadBalancerSku("basic")
+)
+
+func (LoadBalancerSku) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerSku)(nil)).Elem()
+}
+
+func (e LoadBalancerSku) ToLoadBalancerSkuOutput() LoadBalancerSkuOutput {
+	return pulumi.ToOutput(e).(LoadBalancerSkuOutput)
+}
+
+func (e LoadBalancerSku) ToLoadBalancerSkuOutputWithContext(ctx context.Context) LoadBalancerSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerSkuOutput)
+}
+
+func (e LoadBalancerSku) ToLoadBalancerSkuPtrOutput() LoadBalancerSkuPtrOutput {
+	return e.ToLoadBalancerSkuPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerSku) ToLoadBalancerSkuPtrOutputWithContext(ctx context.Context) LoadBalancerSkuPtrOutput {
+	return LoadBalancerSku(e).ToLoadBalancerSkuOutputWithContext(ctx).ToLoadBalancerSkuPtrOutputWithContext(ctx)
+}
+
+func (e LoadBalancerSku) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerSku) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerSku) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerSku) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoadBalancerSkuOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerSku)(nil)).Elem()
+}
+
+func (o LoadBalancerSkuOutput) ToLoadBalancerSkuOutput() LoadBalancerSkuOutput {
+	return o
+}
+
+func (o LoadBalancerSkuOutput) ToLoadBalancerSkuOutputWithContext(ctx context.Context) LoadBalancerSkuOutput {
+	return o
+}
+
+func (o LoadBalancerSkuOutput) ToLoadBalancerSkuPtrOutput() LoadBalancerSkuPtrOutput {
+	return o.ToLoadBalancerSkuPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerSkuOutput) ToLoadBalancerSkuPtrOutputWithContext(ctx context.Context) LoadBalancerSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerSku) *LoadBalancerSku {
+		return &v
+	}).(LoadBalancerSkuPtrOutput)
+}
+
+func (o LoadBalancerSkuOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerSkuOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerSku) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerSkuOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerSkuOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerSku) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerSku)(nil)).Elem()
+}
+
+func (o LoadBalancerSkuPtrOutput) ToLoadBalancerSkuPtrOutput() LoadBalancerSkuPtrOutput {
+	return o
+}
+
+func (o LoadBalancerSkuPtrOutput) ToLoadBalancerSkuPtrOutputWithContext(ctx context.Context) LoadBalancerSkuPtrOutput {
+	return o
+}
+
+func (o LoadBalancerSkuPtrOutput) Elem() LoadBalancerSkuOutput {
+	return o.ApplyT(func(v *LoadBalancerSku) LoadBalancerSku {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerSku
+		return ret
+	}).(LoadBalancerSkuOutput)
+}
+
+func (o LoadBalancerSkuPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerSkuPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoadBalancerSku) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type LoadBalancerSkuInput interface {
+	pulumi.Input
+
+	ToLoadBalancerSkuOutput() LoadBalancerSkuOutput
+	ToLoadBalancerSkuOutputWithContext(context.Context) LoadBalancerSkuOutput
+}
+
+var loadBalancerSkuPtrType = reflect.TypeOf((**LoadBalancerSku)(nil)).Elem()
+
+type LoadBalancerSkuPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerSkuPtrOutput() LoadBalancerSkuPtrOutput
+	ToLoadBalancerSkuPtrOutputWithContext(context.Context) LoadBalancerSkuPtrOutput
+}
+
+type loadBalancerSkuPtr string
+
+func LoadBalancerSkuPtr(v string) LoadBalancerSkuPtrInput {
+	return (*loadBalancerSkuPtr)(&v)
+}
+
+func (*loadBalancerSkuPtr) ElementType() reflect.Type {
+	return loadBalancerSkuPtrType
+}
+
+func (in *loadBalancerSkuPtr) ToLoadBalancerSkuPtrOutput() LoadBalancerSkuPtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerSkuPtrOutput)
+}
+
+func (in *loadBalancerSkuPtr) ToLoadBalancerSkuPtrOutputWithContext(ctx context.Context) LoadBalancerSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerSkuPtrOutput)
+}
+
+type NetworkPlugin string
+
+const (
+	NetworkPluginAzure   = NetworkPlugin("azure")
+	NetworkPluginKubenet = NetworkPlugin("kubenet")
+)
+
+func (NetworkPlugin) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPlugin)(nil)).Elem()
+}
+
+func (e NetworkPlugin) ToNetworkPluginOutput() NetworkPluginOutput {
+	return pulumi.ToOutput(e).(NetworkPluginOutput)
+}
+
+func (e NetworkPlugin) ToNetworkPluginOutputWithContext(ctx context.Context) NetworkPluginOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkPluginOutput)
+}
+
+func (e NetworkPlugin) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
+	return e.ToNetworkPluginPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkPlugin) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
+	return NetworkPlugin(e).ToNetworkPluginOutputWithContext(ctx).ToNetworkPluginPtrOutputWithContext(ctx)
+}
+
+func (e NetworkPlugin) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkPlugin) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkPlugin) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkPlugin) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkPluginOutput struct{ *pulumi.OutputState }
+
+func (NetworkPluginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPlugin)(nil)).Elem()
+}
+
+func (o NetworkPluginOutput) ToNetworkPluginOutput() NetworkPluginOutput {
+	return o
+}
+
+func (o NetworkPluginOutput) ToNetworkPluginOutputWithContext(ctx context.Context) NetworkPluginOutput {
+	return o
+}
+
+func (o NetworkPluginOutput) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
+	return o.ToNetworkPluginPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPluginOutput) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPlugin) *NetworkPlugin {
+		return &v
+	}).(NetworkPluginPtrOutput)
+}
+
+func (o NetworkPluginOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkPluginOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPlugin) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkPluginOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPluginOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPlugin) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkPluginPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPluginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPlugin)(nil)).Elem()
+}
+
+func (o NetworkPluginPtrOutput) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
+	return o
+}
+
+func (o NetworkPluginPtrOutput) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
+	return o
+}
+
+func (o NetworkPluginPtrOutput) Elem() NetworkPluginOutput {
+	return o.ApplyT(func(v *NetworkPlugin) NetworkPlugin {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPlugin
+		return ret
+	}).(NetworkPluginOutput)
+}
+
+func (o NetworkPluginPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPluginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkPlugin) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type NetworkPluginInput interface {
+	pulumi.Input
+
+	ToNetworkPluginOutput() NetworkPluginOutput
+	ToNetworkPluginOutputWithContext(context.Context) NetworkPluginOutput
+}
+
+var networkPluginPtrType = reflect.TypeOf((**NetworkPlugin)(nil)).Elem()
+
+type NetworkPluginPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPluginPtrOutput() NetworkPluginPtrOutput
+	ToNetworkPluginPtrOutputWithContext(context.Context) NetworkPluginPtrOutput
+}
+
+type networkPluginPtr string
+
+func NetworkPluginPtr(v string) NetworkPluginPtrInput {
+	return (*networkPluginPtr)(&v)
+}
+
+func (*networkPluginPtr) ElementType() reflect.Type {
+	return networkPluginPtrType
+}
+
+func (in *networkPluginPtr) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
+	return pulumi.ToOutput(in).(NetworkPluginPtrOutput)
+}
+
+func (in *networkPluginPtr) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkPluginPtrOutput)
+}
+
+type NetworkPolicy string
+
+const (
+	NetworkPolicyCalico = NetworkPolicy("calico")
+	NetworkPolicyAzure  = NetworkPolicy("azure")
+)
+
+func (NetworkPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPolicy)(nil)).Elem()
+}
+
+func (e NetworkPolicy) ToNetworkPolicyOutput() NetworkPolicyOutput {
+	return pulumi.ToOutput(e).(NetworkPolicyOutput)
+}
+
+func (e NetworkPolicy) ToNetworkPolicyOutputWithContext(ctx context.Context) NetworkPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkPolicyOutput)
+}
+
+func (e NetworkPolicy) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
+	return e.ToNetworkPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkPolicy) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
+	return NetworkPolicy(e).ToNetworkPolicyOutputWithContext(ctx).ToNetworkPolicyPtrOutputWithContext(ctx)
+}
+
+func (e NetworkPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkPolicyOutput struct{ *pulumi.OutputState }
+
+func (NetworkPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPolicy)(nil)).Elem()
+}
+
+func (o NetworkPolicyOutput) ToNetworkPolicyOutput() NetworkPolicyOutput {
+	return o
+}
+
+func (o NetworkPolicyOutput) ToNetworkPolicyOutputWithContext(ctx context.Context) NetworkPolicyOutput {
+	return o
+}
+
+func (o NetworkPolicyOutput) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
+	return o.ToNetworkPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPolicyOutput) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPolicy) *NetworkPolicy {
+		return &v
+	}).(NetworkPolicyPtrOutput)
+}
+
+func (o NetworkPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPolicy)(nil)).Elem()
+}
+
+func (o NetworkPolicyPtrOutput) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
+	return o
+}
+
+func (o NetworkPolicyPtrOutput) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
+	return o
+}
+
+func (o NetworkPolicyPtrOutput) Elem() NetworkPolicyOutput {
+	return o.ApplyT(func(v *NetworkPolicy) NetworkPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPolicy
+		return ret
+	}).(NetworkPolicyOutput)
+}
+
+func (o NetworkPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type NetworkPolicyInput interface {
+	pulumi.Input
+
+	ToNetworkPolicyOutput() NetworkPolicyOutput
+	ToNetworkPolicyOutputWithContext(context.Context) NetworkPolicyOutput
+}
+
+var networkPolicyPtrType = reflect.TypeOf((**NetworkPolicy)(nil)).Elem()
+
+type NetworkPolicyPtrInput interface {
+	pulumi.Input
+
+	ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput
+	ToNetworkPolicyPtrOutputWithContext(context.Context) NetworkPolicyPtrOutput
+}
+
+type networkPolicyPtr string
+
+func NetworkPolicyPtr(v string) NetworkPolicyPtrInput {
+	return (*networkPolicyPtr)(&v)
+}
+
+func (*networkPolicyPtr) ElementType() reflect.Type {
+	return networkPolicyPtrType
+}
+
+func (in *networkPolicyPtr) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
+	return pulumi.ToOutput(in).(NetworkPolicyPtrOutput)
+}
+
+func (in *networkPolicyPtr) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkPolicyPtrOutput)
+}
+
+type OSType string
+
+const (
+	OSTypeLinux   = OSType("Linux")
+	OSTypeWindows = OSType("Windows")
+)
+
+func (OSType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSType)(nil)).Elem()
+}
+
+func (e OSType) ToOSTypeOutput() OSTypeOutput {
+	return pulumi.ToOutput(e).(OSTypeOutput)
+}
+
+func (e OSType) ToOSTypeOutputWithContext(ctx context.Context) OSTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OSTypeOutput)
+}
+
+func (e OSType) ToOSTypePtrOutput() OSTypePtrOutput {
+	return e.ToOSTypePtrOutputWithContext(context.Background())
+}
+
+func (e OSType) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
+	return OSType(e).ToOSTypeOutputWithContext(ctx).ToOSTypePtrOutputWithContext(ctx)
+}
+
+func (e OSType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OSType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OSType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OSType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OSTypeOutput struct{ *pulumi.OutputState }
+
+func (OSTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSType)(nil)).Elem()
+}
+
+func (o OSTypeOutput) ToOSTypeOutput() OSTypeOutput {
+	return o
+}
+
+func (o OSTypeOutput) ToOSTypeOutputWithContext(ctx context.Context) OSTypeOutput {
+	return o
+}
+
+func (o OSTypeOutput) ToOSTypePtrOutput() OSTypePtrOutput {
+	return o.ToOSTypePtrOutputWithContext(context.Background())
+}
+
+func (o OSTypeOutput) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSType) *OSType {
+		return &v
+	}).(OSTypePtrOutput)
+}
+
+func (o OSTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OSTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OSType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OSTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OSTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OSType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OSTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OSTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSType)(nil)).Elem()
+}
+
+func (o OSTypePtrOutput) ToOSTypePtrOutput() OSTypePtrOutput {
+	return o
+}
+
+func (o OSTypePtrOutput) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
+	return o
+}
+
+func (o OSTypePtrOutput) Elem() OSTypeOutput {
+	return o.ApplyT(func(v *OSType) OSType {
+		if v != nil {
+			return *v
+		}
+		var ret OSType
+		return ret
+	}).(OSTypeOutput)
+}
+
+func (o OSTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OSTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OSType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type OSTypeInput interface {
+	pulumi.Input
+
+	ToOSTypeOutput() OSTypeOutput
+	ToOSTypeOutputWithContext(context.Context) OSTypeOutput
+}
+
+var ostypePtrType = reflect.TypeOf((**OSType)(nil)).Elem()
+
+type OSTypePtrInput interface {
+	pulumi.Input
+
+	ToOSTypePtrOutput() OSTypePtrOutput
+	ToOSTypePtrOutputWithContext(context.Context) OSTypePtrOutput
+}
+
+type ostypePtr string
+
+func OSTypePtr(v string) OSTypePtrInput {
+	return (*ostypePtr)(&v)
+}
+
+func (*ostypePtr) ElementType() reflect.Type {
+	return ostypePtrType
+}
+
+func (in *ostypePtr) ToOSTypePtrOutput() OSTypePtrOutput {
+	return pulumi.ToOutput(in).(OSTypePtrOutput)
+}
+
+func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
+}
+
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityType
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolTypeInput)(nil)).Elem(), AgentPoolType("VirtualMachineScaleSets"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolTypePtrInput)(nil)).Elem(), AgentPoolType("VirtualMachineScaleSets"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesPtrInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSkuInput)(nil)).Elem(), LoadBalancerSku("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSkuPtrInput)(nil)).Elem(), LoadBalancerSku("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPluginInput)(nil)).Elem(), NetworkPlugin("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPluginPtrInput)(nil)).Elem(), NetworkPlugin("azure"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPolicyInput)(nil)).Elem(), NetworkPolicy("calico"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPolicyPtrInput)(nil)).Elem(), NetworkPolicy("calico"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypeInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OSTypePtrInput)(nil)).Elem(), OSType("Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
+	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
+	pulumi.RegisterOutputType(AgentPoolTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})
+	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerSkuOutput{})
+	pulumi.RegisterOutputType(LoadBalancerSkuPtrOutput{})
+	pulumi.RegisterOutputType(NetworkPluginOutput{})
+	pulumi.RegisterOutputType(NetworkPluginPtrOutput{})
+	pulumi.RegisterOutputType(NetworkPolicyOutput{})
+	pulumi.RegisterOutputType(NetworkPolicyPtrOutput{})
+	pulumi.RegisterOutputType(OSTypeOutput{})
+	pulumi.RegisterOutputType(OSTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
+}

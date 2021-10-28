@@ -1,0 +1,212 @@
+
+
+
+package v20150521preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type VirtualMachineResource struct {
+	pulumi.CustomResourceState
+
+	ArtifactDeploymentStatus   ArtifactDeploymentStatusPropertiesResponsePtrOutput `pulumi:"artifactDeploymentStatus"`
+	Artifacts                  ArtifactInstallPropertiesResponseArrayOutput        `pulumi:"artifacts"`
+	ComputeId                  pulumi.StringPtrOutput                              `pulumi:"computeId"`
+	CreatedByUser              pulumi.StringPtrOutput                              `pulumi:"createdByUser"`
+	CreatedByUserId            pulumi.StringPtrOutput                              `pulumi:"createdByUserId"`
+	CustomImageId              pulumi.StringPtrOutput                              `pulumi:"customImageId"`
+	DisallowPublicIpAddress    pulumi.BoolPtrOutput                                `pulumi:"disallowPublicIpAddress"`
+	Fqdn                       pulumi.StringPtrOutput                              `pulumi:"fqdn"`
+	GalleryImageReference      GalleryImageReferenceResponsePtrOutput              `pulumi:"galleryImageReference"`
+	IsAuthenticationWithSshKey pulumi.BoolPtrOutput                                `pulumi:"isAuthenticationWithSshKey"`
+	LabSubnetName              pulumi.StringPtrOutput                              `pulumi:"labSubnetName"`
+	LabVirtualNetworkId        pulumi.StringPtrOutput                              `pulumi:"labVirtualNetworkId"`
+	Location                   pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                       pulumi.StringPtrOutput                              `pulumi:"name"`
+	Notes                      pulumi.StringPtrOutput                              `pulumi:"notes"`
+	OsType                     pulumi.StringPtrOutput                              `pulumi:"osType"`
+	OwnerObjectId              pulumi.StringPtrOutput                              `pulumi:"ownerObjectId"`
+	Password                   pulumi.StringPtrOutput                              `pulumi:"password"`
+	ProvisioningState          pulumi.StringPtrOutput                              `pulumi:"provisioningState"`
+	Size                       pulumi.StringPtrOutput                              `pulumi:"size"`
+	SshKey                     pulumi.StringPtrOutput                              `pulumi:"sshKey"`
+	Tags                       pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type                       pulumi.StringPtrOutput                              `pulumi:"type"`
+	UserName                   pulumi.StringPtrOutput                              `pulumi:"userName"`
+}
+
+
+func NewVirtualMachineResource(ctx *pulumi.Context,
+	name string, args *VirtualMachineResourceArgs, opts ...pulumi.ResourceOption) (*VirtualMachineResource, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualMachineResource"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource VirtualMachineResource
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetVirtualMachineResource(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *VirtualMachineResourceState, opts ...pulumi.ResourceOption) (*VirtualMachineResource, error) {
+	var resource VirtualMachineResource
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type virtualMachineResourceState struct {
+}
+
+type VirtualMachineResourceState struct {
+}
+
+func (VirtualMachineResourceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*virtualMachineResourceState)(nil)).Elem()
+}
+
+type virtualMachineResourceArgs struct {
+	ArtifactDeploymentStatus   *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
+	Artifacts                  []ArtifactInstallProperties         `pulumi:"artifacts"`
+	ComputeId                  *string                             `pulumi:"computeId"`
+	CreatedByUser              *string                             `pulumi:"createdByUser"`
+	CreatedByUserId            *string                             `pulumi:"createdByUserId"`
+	CustomImageId              *string                             `pulumi:"customImageId"`
+	DisallowPublicIpAddress    *bool                               `pulumi:"disallowPublicIpAddress"`
+	Fqdn                       *string                             `pulumi:"fqdn"`
+	GalleryImageReference      *GalleryImageReference              `pulumi:"galleryImageReference"`
+	Id                         *string                             `pulumi:"id"`
+	IsAuthenticationWithSshKey *bool                               `pulumi:"isAuthenticationWithSshKey"`
+	LabName                    string                              `pulumi:"labName"`
+	LabSubnetName              *string                             `pulumi:"labSubnetName"`
+	LabVirtualNetworkId        *string                             `pulumi:"labVirtualNetworkId"`
+	Location                   *string                             `pulumi:"location"`
+	Name                       *string                             `pulumi:"name"`
+	Notes                      *string                             `pulumi:"notes"`
+	OsType                     *string                             `pulumi:"osType"`
+	OwnerObjectId              *string                             `pulumi:"ownerObjectId"`
+	Password                   *string                             `pulumi:"password"`
+	ProvisioningState          *string                             `pulumi:"provisioningState"`
+	ResourceGroupName          string                              `pulumi:"resourceGroupName"`
+	Size                       *string                             `pulumi:"size"`
+	SshKey                     *string                             `pulumi:"sshKey"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       *string                             `pulumi:"type"`
+	UserName                   *string                             `pulumi:"userName"`
+}
+
+
+type VirtualMachineResourceArgs struct {
+	ArtifactDeploymentStatus   ArtifactDeploymentStatusPropertiesPtrInput
+	Artifacts                  ArtifactInstallPropertiesArrayInput
+	ComputeId                  pulumi.StringPtrInput
+	CreatedByUser              pulumi.StringPtrInput
+	CreatedByUserId            pulumi.StringPtrInput
+	CustomImageId              pulumi.StringPtrInput
+	DisallowPublicIpAddress    pulumi.BoolPtrInput
+	Fqdn                       pulumi.StringPtrInput
+	GalleryImageReference      GalleryImageReferencePtrInput
+	Id                         pulumi.StringPtrInput
+	IsAuthenticationWithSshKey pulumi.BoolPtrInput
+	LabName                    pulumi.StringInput
+	LabSubnetName              pulumi.StringPtrInput
+	LabVirtualNetworkId        pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Notes                      pulumi.StringPtrInput
+	OsType                     pulumi.StringPtrInput
+	OwnerObjectId              pulumi.StringPtrInput
+	Password                   pulumi.StringPtrInput
+	ProvisioningState          pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Size                       pulumi.StringPtrInput
+	SshKey                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	Type                       pulumi.StringPtrInput
+	UserName                   pulumi.StringPtrInput
+}
+
+func (VirtualMachineResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*virtualMachineResourceArgs)(nil)).Elem()
+}
+
+type VirtualMachineResourceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineResourceOutput() VirtualMachineResourceOutput
+	ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput
+}
+
+func (*VirtualMachineResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineResource)(nil))
+}
+
+func (i *VirtualMachineResource) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {
+	return i.ToVirtualMachineResourceOutputWithContext(context.Background())
+}
+
+func (i *VirtualMachineResource) ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceOutput)
+}
+
+type VirtualMachineResourceOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineResource)(nil))
+}
+
+func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {
+	return o
+}
+
+func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineResourceInput)(nil)).Elem(), &VirtualMachineResource{})
+	pulumi.RegisterOutputType(VirtualMachineResourceOutput{})
+}

@@ -1,0 +1,198 @@
+
+
+
+package v20200601
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type DedicatedHost struct {
+	pulumi.CustomResourceState
+
+	AutoReplaceOnFailure pulumi.BoolPtrOutput                    `pulumi:"autoReplaceOnFailure"`
+	HostId               pulumi.StringOutput                     `pulumi:"hostId"`
+	InstanceView         DedicatedHostInstanceViewResponseOutput `pulumi:"instanceView"`
+	LicenseType          pulumi.StringPtrOutput                  `pulumi:"licenseType"`
+	Location             pulumi.StringOutput                     `pulumi:"location"`
+	Name                 pulumi.StringOutput                     `pulumi:"name"`
+	PlatformFaultDomain  pulumi.IntPtrOutput                     `pulumi:"platformFaultDomain"`
+	ProvisioningState    pulumi.StringOutput                     `pulumi:"provisioningState"`
+	ProvisioningTime     pulumi.StringOutput                     `pulumi:"provisioningTime"`
+	Sku                  SkuResponseOutput                       `pulumi:"sku"`
+	Tags                 pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type                 pulumi.StringOutput                     `pulumi:"type"`
+	VirtualMachines      SubResourceReadOnlyResponseArrayOutput  `pulumi:"virtualMachines"`
+}
+
+
+func NewDedicatedHost(ctx *pulumi.Context,
+	name string, args *DedicatedHostArgs, opts ...pulumi.ResourceOption) (*DedicatedHost, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'HostGroupName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20191201:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210401:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210401:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210701:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210701:DedicatedHost"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource DedicatedHost
+	err := ctx.RegisterResource("azure-native:compute/v20200601:DedicatedHost", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetDedicatedHost(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DedicatedHostState, opts ...pulumi.ResourceOption) (*DedicatedHost, error) {
+	var resource DedicatedHost
+	err := ctx.ReadResource("azure-native:compute/v20200601:DedicatedHost", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type dedicatedHostState struct {
+}
+
+type DedicatedHostState struct {
+}
+
+func (DedicatedHostState) ElementType() reflect.Type {
+	return reflect.TypeOf((*dedicatedHostState)(nil)).Elem()
+}
+
+type dedicatedHostArgs struct {
+	AutoReplaceOnFailure *bool                      `pulumi:"autoReplaceOnFailure"`
+	HostGroupName        string                     `pulumi:"hostGroupName"`
+	HostName             *string                    `pulumi:"hostName"`
+	LicenseType          *DedicatedHostLicenseTypes `pulumi:"licenseType"`
+	Location             *string                    `pulumi:"location"`
+	PlatformFaultDomain  *int                       `pulumi:"platformFaultDomain"`
+	ResourceGroupName    string                     `pulumi:"resourceGroupName"`
+	Sku                  Sku                        `pulumi:"sku"`
+	Tags                 map[string]string          `pulumi:"tags"`
+}
+
+
+type DedicatedHostArgs struct {
+	AutoReplaceOnFailure pulumi.BoolPtrInput
+	HostGroupName        pulumi.StringInput
+	HostName             pulumi.StringPtrInput
+	LicenseType          DedicatedHostLicenseTypesPtrInput
+	Location             pulumi.StringPtrInput
+	PlatformFaultDomain  pulumi.IntPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  SkuInput
+	Tags                 pulumi.StringMapInput
+}
+
+func (DedicatedHostArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*dedicatedHostArgs)(nil)).Elem()
+}
+
+type DedicatedHostInput interface {
+	pulumi.Input
+
+	ToDedicatedHostOutput() DedicatedHostOutput
+	ToDedicatedHostOutputWithContext(ctx context.Context) DedicatedHostOutput
+}
+
+func (*DedicatedHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHost)(nil))
+}
+
+func (i *DedicatedHost) ToDedicatedHostOutput() DedicatedHostOutput {
+	return i.ToDedicatedHostOutputWithContext(context.Background())
+}
+
+func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) DedicatedHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostOutput)
+}
+
+type DedicatedHostOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHost)(nil))
+}
+
+func (o DedicatedHostOutput) ToDedicatedHostOutput() DedicatedHostOutput {
+	return o
+}
+
+func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Context) DedicatedHostOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostInput)(nil)).Elem(), &DedicatedHost{})
+	pulumi.RegisterOutputType(DedicatedHostOutput{})
+}

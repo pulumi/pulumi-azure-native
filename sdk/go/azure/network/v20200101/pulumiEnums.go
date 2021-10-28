@@ -1,0 +1,3068 @@
+
+
+
+package v20200101
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type BackendEnabledState string
+
+const (
+	BackendEnabledStateEnabled  = BackendEnabledState("Enabled")
+	BackendEnabledStateDisabled = BackendEnabledState("Disabled")
+)
+
+func (BackendEnabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendEnabledState)(nil)).Elem()
+}
+
+func (e BackendEnabledState) ToBackendEnabledStateOutput() BackendEnabledStateOutput {
+	return pulumi.ToOutput(e).(BackendEnabledStateOutput)
+}
+
+func (e BackendEnabledState) ToBackendEnabledStateOutputWithContext(ctx context.Context) BackendEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BackendEnabledStateOutput)
+}
+
+func (e BackendEnabledState) ToBackendEnabledStatePtrOutput() BackendEnabledStatePtrOutput {
+	return e.ToBackendEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e BackendEnabledState) ToBackendEnabledStatePtrOutputWithContext(ctx context.Context) BackendEnabledStatePtrOutput {
+	return BackendEnabledState(e).ToBackendEnabledStateOutputWithContext(ctx).ToBackendEnabledStatePtrOutputWithContext(ctx)
+}
+
+func (e BackendEnabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackendEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackendEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BackendEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BackendEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (BackendEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendEnabledState)(nil)).Elem()
+}
+
+func (o BackendEnabledStateOutput) ToBackendEnabledStateOutput() BackendEnabledStateOutput {
+	return o
+}
+
+func (o BackendEnabledStateOutput) ToBackendEnabledStateOutputWithContext(ctx context.Context) BackendEnabledStateOutput {
+	return o
+}
+
+func (o BackendEnabledStateOutput) ToBackendEnabledStatePtrOutput() BackendEnabledStatePtrOutput {
+	return o.ToBackendEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o BackendEnabledStateOutput) ToBackendEnabledStatePtrOutputWithContext(ctx context.Context) BackendEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendEnabledState) *BackendEnabledState {
+		return &v
+	}).(BackendEnabledStatePtrOutput)
+}
+
+func (o BackendEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackendEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackendEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackendEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackendEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackendEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackendEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (BackendEnabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendEnabledState)(nil)).Elem()
+}
+
+func (o BackendEnabledStatePtrOutput) ToBackendEnabledStatePtrOutput() BackendEnabledStatePtrOutput {
+	return o
+}
+
+func (o BackendEnabledStatePtrOutput) ToBackendEnabledStatePtrOutputWithContext(ctx context.Context) BackendEnabledStatePtrOutput {
+	return o
+}
+
+func (o BackendEnabledStatePtrOutput) Elem() BackendEnabledStateOutput {
+	return o.ApplyT(func(v *BackendEnabledState) BackendEnabledState {
+		if v != nil {
+			return *v
+		}
+		var ret BackendEnabledState
+		return ret
+	}).(BackendEnabledStateOutput)
+}
+
+func (o BackendEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackendEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackendEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type BackendEnabledStateInput interface {
+	pulumi.Input
+
+	ToBackendEnabledStateOutput() BackendEnabledStateOutput
+	ToBackendEnabledStateOutputWithContext(context.Context) BackendEnabledStateOutput
+}
+
+var backendEnabledStatePtrType = reflect.TypeOf((**BackendEnabledState)(nil)).Elem()
+
+type BackendEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToBackendEnabledStatePtrOutput() BackendEnabledStatePtrOutput
+	ToBackendEnabledStatePtrOutputWithContext(context.Context) BackendEnabledStatePtrOutput
+}
+
+type backendEnabledStatePtr string
+
+func BackendEnabledStatePtr(v string) BackendEnabledStatePtrInput {
+	return (*backendEnabledStatePtr)(&v)
+}
+
+func (*backendEnabledStatePtr) ElementType() reflect.Type {
+	return backendEnabledStatePtrType
+}
+
+func (in *backendEnabledStatePtr) ToBackendEnabledStatePtrOutput() BackendEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(BackendEnabledStatePtrOutput)
+}
+
+func (in *backendEnabledStatePtr) ToBackendEnabledStatePtrOutputWithContext(ctx context.Context) BackendEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BackendEnabledStatePtrOutput)
+}
+
+type DynamicCompressionEnabled string
+
+const (
+	DynamicCompressionEnabledEnabled  = DynamicCompressionEnabled("Enabled")
+	DynamicCompressionEnabledDisabled = DynamicCompressionEnabled("Disabled")
+)
+
+func (DynamicCompressionEnabled) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicCompressionEnabled)(nil)).Elem()
+}
+
+func (e DynamicCompressionEnabled) ToDynamicCompressionEnabledOutput() DynamicCompressionEnabledOutput {
+	return pulumi.ToOutput(e).(DynamicCompressionEnabledOutput)
+}
+
+func (e DynamicCompressionEnabled) ToDynamicCompressionEnabledOutputWithContext(ctx context.Context) DynamicCompressionEnabledOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DynamicCompressionEnabledOutput)
+}
+
+func (e DynamicCompressionEnabled) ToDynamicCompressionEnabledPtrOutput() DynamicCompressionEnabledPtrOutput {
+	return e.ToDynamicCompressionEnabledPtrOutputWithContext(context.Background())
+}
+
+func (e DynamicCompressionEnabled) ToDynamicCompressionEnabledPtrOutputWithContext(ctx context.Context) DynamicCompressionEnabledPtrOutput {
+	return DynamicCompressionEnabled(e).ToDynamicCompressionEnabledOutputWithContext(ctx).ToDynamicCompressionEnabledPtrOutputWithContext(ctx)
+}
+
+func (e DynamicCompressionEnabled) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DynamicCompressionEnabled) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DynamicCompressionEnabled) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DynamicCompressionEnabled) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DynamicCompressionEnabledOutput struct{ *pulumi.OutputState }
+
+func (DynamicCompressionEnabledOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicCompressionEnabled)(nil)).Elem()
+}
+
+func (o DynamicCompressionEnabledOutput) ToDynamicCompressionEnabledOutput() DynamicCompressionEnabledOutput {
+	return o
+}
+
+func (o DynamicCompressionEnabledOutput) ToDynamicCompressionEnabledOutputWithContext(ctx context.Context) DynamicCompressionEnabledOutput {
+	return o
+}
+
+func (o DynamicCompressionEnabledOutput) ToDynamicCompressionEnabledPtrOutput() DynamicCompressionEnabledPtrOutput {
+	return o.ToDynamicCompressionEnabledPtrOutputWithContext(context.Background())
+}
+
+func (o DynamicCompressionEnabledOutput) ToDynamicCompressionEnabledPtrOutputWithContext(ctx context.Context) DynamicCompressionEnabledPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DynamicCompressionEnabled) *DynamicCompressionEnabled {
+		return &v
+	}).(DynamicCompressionEnabledPtrOutput)
+}
+
+func (o DynamicCompressionEnabledOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DynamicCompressionEnabledOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DynamicCompressionEnabled) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DynamicCompressionEnabledOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DynamicCompressionEnabledOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DynamicCompressionEnabled) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DynamicCompressionEnabledPtrOutput struct{ *pulumi.OutputState }
+
+func (DynamicCompressionEnabledPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicCompressionEnabled)(nil)).Elem()
+}
+
+func (o DynamicCompressionEnabledPtrOutput) ToDynamicCompressionEnabledPtrOutput() DynamicCompressionEnabledPtrOutput {
+	return o
+}
+
+func (o DynamicCompressionEnabledPtrOutput) ToDynamicCompressionEnabledPtrOutputWithContext(ctx context.Context) DynamicCompressionEnabledPtrOutput {
+	return o
+}
+
+func (o DynamicCompressionEnabledPtrOutput) Elem() DynamicCompressionEnabledOutput {
+	return o.ApplyT(func(v *DynamicCompressionEnabled) DynamicCompressionEnabled {
+		if v != nil {
+			return *v
+		}
+		var ret DynamicCompressionEnabled
+		return ret
+	}).(DynamicCompressionEnabledOutput)
+}
+
+func (o DynamicCompressionEnabledPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DynamicCompressionEnabledPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DynamicCompressionEnabled) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DynamicCompressionEnabledInput interface {
+	pulumi.Input
+
+	ToDynamicCompressionEnabledOutput() DynamicCompressionEnabledOutput
+	ToDynamicCompressionEnabledOutputWithContext(context.Context) DynamicCompressionEnabledOutput
+}
+
+var dynamicCompressionEnabledPtrType = reflect.TypeOf((**DynamicCompressionEnabled)(nil)).Elem()
+
+type DynamicCompressionEnabledPtrInput interface {
+	pulumi.Input
+
+	ToDynamicCompressionEnabledPtrOutput() DynamicCompressionEnabledPtrOutput
+	ToDynamicCompressionEnabledPtrOutputWithContext(context.Context) DynamicCompressionEnabledPtrOutput
+}
+
+type dynamicCompressionEnabledPtr string
+
+func DynamicCompressionEnabledPtr(v string) DynamicCompressionEnabledPtrInput {
+	return (*dynamicCompressionEnabledPtr)(&v)
+}
+
+func (*dynamicCompressionEnabledPtr) ElementType() reflect.Type {
+	return dynamicCompressionEnabledPtrType
+}
+
+func (in *dynamicCompressionEnabledPtr) ToDynamicCompressionEnabledPtrOutput() DynamicCompressionEnabledPtrOutput {
+	return pulumi.ToOutput(in).(DynamicCompressionEnabledPtrOutput)
+}
+
+func (in *dynamicCompressionEnabledPtr) ToDynamicCompressionEnabledPtrOutputWithContext(ctx context.Context) DynamicCompressionEnabledPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DynamicCompressionEnabledPtrOutput)
+}
+
+type EnforceCertificateNameCheckEnabledState string
+
+const (
+	EnforceCertificateNameCheckEnabledStateEnabled  = EnforceCertificateNameCheckEnabledState("Enabled")
+	EnforceCertificateNameCheckEnabledStateDisabled = EnforceCertificateNameCheckEnabledState("Disabled")
+)
+
+func (EnforceCertificateNameCheckEnabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforceCertificateNameCheckEnabledState)(nil)).Elem()
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToEnforceCertificateNameCheckEnabledStateOutput() EnforceCertificateNameCheckEnabledStateOutput {
+	return pulumi.ToOutput(e).(EnforceCertificateNameCheckEnabledStateOutput)
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToEnforceCertificateNameCheckEnabledStateOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnforceCertificateNameCheckEnabledStateOutput)
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToEnforceCertificateNameCheckEnabledStatePtrOutput() EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return e.ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return EnforceCertificateNameCheckEnabledState(e).ToEnforceCertificateNameCheckEnabledStateOutputWithContext(ctx).ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(ctx)
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnforceCertificateNameCheckEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnforceCertificateNameCheckEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (EnforceCertificateNameCheckEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforceCertificateNameCheckEnabledState)(nil)).Elem()
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToEnforceCertificateNameCheckEnabledStateOutput() EnforceCertificateNameCheckEnabledStateOutput {
+	return o
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToEnforceCertificateNameCheckEnabledStateOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStateOutput {
+	return o
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToEnforceCertificateNameCheckEnabledStatePtrOutput() EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return o.ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforceCertificateNameCheckEnabledState) *EnforceCertificateNameCheckEnabledState {
+		return &v
+	}).(EnforceCertificateNameCheckEnabledStatePtrOutput)
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforceCertificateNameCheckEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforceCertificateNameCheckEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforceCertificateNameCheckEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnforceCertificateNameCheckEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (EnforceCertificateNameCheckEnabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforceCertificateNameCheckEnabledState)(nil)).Elem()
+}
+
+func (o EnforceCertificateNameCheckEnabledStatePtrOutput) ToEnforceCertificateNameCheckEnabledStatePtrOutput() EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return o
+}
+
+func (o EnforceCertificateNameCheckEnabledStatePtrOutput) ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return o
+}
+
+func (o EnforceCertificateNameCheckEnabledStatePtrOutput) Elem() EnforceCertificateNameCheckEnabledStateOutput {
+	return o.ApplyT(func(v *EnforceCertificateNameCheckEnabledState) EnforceCertificateNameCheckEnabledState {
+		if v != nil {
+			return *v
+		}
+		var ret EnforceCertificateNameCheckEnabledState
+		return ret
+	}).(EnforceCertificateNameCheckEnabledStateOutput)
+}
+
+func (o EnforceCertificateNameCheckEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforceCertificateNameCheckEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnforceCertificateNameCheckEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EnforceCertificateNameCheckEnabledStateInput interface {
+	pulumi.Input
+
+	ToEnforceCertificateNameCheckEnabledStateOutput() EnforceCertificateNameCheckEnabledStateOutput
+	ToEnforceCertificateNameCheckEnabledStateOutputWithContext(context.Context) EnforceCertificateNameCheckEnabledStateOutput
+}
+
+var enforceCertificateNameCheckEnabledStatePtrType = reflect.TypeOf((**EnforceCertificateNameCheckEnabledState)(nil)).Elem()
+
+type EnforceCertificateNameCheckEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToEnforceCertificateNameCheckEnabledStatePtrOutput() EnforceCertificateNameCheckEnabledStatePtrOutput
+	ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(context.Context) EnforceCertificateNameCheckEnabledStatePtrOutput
+}
+
+type enforceCertificateNameCheckEnabledStatePtr string
+
+func EnforceCertificateNameCheckEnabledStatePtr(v string) EnforceCertificateNameCheckEnabledStatePtrInput {
+	return (*enforceCertificateNameCheckEnabledStatePtr)(&v)
+}
+
+func (*enforceCertificateNameCheckEnabledStatePtr) ElementType() reflect.Type {
+	return enforceCertificateNameCheckEnabledStatePtrType
+}
+
+func (in *enforceCertificateNameCheckEnabledStatePtr) ToEnforceCertificateNameCheckEnabledStatePtrOutput() EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(EnforceCertificateNameCheckEnabledStatePtrOutput)
+}
+
+func (in *enforceCertificateNameCheckEnabledStatePtr) ToEnforceCertificateNameCheckEnabledStatePtrOutputWithContext(ctx context.Context) EnforceCertificateNameCheckEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnforceCertificateNameCheckEnabledStatePtrOutput)
+}
+
+type FrontDoorEnabledState string
+
+const (
+	FrontDoorEnabledStateEnabled  = FrontDoorEnabledState("Enabled")
+	FrontDoorEnabledStateDisabled = FrontDoorEnabledState("Disabled")
+)
+
+func (FrontDoorEnabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorEnabledState)(nil)).Elem()
+}
+
+func (e FrontDoorEnabledState) ToFrontDoorEnabledStateOutput() FrontDoorEnabledStateOutput {
+	return pulumi.ToOutput(e).(FrontDoorEnabledStateOutput)
+}
+
+func (e FrontDoorEnabledState) ToFrontDoorEnabledStateOutputWithContext(ctx context.Context) FrontDoorEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorEnabledStateOutput)
+}
+
+func (e FrontDoorEnabledState) ToFrontDoorEnabledStatePtrOutput() FrontDoorEnabledStatePtrOutput {
+	return e.ToFrontDoorEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorEnabledState) ToFrontDoorEnabledStatePtrOutputWithContext(ctx context.Context) FrontDoorEnabledStatePtrOutput {
+	return FrontDoorEnabledState(e).ToFrontDoorEnabledStateOutputWithContext(ctx).ToFrontDoorEnabledStatePtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorEnabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorEnabledState)(nil)).Elem()
+}
+
+func (o FrontDoorEnabledStateOutput) ToFrontDoorEnabledStateOutput() FrontDoorEnabledStateOutput {
+	return o
+}
+
+func (o FrontDoorEnabledStateOutput) ToFrontDoorEnabledStateOutputWithContext(ctx context.Context) FrontDoorEnabledStateOutput {
+	return o
+}
+
+func (o FrontDoorEnabledStateOutput) ToFrontDoorEnabledStatePtrOutput() FrontDoorEnabledStatePtrOutput {
+	return o.ToFrontDoorEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorEnabledStateOutput) ToFrontDoorEnabledStatePtrOutputWithContext(ctx context.Context) FrontDoorEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorEnabledState) *FrontDoorEnabledState {
+		return &v
+	}).(FrontDoorEnabledStatePtrOutput)
+}
+
+func (o FrontDoorEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorEnabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorEnabledState)(nil)).Elem()
+}
+
+func (o FrontDoorEnabledStatePtrOutput) ToFrontDoorEnabledStatePtrOutput() FrontDoorEnabledStatePtrOutput {
+	return o
+}
+
+func (o FrontDoorEnabledStatePtrOutput) ToFrontDoorEnabledStatePtrOutputWithContext(ctx context.Context) FrontDoorEnabledStatePtrOutput {
+	return o
+}
+
+func (o FrontDoorEnabledStatePtrOutput) Elem() FrontDoorEnabledStateOutput {
+	return o.ApplyT(func(v *FrontDoorEnabledState) FrontDoorEnabledState {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorEnabledState
+		return ret
+	}).(FrontDoorEnabledStateOutput)
+}
+
+func (o FrontDoorEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorEnabledStateInput interface {
+	pulumi.Input
+
+	ToFrontDoorEnabledStateOutput() FrontDoorEnabledStateOutput
+	ToFrontDoorEnabledStateOutputWithContext(context.Context) FrontDoorEnabledStateOutput
+}
+
+var frontDoorEnabledStatePtrType = reflect.TypeOf((**FrontDoorEnabledState)(nil)).Elem()
+
+type FrontDoorEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorEnabledStatePtrOutput() FrontDoorEnabledStatePtrOutput
+	ToFrontDoorEnabledStatePtrOutputWithContext(context.Context) FrontDoorEnabledStatePtrOutput
+}
+
+type frontDoorEnabledStatePtr string
+
+func FrontDoorEnabledStatePtr(v string) FrontDoorEnabledStatePtrInput {
+	return (*frontDoorEnabledStatePtr)(&v)
+}
+
+func (*frontDoorEnabledStatePtr) ElementType() reflect.Type {
+	return frontDoorEnabledStatePtrType
+}
+
+func (in *frontDoorEnabledStatePtr) ToFrontDoorEnabledStatePtrOutput() FrontDoorEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorEnabledStatePtrOutput)
+}
+
+func (in *frontDoorEnabledStatePtr) ToFrontDoorEnabledStatePtrOutputWithContext(ctx context.Context) FrontDoorEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorEnabledStatePtrOutput)
+}
+
+type FrontDoorForwardingProtocol string
+
+const (
+	FrontDoorForwardingProtocolHttpOnly     = FrontDoorForwardingProtocol("HttpOnly")
+	FrontDoorForwardingProtocolHttpsOnly    = FrontDoorForwardingProtocol("HttpsOnly")
+	FrontDoorForwardingProtocolMatchRequest = FrontDoorForwardingProtocol("MatchRequest")
+)
+
+func (FrontDoorForwardingProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorForwardingProtocol)(nil)).Elem()
+}
+
+func (e FrontDoorForwardingProtocol) ToFrontDoorForwardingProtocolOutput() FrontDoorForwardingProtocolOutput {
+	return pulumi.ToOutput(e).(FrontDoorForwardingProtocolOutput)
+}
+
+func (e FrontDoorForwardingProtocol) ToFrontDoorForwardingProtocolOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorForwardingProtocolOutput)
+}
+
+func (e FrontDoorForwardingProtocol) ToFrontDoorForwardingProtocolPtrOutput() FrontDoorForwardingProtocolPtrOutput {
+	return e.ToFrontDoorForwardingProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorForwardingProtocol) ToFrontDoorForwardingProtocolPtrOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolPtrOutput {
+	return FrontDoorForwardingProtocol(e).ToFrontDoorForwardingProtocolOutputWithContext(ctx).ToFrontDoorForwardingProtocolPtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorForwardingProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorForwardingProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorForwardingProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorForwardingProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorForwardingProtocolOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorForwardingProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorForwardingProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToFrontDoorForwardingProtocolOutput() FrontDoorForwardingProtocolOutput {
+	return o
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToFrontDoorForwardingProtocolOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolOutput {
+	return o
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToFrontDoorForwardingProtocolPtrOutput() FrontDoorForwardingProtocolPtrOutput {
+	return o.ToFrontDoorForwardingProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToFrontDoorForwardingProtocolPtrOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorForwardingProtocol) *FrontDoorForwardingProtocol {
+		return &v
+	}).(FrontDoorForwardingProtocolPtrOutput)
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorForwardingProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorForwardingProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorForwardingProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorForwardingProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorForwardingProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorForwardingProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorForwardingProtocolPtrOutput) ToFrontDoorForwardingProtocolPtrOutput() FrontDoorForwardingProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorForwardingProtocolPtrOutput) ToFrontDoorForwardingProtocolPtrOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorForwardingProtocolPtrOutput) Elem() FrontDoorForwardingProtocolOutput {
+	return o.ApplyT(func(v *FrontDoorForwardingProtocol) FrontDoorForwardingProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorForwardingProtocol
+		return ret
+	}).(FrontDoorForwardingProtocolOutput)
+}
+
+func (o FrontDoorForwardingProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorForwardingProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorForwardingProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorForwardingProtocolInput interface {
+	pulumi.Input
+
+	ToFrontDoorForwardingProtocolOutput() FrontDoorForwardingProtocolOutput
+	ToFrontDoorForwardingProtocolOutputWithContext(context.Context) FrontDoorForwardingProtocolOutput
+}
+
+var frontDoorForwardingProtocolPtrType = reflect.TypeOf((**FrontDoorForwardingProtocol)(nil)).Elem()
+
+type FrontDoorForwardingProtocolPtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorForwardingProtocolPtrOutput() FrontDoorForwardingProtocolPtrOutput
+	ToFrontDoorForwardingProtocolPtrOutputWithContext(context.Context) FrontDoorForwardingProtocolPtrOutput
+}
+
+type frontDoorForwardingProtocolPtr string
+
+func FrontDoorForwardingProtocolPtr(v string) FrontDoorForwardingProtocolPtrInput {
+	return (*frontDoorForwardingProtocolPtr)(&v)
+}
+
+func (*frontDoorForwardingProtocolPtr) ElementType() reflect.Type {
+	return frontDoorForwardingProtocolPtrType
+}
+
+func (in *frontDoorForwardingProtocolPtr) ToFrontDoorForwardingProtocolPtrOutput() FrontDoorForwardingProtocolPtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorForwardingProtocolPtrOutput)
+}
+
+func (in *frontDoorForwardingProtocolPtr) ToFrontDoorForwardingProtocolPtrOutputWithContext(ctx context.Context) FrontDoorForwardingProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorForwardingProtocolPtrOutput)
+}
+
+type FrontDoorHealthProbeMethod string
+
+const (
+	FrontDoorHealthProbeMethodGET  = FrontDoorHealthProbeMethod("GET")
+	FrontDoorHealthProbeMethodHEAD = FrontDoorHealthProbeMethod("HEAD")
+)
+
+func (FrontDoorHealthProbeMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorHealthProbeMethod)(nil)).Elem()
+}
+
+func (e FrontDoorHealthProbeMethod) ToFrontDoorHealthProbeMethodOutput() FrontDoorHealthProbeMethodOutput {
+	return pulumi.ToOutput(e).(FrontDoorHealthProbeMethodOutput)
+}
+
+func (e FrontDoorHealthProbeMethod) ToFrontDoorHealthProbeMethodOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorHealthProbeMethodOutput)
+}
+
+func (e FrontDoorHealthProbeMethod) ToFrontDoorHealthProbeMethodPtrOutput() FrontDoorHealthProbeMethodPtrOutput {
+	return e.ToFrontDoorHealthProbeMethodPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorHealthProbeMethod) ToFrontDoorHealthProbeMethodPtrOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodPtrOutput {
+	return FrontDoorHealthProbeMethod(e).ToFrontDoorHealthProbeMethodOutputWithContext(ctx).ToFrontDoorHealthProbeMethodPtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorHealthProbeMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorHealthProbeMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorHealthProbeMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorHealthProbeMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorHealthProbeMethodOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorHealthProbeMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorHealthProbeMethod)(nil)).Elem()
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToFrontDoorHealthProbeMethodOutput() FrontDoorHealthProbeMethodOutput {
+	return o
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToFrontDoorHealthProbeMethodOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodOutput {
+	return o
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToFrontDoorHealthProbeMethodPtrOutput() FrontDoorHealthProbeMethodPtrOutput {
+	return o.ToFrontDoorHealthProbeMethodPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToFrontDoorHealthProbeMethodPtrOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorHealthProbeMethod) *FrontDoorHealthProbeMethod {
+		return &v
+	}).(FrontDoorHealthProbeMethodPtrOutput)
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorHealthProbeMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorHealthProbeMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorHealthProbeMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorHealthProbeMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorHealthProbeMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorHealthProbeMethod)(nil)).Elem()
+}
+
+func (o FrontDoorHealthProbeMethodPtrOutput) ToFrontDoorHealthProbeMethodPtrOutput() FrontDoorHealthProbeMethodPtrOutput {
+	return o
+}
+
+func (o FrontDoorHealthProbeMethodPtrOutput) ToFrontDoorHealthProbeMethodPtrOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodPtrOutput {
+	return o
+}
+
+func (o FrontDoorHealthProbeMethodPtrOutput) Elem() FrontDoorHealthProbeMethodOutput {
+	return o.ApplyT(func(v *FrontDoorHealthProbeMethod) FrontDoorHealthProbeMethod {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorHealthProbeMethod
+		return ret
+	}).(FrontDoorHealthProbeMethodOutput)
+}
+
+func (o FrontDoorHealthProbeMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorHealthProbeMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorHealthProbeMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorHealthProbeMethodInput interface {
+	pulumi.Input
+
+	ToFrontDoorHealthProbeMethodOutput() FrontDoorHealthProbeMethodOutput
+	ToFrontDoorHealthProbeMethodOutputWithContext(context.Context) FrontDoorHealthProbeMethodOutput
+}
+
+var frontDoorHealthProbeMethodPtrType = reflect.TypeOf((**FrontDoorHealthProbeMethod)(nil)).Elem()
+
+type FrontDoorHealthProbeMethodPtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorHealthProbeMethodPtrOutput() FrontDoorHealthProbeMethodPtrOutput
+	ToFrontDoorHealthProbeMethodPtrOutputWithContext(context.Context) FrontDoorHealthProbeMethodPtrOutput
+}
+
+type frontDoorHealthProbeMethodPtr string
+
+func FrontDoorHealthProbeMethodPtr(v string) FrontDoorHealthProbeMethodPtrInput {
+	return (*frontDoorHealthProbeMethodPtr)(&v)
+}
+
+func (*frontDoorHealthProbeMethodPtr) ElementType() reflect.Type {
+	return frontDoorHealthProbeMethodPtrType
+}
+
+func (in *frontDoorHealthProbeMethodPtr) ToFrontDoorHealthProbeMethodPtrOutput() FrontDoorHealthProbeMethodPtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorHealthProbeMethodPtrOutput)
+}
+
+func (in *frontDoorHealthProbeMethodPtr) ToFrontDoorHealthProbeMethodPtrOutputWithContext(ctx context.Context) FrontDoorHealthProbeMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorHealthProbeMethodPtrOutput)
+}
+
+type FrontDoorProtocol string
+
+const (
+	FrontDoorProtocolHttp  = FrontDoorProtocol("Http")
+	FrontDoorProtocolHttps = FrontDoorProtocol("Https")
+)
+
+func (FrontDoorProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorProtocol)(nil)).Elem()
+}
+
+func (e FrontDoorProtocol) ToFrontDoorProtocolOutput() FrontDoorProtocolOutput {
+	return pulumi.ToOutput(e).(FrontDoorProtocolOutput)
+}
+
+func (e FrontDoorProtocol) ToFrontDoorProtocolOutputWithContext(ctx context.Context) FrontDoorProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorProtocolOutput)
+}
+
+func (e FrontDoorProtocol) ToFrontDoorProtocolPtrOutput() FrontDoorProtocolPtrOutput {
+	return e.ToFrontDoorProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorProtocol) ToFrontDoorProtocolPtrOutputWithContext(ctx context.Context) FrontDoorProtocolPtrOutput {
+	return FrontDoorProtocol(e).ToFrontDoorProtocolOutputWithContext(ctx).ToFrontDoorProtocolPtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorProtocolOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorProtocolOutput) ToFrontDoorProtocolOutput() FrontDoorProtocolOutput {
+	return o
+}
+
+func (o FrontDoorProtocolOutput) ToFrontDoorProtocolOutputWithContext(ctx context.Context) FrontDoorProtocolOutput {
+	return o
+}
+
+func (o FrontDoorProtocolOutput) ToFrontDoorProtocolPtrOutput() FrontDoorProtocolPtrOutput {
+	return o.ToFrontDoorProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorProtocolOutput) ToFrontDoorProtocolPtrOutputWithContext(ctx context.Context) FrontDoorProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorProtocol) *FrontDoorProtocol {
+		return &v
+	}).(FrontDoorProtocolPtrOutput)
+}
+
+func (o FrontDoorProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorProtocolPtrOutput) ToFrontDoorProtocolPtrOutput() FrontDoorProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorProtocolPtrOutput) ToFrontDoorProtocolPtrOutputWithContext(ctx context.Context) FrontDoorProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorProtocolPtrOutput) Elem() FrontDoorProtocolOutput {
+	return o.ApplyT(func(v *FrontDoorProtocol) FrontDoorProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorProtocol
+		return ret
+	}).(FrontDoorProtocolOutput)
+}
+
+func (o FrontDoorProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorProtocolInput interface {
+	pulumi.Input
+
+	ToFrontDoorProtocolOutput() FrontDoorProtocolOutput
+	ToFrontDoorProtocolOutputWithContext(context.Context) FrontDoorProtocolOutput
+}
+
+var frontDoorProtocolPtrType = reflect.TypeOf((**FrontDoorProtocol)(nil)).Elem()
+
+type FrontDoorProtocolPtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorProtocolPtrOutput() FrontDoorProtocolPtrOutput
+	ToFrontDoorProtocolPtrOutputWithContext(context.Context) FrontDoorProtocolPtrOutput
+}
+
+type frontDoorProtocolPtr string
+
+func FrontDoorProtocolPtr(v string) FrontDoorProtocolPtrInput {
+	return (*frontDoorProtocolPtr)(&v)
+}
+
+func (*frontDoorProtocolPtr) ElementType() reflect.Type {
+	return frontDoorProtocolPtrType
+}
+
+func (in *frontDoorProtocolPtr) ToFrontDoorProtocolPtrOutput() FrontDoorProtocolPtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorProtocolPtrOutput)
+}
+
+func (in *frontDoorProtocolPtr) ToFrontDoorProtocolPtrOutputWithContext(ctx context.Context) FrontDoorProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorProtocolPtrOutput)
+}
+
+type FrontDoorQuery string
+
+const (
+	FrontDoorQueryStripNone      = FrontDoorQuery("StripNone")
+	FrontDoorQueryStripAll       = FrontDoorQuery("StripAll")
+	FrontDoorQueryStripOnly      = FrontDoorQuery("StripOnly")
+	FrontDoorQueryStripAllExcept = FrontDoorQuery("StripAllExcept")
+)
+
+func (FrontDoorQuery) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorQuery)(nil)).Elem()
+}
+
+func (e FrontDoorQuery) ToFrontDoorQueryOutput() FrontDoorQueryOutput {
+	return pulumi.ToOutput(e).(FrontDoorQueryOutput)
+}
+
+func (e FrontDoorQuery) ToFrontDoorQueryOutputWithContext(ctx context.Context) FrontDoorQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorQueryOutput)
+}
+
+func (e FrontDoorQuery) ToFrontDoorQueryPtrOutput() FrontDoorQueryPtrOutput {
+	return e.ToFrontDoorQueryPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorQuery) ToFrontDoorQueryPtrOutputWithContext(ctx context.Context) FrontDoorQueryPtrOutput {
+	return FrontDoorQuery(e).ToFrontDoorQueryOutputWithContext(ctx).ToFrontDoorQueryPtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorQuery) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorQuery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorQuery) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorQuery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorQueryOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorQuery)(nil)).Elem()
+}
+
+func (o FrontDoorQueryOutput) ToFrontDoorQueryOutput() FrontDoorQueryOutput {
+	return o
+}
+
+func (o FrontDoorQueryOutput) ToFrontDoorQueryOutputWithContext(ctx context.Context) FrontDoorQueryOutput {
+	return o
+}
+
+func (o FrontDoorQueryOutput) ToFrontDoorQueryPtrOutput() FrontDoorQueryPtrOutput {
+	return o.ToFrontDoorQueryPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorQueryOutput) ToFrontDoorQueryPtrOutputWithContext(ctx context.Context) FrontDoorQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorQuery) *FrontDoorQuery {
+		return &v
+	}).(FrontDoorQueryPtrOutput)
+}
+
+func (o FrontDoorQueryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorQueryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorQuery) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorQueryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorQueryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorQuery) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorQuery)(nil)).Elem()
+}
+
+func (o FrontDoorQueryPtrOutput) ToFrontDoorQueryPtrOutput() FrontDoorQueryPtrOutput {
+	return o
+}
+
+func (o FrontDoorQueryPtrOutput) ToFrontDoorQueryPtrOutputWithContext(ctx context.Context) FrontDoorQueryPtrOutput {
+	return o
+}
+
+func (o FrontDoorQueryPtrOutput) Elem() FrontDoorQueryOutput {
+	return o.ApplyT(func(v *FrontDoorQuery) FrontDoorQuery {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorQuery
+		return ret
+	}).(FrontDoorQueryOutput)
+}
+
+func (o FrontDoorQueryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorQueryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorQuery) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorQueryInput interface {
+	pulumi.Input
+
+	ToFrontDoorQueryOutput() FrontDoorQueryOutput
+	ToFrontDoorQueryOutputWithContext(context.Context) FrontDoorQueryOutput
+}
+
+var frontDoorQueryPtrType = reflect.TypeOf((**FrontDoorQuery)(nil)).Elem()
+
+type FrontDoorQueryPtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorQueryPtrOutput() FrontDoorQueryPtrOutput
+	ToFrontDoorQueryPtrOutputWithContext(context.Context) FrontDoorQueryPtrOutput
+}
+
+type frontDoorQueryPtr string
+
+func FrontDoorQueryPtr(v string) FrontDoorQueryPtrInput {
+	return (*frontDoorQueryPtr)(&v)
+}
+
+func (*frontDoorQueryPtr) ElementType() reflect.Type {
+	return frontDoorQueryPtrType
+}
+
+func (in *frontDoorQueryPtr) ToFrontDoorQueryPtrOutput() FrontDoorQueryPtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorQueryPtrOutput)
+}
+
+func (in *frontDoorQueryPtr) ToFrontDoorQueryPtrOutputWithContext(ctx context.Context) FrontDoorQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorQueryPtrOutput)
+}
+
+type FrontDoorRedirectProtocol string
+
+const (
+	FrontDoorRedirectProtocolHttpOnly     = FrontDoorRedirectProtocol("HttpOnly")
+	FrontDoorRedirectProtocolHttpsOnly    = FrontDoorRedirectProtocol("HttpsOnly")
+	FrontDoorRedirectProtocolMatchRequest = FrontDoorRedirectProtocol("MatchRequest")
+)
+
+func (FrontDoorRedirectProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorRedirectProtocol)(nil)).Elem()
+}
+
+func (e FrontDoorRedirectProtocol) ToFrontDoorRedirectProtocolOutput() FrontDoorRedirectProtocolOutput {
+	return pulumi.ToOutput(e).(FrontDoorRedirectProtocolOutput)
+}
+
+func (e FrontDoorRedirectProtocol) ToFrontDoorRedirectProtocolOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorRedirectProtocolOutput)
+}
+
+func (e FrontDoorRedirectProtocol) ToFrontDoorRedirectProtocolPtrOutput() FrontDoorRedirectProtocolPtrOutput {
+	return e.ToFrontDoorRedirectProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorRedirectProtocol) ToFrontDoorRedirectProtocolPtrOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolPtrOutput {
+	return FrontDoorRedirectProtocol(e).ToFrontDoorRedirectProtocolOutputWithContext(ctx).ToFrontDoorRedirectProtocolPtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorRedirectProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorRedirectProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorRedirectProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorRedirectProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorRedirectProtocolOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorRedirectProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorRedirectProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToFrontDoorRedirectProtocolOutput() FrontDoorRedirectProtocolOutput {
+	return o
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToFrontDoorRedirectProtocolOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolOutput {
+	return o
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToFrontDoorRedirectProtocolPtrOutput() FrontDoorRedirectProtocolPtrOutput {
+	return o.ToFrontDoorRedirectProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToFrontDoorRedirectProtocolPtrOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorRedirectProtocol) *FrontDoorRedirectProtocol {
+		return &v
+	}).(FrontDoorRedirectProtocolPtrOutput)
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorRedirectProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorRedirectProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorRedirectProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorRedirectProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorRedirectProtocol)(nil)).Elem()
+}
+
+func (o FrontDoorRedirectProtocolPtrOutput) ToFrontDoorRedirectProtocolPtrOutput() FrontDoorRedirectProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorRedirectProtocolPtrOutput) ToFrontDoorRedirectProtocolPtrOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolPtrOutput {
+	return o
+}
+
+func (o FrontDoorRedirectProtocolPtrOutput) Elem() FrontDoorRedirectProtocolOutput {
+	return o.ApplyT(func(v *FrontDoorRedirectProtocol) FrontDoorRedirectProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorRedirectProtocol
+		return ret
+	}).(FrontDoorRedirectProtocolOutput)
+}
+
+func (o FrontDoorRedirectProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorRedirectProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorRedirectProtocolInput interface {
+	pulumi.Input
+
+	ToFrontDoorRedirectProtocolOutput() FrontDoorRedirectProtocolOutput
+	ToFrontDoorRedirectProtocolOutputWithContext(context.Context) FrontDoorRedirectProtocolOutput
+}
+
+var frontDoorRedirectProtocolPtrType = reflect.TypeOf((**FrontDoorRedirectProtocol)(nil)).Elem()
+
+type FrontDoorRedirectProtocolPtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorRedirectProtocolPtrOutput() FrontDoorRedirectProtocolPtrOutput
+	ToFrontDoorRedirectProtocolPtrOutputWithContext(context.Context) FrontDoorRedirectProtocolPtrOutput
+}
+
+type frontDoorRedirectProtocolPtr string
+
+func FrontDoorRedirectProtocolPtr(v string) FrontDoorRedirectProtocolPtrInput {
+	return (*frontDoorRedirectProtocolPtr)(&v)
+}
+
+func (*frontDoorRedirectProtocolPtr) ElementType() reflect.Type {
+	return frontDoorRedirectProtocolPtrType
+}
+
+func (in *frontDoorRedirectProtocolPtr) ToFrontDoorRedirectProtocolPtrOutput() FrontDoorRedirectProtocolPtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorRedirectProtocolPtrOutput)
+}
+
+func (in *frontDoorRedirectProtocolPtr) ToFrontDoorRedirectProtocolPtrOutputWithContext(ctx context.Context) FrontDoorRedirectProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorRedirectProtocolPtrOutput)
+}
+
+type FrontDoorRedirectType string
+
+const (
+	FrontDoorRedirectTypeMoved             = FrontDoorRedirectType("Moved")
+	FrontDoorRedirectTypeFound             = FrontDoorRedirectType("Found")
+	FrontDoorRedirectTypeTemporaryRedirect = FrontDoorRedirectType("TemporaryRedirect")
+	FrontDoorRedirectTypePermanentRedirect = FrontDoorRedirectType("PermanentRedirect")
+)
+
+func (FrontDoorRedirectType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorRedirectType)(nil)).Elem()
+}
+
+func (e FrontDoorRedirectType) ToFrontDoorRedirectTypeOutput() FrontDoorRedirectTypeOutput {
+	return pulumi.ToOutput(e).(FrontDoorRedirectTypeOutput)
+}
+
+func (e FrontDoorRedirectType) ToFrontDoorRedirectTypeOutputWithContext(ctx context.Context) FrontDoorRedirectTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorRedirectTypeOutput)
+}
+
+func (e FrontDoorRedirectType) ToFrontDoorRedirectTypePtrOutput() FrontDoorRedirectTypePtrOutput {
+	return e.ToFrontDoorRedirectTypePtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorRedirectType) ToFrontDoorRedirectTypePtrOutputWithContext(ctx context.Context) FrontDoorRedirectTypePtrOutput {
+	return FrontDoorRedirectType(e).ToFrontDoorRedirectTypeOutputWithContext(ctx).ToFrontDoorRedirectTypePtrOutputWithContext(ctx)
+}
+
+func (e FrontDoorRedirectType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorRedirectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorRedirectType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorRedirectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FrontDoorRedirectTypeOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorRedirectTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorRedirectType)(nil)).Elem()
+}
+
+func (o FrontDoorRedirectTypeOutput) ToFrontDoorRedirectTypeOutput() FrontDoorRedirectTypeOutput {
+	return o
+}
+
+func (o FrontDoorRedirectTypeOutput) ToFrontDoorRedirectTypeOutputWithContext(ctx context.Context) FrontDoorRedirectTypeOutput {
+	return o
+}
+
+func (o FrontDoorRedirectTypeOutput) ToFrontDoorRedirectTypePtrOutput() FrontDoorRedirectTypePtrOutput {
+	return o.ToFrontDoorRedirectTypePtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectTypeOutput) ToFrontDoorRedirectTypePtrOutputWithContext(ctx context.Context) FrontDoorRedirectTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorRedirectType) *FrontDoorRedirectType {
+		return &v
+	}).(FrontDoorRedirectTypePtrOutput)
+}
+
+func (o FrontDoorRedirectTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorRedirectType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorRedirectTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorRedirectType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorRedirectTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorRedirectTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontDoorRedirectType)(nil)).Elem()
+}
+
+func (o FrontDoorRedirectTypePtrOutput) ToFrontDoorRedirectTypePtrOutput() FrontDoorRedirectTypePtrOutput {
+	return o
+}
+
+func (o FrontDoorRedirectTypePtrOutput) ToFrontDoorRedirectTypePtrOutputWithContext(ctx context.Context) FrontDoorRedirectTypePtrOutput {
+	return o
+}
+
+func (o FrontDoorRedirectTypePtrOutput) Elem() FrontDoorRedirectTypeOutput {
+	return o.ApplyT(func(v *FrontDoorRedirectType) FrontDoorRedirectType {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorRedirectType
+		return ret
+	}).(FrontDoorRedirectTypeOutput)
+}
+
+func (o FrontDoorRedirectTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorRedirectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorRedirectType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type FrontDoorRedirectTypeInput interface {
+	pulumi.Input
+
+	ToFrontDoorRedirectTypeOutput() FrontDoorRedirectTypeOutput
+	ToFrontDoorRedirectTypeOutputWithContext(context.Context) FrontDoorRedirectTypeOutput
+}
+
+var frontDoorRedirectTypePtrType = reflect.TypeOf((**FrontDoorRedirectType)(nil)).Elem()
+
+type FrontDoorRedirectTypePtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorRedirectTypePtrOutput() FrontDoorRedirectTypePtrOutput
+	ToFrontDoorRedirectTypePtrOutputWithContext(context.Context) FrontDoorRedirectTypePtrOutput
+}
+
+type frontDoorRedirectTypePtr string
+
+func FrontDoorRedirectTypePtr(v string) FrontDoorRedirectTypePtrInput {
+	return (*frontDoorRedirectTypePtr)(&v)
+}
+
+func (*frontDoorRedirectTypePtr) ElementType() reflect.Type {
+	return frontDoorRedirectTypePtrType
+}
+
+func (in *frontDoorRedirectTypePtr) ToFrontDoorRedirectTypePtrOutput() FrontDoorRedirectTypePtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorRedirectTypePtrOutput)
+}
+
+func (in *frontDoorRedirectTypePtr) ToFrontDoorRedirectTypePtrOutputWithContext(ctx context.Context) FrontDoorRedirectTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorRedirectTypePtrOutput)
+}
+
+type HeaderActionType string
+
+const (
+	HeaderActionTypeAppend    = HeaderActionType("Append")
+	HeaderActionTypeDelete    = HeaderActionType("Delete")
+	HeaderActionTypeOverwrite = HeaderActionType("Overwrite")
+)
+
+func (HeaderActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionType)(nil)).Elem()
+}
+
+func (e HeaderActionType) ToHeaderActionTypeOutput() HeaderActionTypeOutput {
+	return pulumi.ToOutput(e).(HeaderActionTypeOutput)
+}
+
+func (e HeaderActionType) ToHeaderActionTypeOutputWithContext(ctx context.Context) HeaderActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HeaderActionTypeOutput)
+}
+
+func (e HeaderActionType) ToHeaderActionTypePtrOutput() HeaderActionTypePtrOutput {
+	return e.ToHeaderActionTypePtrOutputWithContext(context.Background())
+}
+
+func (e HeaderActionType) ToHeaderActionTypePtrOutputWithContext(ctx context.Context) HeaderActionTypePtrOutput {
+	return HeaderActionType(e).ToHeaderActionTypeOutputWithContext(ctx).ToHeaderActionTypePtrOutputWithContext(ctx)
+}
+
+func (e HeaderActionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HeaderActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HeaderActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HeaderActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HeaderActionTypeOutput struct{ *pulumi.OutputState }
+
+func (HeaderActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionType)(nil)).Elem()
+}
+
+func (o HeaderActionTypeOutput) ToHeaderActionTypeOutput() HeaderActionTypeOutput {
+	return o
+}
+
+func (o HeaderActionTypeOutput) ToHeaderActionTypeOutputWithContext(ctx context.Context) HeaderActionTypeOutput {
+	return o
+}
+
+func (o HeaderActionTypeOutput) ToHeaderActionTypePtrOutput() HeaderActionTypePtrOutput {
+	return o.ToHeaderActionTypePtrOutputWithContext(context.Background())
+}
+
+func (o HeaderActionTypeOutput) ToHeaderActionTypePtrOutputWithContext(ctx context.Context) HeaderActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HeaderActionType) *HeaderActionType {
+		return &v
+	}).(HeaderActionTypePtrOutput)
+}
+
+func (o HeaderActionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HeaderActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HeaderActionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HeaderActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HeaderActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HeaderActionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HeaderActionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HeaderActionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HeaderActionType)(nil)).Elem()
+}
+
+func (o HeaderActionTypePtrOutput) ToHeaderActionTypePtrOutput() HeaderActionTypePtrOutput {
+	return o
+}
+
+func (o HeaderActionTypePtrOutput) ToHeaderActionTypePtrOutputWithContext(ctx context.Context) HeaderActionTypePtrOutput {
+	return o
+}
+
+func (o HeaderActionTypePtrOutput) Elem() HeaderActionTypeOutput {
+	return o.ApplyT(func(v *HeaderActionType) HeaderActionType {
+		if v != nil {
+			return *v
+		}
+		var ret HeaderActionType
+		return ret
+	}).(HeaderActionTypeOutput)
+}
+
+func (o HeaderActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HeaderActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HeaderActionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type HeaderActionTypeInput interface {
+	pulumi.Input
+
+	ToHeaderActionTypeOutput() HeaderActionTypeOutput
+	ToHeaderActionTypeOutputWithContext(context.Context) HeaderActionTypeOutput
+}
+
+var headerActionTypePtrType = reflect.TypeOf((**HeaderActionType)(nil)).Elem()
+
+type HeaderActionTypePtrInput interface {
+	pulumi.Input
+
+	ToHeaderActionTypePtrOutput() HeaderActionTypePtrOutput
+	ToHeaderActionTypePtrOutputWithContext(context.Context) HeaderActionTypePtrOutput
+}
+
+type headerActionTypePtr string
+
+func HeaderActionTypePtr(v string) HeaderActionTypePtrInput {
+	return (*headerActionTypePtr)(&v)
+}
+
+func (*headerActionTypePtr) ElementType() reflect.Type {
+	return headerActionTypePtrType
+}
+
+func (in *headerActionTypePtr) ToHeaderActionTypePtrOutput() HeaderActionTypePtrOutput {
+	return pulumi.ToOutput(in).(HeaderActionTypePtrOutput)
+}
+
+func (in *headerActionTypePtr) ToHeaderActionTypePtrOutputWithContext(ctx context.Context) HeaderActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HeaderActionTypePtrOutput)
+}
+
+type HealthProbeEnabled string
+
+const (
+	HealthProbeEnabledEnabled  = HealthProbeEnabled("Enabled")
+	HealthProbeEnabledDisabled = HealthProbeEnabled("Disabled")
+)
+
+func (HealthProbeEnabled) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthProbeEnabled)(nil)).Elem()
+}
+
+func (e HealthProbeEnabled) ToHealthProbeEnabledOutput() HealthProbeEnabledOutput {
+	return pulumi.ToOutput(e).(HealthProbeEnabledOutput)
+}
+
+func (e HealthProbeEnabled) ToHealthProbeEnabledOutputWithContext(ctx context.Context) HealthProbeEnabledOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthProbeEnabledOutput)
+}
+
+func (e HealthProbeEnabled) ToHealthProbeEnabledPtrOutput() HealthProbeEnabledPtrOutput {
+	return e.ToHealthProbeEnabledPtrOutputWithContext(context.Background())
+}
+
+func (e HealthProbeEnabled) ToHealthProbeEnabledPtrOutputWithContext(ctx context.Context) HealthProbeEnabledPtrOutput {
+	return HealthProbeEnabled(e).ToHealthProbeEnabledOutputWithContext(ctx).ToHealthProbeEnabledPtrOutputWithContext(ctx)
+}
+
+func (e HealthProbeEnabled) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthProbeEnabled) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthProbeEnabled) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HealthProbeEnabled) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HealthProbeEnabledOutput struct{ *pulumi.OutputState }
+
+func (HealthProbeEnabledOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthProbeEnabled)(nil)).Elem()
+}
+
+func (o HealthProbeEnabledOutput) ToHealthProbeEnabledOutput() HealthProbeEnabledOutput {
+	return o
+}
+
+func (o HealthProbeEnabledOutput) ToHealthProbeEnabledOutputWithContext(ctx context.Context) HealthProbeEnabledOutput {
+	return o
+}
+
+func (o HealthProbeEnabledOutput) ToHealthProbeEnabledPtrOutput() HealthProbeEnabledPtrOutput {
+	return o.ToHealthProbeEnabledPtrOutputWithContext(context.Background())
+}
+
+func (o HealthProbeEnabledOutput) ToHealthProbeEnabledPtrOutputWithContext(ctx context.Context) HealthProbeEnabledPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthProbeEnabled) *HealthProbeEnabled {
+		return &v
+	}).(HealthProbeEnabledPtrOutput)
+}
+
+func (o HealthProbeEnabledOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthProbeEnabledOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthProbeEnabled) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthProbeEnabledOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthProbeEnabledOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthProbeEnabled) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthProbeEnabledPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthProbeEnabledPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthProbeEnabled)(nil)).Elem()
+}
+
+func (o HealthProbeEnabledPtrOutput) ToHealthProbeEnabledPtrOutput() HealthProbeEnabledPtrOutput {
+	return o
+}
+
+func (o HealthProbeEnabledPtrOutput) ToHealthProbeEnabledPtrOutputWithContext(ctx context.Context) HealthProbeEnabledPtrOutput {
+	return o
+}
+
+func (o HealthProbeEnabledPtrOutput) Elem() HealthProbeEnabledOutput {
+	return o.ApplyT(func(v *HealthProbeEnabled) HealthProbeEnabled {
+		if v != nil {
+			return *v
+		}
+		var ret HealthProbeEnabled
+		return ret
+	}).(HealthProbeEnabledOutput)
+}
+
+func (o HealthProbeEnabledPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthProbeEnabledPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthProbeEnabled) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type HealthProbeEnabledInput interface {
+	pulumi.Input
+
+	ToHealthProbeEnabledOutput() HealthProbeEnabledOutput
+	ToHealthProbeEnabledOutputWithContext(context.Context) HealthProbeEnabledOutput
+}
+
+var healthProbeEnabledPtrType = reflect.TypeOf((**HealthProbeEnabled)(nil)).Elem()
+
+type HealthProbeEnabledPtrInput interface {
+	pulumi.Input
+
+	ToHealthProbeEnabledPtrOutput() HealthProbeEnabledPtrOutput
+	ToHealthProbeEnabledPtrOutputWithContext(context.Context) HealthProbeEnabledPtrOutput
+}
+
+type healthProbeEnabledPtr string
+
+func HealthProbeEnabledPtr(v string) HealthProbeEnabledPtrInput {
+	return (*healthProbeEnabledPtr)(&v)
+}
+
+func (*healthProbeEnabledPtr) ElementType() reflect.Type {
+	return healthProbeEnabledPtrType
+}
+
+func (in *healthProbeEnabledPtr) ToHealthProbeEnabledPtrOutput() HealthProbeEnabledPtrOutput {
+	return pulumi.ToOutput(in).(HealthProbeEnabledPtrOutput)
+}
+
+func (in *healthProbeEnabledPtr) ToHealthProbeEnabledPtrOutputWithContext(ctx context.Context) HealthProbeEnabledPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthProbeEnabledPtrOutput)
+}
+
+type MatchProcessingBehavior string
+
+const (
+	MatchProcessingBehaviorContinue = MatchProcessingBehavior("Continue")
+	MatchProcessingBehaviorStop     = MatchProcessingBehavior("Stop")
+)
+
+func (MatchProcessingBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchProcessingBehavior)(nil)).Elem()
+}
+
+func (e MatchProcessingBehavior) ToMatchProcessingBehaviorOutput() MatchProcessingBehaviorOutput {
+	return pulumi.ToOutput(e).(MatchProcessingBehaviorOutput)
+}
+
+func (e MatchProcessingBehavior) ToMatchProcessingBehaviorOutputWithContext(ctx context.Context) MatchProcessingBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MatchProcessingBehaviorOutput)
+}
+
+func (e MatchProcessingBehavior) ToMatchProcessingBehaviorPtrOutput() MatchProcessingBehaviorPtrOutput {
+	return e.ToMatchProcessingBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e MatchProcessingBehavior) ToMatchProcessingBehaviorPtrOutputWithContext(ctx context.Context) MatchProcessingBehaviorPtrOutput {
+	return MatchProcessingBehavior(e).ToMatchProcessingBehaviorOutputWithContext(ctx).ToMatchProcessingBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e MatchProcessingBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchProcessingBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchProcessingBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MatchProcessingBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MatchProcessingBehaviorOutput struct{ *pulumi.OutputState }
+
+func (MatchProcessingBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchProcessingBehavior)(nil)).Elem()
+}
+
+func (o MatchProcessingBehaviorOutput) ToMatchProcessingBehaviorOutput() MatchProcessingBehaviorOutput {
+	return o
+}
+
+func (o MatchProcessingBehaviorOutput) ToMatchProcessingBehaviorOutputWithContext(ctx context.Context) MatchProcessingBehaviorOutput {
+	return o
+}
+
+func (o MatchProcessingBehaviorOutput) ToMatchProcessingBehaviorPtrOutput() MatchProcessingBehaviorPtrOutput {
+	return o.ToMatchProcessingBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o MatchProcessingBehaviorOutput) ToMatchProcessingBehaviorPtrOutputWithContext(ctx context.Context) MatchProcessingBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchProcessingBehavior) *MatchProcessingBehavior {
+		return &v
+	}).(MatchProcessingBehaviorPtrOutput)
+}
+
+func (o MatchProcessingBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MatchProcessingBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchProcessingBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MatchProcessingBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchProcessingBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchProcessingBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MatchProcessingBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchProcessingBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchProcessingBehavior)(nil)).Elem()
+}
+
+func (o MatchProcessingBehaviorPtrOutput) ToMatchProcessingBehaviorPtrOutput() MatchProcessingBehaviorPtrOutput {
+	return o
+}
+
+func (o MatchProcessingBehaviorPtrOutput) ToMatchProcessingBehaviorPtrOutputWithContext(ctx context.Context) MatchProcessingBehaviorPtrOutput {
+	return o
+}
+
+func (o MatchProcessingBehaviorPtrOutput) Elem() MatchProcessingBehaviorOutput {
+	return o.ApplyT(func(v *MatchProcessingBehavior) MatchProcessingBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret MatchProcessingBehavior
+		return ret
+	}).(MatchProcessingBehaviorOutput)
+}
+
+func (o MatchProcessingBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchProcessingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MatchProcessingBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type MatchProcessingBehaviorInput interface {
+	pulumi.Input
+
+	ToMatchProcessingBehaviorOutput() MatchProcessingBehaviorOutput
+	ToMatchProcessingBehaviorOutputWithContext(context.Context) MatchProcessingBehaviorOutput
+}
+
+var matchProcessingBehaviorPtrType = reflect.TypeOf((**MatchProcessingBehavior)(nil)).Elem()
+
+type MatchProcessingBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToMatchProcessingBehaviorPtrOutput() MatchProcessingBehaviorPtrOutput
+	ToMatchProcessingBehaviorPtrOutputWithContext(context.Context) MatchProcessingBehaviorPtrOutput
+}
+
+type matchProcessingBehaviorPtr string
+
+func MatchProcessingBehaviorPtr(v string) MatchProcessingBehaviorPtrInput {
+	return (*matchProcessingBehaviorPtr)(&v)
+}
+
+func (*matchProcessingBehaviorPtr) ElementType() reflect.Type {
+	return matchProcessingBehaviorPtrType
+}
+
+func (in *matchProcessingBehaviorPtr) ToMatchProcessingBehaviorPtrOutput() MatchProcessingBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(MatchProcessingBehaviorPtrOutput)
+}
+
+func (in *matchProcessingBehaviorPtr) ToMatchProcessingBehaviorPtrOutputWithContext(ctx context.Context) MatchProcessingBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MatchProcessingBehaviorPtrOutput)
+}
+
+type RoutingRuleEnabledState string
+
+const (
+	RoutingRuleEnabledStateEnabled  = RoutingRuleEnabledState("Enabled")
+	RoutingRuleEnabledStateDisabled = RoutingRuleEnabledState("Disabled")
+)
+
+func (RoutingRuleEnabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleEnabledState)(nil)).Elem()
+}
+
+func (e RoutingRuleEnabledState) ToRoutingRuleEnabledStateOutput() RoutingRuleEnabledStateOutput {
+	return pulumi.ToOutput(e).(RoutingRuleEnabledStateOutput)
+}
+
+func (e RoutingRuleEnabledState) ToRoutingRuleEnabledStateOutputWithContext(ctx context.Context) RoutingRuleEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RoutingRuleEnabledStateOutput)
+}
+
+func (e RoutingRuleEnabledState) ToRoutingRuleEnabledStatePtrOutput() RoutingRuleEnabledStatePtrOutput {
+	return e.ToRoutingRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e RoutingRuleEnabledState) ToRoutingRuleEnabledStatePtrOutputWithContext(ctx context.Context) RoutingRuleEnabledStatePtrOutput {
+	return RoutingRuleEnabledState(e).ToRoutingRuleEnabledStateOutputWithContext(ctx).ToRoutingRuleEnabledStatePtrOutputWithContext(ctx)
+}
+
+func (e RoutingRuleEnabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingRuleEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingRuleEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingRuleEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RoutingRuleEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleEnabledState)(nil)).Elem()
+}
+
+func (o RoutingRuleEnabledStateOutput) ToRoutingRuleEnabledStateOutput() RoutingRuleEnabledStateOutput {
+	return o
+}
+
+func (o RoutingRuleEnabledStateOutput) ToRoutingRuleEnabledStateOutputWithContext(ctx context.Context) RoutingRuleEnabledStateOutput {
+	return o
+}
+
+func (o RoutingRuleEnabledStateOutput) ToRoutingRuleEnabledStatePtrOutput() RoutingRuleEnabledStatePtrOutput {
+	return o.ToRoutingRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleEnabledStateOutput) ToRoutingRuleEnabledStatePtrOutputWithContext(ctx context.Context) RoutingRuleEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleEnabledState) *RoutingRuleEnabledState {
+		return &v
+	}).(RoutingRuleEnabledStatePtrOutput)
+}
+
+func (o RoutingRuleEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingRuleEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RoutingRuleEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingRuleEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoutingRuleEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleEnabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleEnabledState)(nil)).Elem()
+}
+
+func (o RoutingRuleEnabledStatePtrOutput) ToRoutingRuleEnabledStatePtrOutput() RoutingRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o RoutingRuleEnabledStatePtrOutput) ToRoutingRuleEnabledStatePtrOutputWithContext(ctx context.Context) RoutingRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o RoutingRuleEnabledStatePtrOutput) Elem() RoutingRuleEnabledStateOutput {
+	return o.ApplyT(func(v *RoutingRuleEnabledState) RoutingRuleEnabledState {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleEnabledState
+		return ret
+	}).(RoutingRuleEnabledStateOutput)
+}
+
+func (o RoutingRuleEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RoutingRuleEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type RoutingRuleEnabledStateInput interface {
+	pulumi.Input
+
+	ToRoutingRuleEnabledStateOutput() RoutingRuleEnabledStateOutput
+	ToRoutingRuleEnabledStateOutputWithContext(context.Context) RoutingRuleEnabledStateOutput
+}
+
+var routingRuleEnabledStatePtrType = reflect.TypeOf((**RoutingRuleEnabledState)(nil)).Elem()
+
+type RoutingRuleEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleEnabledStatePtrOutput() RoutingRuleEnabledStatePtrOutput
+	ToRoutingRuleEnabledStatePtrOutputWithContext(context.Context) RoutingRuleEnabledStatePtrOutput
+}
+
+type routingRuleEnabledStatePtr string
+
+func RoutingRuleEnabledStatePtr(v string) RoutingRuleEnabledStatePtrInput {
+	return (*routingRuleEnabledStatePtr)(&v)
+}
+
+func (*routingRuleEnabledStatePtr) ElementType() reflect.Type {
+	return routingRuleEnabledStatePtrType
+}
+
+func (in *routingRuleEnabledStatePtr) ToRoutingRuleEnabledStatePtrOutput() RoutingRuleEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(RoutingRuleEnabledStatePtrOutput)
+}
+
+func (in *routingRuleEnabledStatePtr) ToRoutingRuleEnabledStatePtrOutputWithContext(ctx context.Context) RoutingRuleEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RoutingRuleEnabledStatePtrOutput)
+}
+
+type RulesEngineMatchVariable string
+
+const (
+	RulesEngineMatchVariableIsMobile                 = RulesEngineMatchVariable("IsMobile")
+	RulesEngineMatchVariableRemoteAddr               = RulesEngineMatchVariable("RemoteAddr")
+	RulesEngineMatchVariableRequestMethod            = RulesEngineMatchVariable("RequestMethod")
+	RulesEngineMatchVariableQueryString              = RulesEngineMatchVariable("QueryString")
+	RulesEngineMatchVariablePostArgs                 = RulesEngineMatchVariable("PostArgs")
+	RulesEngineMatchVariableRequestUri               = RulesEngineMatchVariable("RequestUri")
+	RulesEngineMatchVariableRequestPath              = RulesEngineMatchVariable("RequestPath")
+	RulesEngineMatchVariableRequestFilename          = RulesEngineMatchVariable("RequestFilename")
+	RulesEngineMatchVariableRequestFilenameExtension = RulesEngineMatchVariable("RequestFilenameExtension")
+	RulesEngineMatchVariableRequestHeader            = RulesEngineMatchVariable("RequestHeader")
+	RulesEngineMatchVariableRequestBody              = RulesEngineMatchVariable("RequestBody")
+	RulesEngineMatchVariableRequestScheme            = RulesEngineMatchVariable("RequestScheme")
+)
+
+func (RulesEngineMatchVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineMatchVariable)(nil)).Elem()
+}
+
+func (e RulesEngineMatchVariable) ToRulesEngineMatchVariableOutput() RulesEngineMatchVariableOutput {
+	return pulumi.ToOutput(e).(RulesEngineMatchVariableOutput)
+}
+
+func (e RulesEngineMatchVariable) ToRulesEngineMatchVariableOutputWithContext(ctx context.Context) RulesEngineMatchVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulesEngineMatchVariableOutput)
+}
+
+func (e RulesEngineMatchVariable) ToRulesEngineMatchVariablePtrOutput() RulesEngineMatchVariablePtrOutput {
+	return e.ToRulesEngineMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (e RulesEngineMatchVariable) ToRulesEngineMatchVariablePtrOutputWithContext(ctx context.Context) RulesEngineMatchVariablePtrOutput {
+	return RulesEngineMatchVariable(e).ToRulesEngineMatchVariableOutputWithContext(ctx).ToRulesEngineMatchVariablePtrOutputWithContext(ctx)
+}
+
+func (e RulesEngineMatchVariable) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesEngineMatchVariable) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesEngineMatchVariable) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulesEngineMatchVariable) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulesEngineMatchVariableOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineMatchVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineMatchVariable)(nil)).Elem()
+}
+
+func (o RulesEngineMatchVariableOutput) ToRulesEngineMatchVariableOutput() RulesEngineMatchVariableOutput {
+	return o
+}
+
+func (o RulesEngineMatchVariableOutput) ToRulesEngineMatchVariableOutputWithContext(ctx context.Context) RulesEngineMatchVariableOutput {
+	return o
+}
+
+func (o RulesEngineMatchVariableOutput) ToRulesEngineMatchVariablePtrOutput() RulesEngineMatchVariablePtrOutput {
+	return o.ToRulesEngineMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineMatchVariableOutput) ToRulesEngineMatchVariablePtrOutputWithContext(ctx context.Context) RulesEngineMatchVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesEngineMatchVariable) *RulesEngineMatchVariable {
+		return &v
+	}).(RulesEngineMatchVariablePtrOutput)
+}
+
+func (o RulesEngineMatchVariableOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulesEngineMatchVariableOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesEngineMatchVariable) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulesEngineMatchVariableOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineMatchVariableOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesEngineMatchVariable) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulesEngineMatchVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineMatchVariablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesEngineMatchVariable)(nil)).Elem()
+}
+
+func (o RulesEngineMatchVariablePtrOutput) ToRulesEngineMatchVariablePtrOutput() RulesEngineMatchVariablePtrOutput {
+	return o
+}
+
+func (o RulesEngineMatchVariablePtrOutput) ToRulesEngineMatchVariablePtrOutputWithContext(ctx context.Context) RulesEngineMatchVariablePtrOutput {
+	return o
+}
+
+func (o RulesEngineMatchVariablePtrOutput) Elem() RulesEngineMatchVariableOutput {
+	return o.ApplyT(func(v *RulesEngineMatchVariable) RulesEngineMatchVariable {
+		if v != nil {
+			return *v
+		}
+		var ret RulesEngineMatchVariable
+		return ret
+	}).(RulesEngineMatchVariableOutput)
+}
+
+func (o RulesEngineMatchVariablePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineMatchVariablePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulesEngineMatchVariable) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type RulesEngineMatchVariableInput interface {
+	pulumi.Input
+
+	ToRulesEngineMatchVariableOutput() RulesEngineMatchVariableOutput
+	ToRulesEngineMatchVariableOutputWithContext(context.Context) RulesEngineMatchVariableOutput
+}
+
+var rulesEngineMatchVariablePtrType = reflect.TypeOf((**RulesEngineMatchVariable)(nil)).Elem()
+
+type RulesEngineMatchVariablePtrInput interface {
+	pulumi.Input
+
+	ToRulesEngineMatchVariablePtrOutput() RulesEngineMatchVariablePtrOutput
+	ToRulesEngineMatchVariablePtrOutputWithContext(context.Context) RulesEngineMatchVariablePtrOutput
+}
+
+type rulesEngineMatchVariablePtr string
+
+func RulesEngineMatchVariablePtr(v string) RulesEngineMatchVariablePtrInput {
+	return (*rulesEngineMatchVariablePtr)(&v)
+}
+
+func (*rulesEngineMatchVariablePtr) ElementType() reflect.Type {
+	return rulesEngineMatchVariablePtrType
+}
+
+func (in *rulesEngineMatchVariablePtr) ToRulesEngineMatchVariablePtrOutput() RulesEngineMatchVariablePtrOutput {
+	return pulumi.ToOutput(in).(RulesEngineMatchVariablePtrOutput)
+}
+
+func (in *rulesEngineMatchVariablePtr) ToRulesEngineMatchVariablePtrOutputWithContext(ctx context.Context) RulesEngineMatchVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulesEngineMatchVariablePtrOutput)
+}
+
+type RulesEngineOperator string
+
+const (
+	RulesEngineOperatorAny                = RulesEngineOperator("Any")
+	RulesEngineOperatorIPMatch            = RulesEngineOperator("IPMatch")
+	RulesEngineOperatorGeoMatch           = RulesEngineOperator("GeoMatch")
+	RulesEngineOperatorEqual              = RulesEngineOperator("Equal")
+	RulesEngineOperatorContains           = RulesEngineOperator("Contains")
+	RulesEngineOperatorLessThan           = RulesEngineOperator("LessThan")
+	RulesEngineOperatorGreaterThan        = RulesEngineOperator("GreaterThan")
+	RulesEngineOperatorLessThanOrEqual    = RulesEngineOperator("LessThanOrEqual")
+	RulesEngineOperatorGreaterThanOrEqual = RulesEngineOperator("GreaterThanOrEqual")
+	RulesEngineOperatorBeginsWith         = RulesEngineOperator("BeginsWith")
+	RulesEngineOperatorEndsWith           = RulesEngineOperator("EndsWith")
+)
+
+func (RulesEngineOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineOperator)(nil)).Elem()
+}
+
+func (e RulesEngineOperator) ToRulesEngineOperatorOutput() RulesEngineOperatorOutput {
+	return pulumi.ToOutput(e).(RulesEngineOperatorOutput)
+}
+
+func (e RulesEngineOperator) ToRulesEngineOperatorOutputWithContext(ctx context.Context) RulesEngineOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulesEngineOperatorOutput)
+}
+
+func (e RulesEngineOperator) ToRulesEngineOperatorPtrOutput() RulesEngineOperatorPtrOutput {
+	return e.ToRulesEngineOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e RulesEngineOperator) ToRulesEngineOperatorPtrOutputWithContext(ctx context.Context) RulesEngineOperatorPtrOutput {
+	return RulesEngineOperator(e).ToRulesEngineOperatorOutputWithContext(ctx).ToRulesEngineOperatorPtrOutputWithContext(ctx)
+}
+
+func (e RulesEngineOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesEngineOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesEngineOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulesEngineOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulesEngineOperatorOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineOperator)(nil)).Elem()
+}
+
+func (o RulesEngineOperatorOutput) ToRulesEngineOperatorOutput() RulesEngineOperatorOutput {
+	return o
+}
+
+func (o RulesEngineOperatorOutput) ToRulesEngineOperatorOutputWithContext(ctx context.Context) RulesEngineOperatorOutput {
+	return o
+}
+
+func (o RulesEngineOperatorOutput) ToRulesEngineOperatorPtrOutput() RulesEngineOperatorPtrOutput {
+	return o.ToRulesEngineOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineOperatorOutput) ToRulesEngineOperatorPtrOutputWithContext(ctx context.Context) RulesEngineOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesEngineOperator) *RulesEngineOperator {
+		return &v
+	}).(RulesEngineOperatorPtrOutput)
+}
+
+func (o RulesEngineOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulesEngineOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesEngineOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulesEngineOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesEngineOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulesEngineOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (RulesEngineOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesEngineOperator)(nil)).Elem()
+}
+
+func (o RulesEngineOperatorPtrOutput) ToRulesEngineOperatorPtrOutput() RulesEngineOperatorPtrOutput {
+	return o
+}
+
+func (o RulesEngineOperatorPtrOutput) ToRulesEngineOperatorPtrOutputWithContext(ctx context.Context) RulesEngineOperatorPtrOutput {
+	return o
+}
+
+func (o RulesEngineOperatorPtrOutput) Elem() RulesEngineOperatorOutput {
+	return o.ApplyT(func(v *RulesEngineOperator) RulesEngineOperator {
+		if v != nil {
+			return *v
+		}
+		var ret RulesEngineOperator
+		return ret
+	}).(RulesEngineOperatorOutput)
+}
+
+func (o RulesEngineOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesEngineOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulesEngineOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type RulesEngineOperatorInput interface {
+	pulumi.Input
+
+	ToRulesEngineOperatorOutput() RulesEngineOperatorOutput
+	ToRulesEngineOperatorOutputWithContext(context.Context) RulesEngineOperatorOutput
+}
+
+var rulesEngineOperatorPtrType = reflect.TypeOf((**RulesEngineOperator)(nil)).Elem()
+
+type RulesEngineOperatorPtrInput interface {
+	pulumi.Input
+
+	ToRulesEngineOperatorPtrOutput() RulesEngineOperatorPtrOutput
+	ToRulesEngineOperatorPtrOutputWithContext(context.Context) RulesEngineOperatorPtrOutput
+}
+
+type rulesEngineOperatorPtr string
+
+func RulesEngineOperatorPtr(v string) RulesEngineOperatorPtrInput {
+	return (*rulesEngineOperatorPtr)(&v)
+}
+
+func (*rulesEngineOperatorPtr) ElementType() reflect.Type {
+	return rulesEngineOperatorPtrType
+}
+
+func (in *rulesEngineOperatorPtr) ToRulesEngineOperatorPtrOutput() RulesEngineOperatorPtrOutput {
+	return pulumi.ToOutput(in).(RulesEngineOperatorPtrOutput)
+}
+
+func (in *rulesEngineOperatorPtr) ToRulesEngineOperatorPtrOutputWithContext(ctx context.Context) RulesEngineOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulesEngineOperatorPtrOutput)
+}
+
+type SessionAffinityEnabledState string
+
+const (
+	SessionAffinityEnabledStateEnabled  = SessionAffinityEnabledState("Enabled")
+	SessionAffinityEnabledStateDisabled = SessionAffinityEnabledState("Disabled")
+)
+
+func (SessionAffinityEnabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionAffinityEnabledState)(nil)).Elem()
+}
+
+func (e SessionAffinityEnabledState) ToSessionAffinityEnabledStateOutput() SessionAffinityEnabledStateOutput {
+	return pulumi.ToOutput(e).(SessionAffinityEnabledStateOutput)
+}
+
+func (e SessionAffinityEnabledState) ToSessionAffinityEnabledStateOutputWithContext(ctx context.Context) SessionAffinityEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SessionAffinityEnabledStateOutput)
+}
+
+func (e SessionAffinityEnabledState) ToSessionAffinityEnabledStatePtrOutput() SessionAffinityEnabledStatePtrOutput {
+	return e.ToSessionAffinityEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e SessionAffinityEnabledState) ToSessionAffinityEnabledStatePtrOutputWithContext(ctx context.Context) SessionAffinityEnabledStatePtrOutput {
+	return SessionAffinityEnabledState(e).ToSessionAffinityEnabledStateOutputWithContext(ctx).ToSessionAffinityEnabledStatePtrOutputWithContext(ctx)
+}
+
+func (e SessionAffinityEnabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionAffinityEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionAffinityEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SessionAffinityEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SessionAffinityEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (SessionAffinityEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionAffinityEnabledState)(nil)).Elem()
+}
+
+func (o SessionAffinityEnabledStateOutput) ToSessionAffinityEnabledStateOutput() SessionAffinityEnabledStateOutput {
+	return o
+}
+
+func (o SessionAffinityEnabledStateOutput) ToSessionAffinityEnabledStateOutputWithContext(ctx context.Context) SessionAffinityEnabledStateOutput {
+	return o
+}
+
+func (o SessionAffinityEnabledStateOutput) ToSessionAffinityEnabledStatePtrOutput() SessionAffinityEnabledStatePtrOutput {
+	return o.ToSessionAffinityEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o SessionAffinityEnabledStateOutput) ToSessionAffinityEnabledStatePtrOutputWithContext(ctx context.Context) SessionAffinityEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionAffinityEnabledState) *SessionAffinityEnabledState {
+		return &v
+	}).(SessionAffinityEnabledStatePtrOutput)
+}
+
+func (o SessionAffinityEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionAffinityEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionAffinityEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionAffinityEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionAffinityEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionAffinityEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionAffinityEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SessionAffinityEnabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionAffinityEnabledState)(nil)).Elem()
+}
+
+func (o SessionAffinityEnabledStatePtrOutput) ToSessionAffinityEnabledStatePtrOutput() SessionAffinityEnabledStatePtrOutput {
+	return o
+}
+
+func (o SessionAffinityEnabledStatePtrOutput) ToSessionAffinityEnabledStatePtrOutputWithContext(ctx context.Context) SessionAffinityEnabledStatePtrOutput {
+	return o
+}
+
+func (o SessionAffinityEnabledStatePtrOutput) Elem() SessionAffinityEnabledStateOutput {
+	return o.ApplyT(func(v *SessionAffinityEnabledState) SessionAffinityEnabledState {
+		if v != nil {
+			return *v
+		}
+		var ret SessionAffinityEnabledState
+		return ret
+	}).(SessionAffinityEnabledStateOutput)
+}
+
+func (o SessionAffinityEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionAffinityEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionAffinityEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SessionAffinityEnabledStateInput interface {
+	pulumi.Input
+
+	ToSessionAffinityEnabledStateOutput() SessionAffinityEnabledStateOutput
+	ToSessionAffinityEnabledStateOutputWithContext(context.Context) SessionAffinityEnabledStateOutput
+}
+
+var sessionAffinityEnabledStatePtrType = reflect.TypeOf((**SessionAffinityEnabledState)(nil)).Elem()
+
+type SessionAffinityEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToSessionAffinityEnabledStatePtrOutput() SessionAffinityEnabledStatePtrOutput
+	ToSessionAffinityEnabledStatePtrOutputWithContext(context.Context) SessionAffinityEnabledStatePtrOutput
+}
+
+type sessionAffinityEnabledStatePtr string
+
+func SessionAffinityEnabledStatePtr(v string) SessionAffinityEnabledStatePtrInput {
+	return (*sessionAffinityEnabledStatePtr)(&v)
+}
+
+func (*sessionAffinityEnabledStatePtr) ElementType() reflect.Type {
+	return sessionAffinityEnabledStatePtrType
+}
+
+func (in *sessionAffinityEnabledStatePtr) ToSessionAffinityEnabledStatePtrOutput() SessionAffinityEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(SessionAffinityEnabledStatePtrOutput)
+}
+
+func (in *sessionAffinityEnabledStatePtr) ToSessionAffinityEnabledStatePtrOutputWithContext(ctx context.Context) SessionAffinityEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SessionAffinityEnabledStatePtrOutput)
+}
+
+type Transform string
+
+const (
+	TransformLowercase   = Transform("Lowercase")
+	TransformUppercase   = Transform("Uppercase")
+	TransformTrim        = Transform("Trim")
+	TransformUrlDecode   = Transform("UrlDecode")
+	TransformUrlEncode   = Transform("UrlEncode")
+	TransformRemoveNulls = Transform("RemoveNulls")
+)
+
+func (Transform) ElementType() reflect.Type {
+	return reflect.TypeOf((*Transform)(nil)).Elem()
+}
+
+func (e Transform) ToTransformOutput() TransformOutput {
+	return pulumi.ToOutput(e).(TransformOutput)
+}
+
+func (e Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformOutput)
+}
+
+func (e Transform) ToTransformPtrOutput() TransformPtrOutput {
+	return e.ToTransformPtrOutputWithContext(context.Background())
+}
+
+func (e Transform) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return Transform(e).ToTransformOutputWithContext(ctx).ToTransformPtrOutputWithContext(ctx)
+}
+
+func (e Transform) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Transform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Transform) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Transform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformOutput struct{ *pulumi.OutputState }
+
+func (TransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Transform)(nil)).Elem()
+}
+
+func (o TransformOutput) ToTransformOutput() TransformOutput {
+	return o
+}
+
+func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+	return o
+}
+
+func (o TransformOutput) ToTransformPtrOutput() TransformPtrOutput {
+	return o.ToTransformPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Transform) *Transform {
+		return &v
+	}).(TransformPtrOutput)
+}
+
+func (o TransformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Transform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Transform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Transform)(nil)).Elem()
+}
+
+func (o TransformPtrOutput) ToTransformPtrOutput() TransformPtrOutput {
+	return o
+}
+
+func (o TransformPtrOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return o
+}
+
+func (o TransformPtrOutput) Elem() TransformOutput {
+	return o.ApplyT(func(v *Transform) Transform {
+		if v != nil {
+			return *v
+		}
+		var ret Transform
+		return ret
+	}).(TransformOutput)
+}
+
+func (o TransformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Transform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type TransformInput interface {
+	pulumi.Input
+
+	ToTransformOutput() TransformOutput
+	ToTransformOutputWithContext(context.Context) TransformOutput
+}
+
+var transformPtrType = reflect.TypeOf((**Transform)(nil)).Elem()
+
+type TransformPtrInput interface {
+	pulumi.Input
+
+	ToTransformPtrOutput() TransformPtrOutput
+	ToTransformPtrOutputWithContext(context.Context) TransformPtrOutput
+}
+
+type transformPtr string
+
+func TransformPtr(v string) TransformPtrInput {
+	return (*transformPtr)(&v)
+}
+
+func (*transformPtr) ElementType() reflect.Type {
+	return transformPtrType
+}
+
+func (in *transformPtr) ToTransformPtrOutput() TransformPtrOutput {
+	return pulumi.ToOutput(in).(TransformPtrOutput)
+}
+
+func (in *transformPtr) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnabledStateInput)(nil)).Elem(), BackendEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnabledStatePtrInput)(nil)).Elem(), BackendEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicCompressionEnabledInput)(nil)).Elem(), DynamicCompressionEnabled("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicCompressionEnabledPtrInput)(nil)).Elem(), DynamicCompressionEnabled("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforceCertificateNameCheckEnabledStateInput)(nil)).Elem(), EnforceCertificateNameCheckEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforceCertificateNameCheckEnabledStatePtrInput)(nil)).Elem(), EnforceCertificateNameCheckEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorEnabledStateInput)(nil)).Elem(), FrontDoorEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorEnabledStatePtrInput)(nil)).Elem(), FrontDoorEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorForwardingProtocolInput)(nil)).Elem(), FrontDoorForwardingProtocol("HttpOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorForwardingProtocolPtrInput)(nil)).Elem(), FrontDoorForwardingProtocol("HttpOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorHealthProbeMethodInput)(nil)).Elem(), FrontDoorHealthProbeMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorHealthProbeMethodPtrInput)(nil)).Elem(), FrontDoorHealthProbeMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorProtocolInput)(nil)).Elem(), FrontDoorProtocol("Http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorProtocolPtrInput)(nil)).Elem(), FrontDoorProtocol("Http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorQueryInput)(nil)).Elem(), FrontDoorQuery("StripNone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorQueryPtrInput)(nil)).Elem(), FrontDoorQuery("StripNone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorRedirectProtocolInput)(nil)).Elem(), FrontDoorRedirectProtocol("HttpOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorRedirectProtocolPtrInput)(nil)).Elem(), FrontDoorRedirectProtocol("HttpOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorRedirectTypeInput)(nil)).Elem(), FrontDoorRedirectType("Moved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontDoorRedirectTypePtrInput)(nil)).Elem(), FrontDoorRedirectType("Moved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HeaderActionTypeInput)(nil)).Elem(), HeaderActionType("Append"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HeaderActionTypePtrInput)(nil)).Elem(), HeaderActionType("Append"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthProbeEnabledInput)(nil)).Elem(), HealthProbeEnabled("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthProbeEnabledPtrInput)(nil)).Elem(), HealthProbeEnabled("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchProcessingBehaviorInput)(nil)).Elem(), MatchProcessingBehavior("Continue"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchProcessingBehaviorPtrInput)(nil)).Elem(), MatchProcessingBehavior("Continue"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleEnabledStateInput)(nil)).Elem(), RoutingRuleEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleEnabledStatePtrInput)(nil)).Elem(), RoutingRuleEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineMatchVariableInput)(nil)).Elem(), RulesEngineMatchVariable("IsMobile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineMatchVariablePtrInput)(nil)).Elem(), RulesEngineMatchVariable("IsMobile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineOperatorInput)(nil)).Elem(), RulesEngineOperator("Any"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineOperatorPtrInput)(nil)).Elem(), RulesEngineOperator("Any"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionAffinityEnabledStateInput)(nil)).Elem(), SessionAffinityEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionAffinityEnabledStatePtrInput)(nil)).Elem(), SessionAffinityEnabledState("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformInput)(nil)).Elem(), Transform("Lowercase"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformPtrInput)(nil)).Elem(), Transform("Lowercase"))
+	pulumi.RegisterOutputType(BackendEnabledStateOutput{})
+	pulumi.RegisterOutputType(BackendEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(DynamicCompressionEnabledOutput{})
+	pulumi.RegisterOutputType(DynamicCompressionEnabledPtrOutput{})
+	pulumi.RegisterOutputType(EnforceCertificateNameCheckEnabledStateOutput{})
+	pulumi.RegisterOutputType(EnforceCertificateNameCheckEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorEnabledStateOutput{})
+	pulumi.RegisterOutputType(FrontDoorEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorForwardingProtocolOutput{})
+	pulumi.RegisterOutputType(FrontDoorForwardingProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorHealthProbeMethodOutput{})
+	pulumi.RegisterOutputType(FrontDoorHealthProbeMethodPtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorProtocolOutput{})
+	pulumi.RegisterOutputType(FrontDoorProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorQueryOutput{})
+	pulumi.RegisterOutputType(FrontDoorQueryPtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorRedirectProtocolOutput{})
+	pulumi.RegisterOutputType(FrontDoorRedirectProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorRedirectTypeOutput{})
+	pulumi.RegisterOutputType(FrontDoorRedirectTypePtrOutput{})
+	pulumi.RegisterOutputType(HeaderActionTypeOutput{})
+	pulumi.RegisterOutputType(HeaderActionTypePtrOutput{})
+	pulumi.RegisterOutputType(HealthProbeEnabledOutput{})
+	pulumi.RegisterOutputType(HealthProbeEnabledPtrOutput{})
+	pulumi.RegisterOutputType(MatchProcessingBehaviorOutput{})
+	pulumi.RegisterOutputType(MatchProcessingBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RoutingRuleEnabledStateOutput{})
+	pulumi.RegisterOutputType(RoutingRuleEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(RulesEngineMatchVariableOutput{})
+	pulumi.RegisterOutputType(RulesEngineMatchVariablePtrOutput{})
+	pulumi.RegisterOutputType(RulesEngineOperatorOutput{})
+	pulumi.RegisterOutputType(RulesEngineOperatorPtrOutput{})
+	pulumi.RegisterOutputType(SessionAffinityEnabledStateOutput{})
+	pulumi.RegisterOutputType(SessionAffinityEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutput{})
+	pulumi.RegisterOutputType(TransformPtrOutput{})
+}
