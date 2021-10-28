@@ -351,10 +351,6 @@ func (in *visibilityPtr) ToVisibilityPtrOutputWithContext(ctx context.Context) V
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceScopeInput)(nil)).Elem(), MaintenanceScope("Host"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceScopePtrInput)(nil)).Elem(), MaintenanceScope("Host"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VisibilityInput)(nil)).Elem(), Visibility("Custom"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VisibilityPtrInput)(nil)).Elem(), Visibility("Custom"))
 	pulumi.RegisterOutputType(MaintenanceScopeOutput{})
 	pulumi.RegisterOutputType(MaintenanceScopePtrOutput{})
 	pulumi.RegisterOutputType(VisibilityOutput{})

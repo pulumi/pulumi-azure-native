@@ -208,6 +208,5 @@ func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServiceP
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnectionInput)(nil)).Elem(), &PrivateLinkServicePrivateEndpointConnection{})
 	pulumi.RegisterOutputType(PrivateLinkServicePrivateEndpointConnectionOutput{})
 }

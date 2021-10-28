@@ -207,6 +207,5 @@ func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationPolicyInput)(nil)).Elem(), &ApiOperationPolicy{})
 	pulumi.RegisterOutputType(ApiOperationPolicyOutput{})
 }

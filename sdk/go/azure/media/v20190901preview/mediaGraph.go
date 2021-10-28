@@ -149,6 +149,5 @@ func (o MediaGraphOutput) ToMediaGraphOutputWithContext(ctx context.Context) Med
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphInput)(nil)).Elem(), &MediaGraph{})
 	pulumi.RegisterOutputType(MediaGraphOutput{})
 }

@@ -142,6 +142,5 @@ func (o FileOutput) ToFileOutputWithContext(ctx context.Context) FileOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FileInput)(nil)).Elem(), &File{})
 	pulumi.RegisterOutputType(FileOutput{})
 }

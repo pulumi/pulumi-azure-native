@@ -137,6 +137,5 @@ func (o ControllerDetailsOutput) ToControllerDetailsOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ControllerDetailsInput)(nil)).Elem(), &ControllerDetails{})
 	pulumi.RegisterOutputType(ControllerDetailsOutput{})
 }

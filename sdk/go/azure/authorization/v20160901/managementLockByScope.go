@@ -144,6 +144,5 @@ func (o ManagementLockByScopeOutput) ToManagementLockByScopeOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockByScopeInput)(nil)).Elem(), &ManagementLockByScope{})
 	pulumi.RegisterOutputType(ManagementLockByScopeOutput{})
 }

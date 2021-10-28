@@ -788,18 +788,6 @@ func (o TypedErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) TypedErrorIn
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDefinitionResponseInput)(nil)).Elem(), ErrorDefinitionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ErrorDefinitionResponseArrayInput)(nil)).Elem(), ErrorDefinitionResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationDeploymentResponseInput)(nil)).Elem(), RemediationDeploymentResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationDeploymentResponseArrayInput)(nil)).Elem(), RemediationDeploymentResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationDeploymentSummaryResponseInput)(nil)).Elem(), RemediationDeploymentSummaryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationDeploymentSummaryResponsePtrInput)(nil)).Elem(), RemediationDeploymentSummaryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationFiltersInput)(nil)).Elem(), RemediationFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationFiltersPtrInput)(nil)).Elem(), RemediationFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationFiltersResponseInput)(nil)).Elem(), RemediationFiltersResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationFiltersResponsePtrInput)(nil)).Elem(), RemediationFiltersResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TypedErrorInfoResponseInput)(nil)).Elem(), TypedErrorInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TypedErrorInfoResponseArrayInput)(nil)).Elem(), TypedErrorInfoResponseArray{})
 	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentResponseOutput{})

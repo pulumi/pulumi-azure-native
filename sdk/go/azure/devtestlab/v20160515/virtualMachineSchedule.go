@@ -173,6 +173,5 @@ func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScheduleInput)(nil)).Elem(), &VirtualMachineSchedule{})
 	pulumi.RegisterOutputType(VirtualMachineScheduleOutput{})
 }

@@ -485,12 +485,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DefenderSettingsPropertiesMdeIntegrationInput)(nil)).Elem(), DefenderSettingsPropertiesMdeIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefenderSettingsPropertiesMdeIntegrationPtrInput)(nil)).Elem(), DefenderSettingsPropertiesMdeIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefenderSettingsPropertiesResponseMdeIntegrationInput)(nil)).Elem(), DefenderSettingsPropertiesResponseMdeIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefenderSettingsPropertiesResponseMdeIntegrationPtrInput)(nil)).Elem(), DefenderSettingsPropertiesResponseMdeIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(DefenderSettingsPropertiesMdeIntegrationOutput{})
 	pulumi.RegisterOutputType(DefenderSettingsPropertiesMdeIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(DefenderSettingsPropertiesResponseMdeIntegrationOutput{})

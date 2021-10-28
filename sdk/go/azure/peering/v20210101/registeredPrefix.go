@@ -156,6 +156,5 @@ func (o RegisteredPrefixOutput) ToRegisteredPrefixOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredPrefixInput)(nil)).Elem(), &RegisteredPrefix{})
 	pulumi.RegisterOutputType(RegisteredPrefixOutput{})
 }

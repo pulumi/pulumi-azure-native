@@ -142,6 +142,5 @@ func (o SubscriptionDiagnosticSettingOutput) ToSubscriptionDiagnosticSettingOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionDiagnosticSettingInput)(nil)).Elem(), &SubscriptionDiagnosticSetting{})
 	pulumi.RegisterOutputType(SubscriptionDiagnosticSettingOutput{})
 }

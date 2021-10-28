@@ -122,6 +122,5 @@ func (o VendorOutput) ToVendorOutputWithContext(ctx context.Context) VendorOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VendorInput)(nil)).Elem(), &Vendor{})
 	pulumi.RegisterOutputType(VendorOutput{})
 }

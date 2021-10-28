@@ -265,6 +265,5 @@ func (o MongoDBResourceMongoDBCollectionOutput) ToMongoDBResourceMongoDBCollecti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MongoDBResourceMongoDBCollectionInput)(nil)).Elem(), &MongoDBResourceMongoDBCollection{})
 	pulumi.RegisterOutputType(MongoDBResourceMongoDBCollectionOutput{})
 }

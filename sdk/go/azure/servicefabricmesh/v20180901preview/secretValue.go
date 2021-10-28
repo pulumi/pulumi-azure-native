@@ -135,6 +135,5 @@ func (o SecretValueOutput) ToSecretValueOutputWithContext(ctx context.Context) S
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretValueInput)(nil)).Elem(), &SecretValue{})
 	pulumi.RegisterOutputType(SecretValueOutput{})
 }

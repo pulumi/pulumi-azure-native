@@ -226,6 +226,5 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogInput)(nil)).Elem(), &FlowLog{})
 	pulumi.RegisterOutputType(FlowLogOutput{})
 }

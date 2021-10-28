@@ -667,14 +667,6 @@ func (in *tokenTypePtr) ToTokenTypePtrOutputWithContext(ctx context.Context) Tok
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildTaskStatusInput)(nil)).Elem(), BuildTaskStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildTaskStatusPtrInput)(nil)).Elem(), BuildTaskStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypeInput)(nil)).Elem(), OsType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypePtrInput)(nil)).Elem(), OsType("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlTypeInput)(nil)).Elem(), SourceControlType("Github"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlTypePtrInput)(nil)).Elem(), SourceControlType("Github"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypeInput)(nil)).Elem(), TokenType("PAT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TokenTypePtrInput)(nil)).Elem(), TokenType("PAT"))
 	pulumi.RegisterOutputType(BuildTaskStatusOutput{})
 	pulumi.RegisterOutputType(BuildTaskStatusPtrOutput{})
 	pulumi.RegisterOutputType(OsTypeOutput{})

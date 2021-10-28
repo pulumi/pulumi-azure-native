@@ -635,18 +635,6 @@ func (o CustomRPValidationsResponseArrayOutput) Index(i pulumi.IntInput) CustomR
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPActionRouteDefinitionInput)(nil)).Elem(), CustomRPActionRouteDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPActionRouteDefinitionArrayInput)(nil)).Elem(), CustomRPActionRouteDefinitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPActionRouteDefinitionResponseInput)(nil)).Elem(), CustomRPActionRouteDefinitionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPActionRouteDefinitionResponseArrayInput)(nil)).Elem(), CustomRPActionRouteDefinitionResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionInput)(nil)).Elem(), CustomRPResourceTypeRouteDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionArrayInput)(nil)).Elem(), CustomRPResourceTypeRouteDefinitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionResponseInput)(nil)).Elem(), CustomRPResourceTypeRouteDefinitionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionResponseArrayInput)(nil)).Elem(), CustomRPResourceTypeRouteDefinitionResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPValidationsInput)(nil)).Elem(), CustomRPValidationsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPValidationsArrayInput)(nil)).Elem(), CustomRPValidationsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPValidationsResponseInput)(nil)).Elem(), CustomRPValidationsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomRPValidationsResponseArrayInput)(nil)).Elem(), CustomRPValidationsResponseArray{})
 	pulumi.RegisterOutputType(CustomRPActionRouteDefinitionOutput{})
 	pulumi.RegisterOutputType(CustomRPActionRouteDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(CustomRPActionRouteDefinitionResponseOutput{})

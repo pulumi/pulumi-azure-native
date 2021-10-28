@@ -148,6 +148,5 @@ func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsItemInput)(nil)).Elem(), &AnalyticsItem{})
 	pulumi.RegisterOutputType(AnalyticsItemOutput{})
 }

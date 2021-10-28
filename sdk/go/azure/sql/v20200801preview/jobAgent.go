@@ -171,6 +171,5 @@ func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgen
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentInput)(nil)).Elem(), &JobAgent{})
 	pulumi.RegisterOutputType(JobAgentOutput{})
 }

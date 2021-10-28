@@ -146,6 +146,5 @@ func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) Exp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentInput)(nil)).Elem(), &Experiment{})
 	pulumi.RegisterOutputType(ExperimentOutput{})
 }

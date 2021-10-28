@@ -156,6 +156,5 @@ func (o ServerDnsAliasOutput) ToServerDnsAliasOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerDnsAliasInput)(nil)).Elem(), &ServerDnsAlias{})
 	pulumi.RegisterOutputType(ServerDnsAliasOutput{})
 }

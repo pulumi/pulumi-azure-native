@@ -243,6 +243,5 @@ func (o ComputeOutput) ToComputeOutputWithContext(ctx context.Context) ComputeOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInput)(nil)).Elem(), &Compute{})
 	pulumi.RegisterOutputType(ComputeOutput{})
 }

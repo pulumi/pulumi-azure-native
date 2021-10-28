@@ -195,6 +195,5 @@ func (o MachineExtensionOutput) ToMachineExtensionOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineExtensionInput)(nil)).Elem(), &MachineExtension{})
 	pulumi.RegisterOutputType(MachineExtensionOutput{})
 }

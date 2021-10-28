@@ -136,6 +136,5 @@ func (o CustomResourceProviderOutput) ToCustomResourceProviderOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomResourceProviderInput)(nil)).Elem(), &CustomResourceProvider{})
 	pulumi.RegisterOutputType(CustomResourceProviderOutput{})
 }

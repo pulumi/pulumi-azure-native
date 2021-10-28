@@ -1107,20 +1107,6 @@ func (o ThrottlingInformationResponsePtrOutput) Duration() pulumi.StringPtrOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupsInformationInput)(nil)).Elem(), ActionGroupsInformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupsInformationPtrInput)(nil)).Elem(), ActionGroupsInformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupsInformationResponseInput)(nil)).Elem(), ActionGroupsInformationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupsInformationResponsePtrInput)(nil)).Elem(), ActionGroupsInformationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorInput)(nil)).Elem(), DetectorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorPtrInput)(nil)).Elem(), DetectorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorParameterDefinitionResponseInput)(nil)).Elem(), DetectorParameterDefinitionResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorParameterDefinitionResponseArrayInput)(nil)).Elem(), DetectorParameterDefinitionResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorResponseInput)(nil)).Elem(), DetectorResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorResponsePtrInput)(nil)).Elem(), DetectorResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThrottlingInformationInput)(nil)).Elem(), ThrottlingInformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThrottlingInformationPtrInput)(nil)).Elem(), ThrottlingInformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThrottlingInformationResponseInput)(nil)).Elem(), ThrottlingInformationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThrottlingInformationResponsePtrInput)(nil)).Elem(), ThrottlingInformationResponseArgs{})
 	pulumi.RegisterOutputType(ActionGroupsInformationOutput{})
 	pulumi.RegisterOutputType(ActionGroupsInformationPtrOutput{})
 	pulumi.RegisterOutputType(ActionGroupsInformationResponseOutput{})

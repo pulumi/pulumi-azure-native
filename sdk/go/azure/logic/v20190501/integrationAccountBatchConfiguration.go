@@ -149,6 +149,5 @@ func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchCon
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationInput)(nil)).Elem(), &IntegrationAccountBatchConfiguration{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationOutput{})
 }

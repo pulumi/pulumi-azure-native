@@ -192,6 +192,5 @@ func (o ProximityPlacementGroupOutput) ToProximityPlacementGroupOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProximityPlacementGroupInput)(nil)).Elem(), &ProximityPlacementGroup{})
 	pulumi.RegisterOutputType(ProximityPlacementGroupOutput{})
 }

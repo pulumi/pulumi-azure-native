@@ -149,6 +149,5 @@ func (o BatchDeploymentOutput) ToBatchDeploymentOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BatchDeploymentInput)(nil)).Elem(), &BatchDeployment{})
 	pulumi.RegisterOutputType(BatchDeploymentOutput{})
 }

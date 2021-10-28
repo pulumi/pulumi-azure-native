@@ -145,6 +145,5 @@ func (o KeyValueOutput) ToKeyValueOutputWithContext(ctx context.Context) KeyValu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueInput)(nil)).Elem(), &KeyValue{})
 	pulumi.RegisterOutputType(KeyValueOutput{})
 }

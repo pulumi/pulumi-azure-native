@@ -857,16 +857,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypeInput)(nil)).Elem(), AddressType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AddressTypePtrInput)(nil)).Elem(), AddressType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassDiscriminatorInput)(nil)).Elem(), ClassDiscriminator("DataBox"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassDiscriminatorPtrInput)(nil)).Elem(), ClassDiscriminator("DataBox"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataDestinationTypeInput)(nil)).Elem(), DataDestinationType("UnknownType"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataDestinationTypePtrInput)(nil)).Elem(), DataDestinationType("UnknownType"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNameInput)(nil)).Elem(), NotificationStageName("DevicePrepared"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationStageNamePtrInput)(nil)).Elem(), NotificationStageName("DevicePrepared"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("DataBox"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("DataBox"))
 	pulumi.RegisterOutputType(AddressTypeOutput{})
 	pulumi.RegisterOutputType(AddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ClassDiscriminatorOutput{})

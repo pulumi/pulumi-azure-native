@@ -341,10 +341,6 @@ func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceCon
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryInput)(nil)).Elem(), Category("AuditLogs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryPtrInput)(nil)).Elem(), Category("AuditLogs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Approved"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Approved"))
 	pulumi.RegisterOutputType(CategoryOutput{})
 	pulumi.RegisterOutputType(CategoryPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})

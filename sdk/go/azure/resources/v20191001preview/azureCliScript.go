@@ -197,6 +197,5 @@ func (o AzureCliScriptOutput) ToAzureCliScriptOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureCliScriptInput)(nil)).Elem(), &AzureCliScript{})
 	pulumi.RegisterOutputType(AzureCliScriptOutput{})
 }

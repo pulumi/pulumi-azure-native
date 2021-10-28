@@ -268,6 +268,5 @@ func (o ServiceEndpointPolicyOutput) ToServiceEndpointPolicyOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPolicyInput)(nil)).Elem(), &ServiceEndpointPolicy{})
 	pulumi.RegisterOutputType(ServiceEndpointPolicyOutput{})
 }

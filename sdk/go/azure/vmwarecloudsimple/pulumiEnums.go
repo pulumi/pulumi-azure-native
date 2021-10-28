@@ -344,10 +344,6 @@ func (in *nictypePtr) ToNICTypePtrOutputWithContext(ctx context.Context) NICType
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskIndependenceModeInput)(nil)).Elem(), DiskIndependenceMode("persistent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskIndependenceModePtrInput)(nil)).Elem(), DiskIndependenceMode("persistent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NICTypeInput)(nil)).Elem(), NICType("E1000"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NICTypePtrInput)(nil)).Elem(), NICType("E1000"))
 	pulumi.RegisterOutputType(DiskIndependenceModeOutput{})
 	pulumi.RegisterOutputType(DiskIndependenceModePtrOutput{})
 	pulumi.RegisterOutputType(NICTypeOutput{})

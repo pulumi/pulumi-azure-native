@@ -138,6 +138,5 @@ func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerSubscriptionInput)(nil)).Elem(), &CustomerSubscription{})
 	pulumi.RegisterOutputType(CustomerSubscriptionOutput{})
 }

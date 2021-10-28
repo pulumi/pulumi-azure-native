@@ -136,6 +136,5 @@ func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationAtSubscriptionInput)(nil)).Elem(), &RemediationAtSubscription{})
 	pulumi.RegisterOutputType(RemediationAtSubscriptionOutput{})
 }

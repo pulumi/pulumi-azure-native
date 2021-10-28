@@ -199,10 +199,6 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerInput)(nil)).Elem(), ManagementLockOwnerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerArrayInput)(nil)).Elem(), ManagementLockOwnerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerResponseInput)(nil)).Elem(), ManagementLockOwnerResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockOwnerResponseArrayInput)(nil)).Elem(), ManagementLockOwnerResponseArray{})
 	pulumi.RegisterOutputType(ManagementLockOwnerOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})

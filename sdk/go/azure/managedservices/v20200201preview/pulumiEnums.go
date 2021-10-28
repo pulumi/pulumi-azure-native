@@ -175,8 +175,6 @@ func (in *multiFactorAuthProviderPtr) ToMultiFactorAuthProviderPtrOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiFactorAuthProviderInput)(nil)).Elem(), MultiFactorAuthProvider("Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiFactorAuthProviderPtrInput)(nil)).Elem(), MultiFactorAuthProvider("Azure"))
 	pulumi.RegisterOutputType(MultiFactorAuthProviderOutput{})
 	pulumi.RegisterOutputType(MultiFactorAuthProviderPtrOutput{})
 }

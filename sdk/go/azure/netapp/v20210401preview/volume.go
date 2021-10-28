@@ -352,6 +352,5 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumeInput)(nil)).Elem(), &Volume{})
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

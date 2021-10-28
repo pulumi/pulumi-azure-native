@@ -146,6 +146,5 @@ func (o ProductSettingOutput) ToProductSettingOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductSettingInput)(nil)).Elem(), &ProductSetting{})
 	pulumi.RegisterOutputType(ProductSettingOutput{})
 }

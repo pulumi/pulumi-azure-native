@@ -180,8 +180,6 @@ func (in *subscriptionFeatureRegistrationStateEnumPtr) ToSubscriptionFeatureRegi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationStateEnumInput)(nil)).Elem(), SubscriptionFeatureRegistrationStateEnum("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFeatureRegistrationStateEnumPtrInput)(nil)).Elem(), SubscriptionFeatureRegistrationStateEnum("NotSpecified"))
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationStateEnumOutput{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationStateEnumPtrOutput{})
 }

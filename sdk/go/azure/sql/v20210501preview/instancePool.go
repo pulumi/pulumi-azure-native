@@ -177,6 +177,5 @@ func (o InstancePoolOutput) ToInstancePoolOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InstancePoolInput)(nil)).Elem(), &InstancePool{})
 	pulumi.RegisterOutputType(InstancePoolOutput{})
 }

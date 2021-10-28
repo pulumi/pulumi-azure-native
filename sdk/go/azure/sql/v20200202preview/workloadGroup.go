@@ -187,6 +187,5 @@ func (o WorkloadGroupOutput) ToWorkloadGroupOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadGroupInput)(nil)).Elem(), &WorkloadGroup{})
 	pulumi.RegisterOutputType(WorkloadGroupOutput{})
 }

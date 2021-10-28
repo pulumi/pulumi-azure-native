@@ -154,6 +154,5 @@ func (o RegisteredAsnOutput) ToRegisteredAsnOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredAsnInput)(nil)).Elem(), &RegisteredAsn{})
 	pulumi.RegisterOutputType(RegisteredAsnOutput{})
 }

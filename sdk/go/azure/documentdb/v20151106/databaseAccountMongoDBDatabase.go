@@ -251,6 +251,5 @@ func (o DatabaseAccountMongoDBDatabaseOutput) ToDatabaseAccountMongoDBDatabaseOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountMongoDBDatabaseInput)(nil)).Elem(), &DatabaseAccountMongoDBDatabase{})
 	pulumi.RegisterOutputType(DatabaseAccountMongoDBDatabaseOutput{})
 }

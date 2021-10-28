@@ -153,6 +153,5 @@ func (o ServerAdministratorOutput) ToServerAdministratorOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorInput)(nil)).Elem(), &ServerAdministrator{})
 	pulumi.RegisterOutputType(ServerAdministratorOutput{})
 }

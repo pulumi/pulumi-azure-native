@@ -264,6 +264,5 @@ func (o DatabaseAccountSqlContainerOutput) ToDatabaseAccountSqlContainerOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountSqlContainerInput)(nil)).Elem(), &DatabaseAccountSqlContainer{})
 	pulumi.RegisterOutputType(DatabaseAccountSqlContainerOutput{})
 }

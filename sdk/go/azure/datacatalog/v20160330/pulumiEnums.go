@@ -175,8 +175,6 @@ func (in *skuTypePtr) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuType
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTypeInput)(nil)).Elem(), SkuType("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTypePtrInput)(nil)).Elem(), SkuType("Free"))
 	pulumi.RegisterOutputType(SkuTypeOutput{})
 	pulumi.RegisterOutputType(SkuTypePtrOutput{})
 }

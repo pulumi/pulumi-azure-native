@@ -143,6 +143,5 @@ func (o DataMaskingPolicyOutput) ToDataMaskingPolicyOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataMaskingPolicyInput)(nil)).Elem(), &DataMaskingPolicy{})
 	pulumi.RegisterOutputType(DataMaskingPolicyOutput{})
 }

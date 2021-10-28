@@ -155,6 +155,5 @@ func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthentication
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureADOnlyAuthenticationInput)(nil)).Elem(), &ServerAzureADOnlyAuthentication{})
 	pulumi.RegisterOutputType(ServerAzureADOnlyAuthenticationOutput{})
 }

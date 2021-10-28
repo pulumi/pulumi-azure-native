@@ -350,10 +350,6 @@ func (in *clientTypePtr) ToClientTypePtrOutputWithContext(ctx context.Context) C
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthTypeInput)(nil)).Elem(), AuthType("systemAssignedIdentity"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthTypePtrInput)(nil)).Elem(), AuthType("systemAssignedIdentity"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClientTypeInput)(nil)).Elem(), ClientType("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClientTypePtrInput)(nil)).Elem(), ClientType("none"))
 	pulumi.RegisterOutputType(AuthTypeOutput{})
 	pulumi.RegisterOutputType(AuthTypePtrOutput{})
 	pulumi.RegisterOutputType(ClientTypeOutput{})

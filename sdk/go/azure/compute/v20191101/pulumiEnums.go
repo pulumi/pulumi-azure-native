@@ -1182,20 +1182,6 @@ func (in *snapshotStorageAccountTypesPtr) ToSnapshotStorageAccountTypesPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskCreateOptionInput)(nil)).Elem(), DiskCreateOption("Empty"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskCreateOptionPtrInput)(nil)).Elem(), DiskCreateOption("Empty"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityTypeInput)(nil)).Elem(), DiskEncryptionSetIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityTypePtrInput)(nil)).Elem(), DiskEncryptionSetIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskStorageAccountTypesInput)(nil)).Elem(), DiskStorageAccountTypes("Standard_LRS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskStorageAccountTypesPtrInput)(nil)).Elem(), DiskStorageAccountTypes("Standard_LRS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionTypeInput)(nil)).Elem(), EncryptionType("EncryptionAtRestWithPlatformKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionTypePtrInput)(nil)).Elem(), EncryptionType("EncryptionAtRestWithPlatformKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HyperVGenerationInput)(nil)).Elem(), HyperVGeneration("V1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HyperVGenerationPtrInput)(nil)).Elem(), HyperVGeneration("V1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatingSystemTypesPtrInput)(nil)).Elem(), OperatingSystemTypes("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotStorageAccountTypesInput)(nil)).Elem(), SnapshotStorageAccountTypes("Standard_LRS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotStorageAccountTypesPtrInput)(nil)).Elem(), SnapshotStorageAccountTypes("Standard_LRS"))
 	pulumi.RegisterOutputType(DiskCreateOptionOutput{})
 	pulumi.RegisterOutputType(DiskCreateOptionPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityTypeOutput{})

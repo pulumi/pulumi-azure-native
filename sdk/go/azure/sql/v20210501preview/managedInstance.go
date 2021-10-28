@@ -238,6 +238,5 @@ func (o ManagedInstanceOutput) ToManagedInstanceOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceInput)(nil)).Elem(), &ManagedInstance{})
 	pulumi.RegisterOutputType(ManagedInstanceOutput{})
 }

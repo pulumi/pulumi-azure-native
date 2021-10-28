@@ -175,8 +175,6 @@ func (in *certificateProductTypePtr) ToCertificateProductTypePtrOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProductTypeInput)(nil)).Elem(), CertificateProductType("StandardDomainValidatedSsl"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProductTypePtrInput)(nil)).Elem(), CertificateProductType("StandardDomainValidatedSsl"))
 	pulumi.RegisterOutputType(CertificateProductTypeOutput{})
 	pulumi.RegisterOutputType(CertificateProductTypePtrOutput{})
 }

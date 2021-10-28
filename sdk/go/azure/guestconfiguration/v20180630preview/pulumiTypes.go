@@ -1307,20 +1307,6 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPt
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationParameterResponseInput)(nil)).Elem(), ConfigurationParameterResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationParameterResponseArrayInput)(nil)).Elem(), ConfigurationParameterResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSettingInput)(nil)).Elem(), ConfigurationSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSettingPtrInput)(nil)).Elem(), ConfigurationSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSettingResponseInput)(nil)).Elem(), ConfigurationSettingResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSettingResponsePtrInput)(nil)).Elem(), ConfigurationSettingResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationAssignmentPropertiesInput)(nil)).Elem(), GuestConfigurationAssignmentPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationAssignmentPropertiesPtrInput)(nil)).Elem(), GuestConfigurationAssignmentPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationAssignmentPropertiesResponseInput)(nil)).Elem(), GuestConfigurationAssignmentPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationAssignmentPropertiesResponsePtrInput)(nil)).Elem(), GuestConfigurationAssignmentPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationNavigationInput)(nil)).Elem(), GuestConfigurationNavigationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationNavigationPtrInput)(nil)).Elem(), GuestConfigurationNavigationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationNavigationResponseInput)(nil)).Elem(), GuestConfigurationNavigationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GuestConfigurationNavigationResponsePtrInput)(nil)).Elem(), GuestConfigurationNavigationResponseArgs{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingOutput{})

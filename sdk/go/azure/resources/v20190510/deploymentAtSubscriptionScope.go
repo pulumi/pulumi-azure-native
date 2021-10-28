@@ -190,6 +190,5 @@ func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAtSubscriptionScopeInput)(nil)).Elem(), &DeploymentAtSubscriptionScope{})
 	pulumi.RegisterOutputType(DeploymentAtSubscriptionScopeOutput{})
 }

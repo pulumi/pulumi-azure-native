@@ -249,6 +249,5 @@ func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DdosCustomPolicyInput)(nil)).Elem(), &DdosCustomPolicy{})
 	pulumi.RegisterOutputType(DdosCustomPolicyOutput{})
 }

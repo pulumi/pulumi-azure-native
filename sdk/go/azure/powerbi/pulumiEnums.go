@@ -671,14 +671,6 @@ func (in *resourceProvisioningStatePtr) ToResourceProvisioningStatePtrOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNameInput)(nil)).Elem(), AzureSkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNamePtrInput)(nil)).Elem(), AzureSkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierInput)(nil)).Elem(), AzureSkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierPtrInput)(nil)).Elem(), AzureSkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PersistedConnectionStatusInput)(nil)).Elem(), PersistedConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PersistedConnectionStatusPtrInput)(nil)).Elem(), PersistedConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProvisioningStateInput)(nil)).Elem(), ResourceProvisioningState("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProvisioningStatePtrInput)(nil)).Elem(), ResourceProvisioningState("Creating"))
 	pulumi.RegisterOutputType(AzureSkuNameOutput{})
 	pulumi.RegisterOutputType(AzureSkuNamePtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuTierOutput{})

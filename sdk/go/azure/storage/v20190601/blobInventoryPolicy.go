@@ -163,6 +163,5 @@ func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyInput)(nil)).Elem(), &BlobInventoryPolicy{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyOutput{})
 }

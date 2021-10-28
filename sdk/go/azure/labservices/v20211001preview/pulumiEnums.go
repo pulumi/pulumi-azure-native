@@ -1227,21 +1227,6 @@ func (o WeekDayArrayOutput) Index(i pulumi.IntInput) WeekDayOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeInput)(nil)).Elem(), ConnectionType("Public"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypePtrInput)(nil)).Elem(), ConnectionType("Public"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateOptionInput)(nil)).Elem(), CreateOption("Image"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateOptionPtrInput)(nil)).Elem(), CreateOption("Image"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableStateInput)(nil)).Elem(), EnableState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableStatePtrInput)(nil)).Elem(), EnableState("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceFrequencyInput)(nil)).Elem(), RecurrenceFrequency("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceFrequencyPtrInput)(nil)).Elem(), RecurrenceFrequency("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShutdownOnIdleModeInput)(nil)).Elem(), ShutdownOnIdleMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShutdownOnIdleModePtrInput)(nil)).Elem(), ShutdownOnIdleMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WeekDayInput)(nil)).Elem(), WeekDay("Sunday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WeekDayPtrInput)(nil)).Elem(), WeekDay("Sunday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WeekDayArrayInput)(nil)).Elem(), WeekDayArray{})
 	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(CreateOptionOutput{})

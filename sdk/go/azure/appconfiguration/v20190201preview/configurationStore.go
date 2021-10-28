@@ -159,6 +159,5 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreInput)(nil)).Elem(), &ConfigurationStore{})
 	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
 }

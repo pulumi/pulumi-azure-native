@@ -340,10 +340,6 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProbeProtocolInput)(nil)).Elem(), ProbeProtocol("tcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProbeProtocolPtrInput)(nil)).Elem(), ProbeProtocol("tcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("tcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("tcp"))
 	pulumi.RegisterOutputType(ProbeProtocolOutput{})
 	pulumi.RegisterOutputType(ProbeProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ProtocolOutput{})

@@ -337,10 +337,6 @@ func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNameInput)(nil)).Elem(), AzureSkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNamePtrInput)(nil)).Elem(), AzureSkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierInput)(nil)).Elem(), AzureSkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierPtrInput)(nil)).Elem(), AzureSkuTier("Standard"))
 	pulumi.RegisterOutputType(AzureSkuNameOutput{})
 	pulumi.RegisterOutputType(AzureSkuNamePtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuTierOutput{})

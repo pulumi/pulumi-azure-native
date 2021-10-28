@@ -503,12 +503,6 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionAfterRebootInput)(nil)).Elem(), ActionAfterReboot("ContinueConfiguration"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionAfterRebootPtrInput)(nil)).Elem(), ActionAfterReboot("ContinueConfiguration"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationModeInput)(nil)).Elem(), ConfigurationMode("ApplyOnly"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationModePtrInput)(nil)).Elem(), ConfigurationMode("ApplyOnly"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("DSC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("DSC"))
 	pulumi.RegisterOutputType(ActionAfterRebootOutput{})
 	pulumi.RegisterOutputType(ActionAfterRebootPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationModeOutput{})

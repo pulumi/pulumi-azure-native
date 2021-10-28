@@ -131,6 +131,5 @@ func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) Solutio
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SolutionInput)(nil)).Elem(), &Solution{})
 	pulumi.RegisterOutputType(SolutionOutput{})
 }

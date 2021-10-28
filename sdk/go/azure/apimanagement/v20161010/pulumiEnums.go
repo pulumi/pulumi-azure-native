@@ -671,14 +671,6 @@ func (in *virtualNetworkTypePtr) ToVirtualNetworkTypePtrOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HostnameTypeInput)(nil)).Elem(), HostnameType("Proxy"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HostnameTypePtrInput)(nil)).Elem(), HostnameType("Proxy"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyTypeContractInput)(nil)).Elem(), KeyTypeContract("primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyTypeContractPtrInput)(nil)).Elem(), KeyTypeContract("primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTypeInput)(nil)).Elem(), SkuType("Developer"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTypePtrInput)(nil)).Elem(), SkuType("Developer"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkTypeInput)(nil)).Elem(), VirtualNetworkType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkTypePtrInput)(nil)).Elem(), VirtualNetworkType("None"))
 	pulumi.RegisterOutputType(HostnameTypeOutput{})
 	pulumi.RegisterOutputType(HostnameTypePtrOutput{})
 	pulumi.RegisterOutputType(KeyTypeContractOutput{})

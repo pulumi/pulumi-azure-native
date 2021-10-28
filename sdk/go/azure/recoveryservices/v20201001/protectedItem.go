@@ -225,6 +225,5 @@ func (o ProtectedItemOutput) ToProtectedItemOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedItemInput)(nil)).Elem(), &ProtectedItem{})
 	pulumi.RegisterOutputType(ProtectedItemOutput{})
 }

@@ -669,14 +669,6 @@ func (in *vcoreSkuTierPtr) ToVCoreSkuTierPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuTierInput)(nil)).Elem(), CapacitySkuTier("PBIE_Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacitySkuTierPtrInput)(nil)).Elem(), CapacitySkuTier("PBIE_Azure"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ModeInput)(nil)).Elem(), Mode("Gen1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ModePtrInput)(nil)).Elem(), Mode("Gen1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VCoreSkuTierInput)(nil)).Elem(), VCoreSkuTier("AutoScale"))
-	pulumi.RegisterInputType(reflect.TypeOf((*VCoreSkuTierPtrInput)(nil)).Elem(), VCoreSkuTier("AutoScale"))
 	pulumi.RegisterOutputType(CapacitySkuTierOutput{})
 	pulumi.RegisterOutputType(CapacitySkuTierPtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})

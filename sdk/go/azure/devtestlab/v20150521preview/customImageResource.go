@@ -168,6 +168,5 @@ func (o CustomImageResourceOutput) ToCustomImageResourceOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomImageResourceInput)(nil)).Elem(), &CustomImageResource{})
 	pulumi.RegisterOutputType(CustomImageResourceOutput{})
 }

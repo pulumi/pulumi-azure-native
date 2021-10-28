@@ -161,6 +161,5 @@ func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountCredentialInput)(nil)).Elem(), &StorageAccountCredential{})
 	pulumi.RegisterOutputType(StorageAccountCredentialOutput{})
 }

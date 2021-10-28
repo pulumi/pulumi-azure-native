@@ -1169,20 +1169,6 @@ func (in *tlsVersionPtr) ToTlsVersionPtrOutputWithContext(ctx context.Context) T
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekInput)(nil)).Elem(), DayOfWeek("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekPtrInput)(nil)).Elem(), DayOfWeek("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRoleInput)(nil)).Elem(), ReplicationRole("Primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRolePtrInput)(nil)).Elem(), ReplicationRole("Primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyInput)(nil)).Elem(), SkuFamily("C"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyPtrInput)(nil)).Elem(), SkuFamily("C"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Basic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Basic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsVersionInput)(nil)).Elem(), TlsVersion("1.0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsVersionPtrInput)(nil)).Elem(), TlsVersion("1.0"))
 	pulumi.RegisterOutputType(DayOfWeekOutput{})
 	pulumi.RegisterOutputType(DayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})

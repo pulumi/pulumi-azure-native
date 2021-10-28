@@ -147,6 +147,5 @@ func (o ADCCatalogOutput) ToADCCatalogOutputWithContext(ctx context.Context) ADC
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ADCCatalogInput)(nil)).Elem(), &ADCCatalog{})
 	pulumi.RegisterOutputType(ADCCatalogOutput{})
 }

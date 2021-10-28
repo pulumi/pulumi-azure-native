@@ -163,6 +163,5 @@ func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupShortTermRetentionPolicyInput)(nil)).Elem(), &BackupShortTermRetentionPolicy{})
 	pulumi.RegisterOutputType(BackupShortTermRetentionPolicyOutput{})
 }

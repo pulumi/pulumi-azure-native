@@ -158,6 +158,5 @@ func (o ContentTypeOutput) ToContentTypeOutputWithContext(ctx context.Context) C
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentTypeInput)(nil)).Elem(), &ContentType{})
 	pulumi.RegisterOutputType(ContentTypeOutput{})
 }

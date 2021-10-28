@@ -670,14 +670,6 @@ func (in *routeTypePtr) ToRouteTypePtrOutputWithContext(ctx context.Context) Rou
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessControlEntryActionInput)(nil)).Elem(), AccessControlEntryAction("Permit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessControlEntryActionPtrInput)(nil)).Elem(), AccessControlEntryAction("Permit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeModeOptionsInput)(nil)).Elem(), ComputeModeOptions("Shared"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeModeOptionsPtrInput)(nil)).Elem(), ComputeModeOptions("Shared"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InternalLoadBalancingModeInput)(nil)).Elem(), InternalLoadBalancingMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InternalLoadBalancingModePtrInput)(nil)).Elem(), InternalLoadBalancingMode("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTypeInput)(nil)).Elem(), RouteType("DEFAULT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTypePtrInput)(nil)).Elem(), RouteType("DEFAULT"))
 	pulumi.RegisterOutputType(AccessControlEntryActionOutput{})
 	pulumi.RegisterOutputType(AccessControlEntryActionPtrOutput{})
 	pulumi.RegisterOutputType(ComputeModeOptionsOutput{})

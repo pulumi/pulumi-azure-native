@@ -311,12 +311,6 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEndpointResponseInput)(nil)).Elem(), ApiEndpointResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiEndpointResponseArrayInput)(nil)).Elem(), ApiEndpointResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountInput)(nil)).Elem(), StorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountArrayInput)(nil)).Elem(), StorageAccountArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponseInput)(nil)).Elem(), StorageAccountResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountResponseArrayInput)(nil)).Elem(), StorageAccountResponseArray{})
 	pulumi.RegisterOutputType(ApiEndpointResponseOutput{})
 	pulumi.RegisterOutputType(ApiEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})

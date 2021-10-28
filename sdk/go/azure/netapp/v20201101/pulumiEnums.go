@@ -1002,18 +1002,6 @@ func (in *serviceLevelPtr) ToServiceLevelPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypeInput)(nil)).Elem(), EndpointType("src"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTypePtrInput)(nil)).Elem(), EndpointType("src"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourceInput)(nil)).Elem(), KeySource("Microsoft.NetApp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourcePtrInput)(nil)).Elem(), KeySource("Microsoft.NetApp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*QosTypeInput)(nil)).Elem(), QosType("Auto"))
-	pulumi.RegisterInputType(reflect.TypeOf((*QosTypePtrInput)(nil)).Elem(), QosType("Auto"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationScheduleInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSchedulePtrInput)(nil)).Elem(), ReplicationSchedule("_10minutely"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityStyleInput)(nil)).Elem(), SecurityStyle("ntfs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityStylePtrInput)(nil)).Elem(), SecurityStyle("ntfs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelInput)(nil)).Elem(), ServiceLevel("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelPtrInput)(nil)).Elem(), ServiceLevel("Standard"))
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(KeySourceOutput{})

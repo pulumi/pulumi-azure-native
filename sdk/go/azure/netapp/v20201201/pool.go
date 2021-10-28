@@ -267,6 +267,5 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PoolInput)(nil)).Elem(), &Pool{})
 	pulumi.RegisterOutputType(PoolOutput{})
 }

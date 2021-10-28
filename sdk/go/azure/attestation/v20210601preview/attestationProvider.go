@@ -149,6 +149,5 @@ func (o AttestationProviderOutput) ToAttestationProviderOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationProviderInput)(nil)).Elem(), &AttestationProvider{})
 	pulumi.RegisterOutputType(AttestationProviderOutput{})
 }

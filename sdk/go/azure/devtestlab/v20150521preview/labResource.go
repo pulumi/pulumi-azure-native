@@ -166,6 +166,5 @@ func (o LabResourceOutput) ToLabResourceOutputWithContext(ctx context.Context) L
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LabResourceInput)(nil)).Elem(), &LabResource{})
 	pulumi.RegisterOutputType(LabResourceOutput{})
 }

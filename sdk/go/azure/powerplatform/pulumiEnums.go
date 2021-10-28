@@ -671,14 +671,6 @@ func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOut
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterprisePolicyKindInput)(nil)).Elem(), EnterprisePolicyKind("Lockbox"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterprisePolicyKindPtrInput)(nil)).Elem(), EnterprisePolicyKind("Lockbox"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("Enabled"))
 	pulumi.RegisterOutputType(EnterprisePolicyKindOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyKindPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})

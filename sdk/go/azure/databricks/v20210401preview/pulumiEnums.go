@@ -833,16 +833,6 @@ func (in *requiredNsgRulesPtr) ToRequiredNsgRulesPtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourceInput)(nil)).Elem(), EncryptionKeySource("Microsoft.Keyvault"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeySourcePtrInput)(nil)).Elem(), EncryptionKeySource("Microsoft.Keyvault"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourceInput)(nil)).Elem(), KeySource("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySourcePtrInput)(nil)).Elem(), KeySource("Default"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequiredNsgRulesInput)(nil)).Elem(), RequiredNsgRules("AllRules"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequiredNsgRulesPtrInput)(nil)).Elem(), RequiredNsgRules("AllRules"))
 	pulumi.RegisterOutputType(EncryptionKeySourceOutput{})
 	pulumi.RegisterOutputType(EncryptionKeySourcePtrOutput{})
 	pulumi.RegisterOutputType(KeySourceOutput{})

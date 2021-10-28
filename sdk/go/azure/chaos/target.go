@@ -145,6 +145,5 @@ func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetInput)(nil)).Elem(), &Target{})
 	pulumi.RegisterOutputType(TargetOutput{})
 }

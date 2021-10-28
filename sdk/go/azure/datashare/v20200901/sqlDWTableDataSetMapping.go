@@ -194,6 +194,5 @@ func (o SqlDWTableDataSetMappingOutput) ToSqlDWTableDataSetMappingOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlDWTableDataSetMappingInput)(nil)).Elem(), &SqlDWTableDataSetMapping{})
 	pulumi.RegisterOutputType(SqlDWTableDataSetMappingOutput{})
 }

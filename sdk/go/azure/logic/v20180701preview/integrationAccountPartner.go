@@ -166,6 +166,5 @@ func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountPartnerInput)(nil)).Elem(), &IntegrationAccountPartner{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerOutput{})
 }

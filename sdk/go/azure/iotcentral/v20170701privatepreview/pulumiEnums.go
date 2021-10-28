@@ -175,8 +175,6 @@ func (in *appSkuPtr) ToAppSkuPtrOutputWithContext(ctx context.Context) AppSkuPtr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuInput)(nil)).Elem(), AppSku("F1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSkuPtrInput)(nil)).Elem(), AppSku("F1"))
 	pulumi.RegisterOutputType(AppSkuOutput{})
 	pulumi.RegisterOutputType(AppSkuPtrOutput{})
 }

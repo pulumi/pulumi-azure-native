@@ -177,6 +177,5 @@ func (o ScheduledSynchronizationSettingOutput) ToScheduledSynchronizationSetting
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledSynchronizationSettingInput)(nil)).Elem(), &ScheduledSynchronizationSetting{})
 	pulumi.RegisterOutputType(ScheduledSynchronizationSettingOutput{})
 }

@@ -181,6 +181,5 @@ func (o ConnectedClusterOutput) ToConnectedClusterOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedClusterInput)(nil)).Elem(), &ConnectedCluster{})
 	pulumi.RegisterOutputType(ConnectedClusterOutput{})
 }

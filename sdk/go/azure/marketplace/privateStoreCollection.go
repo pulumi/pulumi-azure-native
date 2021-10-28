@@ -138,6 +138,5 @@ func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateStoreCollectionInput)(nil)).Elem(), &PrivateStoreCollection{})
 	pulumi.RegisterOutputType(PrivateStoreCollectionOutput{})
 }

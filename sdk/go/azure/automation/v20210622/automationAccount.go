@@ -170,6 +170,5 @@ func (o AutomationAccountOutput) ToAutomationAccountOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationAccountInput)(nil)).Elem(), &AutomationAccount{})
 	pulumi.RegisterOutputType(AutomationAccountOutput{})
 }

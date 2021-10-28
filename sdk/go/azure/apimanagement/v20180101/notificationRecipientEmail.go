@@ -191,6 +191,5 @@ func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientEmailInput)(nil)).Elem(), &NotificationRecipientEmail{})
 	pulumi.RegisterOutputType(NotificationRecipientEmailOutput{})
 }

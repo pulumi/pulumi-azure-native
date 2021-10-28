@@ -166,6 +166,5 @@ func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentInput)(nil)).Elem(), &DatabasePrincipalAssignment{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentOutput{})
 }

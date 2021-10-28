@@ -943,18 +943,6 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityInput)(nil)).Elem(), ManagedServiceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityPtrInput)(nil)).Elem(), ManagedServiceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityResponseInput)(nil)).Elem(), ManagedServiceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityResponsePtrInput)(nil)).Elem(), ManagedServiceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaServicesForPutRequestInput)(nil)).Elem(), MediaServicesForPutRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaServicesForPutRequestPtrInput)(nil)).Elem(), MediaServicesForPutRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaServicesForPutRequestResponseInput)(nil)).Elem(), MediaServicesForPutRequestResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaServicesForPutRequestResponsePtrInput)(nil)).Elem(), MediaServicesForPutRequestResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseInput)(nil)).Elem(), UserAssignedIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityResponseMapInput)(nil)).Elem(), UserAssignedIdentityResponseMap{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})

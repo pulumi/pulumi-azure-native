@@ -257,6 +257,5 @@ func (o VirtualMachineScaleSetOutput) ToVirtualMachineScaleSetOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineScaleSetInput)(nil)).Elem(), &VirtualMachineScaleSet{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOutput{})
 }

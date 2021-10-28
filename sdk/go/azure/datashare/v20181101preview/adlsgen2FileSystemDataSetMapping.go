@@ -193,6 +193,5 @@ func (o ADLSGen2FileSystemDataSetMappingOutput) ToADLSGen2FileSystemDataSetMappi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ADLSGen2FileSystemDataSetMappingInput)(nil)).Elem(), &ADLSGen2FileSystemDataSetMapping{})
 	pulumi.RegisterOutputType(ADLSGen2FileSystemDataSetMappingOutput{})
 }

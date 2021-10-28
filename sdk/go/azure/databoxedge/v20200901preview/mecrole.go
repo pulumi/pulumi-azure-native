@@ -202,6 +202,5 @@ func (o MECRoleOutput) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MECRoleInput)(nil)).Elem(), &MECRole{})
 	pulumi.RegisterOutputType(MECRoleOutput{})
 }

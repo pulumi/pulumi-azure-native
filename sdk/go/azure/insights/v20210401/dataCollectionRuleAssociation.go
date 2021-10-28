@@ -138,6 +138,5 @@ func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleAssociationInput)(nil)).Elem(), &DataCollectionRuleAssociation{})
 	pulumi.RegisterOutputType(DataCollectionRuleAssociationOutput{})
 }

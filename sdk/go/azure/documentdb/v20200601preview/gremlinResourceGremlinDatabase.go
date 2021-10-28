@@ -260,6 +260,5 @@ func (o GremlinResourceGremlinDatabaseOutput) ToGremlinResourceGremlinDatabaseOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GremlinResourceGremlinDatabaseInput)(nil)).Elem(), &GremlinResourceGremlinDatabase{})
 	pulumi.RegisterOutputType(GremlinResourceGremlinDatabaseOutput{})
 }

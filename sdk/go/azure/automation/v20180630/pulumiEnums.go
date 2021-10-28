@@ -179,8 +179,6 @@ func (in *runbookTypeEnumPtr) ToRunbookTypeEnumPtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RunbookTypeEnumInput)(nil)).Elem(), RunbookTypeEnum("Script"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RunbookTypeEnumPtrInput)(nil)).Elem(), RunbookTypeEnum("Script"))
 	pulumi.RegisterOutputType(RunbookTypeEnumOutput{})
 	pulumi.RegisterOutputType(RunbookTypeEnumPtrOutput{})
 }

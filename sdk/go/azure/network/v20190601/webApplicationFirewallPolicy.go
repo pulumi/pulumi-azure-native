@@ -248,6 +248,5 @@ func (o WebApplicationFirewallPolicyOutput) ToWebApplicationFirewallPolicyOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebApplicationFirewallPolicyInput)(nil)).Elem(), &WebApplicationFirewallPolicy{})
 	pulumi.RegisterOutputType(WebApplicationFirewallPolicyOutput{})
 }

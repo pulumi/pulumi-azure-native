@@ -150,6 +150,5 @@ func (o MachineGroupOutput) ToMachineGroupOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineGroupInput)(nil)).Elem(), &MachineGroup{})
 	pulumi.RegisterOutputType(MachineGroupOutput{})
 }

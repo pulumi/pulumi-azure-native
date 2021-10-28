@@ -172,6 +172,5 @@ func (o OpenShiftManagedClusterOutput) ToOpenShiftManagedClusterOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OpenShiftManagedClusterInput)(nil)).Elem(), &OpenShiftManagedCluster{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterOutput{})
 }

@@ -191,6 +191,5 @@ func (o SqlPoolsV3Output) ToSqlPoolsV3OutputWithContext(ctx context.Context) Sql
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolsV3Input)(nil)).Elem(), &SqlPoolsV3{})
 	pulumi.RegisterOutputType(SqlPoolsV3Output{})
 }

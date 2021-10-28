@@ -998,18 +998,6 @@ func (in *preferredAppGroupTypePtr) ToPreferredAppGroupTypePtrOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGroupTypeInput)(nil)).Elem(), ApplicationGroupType("RemoteApp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGroupTypePtrInput)(nil)).Elem(), ApplicationGroupType("RemoteApp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CommandLineSettingInput)(nil)).Elem(), CommandLineSetting("DoNotAllow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CommandLineSettingPtrInput)(nil)).Elem(), CommandLineSetting("DoNotAllow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolTypeInput)(nil)).Elem(), HostPoolType("Personal"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolTypePtrInput)(nil)).Elem(), HostPoolType("Personal"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTypeInput)(nil)).Elem(), LoadBalancerType("BreadthFirst"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTypePtrInput)(nil)).Elem(), LoadBalancerType("BreadthFirst"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PersonalDesktopAssignmentTypeInput)(nil)).Elem(), PersonalDesktopAssignmentType("Automatic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PersonalDesktopAssignmentTypePtrInput)(nil)).Elem(), PersonalDesktopAssignmentType("Automatic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PreferredAppGroupTypeInput)(nil)).Elem(), PreferredAppGroupType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PreferredAppGroupTypePtrInput)(nil)).Elem(), PreferredAppGroupType("None"))
 	pulumi.RegisterOutputType(ApplicationGroupTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationGroupTypePtrOutput{})
 	pulumi.RegisterOutputType(CommandLineSettingOutput{})

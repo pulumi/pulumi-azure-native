@@ -169,6 +169,5 @@ func (o SynapseWorkspaceSqlPoolTableDataSetOutput) ToSynapseWorkspaceSqlPoolTabl
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetInput)(nil)).Elem(), &SynapseWorkspaceSqlPoolTableDataSet{})
 	pulumi.RegisterOutputType(SynapseWorkspaceSqlPoolTableDataSetOutput{})
 }

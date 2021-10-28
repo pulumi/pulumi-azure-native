@@ -147,6 +147,5 @@ func (o AutomationOutput) ToAutomationOutputWithContext(ctx context.Context) Aut
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationInput)(nil)).Elem(), &Automation{})
 	pulumi.RegisterOutputType(AutomationOutput{})
 }

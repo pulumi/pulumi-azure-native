@@ -161,6 +161,5 @@ func (o SkusNestedResourceTypeThirdOutput) ToSkusNestedResourceTypeThirdOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SkusNestedResourceTypeThirdInput)(nil)).Elem(), &SkusNestedResourceTypeThird{})
 	pulumi.RegisterOutputType(SkusNestedResourceTypeThirdOutput{})
 }

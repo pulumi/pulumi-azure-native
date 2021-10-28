@@ -195,6 +195,5 @@ func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppPublicCertificateInput)(nil)).Elem(), &WebAppPublicCertificate{})
 	pulumi.RegisterOutputType(WebAppPublicCertificateOutput{})
 }

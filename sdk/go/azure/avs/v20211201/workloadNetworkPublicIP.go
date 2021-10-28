@@ -139,6 +139,5 @@ func (o WorkloadNetworkPublicIPOutput) ToWorkloadNetworkPublicIPOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkPublicIPInput)(nil)).Elem(), &WorkloadNetworkPublicIP{})
 	pulumi.RegisterOutputType(WorkloadNetworkPublicIPOutput{})
 }

@@ -505,12 +505,6 @@ func (in *statusReasonPtr) ToStatusReasonPtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("TCP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("TCP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusInput)(nil)).Elem(), Status("Revoked"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusPtrInput)(nil)).Elem(), Status("Revoked"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusReasonInput)(nil)).Elem(), StatusReason("Expired"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusReasonPtrInput)(nil)).Elem(), StatusReason("Expired"))
 	pulumi.RegisterOutputType(ProtocolOutput{})
 	pulumi.RegisterOutputType(ProtocolPtrOutput{})
 	pulumi.RegisterOutputType(StatusOutput{})

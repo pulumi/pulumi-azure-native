@@ -845,16 +845,6 @@ func (in *skuNameEnumPtr) ToSkuNameEnumPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypeInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypePtrInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RunbookTypeEnumInput)(nil)).Elem(), RunbookTypeEnum("Script"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RunbookTypeEnumPtrInput)(nil)).Elem(), RunbookTypeEnum("Script"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDayPtrInput)(nil)).Elem(), ScheduleDay("Monday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFrequencyPtrInput)(nil)).Elem(), ScheduleFrequency("OneTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumInput)(nil)).Elem(), SkuNameEnum("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameEnumPtrInput)(nil)).Elem(), SkuNameEnum("Free"))
 	pulumi.RegisterOutputType(ContentSourceTypeOutput{})
 	pulumi.RegisterOutputType(ContentSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(RunbookTypeEnumOutput{})

@@ -130,6 +130,5 @@ func (o QueryPackOutput) ToQueryPackOutputWithContext(ctx context.Context) Query
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*QueryPackInput)(nil)).Elem(), &QueryPack{})
 	pulumi.RegisterOutputType(QueryPackOutput{})
 }

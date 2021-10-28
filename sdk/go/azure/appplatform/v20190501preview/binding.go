@@ -157,6 +157,5 @@ func (o BindingOutput) ToBindingOutputWithContext(ctx context.Context) BindingOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BindingInput)(nil)).Elem(), &Binding{})
 	pulumi.RegisterOutputType(BindingOutput{})
 }

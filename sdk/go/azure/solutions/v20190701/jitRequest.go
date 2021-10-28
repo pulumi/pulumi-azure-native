@@ -155,6 +155,5 @@ func (o JitRequestOutput) ToJitRequestOutputWithContext(ctx context.Context) Jit
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JitRequestInput)(nil)).Elem(), &JitRequest{})
 	pulumi.RegisterOutputType(JitRequestOutput{})
 }

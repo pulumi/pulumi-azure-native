@@ -158,6 +158,5 @@ func (o DefaultAdminRuleOutput) ToDefaultAdminRuleOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultAdminRuleInput)(nil)).Elem(), &DefaultAdminRule{})
 	pulumi.RegisterOutputType(DefaultAdminRuleOutput{})
 }

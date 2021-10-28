@@ -155,6 +155,5 @@ func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceInput)(nil)).Elem(), &LinkedService{})
 	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

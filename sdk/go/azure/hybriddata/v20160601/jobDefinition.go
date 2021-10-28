@@ -175,6 +175,5 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionInput)(nil)).Elem(), &JobDefinition{})
 	pulumi.RegisterOutputType(JobDefinitionOutput{})
 }

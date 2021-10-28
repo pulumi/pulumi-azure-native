@@ -140,6 +140,5 @@ func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedSubnetServiceDetailsInput)(nil)).Elem(), &DelegatedSubnetServiceDetails{})
 	pulumi.RegisterOutputType(DelegatedSubnetServiceDetailsOutput{})
 }

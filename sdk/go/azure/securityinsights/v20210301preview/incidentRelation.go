@@ -160,6 +160,5 @@ func (o IncidentRelationOutput) ToIncidentRelationOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentRelationInput)(nil)).Elem(), &IncidentRelation{})
 	pulumi.RegisterOutputType(IncidentRelationOutput{})
 }

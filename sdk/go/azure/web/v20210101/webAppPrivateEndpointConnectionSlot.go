@@ -157,6 +157,5 @@ func (o WebAppPrivateEndpointConnectionSlotOutput) ToWebAppPrivateEndpointConnec
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppPrivateEndpointConnectionSlotInput)(nil)).Elem(), &WebAppPrivateEndpointConnectionSlot{})
 	pulumi.RegisterOutputType(WebAppPrivateEndpointConnectionSlotOutput{})
 }

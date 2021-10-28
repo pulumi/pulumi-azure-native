@@ -220,6 +220,5 @@ func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MachineInput)(nil)).Elem(), &Machine{})
 	pulumi.RegisterOutputType(MachineOutput{})
 }

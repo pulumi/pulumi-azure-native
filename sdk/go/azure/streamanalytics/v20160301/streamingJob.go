@@ -183,6 +183,5 @@ func (o StreamingJobOutput) ToStreamingJobOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingJobInput)(nil)).Elem(), &StreamingJob{})
 	pulumi.RegisterOutputType(StreamingJobOutput{})
 }

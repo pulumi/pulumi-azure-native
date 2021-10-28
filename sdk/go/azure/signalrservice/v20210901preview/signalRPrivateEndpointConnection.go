@@ -163,6 +163,5 @@ func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnecti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRPrivateEndpointConnectionInput)(nil)).Elem(), &SignalRPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(SignalRPrivateEndpointConnectionOutput{})
 }

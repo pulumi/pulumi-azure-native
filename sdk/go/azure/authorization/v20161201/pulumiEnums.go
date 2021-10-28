@@ -341,10 +341,6 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModeInput)(nil)).Elem(), PolicyMode("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModePtrInput)(nil)).Elem(), PolicyMode("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("NotSpecified"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("NotSpecified"))
 	pulumi.RegisterOutputType(PolicyModeOutput{})
 	pulumi.RegisterOutputType(PolicyModePtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})

@@ -995,18 +995,6 @@ func (in *stepTypePtr) ToStepTypePtrOutputWithContext(ctx context.Context) StepT
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModeInput)(nil)).Elem(), DeploymentMode("Incremental"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModePtrInput)(nil)).Elem(), DeploymentMode("Incremental"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestAuthLocationInput)(nil)).Elem(), RestAuthLocation("Query"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestAuthLocationPtrInput)(nil)).Elem(), RestAuthLocation("Query"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestAuthTypeInput)(nil)).Elem(), RestAuthType("ApiKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestAuthTypePtrInput)(nil)).Elem(), RestAuthType("ApiKey"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestMatchQuantifierInput)(nil)).Elem(), RestMatchQuantifier("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestMatchQuantifierPtrInput)(nil)).Elem(), RestMatchQuantifier("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestRequestMethodInput)(nil)).Elem(), RestRequestMethod("GET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestRequestMethodPtrInput)(nil)).Elem(), RestRequestMethod("GET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StepTypeInput)(nil)).Elem(), StepType("Wait"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StepTypePtrInput)(nil)).Elem(), StepType("Wait"))
 	pulumi.RegisterOutputType(DeploymentModeOutput{})
 	pulumi.RegisterOutputType(DeploymentModePtrOutput{})
 	pulumi.RegisterOutputType(RestAuthLocationOutput{})

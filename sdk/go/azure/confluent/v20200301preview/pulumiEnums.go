@@ -183,8 +183,6 @@ func (in *saaSOfferStatusPtr) ToSaaSOfferStatusPtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SaaSOfferStatusInput)(nil)).Elem(), SaaSOfferStatus("Started"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SaaSOfferStatusPtrInput)(nil)).Elem(), SaaSOfferStatus("Started"))
 	pulumi.RegisterOutputType(SaaSOfferStatusOutput{})
 	pulumi.RegisterOutputType(SaaSOfferStatusPtrOutput{})
 }

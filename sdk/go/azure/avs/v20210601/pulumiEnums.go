@@ -1327,22 +1327,6 @@ func (in *sslEnumPtr) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnum
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AddonTypeInput)(nil)).Elem(), AddonType("SRM"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AddonTypePtrInput)(nil)).Elem(), AddonType("SRM"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DhcpTypeEnumInput)(nil)).Elem(), DhcpTypeEnum("SERVER"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DhcpTypeEnumPtrInput)(nil)).Elem(), DhcpTypeEnum("SERVER"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsServiceLogLevelEnumInput)(nil)).Elem(), DnsServiceLogLevelEnum("DEBUG"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsServiceLogLevelEnumPtrInput)(nil)).Elem(), DnsServiceLogLevelEnum("DEBUG"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InternetEnumInput)(nil)).Elem(), InternetEnum("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InternetEnumPtrInput)(nil)).Elem(), InternetEnum("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MountOptionEnumInput)(nil)).Elem(), MountOptionEnum("MOUNT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MountOptionEnumPtrInput)(nil)).Elem(), MountOptionEnum("MOUNT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PortMirroringDirectionEnumInput)(nil)).Elem(), PortMirroringDirectionEnum("INGRESS, EGRESS, BIDIRECTIONAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PortMirroringDirectionEnumPtrInput)(nil)).Elem(), PortMirroringDirectionEnum("INGRESS, EGRESS, BIDIRECTIONAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptExecutionParameterTypeInput)(nil)).Elem(), ScriptExecutionParameterType("Value"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptExecutionParameterTypePtrInput)(nil)).Elem(), ScriptExecutionParameterType("Value"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SslEnumInput)(nil)).Elem(), SslEnum("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SslEnumPtrInput)(nil)).Elem(), SslEnum("Enabled"))
 	pulumi.RegisterOutputType(AddonTypeOutput{})
 	pulumi.RegisterOutputType(AddonTypePtrOutput{})
 	pulumi.RegisterOutputType(DhcpTypeEnumOutput{})

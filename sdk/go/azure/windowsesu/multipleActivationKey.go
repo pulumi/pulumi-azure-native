@@ -147,6 +147,5 @@ func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MultipleActivationKeyInput)(nil)).Elem(), &MultipleActivationKey{})
 	pulumi.RegisterOutputType(MultipleActivationKeyOutput{})
 }

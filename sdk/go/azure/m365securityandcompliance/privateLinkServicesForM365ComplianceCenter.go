@@ -142,6 +142,5 @@ func (o PrivateLinkServicesForM365ComplianceCenterOutput) ToPrivateLinkServicesF
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServicesForM365ComplianceCenterInput)(nil)).Elem(), &PrivateLinkServicesForM365ComplianceCenter{})
 	pulumi.RegisterOutputType(PrivateLinkServicesForM365ComplianceCenterOutput{})
 }

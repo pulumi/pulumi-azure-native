@@ -208,6 +208,5 @@ func (o SiteSlotConfigNamesOutput) ToSiteSlotConfigNamesOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteSlotConfigNamesInput)(nil)).Elem(), &SiteSlotConfigNames{})
 	pulumi.RegisterOutputType(SiteSlotConfigNamesOutput{})
 }

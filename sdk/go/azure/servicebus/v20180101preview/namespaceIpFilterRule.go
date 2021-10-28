@@ -134,6 +134,5 @@ func (o NamespaceIpFilterRuleOutput) ToNamespaceIpFilterRuleOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIpFilterRuleInput)(nil)).Elem(), &NamespaceIpFilterRule{})
 	pulumi.RegisterOutputType(NamespaceIpFilterRuleOutput{})
 }

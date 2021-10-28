@@ -537,16 +537,6 @@ type WorkbookTemplateLocalizedGalleryResponseArrayMapInput interface {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryInput)(nil)).Elem(), WorkbookTemplateGalleryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryArrayInput)(nil)).Elem(), WorkbookTemplateGalleryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryResponseInput)(nil)).Elem(), WorkbookTemplateGalleryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryResponseArrayInput)(nil)).Elem(), WorkbookTemplateGalleryResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArrayInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArrayInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArrayMapInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryArrayMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArrayMapInput)(nil)).Elem(), WorkbookTemplateLocalizedGalleryResponseArrayMap{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryResponseOutput{})

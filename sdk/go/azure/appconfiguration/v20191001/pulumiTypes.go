@@ -827,18 +827,6 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseInput)(nil)).Elem(), ApiKeyResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyResponseArrayInput)(nil)).Elem(), ApiKeyResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityInput)(nil)).Elem(), ResourceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityPtrInput)(nil)).Elem(), ResourceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityResponseInput)(nil)).Elem(), ResourceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityResponsePtrInput)(nil)).Elem(), ResourceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityResponseInput)(nil)).Elem(), UserIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityResponseMapInput)(nil)).Elem(), UserIdentityResponseMap{})
 	pulumi.RegisterOutputType(ApiKeyResponseOutput{})
 	pulumi.RegisterOutputType(ApiKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})

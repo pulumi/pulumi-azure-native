@@ -169,6 +169,5 @@ func (o EncryptionScopeOutput) ToEncryptionScopeOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeInput)(nil)).Elem(), &EncryptionScope{})
 	pulumi.RegisterOutputType(EncryptionScopeOutput{})
 }

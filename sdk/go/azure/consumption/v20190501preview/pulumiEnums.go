@@ -505,12 +505,6 @@ func (in *timeGrainTypePtr) ToTimeGrainTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryTypeInput)(nil)).Elem(), CategoryType("Cost"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CategoryTypePtrInput)(nil)).Elem(), CategoryType("Cost"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("EqualTo"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("EqualTo"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeGrainTypeInput)(nil)).Elem(), TimeGrainType("Monthly"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeGrainTypePtrInput)(nil)).Elem(), TimeGrainType("Monthly"))
 	pulumi.RegisterOutputType(CategoryTypeOutput{})
 	pulumi.RegisterOutputType(CategoryTypePtrOutput{})
 	pulumi.RegisterOutputType(OperatorTypeOutput{})

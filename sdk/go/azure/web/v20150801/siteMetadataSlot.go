@@ -210,6 +210,5 @@ func (o SiteMetadataSlotOutput) ToSiteMetadataSlotOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteMetadataSlotInput)(nil)).Elem(), &SiteMetadataSlot{})
 	pulumi.RegisterOutputType(SiteMetadataSlotOutput{})
 }

@@ -158,6 +158,5 @@ func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadNetworkSegmentInput)(nil)).Elem(), &WorkloadNetworkSegment{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentOutput{})
 }

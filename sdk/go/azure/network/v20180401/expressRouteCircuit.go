@@ -390,6 +390,5 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitInput)(nil)).Elem(), &ExpressRouteCircuit{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 }

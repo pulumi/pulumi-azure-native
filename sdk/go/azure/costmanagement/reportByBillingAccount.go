@@ -139,6 +139,5 @@ func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportByBillingAccountInput)(nil)).Elem(), &ReportByBillingAccount{})
 	pulumi.RegisterOutputType(ReportByBillingAccountOutput{})
 }

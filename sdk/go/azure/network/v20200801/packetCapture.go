@@ -363,6 +363,5 @@ func (o PacketCaptureOutput) ToPacketCaptureOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureInput)(nil)).Elem(), &PacketCapture{})
 	pulumi.RegisterOutputType(PacketCaptureOutput{})
 }

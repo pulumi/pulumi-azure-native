@@ -1038,20 +1038,6 @@ func (o SignalRFeatureResponseArrayOutput) Index(i pulumi.IntInput) SignalRFeatu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuPtrInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponseInput)(nil)).Elem(), ResourceSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponsePtrInput)(nil)).Elem(), ResourceSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCorsSettingsInput)(nil)).Elem(), SignalRCorsSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCorsSettingsPtrInput)(nil)).Elem(), SignalRCorsSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCorsSettingsResponseInput)(nil)).Elem(), SignalRCorsSettingsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCorsSettingsResponsePtrInput)(nil)).Elem(), SignalRCorsSettingsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCreateOrUpdatePropertiesInput)(nil)).Elem(), SignalRCreateOrUpdatePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRCreateOrUpdatePropertiesPtrInput)(nil)).Elem(), SignalRCreateOrUpdatePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRFeatureInput)(nil)).Elem(), SignalRFeatureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRFeatureArrayInput)(nil)).Elem(), SignalRFeatureArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRFeatureResponseInput)(nil)).Elem(), SignalRFeatureResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRFeatureResponseArrayInput)(nil)).Elem(), SignalRFeatureResponseArray{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})

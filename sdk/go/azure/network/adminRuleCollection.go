@@ -142,6 +142,5 @@ func (o AdminRuleCollectionOutput) ToAdminRuleCollectionOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AdminRuleCollectionInput)(nil)).Elem(), &AdminRuleCollection{})
 	pulumi.RegisterOutputType(AdminRuleCollectionOutput{})
 }

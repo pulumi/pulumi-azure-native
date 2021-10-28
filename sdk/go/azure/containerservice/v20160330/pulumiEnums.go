@@ -384,10 +384,6 @@ func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceOchestratorTypesInput)(nil)).Elem(), ContainerServiceOchestratorTypes("Swarm"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceOchestratorTypesPtrInput)(nil)).Elem(), ContainerServiceOchestratorTypes("Swarm"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceVMSizeTypesPtrInput)(nil)).Elem(), ContainerServiceVMSizeTypes("Standard_A0"))
 	pulumi.RegisterOutputType(ContainerServiceOchestratorTypesOutput{})
 	pulumi.RegisterOutputType(ContainerServiceOchestratorTypesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})

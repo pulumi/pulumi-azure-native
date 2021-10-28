@@ -167,6 +167,5 @@ func (o SiteInstanceDeploymentSlotOutput) ToSiteInstanceDeploymentSlotOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteInstanceDeploymentSlotInput)(nil)).Elem(), &SiteInstanceDeploymentSlot{})
 	pulumi.RegisterOutputType(SiteInstanceDeploymentSlotOutput{})
 }

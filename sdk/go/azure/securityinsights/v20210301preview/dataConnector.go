@@ -153,6 +153,5 @@ func (o DataConnectorOutput) ToDataConnectorOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorInput)(nil)).Elem(), &DataConnector{})
 	pulumi.RegisterOutputType(DataConnectorOutput{})
 }

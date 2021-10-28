@@ -339,6 +339,5 @@ func (o InboundNatRuleOutput) ToInboundNatRuleOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InboundNatRuleInput)(nil)).Elem(), &InboundNatRule{})
 	pulumi.RegisterOutputType(InboundNatRuleOutput{})
 }

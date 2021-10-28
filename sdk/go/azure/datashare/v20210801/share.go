@@ -163,6 +163,5 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareInput)(nil)).Elem(), &Share{})
 	pulumi.RegisterOutputType(ShareOutput{})
 }

@@ -685,14 +685,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseChannelNodeStateInput)(nil)).Elem(), EnterpriseChannelNodeState("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseChannelNodeStatePtrInput)(nil)).Elem(), EnterpriseChannelNodeState("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseChannelStateEnumInput)(nil)).Elem(), EnterpriseChannelStateEnum("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseChannelStateEnumPtrInput)(nil)).Elem(), EnterpriseChannelStateEnum("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("sdk"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("sdk"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("F0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("F0"))
 	pulumi.RegisterOutputType(EnterpriseChannelNodeStateOutput{})
 	pulumi.RegisterOutputType(EnterpriseChannelNodeStatePtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseChannelStateEnumOutput{})

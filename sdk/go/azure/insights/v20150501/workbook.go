@@ -189,6 +189,5 @@ func (o WorkbookOutput) ToWorkbookOutputWithContext(ctx context.Context) Workboo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookInput)(nil)).Elem(), &Workbook{})
 	pulumi.RegisterOutputType(WorkbookOutput{})
 }

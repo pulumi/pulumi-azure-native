@@ -196,6 +196,5 @@ func (o ApiReleaseOutput) ToApiReleaseOutputWithContext(ctx context.Context) Api
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiReleaseInput)(nil)).Elem(), &ApiRelease{})
 	pulumi.RegisterOutputType(ApiReleaseOutput{})
 }

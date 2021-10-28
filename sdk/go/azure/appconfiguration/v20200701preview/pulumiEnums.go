@@ -507,12 +507,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStatusInput)(nil)).Elem(), ConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionStatusPtrInput)(nil)).Elem(), ConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypeInput)(nil)).Elem(), IdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTypePtrInput)(nil)).Elem(), IdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
 	pulumi.RegisterOutputType(ConnectionStatusOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})

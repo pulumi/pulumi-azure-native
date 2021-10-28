@@ -177,6 +177,5 @@ func (o StreamingLocatorOutput) ToStreamingLocatorOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorInput)(nil)).Elem(), &StreamingLocator{})
 	pulumi.RegisterOutputType(StreamingLocatorOutput{})
 }

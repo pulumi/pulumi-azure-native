@@ -150,6 +150,5 @@ func (o FavoriteOutput) ToFavoriteOutputWithContext(ctx context.Context) Favorit
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FavoriteInput)(nil)).Elem(), &Favorite{})
 	pulumi.RegisterOutputType(FavoriteOutput{})
 }

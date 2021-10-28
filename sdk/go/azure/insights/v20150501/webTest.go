@@ -188,6 +188,5 @@ func (o WebTestOutput) ToWebTestOutputWithContext(ctx context.Context) WebTestOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestInput)(nil)).Elem(), &WebTest{})
 	pulumi.RegisterOutputType(WebTestOutput{})
 }

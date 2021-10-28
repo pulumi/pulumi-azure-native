@@ -142,6 +142,5 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionInput)(nil)).Elem(), &Function{})
 	pulumi.RegisterOutputType(FunctionOutput{})
 }

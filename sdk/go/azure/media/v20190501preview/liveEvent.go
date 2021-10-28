@@ -194,6 +194,5 @@ func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveE
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInput)(nil)).Elem(), &LiveEvent{})
 	pulumi.RegisterOutputType(LiveEventOutput{})
 }

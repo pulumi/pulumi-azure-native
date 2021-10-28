@@ -302,6 +302,5 @@ func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitConnectionInput)(nil)).Elem(), &ExpressRouteCircuitConnection{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionOutput{})
 }

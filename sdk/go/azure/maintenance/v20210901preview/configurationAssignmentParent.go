@@ -161,6 +161,5 @@ func (o ConfigurationAssignmentParentOutput) ToConfigurationAssignmentParentOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssignmentParentInput)(nil)).Elem(), &ConfigurationAssignmentParent{})
 	pulumi.RegisterOutputType(ConfigurationAssignmentParentOutput{})
 }

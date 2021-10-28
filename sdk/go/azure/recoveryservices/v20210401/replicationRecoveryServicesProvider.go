@@ -179,6 +179,5 @@ func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServices
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryServicesProviderInput)(nil)).Elem(), &ReplicationRecoveryServicesProvider{})
 	pulumi.RegisterOutputType(ReplicationRecoveryServicesProviderOutput{})
 }

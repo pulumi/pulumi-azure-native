@@ -227,6 +227,5 @@ func (o WebAppDeploymentSlotOutput) ToWebAppDeploymentSlotOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppDeploymentSlotInput)(nil)).Elem(), &WebAppDeploymentSlot{})
 	pulumi.RegisterOutputType(WebAppDeploymentSlotOutput{})
 }

@@ -503,12 +503,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationArtifactTypeInput)(nil)).Elem(), ApplicationArtifactType("Template"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationArtifactTypePtrInput)(nil)).Elem(), ApplicationArtifactType("Template"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLockLevelInput)(nil)).Elem(), ApplicationLockLevel("CanNotDelete"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLockLevelPtrInput)(nil)).Elem(), ApplicationLockLevel("CanNotDelete"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(ApplicationArtifactTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLockLevelOutput{})

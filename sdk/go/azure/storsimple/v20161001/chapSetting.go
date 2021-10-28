@@ -130,6 +130,5 @@ func (o ChapSettingOutput) ToChapSettingOutputWithContext(ctx context.Context) C
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ChapSettingInput)(nil)).Elem(), &ChapSetting{})
 	pulumi.RegisterOutputType(ChapSettingOutput{})
 }

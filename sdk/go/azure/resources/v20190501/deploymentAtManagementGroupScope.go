@@ -183,6 +183,5 @@ func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupSco
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAtManagementGroupScopeInput)(nil)).Elem(), &DeploymentAtManagementGroupScope{})
 	pulumi.RegisterOutputType(DeploymentAtManagementGroupScopeOutput{})
 }

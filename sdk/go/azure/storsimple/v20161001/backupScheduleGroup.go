@@ -130,6 +130,5 @@ func (o BackupScheduleGroupOutput) ToBackupScheduleGroupOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupScheduleGroupInput)(nil)).Elem(), &BackupScheduleGroup{})
 	pulumi.RegisterOutputType(BackupScheduleGroupOutput{})
 }

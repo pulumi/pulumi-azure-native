@@ -997,18 +997,6 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceKindInput)(nil)).Elem(), FhirServiceKind("fhir-Stu3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceKindPtrInput)(nil)).Elem(), FhirServiceKind("fhir-Stu3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IotIdentityResolutionTypeInput)(nil)).Elem(), IotIdentityResolutionType("Create"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IotIdentityResolutionTypePtrInput)(nil)).Elem(), IotIdentityResolutionType("Create"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("fhir"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("fhir"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateEndpointServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessPtrInput)(nil)).Elem(), PublicNetworkAccess("Enabled"))
 	pulumi.RegisterOutputType(FhirServiceKindOutput{})
 	pulumi.RegisterOutputType(FhirServiceKindPtrOutput{})
 	pulumi.RegisterOutputType(IotIdentityResolutionTypeOutput{})

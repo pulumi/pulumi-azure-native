@@ -163,6 +163,5 @@ func (o ImportPipelineOutput) ToImportPipelineOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ImportPipelineInput)(nil)).Elem(), &ImportPipeline{})
 	pulumi.RegisterOutputType(ImportPipelineOutput{})
 }

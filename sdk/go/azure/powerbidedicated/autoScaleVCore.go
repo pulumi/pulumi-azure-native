@@ -142,6 +142,5 @@ func (o AutoScaleVCoreOutput) ToAutoScaleVCoreOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScaleVCoreInput)(nil)).Elem(), &AutoScaleVCore{})
 	pulumi.RegisterOutputType(AutoScaleVCoreOutput{})
 }

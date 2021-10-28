@@ -160,6 +160,5 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentInput)(nil)).Elem(), &Assignment{})
 	pulumi.RegisterOutputType(AssignmentOutput{})
 }

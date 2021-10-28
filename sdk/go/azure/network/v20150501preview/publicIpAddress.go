@@ -384,6 +384,5 @@ func (o PublicIpAddressOutput) ToPublicIpAddressOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicIpAddressInput)(nil)).Elem(), &PublicIpAddress{})
 	pulumi.RegisterOutputType(PublicIpAddressOutput{})
 }

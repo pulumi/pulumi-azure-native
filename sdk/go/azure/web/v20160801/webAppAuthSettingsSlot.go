@@ -266,6 +266,5 @@ func (o WebAppAuthSettingsSlotOutput) ToWebAppAuthSettingsSlotOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppAuthSettingsSlotInput)(nil)).Elem(), &WebAppAuthSettingsSlot{})
 	pulumi.RegisterOutputType(WebAppAuthSettingsSlotOutput{})
 }

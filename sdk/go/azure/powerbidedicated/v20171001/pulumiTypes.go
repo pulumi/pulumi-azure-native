@@ -573,14 +573,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsInput)(nil)).Elem(), DedicatedCapacityAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsPtrInput)(nil)).Elem(), DedicatedCapacityAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsResponseInput)(nil)).Elem(), DedicatedCapacityAdministratorsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedCapacityAdministratorsResponsePtrInput)(nil)).Elem(), DedicatedCapacityAdministratorsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuPtrInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponseInput)(nil)).Elem(), ResourceSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponsePtrInput)(nil)).Elem(), ResourceSkuResponseArgs{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsPtrOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsResponseOutput{})

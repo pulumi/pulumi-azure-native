@@ -304,6 +304,5 @@ func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionInput)(nil)).Elem(), &VpnConnection{})
 	pulumi.RegisterOutputType(VpnConnectionOutput{})
 }

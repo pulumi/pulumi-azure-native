@@ -957,20 +957,6 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleR
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryInput)(nil)).Elem(), ActiveDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryArrayInput)(nil)).Elem(), ActiveDirectoryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryResponseInput)(nil)).Elem(), ActiveDirectoryResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryResponseArrayInput)(nil)).Elem(), ActiveDirectoryResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportPolicyRuleInput)(nil)).Elem(), ExportPolicyRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportPolicyRuleArrayInput)(nil)).Elem(), ExportPolicyRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportPolicyRuleResponseInput)(nil)).Elem(), ExportPolicyRuleResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportPolicyRuleResponseArrayInput)(nil)).Elem(), ExportPolicyRuleResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetPropertiesResponseInput)(nil)).Elem(), MountTargetPropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetPropertiesResponseArrayInput)(nil)).Elem(), MountTargetPropertiesResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumePropertiesExportPolicyInput)(nil)).Elem(), VolumePropertiesExportPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumePropertiesExportPolicyPtrInput)(nil)).Elem(), VolumePropertiesExportPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumePropertiesResponseExportPolicyInput)(nil)).Elem(), VolumePropertiesResponseExportPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumePropertiesResponseExportPolicyPtrInput)(nil)).Elem(), VolumePropertiesResponseExportPolicyArgs{})
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseOutput{})

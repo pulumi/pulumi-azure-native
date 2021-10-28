@@ -878,17 +878,6 @@ func (in *storageLimitExceededBehaviorPtr) ToStorageLimitExceededBehaviorPtrOutp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRoleInput)(nil)).Elem(), AccessPolicyRole("Reader"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRolePtrInput)(nil)).Elem(), AccessPolicyRole("Reader"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyRoleArrayInput)(nil)).Elem(), AccessPolicyRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KindInput)(nil)).Elem(), Kind("Microsoft.EventHub"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KindPtrInput)(nil)).Elem(), Kind("Microsoft.EventHub"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataKeyPropertyTypeInput)(nil)).Elem(), ReferenceDataKeyPropertyType("String"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceDataKeyPropertyTypePtrInput)(nil)).Elem(), ReferenceDataKeyPropertyType("String"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("S1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageLimitExceededBehaviorInput)(nil)).Elem(), StorageLimitExceededBehavior("PurgeOldData"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageLimitExceededBehaviorPtrInput)(nil)).Elem(), StorageLimitExceededBehavior("PurgeOldData"))
 	pulumi.RegisterOutputType(AccessPolicyRoleOutput{})
 	pulumi.RegisterOutputType(AccessPolicyRolePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyRoleArrayOutput{})

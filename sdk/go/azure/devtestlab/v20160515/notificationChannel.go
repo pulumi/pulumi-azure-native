@@ -153,6 +153,5 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelInput)(nil)).Elem(), &NotificationChannel{})
 	pulumi.RegisterOutputType(NotificationChannelOutput{})
 }

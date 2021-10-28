@@ -177,8 +177,6 @@ func (in *accessibilityPtr) ToAccessibilityPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessibilityInput)(nil)).Elem(), Accessibility("Unknown"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessibilityPtrInput)(nil)).Elem(), Accessibility("Unknown"))
 	pulumi.RegisterOutputType(AccessibilityOutput{})
 	pulumi.RegisterOutputType(AccessibilityPtrOutput{})
 }

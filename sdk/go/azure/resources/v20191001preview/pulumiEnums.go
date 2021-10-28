@@ -503,12 +503,6 @@ func (in *scriptTypePtr) ToScriptTypePtrOutputWithContext(ctx context.Context) S
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CleanupOptionsInput)(nil)).Elem(), CleanupOptions("Always"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CleanupOptionsPtrInput)(nil)).Elem(), CleanupOptions("Always"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypeInput)(nil)).Elem(), ManagedServiceIdentityType("UserAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedServiceIdentityTypePtrInput)(nil)).Elem(), ManagedServiceIdentityType("UserAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTypeInput)(nil)).Elem(), ScriptType("AzurePowerShell"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTypePtrInput)(nil)).Elem(), ScriptType("AzurePowerShell"))
 	pulumi.RegisterOutputType(CleanupOptionsOutput{})
 	pulumi.RegisterOutputType(CleanupOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityTypeOutput{})

@@ -865,16 +865,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePermissionsInput)(nil)).Elem(), CertificatePermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePermissionsPtrInput)(nil)).Elem(), CertificatePermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyPermissionsInput)(nil)).Elem(), KeyPermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyPermissionsPtrInput)(nil)).Elem(), KeyPermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretPermissionsInput)(nil)).Elem(), SecretPermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretPermissionsPtrInput)(nil)).Elem(), SecretPermissions("all"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyInput)(nil)).Elem(), SkuFamily("A"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuFamilyPtrInput)(nil)).Elem(), SkuFamily("A"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("standard"))
 	pulumi.RegisterOutputType(CertificatePermissionsOutput{})
 	pulumi.RegisterOutputType(CertificatePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(KeyPermissionsOutput{})

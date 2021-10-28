@@ -145,6 +145,5 @@ func (o JitNetworkAccessPolicyOutput) ToJitNetworkAccessPolicyOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*JitNetworkAccessPolicyInput)(nil)).Elem(), &JitNetworkAccessPolicy{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyOutput{})
 }

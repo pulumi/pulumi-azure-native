@@ -1162,20 +1162,6 @@ func (in *webTestKindEnumPtr) ToWebTestKindEnumPtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), ApplicationType("web"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypePtrInput)(nil)).Elem(), ApplicationType("web"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTypeInput)(nil)).Elem(), FlowType("Bluefield"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTypePtrInput)(nil)).Elem(), FlowType("Bluefield"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IngestionModeInput)(nil)).Elem(), IngestionMode("ApplicationInsights"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IngestionModePtrInput)(nil)).Elem(), IngestionMode("ApplicationInsights"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypeInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypePtrInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequestSourceInput)(nil)).Elem(), RequestSource("rest"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RequestSourcePtrInput)(nil)).Elem(), RequestSource("rest"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindInput)(nil)).Elem(), WebTestKind("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindPtrInput)(nil)).Elem(), WebTestKind("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindEnumInput)(nil)).Elem(), WebTestKindEnum("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindEnumPtrInput)(nil)).Elem(), WebTestKindEnum("ping"))
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowTypeOutput{})

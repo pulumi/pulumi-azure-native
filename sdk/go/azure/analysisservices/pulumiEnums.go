@@ -340,10 +340,6 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionModeInput)(nil)).Elem(), ConnectionMode("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionModePtrInput)(nil)).Elem(), ConnectionMode("All"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierInput)(nil)).Elem(), SkuTier("Development"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuTierPtrInput)(nil)).Elem(), SkuTier("Development"))
 	pulumi.RegisterOutputType(ConnectionModeOutput{})
 	pulumi.RegisterOutputType(ConnectionModePtrOutput{})
 	pulumi.RegisterOutputType(SkuTierOutput{})

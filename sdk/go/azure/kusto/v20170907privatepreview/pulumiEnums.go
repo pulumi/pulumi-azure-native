@@ -509,12 +509,6 @@ func (in *dataFormatPtr) ToDataFormatPtrOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNameInput)(nil)).Elem(), AzureSkuName("KC8"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuNamePtrInput)(nil)).Elem(), AzureSkuName("KC8"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierInput)(nil)).Elem(), AzureSkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuTierPtrInput)(nil)).Elem(), AzureSkuTier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataFormatInput)(nil)).Elem(), DataFormat("MULTIJSON"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataFormatPtrInput)(nil)).Elem(), DataFormat("MULTIJSON"))
 	pulumi.RegisterOutputType(AzureSkuNameOutput{})
 	pulumi.RegisterOutputType(AzureSkuNamePtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuTierOutput{})

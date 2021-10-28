@@ -176,6 +176,5 @@ func (o BlobStorageAccountDataSetOutput) ToBlobStorageAccountDataSetOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobStorageAccountDataSetInput)(nil)).Elem(), &BlobStorageAccountDataSet{})
 	pulumi.RegisterOutputType(BlobStorageAccountDataSetOutput{})
 }

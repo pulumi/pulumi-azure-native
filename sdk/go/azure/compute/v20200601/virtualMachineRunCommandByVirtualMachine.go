@@ -187,6 +187,5 @@ func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunComma
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachineInput)(nil)).Elem(), &VirtualMachineRunCommandByVirtualMachine{})
 	pulumi.RegisterOutputType(VirtualMachineRunCommandByVirtualMachineOutput{})
 }

@@ -132,6 +132,5 @@ func (o WebPubSubHubOutput) ToWebPubSubHubOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebPubSubHubInput)(nil)).Elem(), &WebPubSubHub{})
 	pulumi.RegisterOutputType(WebPubSubHubOutput{})
 }

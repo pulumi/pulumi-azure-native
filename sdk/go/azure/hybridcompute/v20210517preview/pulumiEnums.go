@@ -505,12 +505,6 @@ func (in *statusLevelTypesPtr) ToStatusLevelTypesPtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypeInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicNetworkAccessTypePtrInput)(nil)).Elem(), PublicNetworkAccessType("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusLevelTypesInput)(nil)).Elem(), StatusLevelTypes("Info"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusLevelTypesPtrInput)(nil)).Elem(), StatusLevelTypes("Info"))
 	pulumi.RegisterOutputType(PublicNetworkAccessTypeOutput{})
 	pulumi.RegisterOutputType(PublicNetworkAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

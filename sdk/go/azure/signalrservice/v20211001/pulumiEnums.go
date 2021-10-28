@@ -1332,22 +1332,6 @@ func (in *upstreamAuthTypePtr) ToUpstreamAuthTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLActionInput)(nil)).Elem(), ACLAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ACLActionPtrInput)(nil)).Elem(), ACLAction("Allow"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FeatureFlagsInput)(nil)).Elem(), FeatureFlags("ServiceMode"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FeatureFlagsPtrInput)(nil)).Elem(), FeatureFlags("ServiceMode"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypeInput)(nil)).Elem(), ManagedIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedIdentityTypePtrInput)(nil)).Elem(), ManagedIdentityType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceConnectionStatusPtrInput)(nil)).Elem(), PrivateLinkServiceConnectionStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKindInput)(nil)).Elem(), ServiceKind("SignalR"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceKindPtrInput)(nil)).Elem(), ServiceKind("SignalR"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRRequestTypeInput)(nil)).Elem(), SignalRRequestType("ClientConnection"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRRequestTypePtrInput)(nil)).Elem(), SignalRRequestType("ClientConnection"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRSkuTierInput)(nil)).Elem(), SignalRSkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalRSkuTierPtrInput)(nil)).Elem(), SignalRSkuTier("Free"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamAuthTypeInput)(nil)).Elem(), UpstreamAuthType("None"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamAuthTypePtrInput)(nil)).Elem(), UpstreamAuthType("None"))
 	pulumi.RegisterOutputType(ACLActionOutput{})
 	pulumi.RegisterOutputType(ACLActionPtrOutput{})
 	pulumi.RegisterOutputType(FeatureFlagsOutput{})

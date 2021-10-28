@@ -1000,18 +1000,6 @@ func (in *timeframeTypePtr) ToTimeframeTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportTypeInput)(nil)).Elem(), ExportType("Usage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportTypePtrInput)(nil)).Elem(), ExportType("Usage"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FormatTypeInput)(nil)).Elem(), FormatType("Csv"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FormatTypePtrInput)(nil)).Elem(), FormatType("Csv"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GranularityTypeInput)(nil)).Elem(), GranularityType("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GranularityTypePtrInput)(nil)).Elem(), GranularityType("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceTypeInput)(nil)).Elem(), RecurrenceType("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecurrenceTypePtrInput)(nil)).Elem(), RecurrenceType("Daily"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusTypeInput)(nil)).Elem(), StatusType("Active"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatusTypePtrInput)(nil)).Elem(), StatusType("Active"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeframeTypeInput)(nil)).Elem(), TimeframeType("MonthToDate"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeframeTypePtrInput)(nil)).Elem(), TimeframeType("MonthToDate"))
 	pulumi.RegisterOutputType(ExportTypeOutput{})
 	pulumi.RegisterOutputType(ExportTypePtrOutput{})
 	pulumi.RegisterOutputType(FormatTypeOutput{})

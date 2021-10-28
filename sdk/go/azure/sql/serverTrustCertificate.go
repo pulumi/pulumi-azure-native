@@ -130,6 +130,5 @@ func (o ServerTrustCertificateOutput) ToServerTrustCertificateOutputWithContext(
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerTrustCertificateInput)(nil)).Elem(), &ServerTrustCertificate{})
 	pulumi.RegisterOutputType(ServerTrustCertificateOutput{})
 }

@@ -146,6 +146,5 @@ func (o VideoOutput) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VideoInput)(nil)).Elem(), &Video{})
 	pulumi.RegisterOutputType(VideoOutput{})
 }

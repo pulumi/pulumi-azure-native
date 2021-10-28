@@ -190,6 +190,5 @@ func (o Gen2EnvironmentOutput) ToGen2EnvironmentOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*Gen2EnvironmentInput)(nil)).Elem(), &Gen2Environment{})
 	pulumi.RegisterOutputType(Gen2EnvironmentOutput{})
 }

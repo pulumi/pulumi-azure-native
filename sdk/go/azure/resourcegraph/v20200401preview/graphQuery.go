@@ -145,6 +145,5 @@ func (o GraphQueryOutput) ToGraphQueryOutputWithContext(ctx context.Context) Gra
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQueryInput)(nil)).Elem(), &GraphQuery{})
 	pulumi.RegisterOutputType(GraphQueryOutput{})
 }

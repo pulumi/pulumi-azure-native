@@ -191,6 +191,5 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), &Tag{})
 	pulumi.RegisterOutputType(TagOutput{})
 }

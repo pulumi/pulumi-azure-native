@@ -177,6 +177,5 @@ func (o KustoClusterDataSetMappingOutput) ToKustoClusterDataSetMappingOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KustoClusterDataSetMappingInput)(nil)).Elem(), &KustoClusterDataSetMapping{})
 	pulumi.RegisterOutputType(KustoClusterDataSetMappingOutput{})
 }

@@ -295,6 +295,5 @@ func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteInput)(nil)).Elem(), &VpnSite{})
 	pulumi.RegisterOutputType(VpnSiteOutput{})
 }

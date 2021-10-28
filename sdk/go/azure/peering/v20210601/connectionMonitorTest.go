@@ -140,6 +140,5 @@ func (o ConnectionMonitorTestOutput) ToConnectionMonitorTestOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionMonitorTestInput)(nil)).Elem(), &ConnectionMonitorTest{})
 	pulumi.RegisterOutputType(ConnectionMonitorTestOutput{})
 }

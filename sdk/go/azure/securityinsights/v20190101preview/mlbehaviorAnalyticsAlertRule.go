@@ -169,6 +169,5 @@ func (o MLBehaviorAnalyticsAlertRuleOutput) ToMLBehaviorAnalyticsAlertRuleOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MLBehaviorAnalyticsAlertRuleInput)(nil)).Elem(), &MLBehaviorAnalyticsAlertRule{})
 	pulumi.RegisterOutputType(MLBehaviorAnalyticsAlertRuleOutput{})
 }

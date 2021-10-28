@@ -148,6 +148,5 @@ func (o ManagementGroupDiagnosticSettingOutput) ToManagementGroupDiagnosticSetti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupDiagnosticSettingInput)(nil)).Elem(), &ManagementGroupDiagnosticSetting{})
 	pulumi.RegisterOutputType(ManagementGroupDiagnosticSettingOutput{})
 }

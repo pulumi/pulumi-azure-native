@@ -169,6 +169,5 @@ func (o DeploymentAtTenantScopeOutput) ToDeploymentAtTenantScopeOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAtTenantScopeInput)(nil)).Elem(), &DeploymentAtTenantScope{})
 	pulumi.RegisterOutputType(DeploymentAtTenantScopeOutput{})
 }

@@ -177,8 +177,6 @@ func (in *accountResourceRequestOperationTypePtr) ToAccountResourceRequestOperat
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountResourceRequestOperationTypeInput)(nil)).Elem(), AccountResourceRequestOperationType("unknown"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountResourceRequestOperationTypePtrInput)(nil)).Elem(), AccountResourceRequestOperationType("unknown"))
 	pulumi.RegisterOutputType(AccountResourceRequestOperationTypeOutput{})
 	pulumi.RegisterOutputType(AccountResourceRequestOperationTypePtrOutput{})
 }

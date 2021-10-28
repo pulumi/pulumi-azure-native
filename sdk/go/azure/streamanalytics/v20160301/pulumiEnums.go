@@ -1322,22 +1322,6 @@ func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuName
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CompatibilityLevelInput)(nil)).Elem(), CompatibilityLevel("1.0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CompatibilityLevelPtrInput)(nil)).Elem(), CompatibilityLevel("1.0"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncodingInput)(nil)).Elem(), Encoding("UTF8"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EncodingPtrInput)(nil)).Elem(), Encoding("UTF8"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSerializationTypeInput)(nil)).Elem(), EventSerializationType("Csv"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSerializationTypePtrInput)(nil)).Elem(), EventSerializationType("Csv"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventsOutOfOrderPolicyInput)(nil)).Elem(), EventsOutOfOrderPolicy("Adjust"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventsOutOfOrderPolicyPtrInput)(nil)).Elem(), EventsOutOfOrderPolicy("Adjust"))
-	pulumi.RegisterInputType(reflect.TypeOf((*JsonOutputSerializationFormatInput)(nil)).Elem(), JsonOutputSerializationFormat("LineSeparated"))
-	pulumi.RegisterInputType(reflect.TypeOf((*JsonOutputSerializationFormatPtrInput)(nil)).Elem(), JsonOutputSerializationFormat("LineSeparated"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputErrorPolicyInput)(nil)).Elem(), OutputErrorPolicy("Stop"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputErrorPolicyPtrInput)(nil)).Elem(), OutputErrorPolicy("Stop"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputStartModeInput)(nil)).Elem(), OutputStartMode("JobStartTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputStartModePtrInput)(nil)).Elem(), OutputStartMode("JobStartTime"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNameInput)(nil)).Elem(), SkuName("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuNamePtrInput)(nil)).Elem(), SkuName("Standard"))
 	pulumi.RegisterOutputType(CompatibilityLevelOutput{})
 	pulumi.RegisterOutputType(CompatibilityLevelPtrOutput{})
 	pulumi.RegisterOutputType(EncodingOutput{})

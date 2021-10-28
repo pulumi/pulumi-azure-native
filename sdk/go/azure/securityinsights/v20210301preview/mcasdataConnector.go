@@ -165,6 +165,5 @@ func (o MCASDataConnectorOutput) ToMCASDataConnectorOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MCASDataConnectorInput)(nil)).Elem(), &MCASDataConnector{})
 	pulumi.RegisterOutputType(MCASDataConnectorOutput{})
 }

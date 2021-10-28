@@ -207,6 +207,5 @@ func (o ProductApiOutput) ToProductApiOutputWithContext(ctx context.Context) Pro
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductApiInput)(nil)).Elem(), &ProductApi{})
 	pulumi.RegisterOutputType(ProductApiOutput{})
 }

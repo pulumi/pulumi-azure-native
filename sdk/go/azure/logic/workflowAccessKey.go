@@ -133,6 +133,5 @@ func (o WorkflowAccessKeyOutput) ToWorkflowAccessKeyOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessKeyInput)(nil)).Elem(), &WorkflowAccessKey{})
 	pulumi.RegisterOutputType(WorkflowAccessKeyOutput{})
 }

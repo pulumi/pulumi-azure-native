@@ -192,6 +192,5 @@ func (o ADLSGen2FolderDataSetOutput) ToADLSGen2FolderDataSetOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ADLSGen2FolderDataSetInput)(nil)).Elem(), &ADLSGen2FolderDataSet{})
 	pulumi.RegisterOutputType(ADLSGen2FolderDataSetOutput{})
 }

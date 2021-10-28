@@ -147,6 +147,5 @@ func (o AttestationAtResourceOutput) ToAttestationAtResourceOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttestationAtResourceInput)(nil)).Elem(), &AttestationAtResource{})
 	pulumi.RegisterOutputType(AttestationAtResourceOutput{})
 }

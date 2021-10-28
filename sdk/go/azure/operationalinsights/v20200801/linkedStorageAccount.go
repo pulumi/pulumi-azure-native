@@ -141,6 +141,5 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedStorageAccountInput)(nil)).Elem(), &LinkedStorageAccount{})
 	pulumi.RegisterOutputType(LinkedStorageAccountOutput{})
 }

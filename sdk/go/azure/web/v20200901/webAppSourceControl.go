@@ -211,6 +211,5 @@ func (o WebAppSourceControlOutput) ToWebAppSourceControlOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppSourceControlInput)(nil)).Elem(), &WebAppSourceControl{})
 	pulumi.RegisterOutputType(WebAppSourceControlOutput{})
 }

@@ -201,6 +201,5 @@ func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppPublicCertificateSlotInput)(nil)).Elem(), &WebAppPublicCertificateSlot{})
 	pulumi.RegisterOutputType(WebAppPublicCertificateSlotOutput{})
 }

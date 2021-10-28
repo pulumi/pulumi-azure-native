@@ -1354,22 +1354,6 @@ func (in *unmaskedIpLoggingStatusPtr) ToUnmaskedIpLoggingStatusPtrOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AdditionalWorkspaceDataTypeInput)(nil)).Elem(), AdditionalWorkspaceDataType("Alerts"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AdditionalWorkspaceDataTypePtrInput)(nil)).Elem(), AdditionalWorkspaceDataType("Alerts"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AdditionalWorkspaceTypeInput)(nil)).Elem(), AdditionalWorkspaceType("Sentinel"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AdditionalWorkspaceTypePtrInput)(nil)).Elem(), AdditionalWorkspaceType("Sentinel"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), DataSource("TwinData"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePtrInput)(nil)).Elem(), DataSource("TwinData"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportDataInput)(nil)).Elem(), ExportData("RawEvents"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExportDataPtrInput)(nil)).Elem(), ExportData("RawEvents"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationConfigStatusInput)(nil)).Elem(), RecommendationConfigStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationConfigStatusPtrInput)(nil)).Elem(), RecommendationConfigStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationTypeInput)(nil)).Elem(), RecommendationType("IoT_ACRAuthentication"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationTypePtrInput)(nil)).Elem(), RecommendationType("IoT_ACRAuthentication"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionStatusInput)(nil)).Elem(), SecuritySolutionStatus("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionStatusPtrInput)(nil)).Elem(), SecuritySolutionStatus("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnmaskedIpLoggingStatusInput)(nil)).Elem(), UnmaskedIpLoggingStatus("Disabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnmaskedIpLoggingStatusPtrInput)(nil)).Elem(), UnmaskedIpLoggingStatus("Disabled"))
 	pulumi.RegisterOutputType(AdditionalWorkspaceDataTypeOutput{})
 	pulumi.RegisterOutputType(AdditionalWorkspaceDataTypePtrOutput{})
 	pulumi.RegisterOutputType(AdditionalWorkspaceTypeOutput{})

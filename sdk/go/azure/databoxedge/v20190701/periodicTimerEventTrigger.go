@@ -207,6 +207,5 @@ func (o PeriodicTimerEventTriggerOutput) ToPeriodicTimerEventTriggerOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PeriodicTimerEventTriggerInput)(nil)).Elem(), &PeriodicTimerEventTrigger{})
 	pulumi.RegisterOutputType(PeriodicTimerEventTriggerOutput{})
 }

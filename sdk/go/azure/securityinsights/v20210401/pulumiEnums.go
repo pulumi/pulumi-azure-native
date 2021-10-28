@@ -1017,18 +1017,6 @@ func (in *threatIntelligenceResourceInnerKindPtr) ToThreatIntelligenceResourceIn
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentClassificationInput)(nil)).Elem(), IncidentClassification("Undetermined"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentClassificationPtrInput)(nil)).Elem(), IncidentClassification("Undetermined"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentClassificationReasonInput)(nil)).Elem(), IncidentClassificationReason("SuspiciousActivity"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentClassificationReasonPtrInput)(nil)).Elem(), IncidentClassificationReason("SuspiciousActivity"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentSeverityInput)(nil)).Elem(), IncidentSeverity("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentSeverityPtrInput)(nil)).Elem(), IncidentSeverity("High"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentStatusInput)(nil)).Elem(), IncidentStatus("New"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IncidentStatusPtrInput)(nil)).Elem(), IncidentStatus("New"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceInput)(nil)).Elem(), Source("Local file"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourcePtrInput)(nil)).Elem(), Source("Local file"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelligenceResourceInnerKindInput)(nil)).Elem(), ThreatIntelligenceResourceInnerKind("indicator"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelligenceResourceInnerKindPtrInput)(nil)).Elem(), ThreatIntelligenceResourceInnerKind("indicator"))
 	pulumi.RegisterOutputType(IncidentClassificationOutput{})
 	pulumi.RegisterOutputType(IncidentClassificationPtrOutput{})
 	pulumi.RegisterOutputType(IncidentClassificationReasonOutput{})

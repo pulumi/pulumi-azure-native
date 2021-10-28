@@ -175,8 +175,6 @@ func (in *contentSourceTypePtr) ToContentSourceTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypeInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentSourceTypePtrInput)(nil)).Elem(), ContentSourceType("embeddedContent"))
 	pulumi.RegisterOutputType(ContentSourceTypeOutput{})
 	pulumi.RegisterOutputType(ContentSourceTypePtrOutput{})
 }

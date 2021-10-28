@@ -138,6 +138,5 @@ func (o CustomerEventOutput) ToCustomerEventOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomerEventInput)(nil)).Elem(), &CustomerEvent{})
 	pulumi.RegisterOutputType(CustomerEventOutput{})
 }

@@ -182,6 +182,5 @@ func (o ReplicationvCenterOutput) ToReplicationvCenterOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationvCenterInput)(nil)).Elem(), &ReplicationvCenter{})
 	pulumi.RegisterOutputType(ReplicationvCenterOutput{})
 }

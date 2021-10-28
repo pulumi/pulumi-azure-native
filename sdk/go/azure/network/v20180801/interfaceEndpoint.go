@@ -269,6 +269,5 @@ func (o InterfaceEndpointOutput) ToInterfaceEndpointOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InterfaceEndpointInput)(nil)).Elem(), &InterfaceEndpoint{})
 	pulumi.RegisterOutputType(InterfaceEndpointOutput{})
 }

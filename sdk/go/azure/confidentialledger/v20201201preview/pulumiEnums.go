@@ -341,10 +341,6 @@ func (in *ledgerTypePtr) ToLedgerTypePtrOutputWithContext(ctx context.Context) L
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LedgerRoleNameInput)(nil)).Elem(), LedgerRoleName("Reader"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LedgerRoleNamePtrInput)(nil)).Elem(), LedgerRoleName("Reader"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTypeInput)(nil)).Elem(), LedgerType("Unknown"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTypePtrInput)(nil)).Elem(), LedgerType("Unknown"))
 	pulumi.RegisterOutputType(LedgerRoleNameOutput{})
 	pulumi.RegisterOutputType(LedgerRoleNamePtrOutput{})
 	pulumi.RegisterOutputType(LedgerTypeOutput{})

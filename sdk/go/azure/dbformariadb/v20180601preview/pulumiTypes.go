@@ -1244,20 +1244,6 @@ func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityResponseInput)(nil)).Elem(), ResourceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityResponsePtrInput)(nil)).Elem(), ResourceIdentityResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerPropertiesForDefaultCreateInput)(nil)).Elem(), ServerPropertiesForDefaultCreateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerPropertiesForGeoRestoreInput)(nil)).Elem(), ServerPropertiesForGeoRestoreArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerPropertiesForReplicaInput)(nil)).Elem(), ServerPropertiesForReplicaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerPropertiesForRestoreInput)(nil)).Elem(), ServerPropertiesForRestoreArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuPtrInput)(nil)).Elem(), SkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponseInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SkuResponsePtrInput)(nil)).Elem(), SkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileInput)(nil)).Elem(), StorageProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfilePtrInput)(nil)).Elem(), StorageProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileResponseInput)(nil)).Elem(), StorageProfileResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileResponsePtrInput)(nil)).Elem(), StorageProfileResponseArgs{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesForDefaultCreateOutput{})

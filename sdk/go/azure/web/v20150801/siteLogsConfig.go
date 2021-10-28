@@ -214,6 +214,5 @@ func (o SiteLogsConfigOutput) ToSiteLogsConfigOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteLogsConfigInput)(nil)).Elem(), &SiteLogsConfig{})
 	pulumi.RegisterOutputType(SiteLogsConfigOutput{})
 }

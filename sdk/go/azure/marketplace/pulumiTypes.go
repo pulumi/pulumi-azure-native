@@ -437,12 +437,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanInput)(nil)).Elem(), PlanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanArrayInput)(nil)).Elem(), PlanArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanResponseInput)(nil)).Elem(), PlanResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanResponseArrayInput)(nil)).Elem(), PlanResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanArrayOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})

@@ -177,8 +177,6 @@ func (in *storageRedundancyPtr) ToStorageRedundancyPtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageRedundancyInput)(nil)).Elem(), StorageRedundancy("Local"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageRedundancyPtrInput)(nil)).Elem(), StorageRedundancy("Local"))
 	pulumi.RegisterOutputType(StorageRedundancyOutput{})
 	pulumi.RegisterOutputType(StorageRedundancyPtrOutput{})
 }

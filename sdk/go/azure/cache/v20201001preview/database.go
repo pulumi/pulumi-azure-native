@@ -160,6 +160,5 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInput)(nil)).Elem(), &Database{})
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

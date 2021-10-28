@@ -135,6 +135,5 @@ func (o CloudLinkOutput) ToCloudLinkOutputWithContext(ctx context.Context) Cloud
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudLinkInput)(nil)).Elem(), &CloudLink{})
 	pulumi.RegisterOutputType(CloudLinkOutput{})
 }

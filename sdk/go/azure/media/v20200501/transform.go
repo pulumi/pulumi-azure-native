@@ -161,6 +161,5 @@ func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) Trans
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformInput)(nil)).Elem(), &Transform{})
 	pulumi.RegisterOutputType(TransformOutput{})
 }

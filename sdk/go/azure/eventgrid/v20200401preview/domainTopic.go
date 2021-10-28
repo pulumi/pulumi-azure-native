@@ -168,6 +168,5 @@ func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicInput)(nil)).Elem(), &DomainTopic{})
 	pulumi.RegisterOutputType(DomainTopicOutput{})
 }

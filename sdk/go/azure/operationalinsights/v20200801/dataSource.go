@@ -155,6 +155,5 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
 	pulumi.RegisterOutputType(DataSourceOutput{})
 }

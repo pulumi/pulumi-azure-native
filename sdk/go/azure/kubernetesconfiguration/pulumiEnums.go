@@ -1159,20 +1159,6 @@ func (in *sourceKindTypePtr) ToSourceKindTypePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KustomizationValidationTypeInput)(nil)).Elem(), KustomizationValidationType("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KustomizationValidationTypePtrInput)(nil)).Elem(), KustomizationValidationType("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LevelTypeInput)(nil)).Elem(), LevelType("Error"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LevelTypePtrInput)(nil)).Elem(), LevelType("Error"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypeInput)(nil)).Elem(), OperatorScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypePtrInput)(nil)).Elem(), OperatorScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("Flux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("Flux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypeInput)(nil)).Elem(), ScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTypePtrInput)(nil)).Elem(), ScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceKindTypeInput)(nil)).Elem(), SourceKindType("GitRepository"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceKindTypePtrInput)(nil)).Elem(), SourceKindType("GitRepository"))
 	pulumi.RegisterOutputType(KustomizationValidationTypeOutput{})
 	pulumi.RegisterOutputType(KustomizationValidationTypePtrOutput{})
 	pulumi.RegisterOutputType(LevelTypeOutput{})

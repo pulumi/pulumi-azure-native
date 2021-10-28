@@ -149,6 +149,5 @@ func (o ProactiveDetectionConfigurationOutput) ToProactiveDetectionConfiguration
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProactiveDetectionConfigurationInput)(nil)).Elem(), &ProactiveDetectionConfiguration{})
 	pulumi.RegisterOutputType(ProactiveDetectionConfigurationOutput{})
 }

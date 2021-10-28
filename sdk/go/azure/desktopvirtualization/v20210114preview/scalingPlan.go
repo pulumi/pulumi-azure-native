@@ -203,6 +203,5 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanInput)(nil)).Elem(), &ScalingPlan{})
 	pulumi.RegisterOutputType(ScalingPlanOutput{})
 }

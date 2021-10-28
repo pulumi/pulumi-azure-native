@@ -143,6 +143,5 @@ func (o GraphResourceGraphOutput) ToGraphResourceGraphOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphResourceGraphInput)(nil)).Elem(), &GraphResourceGraph{})
 	pulumi.RegisterOutputType(GraphResourceGraphOutput{})
 }

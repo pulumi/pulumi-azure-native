@@ -143,6 +143,5 @@ func (o AlertsSuppressionRuleOutput) ToAlertsSuppressionRuleOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertsSuppressionRuleInput)(nil)).Elem(), &AlertsSuppressionRule{})
 	pulumi.RegisterOutputType(AlertsSuppressionRuleOutput{})
 }

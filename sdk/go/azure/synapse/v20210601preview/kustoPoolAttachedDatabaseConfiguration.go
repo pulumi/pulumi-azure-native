@@ -157,6 +157,5 @@ func (o KustoPoolAttachedDatabaseConfigurationOutput) ToKustoPoolAttachedDatabas
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KustoPoolAttachedDatabaseConfigurationInput)(nil)).Elem(), &KustoPoolAttachedDatabaseConfiguration{})
 	pulumi.RegisterOutputType(KustoPoolAttachedDatabaseConfigurationOutput{})
 }

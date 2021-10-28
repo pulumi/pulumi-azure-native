@@ -338,10 +338,6 @@ func (in *operatorTypePtr) ToOperatorTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypeInput)(nil)).Elem(), OperatorScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorScopeTypePtrInput)(nil)).Elem(), OperatorScopeType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypeInput)(nil)).Elem(), OperatorType("Flux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OperatorTypePtrInput)(nil)).Elem(), OperatorType("Flux"))
 	pulumi.RegisterOutputType(OperatorScopeTypeOutput{})
 	pulumi.RegisterOutputType(OperatorScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(OperatorTypeOutput{})

@@ -187,6 +187,5 @@ func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationProtectionContainerMappingInput)(nil)).Elem(), &ReplicationProtectionContainerMapping{})
 	pulumi.RegisterOutputType(ReplicationProtectionContainerMappingOutput{})
 }

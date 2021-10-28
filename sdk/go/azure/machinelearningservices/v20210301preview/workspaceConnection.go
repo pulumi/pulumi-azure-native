@@ -176,6 +176,5 @@ func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutputWithContext(ctx co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConnectionInput)(nil)).Elem(), &WorkspaceConnection{})
 	pulumi.RegisterOutputType(WorkspaceConnectionOutput{})
 }

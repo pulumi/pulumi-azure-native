@@ -163,6 +163,5 @@ func (o DscConfigurationOutput) ToDscConfigurationOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationInput)(nil)).Elem(), &DscConfiguration{})
 	pulumi.RegisterOutputType(DscConfigurationOutput{})
 }

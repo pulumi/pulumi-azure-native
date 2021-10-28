@@ -305,6 +305,5 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageAccountInput)(nil)).Elem(), &StorageAccount{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 }

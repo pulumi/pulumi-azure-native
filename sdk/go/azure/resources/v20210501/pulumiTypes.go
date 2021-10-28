@@ -525,14 +525,6 @@ func (o TemplateSpecVersionInfoResponseMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedTemplateArtifactInput)(nil)).Elem(), LinkedTemplateArtifactArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedTemplateArtifactArrayInput)(nil)).Elem(), LinkedTemplateArtifactArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedTemplateArtifactResponseInput)(nil)).Elem(), LinkedTemplateArtifactResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedTemplateArtifactResponseArrayInput)(nil)).Elem(), LinkedTemplateArtifactResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecVersionInfoResponseInput)(nil)).Elem(), TemplateSpecVersionInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecVersionInfoResponseMapInput)(nil)).Elem(), TemplateSpecVersionInfoResponseMap{})
 	pulumi.RegisterOutputType(LinkedTemplateArtifactOutput{})
 	pulumi.RegisterOutputType(LinkedTemplateArtifactArrayOutput{})
 	pulumi.RegisterOutputType(LinkedTemplateArtifactResponseOutput{})

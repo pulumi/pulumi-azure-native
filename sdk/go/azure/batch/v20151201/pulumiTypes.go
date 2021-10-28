@@ -422,12 +422,6 @@ func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.String
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPackageResponseInput)(nil)).Elem(), ApplicationPackageResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPackageResponseArrayInput)(nil)).Elem(), ApplicationPackageResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoStorageBasePropertiesInput)(nil)).Elem(), AutoStorageBasePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoStorageBasePropertiesPtrInput)(nil)).Elem(), AutoStorageBasePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoStoragePropertiesResponseInput)(nil)).Elem(), AutoStoragePropertiesResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoStoragePropertiesResponsePtrInput)(nil)).Elem(), AutoStoragePropertiesResponseArgs{})
 	pulumi.RegisterOutputType(ApplicationPackageResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutoStorageBasePropertiesOutput{})

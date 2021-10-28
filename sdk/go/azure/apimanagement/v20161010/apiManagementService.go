@@ -248,6 +248,5 @@ func (o ApiManagementServiceOutput) ToApiManagementServiceOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiManagementServiceInput)(nil)).Elem(), &ApiManagementService{})
 	pulumi.RegisterOutputType(ApiManagementServiceOutput{})
 }

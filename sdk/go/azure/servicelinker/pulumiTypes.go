@@ -929,20 +929,6 @@ func (o UserAssignedIdentityAuthInfoResponseOutput) SubscriptionId() pulumi.Stri
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretAuthInfoInput)(nil)).Elem(), SecretAuthInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretAuthInfoResponseInput)(nil)).Elem(), SecretAuthInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalCertificateAuthInfoInput)(nil)).Elem(), ServicePrincipalCertificateAuthInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalCertificateAuthInfoResponseInput)(nil)).Elem(), ServicePrincipalCertificateAuthInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalSecretAuthInfoInput)(nil)).Elem(), ServicePrincipalSecretAuthInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalSecretAuthInfoResponseInput)(nil)).Elem(), ServicePrincipalSecretAuthInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceConfigurationResponseInput)(nil)).Elem(), SourceConfigurationResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceConfigurationResponseArrayInput)(nil)).Elem(), SourceConfigurationResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedIdentityAuthInfoInput)(nil)).Elem(), SystemAssignedIdentityAuthInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemAssignedIdentityAuthInfoResponseInput)(nil)).Elem(), SystemAssignedIdentityAuthInfoResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponseInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemDataResponsePtrInput)(nil)).Elem(), SystemDataResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityAuthInfoInput)(nil)).Elem(), UserAssignedIdentityAuthInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityAuthInfoResponseInput)(nil)).Elem(), UserAssignedIdentityAuthInfoResponseArgs{})
 	pulumi.RegisterOutputType(SecretAuthInfoOutput{})
 	pulumi.RegisterOutputType(SecretAuthInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalCertificateAuthInfoOutput{})

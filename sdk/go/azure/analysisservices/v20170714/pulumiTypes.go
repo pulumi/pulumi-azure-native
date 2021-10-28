@@ -869,18 +869,6 @@ func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayDetailsInput)(nil)).Elem(), GatewayDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayDetailsPtrInput)(nil)).Elem(), GatewayDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayDetailsResponseInput)(nil)).Elem(), GatewayDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayDetailsResponsePtrInput)(nil)).Elem(), GatewayDetailsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuPtrInput)(nil)).Elem(), ResourceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponseInput)(nil)).Elem(), ResourceSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSkuResponsePtrInput)(nil)).Elem(), ResourceSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsInput)(nil)).Elem(), ServerAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsPtrInput)(nil)).Elem(), ServerAdministratorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsResponseInput)(nil)).Elem(), ServerAdministratorsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerAdministratorsResponsePtrInput)(nil)).Elem(), ServerAdministratorsResponseArgs{})
 	pulumi.RegisterOutputType(GatewayDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsPtrOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsResponseOutput{})

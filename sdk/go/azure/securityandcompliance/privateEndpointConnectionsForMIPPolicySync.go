@@ -134,6 +134,5 @@ func (o PrivateEndpointConnectionsForMIPPolicySyncOutput) ToPrivateEndpointConne
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionsForMIPPolicySyncInput)(nil)).Elem(), &PrivateEndpointConnectionsForMIPPolicySync{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsForMIPPolicySyncOutput{})
 }

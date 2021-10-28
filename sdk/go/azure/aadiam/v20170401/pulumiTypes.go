@@ -519,14 +519,6 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*LogSettingsInput)(nil)).Elem(), LogSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogSettingsArrayInput)(nil)).Elem(), LogSettingsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogSettingsResponseInput)(nil)).Elem(), LogSettingsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogSettingsResponseArrayInput)(nil)).Elem(), LogSettingsResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPolicyInput)(nil)).Elem(), RetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPolicyPtrInput)(nil)).Elem(), RetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPolicyResponseInput)(nil)).Elem(), RetentionPolicyResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPolicyResponsePtrInput)(nil)).Elem(), RetentionPolicyResponseArgs{})
 	pulumi.RegisterOutputType(LogSettingsOutput{})
 	pulumi.RegisterOutputType(LogSettingsArrayOutput{})
 	pulumi.RegisterOutputType(LogSettingsResponseOutput{})

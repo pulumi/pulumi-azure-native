@@ -173,6 +173,5 @@ func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetInput)(nil)).Elem(), &Budget{})
 	pulumi.RegisterOutputType(BudgetOutput{})
 }

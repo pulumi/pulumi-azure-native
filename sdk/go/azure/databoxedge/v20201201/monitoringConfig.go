@@ -170,6 +170,5 @@ func (o MonitoringConfigOutput) ToMonitoringConfigOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringConfigInput)(nil)).Elem(), &MonitoringConfig{})
 	pulumi.RegisterOutputType(MonitoringConfigOutput{})
 }

@@ -678,14 +678,6 @@ func (in *managedLabVmSizePtr) ToManagedLabVmSizePtrOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AddRemoveInput)(nil)).Elem(), AddRemove("Add"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AddRemovePtrInput)(nil)).Elem(), AddRemove("Add"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStateInput)(nil)).Elem(), ConfigurationState("NotApplicable"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStatePtrInput)(nil)).Elem(), ConfigurationState("NotApplicable"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LabUserAccessModeInput)(nil)).Elem(), LabUserAccessMode("Restricted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LabUserAccessModePtrInput)(nil)).Elem(), LabUserAccessMode("Restricted"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLabVmSizeInput)(nil)).Elem(), ManagedLabVmSize("Basic"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLabVmSizePtrInput)(nil)).Elem(), ManagedLabVmSize("Basic"))
 	pulumi.RegisterOutputType(AddRemoveOutput{})
 	pulumi.RegisterOutputType(AddRemovePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStateOutput{})

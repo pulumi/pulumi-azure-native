@@ -126,6 +126,5 @@ func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) ToPr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionControllerPrivateEndpointConnectionInput)(nil)).Elem(), &PrivateEndpointConnectionControllerPrivateEndpointConnection{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput{})
 }

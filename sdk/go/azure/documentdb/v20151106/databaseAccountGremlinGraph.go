@@ -264,6 +264,5 @@ func (o DatabaseAccountGremlinGraphOutput) ToDatabaseAccountGremlinGraphOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAccountGremlinGraphInput)(nil)).Elem(), &DatabaseAccountGremlinGraph{})
 	pulumi.RegisterOutputType(DatabaseAccountGremlinGraphOutput{})
 }

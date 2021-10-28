@@ -226,6 +226,5 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupInput)(nil)).Elem(), &ResourceGroup{})
 	pulumi.RegisterOutputType(ResourceGroupOutput{})
 }

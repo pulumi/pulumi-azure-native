@@ -1354,22 +1354,6 @@ func (in *knownWindowsEventLogDataSourceStreamsPtr) ToKnownWindowsEventLogDataSo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownDataCollectionRuleResourceKindInput)(nil)).Elem(), KnownDataCollectionRuleResourceKind("Linux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownDataCollectionRuleResourceKindPtrInput)(nil)).Elem(), KnownDataCollectionRuleResourceKind("Linux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownDataFlowStreamsInput)(nil)).Elem(), KnownDataFlowStreams("Microsoft-Event"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownDataFlowStreamsPtrInput)(nil)).Elem(), KnownDataFlowStreams("Microsoft-Event"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownExtensionDataSourceStreamsInput)(nil)).Elem(), KnownExtensionDataSourceStreams("Microsoft-Event"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownExtensionDataSourceStreamsPtrInput)(nil)).Elem(), KnownExtensionDataSourceStreams("Microsoft-Event"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownPerfCounterDataSourceStreamsInput)(nil)).Elem(), KnownPerfCounterDataSourceStreams("Microsoft-Perf"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownPerfCounterDataSourceStreamsPtrInput)(nil)).Elem(), KnownPerfCounterDataSourceStreams("Microsoft-Perf"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceFacilityNamesInput)(nil)).Elem(), KnownSyslogDataSourceFacilityNames("auth"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceFacilityNamesPtrInput)(nil)).Elem(), KnownSyslogDataSourceFacilityNames("auth"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceLogLevelsInput)(nil)).Elem(), KnownSyslogDataSourceLogLevels("Debug"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceLogLevelsPtrInput)(nil)).Elem(), KnownSyslogDataSourceLogLevels("Debug"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceStreamsInput)(nil)).Elem(), KnownSyslogDataSourceStreams("Microsoft-Syslog"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownSyslogDataSourceStreamsPtrInput)(nil)).Elem(), KnownSyslogDataSourceStreams("Microsoft-Syslog"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownWindowsEventLogDataSourceStreamsInput)(nil)).Elem(), KnownWindowsEventLogDataSourceStreams("Microsoft-WindowsEvent"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KnownWindowsEventLogDataSourceStreamsPtrInput)(nil)).Elem(), KnownWindowsEventLogDataSourceStreams("Microsoft-WindowsEvent"))
 	pulumi.RegisterOutputType(KnownDataCollectionRuleResourceKindOutput{})
 	pulumi.RegisterOutputType(KnownDataCollectionRuleResourceKindPtrOutput{})
 	pulumi.RegisterOutputType(KnownDataFlowStreamsOutput{})

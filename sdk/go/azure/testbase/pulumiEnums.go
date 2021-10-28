@@ -670,14 +670,6 @@ func (in *tierPtr) ToTierPtrOutputWithContext(ctx context.Context) TierPtrOutput
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("Install"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("Install"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentTypeInput)(nil)).Elem(), ContentType("Inline"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentTypePtrInput)(nil)).Elem(), ContentType("Inline"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TestTypeInput)(nil)).Elem(), TestType("OutOfBoxTest"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TestTypePtrInput)(nil)).Elem(), TestType("OutOfBoxTest"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierInput)(nil)).Elem(), Tier("Standard"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierPtrInput)(nil)).Elem(), Tier("Standard"))
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
 	pulumi.RegisterOutputType(ContentTypeOutput{})

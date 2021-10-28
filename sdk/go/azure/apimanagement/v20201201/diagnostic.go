@@ -215,6 +215,5 @@ func (o DiagnosticOutput) ToDiagnosticOutputWithContext(ctx context.Context) Dia
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticInput)(nil)).Elem(), &Diagnostic{})
 	pulumi.RegisterOutputType(DiagnosticOutput{})
 }

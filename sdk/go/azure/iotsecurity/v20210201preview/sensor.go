@@ -143,6 +143,5 @@ func (o SensorOutput) ToSensorOutputWithContext(ctx context.Context) SensorOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SensorInput)(nil)).Elem(), &Sensor{})
 	pulumi.RegisterOutputType(SensorOutput{})
 }

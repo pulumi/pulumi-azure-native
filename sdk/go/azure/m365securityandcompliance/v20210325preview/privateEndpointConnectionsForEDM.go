@@ -134,6 +134,5 @@ func (o PrivateEndpointConnectionsForEDMOutput) ToPrivateEndpointConnectionsForE
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateEndpointConnectionsForEDMInput)(nil)).Elem(), &PrivateEndpointConnectionsForEDM{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsForEDMOutput{})
 }

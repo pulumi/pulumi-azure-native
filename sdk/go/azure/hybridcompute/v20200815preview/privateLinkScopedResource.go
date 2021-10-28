@@ -129,6 +129,5 @@ func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutputWithCo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedResourceInput)(nil)).Elem(), &PrivateLinkScopedResource{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceOutput{})
 }

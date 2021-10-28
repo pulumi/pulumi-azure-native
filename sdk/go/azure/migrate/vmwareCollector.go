@@ -131,6 +131,5 @@ func (o VMwareCollectorOutput) ToVMwareCollectorOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VMwareCollectorInput)(nil)).Elem(), &VMwareCollector{})
 	pulumi.RegisterOutputType(VMwareCollectorOutput{})
 }

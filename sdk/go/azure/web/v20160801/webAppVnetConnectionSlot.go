@@ -211,6 +211,5 @@ func (o WebAppVnetConnectionSlotOutput) ToWebAppVnetConnectionSlotOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppVnetConnectionSlotInput)(nil)).Elem(), &WebAppVnetConnectionSlot{})
 	pulumi.RegisterOutputType(WebAppVnetConnectionSlotOutput{})
 }

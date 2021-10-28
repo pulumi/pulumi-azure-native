@@ -341,10 +341,6 @@ func (in *webTestKindEnumPtr) ToWebTestKindEnumPtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindInput)(nil)).Elem(), WebTestKind("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindPtrInput)(nil)).Elem(), WebTestKind("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindEnumInput)(nil)).Elem(), WebTestKindEnum("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestKindEnumPtrInput)(nil)).Elem(), WebTestKindEnum("ping"))
 	pulumi.RegisterOutputType(WebTestKindOutput{})
 	pulumi.RegisterOutputType(WebTestKindPtrOutput{})
 	pulumi.RegisterOutputType(WebTestKindEnumOutput{})

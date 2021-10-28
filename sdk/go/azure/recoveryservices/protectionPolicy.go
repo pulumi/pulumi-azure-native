@@ -203,6 +203,5 @@ func (o ProtectionPolicyOutput) ToProtectionPolicyOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionPolicyInput)(nil)).Elem(), &ProtectionPolicy{})
 	pulumi.RegisterOutputType(ProtectionPolicyOutput{})
 }

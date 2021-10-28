@@ -286,6 +286,5 @@ func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) Vir
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWanInput)(nil)).Elem(), &VirtualWan{})
 	pulumi.RegisterOutputType(VirtualWanOutput{})
 }

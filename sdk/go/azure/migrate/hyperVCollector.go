@@ -131,6 +131,5 @@ func (o HyperVCollectorOutput) ToHyperVCollectorOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HyperVCollectorInput)(nil)).Elem(), &HyperVCollector{})
 	pulumi.RegisterOutputType(HyperVCollectorOutput{})
 }

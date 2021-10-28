@@ -208,6 +208,5 @@ func (o NodeTypeOutput) ToNodeTypeOutputWithContext(ctx context.Context) NodeTyp
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeTypeInput)(nil)).Elem(), &NodeType{})
 	pulumi.RegisterOutputType(NodeTypeOutput{})
 }

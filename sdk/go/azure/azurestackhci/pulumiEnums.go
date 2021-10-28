@@ -177,8 +177,6 @@ func (in *createdByTypePtr) ToCreatedByTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatedByTypeInput)(nil)).Elem(), CreatedByType("User"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatedByTypePtrInput)(nil)).Elem(), CreatedByType("User"))
 	pulumi.RegisterOutputType(CreatedByTypeOutput{})
 	pulumi.RegisterOutputType(CreatedByTypePtrOutput{})
 }

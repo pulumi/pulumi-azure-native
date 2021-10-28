@@ -205,6 +205,5 @@ func (o SiteConnectionStringsOutput) ToSiteConnectionStringsOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteConnectionStringsInput)(nil)).Elem(), &SiteConnectionStrings{})
 	pulumi.RegisterOutputType(SiteConnectionStringsOutput{})
 }

@@ -114,6 +114,5 @@ func (o IngestionSettingOutput) ToIngestionSettingOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IngestionSettingInput)(nil)).Elem(), &IngestionSetting{})
 	pulumi.RegisterOutputType(IngestionSettingOutput{})
 }

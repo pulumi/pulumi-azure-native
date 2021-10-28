@@ -141,6 +141,5 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorInput)(nil)).Elem(), &Monitor{})
 	pulumi.RegisterOutputType(MonitorOutput{})
 }

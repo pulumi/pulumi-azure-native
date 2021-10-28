@@ -177,6 +177,5 @@ func (o ReplicationFabricOutput) ToReplicationFabricOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationFabricInput)(nil)).Elem(), &ReplicationFabric{})
 	pulumi.RegisterOutputType(ReplicationFabricOutput{})
 }

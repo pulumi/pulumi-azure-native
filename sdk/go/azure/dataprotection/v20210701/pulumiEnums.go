@@ -1346,22 +1346,6 @@ func (in *weekNumberPtr) ToWeekNumberPtrOutputWithContext(ctx context.Context) W
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AbsoluteMarkerInput)(nil)).Elem(), AbsoluteMarker("AllBackup"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AbsoluteMarkerPtrInput)(nil)).Elem(), AbsoluteMarker("AllBackup"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataStoreTypesInput)(nil)).Elem(), DataStoreTypes("OperationalStore"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataStoreTypesPtrInput)(nil)).Elem(), DataStoreTypes("OperationalStore"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekInput)(nil)).Elem(), DayOfWeek("Friday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DayOfWeekPtrInput)(nil)).Elem(), DayOfWeek("Friday"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonthInput)(nil)).Elem(), Month("April"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonthPtrInput)(nil)).Elem(), Month("April"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretStoreTypeInput)(nil)).Elem(), SecretStoreType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretStoreTypePtrInput)(nil)).Elem(), SecretStoreType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSettingStoreTypesInput)(nil)).Elem(), StorageSettingStoreTypes("ArchiveStore"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSettingStoreTypesPtrInput)(nil)).Elem(), StorageSettingStoreTypes("ArchiveStore"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSettingTypesInput)(nil)).Elem(), StorageSettingTypes("GeoRedundant"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSettingTypesPtrInput)(nil)).Elem(), StorageSettingTypes("GeoRedundant"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WeekNumberInput)(nil)).Elem(), WeekNumber("First"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WeekNumberPtrInput)(nil)).Elem(), WeekNumber("First"))
 	pulumi.RegisterOutputType(AbsoluteMarkerOutput{})
 	pulumi.RegisterOutputType(AbsoluteMarkerPtrOutput{})
 	pulumi.RegisterOutputType(DataStoreTypesOutput{})

@@ -340,10 +340,6 @@ func (in *supportTypePtr) ToSupportTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypeInput)(nil)).Elem(), OsType("Windows7"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OsTypePtrInput)(nil)).Elem(), OsType("Windows7"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportTypeInput)(nil)).Elem(), SupportType("SupplementalServicing"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SupportTypePtrInput)(nil)).Elem(), SupportType("SupplementalServicing"))
 	pulumi.RegisterOutputType(OsTypeOutput{})
 	pulumi.RegisterOutputType(OsTypePtrOutput{})
 	pulumi.RegisterOutputType(SupportTypeOutput{})

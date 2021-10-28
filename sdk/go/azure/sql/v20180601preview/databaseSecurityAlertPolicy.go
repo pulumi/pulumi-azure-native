@@ -191,6 +191,5 @@ func (o DatabaseSecurityAlertPolicyOutput) ToDatabaseSecurityAlertPolicyOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseSecurityAlertPolicyInput)(nil)).Elem(), &DatabaseSecurityAlertPolicy{})
 	pulumi.RegisterOutputType(DatabaseSecurityAlertPolicyOutput{})
 }

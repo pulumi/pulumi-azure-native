@@ -166,6 +166,5 @@ func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlVirtualMachineInput)(nil)).Elem(), &SqlVirtualMachine{})
 	pulumi.RegisterOutputType(SqlVirtualMachineOutput{})
 }

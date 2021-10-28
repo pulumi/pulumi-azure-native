@@ -140,6 +140,5 @@ func (o ManagementLockOutput) ToManagementLockOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementLockInput)(nil)).Elem(), &ManagementLock{})
 	pulumi.RegisterOutputType(ManagementLockOutput{})
 }

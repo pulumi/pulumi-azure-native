@@ -134,6 +134,5 @@ func (o RoutingIntentOutput) ToRoutingIntentOutputWithContext(ctx context.Contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingIntentInput)(nil)).Elem(), &RoutingIntent{})
 	pulumi.RegisterOutputType(RoutingIntentOutput{})
 }

@@ -209,6 +209,5 @@ func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx contex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthScheduleInput)(nil)).Elem(), &BandwidthSchedule{})
 	pulumi.RegisterOutputType(BandwidthScheduleOutput{})
 }

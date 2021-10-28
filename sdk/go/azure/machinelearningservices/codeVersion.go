@@ -137,6 +137,5 @@ func (o CodeVersionOutput) ToCodeVersionOutputWithContext(ctx context.Context) C
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeVersionInput)(nil)).Elem(), &CodeVersion{})
 	pulumi.RegisterOutputType(CodeVersionOutput{})
 }

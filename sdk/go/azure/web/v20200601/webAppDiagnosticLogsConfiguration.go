@@ -204,6 +204,5 @@ func (o WebAppDiagnosticLogsConfigurationOutput) ToWebAppDiagnosticLogsConfigura
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppDiagnosticLogsConfigurationInput)(nil)).Elem(), &WebAppDiagnosticLogsConfiguration{})
 	pulumi.RegisterOutputType(WebAppDiagnosticLogsConfigurationOutput{})
 }

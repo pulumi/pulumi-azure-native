@@ -177,8 +177,6 @@ func (in *mediaGraphRtspTransportPtr) ToMediaGraphRtspTransportPtrOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspTransportInput)(nil)).Elem(), MediaGraphRtspTransport("Http"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MediaGraphRtspTransportPtrInput)(nil)).Elem(), MediaGraphRtspTransport("Http"))
 	pulumi.RegisterOutputType(MediaGraphRtspTransportOutput{})
 	pulumi.RegisterOutputType(MediaGraphRtspTransportPtrOutput{})
 }

@@ -137,6 +137,5 @@ func (o DataVersionOutput) ToDataVersionOutputWithContext(ctx context.Context) D
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataVersionInput)(nil)).Elem(), &DataVersion{})
 	pulumi.RegisterOutputType(DataVersionOutput{})
 }

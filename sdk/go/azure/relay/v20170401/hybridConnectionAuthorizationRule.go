@@ -142,6 +142,5 @@ func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorization
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionAuthorizationRuleInput)(nil)).Elem(), &HybridConnectionAuthorizationRule{})
 	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleOutput{})
 }

@@ -154,6 +154,5 @@ func (o DataControllerOutput) ToDataControllerOutputWithContext(ctx context.Cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DataControllerInput)(nil)).Elem(), &DataController{})
 	pulumi.RegisterOutputType(DataControllerOutput{})
 }

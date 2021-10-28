@@ -216,6 +216,5 @@ func (o WebAppPremierAddOnOutput) ToWebAppPremierAddOnOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAppPremierAddOnInput)(nil)).Elem(), &WebAppPremierAddOn{})
 	pulumi.RegisterOutputType(WebAppPremierAddOnOutput{})
 }

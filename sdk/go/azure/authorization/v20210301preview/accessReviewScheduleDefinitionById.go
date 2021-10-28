@@ -194,6 +194,5 @@ func (o AccessReviewScheduleDefinitionByIdOutput) ToAccessReviewScheduleDefiniti
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessReviewScheduleDefinitionByIdInput)(nil)).Elem(), &AccessReviewScheduleDefinitionById{})
 	pulumi.RegisterOutputType(AccessReviewScheduleDefinitionByIdOutput{})
 }

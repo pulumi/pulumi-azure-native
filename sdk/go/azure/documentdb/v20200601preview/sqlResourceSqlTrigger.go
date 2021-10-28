@@ -239,6 +239,5 @@ func (o SqlResourceSqlTriggerOutput) ToSqlResourceSqlTriggerOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlResourceSqlTriggerInput)(nil)).Elem(), &SqlResourceSqlTrigger{})
 	pulumi.RegisterOutputType(SqlResourceSqlTriggerOutput{})
 }

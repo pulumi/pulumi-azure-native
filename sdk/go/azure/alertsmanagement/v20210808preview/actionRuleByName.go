@@ -142,6 +142,5 @@ func (o ActionRuleByNameOutput) ToActionRuleByNameOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleByNameInput)(nil)).Elem(), &ActionRuleByName{})
 	pulumi.RegisterOutputType(ActionRuleByNameOutput{})
 }

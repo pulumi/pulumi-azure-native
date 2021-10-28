@@ -191,6 +191,5 @@ func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabel
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseSensitivityLabelInput)(nil)).Elem(), &ManagedDatabaseSensitivityLabel{})
 	pulumi.RegisterOutputType(ManagedDatabaseSensitivityLabelOutput{})
 }

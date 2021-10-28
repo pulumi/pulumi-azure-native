@@ -199,6 +199,5 @@ func (o BlobFolderDataSetMappingOutput) ToBlobFolderDataSetMappingOutputWithCont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobFolderDataSetMappingInput)(nil)).Elem(), &BlobFolderDataSetMapping{})
 	pulumi.RegisterOutputType(BlobFolderDataSetMappingOutput{})
 }

@@ -248,6 +248,5 @@ func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkServiceInput)(nil)).Elem(), &PrivateLinkService{})
 	pulumi.RegisterOutputType(PrivateLinkServiceOutput{})
 }

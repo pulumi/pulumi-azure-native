@@ -141,6 +141,5 @@ func (o DiagnosticLoggerOutput) ToDiagnosticLoggerOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticLoggerInput)(nil)).Elem(), &DiagnosticLogger{})
 	pulumi.RegisterOutputType(DiagnosticLoggerOutput{})
 }

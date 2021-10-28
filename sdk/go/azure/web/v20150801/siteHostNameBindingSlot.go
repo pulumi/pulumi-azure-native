@@ -227,6 +227,5 @@ func (o SiteHostNameBindingSlotOutput) ToSiteHostNameBindingSlotOutputWithContex
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteHostNameBindingSlotInput)(nil)).Elem(), &SiteHostNameBindingSlot{})
 	pulumi.RegisterOutputType(SiteHostNameBindingSlotOutput{})
 }

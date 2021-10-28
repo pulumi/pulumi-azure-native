@@ -352,6 +352,5 @@ func (o RouteFilterRuleOutput) ToRouteFilterRuleOutputWithContext(ctx context.Co
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterRuleInput)(nil)).Elem(), &RouteFilterRule{})
 	pulumi.RegisterOutputType(RouteFilterRuleOutput{})
 }

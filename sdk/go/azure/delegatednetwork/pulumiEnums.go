@@ -338,10 +338,6 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorKindInput)(nil)).Elem(), OrchestratorKind("Kubernetes"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratorKindPtrInput)(nil)).Elem(), OrchestratorKind("Kubernetes"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypeInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceIdentityTypePtrInput)(nil)).Elem(), ResourceIdentityType("SystemAssigned"))
 	pulumi.RegisterOutputType(OrchestratorKindOutput{})
 	pulumi.RegisterOutputType(OrchestratorKindPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

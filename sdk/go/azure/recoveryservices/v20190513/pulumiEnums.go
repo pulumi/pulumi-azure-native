@@ -1359,22 +1359,6 @@ func (in *protectionStatePtr) ToProtectionStatePtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupManagementTypeInput)(nil)).Elem(), BackupManagementType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupManagementTypePtrInput)(nil)).Elem(), BackupManagementType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateModeInput)(nil)).Elem(), CreateMode("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CreateModePtrInput)(nil)).Elem(), CreateMode("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthStatusInput)(nil)).Elem(), HealthStatus("Passed"))
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthStatusPtrInput)(nil)).Elem(), HealthStatus("Passed"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LastBackupStatusInput)(nil)).Elem(), LastBackupStatus("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*LastBackupStatusPtrInput)(nil)).Elem(), LastBackupStatus("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedItemHealthStatusInput)(nil)).Elem(), ProtectedItemHealthStatus("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedItemHealthStatusPtrInput)(nil)).Elem(), ProtectedItemHealthStatus("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedItemStateEnumInput)(nil)).Elem(), ProtectedItemStateEnum("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedItemStateEnumPtrInput)(nil)).Elem(), ProtectedItemStateEnum("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionStateInput)(nil)).Elem(), ProtectionState("Invalid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionStatePtrInput)(nil)).Elem(), ProtectionState("Invalid"))
 	pulumi.RegisterOutputType(BackupManagementTypeOutput{})
 	pulumi.RegisterOutputType(BackupManagementTypePtrOutput{})
 	pulumi.RegisterOutputType(CreateModeOutput{})

@@ -782,18 +782,6 @@ func (o TrustedExternalTenantResponseArrayOutput) Index(i pulumi.IntInput) Trust
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuInput)(nil)).Elem(), AzureSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuPtrInput)(nil)).Elem(), AzureSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuResponseInput)(nil)).Elem(), AzureSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AzureSkuResponsePtrInput)(nil)).Elem(), AzureSkuResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalResponseInput)(nil)).Elem(), DatabasePrincipalResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalResponseArrayInput)(nil)).Elem(), DatabasePrincipalResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseStatisticsResponseInput)(nil)).Elem(), DatabaseStatisticsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseStatisticsResponsePtrInput)(nil)).Elem(), DatabaseStatisticsResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedExternalTenantInput)(nil)).Elem(), TrustedExternalTenantArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedExternalTenantArrayInput)(nil)).Elem(), TrustedExternalTenantArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedExternalTenantResponseInput)(nil)).Elem(), TrustedExternalTenantResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustedExternalTenantResponseArrayInput)(nil)).Elem(), TrustedExternalTenantResponseArray{})
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})

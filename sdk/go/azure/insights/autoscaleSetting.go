@@ -161,6 +161,5 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingInput)(nil)).Elem(), &AutoscaleSetting{})
 	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
 }
