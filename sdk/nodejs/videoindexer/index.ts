@@ -13,9 +13,11 @@ export * from "../types/enums/videoindexer";
 
 // Export sub-modules:
 import * as v20211018preview from "./v20211018preview";
+import * as v20211027preview from "./v20211027preview";
 
 export {
     v20211018preview,
+    v20211027preview,
 };
 
 // Import resources to register:

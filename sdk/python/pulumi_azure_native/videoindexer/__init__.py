@@ -15,6 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.videoindexer.v20211018preview as __v20211018preview
     v20211018preview = __v20211018preview
+    import pulumi_azure_native.videoindexer.v20211027preview as __v20211027preview
+    v20211027preview = __v20211027preview
 else:
     v20211018preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20211018preview')
+    v20211027preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20211027preview')
 

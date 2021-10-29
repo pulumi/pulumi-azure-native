@@ -217,7 +217,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:videoindexer:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-nextgen:videoindexer/v20211018preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:videoindexer:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-nextgen:videoindexer/v20211018preview:Account"), pulumi.Alias(type_="azure-native:videoindexer/v20211027preview:Account"), pulumi.Alias(type_="azure-nextgen:videoindexer/v20211027preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:videoindexer:Account',

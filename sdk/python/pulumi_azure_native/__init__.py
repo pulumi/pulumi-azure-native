@@ -9824,6 +9824,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "maps/v20211201preview",
+  "fqn": "pulumi_azure_native.maps.v20211201preview",
+  "classes": {
+   "azure-native:maps/v20211201preview:Account": "Account",
+   "azure-native:maps/v20211201preview:Creator": "Creator"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "marketplace",
   "fqn": "pulumi_azure_native.marketplace",
   "classes": {
@@ -14825,6 +14834,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "servicefabric/v20211101preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20211101preview",
+  "classes": {
+   "azure-native:servicefabric/v20211101preview:Application": "Application",
+   "azure-native:servicefabric/v20211101preview:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20211101preview:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20211101preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20211101preview:NodeType": "NodeType",
+   "azure-native:servicefabric/v20211101preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "servicefabricmesh",
   "fqn": "pulumi_azure_native.servicefabricmesh",
   "classes": {
@@ -16576,6 +16598,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.videoindexer.v20211018preview",
   "classes": {
    "azure-native:videoindexer/v20211018preview:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "videoindexer/v20211027preview",
+  "fqn": "pulumi_azure_native.videoindexer.v20211027preview",
+  "classes": {
+   "azure-native:videoindexer/v20211027preview:Account": "Account"
   }
  },
  {

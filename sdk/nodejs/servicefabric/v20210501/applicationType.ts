@@ -97,7 +97,7 @@ export class ApplicationType extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210901privatepreview:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20211101preview:ApplicationType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }
