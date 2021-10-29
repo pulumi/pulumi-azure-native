@@ -1,0 +1,38 @@
+
+
+
+package v20180330preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
+	var rv LookupJobResult
+	err := ctx.Invoke("azure-native:media/v20180330preview:getJob", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupJobArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	JobName           string `pulumi:"jobName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	TransformName     string `pulumi:"transformName"`
+}
+
+
+type LookupJobResult struct {
+	Created      string                   `pulumi:"created"`
+	Description  *string                  `pulumi:"description"`
+	Id           string                   `pulumi:"id"`
+	Input        interface{}              `pulumi:"input"`
+	LastModified string                   `pulumi:"lastModified"`
+	Name         string                   `pulumi:"name"`
+	Outputs      []JobOutputAssetResponse `pulumi:"outputs"`
+	Priority     *string                  `pulumi:"priority"`
+	State        string                   `pulumi:"state"`
+	Type         string                   `pulumi:"type"`
+}

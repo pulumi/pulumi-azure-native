@@ -1,0 +1,164 @@
+
+
+
+package security
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Assignment struct {
+	pulumi.CustomResourceState
+
+	AdditionalData    AssignmentPropertiesResponseAdditionalDataPtrOutput `pulumi:"additionalData"`
+	AssignedComponent AssignedComponentItemResponsePtrOutput              `pulumi:"assignedComponent"`
+	AssignedStandard  AssignedStandardItemResponsePtrOutput               `pulumi:"assignedStandard"`
+	Description       pulumi.StringPtrOutput                              `pulumi:"description"`
+	DisplayName       pulumi.StringPtrOutput                              `pulumi:"displayName"`
+	Effect            pulumi.StringPtrOutput                              `pulumi:"effect"`
+	Etag              pulumi.StringPtrOutput                              `pulumi:"etag"`
+	ExpiresOn         pulumi.StringPtrOutput                              `pulumi:"expiresOn"`
+	Kind              pulumi.StringPtrOutput                              `pulumi:"kind"`
+	Location          pulumi.StringPtrOutput                              `pulumi:"location"`
+	Metadata          pulumi.AnyOutput                                    `pulumi:"metadata"`
+	Name              pulumi.StringOutput                                 `pulumi:"name"`
+	Scope             pulumi.StringPtrOutput                              `pulumi:"scope"`
+	SystemData        SystemDataResponseOutput                            `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type              pulumi.StringOutput                                 `pulumi:"type"`
+}
+
+
+func NewAssignment(ctx *pulumi.Context,
+	name string, args *AssignmentArgs, opts ...pulumi.ResourceOption) (*Assignment, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:Assignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20210801preview:Assignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:security/v20210801preview:Assignment"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource Assignment
+	err := ctx.RegisterResource("azure-native:security:Assignment", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetAssignment(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *AssignmentState, opts ...pulumi.ResourceOption) (*Assignment, error) {
+	var resource Assignment
+	err := ctx.ReadResource("azure-native:security:Assignment", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type assignmentState struct {
+}
+
+type AssignmentState struct {
+}
+
+func (AssignmentState) ElementType() reflect.Type {
+	return reflect.TypeOf((*assignmentState)(nil)).Elem()
+}
+
+type assignmentArgs struct {
+	AdditionalData    *AssignmentPropertiesAdditionalData `pulumi:"additionalData"`
+	AssignedComponent *AssignedComponentItem              `pulumi:"assignedComponent"`
+	AssignedStandard  *AssignedStandardItem               `pulumi:"assignedStandard"`
+	AssignmentId      *string                             `pulumi:"assignmentId"`
+	Description       *string                             `pulumi:"description"`
+	DisplayName       *string                             `pulumi:"displayName"`
+	Effect            *string                             `pulumi:"effect"`
+	Etag              *string                             `pulumi:"etag"`
+	ExpiresOn         *string                             `pulumi:"expiresOn"`
+	Kind              *string                             `pulumi:"kind"`
+	Location          *string                             `pulumi:"location"`
+	Metadata          interface{}                         `pulumi:"metadata"`
+	ResourceGroupName string                              `pulumi:"resourceGroupName"`
+	Scope             *string                             `pulumi:"scope"`
+	Tags              map[string]string                   `pulumi:"tags"`
+}
+
+
+type AssignmentArgs struct {
+	AdditionalData    AssignmentPropertiesAdditionalDataPtrInput
+	AssignedComponent AssignedComponentItemPtrInput
+	AssignedStandard  AssignedStandardItemPtrInput
+	AssignmentId      pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	Effect            pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	ExpiresOn         pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Metadata          pulumi.Input
+	ResourceGroupName pulumi.StringInput
+	Scope             pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+}
+
+func (AssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
+}
+
+type AssignmentInput interface {
+	pulumi.Input
+
+	ToAssignmentOutput() AssignmentOutput
+	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
+}
+
+func (*Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil))
+}
+
+func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
+	return i.ToAssignmentOutputWithContext(context.Background())
+}
+
+func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
+}
+
+type AssignmentOutput struct{ *pulumi.OutputState }
+
+func (AssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil))
+}
+
+func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
+	return o
+}
+
+func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssignmentOutput{})
+}

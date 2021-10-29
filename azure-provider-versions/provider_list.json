@@ -17186,11 +17186,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -17487,11 +17483,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -17734,11 +17726,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -18963,11 +18951,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -20011,11 +19995,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -24514,11 +24494,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -26236,11 +26212,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -26586,11 +26558,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -28250,11 +28218,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -28493,11 +28457,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -29536,11 +29496,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -30080,11 +30036,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -30867,11 +30819,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -31114,11 +31062,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -38560,11 +38504,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -42425,11 +42365,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -46694,19 +46630,15 @@
           "Australia East",
           "Australia Southeast",
           "Brazil South",
-          "Brazil Southeast",
           "Canada Central",
           "Canada East",
           "Central India",
           "Central US",
-          "Central US EUAP",
           "East Asia",
           "East US 2",
-          "East US 2 EUAP",
           "East US",
           "France Central",
           "France South",
-          "Germany North",
           "Germany West Central",
           "Japan East",
           "Japan West",
@@ -46714,16 +46646,12 @@
           "North Central US",
           "North Europe",
           "Norway East",
-          "Norway West",
           "South Africa North",
           "South Africa West",
           "South Central US",
           "South India",
           "Southeast Asia",
-          "Sweden Central",
           "Switzerland North",
-          "Switzerland West",
-          "UAE Central",
           "UAE North",
           "UK South",
           "UK West",
@@ -46732,7 +46660,9 @@
           "West India",
           "West US",
           "West US 2",
-          "West US 3"
+          "West US 3",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -46952,11 +46882,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -53575,11 +53501,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -65650,6 +65572,7 @@
           "UK South",
           "UK West",
           "Korea Central",
+          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65657,11 +65580,7 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West",
-          "Norway West",
-          "Norway East",
-          "Brazil Southeast",
-          "West US 3"
+          "Switzerland West"
         ],
         "properties": null,
         "resourceType": "maintenanceConfigurations"
@@ -65714,6 +65633,7 @@
           "UK South",
           "UK West",
           "Korea Central",
+          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65721,11 +65641,7 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West",
-          "Norway West",
-          "Norway East",
-          "Brazil Southeast",
-          "West US 3"
+          "Switzerland West"
         ],
         "properties": null,
         "resourceType": "updates"
@@ -65778,6 +65694,7 @@
           "UK South",
           "UK West",
           "Korea Central",
+          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65785,11 +65702,7 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West",
-          "Norway West",
-          "Norway East",
-          "Brazil Southeast",
-          "West US 3"
+          "Switzerland West"
         ],
         "properties": null,
         "resourceType": "configurationAssignments"
@@ -65842,6 +65755,7 @@
           "UK South",
           "UK West",
           "Korea Central",
+          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65849,11 +65763,7 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West",
-          "Norway West",
-          "Norway East",
-          "Brazil Southeast",
-          "West US 3"
+          "Switzerland West"
         ],
         "properties": null,
         "resourceType": "applyUpdates"
@@ -72366,11 +72276,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -72593,11 +72499,7 @@
           },
           {
             "location": "East Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "East US",
@@ -99176,6 +99078,28 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-11-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Central US",
+          "West US 2",
+          "West Europe",
+          "East US 2",
+          "West US 3",
+          "North Europe",
+          "South Central US"
+        ],
+        "properties": null,
+        "resourceType": "linkers"
       }
     ]
   },
