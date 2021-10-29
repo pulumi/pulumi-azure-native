@@ -46,7 +46,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
 		License:     "Apache-2.0",
-		Keywords:    []string{"pulumi", "azure", "azure-native"},
+		Keywords:    []string{"pulumi", "azure", "azure-native", "category/cloud", "kind/native"},
 		Homepage:    "https://pulumi.com",
 		Repository:  "https://github.com/pulumi/pulumi-azure-native",
 		Config: pschema.ConfigSpec{
