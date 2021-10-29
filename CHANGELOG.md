@@ -3,6 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New functions:
+
+- `maps.listAccountSas`
+
 #### Breaking Changes published by Microsoft:
 
 - `compute.RestorePoint` property `provisioningDetails` removed
