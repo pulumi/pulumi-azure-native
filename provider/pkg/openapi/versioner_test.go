@@ -42,8 +42,8 @@ var versionMap = map[string]VersionResources{
 	// The next version is "unknown" yet.
 	"2020-04-01": {
 		Resources: map[string]*ResourceSpec{
-			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
-			"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
+			"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
+			"Res4": makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
 		},
 	},
 }
@@ -54,7 +54,7 @@ func TestFindingKnownLatestResourceVersions(t *testing.T) {
 			// Version '2020-04-01' isn't known for any resource.
 			"": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01"),
 			// Res1 isn't known in '2020-01-01'.
-			"res1":codegen.NewStringSet("2020-02-01", "2020-03-01"),
+			"res1": codegen.NewStringSet("2020-02-01", "2020-03-01"),
 			// Res2 isn't explicitly listed in the lookup: parent lookup is used.
 			// Res3 isn't known in '2020-03-01'.
 			"res3": codegen.NewStringSet("2020-01-01", "2020-02-01"),

@@ -56,7 +56,7 @@ func TestAutoName(t *testing.T) {
 		expected := values[2]
 		format := ""
 		if len(values) > 3 {
-			format =values[2]
+			format = values[2]
 		}
 		namer := NewAutoNamer(path)
 		actual, ok := namer.AutoName(name, format)

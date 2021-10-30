@@ -181,10 +181,10 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 		objectId := ""
 		if auth.GetAuthenticatedObjectID != nil {
-		  objectId, err = auth.GetAuthenticatedObjectID(ctx)
-		  if err != nil {
-			  return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-		  }
+			objectId, err = auth.GetAuthenticatedObjectID(ctx)
+			if err != nil {
+				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
+			}
 		}
 		outputs = map[string]interface{}{
 			"clientId":       auth.ClientID,

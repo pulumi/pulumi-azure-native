@@ -44,10 +44,12 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	nextGenProvider := "pulumi:providers:azure-nextgen"
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
+		DisplayName: "Azure Native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
 		License:     "Apache-2.0",
 		Keywords:    []string{"pulumi", "azure", "azure-native", "category/cloud", "kind/native"},
 		Homepage:    "https://pulumi.com",
+		Publisher:   "Pulumi",
 		Repository:  "https://github.com/pulumi/pulumi-azure-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
@@ -305,11 +307,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath":                goBasePath,
-		"packageImportAliases":          golangImportAliases,
-		"disableFunctionOutputVersions": true,
+		"importBasePath":                 goBasePath,
+		"packageImportAliases":           golangImportAliases,
+		"disableFunctionOutputVersions":  true,
 		"generateResourceContainerTypes": false,
-		"disableInputTypeRegistrations": true,
+		"disableInputTypeRegistrations":  true,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
