@@ -94,13 +94,13 @@ func NewVolume(ctx *pulumi.Context,
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
 	if args.ThroughputMibps == nil {
-		args.ThroughputMibps = pulumi.Float64Ptr(0)
+		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
 	if args.UnixPermissions == nil {
 		args.UnixPermissions = pulumi.StringPtr("0770")
 	}
 	if args.UsageThreshold == nil {
-		args.UsageThreshold = pulumi.Float64(107374182400)
+		args.UsageThreshold = pulumi.Float64(107374182400.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
