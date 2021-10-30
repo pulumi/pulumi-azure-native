@@ -1,0 +1,180 @@
+
+
+
+package v20210801
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type IscsiTargetAclMode string
+
+const (
+	IscsiTargetAclModeDynamic = IscsiTargetAclMode("Dynamic")
+	IscsiTargetAclModeStatic  = IscsiTargetAclMode("Static")
+)
+
+func (IscsiTargetAclMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiTargetAclMode)(nil)).Elem()
+}
+
+func (e IscsiTargetAclMode) ToIscsiTargetAclModeOutput() IscsiTargetAclModeOutput {
+	return pulumi.ToOutput(e).(IscsiTargetAclModeOutput)
+}
+
+func (e IscsiTargetAclMode) ToIscsiTargetAclModeOutputWithContext(ctx context.Context) IscsiTargetAclModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IscsiTargetAclModeOutput)
+}
+
+func (e IscsiTargetAclMode) ToIscsiTargetAclModePtrOutput() IscsiTargetAclModePtrOutput {
+	return e.ToIscsiTargetAclModePtrOutputWithContext(context.Background())
+}
+
+func (e IscsiTargetAclMode) ToIscsiTargetAclModePtrOutputWithContext(ctx context.Context) IscsiTargetAclModePtrOutput {
+	return IscsiTargetAclMode(e).ToIscsiTargetAclModeOutputWithContext(ctx).ToIscsiTargetAclModePtrOutputWithContext(ctx)
+}
+
+func (e IscsiTargetAclMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IscsiTargetAclMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IscsiTargetAclMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IscsiTargetAclMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IscsiTargetAclModeOutput struct{ *pulumi.OutputState }
+
+func (IscsiTargetAclModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiTargetAclMode)(nil)).Elem()
+}
+
+func (o IscsiTargetAclModeOutput) ToIscsiTargetAclModeOutput() IscsiTargetAclModeOutput {
+	return o
+}
+
+func (o IscsiTargetAclModeOutput) ToIscsiTargetAclModeOutputWithContext(ctx context.Context) IscsiTargetAclModeOutput {
+	return o
+}
+
+func (o IscsiTargetAclModeOutput) ToIscsiTargetAclModePtrOutput() IscsiTargetAclModePtrOutput {
+	return o.ToIscsiTargetAclModePtrOutputWithContext(context.Background())
+}
+
+func (o IscsiTargetAclModeOutput) ToIscsiTargetAclModePtrOutputWithContext(ctx context.Context) IscsiTargetAclModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IscsiTargetAclMode) *IscsiTargetAclMode {
+		return &v
+	}).(IscsiTargetAclModePtrOutput)
+}
+
+func (o IscsiTargetAclModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IscsiTargetAclModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IscsiTargetAclMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IscsiTargetAclModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IscsiTargetAclModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IscsiTargetAclMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IscsiTargetAclModePtrOutput struct{ *pulumi.OutputState }
+
+func (IscsiTargetAclModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IscsiTargetAclMode)(nil)).Elem()
+}
+
+func (o IscsiTargetAclModePtrOutput) ToIscsiTargetAclModePtrOutput() IscsiTargetAclModePtrOutput {
+	return o
+}
+
+func (o IscsiTargetAclModePtrOutput) ToIscsiTargetAclModePtrOutputWithContext(ctx context.Context) IscsiTargetAclModePtrOutput {
+	return o
+}
+
+func (o IscsiTargetAclModePtrOutput) Elem() IscsiTargetAclModeOutput {
+	return o.ApplyT(func(v *IscsiTargetAclMode) IscsiTargetAclMode {
+		if v != nil {
+			return *v
+		}
+		var ret IscsiTargetAclMode
+		return ret
+	}).(IscsiTargetAclModeOutput)
+}
+
+func (o IscsiTargetAclModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IscsiTargetAclModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IscsiTargetAclMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IscsiTargetAclModeInput interface {
+	pulumi.Input
+
+	ToIscsiTargetAclModeOutput() IscsiTargetAclModeOutput
+	ToIscsiTargetAclModeOutputWithContext(context.Context) IscsiTargetAclModeOutput
+}
+
+var iscsiTargetAclModePtrType = reflect.TypeOf((**IscsiTargetAclMode)(nil)).Elem()
+
+type IscsiTargetAclModePtrInput interface {
+	pulumi.Input
+
+	ToIscsiTargetAclModePtrOutput() IscsiTargetAclModePtrOutput
+	ToIscsiTargetAclModePtrOutputWithContext(context.Context) IscsiTargetAclModePtrOutput
+}
+
+type iscsiTargetAclModePtr string
+
+func IscsiTargetAclModePtr(v string) IscsiTargetAclModePtrInput {
+	return (*iscsiTargetAclModePtr)(&v)
+}
+
+func (*iscsiTargetAclModePtr) ElementType() reflect.Type {
+	return iscsiTargetAclModePtrType
+}
+
+func (in *iscsiTargetAclModePtr) ToIscsiTargetAclModePtrOutput() IscsiTargetAclModePtrOutput {
+	return pulumi.ToOutput(in).(IscsiTargetAclModePtrOutput)
+}
+
+func (in *iscsiTargetAclModePtr) ToIscsiTargetAclModePtrOutputWithContext(ctx context.Context) IscsiTargetAclModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IscsiTargetAclModePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(IscsiTargetAclModeOutput{})
+	pulumi.RegisterOutputType(IscsiTargetAclModePtrOutput{})
+}

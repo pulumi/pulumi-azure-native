@@ -1,0 +1,27 @@
+
+
+
+package saas
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListSaasResourceAccessToken(ctx *pulumi.Context, args *ListSaasResourceAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasResourceAccessTokenResult, error) {
+	var rv ListSaasResourceAccessTokenResult
+	err := ctx.Invoke("azure-native:saas:listSaasResourceAccessToken", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListSaasResourceAccessTokenArgs struct {
+	ResourceId string `pulumi:"resourceId"`
+}
+
+
+type ListSaasResourceAccessTokenResult struct {
+	PublisherOfferBaseUri *string `pulumi:"publisherOfferBaseUri"`
+	Token                 *string `pulumi:"token"`
+}
