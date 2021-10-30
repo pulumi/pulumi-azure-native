@@ -7,24 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
+namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// The Tar archive method used on a dataset.
+    /// The compression method used on a dataset.
     /// </summary>
     [OutputType]
-    public sealed class DatasetTarCompressionResponse
+    public sealed class DatasetCompressionResponse
     {
         /// <summary>
-        /// Type of dataset compression. Type: string (or Expression with resultType string).
-        /// Expected value is 'Tar'.
+        /// The dataset compression level. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string Type;
+        public readonly object? Level;
+        /// <summary>
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object Type;
 
         [OutputConstructor]
-        private DatasetTarCompressionResponse(string type)
+        private DatasetCompressionResponse(
+            object? level,
+
+            object type)
         {
+            Level = level;
             Type = type;
         }
     }

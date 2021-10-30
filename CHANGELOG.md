@@ -13,6 +13,9 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16099))
 - `authorization.PolicyPricing` resource removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16537))
+- `datafactory` changed the `type` property of compression from `string`
+  to `object` and removed several derived types
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16563))
 
 ---
 

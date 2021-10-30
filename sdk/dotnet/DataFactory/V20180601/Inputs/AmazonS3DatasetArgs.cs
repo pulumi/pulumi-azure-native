@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
         [Input("compression")]
-        public object? Compression { get; set; }
+        public Input<Inputs.DatasetCompressionArgs>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.

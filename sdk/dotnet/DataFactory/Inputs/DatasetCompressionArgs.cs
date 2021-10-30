@@ -11,18 +11,23 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
-    /// The BZip2 compression method used on a dataset.
+    /// The compression method used on a dataset.
     /// </summary>
-    public sealed class DatasetBZip2CompressionArgs : Pulumi.ResourceArgs
+    public sealed class DatasetCompressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The dataset compression level. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("level")]
+        public Input<object>? Level { get; set; }
+
+        /// <summary>
         /// Type of dataset compression. Type: string (or Expression with resultType string).
-        /// Expected value is 'BZip2'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<object> Type { get; set; } = null!;
 
-        public DatasetBZip2CompressionArgs()
+        public DatasetCompressionArgs()
         {
         }
     }

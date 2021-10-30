@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The data compression method used for the blob storage.
         /// </summary>
         [Input("compression")]
-        public object? Compression { get; set; }
+        public Input<Inputs.DatasetCompressionArgs>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.

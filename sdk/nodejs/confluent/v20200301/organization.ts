@@ -117,7 +117,7 @@ export class Organization extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:confluent/v20200301:Organization" }, { type: "azure-native:confluent:Organization" }, { type: "azure-nextgen:confluent:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-nextgen:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210301preview:Organization" }, { type: "azure-nextgen:confluent/v20210301preview:Organization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:confluent/v20200301:Organization" }, { type: "azure-native:confluent:Organization" }, { type: "azure-nextgen:confluent:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-nextgen:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210301preview:Organization" }, { type: "azure-nextgen:confluent/v20210301preview:Organization" }, { type: "azure-native:confluent/v20210901preview:Organization" }, { type: "azure-nextgen:confluent/v20210901preview:Organization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Organization.__pulumiType, name, inputs, opts);
     }

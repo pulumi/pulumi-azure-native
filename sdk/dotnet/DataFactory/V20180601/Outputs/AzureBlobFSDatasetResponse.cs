@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The data compression method used for the blob storage.
         /// </summary>
-        public readonly object? Compression;
+        public readonly Outputs.DatasetCompressionResponse? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private AzureBlobFSDatasetResponse(
             ImmutableArray<object> annotations,
 
-            object? compression,
+            Outputs.DatasetCompressionResponse? compression,
 
             string? description,
 

@@ -7,30 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DataFactory.Outputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
     /// <summary>
-    /// The Deflate compression method used on a dataset.
+    /// The compression method used on a dataset.
     /// </summary>
     [OutputType]
-    public sealed class DatasetDeflateCompressionResponse
+    public sealed class DatasetCompressionResponse
     {
         /// <summary>
-        /// The Deflate compression level.
+        /// The dataset compression level. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Level;
         /// <summary>
         /// Type of dataset compression. Type: string (or Expression with resultType string).
-        /// Expected value is 'Deflate'.
         /// </summary>
-        public readonly string Type;
+        public readonly object Type;
 
         [OutputConstructor]
-        private DatasetDeflateCompressionResponse(
+        private DatasetCompressionResponse(
             object? level,
 
-            string type)
+            object type)
         {
             Level = level;
             Type = type;

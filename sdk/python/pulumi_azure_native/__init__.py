@@ -3677,6 +3677,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "confluent/v20210901preview",
+  "fqn": "pulumi_azure_native.confluent.v20210901preview",
+  "classes": {
+   "azure-native:confluent/v20210901preview:Organization": "Organization"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "connectedvmwarevsphere",
   "fqn": "pulumi_azure_native.connectedvmwarevsphere",
   "classes": {

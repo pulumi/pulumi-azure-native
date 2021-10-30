@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
-        public readonly object? Compression;
+        public readonly Outputs.DatasetCompressionResponse? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object bucketName,
 
-            object? compression,
+            Outputs.DatasetCompressionResponse? compression,
 
             string? description,
 

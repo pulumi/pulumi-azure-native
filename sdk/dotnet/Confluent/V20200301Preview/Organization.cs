@@ -107,6 +107,8 @@ namespace Pulumi.AzureNative.Confluent.V20200301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301:Organization"},
                     new Pulumi.Alias { Type = "azure-native:confluent/v20210301preview:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20210301preview:Organization"},
+                    new Pulumi.Alias { Type = "azure-native:confluent/v20210901preview:Organization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:confluent/v20210901preview:Organization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

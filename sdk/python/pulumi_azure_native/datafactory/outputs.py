@@ -170,14 +170,9 @@ __all__ = [
     'DatabricksNotebookActivityResponse',
     'DatabricksSparkJarActivityResponse',
     'DatabricksSparkPythonActivityResponse',
-    'DatasetBZip2CompressionResponse',
-    'DatasetDeflateCompressionResponse',
-    'DatasetGZipCompressionResponse',
+    'DatasetCompressionResponse',
     'DatasetReferenceResponse',
     'DatasetResponseFolder',
-    'DatasetTarCompressionResponse',
-    'DatasetTarGZipCompressionResponse',
-    'DatasetZipDeflateCompressionResponse',
     'Db2LinkedServiceResponse',
     'Db2SourceResponse',
     'Db2TableDatasetResponse',
@@ -3169,7 +3164,7 @@ class AmazonS3DatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  format: Optional[Any] = None,
@@ -3188,7 +3183,7 @@ class AmazonS3DatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'AmazonS3Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the Amazon S3 object.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
@@ -3266,7 +3261,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the Amazon S3 object.
         """
@@ -4792,7 +4787,7 @@ class AzureBlobDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -4810,7 +4805,7 @@ class AzureBlobDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'AzureBlob'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the blob storage.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -4879,7 +4874,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the blob storage.
         """
@@ -5004,7 +4999,7 @@ class AzureBlobFSDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -5019,7 +5014,7 @@ class AzureBlobFSDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'AzureBlobFSFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the blob storage.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Any file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -5079,7 +5074,7 @@ class AzureBlobFSDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the blob storage.
         """
@@ -7605,7 +7600,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -7620,7 +7615,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'AzureDataLakeStoreFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
         :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -7680,7 +7675,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the item(s) in the Azure Data Lake Store.
         """
@@ -16077,7 +16072,7 @@ class BinaryDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -16090,7 +16085,7 @@ class BinaryDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'Binary'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the binary dataset.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the binary dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
@@ -16150,7 +16145,7 @@ class BinaryDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the binary dataset.
         """
@@ -22985,53 +22980,27 @@ class DatabricksSparkPythonActivityResponse(dict):
 
 
 @pulumi.output_type
-class DatasetBZip2CompressionResponse(dict):
+class DatasetCompressionResponse(dict):
     """
-    The BZip2 compression method used on a dataset.
-    """
-    def __init__(__self__, *,
-                 type: str):
-        """
-        The BZip2 compression method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'BZip2'.
-        """
-        pulumi.set(__self__, "type", 'BZip2')
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'BZip2'.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DatasetDeflateCompressionResponse(dict):
-    """
-    The Deflate compression method used on a dataset.
+    The compression method used on a dataset.
     """
     def __init__(__self__, *,
-                 type: str,
+                 type: Any,
                  level: Optional[Any] = None):
         """
-        The Deflate compression method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'Deflate'.
-        :param Any level: The Deflate compression level.
+        The compression method used on a dataset.
+        :param Any type: Type of dataset compression. Type: string (or Expression with resultType string).
+        :param Any level: The dataset compression level. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "type", 'Deflate')
+        pulumi.set(__self__, "type", type)
         if level is not None:
             pulumi.set(__self__, "level", level)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Any:
         """
         Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'Deflate'.
         """
         return pulumi.get(self, "type")
 
@@ -23039,43 +23008,7 @@ class DatasetDeflateCompressionResponse(dict):
     @pulumi.getter
     def level(self) -> Optional[Any]:
         """
-        The Deflate compression level.
-        """
-        return pulumi.get(self, "level")
-
-
-@pulumi.output_type
-class DatasetGZipCompressionResponse(dict):
-    """
-    The GZip compression method used on a dataset.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 level: Optional[Any] = None):
-        """
-        The GZip compression method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'GZip'.
-        :param Any level: The GZip compression level.
-        """
-        pulumi.set(__self__, "type", 'GZip')
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'GZip'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[Any]:
-        """
-        The GZip compression level.
+        The dataset compression level. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "level")
 
@@ -23163,102 +23096,6 @@ class DatasetResponseFolder(dict):
         The name of the folder that this Dataset is in.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class DatasetTarCompressionResponse(dict):
-    """
-    The Tar archive method used on a dataset.
-    """
-    def __init__(__self__, *,
-                 type: str):
-        """
-        The Tar archive method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'Tar'.
-        """
-        pulumi.set(__self__, "type", 'Tar')
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'Tar'.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DatasetTarGZipCompressionResponse(dict):
-    """
-    The TarGZip compression method used on a dataset.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 level: Optional[Any] = None):
-        """
-        The TarGZip compression method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'TarGZip'.
-        :param Any level: The TarGZip compression level.
-        """
-        pulumi.set(__self__, "type", 'TarGZip')
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'TarGZip'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[Any]:
-        """
-        The TarGZip compression level.
-        """
-        return pulumi.get(self, "level")
-
-
-@pulumi.output_type
-class DatasetZipDeflateCompressionResponse(dict):
-    """
-    The ZipDeflate compression method used on a dataset.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 level: Optional[Any] = None):
-        """
-        The ZipDeflate compression method used on a dataset.
-        :param str type: Type of dataset compression. Type: string (or Expression with resultType string).
-               Expected value is 'ZipDeflate'.
-        :param Any level: The ZipDeflate compression level.
-        """
-        pulumi.set(__self__, "type", 'ZipDeflate')
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of dataset compression. Type: string (or Expression with resultType string).
-        Expected value is 'ZipDeflate'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[Any]:
-        """
-        The ZipDeflate compression level.
-        """
-        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -28049,7 +27886,7 @@ class ExcelDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  first_row_as_header: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -28067,7 +27904,7 @@ class ExcelDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'Excel'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -28142,7 +27979,7 @@ class ExcelDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the json dataset.
         """
@@ -30275,7 +30112,7 @@ class FileShareDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  file_filter: Optional[Any] = None,
                  file_name: Optional[Any] = None,
@@ -30293,7 +30130,7 @@ class FileShareDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'FileShare'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the file system.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the file system.
         :param str description: Dataset description.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
@@ -30362,7 +30199,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the file system.
         """
@@ -37292,7 +37129,7 @@ class HttpDatasetResponse(dict):
                  type: str,
                  additional_headers: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  format: Optional[Any] = None,
@@ -37311,7 +37148,7 @@ class HttpDatasetResponse(dict):
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used on files.
+        :param 'DatasetCompressionResponse' compression: The data compression method used on files.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
@@ -37386,7 +37223,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used on files.
         """
@@ -40927,7 +40764,7 @@ class JsonDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  encoding_name: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -40941,7 +40778,7 @@ class JsonDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'Json'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -41004,7 +40841,7 @@ class JsonDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the json dataset.
         """
@@ -74918,7 +74755,7 @@ class XmlDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 compression: Optional[Any] = None,
+                 compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[str] = None,
                  encoding_name: Optional[Any] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -74933,7 +74770,7 @@ class XmlDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'Xml'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetTarCompressionResponse', 'DatasetTarGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the json dataset.
+        :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -74999,7 +74836,7 @@ class XmlDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[Any]:
+    def compression(self) -> Optional['outputs.DatasetCompressionResponse']:
         """
         The data compression method used for the json dataset.
         """
