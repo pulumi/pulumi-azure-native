@@ -1,0 +1,45 @@
+
+
+
+package v20181101
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListStorageAccountServiceSAS(ctx *pulumi.Context, args *ListStorageAccountServiceSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountServiceSASResult, error) {
+	var rv ListStorageAccountServiceSASResult
+	err := ctx.Invoke("azure-native:storage/v20181101:listStorageAccountServiceSAS", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListStorageAccountServiceSASArgs struct {
+	AccountName            string        `pulumi:"accountName"`
+	CacheControl           *string       `pulumi:"cacheControl"`
+	CanonicalizedResource  string        `pulumi:"canonicalizedResource"`
+	ContentDisposition     *string       `pulumi:"contentDisposition"`
+	ContentEncoding        *string       `pulumi:"contentEncoding"`
+	ContentLanguage        *string       `pulumi:"contentLanguage"`
+	ContentType            *string       `pulumi:"contentType"`
+	IPAddressOrRange       *string       `pulumi:"iPAddressOrRange"`
+	Identifier             *string       `pulumi:"identifier"`
+	KeyToSign              *string       `pulumi:"keyToSign"`
+	PartitionKeyEnd        *string       `pulumi:"partitionKeyEnd"`
+	PartitionKeyStart      *string       `pulumi:"partitionKeyStart"`
+	Permissions            *string       `pulumi:"permissions"`
+	Protocols              *HttpProtocol `pulumi:"protocols"`
+	Resource               *string       `pulumi:"resource"`
+	ResourceGroupName      string        `pulumi:"resourceGroupName"`
+	RowKeyEnd              *string       `pulumi:"rowKeyEnd"`
+	RowKeyStart            *string       `pulumi:"rowKeyStart"`
+	SharedAccessExpiryTime *string       `pulumi:"sharedAccessExpiryTime"`
+	SharedAccessStartTime  *string       `pulumi:"sharedAccessStartTime"`
+}
+
+
+type ListStorageAccountServiceSASResult struct {
+	ServiceSasToken string `pulumi:"serviceSasToken"`
+}

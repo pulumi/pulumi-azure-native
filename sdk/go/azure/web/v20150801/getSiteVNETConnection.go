@@ -1,0 +1,39 @@
+
+
+
+package v20150801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSiteVNETConnection(ctx *pulumi.Context, args *LookupSiteVNETConnectionArgs, opts ...pulumi.InvokeOption) (*LookupSiteVNETConnectionResult, error) {
+	var rv LookupSiteVNETConnectionResult
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteVNETConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSiteVNETConnectionArgs struct {
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	VnetName          string `pulumi:"vnetName"`
+}
+
+
+type LookupSiteVNETConnectionResult struct {
+	CertBlob       *string             `pulumi:"certBlob"`
+	CertThumbprint *string             `pulumi:"certThumbprint"`
+	DnsServers     *string             `pulumi:"dnsServers"`
+	Id             *string             `pulumi:"id"`
+	Kind           *string             `pulumi:"kind"`
+	Location       string              `pulumi:"location"`
+	Name           *string             `pulumi:"name"`
+	ResyncRequired *bool               `pulumi:"resyncRequired"`
+	Routes         []VnetRouteResponse `pulumi:"routes"`
+	Tags           map[string]string   `pulumi:"tags"`
+	Type           *string             `pulumi:"type"`
+	VnetResourceId *string             `pulumi:"vnetResourceId"`
+}

@@ -1,0 +1,38 @@
+
+
+
+package v20210501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkusResult, error) {
+	var rv LookupVendorSkusResult
+	err := ctx.Invoke("azure-native:hybridnetwork/v20210501:getVendorSkus", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupVendorSkusArgs struct {
+	SkuName    string `pulumi:"skuName"`
+	VendorName string `pulumi:"vendorName"`
+}
+
+
+type LookupVendorSkusResult struct {
+	DeploymentMode               *string                          `pulumi:"deploymentMode"`
+	Id                           string                           `pulumi:"id"`
+	ManagedApplicationParameters interface{}                      `pulumi:"managedApplicationParameters"`
+	ManagedApplicationTemplate   interface{}                      `pulumi:"managedApplicationTemplate"`
+	Name                         string                           `pulumi:"name"`
+	NetworkFunctionTemplate      *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
+	NetworkFunctionType          *string                          `pulumi:"networkFunctionType"`
+	Preview                      *bool                            `pulumi:"preview"`
+	ProvisioningState            string                           `pulumi:"provisioningState"`
+	SkuType                      *string                          `pulumi:"skuType"`
+	SystemData                   SystemDataResponse               `pulumi:"systemData"`
+	Type                         string                           `pulumi:"type"`
+}
