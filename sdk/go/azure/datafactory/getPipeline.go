@@ -1,0 +1,40 @@
+
+
+
+package datafactory
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
+	var rv LookupPipelineResult
+	err := ctx.Invoke("azure-native:datafactory:getPipeline", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupPipelineArgs struct {
+	FactoryName       string `pulumi:"factoryName"`
+	PipelineName      string `pulumi:"pipelineName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupPipelineResult struct {
+	Activities    []interface{}                             `pulumi:"activities"`
+	Annotations   []interface{}                             `pulumi:"annotations"`
+	Concurrency   *int                                      `pulumi:"concurrency"`
+	Description   *string                                   `pulumi:"description"`
+	Etag          string                                    `pulumi:"etag"`
+	Folder        *PipelineResponseFolder                   `pulumi:"folder"`
+	Id            string                                    `pulumi:"id"`
+	Name          string                                    `pulumi:"name"`
+	Parameters    map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Policy        *PipelinePolicyResponse                   `pulumi:"policy"`
+	RunDimensions map[string]interface{}                    `pulumi:"runDimensions"`
+	Type          string                                    `pulumi:"type"`
+	Variables     map[string]VariableSpecificationResponse  `pulumi:"variables"`
+}

@@ -1,0 +1,45 @@
+
+
+
+package v20160901
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
+	var rv LookupExpressRouteCircuitPeeringResult
+	err := ctx.Invoke("azure-native:network/v20160901:getExpressRouteCircuitPeering", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupExpressRouteCircuitPeeringArgs struct {
+	CircuitName       string `pulumi:"circuitName"`
+	PeeringName       string `pulumi:"peeringName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupExpressRouteCircuitPeeringResult struct {
+	AzureASN                   *int                                      `pulumi:"azureASN"`
+	Etag                       *string                                   `pulumi:"etag"`
+	GatewayManagerEtag         *string                                   `pulumi:"gatewayManagerEtag"`
+	Id                         *string                                   `pulumi:"id"`
+	LastModifiedBy             *string                                   `pulumi:"lastModifiedBy"`
+	MicrosoftPeeringConfig     *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	Name                       *string                                   `pulumi:"name"`
+	PeerASN                    *int                                      `pulumi:"peerASN"`
+	PeeringType                *string                                   `pulumi:"peeringType"`
+	PrimaryAzurePort           *string                                   `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   *string                                   `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          *string                                   `pulumi:"provisioningState"`
+	SecondaryAzurePort         *string                                   `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix *string                                   `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  *string                                   `pulumi:"sharedKey"`
+	State                      *string                                   `pulumi:"state"`
+	Stats                      *ExpressRouteCircuitStatsResponse         `pulumi:"stats"`
+	VlanId                     *int                                      `pulumi:"vlanId"`
+}

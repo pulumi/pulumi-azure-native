@@ -1,0 +1,32 @@
+
+
+
+package v20210901preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSkusNestedResourceTypeFirst(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeFirstArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeFirstResult, error) {
+	var rv LookupSkusNestedResourceTypeFirstResult
+	err := ctx.Invoke("azure-native:providerhub/v20210901preview:getSkusNestedResourceTypeFirst", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSkusNestedResourceTypeFirstArgs struct {
+	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
+	ProviderNamespace       string `pulumi:"providerNamespace"`
+	ResourceType            string `pulumi:"resourceType"`
+	Sku                     string `pulumi:"sku"`
+}
+
+type LookupSkusNestedResourceTypeFirstResult struct {
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
+	Properties SkuResourceResponseProperties `pulumi:"properties"`
+	SystemData SystemDataResponse            `pulumi:"systemData"`
+	Type       string                        `pulumi:"type"`
+}
