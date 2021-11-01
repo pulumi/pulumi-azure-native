@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a database on the RedisEnterprise cluster
- * API Version: 2021-08-01.
+ * API Version: 2021-03-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {

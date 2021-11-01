@@ -146,7 +146,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  __props__=None):
         """
         Describes the RedisEnterprise cluster
-        API Version: 2021-08-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the RedisEnterprise cluster
-        API Version: 2021-08-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param RedisEnterpriseArgs args: The arguments to use to populate this resource's properties.

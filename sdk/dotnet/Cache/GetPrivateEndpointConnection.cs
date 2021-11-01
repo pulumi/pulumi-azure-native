@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
