@@ -52,6 +52,12 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:policyinsights/v20211001:RemediationAtResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights/v20211001:RemediationAtResourceGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtResourceGroup

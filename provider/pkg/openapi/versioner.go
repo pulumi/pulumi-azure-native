@@ -100,6 +100,7 @@ var cutoffProviderVersions = map[string]string{
 	"azurearcdata":            "v20210601preview",
 	"azurestackhci":           "v20210101preview",
 	"batch":                   "v20210101",
+	"cache":                   "v20210301",
 	"certificateregistration": "v20201001",
 	"cognitiveservices":       "v20170418",
 	"compute":                 "v20210301",

@@ -7,6 +7,7 @@ import * as v20201020preview from "./v20201020preview";
 import * as v20201208 from "./v20201208";
 import * as v20201208preview from "./v20201208preview";
 import * as v20210610 from "./v20210610";
+import * as v20210824 from "./v20210824";
 
 export {
     v20201020,
@@ -14,6 +15,7 @@ export {
     v20201208,
     v20201208preview,
     v20210610,
+    v20210824,
 };
 
 export const SkuName = {

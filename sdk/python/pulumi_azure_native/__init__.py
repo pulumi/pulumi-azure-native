@@ -6436,6 +6436,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20210702preview",
+  "fqn": "pulumi_azure_native.devices.v20210702preview",
+  "classes": {
+   "azure-native:devices/v20210702preview:Certificate": "Certificate",
+   "azure-native:devices/v20210702preview:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210702preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
@@ -7834,6 +7845,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.healthbot.v20210610",
   "classes": {
    "azure-native:healthbot/v20210610:Bot": "Bot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthbot/v20210824",
+  "fqn": "pulumi_azure_native.healthbot.v20210824",
+  "classes": {
+   "azure-native:healthbot/v20210824:Bot": "Bot"
   }
  },
  {
@@ -13058,6 +13077,17 @@ _utilities.register(
    "azure-native:policyinsights/v20210101:AttestationAtResource": "AttestationAtResource",
    "azure-native:policyinsights/v20210101:AttestationAtResourceGroup": "AttestationAtResourceGroup",
    "azure-native:policyinsights/v20210101:AttestationAtSubscription": "AttestationAtSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "policyinsights/v20211001",
+  "fqn": "pulumi_azure_native.policyinsights.v20211001",
+  "classes": {
+   "azure-native:policyinsights/v20211001:RemediationAtManagementGroup": "RemediationAtManagementGroup",
+   "azure-native:policyinsights/v20211001:RemediationAtResource": "RemediationAtResource",
+   "azure-native:policyinsights/v20211001:RemediationAtResourceGroup": "RemediationAtResourceGroup",
+   "azure-native:policyinsights/v20211001:RemediationAtSubscription": "RemediationAtSubscription"
   }
  },
  {

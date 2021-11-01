@@ -169,7 +169,7 @@ export interface GetVolumeResult {
      */
     readonly usageThreshold: number;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     readonly volumeType?: string;
 }

@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         public readonly string? VolumeType;
 

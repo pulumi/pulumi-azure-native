@@ -48,6 +48,12 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20190701:RemediationAtSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-native:policyinsights/v20211001:RemediationAtSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights/v20211001:RemediationAtSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtSubscription

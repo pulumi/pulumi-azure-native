@@ -153,7 +153,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly usageThreshold!: pulumi.Output<number>;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
@@ -373,7 +373,7 @@ export interface VolumeArgs {
      */
     volumeName?: pulumi.Input<string>;
     /**
-     * What type of volume is this
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     volumeType?: pulumi.Input<string>;
 }

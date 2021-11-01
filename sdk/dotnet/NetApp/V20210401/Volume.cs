@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<double> UsageThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         [Output("volumeType")]
         public Output<string?> VolumeType { get; private set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Input<string>? VolumeName { get; set; }
 
         /// <summary>
-        /// What type of volume is this
+        /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
