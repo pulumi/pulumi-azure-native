@@ -1,0 +1,36 @@
+
+
+
+package v20180901preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupGraphQuery(ctx *pulumi.Context, args *LookupGraphQueryArgs, opts ...pulumi.InvokeOption) (*LookupGraphQueryResult, error) {
+	var rv LookupGraphQueryResult
+	err := ctx.Invoke("azure-native:resourcegraph/v20180901preview:getGraphQuery", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupGraphQueryArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceName      string `pulumi:"resourceName"`
+}
+
+
+type LookupGraphQueryResult struct {
+	Description  *string           `pulumi:"description"`
+	Etag         *string           `pulumi:"etag"`
+	Id           string            `pulumi:"id"`
+	Location     *string           `pulumi:"location"`
+	Name         string            `pulumi:"name"`
+	Query        string            `pulumi:"query"`
+	ResultKind   string            `pulumi:"resultKind"`
+	Tags         map[string]string `pulumi:"tags"`
+	TimeModified string            `pulumi:"timeModified"`
+	Type         string            `pulumi:"type"`
+}

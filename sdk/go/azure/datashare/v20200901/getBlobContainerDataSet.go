@@ -1,0 +1,38 @@
+
+
+
+package v20200901
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupBlobContainerDataSet(ctx *pulumi.Context, args *LookupBlobContainerDataSetArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerDataSetResult, error) {
+	var rv LookupBlobContainerDataSetResult
+	err := ctx.Invoke("azure-native:datashare/v20200901:getBlobContainerDataSet", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupBlobContainerDataSetArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ShareName         string `pulumi:"shareName"`
+}
+
+
+type LookupBlobContainerDataSetResult struct {
+	ContainerName      string             `pulumi:"containerName"`
+	DataSetId          string             `pulumi:"dataSetId"`
+	Id                 string             `pulumi:"id"`
+	Kind               string             `pulumi:"kind"`
+	Name               string             `pulumi:"name"`
+	ResourceGroup      string             `pulumi:"resourceGroup"`
+	StorageAccountName string             `pulumi:"storageAccountName"`
+	SubscriptionId     string             `pulumi:"subscriptionId"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
+}
