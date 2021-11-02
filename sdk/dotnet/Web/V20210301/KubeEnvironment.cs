@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Web.V20210115
+namespace Pulumi.AzureNative.Web.V20210301
 {
     /// <summary>
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
     /// </summary>
-    [AzureNativeResourceType("azure-native:web/v20210115:KubeEnvironment")]
+    [AzureNativeResourceType("azure-native:web/v20210301:KubeEnvironment")]
     public partial class KubeEnvironment : Pulumi.CustomResource
     {
         [Output("aksResourceID")]
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KubeEnvironment(string name, KubeEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:web/v20210115:KubeEnvironment", name, args ?? new KubeEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20210301:KubeEnvironment", name, args ?? new KubeEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KubeEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:web/v20210115:KubeEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20210301:KubeEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,15 +125,15 @@ namespace Pulumi.AzureNative.Web.V20210115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:KubeEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210301:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:KubeEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210301:KubeEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -229,6 +229,9 @@ namespace Pulumi.AzureNative.Web.V20210115
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public KubeEnvironmentArgs()
         {
