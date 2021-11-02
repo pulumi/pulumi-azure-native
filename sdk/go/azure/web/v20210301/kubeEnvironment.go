@@ -1,7 +1,7 @@
 
 
 
-package v20210115
+package v20210301
 
 import (
 	"context"
@@ -42,7 +42,7 @@ func NewKubeEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:KubeEnvironment"),
+			Type: pulumi.String("azure-nextgen:web/v20210301:KubeEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web:KubeEnvironment"),
@@ -57,21 +57,21 @@ func NewKubeEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web/v20210101:KubeEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20210115:KubeEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:KubeEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-native:web/v20210201:KubeEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210201:KubeEnvironment"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/v20210301:KubeEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210301:KubeEnvironment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource KubeEnvironment
-	err := ctx.RegisterResource("azure-native:web/v20210115:KubeEnvironment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20210301:KubeEnvironment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func NewKubeEnvironment(ctx *pulumi.Context,
 func GetKubeEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KubeEnvironmentState, opts ...pulumi.ResourceOption) (*KubeEnvironment, error) {
 	var resource KubeEnvironment
-	err := ctx.ReadResource("azure-native:web/v20210115:KubeEnvironment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20210301:KubeEnvironment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,6 +113,7 @@ type kubeEnvironmentArgs struct {
 	ResourceGroupName           string                `pulumi:"resourceGroupName"`
 	StaticIp                    *string               `pulumi:"staticIp"`
 	Tags                        map[string]string     `pulumi:"tags"`
+	Type                        *string               `pulumi:"type"`
 }
 
 
@@ -128,6 +129,7 @@ type KubeEnvironmentArgs struct {
 	ResourceGroupName           pulumi.StringInput
 	StaticIp                    pulumi.StringPtrInput
 	Tags                        pulumi.StringMapInput
+	Type                        pulumi.StringPtrInput
 }
 
 func (KubeEnvironmentArgs) ElementType() reflect.Type {
