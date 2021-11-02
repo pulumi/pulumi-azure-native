@@ -26,7 +26,8 @@ class KubeEnvironmentArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KubeEnvironment resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -65,6 +66,8 @@ class KubeEnvironmentArgs:
             pulumi.set(__self__, "static_ip", static_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -199,6 +202,15 @@ class KubeEnvironmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 class KubeEnvironment(pulumi.CustomResource):
     @overload
@@ -216,6 +228,7 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
@@ -272,6 +285,7 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -297,14 +311,14 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["static_ip"] = static_ip
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20210201:KubeEnvironment"), pulumi.Alias(type_="azure-native:web:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210301:KubeEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:KubeEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20210201:KubeEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubeEnvironment, __self__).__init__(
-            'azure-native:web/v20210201:KubeEnvironment',
+            'azure-native:web/v20210301:KubeEnvironment',
             resource_name,
             __props__,
             opts)
