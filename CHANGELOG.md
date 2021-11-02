@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.44.0 (2021-11-02)
+
 #### New resources:
 
 - `web.ContainerApp`
@@ -21,8 +27,6 @@ CHANGELOG
 - `datafactory` changed the `type` property of compression from `string`
   to `object` and removed several derived types
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16563))
-
----
 
 ## 1.43.0 (2021-10-27)
 
