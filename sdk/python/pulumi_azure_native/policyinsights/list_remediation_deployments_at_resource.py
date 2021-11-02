@@ -62,7 +62,7 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceResult:
     """
     List of deployments for a remediation.
-    API Version: 2021-10-01.
+    API Version: 2019-07-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -91,7 +91,7 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
     """
     List of deployments for a remediation.
-    API Version: 2021-10-01.
+    API Version: 2019-07-01.
 
 
     :param str remediation_name: The name of the remediation.

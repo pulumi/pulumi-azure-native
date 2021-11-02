@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// List of deployments for a remediation.
-        /// API Version: 2021-10-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
 
         /// <summary>
         /// List of deployments for a remediation.
-        /// API Version: 2021-10-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceGroupResult> Invoke(ListRemediationDeploymentsAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupInvokeArgs(), options.WithVersion());

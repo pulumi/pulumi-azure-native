@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The remediation definition.
- * API Version: 2021-10-01.
+ * API Version: 2019-07-01.
  */
 export class RemediationAtResource extends pulumi.CustomResource {
     /**
@@ -37,10 +37,6 @@ export class RemediationAtResource extends pulumi.CustomResource {
     }
 
     /**
-     * The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
-     */
-    public /*out*/ readonly correlationId!: pulumi.Output<string>;
-    /**
      * The time at which the remediation was created.
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
@@ -48,10 +44,6 @@ export class RemediationAtResource extends pulumi.CustomResource {
      * The deployment status summary for all deployments created by the remediation.
      */
     public /*out*/ readonly deploymentStatus!: pulumi.Output<outputs.policyinsights.RemediationDeploymentSummaryResponse>;
-    /**
-     * The remediation failure threshold settings
-     */
-    public readonly failureThreshold!: pulumi.Output<outputs.policyinsights.RemediationPropertiesResponseFailureThreshold | undefined>;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
@@ -65,10 +57,6 @@ export class RemediationAtResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
-     */
-    public readonly parallelDeployments!: pulumi.Output<number | undefined>;
-    /**
      * The resource ID of the policy assignment that should be remediated.
      */
     public readonly policyAssignmentId!: pulumi.Output<string | undefined>;
@@ -81,21 +69,9 @@ export class RemediationAtResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
-     */
-    public readonly resourceCount!: pulumi.Output<number | undefined>;
-    /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
     public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
-    /**
-     * The remediation status message. Provides additional details regarding the state of the remediation.
-     */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.policyinsights.SystemDataResponse>;
     /**
      * The type of the remediation.
      */
@@ -115,40 +91,28 @@ export class RemediationAtResource extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["failureThreshold"] = args ? args.failureThreshold : undefined;
             inputs["filters"] = args ? args.filters : undefined;
-            inputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             inputs["remediationName"] = args ? args.remediationName : undefined;
-            inputs["resourceCount"] = args ? args.resourceCount : undefined;
             inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["correlationId"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
             inputs["deploymentStatus"] = undefined /*out*/;
             inputs["lastUpdatedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["correlationId"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
             inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["failureThreshold"] = undefined /*out*/;
             inputs["filters"] = undefined /*out*/;
             inputs["lastUpdatedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["parallelDeployments"] = undefined /*out*/;
             inputs["policyAssignmentId"] = undefined /*out*/;
             inputs["policyDefinitionReferenceId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceCount"] = undefined /*out*/;
             inputs["resourceDiscoveryMode"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -165,17 +129,9 @@ export class RemediationAtResource extends pulumi.CustomResource {
  */
 export interface RemediationAtResourceArgs {
     /**
-     * The remediation failure threshold settings
-     */
-    failureThreshold?: pulumi.Input<inputs.policyinsights.RemediationPropertiesFailureThresholdArgs>;
-    /**
      * The filters that will be applied to determine which resources to remediate.
      */
     filters?: pulumi.Input<inputs.policyinsights.RemediationFiltersArgs>;
-    /**
-     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
-     */
-    parallelDeployments?: pulumi.Input<number>;
     /**
      * The resource ID of the policy assignment that should be remediated.
      */
@@ -188,10 +144,6 @@ export interface RemediationAtResourceArgs {
      * The name of the remediation.
      */
     remediationName?: pulumi.Input<string>;
-    /**
-     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
-     */
-    resourceCount?: pulumi.Input<number>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */

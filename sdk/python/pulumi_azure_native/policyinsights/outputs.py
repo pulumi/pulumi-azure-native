@@ -16,7 +16,6 @@ __all__ = [
     'RemediationDeploymentResponse',
     'RemediationDeploymentSummaryResponse',
     'RemediationFiltersResponse',
-    'RemediationPropertiesResponseFailureThreshold',
     'SystemDataResponse',
     'TypedErrorInfoResponse',
 ]
@@ -313,29 +312,6 @@ class RemediationFiltersResponse(dict):
         The resource locations that will be remediated.
         """
         return pulumi.get(self, "locations")
-
-
-@pulumi.output_type
-class RemediationPropertiesResponseFailureThreshold(dict):
-    """
-    The remediation failure threshold settings
-    """
-    def __init__(__self__, *,
-                 percentage: Optional[float] = None):
-        """
-        The remediation failure threshold settings
-        :param float percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
-        """
-        if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
-
-    @property
-    @pulumi.getter
-    def percentage(self) -> Optional[float]:
-        """
-        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
-        """
-        return pulumi.get(self, "percentage")
 
 
 @pulumi.output_type

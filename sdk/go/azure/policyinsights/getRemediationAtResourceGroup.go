@@ -23,21 +23,15 @@ type LookupRemediationAtResourceGroupArgs struct {
 
 
 type LookupRemediationAtResourceGroupResult struct {
-	CorrelationId               string                                         `pulumi:"correlationId"`
-	CreatedOn                   string                                         `pulumi:"createdOn"`
-	DeploymentStatus            RemediationDeploymentSummaryResponse           `pulumi:"deploymentStatus"`
-	FailureThreshold            *RemediationPropertiesResponseFailureThreshold `pulumi:"failureThreshold"`
-	Filters                     *RemediationFiltersResponse                    `pulumi:"filters"`
-	Id                          string                                         `pulumi:"id"`
-	LastUpdatedOn               string                                         `pulumi:"lastUpdatedOn"`
-	Name                        string                                         `pulumi:"name"`
-	ParallelDeployments         *int                                           `pulumi:"parallelDeployments"`
-	PolicyAssignmentId          *string                                        `pulumi:"policyAssignmentId"`
-	PolicyDefinitionReferenceId *string                                        `pulumi:"policyDefinitionReferenceId"`
-	ProvisioningState           string                                         `pulumi:"provisioningState"`
-	ResourceCount               *int                                           `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string                                        `pulumi:"resourceDiscoveryMode"`
-	StatusMessage               string                                         `pulumi:"statusMessage"`
-	SystemData                  SystemDataResponse                             `pulumi:"systemData"`
-	Type                        string                                         `pulumi:"type"`
+	CreatedOn                   string                               `pulumi:"createdOn"`
+	DeploymentStatus            RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
+	Filters                     *RemediationFiltersResponse          `pulumi:"filters"`
+	Id                          string                               `pulumi:"id"`
+	LastUpdatedOn               string                               `pulumi:"lastUpdatedOn"`
+	Name                        string                               `pulumi:"name"`
+	PolicyAssignmentId          *string                              `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId *string                              `pulumi:"policyDefinitionReferenceId"`
+	ProvisioningState           string                               `pulumi:"provisioningState"`
+	ResourceDiscoveryMode       *string                              `pulumi:"resourceDiscoveryMode"`
+	Type                        string                               `pulumi:"type"`
 }

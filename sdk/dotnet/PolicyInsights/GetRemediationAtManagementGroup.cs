@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// The remediation definition.
-        /// API Version: 2021-10-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetRemediationAtManagementGroupResult> InvokeAsync(GetRemediationAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithVersion());
 
         /// <summary>
         /// The remediation definition.
-        /// API Version: 2021-10-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetRemediationAtManagementGroupResult> Invoke(GetRemediationAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRemediationAtManagementGroupResult>("azure-native:policyinsights:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupInvokeArgs(), options.WithVersion());
@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class GetRemediationAtManagementGroupResult
     {
         /// <summary>
-        /// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
-        /// </summary>
-        public readonly string CorrelationId;
-        /// <summary>
         /// The time at which the remediation was created.
         /// </summary>
         public readonly string CreatedOn;
@@ -94,10 +90,6 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// The deployment status summary for all deployments created by the remediation.
         /// </summary>
         public readonly Outputs.RemediationDeploymentSummaryResponse DeploymentStatus;
-        /// <summary>
-        /// The remediation failure threshold settings
-        /// </summary>
-        public readonly Outputs.RemediationPropertiesResponseFailureThreshold? FailureThreshold;
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
@@ -115,10 +107,6 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
-        /// </summary>
-        public readonly int? ParallelDeployments;
-        /// <summary>
         /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
         public readonly string? PolicyAssignmentId;
@@ -131,21 +119,9 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
-        /// </summary>
-        public readonly int? ResourceCount;
-        /// <summary>
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         /// </summary>
         public readonly string? ResourceDiscoveryMode;
-        /// <summary>
-        /// The remediation status message. Provides additional details regarding the state of the remediation.
-        /// </summary>
-        public readonly string StatusMessage;
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the remediation.
         /// </summary>
@@ -153,13 +129,9 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetRemediationAtManagementGroupResult(
-            string correlationId,
-
             string createdOn,
 
             Outputs.RemediationDeploymentSummaryResponse deploymentStatus,
-
-            Outputs.RemediationPropertiesResponseFailureThreshold? failureThreshold,
 
             Outputs.RemediationFiltersResponse? filters,
 
@@ -169,40 +141,26 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string name,
 
-            int? parallelDeployments,
-
             string? policyAssignmentId,
 
             string? policyDefinitionReferenceId,
 
             string provisioningState,
 
-            int? resourceCount,
-
             string? resourceDiscoveryMode,
-
-            string statusMessage,
-
-            Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            CorrelationId = correlationId;
             CreatedOn = createdOn;
             DeploymentStatus = deploymentStatus;
-            FailureThreshold = failureThreshold;
             Filters = filters;
             Id = id;
             LastUpdatedOn = lastUpdatedOn;
             Name = name;
-            ParallelDeployments = parallelDeployments;
             PolicyAssignmentId = policyAssignmentId;
             PolicyDefinitionReferenceId = policyDefinitionReferenceId;
             ProvisioningState = provisioningState;
-            ResourceCount = resourceCount;
             ResourceDiscoveryMode = resourceDiscoveryMode;
-            StatusMessage = statusMessage;
-            SystemData = systemData;
             Type = type;
         }
     }

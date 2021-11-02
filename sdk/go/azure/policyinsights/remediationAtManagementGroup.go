@@ -14,22 +14,16 @@ import (
 type RemediationAtManagementGroup struct {
 	pulumi.CustomResourceState
 
-	CorrelationId               pulumi.StringOutput                                    `pulumi:"correlationId"`
-	CreatedOn                   pulumi.StringOutput                                    `pulumi:"createdOn"`
-	DeploymentStatus            RemediationDeploymentSummaryResponseOutput             `pulumi:"deploymentStatus"`
-	FailureThreshold            RemediationPropertiesResponseFailureThresholdPtrOutput `pulumi:"failureThreshold"`
-	Filters                     RemediationFiltersResponsePtrOutput                    `pulumi:"filters"`
-	LastUpdatedOn               pulumi.StringOutput                                    `pulumi:"lastUpdatedOn"`
-	Name                        pulumi.StringOutput                                    `pulumi:"name"`
-	ParallelDeployments         pulumi.IntPtrOutput                                    `pulumi:"parallelDeployments"`
-	PolicyAssignmentId          pulumi.StringPtrOutput                                 `pulumi:"policyAssignmentId"`
-	PolicyDefinitionReferenceId pulumi.StringPtrOutput                                 `pulumi:"policyDefinitionReferenceId"`
-	ProvisioningState           pulumi.StringOutput                                    `pulumi:"provisioningState"`
-	ResourceCount               pulumi.IntPtrOutput                                    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       pulumi.StringPtrOutput                                 `pulumi:"resourceDiscoveryMode"`
-	StatusMessage               pulumi.StringOutput                                    `pulumi:"statusMessage"`
-	SystemData                  SystemDataResponseOutput                               `pulumi:"systemData"`
-	Type                        pulumi.StringOutput                                    `pulumi:"type"`
+	CreatedOn                   pulumi.StringOutput                        `pulumi:"createdOn"`
+	DeploymentStatus            RemediationDeploymentSummaryResponseOutput `pulumi:"deploymentStatus"`
+	Filters                     RemediationFiltersResponsePtrOutput        `pulumi:"filters"`
+	LastUpdatedOn               pulumi.StringOutput                        `pulumi:"lastUpdatedOn"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	PolicyAssignmentId          pulumi.StringPtrOutput                     `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrOutput                     `pulumi:"policyDefinitionReferenceId"`
+	ProvisioningState           pulumi.StringOutput                        `pulumi:"provisioningState"`
+	ResourceDiscoveryMode       pulumi.StringPtrOutput                     `pulumi:"resourceDiscoveryMode"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 
@@ -101,29 +95,23 @@ func (RemediationAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type remediationAtManagementGroupArgs struct {
-	FailureThreshold            *RemediationPropertiesFailureThreshold `pulumi:"failureThreshold"`
-	Filters                     *RemediationFilters                    `pulumi:"filters"`
-	ManagementGroupId           string                                 `pulumi:"managementGroupId"`
-	ManagementGroupsNamespace   string                                 `pulumi:"managementGroupsNamespace"`
-	ParallelDeployments         *int                                   `pulumi:"parallelDeployments"`
-	PolicyAssignmentId          *string                                `pulumi:"policyAssignmentId"`
-	PolicyDefinitionReferenceId *string                                `pulumi:"policyDefinitionReferenceId"`
-	RemediationName             *string                                `pulumi:"remediationName"`
-	ResourceCount               *int                                   `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string                                `pulumi:"resourceDiscoveryMode"`
+	Filters                     *RemediationFilters `pulumi:"filters"`
+	ManagementGroupId           string              `pulumi:"managementGroupId"`
+	ManagementGroupsNamespace   string              `pulumi:"managementGroupsNamespace"`
+	PolicyAssignmentId          *string             `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId *string             `pulumi:"policyDefinitionReferenceId"`
+	RemediationName             *string             `pulumi:"remediationName"`
+	ResourceDiscoveryMode       *string             `pulumi:"resourceDiscoveryMode"`
 }
 
 
 type RemediationAtManagementGroupArgs struct {
-	FailureThreshold            RemediationPropertiesFailureThresholdPtrInput
 	Filters                     RemediationFiltersPtrInput
 	ManagementGroupId           pulumi.StringInput
 	ManagementGroupsNamespace   pulumi.StringInput
-	ParallelDeployments         pulumi.IntPtrInput
 	PolicyAssignmentId          pulumi.StringPtrInput
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	RemediationName             pulumi.StringPtrInput
-	ResourceCount               pulumi.IntPtrInput
 	ResourceDiscoveryMode       pulumi.StringPtrInput
 }
 

@@ -140,6 +140,7 @@ var cutoffProviderVersions = map[string]string{
 	"netapp":                  "v20201201",
 	"operationalinsights":     "v20201001",
 	"peering":                 "v20210101",
+	"policyinsights":          "v20190701",
 	"purview":                 "v20201201preview",
 	"recoveryservices":        "v20210201preview",
 	"security":                "v20200101preview",
