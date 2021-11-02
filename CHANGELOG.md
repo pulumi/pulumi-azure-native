@@ -3,9 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `web.ContainerApp`
+
 #### New functions:
 
 - `maps.listAccountSas`
+- `web.getContainerApp`
 
 #### Breaking Changes published by Microsoft:
 

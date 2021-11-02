@@ -16745,6 +16745,7 @@ _utilities.register(
    "azure-native:web:Certificate": "Certificate",
    "azure-native:web:Connection": "Connection",
    "azure-native:web:ConnectionGateway": "ConnectionGateway",
+   "azure-native:web:ContainerApp": "ContainerApp",
    "azure-native:web:CustomApi": "CustomApi",
    "azure-native:web:KubeEnvironment": "KubeEnvironment",
    "azure-native:web:StaticSite": "StaticSite",
@@ -17500,6 +17501,15 @@ _utilities.register(
    "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot": "WebAppSwiftVirtualNetworkConnectionSlot",
    "azure-native:web/v20210201:WebAppVnetConnection": "WebAppVnetConnection",
    "azure-native:web/v20210201:WebAppVnetConnectionSlot": "WebAppVnetConnectionSlot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20210301",
+  "fqn": "pulumi_azure_native.web.v20210301",
+  "classes": {
+   "azure-native:web/v20210301:ContainerApp": "ContainerApp",
+   "azure-native:web/v20210301:KubeEnvironment": "KubeEnvironment"
   }
  },
  {

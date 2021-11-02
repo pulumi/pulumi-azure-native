@@ -17,6 +17,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
 import * as v20210115 from "./v20210115";
 import * as v20210201 from "./v20210201";
+import * as v20210301 from "./v20210301";
 
 export {
     v20150801,
@@ -34,7 +35,19 @@ export {
     v20210101,
     v20210115,
     v20210201,
+    v20210301,
 };
+
+export const ActiveRevisionsMode = {
+    Multiple: "multiple",
+    Single: "single",
+} as const;
+
+/**
+ * ActiveRevisionsMode controls how active revisions are handled for the Container app:
+ * <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+ */
+export type ActiveRevisionsMode = (typeof ActiveRevisionsMode)[keyof typeof ActiveRevisionsMode];
 
 export const ApiType = {
     NotSpecified: "NotSpecified",
@@ -243,6 +256,17 @@ export const HostType = {
  * Indicates whether the hostname is a standard or repository hostname.
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
+
+export const IngressTransportMethod = {
+    Auto: "auto",
+    Http: "http",
+    Http2: "http2",
+} as const;
+
+/**
+ * Ingress transport protocol
+ */
+export type IngressTransportMethod = (typeof IngressTransportMethod)[keyof typeof IngressTransportMethod];
 
 export const IpFilterTag = {
     Default: "Default",
