@@ -12,6 +12,7 @@ export * from "./appServicePlanRouteForVnet";
 export * from "./certificate";
 export * from "./connection";
 export * from "./connectionGateway";
+export * from "./containerApp";
 export * from "./customApi";
 export * from "./getAppServiceEnvironment";
 export * from "./getAppServiceEnvironmentPrivateEndpointConnection";
@@ -19,6 +20,7 @@ export * from "./getAppServicePlan";
 export * from "./getCertificate";
 export * from "./getConnection";
 export * from "./getConnectionGateway";
+export * from "./getContainerApp";
 export * from "./getCustomApi";
 export * from "./getKubeEnvironment";
 export * from "./getStaticSite";
@@ -171,6 +173,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
 import * as v20210115 from "./v20210115";
 import * as v20210201 from "./v20210201";
+import * as v20210301 from "./v20210301";
 
 export {
     v20150801,
@@ -189,6 +192,7 @@ export {
     v20210101,
     v20210115,
     v20210201,
+    v20210301,
 };
 
 // Import resources to register:
@@ -199,6 +203,7 @@ import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
 import { Certificate } from "./certificate";
 import { Connection } from "./connection";
 import { ConnectionGateway } from "./connectionGateway";
+import { ContainerApp } from "./containerApp";
 import { CustomApi } from "./customApi";
 import { KubeEnvironment } from "./kubeEnvironment";
 import { StaticSite } from "./staticSite";
@@ -271,6 +276,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "azure-native:web:ConnectionGateway":
                 return new ConnectionGateway(name, <any>undefined, { urn })
+            case "azure-native:web:ContainerApp":
+                return new ContainerApp(name, <any>undefined, { urn })
             case "azure-native:web:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
             case "azure-native:web:KubeEnvironment":
