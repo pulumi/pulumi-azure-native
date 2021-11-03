@@ -121,6 +121,7 @@ var cutoffProviderVersions = map[string]string{
 	"devices":                 "v20200831",
 	"documentdb":              "v20210315",
 	"domainregistration":      "v20201001",
+	"eventgrid":               "v20210601preview",
 	"eventhub":                "v20180101preview",
 	"extendedlocation":        "v20210315preview",
 	"fluidrelay":              "v20210312preview",
