@@ -59,6 +59,10 @@ export interface GetRestorePointResult {
      */
     readonly name: string;
     /**
+     * Gets the provisioning details set by the server during Create restore point operation.
+     */
+    readonly provisioningDetails: outputs.compute.v20210401.RestorePointProvisioningDetailsResponse;
+    /**
      * Gets the provisioning state of the restore point.
      */
     readonly provisioningState: string;
@@ -66,10 +70,6 @@ export interface GetRestorePointResult {
      * Gets the details of the VM captured at the time of the restore point creation.
      */
     readonly sourceMetadata: outputs.compute.v20210401.RestorePointSourceMetadataResponse;
-    /**
-     * Gets the creation time of the restore point.
-     */
-    readonly timeCreated?: string;
     /**
      * Resource type
      */

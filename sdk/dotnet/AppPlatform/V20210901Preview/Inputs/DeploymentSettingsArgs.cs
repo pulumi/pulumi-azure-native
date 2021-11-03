@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
     public sealed class DeploymentSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Container liveness and readiness probe settings
-        /// </summary>
-        [Input("containerProbeSettings")]
-        public Input<Inputs.DeploymentSettingsContainerProbeSettingsArgs>? ContainerProbeSettings { get; set; }
-
-        /// <summary>
         /// Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the CPU size.
         /// </summary>
         [Input("cpu")]

@@ -105,8 +105,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20211001:RemediationAtSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

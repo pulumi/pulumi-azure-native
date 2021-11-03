@@ -18,6 +18,7 @@ from .get_policy_assignment import *
 from .get_policy_definition import *
 from .get_policy_definition_at_management_group import *
 from .get_policy_exemption import *
+from .get_policy_pricing import *
 from .get_policy_set_definition import *
 from .get_policy_set_definition_at_management_group import *
 from .get_resource_management_private_link import *
@@ -32,6 +33,7 @@ from .policy_assignment import *
 from .policy_definition import *
 from .policy_definition_at_management_group import *
 from .policy_exemption import *
+from .policy_pricing import *
 from .policy_set_definition import *
 from .policy_set_definition_at_management_group import *
 from .resource_management_private_link import *
@@ -97,6 +99,8 @@ if typing.TYPE_CHECKING:
     v20210301preview = __v20210301preview
     import pulumi_azure_native.authorization.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.authorization.v20210701 as __v20210701
+    v20210701 = __v20210701
     import pulumi_azure_native.authorization.v20210701preview as __v20210701preview
     v20210701preview = __v20210701preview
 else:
@@ -127,5 +131,6 @@ else:
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20201001preview')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210301preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210601')
+    v20210701 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210701')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210701preview')
 

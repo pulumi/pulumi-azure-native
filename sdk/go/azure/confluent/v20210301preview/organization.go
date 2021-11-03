@@ -65,12 +65,6 @@ func NewOrganization(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:confluent/v20200301preview:Organization"),
 		},
-		{
-			Type: pulumi.String("azure-native:confluent/v20210901preview:Organization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:confluent/v20210901preview:Organization"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Organization

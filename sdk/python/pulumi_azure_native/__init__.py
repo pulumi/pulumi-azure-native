@@ -1633,6 +1633,7 @@ _utilities.register(
    "azure-native:authorization:PolicyDefinition": "PolicyDefinition",
    "azure-native:authorization:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization:PolicyExemption": "PolicyExemption",
+   "azure-native:authorization:PolicyPricing": "PolicyPricing",
    "azure-native:authorization:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
    "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
@@ -1907,6 +1908,15 @@ _utilities.register(
    "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization/v20210601:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20210701",
+  "fqn": "pulumi_azure_native.authorization.v20210701",
+  "classes": {
+   "azure-native:authorization/v20210701:PolicyExemption": "PolicyExemption",
+   "azure-native:authorization/v20210701:PolicyPricing": "PolicyPricing"
   }
  },
  {
@@ -3673,14 +3683,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.confluent.v20210301preview",
   "classes": {
    "azure-native:confluent/v20210301preview:Organization": "Organization"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "confluent/v20210901preview",
-  "fqn": "pulumi_azure_native.confluent.v20210901preview",
-  "classes": {
-   "azure-native:confluent/v20210901preview:Organization": "Organization"
   }
  },
  {
@@ -6436,17 +6438,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "devices/v20210702preview",
-  "fqn": "pulumi_azure_native.devices.v20210702preview",
-  "classes": {
-   "azure-native:devices/v20210702preview:Certificate": "Certificate",
-   "azure-native:devices/v20210702preview:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices/v20210702preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
@@ -7849,14 +7840,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "healthbot/v20210824",
-  "fqn": "pulumi_azure_native.healthbot.v20210824",
-  "classes": {
-   "azure-native:healthbot/v20210824:Bot": "Bot"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "healthcareapis",
   "fqn": "pulumi_azure_native.healthcareapis",
   "classes": {
@@ -8462,7 +8445,6 @@ _utilities.register(
   "mod": "insights/v20210501preview",
   "fqn": "pulumi_azure_native.insights.v20210501preview",
   "classes": {
-   "azure-native:insights/v20210501preview:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:insights/v20210501preview:DiagnosticSetting": "DiagnosticSetting",
    "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
    "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
@@ -9847,15 +9829,6 @@ _utilities.register(
   "classes": {
    "azure-native:maps/v20210701preview:Account": "Account",
    "azure-native:maps/v20210701preview:Creator": "Creator"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "maps/v20211201preview",
-  "fqn": "pulumi_azure_native.maps.v20211201preview",
-  "classes": {
-   "azure-native:maps/v20211201preview:Account": "Account",
-   "azure-native:maps/v20211201preview:Creator": "Creator"
   }
  },
  {
@@ -13081,17 +13054,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "policyinsights/v20211001",
-  "fqn": "pulumi_azure_native.policyinsights.v20211001",
-  "classes": {
-   "azure-native:policyinsights/v20211001:RemediationAtManagementGroup": "RemediationAtManagementGroup",
-   "azure-native:policyinsights/v20211001:RemediationAtResource": "RemediationAtResource",
-   "azure-native:policyinsights/v20211001:RemediationAtResourceGroup": "RemediationAtResourceGroup",
-   "azure-native:policyinsights/v20211001:RemediationAtSubscription": "RemediationAtSubscription"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "portal",
   "fqn": "pulumi_azure_native.portal",
   "classes": {
@@ -14872,19 +14834,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicefabric/v20211101preview",
-  "fqn": "pulumi_azure_native.servicefabric.v20211101preview",
-  "classes": {
-   "azure-native:servicefabric/v20211101preview:Application": "Application",
-   "azure-native:servicefabric/v20211101preview:ApplicationType": "ApplicationType",
-   "azure-native:servicefabric/v20211101preview:ApplicationTypeVersion": "ApplicationTypeVersion",
-   "azure-native:servicefabric/v20211101preview:ManagedCluster": "ManagedCluster",
-   "azure-native:servicefabric/v20211101preview:NodeType": "NodeType",
-   "azure-native:servicefabric/v20211101preview:Service": "Service"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicefabricmesh",
   "fqn": "pulumi_azure_native.servicefabricmesh",
   "classes": {
@@ -15007,16 +14956,6 @@ _utilities.register(
    "azure-native:signalrservice/v20210901preview:SignalR": "SignalR",
    "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "signalrservice/v20211001",
-  "fqn": "pulumi_azure_native.signalrservice.v20211001",
-  "classes": {
-   "azure-native:signalrservice/v20211001:SignalR": "SignalR",
-   "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
-   "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {
@@ -16636,14 +16575,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.videoindexer.v20211018preview",
   "classes": {
    "azure-native:videoindexer/v20211018preview:Account": "Account"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "videoindexer/v20211027preview",
-  "fqn": "pulumi_azure_native.videoindexer.v20211027preview",
-  "classes": {
-   "azure-native:videoindexer/v20211027preview:Account": "Account"
   }
  },
  {

@@ -566,7 +566,7 @@ func (o AppResourcePropertiesResponsePtrOutput) Url() pulumi.StringPtrOutput {
 type AzureFileVolume struct {
 	MountOptions []string `pulumi:"mountOptions"`
 	MountPath    string   `pulumi:"mountPath"`
-	ReadOnly     *bool    `pulumi:"readOnly"`
+	Readonly     *bool    `pulumi:"readonly"`
 	ShareName    string   `pulumi:"shareName"`
 	Type         string   `pulumi:"type"`
 }
@@ -585,7 +585,7 @@ type AzureFileVolumeInput interface {
 type AzureFileVolumeArgs struct {
 	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
 	MountPath    pulumi.StringInput      `pulumi:"mountPath"`
-	ReadOnly     pulumi.BoolPtrInput     `pulumi:"readOnly"`
+	Readonly     pulumi.BoolPtrInput     `pulumi:"readonly"`
 	ShareName    pulumi.StringInput      `pulumi:"shareName"`
 	Type         pulumi.StringInput      `pulumi:"type"`
 }
@@ -675,8 +675,8 @@ func (o AzureFileVolumeOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileVolume) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-func (o AzureFileVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureFileVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o AzureFileVolumeOutput) Readonly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileVolume) *bool { return v.Readonly }).(pulumi.BoolPtrOutput)
 }
 
 func (o AzureFileVolumeOutput) ShareName() pulumi.StringOutput {
@@ -729,12 +729,12 @@ func (o AzureFileVolumePtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AzureFileVolumePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+func (o AzureFileVolumePtrOutput) Readonly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureFileVolume) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.ReadOnly
+		return v.Readonly
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -759,7 +759,7 @@ func (o AzureFileVolumePtrOutput) Type() pulumi.StringPtrOutput {
 type AzureFileVolumeResponse struct {
 	MountOptions []string `pulumi:"mountOptions"`
 	MountPath    string   `pulumi:"mountPath"`
-	ReadOnly     *bool    `pulumi:"readOnly"`
+	Readonly     *bool    `pulumi:"readonly"`
 	ShareName    string   `pulumi:"shareName"`
 	Type         string   `pulumi:"type"`
 }
@@ -778,7 +778,7 @@ type AzureFileVolumeResponseInput interface {
 type AzureFileVolumeResponseArgs struct {
 	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
 	MountPath    pulumi.StringInput      `pulumi:"mountPath"`
-	ReadOnly     pulumi.BoolPtrInput     `pulumi:"readOnly"`
+	Readonly     pulumi.BoolPtrInput     `pulumi:"readonly"`
 	ShareName    pulumi.StringInput      `pulumi:"shareName"`
 	Type         pulumi.StringInput      `pulumi:"type"`
 }
@@ -868,8 +868,8 @@ func (o AzureFileVolumeResponseOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileVolumeResponse) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-func (o AzureFileVolumeResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AzureFileVolumeResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o AzureFileVolumeResponseOutput) Readonly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileVolumeResponse) *bool { return v.Readonly }).(pulumi.BoolPtrOutput)
 }
 
 func (o AzureFileVolumeResponseOutput) ShareName() pulumi.StringOutput {
@@ -922,12 +922,12 @@ func (o AzureFileVolumeResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AzureFileVolumeResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+func (o AzureFileVolumeResponsePtrOutput) Readonly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureFileVolumeResponse) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.ReadOnly
+		return v.Readonly
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3232,14 +3232,13 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtr
 }
 
 type DeploymentSettings struct {
-	ContainerProbeSettings *DeploymentSettingsContainerProbeSettings `pulumi:"containerProbeSettings"`
-	Cpu                    *int                                      `pulumi:"cpu"`
-	EnvironmentVariables   map[string]string                         `pulumi:"environmentVariables"`
-	JvmOptions             *string                                   `pulumi:"jvmOptions"`
-	MemoryInGB             *int                                      `pulumi:"memoryInGB"`
-	NetCoreMainEntryPath   *string                                   `pulumi:"netCoreMainEntryPath"`
-	ResourceRequests       *ResourceRequests                         `pulumi:"resourceRequests"`
-	RuntimeVersion         *string                                   `pulumi:"runtimeVersion"`
+	Cpu                  *int              `pulumi:"cpu"`
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	JvmOptions           *string           `pulumi:"jvmOptions"`
+	MemoryInGB           *int              `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath *string           `pulumi:"netCoreMainEntryPath"`
+	ResourceRequests     *ResourceRequests `pulumi:"resourceRequests"`
+	RuntimeVersion       *string           `pulumi:"runtimeVersion"`
 }
 
 
@@ -3254,14 +3253,13 @@ type DeploymentSettingsInput interface {
 }
 
 type DeploymentSettingsArgs struct {
-	ContainerProbeSettings DeploymentSettingsContainerProbeSettingsPtrInput `pulumi:"containerProbeSettings"`
-	Cpu                    pulumi.IntPtrInput                               `pulumi:"cpu"`
-	EnvironmentVariables   pulumi.StringMapInput                            `pulumi:"environmentVariables"`
-	JvmOptions             pulumi.StringPtrInput                            `pulumi:"jvmOptions"`
-	MemoryInGB             pulumi.IntPtrInput                               `pulumi:"memoryInGB"`
-	NetCoreMainEntryPath   pulumi.StringPtrInput                            `pulumi:"netCoreMainEntryPath"`
-	ResourceRequests       ResourceRequestsPtrInput                         `pulumi:"resourceRequests"`
-	RuntimeVersion         pulumi.StringPtrInput                            `pulumi:"runtimeVersion"`
+	Cpu                  pulumi.IntPtrInput       `pulumi:"cpu"`
+	EnvironmentVariables pulumi.StringMapInput    `pulumi:"environmentVariables"`
+	JvmOptions           pulumi.StringPtrInput    `pulumi:"jvmOptions"`
+	MemoryInGB           pulumi.IntPtrInput       `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath pulumi.StringPtrInput    `pulumi:"netCoreMainEntryPath"`
+	ResourceRequests     ResourceRequestsPtrInput `pulumi:"resourceRequests"`
+	RuntimeVersion       pulumi.StringPtrInput    `pulumi:"runtimeVersion"`
 }
 
 func (DeploymentSettingsArgs) ElementType() reflect.Type {
@@ -3341,10 +3339,6 @@ func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutputWithContext(ctx c
 	}).(DeploymentSettingsPtrOutput)
 }
 
-func (o DeploymentSettingsOutput) ContainerProbeSettings() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *DeploymentSettingsContainerProbeSettings { return v.ContainerProbeSettings }).(DeploymentSettingsContainerProbeSettingsPtrOutput)
-}
-
 func (o DeploymentSettingsOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -3395,15 +3389,6 @@ func (o DeploymentSettingsPtrOutput) Elem() DeploymentSettingsOutput {
 		var ret DeploymentSettings
 		return ret
 	}).(DeploymentSettingsOutput)
-}
-
-func (o DeploymentSettingsPtrOutput) ContainerProbeSettings() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettings) *DeploymentSettingsContainerProbeSettings {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerProbeSettings
-	}).(DeploymentSettingsContainerProbeSettingsPtrOutput)
 }
 
 func (o DeploymentSettingsPtrOutput) Cpu() pulumi.IntPtrOutput {
@@ -3469,148 +3454,14 @@ func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DeploymentSettingsContainerProbeSettings struct {
-	DisableProbe *bool `pulumi:"disableProbe"`
-}
-
-
-
-
-
-type DeploymentSettingsContainerProbeSettingsInput interface {
-	pulumi.Input
-
-	ToDeploymentSettingsContainerProbeSettingsOutput() DeploymentSettingsContainerProbeSettingsOutput
-	ToDeploymentSettingsContainerProbeSettingsOutputWithContext(context.Context) DeploymentSettingsContainerProbeSettingsOutput
-}
-
-type DeploymentSettingsContainerProbeSettingsArgs struct {
-	DisableProbe pulumi.BoolPtrInput `pulumi:"disableProbe"`
-}
-
-func (DeploymentSettingsContainerProbeSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentSettingsContainerProbeSettings)(nil)).Elem()
-}
-
-func (i DeploymentSettingsContainerProbeSettingsArgs) ToDeploymentSettingsContainerProbeSettingsOutput() DeploymentSettingsContainerProbeSettingsOutput {
-	return i.ToDeploymentSettingsContainerProbeSettingsOutputWithContext(context.Background())
-}
-
-func (i DeploymentSettingsContainerProbeSettingsArgs) ToDeploymentSettingsContainerProbeSettingsOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsContainerProbeSettingsOutput)
-}
-
-func (i DeploymentSettingsContainerProbeSettingsArgs) ToDeploymentSettingsContainerProbeSettingsPtrOutput() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return i.ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentSettingsContainerProbeSettingsArgs) ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsContainerProbeSettingsOutput).ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DeploymentSettingsContainerProbeSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentSettingsContainerProbeSettingsPtrOutput() DeploymentSettingsContainerProbeSettingsPtrOutput
-	ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(context.Context) DeploymentSettingsContainerProbeSettingsPtrOutput
-}
-
-type deploymentSettingsContainerProbeSettingsPtrType DeploymentSettingsContainerProbeSettingsArgs
-
-func DeploymentSettingsContainerProbeSettingsPtr(v *DeploymentSettingsContainerProbeSettingsArgs) DeploymentSettingsContainerProbeSettingsPtrInput {
-	return (*deploymentSettingsContainerProbeSettingsPtrType)(v)
-}
-
-func (*deploymentSettingsContainerProbeSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentSettingsContainerProbeSettings)(nil)).Elem()
-}
-
-func (i *deploymentSettingsContainerProbeSettingsPtrType) ToDeploymentSettingsContainerProbeSettingsPtrOutput() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return i.ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentSettingsContainerProbeSettingsPtrType) ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsContainerProbeSettingsPtrOutput)
-}
-
-type DeploymentSettingsContainerProbeSettingsOutput struct{ *pulumi.OutputState }
-
-func (DeploymentSettingsContainerProbeSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentSettingsContainerProbeSettings)(nil)).Elem()
-}
-
-func (o DeploymentSettingsContainerProbeSettingsOutput) ToDeploymentSettingsContainerProbeSettingsOutput() DeploymentSettingsContainerProbeSettingsOutput {
-	return o
-}
-
-func (o DeploymentSettingsContainerProbeSettingsOutput) ToDeploymentSettingsContainerProbeSettingsOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsOutput {
-	return o
-}
-
-func (o DeploymentSettingsContainerProbeSettingsOutput) ToDeploymentSettingsContainerProbeSettingsPtrOutput() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o.ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentSettingsContainerProbeSettingsOutput) ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettingsContainerProbeSettings) *DeploymentSettingsContainerProbeSettings {
-		return &v
-	}).(DeploymentSettingsContainerProbeSettingsPtrOutput)
-}
-
-func (o DeploymentSettingsContainerProbeSettingsOutput) DisableProbe() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsContainerProbeSettings) *bool { return v.DisableProbe }).(pulumi.BoolPtrOutput)
-}
-
-type DeploymentSettingsContainerProbeSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentSettingsContainerProbeSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentSettingsContainerProbeSettings)(nil)).Elem()
-}
-
-func (o DeploymentSettingsContainerProbeSettingsPtrOutput) ToDeploymentSettingsContainerProbeSettingsPtrOutput() DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentSettingsContainerProbeSettingsPtrOutput) ToDeploymentSettingsContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsContainerProbeSettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentSettingsContainerProbeSettingsPtrOutput) Elem() DeploymentSettingsContainerProbeSettingsOutput {
-	return o.ApplyT(func(v *DeploymentSettingsContainerProbeSettings) DeploymentSettingsContainerProbeSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentSettingsContainerProbeSettings
-		return ret
-	}).(DeploymentSettingsContainerProbeSettingsOutput)
-}
-
-func (o DeploymentSettingsContainerProbeSettingsPtrOutput) DisableProbe() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsContainerProbeSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableProbe
-	}).(pulumi.BoolPtrOutput)
-}
-
 type DeploymentSettingsResponse struct {
-	ContainerProbeSettings *DeploymentSettingsResponseContainerProbeSettings `pulumi:"containerProbeSettings"`
-	Cpu                    *int                                              `pulumi:"cpu"`
-	EnvironmentVariables   map[string]string                                 `pulumi:"environmentVariables"`
-	JvmOptions             *string                                           `pulumi:"jvmOptions"`
-	MemoryInGB             *int                                              `pulumi:"memoryInGB"`
-	NetCoreMainEntryPath   *string                                           `pulumi:"netCoreMainEntryPath"`
-	ResourceRequests       *ResourceRequestsResponse                         `pulumi:"resourceRequests"`
-	RuntimeVersion         *string                                           `pulumi:"runtimeVersion"`
+	Cpu                  *int                      `pulumi:"cpu"`
+	EnvironmentVariables map[string]string         `pulumi:"environmentVariables"`
+	JvmOptions           *string                   `pulumi:"jvmOptions"`
+	MemoryInGB           *int                      `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath *string                   `pulumi:"netCoreMainEntryPath"`
+	ResourceRequests     *ResourceRequestsResponse `pulumi:"resourceRequests"`
+	RuntimeVersion       *string                   `pulumi:"runtimeVersion"`
 }
 
 
@@ -3625,14 +3476,13 @@ type DeploymentSettingsResponseInput interface {
 }
 
 type DeploymentSettingsResponseArgs struct {
-	ContainerProbeSettings DeploymentSettingsResponseContainerProbeSettingsPtrInput `pulumi:"containerProbeSettings"`
-	Cpu                    pulumi.IntPtrInput                                       `pulumi:"cpu"`
-	EnvironmentVariables   pulumi.StringMapInput                                    `pulumi:"environmentVariables"`
-	JvmOptions             pulumi.StringPtrInput                                    `pulumi:"jvmOptions"`
-	MemoryInGB             pulumi.IntPtrInput                                       `pulumi:"memoryInGB"`
-	NetCoreMainEntryPath   pulumi.StringPtrInput                                    `pulumi:"netCoreMainEntryPath"`
-	ResourceRequests       ResourceRequestsResponsePtrInput                         `pulumi:"resourceRequests"`
-	RuntimeVersion         pulumi.StringPtrInput                                    `pulumi:"runtimeVersion"`
+	Cpu                  pulumi.IntPtrInput               `pulumi:"cpu"`
+	EnvironmentVariables pulumi.StringMapInput            `pulumi:"environmentVariables"`
+	JvmOptions           pulumi.StringPtrInput            `pulumi:"jvmOptions"`
+	MemoryInGB           pulumi.IntPtrInput               `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath pulumi.StringPtrInput            `pulumi:"netCoreMainEntryPath"`
+	ResourceRequests     ResourceRequestsResponsePtrInput `pulumi:"resourceRequests"`
+	RuntimeVersion       pulumi.StringPtrInput            `pulumi:"runtimeVersion"`
 }
 
 func (DeploymentSettingsResponseArgs) ElementType() reflect.Type {
@@ -3712,12 +3562,6 @@ func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponsePtrOutputW
 	}).(DeploymentSettingsResponsePtrOutput)
 }
 
-func (o DeploymentSettingsResponseOutput) ContainerProbeSettings() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *DeploymentSettingsResponseContainerProbeSettings {
-		return v.ContainerProbeSettings
-	}).(DeploymentSettingsResponseContainerProbeSettingsPtrOutput)
-}
-
 func (o DeploymentSettingsResponseOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -3768,15 +3612,6 @@ func (o DeploymentSettingsResponsePtrOutput) Elem() DeploymentSettingsResponseOu
 		var ret DeploymentSettingsResponse
 		return ret
 	}).(DeploymentSettingsResponseOutput)
-}
-
-func (o DeploymentSettingsResponsePtrOutput) ContainerProbeSettings() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) *DeploymentSettingsResponseContainerProbeSettings {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerProbeSettings
-	}).(DeploymentSettingsResponseContainerProbeSettingsPtrOutput)
 }
 
 func (o DeploymentSettingsResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
@@ -3840,139 +3675,6 @@ func (o DeploymentSettingsResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOu
 		}
 		return v.RuntimeVersion
 	}).(pulumi.StringPtrOutput)
-}
-
-type DeploymentSettingsResponseContainerProbeSettings struct {
-	DisableProbe *bool `pulumi:"disableProbe"`
-}
-
-
-
-
-
-type DeploymentSettingsResponseContainerProbeSettingsInput interface {
-	pulumi.Input
-
-	ToDeploymentSettingsResponseContainerProbeSettingsOutput() DeploymentSettingsResponseContainerProbeSettingsOutput
-	ToDeploymentSettingsResponseContainerProbeSettingsOutputWithContext(context.Context) DeploymentSettingsResponseContainerProbeSettingsOutput
-}
-
-type DeploymentSettingsResponseContainerProbeSettingsArgs struct {
-	DisableProbe pulumi.BoolPtrInput `pulumi:"disableProbe"`
-}
-
-func (DeploymentSettingsResponseContainerProbeSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentSettingsResponseContainerProbeSettings)(nil)).Elem()
-}
-
-func (i DeploymentSettingsResponseContainerProbeSettingsArgs) ToDeploymentSettingsResponseContainerProbeSettingsOutput() DeploymentSettingsResponseContainerProbeSettingsOutput {
-	return i.ToDeploymentSettingsResponseContainerProbeSettingsOutputWithContext(context.Background())
-}
-
-func (i DeploymentSettingsResponseContainerProbeSettingsArgs) ToDeploymentSettingsResponseContainerProbeSettingsOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsResponseContainerProbeSettingsOutput)
-}
-
-func (i DeploymentSettingsResponseContainerProbeSettingsArgs) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutput() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return i.ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentSettingsResponseContainerProbeSettingsArgs) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsResponseContainerProbeSettingsOutput).ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DeploymentSettingsResponseContainerProbeSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentSettingsResponseContainerProbeSettingsPtrOutput() DeploymentSettingsResponseContainerProbeSettingsPtrOutput
-	ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(context.Context) DeploymentSettingsResponseContainerProbeSettingsPtrOutput
-}
-
-type deploymentSettingsResponseContainerProbeSettingsPtrType DeploymentSettingsResponseContainerProbeSettingsArgs
-
-func DeploymentSettingsResponseContainerProbeSettingsPtr(v *DeploymentSettingsResponseContainerProbeSettingsArgs) DeploymentSettingsResponseContainerProbeSettingsPtrInput {
-	return (*deploymentSettingsResponseContainerProbeSettingsPtrType)(v)
-}
-
-func (*deploymentSettingsResponseContainerProbeSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentSettingsResponseContainerProbeSettings)(nil)).Elem()
-}
-
-func (i *deploymentSettingsResponseContainerProbeSettingsPtrType) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutput() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return i.ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentSettingsResponseContainerProbeSettingsPtrType) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsResponseContainerProbeSettingsPtrOutput)
-}
-
-type DeploymentSettingsResponseContainerProbeSettingsOutput struct{ *pulumi.OutputState }
-
-func (DeploymentSettingsResponseContainerProbeSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentSettingsResponseContainerProbeSettings)(nil)).Elem()
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsOutput) ToDeploymentSettingsResponseContainerProbeSettingsOutput() DeploymentSettingsResponseContainerProbeSettingsOutput {
-	return o
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsOutput) ToDeploymentSettingsResponseContainerProbeSettingsOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsOutput {
-	return o
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsOutput) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutput() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o.ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsOutput) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettingsResponseContainerProbeSettings) *DeploymentSettingsResponseContainerProbeSettings {
-		return &v
-	}).(DeploymentSettingsResponseContainerProbeSettingsPtrOutput)
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsOutput) DisableProbe() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponseContainerProbeSettings) *bool { return v.DisableProbe }).(pulumi.BoolPtrOutput)
-}
-
-type DeploymentSettingsResponseContainerProbeSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentSettingsResponseContainerProbeSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentSettingsResponseContainerProbeSettings)(nil)).Elem()
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsPtrOutput) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutput() DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsPtrOutput) ToDeploymentSettingsResponseContainerProbeSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsResponseContainerProbeSettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsPtrOutput) Elem() DeploymentSettingsResponseContainerProbeSettingsOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponseContainerProbeSettings) DeploymentSettingsResponseContainerProbeSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentSettingsResponseContainerProbeSettings
-		return ret
-	}).(DeploymentSettingsResponseContainerProbeSettingsOutput)
-}
-
-func (o DeploymentSettingsResponseContainerProbeSettingsPtrOutput) DisableProbe() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponseContainerProbeSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableProbe
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ImageRegistryCredential struct {
@@ -7825,12 +7527,8 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentSettingsContainerProbeSettingsOutput{})
-	pulumi.RegisterOutputType(DeploymentSettingsContainerProbeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(DeploymentSettingsResponseContainerProbeSettingsOutput{})
-	pulumi.RegisterOutputType(DeploymentSettingsResponseContainerProbeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialPtrOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialResponseOutput{})

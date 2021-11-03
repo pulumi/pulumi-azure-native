@@ -99,8 +99,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResource"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtResource"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20211001:RemediationAtResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

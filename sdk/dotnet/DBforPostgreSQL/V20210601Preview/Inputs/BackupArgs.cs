@@ -29,7 +29,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview.Inputs
 
         public BackupArgs()
         {
-            BackupRetentionDays = 7;
         }
     }
 }

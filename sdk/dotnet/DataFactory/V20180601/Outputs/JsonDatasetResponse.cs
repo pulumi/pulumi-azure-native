@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The data compression method used for the json dataset.
         /// </summary>
-        public readonly Outputs.DatasetCompressionResponse? Compression;
+        public readonly object? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private JsonDatasetResponse(
             ImmutableArray<object> annotations,
 
-            Outputs.DatasetCompressionResponse? compression,
+            object? compression,
 
             string? description,
 

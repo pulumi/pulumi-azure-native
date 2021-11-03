@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The data compression method used on files.
         /// </summary>
         [Input("compression")]
-        public Input<Inputs.DatasetCompressionArgs>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.

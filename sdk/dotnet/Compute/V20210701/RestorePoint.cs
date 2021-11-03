@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Compute.V20210701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the provisioning details set by the server during Create restore point operation.
+        /// </summary>
+        [Output("provisioningDetails")]
+        public Output<Outputs.RestorePointProvisioningDetailsResponse> ProvisioningDetails { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the provisioning state of the restore point.
         /// </summary>
         [Output("provisioningState")]
@@ -44,12 +50,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         [Output("sourceMetadata")]
         public Output<Outputs.RestorePointSourceMetadataResponse> SourceMetadata { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets the creation time of the restore point.
-        /// </summary>
-        [Output("timeCreated")]
-        public Output<string?> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -141,12 +141,6 @@ namespace Pulumi.AzureNative.Compute.V20210701
         /// </summary>
         [Input("restorePointName")]
         public Input<string>? RestorePointName { get; set; }
-
-        /// <summary>
-        /// Gets the creation time of the restore point.
-        /// </summary>
-        [Input("timeCreated")]
-        public Input<string>? TimeCreated { get; set; }
 
         public RestorePointArgs()
         {

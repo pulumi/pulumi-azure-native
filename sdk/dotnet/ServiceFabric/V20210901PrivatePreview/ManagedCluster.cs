@@ -255,8 +255,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210501:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210701preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20211101preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

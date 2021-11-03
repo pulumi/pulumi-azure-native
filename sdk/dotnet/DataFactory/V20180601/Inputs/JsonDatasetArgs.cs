@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The data compression method used for the json dataset.
         /// </summary>
         [Input("compression")]
-        public Input<Inputs.DatasetCompressionArgs>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.

@@ -5,14 +5,12 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .account import *
 from .creator import *
 from .get_account import *
 from .get_creator import *
 from .get_private_atlase import *
 from .list_account_keys import *
-from .list_account_sas import *
 from .private_atlase import *
 from ._inputs import *
 from . import outputs
@@ -29,13 +27,10 @@ if typing.TYPE_CHECKING:
     v20210201 = __v20210201
     import pulumi_azure_native.maps.v20210701preview as __v20210701preview
     v20210701preview = __v20210701preview
-    import pulumi_azure_native.maps.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
 else:
     v20170101preview = _utilities.lazy_import('pulumi_azure_native.maps.v20170101preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20200201preview')
     v20210201 = _utilities.lazy_import('pulumi_azure_native.maps.v20210201')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.maps.v20210701preview')
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20211201preview')
 

@@ -368,7 +368,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        What type of volume is this
         """
         return pulumi.get(self, "volume_type")
 

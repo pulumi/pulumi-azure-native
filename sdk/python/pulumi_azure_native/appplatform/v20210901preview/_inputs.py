@@ -19,7 +19,6 @@ __all__ = [
     'CustomDomainPropertiesArgs',
     'CustomPersistentDiskResourceArgs',
     'DeploymentResourcePropertiesArgs',
-    'DeploymentSettingsContainerProbeSettingsArgs',
     'DeploymentSettingsArgs',
     'ImageRegistryCredentialArgs',
     'KeyVaultCertificatePropertiesArgs',
@@ -197,7 +196,7 @@ class AzureFileVolumeArgs:
                  share_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 read_only: Optional[pulumi.Input[bool]] = None):
+                 readonly: Optional[pulumi.Input[bool]] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param pulumi.Input[str] mount_path: The mount path of the persistent disk.
@@ -205,15 +204,15 @@ class AzureFileVolumeArgs:
         :param pulumi.Input[str] type: The type of the underlying resource to mount as a persistent disk.
                Expected value is 'AzureFileVolume'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_options: These are the mount options for a persistent disk.
-        :param pulumi.Input[bool] read_only: Indicates whether the persistent disk is a readOnly one.
+        :param pulumi.Input[bool] readonly: Indicates whether the persistent disk is a readonly one.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "type", 'AzureFileVolume')
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
-        if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+        if readonly is not None:
+            pulumi.set(__self__, "readonly", readonly)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -265,16 +264,16 @@ class AzureFileVolumeArgs:
         pulumi.set(self, "mount_options", value)
 
     @property
-    @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter
+    def readonly(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the persistent disk is a readOnly one.
+        Indicates whether the persistent disk is a readonly one.
         """
-        return pulumi.get(self, "read_only")
+        return pulumi.get(self, "readonly")
 
-    @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "read_only", value)
+    @readonly.setter
+    def readonly(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "readonly", value)
 
 
 @pulumi.input_type
@@ -605,33 +604,8 @@ class DeploymentResourcePropertiesArgs:
 
 
 @pulumi.input_type
-class DeploymentSettingsContainerProbeSettingsArgs:
-    def __init__(__self__, *,
-                 disable_probe: Optional[pulumi.Input[bool]] = None):
-        """
-        Container liveness and readiness probe settings
-        :param pulumi.Input[bool] disable_probe: Indicates whether disable the liveness and readiness probe
-        """
-        if disable_probe is not None:
-            pulumi.set(__self__, "disable_probe", disable_probe)
-
-    @property
-    @pulumi.getter(name="disableProbe")
-    def disable_probe(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether disable the liveness and readiness probe
-        """
-        return pulumi.get(self, "disable_probe")
-
-    @disable_probe.setter
-    def disable_probe(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_probe", value)
-
-
-@pulumi.input_type
 class DeploymentSettingsArgs:
     def __init__(__self__, *,
-                 container_probe_settings: Optional[pulumi.Input['DeploymentSettingsContainerProbeSettingsArgs']] = None,
                  cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
@@ -641,7 +615,6 @@ class DeploymentSettingsArgs:
                  runtime_version: Optional[pulumi.Input[Union[str, 'RuntimeVersion']]] = None):
         """
         Deployment settings payload
-        :param pulumi.Input['DeploymentSettingsContainerProbeSettingsArgs'] container_probe_settings: Container liveness and readiness probe settings
         :param pulumi.Input[int] cpu: Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the CPU size.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Collection of environment variables
         :param pulumi.Input[str] jvm_options: JVM parameter
@@ -650,8 +623,6 @@ class DeploymentSettingsArgs:
         :param pulumi.Input['ResourceRequestsArgs'] resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         :param pulumi.Input[Union[str, 'RuntimeVersion']] runtime_version: Runtime version
         """
-        if container_probe_settings is not None:
-            pulumi.set(__self__, "container_probe_settings", container_probe_settings)
         if cpu is None:
             cpu = 1
         if cpu is not None:
@@ -672,18 +643,6 @@ class DeploymentSettingsArgs:
             runtime_version = 'Java_8'
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
-
-    @property
-    @pulumi.getter(name="containerProbeSettings")
-    def container_probe_settings(self) -> Optional[pulumi.Input['DeploymentSettingsContainerProbeSettingsArgs']]:
-        """
-        Container liveness and readiness probe settings
-        """
-        return pulumi.get(self, "container_probe_settings")
-
-    @container_probe_settings.setter
-    def container_probe_settings(self, value: Optional[pulumi.Input['DeploymentSettingsContainerProbeSettingsArgs']]):
-        pulumi.set(self, "container_probe_settings", value)
 
     @property
     @pulumi.getter

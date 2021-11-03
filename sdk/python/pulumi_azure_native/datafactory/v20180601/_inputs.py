@@ -167,9 +167,14 @@ __all__ = [
     'DatabricksNotebookActivityArgs',
     'DatabricksSparkJarActivityArgs',
     'DatabricksSparkPythonActivityArgs',
-    'DatasetCompressionArgs',
+    'DatasetBZip2CompressionArgs',
+    'DatasetDeflateCompressionArgs',
     'DatasetFolderArgs',
+    'DatasetGZipCompressionArgs',
     'DatasetReferenceArgs',
+    'DatasetTarCompressionArgs',
+    'DatasetTarGZipCompressionArgs',
+    'DatasetZipDeflateCompressionArgs',
     'Db2LinkedServiceArgs',
     'Db2SourceArgs',
     'Db2TableDatasetArgs',
@@ -3263,7 +3268,7 @@ class AmazonS3DatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
@@ -3282,7 +3287,7 @@ class AmazonS3DatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'AmazonS3Object'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the Amazon S3 object.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the Amazon S3 object.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of files.
@@ -3376,14 +3381,14 @@ class AmazonS3DatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the Amazon S3 object.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -4972,7 +4977,7 @@ class AzureBlobDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -4990,7 +4995,7 @@ class AzureBlobDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'AzureBlob'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the blob storage.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the blob storage.
         :param pulumi.Input[str] description: Dataset description.
         :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -5071,14 +5076,14 @@ class AzureBlobDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the blob storage.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -5220,7 +5225,7 @@ class AzureBlobFSDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -5235,7 +5240,7 @@ class AzureBlobFSDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'AzureBlobFSFile'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the blob storage.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the blob storage.
         :param pulumi.Input[str] description: Dataset description.
         :param Any file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -5307,14 +5312,14 @@ class AzureBlobFSDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the blob storage.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -7971,7 +7976,7 @@ class AzureDataLakeStoreDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -7986,7 +7991,7 @@ class AzureDataLakeStoreDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'AzureDataLakeStoreFile'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param pulumi.Input[str] description: Dataset description.
         :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -8058,14 +8063,14 @@ class AzureDataLakeStoreDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the item(s) in the Azure Data Lake Store.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -16963,7 +16968,7 @@ class BinaryDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -16976,7 +16981,7 @@ class BinaryDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Binary'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the binary dataset.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the binary dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -17052,14 +17057,14 @@ class BinaryDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the binary dataset.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -24073,36 +24078,63 @@ class DatabricksSparkPythonActivityArgs:
 
 
 @pulumi.input_type
-class DatasetCompressionArgs:
+class DatasetBZip2CompressionArgs:
     def __init__(__self__, *,
-                 type: Any,
+                 type: pulumi.Input[str]):
+        """
+        The BZip2 compression method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'BZip2'.
+        """
+        pulumi.set(__self__, "type", 'BZip2')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'BZip2'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetDeflateCompressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  level: Optional[Any] = None):
         """
-        The compression method used on a dataset.
-        :param Any type: Type of dataset compression. Type: string (or Expression with resultType string).
-        :param Any level: The dataset compression level. Type: string (or Expression with resultType string).
+        The Deflate compression method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'Deflate'.
+        :param Any level: The Deflate compression level.
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
             pulumi.set(__self__, "level", level)
 
     @property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input[str]:
         """
         Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'Deflate'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
     def level(self) -> Optional[Any]:
         """
-        The dataset compression level. Type: string (or Expression with resultType string).
+        The Deflate compression level.
         """
         return pulumi.get(self, "level")
 
@@ -24133,6 +24165,47 @@ class DatasetFolderArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DatasetGZipCompressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 level: Optional[Any] = None):
+        """
+        The GZip compression method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'GZip'.
+        :param Any level: The GZip compression level.
+        """
+        pulumi.set(__self__, "type", 'GZip')
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'GZip'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[Any]:
+        """
+        The GZip compression level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[Any]):
+        pulumi.set(self, "level", value)
 
 
 @pulumi.input_type
@@ -24187,6 +24260,113 @@ class DatasetReferenceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class DatasetTarCompressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        The Tar archive method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'Tar'.
+        """
+        pulumi.set(__self__, "type", 'Tar')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'Tar'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetTarGZipCompressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 level: Optional[Any] = None):
+        """
+        The TarGZip compression method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'TarGZip'.
+        :param Any level: The TarGZip compression level.
+        """
+        pulumi.set(__self__, "type", 'TarGZip')
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'TarGZip'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[Any]:
+        """
+        The TarGZip compression level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[Any]):
+        pulumi.set(self, "level", value)
+
+
+@pulumi.input_type
+class DatasetZipDeflateCompressionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 level: Optional[Any] = None):
+        """
+        The ZipDeflate compression method used on a dataset.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
+               Expected value is 'ZipDeflate'.
+        :param Any level: The ZipDeflate compression level.
+        """
+        pulumi.set(__self__, "type", 'ZipDeflate')
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset compression. Type: string (or Expression with resultType string).
+        Expected value is 'ZipDeflate'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[Any]:
+        """
+        The ZipDeflate compression level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[Any]):
+        pulumi.set(self, "level", value)
 
 
 @pulumi.input_type
@@ -29209,7 +29389,7 @@ class ExcelDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  first_row_as_header: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -29227,7 +29407,7 @@ class ExcelDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Excel'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the json dataset.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -29318,14 +29498,14 @@ class ExcelDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the json dataset.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -31516,7 +31696,7 @@ class FileShareDatasetArgs:
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_filter: Optional[Any] = None,
                  file_name: Optional[Any] = None,
@@ -31534,7 +31714,7 @@ class FileShareDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'FileShare'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the file system.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the file system.
         :param pulumi.Input[str] description: Dataset description.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
@@ -31615,14 +31795,14 @@ class FileShareDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the file system.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -39152,7 +39332,7 @@ class HttpDatasetArgs:
                  type: pulumi.Input[str],
                  additional_headers: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
                  format: Optional[pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']]] = None,
@@ -39171,7 +39351,7 @@ class HttpDatasetArgs:
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used on files.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used on files.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Union['AvroFormatArgs', 'JsonFormatArgs', 'OrcFormatArgs', 'ParquetFormatArgs', 'TextFormatArgs']] format: The format of files.
@@ -39262,14 +39442,14 @@ class HttpDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used on files.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -42919,7 +43099,7 @@ class JsonDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding_name: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -42933,7 +43113,7 @@ class JsonDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Json'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the json dataset.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -43012,14 +43192,14 @@ class JsonDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the json dataset.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -76757,7 +76937,7 @@ class XmlDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding_name: Optional[Any] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -76772,7 +76952,7 @@ class XmlDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Xml'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input['DatasetCompressionArgs'] compression: The data compression method used for the json dataset.
+        :param pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']] compression: The data compression method used for the json dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -76854,14 +77034,14 @@ class XmlDatasetArgs:
 
     @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input['DatasetCompressionArgs']]:
+    def compression(self) -> Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]:
         """
         The data compression method used for the json dataset.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input['DatasetCompressionArgs']]):
+    def compression(self, value: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]]):
         pulumi.set(self, "compression", value)
 
     @property

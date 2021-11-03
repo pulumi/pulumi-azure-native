@@ -33,7 +33,6 @@ export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 export const ThresholdType = {
     Actual: "Actual",
-    Forecasted: "Forecasted",
 } as const;
 
 /**

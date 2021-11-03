@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
     public sealed class DeploymentSettingsResponse
     {
         /// <summary>
-        /// Container liveness and readiness probe settings
-        /// </summary>
-        public readonly Outputs.DeploymentSettingsResponseContainerProbeSettings? ContainerProbeSettings;
-        /// <summary>
         /// Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-09-01-preview. Please use the resourceRequests field to set the CPU size.
         /// </summary>
         public readonly int? Cpu;
@@ -51,8 +47,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
 
         [OutputConstructor]
         private DeploymentSettingsResponse(
-            Outputs.DeploymentSettingsResponseContainerProbeSettings? containerProbeSettings,
-
             int? cpu,
 
             ImmutableDictionary<string, string>? environmentVariables,
@@ -67,7 +61,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
 
             string? runtimeVersion)
         {
-            ContainerProbeSettings = containerProbeSettings;
             Cpu = cpu;
             EnvironmentVariables = environmentVariables;
             JvmOptions = jvmOptions;

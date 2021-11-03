@@ -13,6 +13,7 @@ __all__ = [
     'LockLevel',
     'ParameterType',
     'PolicyType',
+    'PricingTier',
     'PrincipalType',
     'ResourceIdentityType',
 ]
@@ -102,6 +103,20 @@ class PolicyType(str, Enum):
     BUILT_IN = "BuiltIn"
     CUSTOM = "Custom"
     STATIC = "Static"
+
+
+class PricingTier(str, Enum):
+    """
+    The policy pricing tier. Possible values are Advanced and Defender.
+    """
+    ADVANCED = "Advanced"
+    """
+    The pricing tier gives the user ability to use policy exemption feature.
+    """
+    DEFENDER = "Defender"
+    """
+    The pricing tier gives the user ability to use policy exemption feature. This pricing tier is managed by Azure Security Center.
+    """
 
 
 class PrincipalType(str, Enum):

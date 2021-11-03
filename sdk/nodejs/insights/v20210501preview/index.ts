@@ -5,20 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./autoscaleSetting";
 export * from "./diagnosticSetting";
-export * from "./getAutoscaleSetting";
 export * from "./getDiagnosticSetting";
 export * from "./getManagementGroupDiagnosticSetting";
 export * from "./getSubscriptionDiagnosticSetting";
 export * from "./managementGroupDiagnosticSetting";
 export * from "./subscriptionDiagnosticSetting";
 
-// Export enums:
-export * from "../../types/enums/insights/v20210501preview";
-
 // Import resources to register:
-import { AutoscaleSetting } from "./autoscaleSetting";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { ManagementGroupDiagnosticSetting } from "./managementGroupDiagnosticSetting";
 import { SubscriptionDiagnosticSetting } from "./subscriptionDiagnosticSetting";
@@ -27,8 +21,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:insights/v20210501preview:AutoscaleSetting":
-                return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:insights/v20210501preview:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting":

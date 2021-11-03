@@ -92,7 +92,7 @@ export class Creator extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maps:Creator" }, { type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-nextgen:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-nextgen:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-nextgen:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20211201preview:Creator" }, { type: "azure-nextgen:maps/v20211201preview:Creator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:maps:Creator" }, { type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-nextgen:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-nextgen:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-nextgen:maps/v20210701preview:Creator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Creator.__pulumiType, name, inputs, opts);
     }

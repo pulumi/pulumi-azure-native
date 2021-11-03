@@ -12,13 +12,11 @@ export * from "./organization";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20210301preview from "./v20210301preview";
-import * as v20210901preview from "./v20210901preview";
 
 export {
     v20200301,
     v20200301preview,
     v20210301preview,
-    v20210901preview,
 };
 
 // Import resources to register:

@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:insights/v20210501preview:AutoscaleSetting":
-		r = &AutoscaleSetting{}
 	case "azure-native:insights/v20210501preview:DiagnosticSetting":
 		r = &DiagnosticSetting{}
 	case "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting":

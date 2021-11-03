@@ -48,6 +48,10 @@ export class RestorePoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Gets the provisioning details set by the server during Create restore point operation.
+     */
+    public /*out*/ readonly provisioningDetails!: pulumi.Output<outputs.compute.v20210401.RestorePointProvisioningDetailsResponse>;
+    /**
      * Gets the provisioning state of the restore point.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -55,10 +59,6 @@ export class RestorePoint extends pulumi.CustomResource {
      * Gets the details of the VM captured at the time of the restore point creation.
      */
     public /*out*/ readonly sourceMetadata!: pulumi.Output<outputs.compute.v20210401.RestorePointSourceMetadataResponse>;
-    /**
-     * Gets the creation time of the restore point.
-     */
-    public readonly timeCreated!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
@@ -85,9 +85,9 @@ export class RestorePoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
             inputs["restorePointName"] = args ? args.restorePointName : undefined;
-            inputs["timeCreated"] = args ? args.timeCreated : undefined;
             inputs["consistencyMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningDetails"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sourceMetadata"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -95,9 +95,9 @@ export class RestorePoint extends pulumi.CustomResource {
             inputs["consistencyMode"] = undefined /*out*/;
             inputs["excludeDisks"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningDetails"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sourceMetadata"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -129,8 +129,4 @@ export interface RestorePointArgs {
      * The name of the restore point.
      */
     restorePointName?: pulumi.Input<string>;
-    /**
-     * Gets the creation time of the restore point.
-     */
-    timeCreated?: pulumi.Input<string>;
 }

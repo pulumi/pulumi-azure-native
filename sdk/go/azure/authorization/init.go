@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyDefinitionAtManagementGroup{}
 	case "azure-native:authorization:PolicyExemption":
 		r = &PolicyExemption{}
+	case "azure-native:authorization:PolicyPricing":
+		r = &PolicyPricing{}
 	case "azure-native:authorization:PolicySetDefinition":
 		r = &PolicySetDefinition{}
 	case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":

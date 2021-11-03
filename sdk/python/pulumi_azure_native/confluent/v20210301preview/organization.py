@@ -199,7 +199,7 @@ class Organization(pulumi.CustomResource):
             __props__.__dict__["sso_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20210901preview:Organization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
             'azure-native:confluent/v20210301preview:Organization',

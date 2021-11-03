@@ -45,7 +45,7 @@ setup(name='pulumi_azure_native',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi azure azure-native',
+      keywords='pulumi azure azure-native category/cloud kind/native',
       url='https://pulumi.com',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azure-native'

@@ -454,19 +454,19 @@ class DefenderForServersAwsOfferingArgs:
 @pulumi.input_type
 class SecurityConnectorPropertiesOrganizationalDataArgs:
     def __init__(__self__, *,
-                 excluded_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_account_id: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_membership_type: Optional[pulumi.Input[Union[str, 'OrganizationMembershipType']]] = None,
                  parent_hierarchy_id: Optional[pulumi.Input[str]] = None,
                  stackset_name: Optional[pulumi.Input[str]] = None):
         """
         The multi cloud account's organizational data
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_account_ids: If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_account_id: If the multi cloud account is of membership type organization, list of accounts excluded from offering
         :param pulumi.Input[Union[str, 'OrganizationMembershipType']] organization_membership_type: The multi cloud account's membership type in the organization
         :param pulumi.Input[str] parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
         :param pulumi.Input[str] stackset_name: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
         """
-        if excluded_account_ids is not None:
-            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
+        if excluded_account_id is not None:
+            pulumi.set(__self__, "excluded_account_id", excluded_account_id)
         if organization_membership_type is not None:
             pulumi.set(__self__, "organization_membership_type", organization_membership_type)
         if parent_hierarchy_id is not None:
@@ -475,16 +475,16 @@ class SecurityConnectorPropertiesOrganizationalDataArgs:
             pulumi.set(__self__, "stackset_name", stackset_name)
 
     @property
-    @pulumi.getter(name="excludedAccountIds")
-    def excluded_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="excludedAccountId")
+    def excluded_account_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         If the multi cloud account is of membership type organization, list of accounts excluded from offering
         """
-        return pulumi.get(self, "excluded_account_ids")
+        return pulumi.get(self, "excluded_account_id")
 
-    @excluded_account_ids.setter
-    def excluded_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "excluded_account_ids", value)
+    @excluded_account_id.setter
+    def excluded_account_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_account_id", value)
 
     @property
     @pulumi.getter(name="organizationMembershipType")

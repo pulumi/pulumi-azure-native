@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The data compression method used on files.
         /// </summary>
-        public readonly Outputs.DatasetCompressionResponse? Compression;
+        public readonly object? Compression;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<object> annotations,
 
-            Outputs.DatasetCompressionResponse? compression,
+            object? compression,
 
             string? description,
 

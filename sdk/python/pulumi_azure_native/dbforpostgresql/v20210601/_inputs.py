@@ -28,8 +28,6 @@ class BackupArgs:
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server.
         :param pulumi.Input[Union[str, 'GeoRedundantBackupEnum']] geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
         """
-        if backup_retention_days is None:
-            backup_retention_days = 7
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:

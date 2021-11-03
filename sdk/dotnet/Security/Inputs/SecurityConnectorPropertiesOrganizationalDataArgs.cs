@@ -15,16 +15,16 @@ namespace Pulumi.AzureNative.Security.Inputs
     /// </summary>
     public sealed class SecurityConnectorPropertiesOrganizationalDataArgs : Pulumi.ResourceArgs
     {
-        [Input("excludedAccountIds")]
-        private InputList<string>? _excludedAccountIds;
+        [Input("excludedAccountId")]
+        private InputList<string>? _excludedAccountId;
 
         /// <summary>
         /// If the multi cloud account is of membership type organization, list of accounts excluded from offering
         /// </summary>
-        public InputList<string> ExcludedAccountIds
+        public InputList<string> ExcludedAccountId
         {
-            get => _excludedAccountIds ?? (_excludedAccountIds = new InputList<string>());
-            set => _excludedAccountIds = value;
+            get => _excludedAccountId ?? (_excludedAccountId = new InputList<string>());
+            set => _excludedAccountId = value;
         }
 
         /// <summary>

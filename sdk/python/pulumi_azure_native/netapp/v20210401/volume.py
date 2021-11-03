@@ -72,7 +72,7 @@ class VolumeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        :param pulumi.Input[str] volume_type: What type of volume is this
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "creation_token", creation_token)
@@ -472,7 +472,7 @@ class VolumeArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        What type of volume is this
         """
         return pulumi.get(self, "volume_type")
 
@@ -546,7 +546,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
-        :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        :param pulumi.Input[str] volume_type: What type of volume is this
         """
         ...
     @overload
@@ -979,7 +979,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
-        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        What type of volume is this
         """
         return pulumi.get(self, "volume_type")
 

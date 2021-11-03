@@ -278,6 +278,43 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The policy pricing tier. Possible values are Advanced and Defender.
+    /// </summary>
+    [EnumType]
+    public readonly struct PricingTier : IEquatable<PricingTier>
+    {
+        private readonly string _value;
+
+        private PricingTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The pricing tier gives the user ability to use policy exemption feature.
+        /// </summary>
+        public static PricingTier Advanced { get; } = new PricingTier("Advanced");
+        /// <summary>
+        /// The pricing tier gives the user ability to use policy exemption feature. This pricing tier is managed by Azure Security Center.
+        /// </summary>
+        public static PricingTier Defender { get; } = new PricingTier("Defender");
+
+        public static bool operator ==(PricingTier left, PricingTier right) => left.Equals(right);
+        public static bool operator !=(PricingTier left, PricingTier right) => !left.Equals(right);
+
+        public static explicit operator string(PricingTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PricingTier other && Equals(other);
+        public bool Equals(PricingTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The principal type of the assigned principal ID.
     /// </summary>
     [EnumType]
