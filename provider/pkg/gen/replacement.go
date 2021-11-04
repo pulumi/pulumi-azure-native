@@ -55,6 +55,10 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	"Resources": {
 		"ResourceGroup": codegen.NewStringSet("location"),
 	},
+	"ServiceBus": {
+		"Topic": codegen.NewStringSet("requiresDuplicateDetection", "requiresSession", "enablePartitioning"),
+		"Queue": codegen.NewStringSet("requiresDuplicateDetection", "requiresSession", "enablePartitioning"),
+	},
 	"Storage": {
 		"BlobContainer":  codegen.NewStringSet(), // no force-news
 		"StorageAccount": codegen.NewStringSet("isHnsEnabled", "location"),
