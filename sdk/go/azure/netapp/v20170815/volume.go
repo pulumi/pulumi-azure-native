@@ -50,7 +50,7 @@ func NewVolume(ctx *pulumi.Context,
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	if args.UsageThreshold == nil {
-		args.UsageThreshold = pulumi.Float64Ptr(107374182400)
+		args.UsageThreshold = pulumi.Float64Ptr(107374182400.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

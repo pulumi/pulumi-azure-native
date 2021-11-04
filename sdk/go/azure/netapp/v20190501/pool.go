@@ -41,7 +41,7 @@ func NewPool(ctx *pulumi.Context,
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	if args.Size == nil {
-		args.Size = pulumi.Float64(4398046511104)
+		args.Size = pulumi.Float64(4398046511104.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

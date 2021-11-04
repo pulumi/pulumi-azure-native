@@ -46,7 +46,7 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.MaximumNodes == nil {
-		args.MaximumNodes = pulumi.Float64Ptr(0)
+		args.MaximumNodes = pulumi.Float64Ptr(0.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
