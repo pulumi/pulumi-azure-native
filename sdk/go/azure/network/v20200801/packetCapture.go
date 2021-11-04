@@ -45,13 +45,13 @@ func NewPacketCapture(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
 	if args.BytesToCapturePerPacket == nil {
-		args.BytesToCapturePerPacket = pulumi.Float64Ptr(0)
+		args.BytesToCapturePerPacket = pulumi.Float64Ptr(0.0)
 	}
 	if args.TimeLimitInSeconds == nil {
 		args.TimeLimitInSeconds = pulumi.IntPtr(18000)
 	}
 	if args.TotalBytesPerSession == nil {
-		args.TotalBytesPerSession = pulumi.Float64Ptr(1073741824)
+		args.TotalBytesPerSession = pulumi.Float64Ptr(1073741824.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

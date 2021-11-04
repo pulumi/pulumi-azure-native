@@ -84,10 +84,10 @@ func NewVolume(ctx *pulumi.Context,
 		args.CoolAccess = pulumi.BoolPtr(false)
 	}
 	if args.DefaultGroupQuotaInKiBs == nil {
-		args.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(0)
+		args.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(0.0)
 	}
 	if args.DefaultUserQuotaInKiBs == nil {
-		args.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(0)
+		args.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(0.0)
 	}
 	if args.IsDefaultQuotaEnabled == nil {
 		args.IsDefaultQuotaEnabled = pulumi.BoolPtr(false)
@@ -114,13 +114,13 @@ func NewVolume(ctx *pulumi.Context,
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
 	if args.ThroughputMibps == nil {
-		args.ThroughputMibps = pulumi.Float64Ptr(0)
+		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
 	if args.UnixPermissions == nil {
 		args.UnixPermissions = pulumi.StringPtr("0770")
 	}
 	if args.UsageThreshold == nil {
-		args.UsageThreshold = pulumi.Float64(107374182400)
+		args.UsageThreshold = pulumi.Float64(107374182400.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
