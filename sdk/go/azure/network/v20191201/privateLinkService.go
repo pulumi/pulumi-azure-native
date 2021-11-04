@@ -1,0 +1,251 @@
+
+
+
+package v20191201
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type PrivateLinkService struct {
+	pulumi.CustomResourceState
+
+	Alias                                pulumi.StringOutput                                       `pulumi:"alias"`
+	AutoApproval                         PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput `pulumi:"autoApproval"`
+	EnableProxyProtocol                  pulumi.BoolPtrOutput                                      `pulumi:"enableProxyProtocol"`
+	Etag                                 pulumi.StringOutput                                       `pulumi:"etag"`
+	Fqdns                                pulumi.StringArrayOutput                                  `pulumi:"fqdns"`
+	IpConfigurations                     PrivateLinkServiceIpConfigurationResponseArrayOutput      `pulumi:"ipConfigurations"`
+	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationResponseArrayOutput                `pulumi:"loadBalancerFrontendIpConfigurations"`
+	Location                             pulumi.StringPtrOutput                                    `pulumi:"location"`
+	Name                                 pulumi.StringOutput                                       `pulumi:"name"`
+	NetworkInterfaces                    NetworkInterfaceResponseArrayOutput                       `pulumi:"networkInterfaces"`
+	PrivateEndpointConnections           PrivateEndpointConnectionResponseArrayOutput              `pulumi:"privateEndpointConnections"`
+	ProvisioningState                    pulumi.StringOutput                                       `pulumi:"provisioningState"`
+	Tags                                 pulumi.StringMapOutput                                    `pulumi:"tags"`
+	Type                                 pulumi.StringOutput                                       `pulumi:"type"`
+	Visibility                           PrivateLinkServicePropertiesResponseVisibilityPtrOutput   `pulumi:"visibility"`
+}
+
+
+func NewPrivateLinkService(ctx *pulumi.Context,
+	name string, args *PrivateLinkServiceArgs, opts ...pulumi.ResourceOption) (*PrivateLinkService, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network/v20191201:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190401:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190601:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190701:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190901:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20191101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200301:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200401:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200501:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210301:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210301:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210501:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210501:PrivateLinkService"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource PrivateLinkService
+	err := ctx.RegisterResource("azure-native:network/v20191201:PrivateLinkService", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetPrivateLinkService(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *PrivateLinkServiceState, opts ...pulumi.ResourceOption) (*PrivateLinkService, error) {
+	var resource PrivateLinkService
+	err := ctx.ReadResource("azure-native:network/v20191201:PrivateLinkService", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type privateLinkServiceState struct {
+}
+
+type PrivateLinkServiceState struct {
+}
+
+func (PrivateLinkServiceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*privateLinkServiceState)(nil)).Elem()
+}
+
+type privateLinkServiceArgs struct {
+	AutoApproval                         *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
+	EnableProxyProtocol                  *bool                                     `pulumi:"enableProxyProtocol"`
+	Fqdns                                []string                                  `pulumi:"fqdns"`
+	Id                                   *string                                   `pulumi:"id"`
+	IpConfigurations                     []PrivateLinkServiceIpConfiguration       `pulumi:"ipConfigurations"`
+	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration                 `pulumi:"loadBalancerFrontendIpConfigurations"`
+	Location                             *string                                   `pulumi:"location"`
+	ResourceGroupName                    string                                    `pulumi:"resourceGroupName"`
+	ServiceName                          *string                                   `pulumi:"serviceName"`
+	Tags                                 map[string]string                         `pulumi:"tags"`
+	Visibility                           *PrivateLinkServicePropertiesVisibility   `pulumi:"visibility"`
+}
+
+
+type PrivateLinkServiceArgs struct {
+	AutoApproval                         PrivateLinkServicePropertiesAutoApprovalPtrInput
+	EnableProxyProtocol                  pulumi.BoolPtrInput
+	Fqdns                                pulumi.StringArrayInput
+	Id                                   pulumi.StringPtrInput
+	IpConfigurations                     PrivateLinkServiceIpConfigurationArrayInput
+	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput
+	Location                             pulumi.StringPtrInput
+	ResourceGroupName                    pulumi.StringInput
+	ServiceName                          pulumi.StringPtrInput
+	Tags                                 pulumi.StringMapInput
+	Visibility                           PrivateLinkServicePropertiesVisibilityPtrInput
+}
+
+func (PrivateLinkServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*privateLinkServiceArgs)(nil)).Elem()
+}
+
+type PrivateLinkServiceInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceOutput() PrivateLinkServiceOutput
+	ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput
+}
+
+func (*PrivateLinkService) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkService)(nil))
+}
+
+func (i *PrivateLinkService) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
+	return i.ToPrivateLinkServiceOutputWithContext(context.Background())
+}
+
+func (i *PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceOutput)
+}
+
+type PrivateLinkServiceOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkService)(nil))
+}
+
+func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
+	return o
+}
+
+func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkServiceOutput{})
+}
