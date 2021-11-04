@@ -1,0 +1,17 @@
+image:
+  file: .gitpod/Dockerfile
+tasks:
+  - name: Start Docker Daemon
+    command: sudo docker-up &
+  - command: "echo 'export PIP_USER=no' >> ~/.bashrc && export PIP_USER=no"
+    name: Use Pulumi
+ports:
+  - port: 3000
+    onOpen: ignore
+vscode:
+  extensions:
+    - ms-python.python@2020.10.332292344:5ctthQ25Qni5/aAuOIUTYQ==
+    - kevinrose.vsc-python-indent@1.12.0:NOHaOm1IToFrG4fit4+hUw==
+    - magicstack.magicpython@1.1.1:Q+4h8/d9eu9kME/nNfIDlg==
+    - robole.marky-markdown@2.7.0:2U+QLvBKB2yBSqNexOeyJg==
+    - golang.go
